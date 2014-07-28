@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerInformation));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lstPlayerInformation = new System.Windows.Forms.ListBox();
             this.btnPrev = new System.Windows.Forms.Button();
@@ -38,71 +39,43 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.lstPlayerInformation);
             this.groupBox1.Controls.Add(this.btnPrev);
             this.groupBox1.Controls.Add(this.lblPlayerNum);
             this.groupBox1.Controls.Add(this.btnNext);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(315, 308);
-            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "PlayerInformation";
             // 
             // lstPlayerInformation
             // 
-            this.lstPlayerInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.lstPlayerInformation, "lstPlayerInformation");
             this.lstPlayerInformation.FormattingEnabled = true;
-            this.lstPlayerInformation.Location = new System.Drawing.Point(6, 19);
             this.lstPlayerInformation.Name = "lstPlayerInformation";
-            this.lstPlayerInformation.Size = new System.Drawing.Size(303, 238);
-            this.lstPlayerInformation.TabIndex = 4;
             // 
             // btnPrev
             // 
-            this.btnPrev.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrev.Location = new System.Drawing.Point(6, 263);
+            resources.ApplyResources(this.btnPrev, "btnPrev");
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(100, 39);
-            this.btnPrev.TabIndex = 1;
-            this.btnPrev.Text = "< Previous";
             this.btnPrev.UseVisualStyleBackColor = true;
             // 
             // lblPlayerNum
             // 
-            this.lblPlayerNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPlayerNum.AutoSize = true;
-            this.lblPlayerNum.Location = new System.Drawing.Point(138, 280);
+            resources.ApplyResources(this.lblPlayerNum, "lblPlayerNum");
             this.lblPlayerNum.Name = "lblPlayerNum";
-            this.lblPlayerNum.Size = new System.Drawing.Size(35, 13);
-            this.lblPlayerNum.TabIndex = 3;
-            this.lblPlayerNum.Text = "label1";
             // 
             // btnNext
             // 
-            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(209, 263);
+            resources.ApplyResources(this.btnNext, "btnNext");
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(100, 39);
-            this.btnNext.TabIndex = 2;
-            this.btnNext.Text = "Next >";
             this.btnNext.UseVisualStyleBackColor = true;
             // 
             // PlayerInformation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "PlayerInformation";
-            this.Size = new System.Drawing.Size(321, 314);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

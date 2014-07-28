@@ -236,32 +236,65 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Automation_Worker.de.resx">
+      <DependentUpon>Automation_Worker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Automation_Worker.resx">
       <DependentUpon>Automation_Worker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics.de.resx">
+      <DependentUpon>Basics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics.resx">
       <DependentUpon>Basics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_Map.de.resx">
+      <DependentUpon>Basics_Map.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_Map.resx">
       <DependentUpon>Basics_Map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_ProdTab.de.resx">
+      <DependentUpon>Basics_ProdTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_UnitTab.de.resx">
+      <DependentUpon>Basics_UnitTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_UnitTab.resx">
       <DependentUpon>Basics_UnitTab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_Wor.de.resx">
+      <DependentUpon>Basics_Wor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_Wor.resx">
       <DependentUpon>Basics_Wor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Benchmark.de.resx">
+      <DependentUpon>Benchmark.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Benchmark.resx">
       <DependentUpon>Benchmark.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Bugs.de.resx">
+      <DependentUpon>Bugs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Bugs.resx">
       <DependentUpon>Bugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\ChatInput.de.resx">
+      <DependentUpon>ChatInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\ChatInput.resx">
       <DependentUpon>ChatInput.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Control_Global.de.resx">
+      <DependentUpon>Control_Global.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Control_Global.resx">
       <DependentUpon>Control_Global.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Debug.de.resx">
+      <DependentUpon>Custom_Debug.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Debug.resx">
       <DependentUpon>Custom_Debug.cs</DependentUpon>
@@ -269,11 +302,23 @@
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Requirements.resx">
       <DependentUpon>Custom_Requirements.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Various.de.resx">
+      <DependentUpon>Custom_Various.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Various.nqo-GN.resx">
+      <DependentUpon>Custom_Various.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Various.resx">
       <DependentUpon>Custom_Various.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Hotkeys.de.resx">
+      <DependentUpon>Hotkeys.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Hotkeys.resx">
       <DependentUpon>Hotkeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Information.de.resx">
+      <DependentUpon>Information.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Information.resx">
       <DependentUpon>Information.cs</DependentUpon>
@@ -281,11 +326,20 @@
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_ProdTab.resx">
       <DependentUpon>Basics_ProdTab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\PlayerInformation.de.resx">
+      <DependentUpon>PlayerInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UnitInformation.de.resx">
+      <DependentUpon>UnitInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UnitInformation.resx">
       <DependentUpon>UnitInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\DefineMarks.resx">
       <DependentUpon>DefineMarks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\MainHandler\MainHandler.de.resx">
+      <DependentUpon>MainHandler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\MainHandler\MainHandler.resx">
       <DependentUpon>MainHandler.cs</DependentUpon>

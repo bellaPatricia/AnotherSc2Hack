@@ -28,33 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbMaphackBasics = new LanguageGroupbox();
-            this.chBxMaphackRemCamera = new LanguageCheckbox();
-            this.chBxMaphackRemVisionArea = new LanguageCheckbox();
-            this.chBxMaphackColorDefensiveStructuresYellow = new LanguageCheckbox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicsMap));
+            this.gbMaphackBasics = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
+            this.chBxMaphackRemCamera = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
+            this.chBxMaphackRemVisionArea = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
+            this.chBxMaphackColorDefensiveStructuresYellow = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.lblOpacity = new System.Windows.Forms.Label();
-            this.chBxMaphackDisableDestinationLine = new LanguageCheckbox();
+            this.chBxMaphackDisableDestinationLine = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.tbOpacity = new System.Windows.Forms.TrackBar();
-            this.lblRemoveAi = new LanguageLabel();
-            this.lblRemoveAllie = new LanguageLabel();
-            this.lblRemoveNeutral = new LanguageLabel();
+            this.lblRemoveAi = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblRemoveAllie = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblRemoveNeutral = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.btnDestinationLine = new System.Windows.Forms.Button();
-            this.lblRemoveLocalplayer = new LanguageLabel();
-            this.lblMaphackDestinationLine = new LanguageLabel();
+            this.lblRemoveLocalplayer = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblMaphackDestinationLine = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.cmBxRemAi = new System.Windows.Forms.ComboBox();
             this.cmBxRemAllie = new System.Windows.Forms.ComboBox();
             this.cmBxRemNeutral = new System.Windows.Forms.ComboBox();
             this.cmBxRemLocalplayer = new System.Windows.Forms.ComboBox();
-            this.lblOpacityText = new LanguageLabel();
+            this.lblOpacityText = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.gbMaphackBasics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).BeginInit();
             this.SuspendLayout();
             // 
             // gbMaphackBasics
             // 
-            this.gbMaphackBasics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.gbMaphackBasics, "gbMaphackBasics");
             this.gbMaphackBasics.Controls.Add(this.chBxMaphackRemCamera);
             this.gbMaphackBasics.Controls.Add(this.chBxMaphackRemVisionArea);
             this.gbMaphackBasics.Controls.Add(this.chBxMaphackColorDefensiveStructuresYellow);
@@ -72,188 +71,133 @@
             this.gbMaphackBasics.Controls.Add(this.cmBxRemNeutral);
             this.gbMaphackBasics.Controls.Add(this.cmBxRemLocalplayer);
             this.gbMaphackBasics.Controls.Add(this.lblOpacityText);
-            this.gbMaphackBasics.Location = new System.Drawing.Point(0, 0);
+            this.gbMaphackBasics.LanguageFile = "";
             this.gbMaphackBasics.Name = "gbMaphackBasics";
-            this.gbMaphackBasics.Size = new System.Drawing.Size(291, 367);
-            this.gbMaphackBasics.TabIndex = 68;
             this.gbMaphackBasics.TabStop = false;
-            this.gbMaphackBasics.Text = "Basic Panel Options";
             // 
             // chBxMaphackRemCamera
             // 
-            this.chBxMaphackRemCamera.AutoSize = true;
-            this.chBxMaphackRemCamera.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chBxMaphackRemCamera.Location = new System.Drawing.Point(25, 270);
+            resources.ApplyResources(this.chBxMaphackRemCamera, "chBxMaphackRemCamera");
+            this.chBxMaphackRemCamera.LanguageFile = "";
             this.chBxMaphackRemCamera.Name = "chBxMaphackRemCamera";
-            this.chBxMaphackRemCamera.Size = new System.Drawing.Size(105, 17);
-            this.chBxMaphackRemCamera.TabIndex = 73;
-            this.chBxMaphackRemCamera.Text = "Remove Camera";
             this.chBxMaphackRemCamera.UseVisualStyleBackColor = true;
             // 
             // chBxMaphackRemVisionArea
             // 
-            this.chBxMaphackRemVisionArea.AutoSize = true;
-            this.chBxMaphackRemVisionArea.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chBxMaphackRemVisionArea.Location = new System.Drawing.Point(25, 240);
+            resources.ApplyResources(this.chBxMaphackRemVisionArea, "chBxMaphackRemVisionArea");
+            this.chBxMaphackRemVisionArea.LanguageFile = "";
             this.chBxMaphackRemVisionArea.Name = "chBxMaphackRemVisionArea";
-            this.chBxMaphackRemVisionArea.Size = new System.Drawing.Size(122, 17);
-            this.chBxMaphackRemVisionArea.TabIndex = 72;
-            this.chBxMaphackRemVisionArea.Text = "Remove Vision-Area";
             this.chBxMaphackRemVisionArea.UseVisualStyleBackColor = true;
             // 
             // chBxMaphackColorDefensiveStructuresYellow
             // 
-            this.chBxMaphackColorDefensiveStructuresYellow.AutoSize = true;
-            this.chBxMaphackColorDefensiveStructuresYellow.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chBxMaphackColorDefensiveStructuresYellow.Location = new System.Drawing.Point(25, 210);
+            resources.ApplyResources(this.chBxMaphackColorDefensiveStructuresYellow, "chBxMaphackColorDefensiveStructuresYellow");
+            this.chBxMaphackColorDefensiveStructuresYellow.LanguageFile = "";
             this.chBxMaphackColorDefensiveStructuresYellow.Name = "chBxMaphackColorDefensiveStructuresYellow";
-            this.chBxMaphackColorDefensiveStructuresYellow.Size = new System.Drawing.Size(181, 17);
-            this.chBxMaphackColorDefensiveStructuresYellow.TabIndex = 71;
-            this.chBxMaphackColorDefensiveStructuresYellow.Text = "Color Defensivestructures Yellow";
             this.chBxMaphackColorDefensiveStructuresYellow.UseVisualStyleBackColor = true;
             // 
             // lblOpacity
             // 
-            this.lblOpacity.AutoSize = true;
-            this.lblOpacity.Location = new System.Drawing.Point(150, 332);
+            resources.ApplyResources(this.lblOpacity, "lblOpacity");
             this.lblOpacity.Name = "lblOpacity";
-            this.lblOpacity.Size = new System.Drawing.Size(35, 13);
-            this.lblOpacity.TabIndex = 70;
-            this.lblOpacity.Text = "label9";
             // 
             // chBxMaphackDisableDestinationLine
             // 
-            this.chBxMaphackDisableDestinationLine.AutoSize = true;
-            this.chBxMaphackDisableDestinationLine.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chBxMaphackDisableDestinationLine.Location = new System.Drawing.Point(25, 180);
+            resources.ApplyResources(this.chBxMaphackDisableDestinationLine, "chBxMaphackDisableDestinationLine");
+            this.chBxMaphackDisableDestinationLine.LanguageFile = "";
             this.chBxMaphackDisableDestinationLine.Name = "chBxMaphackDisableDestinationLine";
-            this.chBxMaphackDisableDestinationLine.Size = new System.Drawing.Size(143, 17);
-            this.chBxMaphackDisableDestinationLine.TabIndex = 65;
-            this.chBxMaphackDisableDestinationLine.Text = "Disable DestinationLine  ";
             this.chBxMaphackDisableDestinationLine.UseVisualStyleBackColor = true;
             // 
             // tbOpacity
             // 
-            this.tbOpacity.Location = new System.Drawing.Point(153, 300);
+            resources.ApplyResources(this.tbOpacity, "tbOpacity");
             this.tbOpacity.Maximum = 100;
             this.tbOpacity.Name = "tbOpacity";
-            this.tbOpacity.Size = new System.Drawing.Size(121, 45);
-            this.tbOpacity.TabIndex = 69;
             // 
             // lblRemoveAi
             // 
-            this.lblRemoveAi.AutoSize = true;
-            this.lblRemoveAi.Location = new System.Drawing.Point(25, 30);
+            resources.ApplyResources(this.lblRemoveAi, "lblRemoveAi");
+            this.lblRemoveAi.LanguageFile = "";
             this.lblRemoveAi.Name = "lblRemoveAi";
-            this.lblRemoveAi.Size = new System.Drawing.Size(62, 13);
-            this.lblRemoveAi.TabIndex = 36;
-            this.lblRemoveAi.Text = "Remove Ai:";
             // 
             // lblRemoveAllie
             // 
-            this.lblRemoveAllie.AutoSize = true;
-            this.lblRemoveAllie.Location = new System.Drawing.Point(25, 60);
+            resources.ApplyResources(this.lblRemoveAllie, "lblRemoveAllie");
+            this.lblRemoveAllie.LanguageFile = "";
             this.lblRemoveAllie.Name = "lblRemoveAllie";
-            this.lblRemoveAllie.Size = new System.Drawing.Size(72, 13);
-            this.lblRemoveAllie.TabIndex = 37;
-            this.lblRemoveAllie.Text = "Remove Allie:";
             // 
             // lblRemoveNeutral
             // 
-            this.lblRemoveNeutral.AutoSize = true;
-            this.lblRemoveNeutral.Location = new System.Drawing.Point(25, 90);
+            resources.ApplyResources(this.lblRemoveNeutral, "lblRemoveNeutral");
+            this.lblRemoveNeutral.LanguageFile = "";
             this.lblRemoveNeutral.Name = "lblRemoveNeutral";
-            this.lblRemoveNeutral.Size = new System.Drawing.Size(87, 13);
-            this.lblRemoveNeutral.TabIndex = 38;
-            this.lblRemoveNeutral.Text = "Remove Neutral:";
             // 
             // btnDestinationLine
             // 
-            this.btnDestinationLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDestinationLine.Location = new System.Drawing.Point(153, 147);
+            resources.ApplyResources(this.btnDestinationLine, "btnDestinationLine");
             this.btnDestinationLine.Name = "btnDestinationLine";
-            this.btnDestinationLine.Size = new System.Drawing.Size(121, 18);
-            this.btnDestinationLine.TabIndex = 64;
             this.btnDestinationLine.UseVisualStyleBackColor = true;
             // 
             // lblRemoveLocalplayer
             // 
-            this.lblRemoveLocalplayer.AutoSize = true;
-            this.lblRemoveLocalplayer.Location = new System.Drawing.Point(25, 120);
+            resources.ApplyResources(this.lblRemoveLocalplayer, "lblRemoveLocalplayer");
+            this.lblRemoveLocalplayer.LanguageFile = "";
             this.lblRemoveLocalplayer.Name = "lblRemoveLocalplayer";
-            this.lblRemoveLocalplayer.Size = new System.Drawing.Size(107, 13);
-            this.lblRemoveLocalplayer.TabIndex = 39;
-            this.lblRemoveLocalplayer.Text = "Remove Localplayer:";
             // 
             // lblMaphackDestinationLine
             // 
-            this.lblMaphackDestinationLine.AutoSize = true;
-            this.lblMaphackDestinationLine.Location = new System.Drawing.Point(25, 150);
+            resources.ApplyResources(this.lblMaphackDestinationLine, "lblMaphackDestinationLine");
+            this.lblMaphackDestinationLine.LanguageFile = "";
             this.lblMaphackDestinationLine.Name = "lblMaphackDestinationLine";
-            this.lblMaphackDestinationLine.Size = new System.Drawing.Size(86, 13);
-            this.lblMaphackDestinationLine.TabIndex = 63;
-            this.lblMaphackDestinationLine.Text = "Destination Line:";
             // 
             // cmBxRemAi
             // 
+            resources.ApplyResources(this.cmBxRemAi, "cmBxRemAi");
             this.cmBxRemAi.FormattingEnabled = true;
             this.cmBxRemAi.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemAi.Location = new System.Drawing.Point(153, 27);
+            resources.GetString("cmBxRemAi.Items"),
+            resources.GetString("cmBxRemAi.Items1")});
             this.cmBxRemAi.Name = "cmBxRemAi";
-            this.cmBxRemAi.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemAi.TabIndex = 40;
             // 
             // cmBxRemAllie
             // 
+            resources.ApplyResources(this.cmBxRemAllie, "cmBxRemAllie");
             this.cmBxRemAllie.FormattingEnabled = true;
             this.cmBxRemAllie.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemAllie.Location = new System.Drawing.Point(153, 57);
+            resources.GetString("cmBxRemAllie.Items"),
+            resources.GetString("cmBxRemAllie.Items1")});
             this.cmBxRemAllie.Name = "cmBxRemAllie";
-            this.cmBxRemAllie.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemAllie.TabIndex = 41;
             // 
             // cmBxRemNeutral
             // 
+            resources.ApplyResources(this.cmBxRemNeutral, "cmBxRemNeutral");
             this.cmBxRemNeutral.FormattingEnabled = true;
             this.cmBxRemNeutral.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemNeutral.Location = new System.Drawing.Point(153, 87);
+            resources.GetString("cmBxRemNeutral.Items"),
+            resources.GetString("cmBxRemNeutral.Items1")});
             this.cmBxRemNeutral.Name = "cmBxRemNeutral";
-            this.cmBxRemNeutral.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemNeutral.TabIndex = 42;
             // 
             // cmBxRemLocalplayer
             // 
+            resources.ApplyResources(this.cmBxRemLocalplayer, "cmBxRemLocalplayer");
             this.cmBxRemLocalplayer.FormattingEnabled = true;
             this.cmBxRemLocalplayer.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemLocalplayer.Location = new System.Drawing.Point(153, 117);
+            resources.GetString("cmBxRemLocalplayer.Items"),
+            resources.GetString("cmBxRemLocalplayer.Items1")});
             this.cmBxRemLocalplayer.Name = "cmBxRemLocalplayer";
-            this.cmBxRemLocalplayer.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemLocalplayer.TabIndex = 43;
             // 
             // lblOpacityText
             // 
-            this.lblOpacityText.AutoSize = true;
-            this.lblOpacityText.Location = new System.Drawing.Point(25, 300);
+            resources.ApplyResources(this.lblOpacityText, "lblOpacityText");
+            this.lblOpacityText.LanguageFile = "";
             this.lblOpacityText.Name = "lblOpacityText";
-            this.lblOpacityText.Size = new System.Drawing.Size(46, 13);
-            this.lblOpacityText.TabIndex = 44;
-            this.lblOpacityText.Text = "Opacity:";
             // 
             // BasicsMap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbMaphackBasics);
             this.Name = "BasicsMap";
-            this.Size = new System.Drawing.Size(291, 367);
             this.gbMaphackBasics.ResumeLayout(false);
             this.gbMaphackBasics.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).EndInit();

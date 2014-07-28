@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Information));
             this.gbInformation = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.txtHeight = new System.Windows.Forms.TextBox();
             this.txtWidth = new System.Windows.Forms.TextBox();
@@ -42,6 +43,7 @@
             // 
             // gbInformation
             // 
+            resources.ApplyResources(this.gbInformation, "gbInformation");
             this.gbInformation.Controls.Add(this.txtHeight);
             this.gbInformation.Controls.Add(this.txtWidth);
             this.gbInformation.Controls.Add(this.txtPosY);
@@ -51,92 +53,59 @@
             this.gbInformation.Controls.Add(this.lblPosY);
             this.gbInformation.Controls.Add(this.lblPosX);
             this.gbInformation.LanguageFile = "";
-            this.gbInformation.Location = new System.Drawing.Point(0, 0);
             this.gbInformation.Name = "gbInformation";
-            this.gbInformation.Size = new System.Drawing.Size(196, 156);
-            this.gbInformation.TabIndex = 30;
             this.gbInformation.TabStop = false;
-            this.gbInformation.Text = "Information";
             // 
             // txtHeight
             // 
-            this.txtHeight.Enabled = false;
-            this.txtHeight.Location = new System.Drawing.Point(89, 117);
+            resources.ApplyResources(this.txtHeight, "txtHeight");
             this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(83, 20);
-            this.txtHeight.TabIndex = 7;
             // 
             // txtWidth
             // 
-            this.txtWidth.Enabled = false;
-            this.txtWidth.Location = new System.Drawing.Point(89, 87);
+            resources.ApplyResources(this.txtWidth, "txtWidth");
             this.txtWidth.Name = "txtWidth";
-            this.txtWidth.Size = new System.Drawing.Size(83, 20);
-            this.txtWidth.TabIndex = 6;
             // 
             // txtPosY
             // 
-            this.txtPosY.Enabled = false;
-            this.txtPosY.Location = new System.Drawing.Point(89, 57);
+            resources.ApplyResources(this.txtPosY, "txtPosY");
             this.txtPosY.Name = "txtPosY";
-            this.txtPosY.Size = new System.Drawing.Size(83, 20);
-            this.txtPosY.TabIndex = 5;
             // 
             // txtPosX
             // 
-            this.txtPosX.Enabled = false;
-            this.txtPosX.Location = new System.Drawing.Point(89, 27);
+            resources.ApplyResources(this.txtPosX, "txtPosX");
             this.txtPosX.Name = "txtPosX";
-            this.txtPosX.Size = new System.Drawing.Size(83, 20);
-            this.txtPosX.TabIndex = 4;
             // 
             // lblHeight
             // 
-            this.lblHeight.AutoSize = true;
+            resources.ApplyResources(this.lblHeight, "lblHeight");
             this.lblHeight.LanguageFile = "";
-            this.lblHeight.Location = new System.Drawing.Point(12, 120);
             this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(41, 13);
-            this.lblHeight.TabIndex = 3;
-            this.lblHeight.Text = "Height:";
             // 
             // lblWidth
             // 
-            this.lblWidth.AutoSize = true;
+            resources.ApplyResources(this.lblWidth, "lblWidth");
             this.lblWidth.LanguageFile = "";
-            this.lblWidth.Location = new System.Drawing.Point(12, 90);
             this.lblWidth.Name = "lblWidth";
-            this.lblWidth.Size = new System.Drawing.Size(38, 13);
-            this.lblWidth.TabIndex = 2;
-            this.lblWidth.Text = "Width:";
             // 
             // lblPosY
             // 
-            this.lblPosY.AutoSize = true;
+            resources.ApplyResources(this.lblPosY, "lblPosY");
             this.lblPosY.LanguageFile = "";
-            this.lblPosY.Location = new System.Drawing.Point(12, 60);
             this.lblPosY.Name = "lblPosY";
-            this.lblPosY.Size = new System.Drawing.Size(57, 13);
-            this.lblPosY.TabIndex = 1;
-            this.lblPosY.Text = "Position Y:";
             // 
             // lblPosX
             // 
-            this.lblPosX.AutoSize = true;
+            resources.ApplyResources(this.lblPosX, "lblPosX");
             this.lblPosX.LanguageFile = "";
-            this.lblPosX.Location = new System.Drawing.Point(12, 30);
             this.lblPosX.Name = "lblPosX";
-            this.lblPosX.Size = new System.Drawing.Size(57, 13);
-            this.lblPosX.TabIndex = 0;
-            this.lblPosX.Text = "Position X:";
             // 
             // Information
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbInformation);
             this.Name = "Information";
-            this.Size = new System.Drawing.Size(196, 156);
             this.gbInformation.ResumeLayout(false);
             this.gbInformation.PerformLayout();
             this.ResumeLayout(false);

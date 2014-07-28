@@ -28,89 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbChatInput = new LanguageGroupbox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatInput));
+            this.gbChatInput = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.txtSize = new System.Windows.Forms.TextBox();
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.txtToggle = new System.Windows.Forms.TextBox();
-            this.lblChangeSize = new LanguageLabel();
-            this.lblChangePosition = new LanguageLabel();
-            this.lblEnablePanel = new LanguageLabel();
+            this.lblChangeSize = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblChangePosition = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblEnablePanel = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.gbChatInput.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbChatInput
             // 
-            this.gbChatInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.gbChatInput, "gbChatInput");
             this.gbChatInput.Controls.Add(this.txtSize);
             this.gbChatInput.Controls.Add(this.txtPosition);
             this.gbChatInput.Controls.Add(this.txtToggle);
             this.gbChatInput.Controls.Add(this.lblChangeSize);
             this.gbChatInput.Controls.Add(this.lblChangePosition);
             this.gbChatInput.Controls.Add(this.lblEnablePanel);
-            this.gbChatInput.Location = new System.Drawing.Point(0, 0);
+            this.gbChatInput.LanguageFile = "";
             this.gbChatInput.Name = "gbChatInput";
-            this.gbChatInput.Size = new System.Drawing.Size(246, 120);
-            this.gbChatInput.TabIndex = 27;
             this.gbChatInput.TabStop = false;
-            this.gbChatInput.Text = "Chat Input";
             // 
             // txtSize
             // 
-            this.txtSize.Location = new System.Drawing.Point(151, 87);
+            resources.ApplyResources(this.txtSize, "txtSize");
             this.txtSize.Name = "txtSize";
-            this.txtSize.Size = new System.Drawing.Size(83, 20);
-            this.txtSize.TabIndex = 16;
             // 
             // txtPosition
             // 
-            this.txtPosition.Location = new System.Drawing.Point(151, 57);
+            resources.ApplyResources(this.txtPosition, "txtPosition");
             this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(83, 20);
-            this.txtPosition.TabIndex = 15;
             // 
             // txtToggle
             // 
-            this.txtToggle.Location = new System.Drawing.Point(151, 27);
+            resources.ApplyResources(this.txtToggle, "txtToggle");
             this.txtToggle.Name = "txtToggle";
-            this.txtToggle.Size = new System.Drawing.Size(83, 20);
-            this.txtToggle.TabIndex = 14;
             // 
             // lblChangeSize
             // 
-            this.lblChangeSize.AutoSize = true;
-            this.lblChangeSize.Location = new System.Drawing.Point(12, 90);
+            resources.ApplyResources(this.lblChangeSize, "lblChangeSize");
+            this.lblChangeSize.LanguageFile = "";
             this.lblChangeSize.Name = "lblChangeSize";
-            this.lblChangeSize.Size = new System.Drawing.Size(112, 13);
-            this.lblChangeSize.TabIndex = 2;
-            this.lblChangeSize.Text = "Change Size of Panel:";
             // 
             // lblChangePosition
             // 
-            this.lblChangePosition.AutoSize = true;
-            this.lblChangePosition.Location = new System.Drawing.Point(12, 60);
+            resources.ApplyResources(this.lblChangePosition, "lblChangePosition");
+            this.lblChangePosition.LanguageFile = "";
             this.lblChangePosition.Name = "lblChangePosition";
-            this.lblChangePosition.Size = new System.Drawing.Size(129, 13);
-            this.lblChangePosition.TabIndex = 1;
-            this.lblChangePosition.Text = "Change Position of Panel:";
             // 
             // lblEnablePanel
             // 
-            this.lblEnablePanel.AutoSize = true;
-            this.lblEnablePanel.Location = new System.Drawing.Point(12, 30);
+            resources.ApplyResources(this.lblEnablePanel, "lblEnablePanel");
+            this.lblEnablePanel.LanguageFile = "";
             this.lblEnablePanel.Name = "lblEnablePanel";
-            this.lblEnablePanel.Size = new System.Drawing.Size(116, 13);
-            this.lblEnablePanel.TabIndex = 0;
-            this.lblEnablePanel.Text = "Enable/ Disable Panel:";
             // 
             // ChatInput
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbChatInput);
             this.Name = "ChatInput";
-            this.Size = new System.Drawing.Size(246, 120);
             this.gbChatInput.ResumeLayout(false);
             this.gbChatInput.PerformLayout();
             this.ResumeLayout(false);

@@ -158,97 +158,63 @@
             // 
             // btnMaphack
             // 
-            this.btnMaphack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMaphack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaphack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaphack.Location = new System.Drawing.Point(255, 449);
+            resources.ApplyResources(this.btnMaphack, "btnMaphack");
             this.btnMaphack.Name = "btnMaphack";
-            this.btnMaphack.Size = new System.Drawing.Size(75, 23);
-            this.btnMaphack.TabIndex = 3;
-            this.btnMaphack.Text = "Maphack";
+            this.ttInformation.SetToolTip(this.btnMaphack, resources.GetString("btnMaphack.ToolTip"));
             this.btnMaphack.UseVisualStyleBackColor = true;
             this.btnMaphack.Click += new System.EventHandler(this.btnMaphack_Click);
             // 
             // btnUnit
             // 
-            this.btnUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUnit.Location = new System.Drawing.Point(498, 449);
+            resources.ApplyResources(this.btnUnit, "btnUnit");
             this.btnUnit.Name = "btnUnit";
-            this.btnUnit.Size = new System.Drawing.Size(75, 23);
-            this.btnUnit.TabIndex = 6;
-            this.btnUnit.Text = "Unit";
+            this.ttInformation.SetToolTip(this.btnUnit, resources.GetString("btnUnit.ToolTip"));
             this.btnUnit.UseVisualStyleBackColor = true;
             this.btnUnit.Click += new System.EventHandler(this.btnUnit_Click);
             // 
             // btnResources
             // 
-            this.btnResources.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnResources.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResources.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResources.Location = new System.Drawing.Point(12, 449);
+            resources.ApplyResources(this.btnResources, "btnResources");
             this.btnResources.Name = "btnResources";
-            this.btnResources.Size = new System.Drawing.Size(75, 23);
-            this.btnResources.TabIndex = 0;
-            this.btnResources.Text = "Resources";
+            this.ttInformation.SetToolTip(this.btnResources, resources.GetString("btnResources.ToolTip"));
             this.btnResources.UseVisualStyleBackColor = true;
             this.btnResources.Click += new System.EventHandler(this.btnResources_Click);
             // 
             // btnIncome
             // 
-            this.btnIncome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnIncome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncome.Location = new System.Drawing.Point(93, 449);
+            resources.ApplyResources(this.btnIncome, "btnIncome");
             this.btnIncome.Name = "btnIncome";
-            this.btnIncome.Size = new System.Drawing.Size(75, 23);
-            this.btnIncome.TabIndex = 1;
-            this.btnIncome.Text = "Income";
+            this.ttInformation.SetToolTip(this.btnIncome, resources.GetString("btnIncome.ToolTip"));
             this.btnIncome.UseVisualStyleBackColor = true;
             this.btnIncome.Click += new System.EventHandler(this.btnIncome_Click);
             // 
             // btnApm
             // 
-            this.btnApm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnApm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApm.Location = new System.Drawing.Point(336, 449);
+            resources.ApplyResources(this.btnApm, "btnApm");
             this.btnApm.Name = "btnApm";
-            this.btnApm.Size = new System.Drawing.Size(75, 23);
-            this.btnApm.TabIndex = 4;
-            this.btnApm.Text = "Apm";
+            this.ttInformation.SetToolTip(this.btnApm, resources.GetString("btnApm.ToolTip"));
             this.btnApm.UseVisualStyleBackColor = true;
             this.btnApm.Click += new System.EventHandler(this.btnApm_Click);
             // 
             // btnArmy
             // 
-            this.btnArmy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnArmy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArmy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArmy.Location = new System.Drawing.Point(417, 449);
+            resources.ApplyResources(this.btnArmy, "btnArmy");
             this.btnArmy.Name = "btnArmy";
-            this.btnArmy.Size = new System.Drawing.Size(75, 23);
-            this.btnArmy.TabIndex = 5;
-            this.btnArmy.Text = "Army";
+            this.ttInformation.SetToolTip(this.btnArmy, resources.GetString("btnArmy.ToolTip"));
             this.btnArmy.UseVisualStyleBackColor = true;
             this.btnArmy.Click += new System.EventHandler(this.btnArmy_Click);
             // 
             // btnWorker
             // 
-            this.btnWorker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnWorker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWorker.Location = new System.Drawing.Point(174, 449);
+            resources.ApplyResources(this.btnWorker, "btnWorker");
             this.btnWorker.Name = "btnWorker";
-            this.btnWorker.Size = new System.Drawing.Size(75, 23);
-            this.btnWorker.TabIndex = 2;
-            this.btnWorker.Text = "Worker";
+            this.ttInformation.SetToolTip(this.btnWorker, resources.GetString("btnWorker.ToolTip"));
             this.btnWorker.UseVisualStyleBackColor = true;
             this.btnWorker.Click += new System.EventHandler(this.btnWorker_Click);
             // 
             // tcMainTab
             // 
+            resources.ApplyResources(this.tcMainTab, "tcMainTab");
             this.tcMainTab.Controls.Add(this.tcGlobal);
             this.tcMainTab.Controls.Add(this.tcResources);
             this.tcMainTab.Controls.Add(this.tcIncome);
@@ -264,256 +230,213 @@
             this.tcMainTab.Controls.Add(this.tcCredits);
             this.tcMainTab.Controls.Add(this.tcBenchmark);
             this.tcMainTab.Controls.Add(this.tcDebug);
-            this.tcMainTab.Location = new System.Drawing.Point(12, 12);
             this.tcMainTab.Name = "tcMainTab";
             this.tcMainTab.SelectedIndex = 0;
-            this.tcMainTab.Size = new System.Drawing.Size(948, 431);
-            this.tcMainTab.TabIndex = 7;
+            this.ttInformation.SetToolTip(this.tcMainTab, resources.GetString("tcMainTab.ToolTip"));
             this.tcMainTab.SelectedIndexChanged += new System.EventHandler(this.tcMainTab_SelectedIndexChanged);
             // 
             // tcGlobal
             // 
+            resources.ApplyResources(this.tcGlobal, "tcGlobal");
             this.tcGlobal.BackColor = System.Drawing.SystemColors.Control;
             this.tcGlobal.Controls.Add(this.CustGlobal);
-            this.tcGlobal.Location = new System.Drawing.Point(4, 22);
             this.tcGlobal.Name = "tcGlobal";
-            this.tcGlobal.Size = new System.Drawing.Size(940, 405);
-            this.tcGlobal.TabIndex = 7;
-            this.tcGlobal.Text = "Global";
+            this.ttInformation.SetToolTip(this.tcGlobal, resources.GetString("tcGlobal.ToolTip"));
             // 
             // CustGlobal
             // 
-            this.CustGlobal.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.CustGlobal, "CustGlobal");
             this.CustGlobal.Name = "CustGlobal";
-            this.CustGlobal.Size = new System.Drawing.Size(935, 406);
-            this.CustGlobal.TabIndex = 0;
+            this.ttInformation.SetToolTip(this.CustGlobal, resources.GetString("CustGlobal.ToolTip"));
             // 
             // tcResources
             // 
+            resources.ApplyResources(this.tcResources, "tcResources");
             this.tcResources.BackColor = System.Drawing.SystemColors.Control;
             this.tcResources.Controls.Add(this.ResourceBasics);
             this.tcResources.Controls.Add(this.ResourceChatInput);
             this.tcResources.Controls.Add(this.ResourceHotkeys);
             this.tcResources.Controls.Add(this.ResourceInformation);
-            this.tcResources.Location = new System.Drawing.Point(4, 22);
             this.tcResources.Name = "tcResources";
-            this.tcResources.Size = new System.Drawing.Size(940, 405);
-            this.tcResources.TabIndex = 2;
-            this.tcResources.Text = "Resources";
+            this.ttInformation.SetToolTip(this.tcResources, resources.GetString("tcResources.ToolTip"));
             // 
             // ResourceBasics
             // 
-            this.ResourceBasics.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.ResourceBasics, "ResourceBasics");
             this.ResourceBasics.Name = "ResourceBasics";
-            this.ResourceBasics.Size = new System.Drawing.Size(291, 300);
-            this.ResourceBasics.TabIndex = 68;
+            this.ttInformation.SetToolTip(this.ResourceBasics, resources.GetString("ResourceBasics.ToolTip"));
             // 
             // ResourceChatInput
             // 
-            this.ResourceChatInput.Location = new System.Drawing.Point(331, 18);
+            resources.ApplyResources(this.ResourceChatInput, "ResourceChatInput");
             this.ResourceChatInput.Name = "ResourceChatInput";
-            this.ResourceChatInput.Size = new System.Drawing.Size(246, 120);
-            this.ResourceChatInput.TabIndex = 67;
+            this.ttInformation.SetToolTip(this.ResourceChatInput, resources.GetString("ResourceChatInput.ToolTip"));
             // 
             // ResourceHotkeys
             // 
-            this.ResourceHotkeys.Location = new System.Drawing.Point(331, 190);
+            resources.ApplyResources(this.ResourceHotkeys, "ResourceHotkeys");
             this.ResourceHotkeys.Name = "ResourceHotkeys";
-            this.ResourceHotkeys.Size = new System.Drawing.Size(246, 128);
-            this.ResourceHotkeys.TabIndex = 64;
+            this.ttInformation.SetToolTip(this.ResourceHotkeys, resources.GetString("ResourceHotkeys.ToolTip"));
             // 
             // ResourceInformation
             // 
-            this.ResourceInformation.Location = new System.Drawing.Point(590, 18);
+            resources.ApplyResources(this.ResourceInformation, "ResourceInformation");
             this.ResourceInformation.Name = "ResourceInformation";
-            this.ResourceInformation.Size = new System.Drawing.Size(196, 156);
-            this.ResourceInformation.TabIndex = 63;
+            this.ttInformation.SetToolTip(this.ResourceInformation, resources.GetString("ResourceInformation.ToolTip"));
             // 
             // tcIncome
             // 
+            resources.ApplyResources(this.tcIncome, "tcIncome");
             this.tcIncome.BackColor = System.Drawing.SystemColors.Control;
             this.tcIncome.Controls.Add(this.IncomeBasics);
             this.tcIncome.Controls.Add(this.IncomeChatInput);
             this.tcIncome.Controls.Add(this.IncomeHotkeys);
             this.tcIncome.Controls.Add(this.IncomeInformation);
-            this.tcIncome.Location = new System.Drawing.Point(4, 22);
             this.tcIncome.Name = "tcIncome";
-            this.tcIncome.Size = new System.Drawing.Size(940, 405);
-            this.tcIncome.TabIndex = 3;
-            this.tcIncome.Text = "Income";
+            this.ttInformation.SetToolTip(this.tcIncome, resources.GetString("tcIncome.ToolTip"));
             // 
             // IncomeBasics
             // 
-            this.IncomeBasics.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.IncomeBasics, "IncomeBasics");
             this.IncomeBasics.Name = "IncomeBasics";
-            this.IncomeBasics.Size = new System.Drawing.Size(291, 300);
-            this.IncomeBasics.TabIndex = 69;
+            this.ttInformation.SetToolTip(this.IncomeBasics, resources.GetString("IncomeBasics.ToolTip"));
             // 
             // IncomeChatInput
             // 
-            this.IncomeChatInput.Location = new System.Drawing.Point(331, 18);
+            resources.ApplyResources(this.IncomeChatInput, "IncomeChatInput");
             this.IncomeChatInput.Name = "IncomeChatInput";
-            this.IncomeChatInput.Size = new System.Drawing.Size(246, 120);
-            this.IncomeChatInput.TabIndex = 67;
+            this.ttInformation.SetToolTip(this.IncomeChatInput, resources.GetString("IncomeChatInput.ToolTip"));
             // 
             // IncomeHotkeys
             // 
-            this.IncomeHotkeys.Location = new System.Drawing.Point(331, 190);
+            resources.ApplyResources(this.IncomeHotkeys, "IncomeHotkeys");
             this.IncomeHotkeys.Name = "IncomeHotkeys";
-            this.IncomeHotkeys.Size = new System.Drawing.Size(246, 128);
-            this.IncomeHotkeys.TabIndex = 65;
+            this.ttInformation.SetToolTip(this.IncomeHotkeys, resources.GetString("IncomeHotkeys.ToolTip"));
             // 
             // IncomeInformation
             // 
-            this.IncomeInformation.Location = new System.Drawing.Point(590, 18);
+            resources.ApplyResources(this.IncomeInformation, "IncomeInformation");
             this.IncomeInformation.Name = "IncomeInformation";
-            this.IncomeInformation.Size = new System.Drawing.Size(196, 156);
-            this.IncomeInformation.TabIndex = 63;
+            this.ttInformation.SetToolTip(this.IncomeInformation, resources.GetString("IncomeInformation.ToolTip"));
             // 
             // tcWorker
             // 
+            resources.ApplyResources(this.tcWorker, "tcWorker");
             this.tcWorker.BackColor = System.Drawing.SystemColors.Control;
             this.tcWorker.Controls.Add(this.WorkerBasics);
             this.tcWorker.Controls.Add(this.WorkerChatInput);
             this.tcWorker.Controls.Add(this.WorkerHotkeys);
             this.tcWorker.Controls.Add(this.WorkerInformation);
-            this.tcWorker.Location = new System.Drawing.Point(4, 22);
             this.tcWorker.Name = "tcWorker";
-            this.tcWorker.Size = new System.Drawing.Size(940, 405);
-            this.tcWorker.TabIndex = 6;
-            this.tcWorker.Text = "Worker";
+            this.ttInformation.SetToolTip(this.tcWorker, resources.GetString("tcWorker.ToolTip"));
             // 
             // WorkerBasics
             // 
-            this.WorkerBasics.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.WorkerBasics, "WorkerBasics");
             this.WorkerBasics.Name = "WorkerBasics";
-            this.WorkerBasics.Size = new System.Drawing.Size(291, 141);
-            this.WorkerBasics.TabIndex = 68;
+            this.ttInformation.SetToolTip(this.WorkerBasics, resources.GetString("WorkerBasics.ToolTip"));
             // 
             // WorkerChatInput
             // 
-            this.WorkerChatInput.Location = new System.Drawing.Point(331, 18);
+            resources.ApplyResources(this.WorkerChatInput, "WorkerChatInput");
             this.WorkerChatInput.Name = "WorkerChatInput";
-            this.WorkerChatInput.Size = new System.Drawing.Size(246, 120);
-            this.WorkerChatInput.TabIndex = 67;
+            this.ttInformation.SetToolTip(this.WorkerChatInput, resources.GetString("WorkerChatInput.ToolTip"));
             // 
             // WorkerHotkeys
             // 
-            this.WorkerHotkeys.Location = new System.Drawing.Point(331, 160);
+            resources.ApplyResources(this.WorkerHotkeys, "WorkerHotkeys");
             this.WorkerHotkeys.Name = "WorkerHotkeys";
-            this.WorkerHotkeys.Size = new System.Drawing.Size(246, 128);
-            this.WorkerHotkeys.TabIndex = 65;
+            this.ttInformation.SetToolTip(this.WorkerHotkeys, resources.GetString("WorkerHotkeys.ToolTip"));
             // 
             // WorkerInformation
             // 
-            this.WorkerInformation.Location = new System.Drawing.Point(590, 18);
+            resources.ApplyResources(this.WorkerInformation, "WorkerInformation");
             this.WorkerInformation.Name = "WorkerInformation";
-            this.WorkerInformation.Size = new System.Drawing.Size(196, 156);
-            this.WorkerInformation.TabIndex = 63;
+            this.ttInformation.SetToolTip(this.WorkerInformation, resources.GetString("WorkerInformation.ToolTip"));
             // 
             // tcMaphack
             // 
+            resources.ApplyResources(this.tcMaphack, "tcMaphack");
             this.tcMaphack.BackColor = System.Drawing.SystemColors.Control;
             this.tcMaphack.Controls.Add(this.MaphackBasics);
             this.tcMaphack.Controls.Add(this.MaphackChatInput);
             this.tcMaphack.Controls.Add(this.MaphackHotkeys);
             this.tcMaphack.Controls.Add(this.MaphackInformation);
             this.tcMaphack.Controls.Add(this.gbMaphackColorUnits);
-            this.tcMaphack.Location = new System.Drawing.Point(4, 22);
             this.tcMaphack.Name = "tcMaphack";
-            this.tcMaphack.Padding = new System.Windows.Forms.Padding(3);
-            this.tcMaphack.Size = new System.Drawing.Size(940, 405);
-            this.tcMaphack.TabIndex = 0;
-            this.tcMaphack.Text = "Maphack";
+            this.ttInformation.SetToolTip(this.tcMaphack, resources.GetString("tcMaphack.ToolTip"));
             // 
             // MaphackBasics
             // 
-            this.MaphackBasics.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.MaphackBasics, "MaphackBasics");
             this.MaphackBasics.Name = "MaphackBasics";
-            this.MaphackBasics.Size = new System.Drawing.Size(291, 367);
-            this.MaphackBasics.TabIndex = 72;
+            this.ttInformation.SetToolTip(this.MaphackBasics, resources.GetString("MaphackBasics.ToolTip"));
             // 
             // MaphackChatInput
             // 
-            this.MaphackChatInput.Location = new System.Drawing.Point(331, 18);
+            resources.ApplyResources(this.MaphackChatInput, "MaphackChatInput");
             this.MaphackChatInput.Name = "MaphackChatInput";
-            this.MaphackChatInput.Size = new System.Drawing.Size(246, 120);
-            this.MaphackChatInput.TabIndex = 71;
+            this.ttInformation.SetToolTip(this.MaphackChatInput, resources.GetString("MaphackChatInput.ToolTip"));
             // 
             // MaphackHotkeys
             // 
-            this.MaphackHotkeys.Location = new System.Drawing.Point(331, 228);
+            resources.ApplyResources(this.MaphackHotkeys, "MaphackHotkeys");
             this.MaphackHotkeys.Name = "MaphackHotkeys";
-            this.MaphackHotkeys.Size = new System.Drawing.Size(246, 128);
-            this.MaphackHotkeys.TabIndex = 70;
+            this.ttInformation.SetToolTip(this.MaphackHotkeys, resources.GetString("MaphackHotkeys.ToolTip"));
             // 
             // MaphackInformation
             // 
-            this.MaphackInformation.Location = new System.Drawing.Point(590, 18);
+            resources.ApplyResources(this.MaphackInformation, "MaphackInformation");
             this.MaphackInformation.Name = "MaphackInformation";
-            this.MaphackInformation.Size = new System.Drawing.Size(196, 156);
-            this.MaphackInformation.TabIndex = 63;
+            this.ttInformation.SetToolTip(this.MaphackInformation, resources.GetString("MaphackInformation.ToolTip"));
             // 
             // gbMaphackColorUnits
             // 
+            resources.ApplyResources(this.gbMaphackColorUnits, "gbMaphackColorUnits");
             this.gbMaphackColorUnits.Controls.Add(this.btnMaphackDefineaMarking);
             this.gbMaphackColorUnits.Controls.Add(this.btnMapUnitColor);
             this.gbMaphackColorUnits.Controls.Add(this.btnMapAddUnit);
             this.gbMaphackColorUnits.Controls.Add(this.icbMapUnit);
             this.gbMaphackColorUnits.Controls.Add(this.lstMapUnits);
             this.gbMaphackColorUnits.LanguageFile = "";
-            this.gbMaphackColorUnits.Location = new System.Drawing.Point(590, 180);
             this.gbMaphackColorUnits.Name = "gbMaphackColorUnits";
-            this.gbMaphackColorUnits.Size = new System.Drawing.Size(339, 176);
-            this.gbMaphackColorUnits.TabIndex = 69;
             this.gbMaphackColorUnits.TabStop = false;
-            this.gbMaphackColorUnits.Text = "Mark Units";
+            this.ttInformation.SetToolTip(this.gbMaphackColorUnits, resources.GetString("gbMaphackColorUnits.ToolTip"));
             // 
             // btnMaphackDefineaMarking
             // 
-            this.btnMaphackDefineaMarking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaphackDefineaMarking.Location = new System.Drawing.Point(158, 136);
+            resources.ApplyResources(this.btnMaphackDefineaMarking, "btnMaphackDefineaMarking");
             this.btnMaphackDefineaMarking.Name = "btnMaphackDefineaMarking";
-            this.btnMaphackDefineaMarking.Size = new System.Drawing.Size(175, 23);
-            this.btnMaphackDefineaMarking.TabIndex = 6;
-            this.btnMaphackDefineaMarking.Text = "Define Marking";
+            this.ttInformation.SetToolTip(this.btnMaphackDefineaMarking, resources.GetString("btnMaphackDefineaMarking.ToolTip"));
             this.btnMaphackDefineaMarking.UseVisualStyleBackColor = true;
-            this.btnMaphackDefineaMarking.Visible = false;
             this.btnMaphackDefineaMarking.Click += new System.EventHandler(this.btnMaphackDefineaMarking_Click);
             // 
             // btnMapUnitColor
             // 
-            this.btnMapUnitColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMapUnitColor.Location = new System.Drawing.Point(158, 95);
+            resources.ApplyResources(this.btnMapUnitColor, "btnMapUnitColor");
             this.btnMapUnitColor.Name = "btnMapUnitColor";
-            this.btnMapUnitColor.Size = new System.Drawing.Size(175, 23);
-            this.btnMapUnitColor.TabIndex = 4;
+            this.ttInformation.SetToolTip(this.btnMapUnitColor, resources.GetString("btnMapUnitColor.ToolTip"));
             this.btnMapUnitColor.UseVisualStyleBackColor = true;
             this.btnMapUnitColor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnMapUnitColor_MouseDown);
             // 
             // btnMapAddUnit
             // 
+            resources.ApplyResources(this.btnMapAddUnit, "btnMapAddUnit");
             this.btnMapAddUnit.LanguageFile = "";
-            this.btnMapAddUnit.Location = new System.Drawing.Point(158, 24);
             this.btnMapAddUnit.Name = "btnMapAddUnit";
-            this.btnMapAddUnit.Size = new System.Drawing.Size(175, 23);
-            this.btnMapAddUnit.TabIndex = 5;
-            this.btnMapAddUnit.Text = "Add Unit";
+            this.ttInformation.SetToolTip(this.btnMapAddUnit, resources.GetString("btnMapAddUnit.ToolTip"));
             this.btnMapAddUnit.UseVisualStyleBackColor = true;
             this.btnMapAddUnit.Click += new System.EventHandler(this.btnMapAddUnit_Click);
             // 
             // icbMapUnit
             // 
+            resources.ApplyResources(this.icbMapUnit, "icbMapUnit");
             this.icbMapUnit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.icbMapUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.icbMapUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.icbMapUnit.FormattingEnabled = true;
             this.icbMapUnit.ImageList = this.imgUnits;
-            this.icbMapUnit.ItemHeight = 30;
-            this.icbMapUnit.Location = new System.Drawing.Point(158, 53);
             this.icbMapUnit.Name = "icbMapUnit";
-            this.icbMapUnit.Size = new System.Drawing.Size(175, 36);
-            this.icbMapUnit.TabIndex = 3;
+            this.ttInformation.SetToolTip(this.icbMapUnit, resources.GetString("icbMapUnit.ToolTip"));
             this.icbMapUnit.SelectedIndexChanged += new System.EventHandler(this.icbMapUnit_SelectedIndexChanged);
             // 
             // imgUnits
@@ -626,125 +549,111 @@
             // 
             // lstMapUnits
             // 
+            resources.ApplyResources(this.lstMapUnits, "lstMapUnits");
             this.lstMapUnits.ContextMenuStrip = this.cmsListboxContext;
             this.lstMapUnits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.lstMapUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstMapUnits.FormattingEnabled = true;
-            this.lstMapUnits.Location = new System.Drawing.Point(18, 25);
             this.lstMapUnits.Name = "lstMapUnits";
             this.lstMapUnits.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstMapUnits.Size = new System.Drawing.Size(131, 134);
-            this.lstMapUnits.TabIndex = 0;
+            this.ttInformation.SetToolTip(this.lstMapUnits, resources.GetString("lstMapUnits.ToolTip"));
             this.lstMapUnits.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lstMapUnits_DrawItem);
             this.lstMapUnits.SelectedIndexChanged += new System.EventHandler(this.lstMapUnits_SelectedIndexChanged);
             this.lstMapUnits.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lstMapUnits_KeyUp);
             // 
             // cmsListboxContext
             // 
+            resources.ApplyResources(this.cmsListboxContext, "cmsListboxContext");
             this.cmsListboxContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addAUnitToolStripMenuItem,
             this.deleteAUnitToolStripMenuItem});
             this.cmsListboxContext.Name = "cmsListboxContext";
-            this.cmsListboxContext.Size = new System.Drawing.Size(144, 48);
+            this.ttInformation.SetToolTip(this.cmsListboxContext, resources.GetString("cmsListboxContext.ToolTip"));
             // 
             // addAUnitToolStripMenuItem
             // 
+            resources.ApplyResources(this.addAUnitToolStripMenuItem, "addAUnitToolStripMenuItem");
             this.addAUnitToolStripMenuItem.Name = "addAUnitToolStripMenuItem";
-            this.addAUnitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.addAUnitToolStripMenuItem.Text = "Add A Unit";
             this.addAUnitToolStripMenuItem.Click += new System.EventHandler(this.addAUnitToolStripMenuItem_Click);
             // 
             // deleteAUnitToolStripMenuItem
             // 
+            resources.ApplyResources(this.deleteAUnitToolStripMenuItem, "deleteAUnitToolStripMenuItem");
             this.deleteAUnitToolStripMenuItem.Name = "deleteAUnitToolStripMenuItem";
-            this.deleteAUnitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.deleteAUnitToolStripMenuItem.Text = "Delete A Unit";
             this.deleteAUnitToolStripMenuItem.Click += new System.EventHandler(this.deleteAUnitToolStripMenuItem_Click);
             // 
             // tcApm
             // 
+            resources.ApplyResources(this.tcApm, "tcApm");
             this.tcApm.BackColor = System.Drawing.SystemColors.Control;
             this.tcApm.Controls.Add(this.ApmBasics);
             this.tcApm.Controls.Add(this.ApmChatInput);
             this.tcApm.Controls.Add(this.ApmHotkeys);
             this.tcApm.Controls.Add(this.ApmInformation);
-            this.tcApm.Location = new System.Drawing.Point(4, 22);
             this.tcApm.Name = "tcApm";
-            this.tcApm.Size = new System.Drawing.Size(940, 405);
-            this.tcApm.TabIndex = 5;
-            this.tcApm.Text = "Apm";
+            this.ttInformation.SetToolTip(this.tcApm, resources.GetString("tcApm.ToolTip"));
             // 
             // ApmBasics
             // 
-            this.ApmBasics.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.ApmBasics, "ApmBasics");
             this.ApmBasics.Name = "ApmBasics";
-            this.ApmBasics.Size = new System.Drawing.Size(291, 300);
-            this.ApmBasics.TabIndex = 70;
+            this.ttInformation.SetToolTip(this.ApmBasics, resources.GetString("ApmBasics.ToolTip"));
             // 
             // ApmChatInput
             // 
-            this.ApmChatInput.Location = new System.Drawing.Point(331, 18);
+            resources.ApplyResources(this.ApmChatInput, "ApmChatInput");
             this.ApmChatInput.Name = "ApmChatInput";
-            this.ApmChatInput.Size = new System.Drawing.Size(246, 120);
-            this.ApmChatInput.TabIndex = 67;
+            this.ttInformation.SetToolTip(this.ApmChatInput, resources.GetString("ApmChatInput.ToolTip"));
             // 
             // ApmHotkeys
             // 
-            this.ApmHotkeys.Location = new System.Drawing.Point(331, 190);
+            resources.ApplyResources(this.ApmHotkeys, "ApmHotkeys");
             this.ApmHotkeys.Name = "ApmHotkeys";
-            this.ApmHotkeys.Size = new System.Drawing.Size(246, 128);
-            this.ApmHotkeys.TabIndex = 65;
+            this.ttInformation.SetToolTip(this.ApmHotkeys, resources.GetString("ApmHotkeys.ToolTip"));
             // 
             // ApmInformation
             // 
-            this.ApmInformation.Location = new System.Drawing.Point(590, 18);
+            resources.ApplyResources(this.ApmInformation, "ApmInformation");
             this.ApmInformation.Name = "ApmInformation";
-            this.ApmInformation.Size = new System.Drawing.Size(196, 156);
-            this.ApmInformation.TabIndex = 63;
+            this.ttInformation.SetToolTip(this.ApmInformation, resources.GetString("ApmInformation.ToolTip"));
             // 
             // tcArmy
             // 
+            resources.ApplyResources(this.tcArmy, "tcArmy");
             this.tcArmy.BackColor = System.Drawing.SystemColors.Control;
             this.tcArmy.Controls.Add(this.ArmyBasics);
             this.tcArmy.Controls.Add(this.ArmyChatInput);
             this.tcArmy.Controls.Add(this.ArmyHotkeys);
             this.tcArmy.Controls.Add(this.ArmyInformation);
-            this.tcArmy.Location = new System.Drawing.Point(4, 22);
             this.tcArmy.Name = "tcArmy";
-            this.tcArmy.Size = new System.Drawing.Size(940, 405);
-            this.tcArmy.TabIndex = 4;
-            this.tcArmy.Text = "Army";
+            this.ttInformation.SetToolTip(this.tcArmy, resources.GetString("tcArmy.ToolTip"));
             // 
             // ArmyBasics
             // 
-            this.ArmyBasics.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.ArmyBasics, "ArmyBasics");
             this.ArmyBasics.Name = "ArmyBasics";
-            this.ArmyBasics.Size = new System.Drawing.Size(291, 300);
-            this.ArmyBasics.TabIndex = 72;
+            this.ttInformation.SetToolTip(this.ArmyBasics, resources.GetString("ArmyBasics.ToolTip"));
             // 
             // ArmyChatInput
             // 
-            this.ArmyChatInput.Location = new System.Drawing.Point(331, 18);
+            resources.ApplyResources(this.ArmyChatInput, "ArmyChatInput");
             this.ArmyChatInput.Name = "ArmyChatInput";
-            this.ArmyChatInput.Size = new System.Drawing.Size(246, 120);
-            this.ArmyChatInput.TabIndex = 67;
+            this.ttInformation.SetToolTip(this.ArmyChatInput, resources.GetString("ArmyChatInput.ToolTip"));
             // 
             // ArmyHotkeys
             // 
-            this.ArmyHotkeys.Location = new System.Drawing.Point(331, 190);
+            resources.ApplyResources(this.ArmyHotkeys, "ArmyHotkeys");
             this.ArmyHotkeys.Name = "ArmyHotkeys";
-            this.ArmyHotkeys.Size = new System.Drawing.Size(246, 128);
-            this.ArmyHotkeys.TabIndex = 65;
+            this.ttInformation.SetToolTip(this.ArmyHotkeys, resources.GetString("ArmyHotkeys.ToolTip"));
             // 
             // ArmyInformation
             // 
-            this.ArmyInformation.Location = new System.Drawing.Point(590, 18);
+            resources.ApplyResources(this.ArmyInformation, "ArmyInformation");
             this.ArmyInformation.Name = "ArmyInformation";
-            this.ArmyInformation.Size = new System.Drawing.Size(196, 156);
-            this.ArmyInformation.TabIndex = 63;
+            this.ttInformation.SetToolTip(this.ArmyInformation, resources.GetString("ArmyInformation.ToolTip"));
             // 
             // tcUnitTab
             // 
+            resources.ApplyResources(this.tcUnitTab, "tcUnitTab");
             this.tcUnitTab.BackColor = System.Drawing.SystemColors.Control;
             this.tcUnitTab.Controls.Add(this.gbUnittabShow);
             this.tcUnitTab.Controls.Add(this.UnittabBasics);
@@ -752,134 +661,108 @@
             this.tcUnitTab.Controls.Add(this.UnittabHotkeys);
             this.tcUnitTab.Controls.Add(this.UnittabInformation);
             this.tcUnitTab.Controls.Add(this.gbUnitPicture);
-            this.tcUnitTab.Location = new System.Drawing.Point(4, 22);
             this.tcUnitTab.Name = "tcUnitTab";
-            this.tcUnitTab.Padding = new System.Windows.Forms.Padding(3);
-            this.tcUnitTab.Size = new System.Drawing.Size(940, 405);
-            this.tcUnitTab.TabIndex = 1;
-            this.tcUnitTab.Text = "UnitTab";
+            this.ttInformation.SetToolTip(this.tcUnitTab, resources.GetString("tcUnitTab.ToolTip"));
             // 
             // gbUnittabShow
             // 
+            resources.ApplyResources(this.gbUnittabShow, "gbUnittabShow");
             this.gbUnittabShow.Controls.Add(this.chBxUnitTabShowBuildings);
             this.gbUnittabShow.Controls.Add(this.chBxUnitTabShowUnits);
             this.gbUnittabShow.LanguageFile = "";
-            this.gbUnittabShow.Location = new System.Drawing.Point(331, 144);
             this.gbUnittabShow.Name = "gbUnittabShow";
-            this.gbUnittabShow.Size = new System.Drawing.Size(246, 64);
-            this.gbUnittabShow.TabIndex = 68;
             this.gbUnittabShow.TabStop = false;
-            this.gbUnittabShow.Text = "Show";
+            this.ttInformation.SetToolTip(this.gbUnittabShow, resources.GetString("gbUnittabShow.ToolTip"));
             // 
             // chBxUnitTabShowBuildings
             // 
-            this.chBxUnitTabShowBuildings.AutoSize = true;
+            resources.ApplyResources(this.chBxUnitTabShowBuildings, "chBxUnitTabShowBuildings");
             this.chBxUnitTabShowBuildings.LanguageFile = "";
-            this.chBxUnitTabShowBuildings.Location = new System.Drawing.Point(172, 30);
             this.chBxUnitTabShowBuildings.Name = "chBxUnitTabShowBuildings";
-            this.chBxUnitTabShowBuildings.Size = new System.Drawing.Size(68, 17);
-            this.chBxUnitTabShowBuildings.TabIndex = 1;
-            this.chBxUnitTabShowBuildings.Text = "Buildings";
+            this.ttInformation.SetToolTip(this.chBxUnitTabShowBuildings, resources.GetString("chBxUnitTabShowBuildings.ToolTip"));
             this.chBxUnitTabShowBuildings.UseVisualStyleBackColor = true;
             this.chBxUnitTabShowBuildings.CheckedChanged += new System.EventHandler(this.chBxUnitTabShowBuildings_CheckedChanged);
             // 
             // chBxUnitTabShowUnits
             // 
-            this.chBxUnitTabShowUnits.AutoSize = true;
+            resources.ApplyResources(this.chBxUnitTabShowUnits, "chBxUnitTabShowUnits");
             this.chBxUnitTabShowUnits.LanguageFile = "";
-            this.chBxUnitTabShowUnits.Location = new System.Drawing.Point(14, 30);
             this.chBxUnitTabShowUnits.Name = "chBxUnitTabShowUnits";
-            this.chBxUnitTabShowUnits.Size = new System.Drawing.Size(50, 17);
-            this.chBxUnitTabShowUnits.TabIndex = 0;
-            this.chBxUnitTabShowUnits.Text = "Units";
+            this.ttInformation.SetToolTip(this.chBxUnitTabShowUnits, resources.GetString("chBxUnitTabShowUnits.ToolTip"));
             this.chBxUnitTabShowUnits.UseVisualStyleBackColor = true;
             this.chBxUnitTabShowUnits.CheckedChanged += new System.EventHandler(this.chBxUnitTabShowUnits_CheckedChanged);
             // 
             // UnittabBasics
             // 
-            this.UnittabBasics.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.UnittabBasics, "UnittabBasics");
             this.UnittabBasics.Name = "UnittabBasics";
-            this.UnittabBasics.Size = new System.Drawing.Size(291, 384);
-            this.UnittabBasics.TabIndex = 67;
+            this.ttInformation.SetToolTip(this.UnittabBasics, resources.GetString("UnittabBasics.ToolTip"));
             // 
             // UnittabChatInput
             // 
-            this.UnittabChatInput.Location = new System.Drawing.Point(331, 18);
+            resources.ApplyResources(this.UnittabChatInput, "UnittabChatInput");
             this.UnittabChatInput.Name = "UnittabChatInput";
-            this.UnittabChatInput.Size = new System.Drawing.Size(246, 120);
-            this.UnittabChatInput.TabIndex = 66;
+            this.ttInformation.SetToolTip(this.UnittabChatInput, resources.GetString("UnittabChatInput.ToolTip"));
             // 
             // UnittabHotkeys
             // 
-            this.UnittabHotkeys.Location = new System.Drawing.Point(331, 271);
+            resources.ApplyResources(this.UnittabHotkeys, "UnittabHotkeys");
             this.UnittabHotkeys.Name = "UnittabHotkeys";
-            this.UnittabHotkeys.Size = new System.Drawing.Size(246, 128);
-            this.UnittabHotkeys.TabIndex = 65;
+            this.ttInformation.SetToolTip(this.UnittabHotkeys, resources.GetString("UnittabHotkeys.ToolTip"));
             // 
             // UnittabInformation
             // 
-            this.UnittabInformation.Location = new System.Drawing.Point(590, 18);
+            resources.ApplyResources(this.UnittabInformation, "UnittabInformation");
             this.UnittabInformation.Name = "UnittabInformation";
-            this.UnittabInformation.Size = new System.Drawing.Size(196, 156);
-            this.UnittabInformation.TabIndex = 62;
+            this.ttInformation.SetToolTip(this.UnittabInformation, resources.GetString("UnittabInformation.ToolTip"));
             // 
             // gbUnitPicture
             // 
+            resources.ApplyResources(this.gbUnitPicture, "gbUnitPicture");
             this.gbUnitPicture.Controls.Add(this.lblUnitPicturePreview);
             this.gbUnitPicture.Controls.Add(this.pcBxUnitPreview);
             this.gbUnitPicture.Controls.Add(this.txtUnitPictureSize);
             this.gbUnitPicture.Controls.Add(this.lblUnitPictureSize);
             this.gbUnitPicture.LanguageFile = "";
-            this.gbUnitPicture.Location = new System.Drawing.Point(590, 214);
             this.gbUnitPicture.Name = "gbUnitPicture";
-            this.gbUnitPicture.Size = new System.Drawing.Size(196, 128);
-            this.gbUnitPicture.TabIndex = 61;
             this.gbUnitPicture.TabStop = false;
-            this.gbUnitPicture.Text = "Picturesize";
+            this.ttInformation.SetToolTip(this.gbUnitPicture, resources.GetString("gbUnitPicture.ToolTip"));
             // 
             // lblUnitPicturePreview
             // 
-            this.lblUnitPicturePreview.AutoSize = true;
+            resources.ApplyResources(this.lblUnitPicturePreview, "lblUnitPicturePreview");
             this.lblUnitPicturePreview.LanguageFile = "";
-            this.lblUnitPicturePreview.Location = new System.Drawing.Point(12, 60);
             this.lblUnitPicturePreview.Name = "lblUnitPicturePreview";
-            this.lblUnitPicturePreview.Size = new System.Drawing.Size(48, 13);
-            this.lblUnitPicturePreview.TabIndex = 3;
-            this.lblUnitPicturePreview.Text = "Preview:";
+            this.ttInformation.SetToolTip(this.lblUnitPicturePreview, resources.GetString("lblUnitPicturePreview.ToolTip"));
             // 
             // pcBxUnitPreview
             // 
+            resources.ApplyResources(this.pcBxUnitPreview, "pcBxUnitPreview");
             this.pcBxUnitPreview.DrawingFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pcBxUnitPreview.DrawingPoint = ((System.Drawing.PointF)(resources.GetObject("pcBxUnitPreview.DrawingPoint")));
             this.pcBxUnitPreview.DrawingText = "";
             this.pcBxUnitPreview.Image = global::AnotherSc2Hack.Properties.Resources.tu_Mule;
-            this.pcBxUnitPreview.Location = new System.Drawing.Point(89, 53);
             this.pcBxUnitPreview.Name = "pcBxUnitPreview";
-            this.pcBxUnitPreview.Size = new System.Drawing.Size(45, 45);
-            this.pcBxUnitPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcBxUnitPreview.TabIndex = 2;
             this.pcBxUnitPreview.TabStop = false;
+            this.ttInformation.SetToolTip(this.pcBxUnitPreview, resources.GetString("pcBxUnitPreview.ToolTip"));
             // 
             // txtUnitPictureSize
             // 
-            this.txtUnitPictureSize.Location = new System.Drawing.Point(89, 27);
+            resources.ApplyResources(this.txtUnitPictureSize, "txtUnitPictureSize");
             this.txtUnitPictureSize.Name = "txtUnitPictureSize";
-            this.txtUnitPictureSize.Size = new System.Drawing.Size(83, 20);
-            this.txtUnitPictureSize.TabIndex = 1;
+            this.ttInformation.SetToolTip(this.txtUnitPictureSize, resources.GetString("txtUnitPictureSize.ToolTip"));
             this.txtUnitPictureSize.TextChanged += new System.EventHandler(this.txtUnitPictureSize_TextChanged);
             // 
             // lblUnitPictureSize
             // 
-            this.lblUnitPictureSize.AutoSize = true;
+            resources.ApplyResources(this.lblUnitPictureSize, "lblUnitPictureSize");
             this.lblUnitPictureSize.LanguageFile = "";
-            this.lblUnitPictureSize.Location = new System.Drawing.Point(12, 30);
             this.lblUnitPictureSize.Name = "lblUnitPictureSize";
-            this.lblUnitPictureSize.Size = new System.Drawing.Size(50, 13);
-            this.lblUnitPictureSize.TabIndex = 0;
-            this.lblUnitPictureSize.Text = "Size (px):";
+            this.ttInformation.SetToolTip(this.lblUnitPictureSize, resources.GetString("lblUnitPictureSize.ToolTip"));
             // 
             // tcProduction
             // 
+            resources.ApplyResources(this.tcProduction, "tcProduction");
             this.tcProduction.BackColor = System.Drawing.SystemColors.Control;
             this.tcProduction.Controls.Add(this.gbProdtabShow);
             this.tcProduction.Controls.Add(this.gbProdPicture);
@@ -887,295 +770,228 @@
             this.tcProduction.Controls.Add(this.ProductionTabHotkeys);
             this.tcProduction.Controls.Add(this.ProductionTabChatInput);
             this.tcProduction.Controls.Add(this.ProductionTabBasics);
-            this.tcProduction.Location = new System.Drawing.Point(4, 22);
             this.tcProduction.Name = "tcProduction";
-            this.tcProduction.Size = new System.Drawing.Size(940, 405);
-            this.tcProduction.TabIndex = 13;
-            this.tcProduction.Text = "Production";
+            this.ttInformation.SetToolTip(this.tcProduction, resources.GetString("tcProduction.ToolTip"));
             // 
             // gbProdtabShow
             // 
+            resources.ApplyResources(this.gbProdtabShow, "gbProdtabShow");
             this.gbProdtabShow.Controls.Add(this.chBxProdTabShowUpgrades);
             this.gbProdtabShow.Controls.Add(this.chBxProdTabShowBuildings);
             this.gbProdtabShow.Controls.Add(this.chBxProdTabShowUnits);
             this.gbProdtabShow.LanguageFile = "";
-            this.gbProdtabShow.Location = new System.Drawing.Point(331, 144);
             this.gbProdtabShow.Name = "gbProdtabShow";
-            this.gbProdtabShow.Size = new System.Drawing.Size(246, 64);
-            this.gbProdtabShow.TabIndex = 69;
             this.gbProdtabShow.TabStop = false;
-            this.gbProdtabShow.Text = "Show";
+            this.ttInformation.SetToolTip(this.gbProdtabShow, resources.GetString("gbProdtabShow.ToolTip"));
             // 
             // chBxProdTabShowUpgrades
             // 
-            this.chBxProdTabShowUpgrades.AutoSize = true;
+            resources.ApplyResources(this.chBxProdTabShowUpgrades, "chBxProdTabShowUpgrades");
             this.chBxProdTabShowUpgrades.LanguageFile = "";
-            this.chBxProdTabShowUpgrades.Location = new System.Drawing.Point(168, 30);
             this.chBxProdTabShowUpgrades.Name = "chBxProdTabShowUpgrades";
-            this.chBxProdTabShowUpgrades.Size = new System.Drawing.Size(72, 17);
-            this.chBxProdTabShowUpgrades.TabIndex = 2;
-            this.chBxProdTabShowUpgrades.Text = "Upgrades";
+            this.ttInformation.SetToolTip(this.chBxProdTabShowUpgrades, resources.GetString("chBxProdTabShowUpgrades.ToolTip"));
             this.chBxProdTabShowUpgrades.UseVisualStyleBackColor = true;
             this.chBxProdTabShowUpgrades.CheckedChanged += new System.EventHandler(this.chBxProdTabShowUpgrades_CheckedChanged);
             // 
             // chBxProdTabShowBuildings
             // 
-            this.chBxProdTabShowBuildings.AutoSize = true;
+            resources.ApplyResources(this.chBxProdTabShowBuildings, "chBxProdTabShowBuildings");
             this.chBxProdTabShowBuildings.LanguageFile = "";
-            this.chBxProdTabShowBuildings.Location = new System.Drawing.Point(81, 30);
             this.chBxProdTabShowBuildings.Name = "chBxProdTabShowBuildings";
-            this.chBxProdTabShowBuildings.Size = new System.Drawing.Size(68, 17);
-            this.chBxProdTabShowBuildings.TabIndex = 1;
-            this.chBxProdTabShowBuildings.Text = "Buildings";
+            this.ttInformation.SetToolTip(this.chBxProdTabShowBuildings, resources.GetString("chBxProdTabShowBuildings.ToolTip"));
             this.chBxProdTabShowBuildings.UseVisualStyleBackColor = true;
             this.chBxProdTabShowBuildings.CheckedChanged += new System.EventHandler(this.chBxProdTabShowBuildings_CheckedChanged);
             // 
             // chBxProdTabShowUnits
             // 
-            this.chBxProdTabShowUnits.AutoSize = true;
+            resources.ApplyResources(this.chBxProdTabShowUnits, "chBxProdTabShowUnits");
             this.chBxProdTabShowUnits.LanguageFile = "";
-            this.chBxProdTabShowUnits.Location = new System.Drawing.Point(14, 30);
             this.chBxProdTabShowUnits.Name = "chBxProdTabShowUnits";
-            this.chBxProdTabShowUnits.Size = new System.Drawing.Size(50, 17);
-            this.chBxProdTabShowUnits.TabIndex = 0;
-            this.chBxProdTabShowUnits.Text = "Units";
+            this.ttInformation.SetToolTip(this.chBxProdTabShowUnits, resources.GetString("chBxProdTabShowUnits.ToolTip"));
             this.chBxProdTabShowUnits.UseVisualStyleBackColor = true;
             this.chBxProdTabShowUnits.CheckedChanged += new System.EventHandler(this.chBxProdTabShowUnits_CheckedChanged);
             // 
             // gbProdPicture
             // 
+            resources.ApplyResources(this.gbProdPicture, "gbProdPicture");
             this.gbProdPicture.Controls.Add(this.lblProdPicturePreview);
             this.gbProdPicture.Controls.Add(this.pcBxProductionTabPreview);
             this.gbProdPicture.Controls.Add(this.txtProductionTabPictureSize);
             this.gbProdPicture.Controls.Add(this.lblProdPictureSize);
             this.gbProdPicture.LanguageFile = "";
-            this.gbProdPicture.Location = new System.Drawing.Point(590, 189);
             this.gbProdPicture.Name = "gbProdPicture";
-            this.gbProdPicture.Size = new System.Drawing.Size(196, 128);
-            this.gbProdPicture.TabIndex = 62;
             this.gbProdPicture.TabStop = false;
-            this.gbProdPicture.Text = "Picturesize";
+            this.ttInformation.SetToolTip(this.gbProdPicture, resources.GetString("gbProdPicture.ToolTip"));
             // 
             // lblProdPicturePreview
             // 
-            this.lblProdPicturePreview.AutoSize = true;
+            resources.ApplyResources(this.lblProdPicturePreview, "lblProdPicturePreview");
             this.lblProdPicturePreview.LanguageFile = "";
-            this.lblProdPicturePreview.Location = new System.Drawing.Point(12, 60);
             this.lblProdPicturePreview.Name = "lblProdPicturePreview";
-            this.lblProdPicturePreview.Size = new System.Drawing.Size(48, 13);
-            this.lblProdPicturePreview.TabIndex = 3;
-            this.lblProdPicturePreview.Text = "Preview:";
+            this.ttInformation.SetToolTip(this.lblProdPicturePreview, resources.GetString("lblProdPicturePreview.ToolTip"));
             // 
             // pcBxProductionTabPreview
             // 
+            resources.ApplyResources(this.pcBxProductionTabPreview, "pcBxProductionTabPreview");
             this.pcBxProductionTabPreview.DrawingFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pcBxProductionTabPreview.DrawingPoint = ((System.Drawing.PointF)(resources.GetObject("pcBxProductionTabPreview.DrawingPoint")));
             this.pcBxProductionTabPreview.DrawingText = "";
             this.pcBxProductionTabPreview.Image = global::AnotherSc2Hack.Properties.Resources.tu_Mule;
-            this.pcBxProductionTabPreview.Location = new System.Drawing.Point(89, 53);
             this.pcBxProductionTabPreview.Name = "pcBxProductionTabPreview";
-            this.pcBxProductionTabPreview.Size = new System.Drawing.Size(45, 45);
-            this.pcBxProductionTabPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcBxProductionTabPreview.TabIndex = 2;
             this.pcBxProductionTabPreview.TabStop = false;
+            this.ttInformation.SetToolTip(this.pcBxProductionTabPreview, resources.GetString("pcBxProductionTabPreview.ToolTip"));
             // 
             // txtProductionTabPictureSize
             // 
-            this.txtProductionTabPictureSize.Location = new System.Drawing.Point(89, 27);
+            resources.ApplyResources(this.txtProductionTabPictureSize, "txtProductionTabPictureSize");
             this.txtProductionTabPictureSize.Name = "txtProductionTabPictureSize";
-            this.txtProductionTabPictureSize.Size = new System.Drawing.Size(83, 20);
-            this.txtProductionTabPictureSize.TabIndex = 1;
+            this.ttInformation.SetToolTip(this.txtProductionTabPictureSize, resources.GetString("txtProductionTabPictureSize.ToolTip"));
             this.txtProductionTabPictureSize.TextChanged += new System.EventHandler(this.txtProdPictureSize_TextChanged);
             // 
             // lblProdPictureSize
             // 
-            this.lblProdPictureSize.AutoSize = true;
+            resources.ApplyResources(this.lblProdPictureSize, "lblProdPictureSize");
             this.lblProdPictureSize.LanguageFile = "";
-            this.lblProdPictureSize.Location = new System.Drawing.Point(12, 30);
             this.lblProdPictureSize.Name = "lblProdPictureSize";
-            this.lblProdPictureSize.Size = new System.Drawing.Size(50, 13);
-            this.lblProdPictureSize.TabIndex = 0;
-            this.lblProdPictureSize.Text = "Size (px):";
+            this.ttInformation.SetToolTip(this.lblProdPictureSize, resources.GetString("lblProdPictureSize.ToolTip"));
             // 
             // ProductionTabInformation
             // 
-            this.ProductionTabInformation.Location = new System.Drawing.Point(590, 18);
+            resources.ApplyResources(this.ProductionTabInformation, "ProductionTabInformation");
             this.ProductionTabInformation.Name = "ProductionTabInformation";
-            this.ProductionTabInformation.Size = new System.Drawing.Size(196, 156);
-            this.ProductionTabInformation.TabIndex = 3;
+            this.ttInformation.SetToolTip(this.ProductionTabInformation, resources.GetString("ProductionTabInformation.ToolTip"));
             // 
             // ProductionTabHotkeys
             // 
-            this.ProductionTabHotkeys.Location = new System.Drawing.Point(331, 219);
+            resources.ApplyResources(this.ProductionTabHotkeys, "ProductionTabHotkeys");
             this.ProductionTabHotkeys.Name = "ProductionTabHotkeys";
-            this.ProductionTabHotkeys.Size = new System.Drawing.Size(246, 128);
-            this.ProductionTabHotkeys.TabIndex = 2;
+            this.ttInformation.SetToolTip(this.ProductionTabHotkeys, resources.GetString("ProductionTabHotkeys.ToolTip"));
             // 
             // ProductionTabChatInput
             // 
-            this.ProductionTabChatInput.Location = new System.Drawing.Point(331, 18);
+            resources.ApplyResources(this.ProductionTabChatInput, "ProductionTabChatInput");
             this.ProductionTabChatInput.Name = "ProductionTabChatInput";
-            this.ProductionTabChatInput.Size = new System.Drawing.Size(246, 120);
-            this.ProductionTabChatInput.TabIndex = 1;
+            this.ttInformation.SetToolTip(this.ProductionTabChatInput, resources.GetString("ProductionTabChatInput.ToolTip"));
             // 
             // ProductionTabBasics
             // 
-            this.ProductionTabBasics.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.ProductionTabBasics, "ProductionTabBasics");
             this.ProductionTabBasics.Name = "ProductionTabBasics";
-            this.ProductionTabBasics.Size = new System.Drawing.Size(291, 367);
-            this.ProductionTabBasics.TabIndex = 0;
+            this.ttInformation.SetToolTip(this.ProductionTabBasics, resources.GetString("ProductionTabBasics.ToolTip"));
             // 
             // tcWorkerAutomation
             // 
-            this.tcWorkerAutomation.AutoScroll = true;
+            resources.ApplyResources(this.tcWorkerAutomation, "tcWorkerAutomation");
             this.tcWorkerAutomation.BackColor = System.Drawing.SystemColors.Control;
             this.tcWorkerAutomation.Controls.Add(this.workerProductionBasics);
             this.tcWorkerAutomation.Controls.Add(this.workerProductionHotkeys);
-            this.tcWorkerAutomation.Location = new System.Drawing.Point(4, 22);
             this.tcWorkerAutomation.Name = "tcWorkerAutomation";
-            this.tcWorkerAutomation.Size = new System.Drawing.Size(940, 405);
-            this.tcWorkerAutomation.TabIndex = 15;
-            this.tcWorkerAutomation.Text = "Worker Production";
+            this.ttInformation.SetToolTip(this.tcWorkerAutomation, resources.GetString("tcWorkerAutomation.ToolTip"));
             // 
             // workerProductionBasics
             // 
-            this.workerProductionBasics.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.workerProductionBasics, "workerProductionBasics");
             this.workerProductionBasics.Name = "workerProductionBasics";
-            this.workerProductionBasics.Size = new System.Drawing.Size(527, 273);
-            this.workerProductionBasics.TabIndex = 3;
+            this.ttInformation.SetToolTip(this.workerProductionBasics, resources.GetString("workerProductionBasics.ToolTip"));
             // 
             // workerProductionHotkeys
             // 
-            this.workerProductionHotkeys.Location = new System.Drawing.Point(563, 18);
+            resources.ApplyResources(this.workerProductionHotkeys, "workerProductionHotkeys");
             this.workerProductionHotkeys.Name = "workerProductionHotkeys";
-            this.workerProductionHotkeys.Size = new System.Drawing.Size(246, 128);
-            this.workerProductionHotkeys.TabIndex = 1;
+            this.ttInformation.SetToolTip(this.workerProductionHotkeys, resources.GetString("workerProductionHotkeys.ToolTip"));
             // 
             // tcVarious
             // 
+            resources.ApplyResources(this.tcVarious, "tcVarious");
             this.tcVarious.BackColor = System.Drawing.SystemColors.Control;
             this.tcVarious.Controls.Add(this.Custom_Various);
-            this.tcVarious.Location = new System.Drawing.Point(4, 22);
             this.tcVarious.Name = "tcVarious";
-            this.tcVarious.Size = new System.Drawing.Size(940, 405);
-            this.tcVarious.TabIndex = 14;
-            this.tcVarious.Text = "Various";
+            this.ttInformation.SetToolTip(this.tcVarious, resources.GetString("tcVarious.ToolTip"));
             // 
             // Custom_Various
             // 
-            this.Custom_Various.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.Custom_Various, "Custom_Various");
             this.Custom_Various.Name = "Custom_Various";
-            this.Custom_Various.Size = new System.Drawing.Size(310, 170);
-            this.Custom_Various.TabIndex = 0;
+            this.ttInformation.SetToolTip(this.Custom_Various, resources.GetString("Custom_Various.ToolTip"));
             // 
             // tcBugs
             // 
+            resources.ApplyResources(this.tcBugs, "tcBugs");
             this.tcBugs.BackColor = System.Drawing.SystemColors.Control;
             this.tcBugs.Controls.Add(this.CustBugs);
-            this.tcBugs.Location = new System.Drawing.Point(4, 22);
             this.tcBugs.Name = "tcBugs";
-            this.tcBugs.Size = new System.Drawing.Size(940, 405);
-            this.tcBugs.TabIndex = 9;
-            this.tcBugs.Text = "Bugs";
+            this.ttInformation.SetToolTip(this.tcBugs, resources.GetString("tcBugs.ToolTip"));
             // 
             // CustBugs
             // 
-            this.CustBugs.Location = new System.Drawing.Point(30, 18);
+            resources.ApplyResources(this.CustBugs, "CustBugs");
             this.CustBugs.Name = "CustBugs";
-            this.CustBugs.Size = new System.Drawing.Size(669, 392);
-            this.CustBugs.TabIndex = 0;
+            this.ttInformation.SetToolTip(this.CustBugs, resources.GetString("CustBugs.ToolTip"));
             // 
             // tcCredits
             // 
+            resources.ApplyResources(this.tcCredits, "tcCredits");
             this.tcCredits.BackColor = System.Drawing.SystemColors.Control;
             this.tcCredits.Controls.Add(this.label92);
-            this.tcCredits.Location = new System.Drawing.Point(4, 22);
             this.tcCredits.Name = "tcCredits";
-            this.tcCredits.Size = new System.Drawing.Size(940, 405);
-            this.tcCredits.TabIndex = 8;
-            this.tcCredits.Text = "Credits";
+            this.ttInformation.SetToolTip(this.tcCredits, resources.GetString("tcCredits.ToolTip"));
             this.tcCredits.Paint += new System.Windows.Forms.PaintEventHandler(this.tcCredits_Paint);
             // 
             // label92
             // 
-            this.label92.AutoSize = true;
-            this.label92.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label92.Location = new System.Drawing.Point(369, 16);
+            resources.ApplyResources(this.label92, "label92");
             this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(174, 24);
-            this.label92.TabIndex = 0;
-            this.label92.Text = "Special thanks to:";
+            this.ttInformation.SetToolTip(this.label92, resources.GetString("label92.ToolTip"));
             // 
             // tcBenchmark
             // 
+            resources.ApplyResources(this.tcBenchmark, "tcBenchmark");
             this.tcBenchmark.BackColor = System.Drawing.SystemColors.Control;
             this.tcBenchmark.Controls.Add(this.GlobalBenchmark);
-            this.tcBenchmark.Location = new System.Drawing.Point(4, 22);
             this.tcBenchmark.Name = "tcBenchmark";
-            this.tcBenchmark.Size = new System.Drawing.Size(940, 405);
-            this.tcBenchmark.TabIndex = 12;
-            this.tcBenchmark.Text = "Benchmark";
+            this.ttInformation.SetToolTip(this.tcBenchmark, resources.GetString("tcBenchmark.ToolTip"));
             // 
             // GlobalBenchmark
             // 
-            this.GlobalBenchmark.Location = new System.Drawing.Point(5, 3);
+            resources.ApplyResources(this.GlobalBenchmark, "GlobalBenchmark");
             this.GlobalBenchmark.Name = "GlobalBenchmark";
-            this.GlobalBenchmark.Size = new System.Drawing.Size(390, 309);
-            this.GlobalBenchmark.TabIndex = 0;
+            this.ttInformation.SetToolTip(this.GlobalBenchmark, resources.GetString("GlobalBenchmark.ToolTip"));
             // 
             // tcDebug
             // 
+            resources.ApplyResources(this.tcDebug, "tcDebug");
             this.tcDebug.BackColor = System.Drawing.SystemColors.Control;
             this.tcDebug.Controls.Add(this.CustDebug);
-            this.tcDebug.Location = new System.Drawing.Point(4, 22);
             this.tcDebug.Name = "tcDebug";
-            this.tcDebug.Size = new System.Drawing.Size(940, 405);
-            this.tcDebug.TabIndex = 11;
-            this.tcDebug.Text = "Debug";
+            this.ttInformation.SetToolTip(this.tcDebug, resources.GetString("tcDebug.ToolTip"));
             // 
             // CustDebug
             // 
-            this.CustDebug.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.CustDebug, "CustDebug");
             this.CustDebug.Name = "CustDebug";
-            this.CustDebug.Size = new System.Drawing.Size(902, 445);
-            this.CustDebug.TabIndex = 0;
+            this.ttInformation.SetToolTip(this.CustDebug, resources.GetString("CustDebug.ToolTip"));
             // 
             // btnProduction
             // 
-            this.btnProduction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnProduction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProduction.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProduction.Location = new System.Drawing.Point(579, 449);
+            resources.ApplyResources(this.btnProduction, "btnProduction");
             this.btnProduction.Name = "btnProduction";
-            this.btnProduction.Size = new System.Drawing.Size(78, 23);
-            this.btnProduction.TabIndex = 7;
-            this.btnProduction.Text = "Production";
+            this.ttInformation.SetToolTip(this.btnProduction, resources.GetString("btnProduction.ToolTip"));
             this.btnProduction.UseVisualStyleBackColor = true;
             this.btnProduction.Click += new System.EventHandler(this.btnProduction_Click);
             // 
             // btnLostUnits
             // 
-            this.btnLostUnits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLostUnits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLostUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLostUnits.Location = new System.Drawing.Point(663, 449);
+            resources.ApplyResources(this.btnLostUnits, "btnLostUnits");
             this.btnLostUnits.Name = "btnLostUnits";
-            this.btnLostUnits.Size = new System.Drawing.Size(78, 23);
-            this.btnLostUnits.TabIndex = 8;
-            this.btnLostUnits.Text = "Lost Units";
+            this.ttInformation.SetToolTip(this.btnLostUnits, resources.GetString("btnLostUnits.ToolTip"));
             this.btnLostUnits.UseVisualStyleBackColor = true;
-            this.btnLostUnits.Visible = false;
             this.btnLostUnits.Click += new System.EventHandler(this.btnLostUnits_Click);
             // 
             // btnChangeBorderstyle
             // 
-            this.btnChangeBorderstyle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChangeBorderstyle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeBorderstyle.Location = new System.Drawing.Point(865, 449);
+            resources.ApplyResources(this.btnChangeBorderstyle, "btnChangeBorderstyle");
             this.btnChangeBorderstyle.Name = "btnChangeBorderstyle";
-            this.btnChangeBorderstyle.Size = new System.Drawing.Size(95, 23);
-            this.btnChangeBorderstyle.TabIndex = 27;
-            this.btnChangeBorderstyle.Text = "Adjust Panels";
+            this.ttInformation.SetToolTip(this.btnChangeBorderstyle, resources.GetString("btnChangeBorderstyle.ToolTip"));
             this.btnChangeBorderstyle.UseVisualStyleBackColor = true;
             this.btnChangeBorderstyle.Click += new System.EventHandler(this.btnChangeBorderstyle_Click);
             // 
@@ -1187,9 +1003,8 @@
             // 
             // MainHandler
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 484);
             this.Controls.Add(this.btnChangeBorderstyle);
             this.Controls.Add(this.btnLostUnits);
             this.Controls.Add(this.btnProduction);
@@ -1204,7 +1019,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainHandler";
-            this.Text = "MainHandler";
+            this.ttInformation.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainHandler_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainHandler_FormClosed);
             this.Load += new System.EventHandler(this.MainHandler_Load);

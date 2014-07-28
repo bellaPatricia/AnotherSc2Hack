@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gbPersonalOverlay = new LanguageGroupbox();
-            this.gbClock = new LanguageGroupbox();
-            this.chBxClock = new LanguageCheckbox();
-            this.gbApm = new LanguageGroupbox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomVarious));
+            this.gbPersonalOverlay = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
+            this.gbClock = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
+            this.chBxClock = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
+            this.gbApm = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.txtApmAlertLimit = new System.Windows.Forms.TextBox();
-            this.chBxApmAlert = new LanguageCheckbox();
-            this.chBxApm = new LanguageCheckbox();
+            this.chBxApmAlert = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
+            this.chBxApm = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.ttVarious = new System.Windows.Forms.ToolTip(this.components);
             this.gbPersonalOverlay.SuspendLayout();
             this.gbClock.SuspendLayout();
@@ -44,91 +45,72 @@
             // 
             // gbPersonalOverlay
             // 
-            this.gbPersonalOverlay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.gbPersonalOverlay, "gbPersonalOverlay");
             this.gbPersonalOverlay.Controls.Add(this.gbClock);
             this.gbPersonalOverlay.Controls.Add(this.gbApm);
-            this.gbPersonalOverlay.Location = new System.Drawing.Point(0, 0);
+            this.gbPersonalOverlay.LanguageFile = "";
             this.gbPersonalOverlay.Name = "gbPersonalOverlay";
-            this.gbPersonalOverlay.Size = new System.Drawing.Size(311, 176);
-            this.gbPersonalOverlay.TabIndex = 0;
             this.gbPersonalOverlay.TabStop = false;
-            this.gbPersonalOverlay.Text = "Personal Overlay";
+            this.ttVarious.SetToolTip(this.gbPersonalOverlay, resources.GetString("gbPersonalOverlay.ToolTip"));
             // 
             // gbClock
             // 
+            resources.ApplyResources(this.gbClock, "gbClock");
             this.gbClock.Controls.Add(this.chBxClock);
-            this.gbClock.Location = new System.Drawing.Point(24, 107);
+            this.gbClock.LanguageFile = "";
             this.gbClock.Name = "gbClock";
-            this.gbClock.Size = new System.Drawing.Size(261, 45);
-            this.gbClock.TabIndex = 3;
             this.gbClock.TabStop = false;
-            this.gbClock.Text = "Clock";
+            this.ttVarious.SetToolTip(this.gbClock, resources.GetString("gbClock.ToolTip"));
             // 
             // chBxClock
             // 
-            this.chBxClock.AutoSize = true;
-            this.chBxClock.Location = new System.Drawing.Point(24, 19);
+            resources.ApplyResources(this.chBxClock, "chBxClock");
+            this.chBxClock.LanguageFile = "";
             this.chBxClock.Name = "chBxClock";
-            this.chBxClock.Size = new System.Drawing.Size(83, 17);
-            this.chBxClock.TabIndex = 1;
-            this.chBxClock.Text = "Show Clock";
-            this.ttVarious.SetToolTip(this.chBxClock, "This will show the current time.\r\nBased on your system\'s clock.\r\n\r\nThis is printe" +
-        "d as 24h clock!");
+            this.ttVarious.SetToolTip(this.chBxClock, resources.GetString("chBxClock.ToolTip"));
             this.chBxClock.UseVisualStyleBackColor = true;
             // 
             // gbApm
             // 
+            resources.ApplyResources(this.gbApm, "gbApm");
             this.gbApm.Controls.Add(this.txtApmAlertLimit);
             this.gbApm.Controls.Add(this.chBxApmAlert);
             this.gbApm.Controls.Add(this.chBxApm);
-            this.gbApm.Location = new System.Drawing.Point(24, 19);
+            this.gbApm.LanguageFile = "";
             this.gbApm.Name = "gbApm";
-            this.gbApm.Size = new System.Drawing.Size(261, 82);
-            this.gbApm.TabIndex = 2;
             this.gbApm.TabStop = false;
-            this.gbApm.Text = "Apm";
+            this.ttVarious.SetToolTip(this.gbApm, resources.GetString("gbApm.ToolTip"));
             // 
             // txtApmAlertLimit
             // 
-            this.txtApmAlertLimit.Location = new System.Drawing.Point(142, 46);
+            resources.ApplyResources(this.txtApmAlertLimit, "txtApmAlertLimit");
             this.txtApmAlertLimit.Name = "txtApmAlertLimit";
-            this.txtApmAlertLimit.Size = new System.Drawing.Size(100, 20);
-            this.txtApmAlertLimit.TabIndex = 2;
-            this.ttVarious.SetToolTip(this.txtApmAlertLimit, "This is the minimum APM amount.\r\nThe color of the APM- window will\r\nchange to red" +
-        "!");
+            this.ttVarious.SetToolTip(this.txtApmAlertLimit, resources.GetString("txtApmAlertLimit.ToolTip"));
             this.txtApmAlertLimit.TextChanged += new System.EventHandler(this.txtApmAlertLimit_TextChanged);
             // 
             // chBxApmAlert
             // 
-            this.chBxApmAlert.AutoSize = true;
-            this.chBxApmAlert.Location = new System.Drawing.Point(24, 49);
+            resources.ApplyResources(this.chBxApmAlert, "chBxApmAlert");
+            this.chBxApmAlert.LanguageFile = "";
             this.chBxApmAlert.Name = "chBxApmAlert";
-            this.chBxApmAlert.Size = new System.Drawing.Size(71, 17);
-            this.chBxApmAlert.TabIndex = 1;
-            this.chBxApmAlert.Text = "Apm Alert";
-            this.ttVarious.SetToolTip(this.chBxApmAlert, "Allows you to know when your APM\r\nis dropping. Could improve your speed!");
+            this.ttVarious.SetToolTip(this.chBxApmAlert, resources.GetString("chBxApmAlert.ToolTip"));
             this.chBxApmAlert.UseVisualStyleBackColor = true;
             // 
             // chBxApm
             // 
-            this.chBxApm.AutoSize = true;
-            this.chBxApm.Location = new System.Drawing.Point(24, 19);
+            resources.ApplyResources(this.chBxApm, "chBxApm");
+            this.chBxApm.LanguageFile = "";
             this.chBxApm.Name = "chBxApm";
-            this.chBxApm.Size = new System.Drawing.Size(77, 17);
-            this.chBxApm.TabIndex = 0;
-            this.chBxApm.Text = "Show Apm";
-            this.ttVarious.SetToolTip(this.chBxApm, "Shows your current APM\r\n(only in game you play!)");
+            this.ttVarious.SetToolTip(this.chBxApm, resources.GetString("chBxApm.ToolTip"));
             this.chBxApm.UseVisualStyleBackColor = true;
             // 
             // CustomVarious
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbPersonalOverlay);
             this.Name = "CustomVarious";
-            this.Size = new System.Drawing.Size(311, 176);
+            this.ttVarious.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.gbPersonalOverlay.ResumeLayout(false);
             this.gbClock.ResumeLayout(false);
             this.gbClock.PerformLayout();

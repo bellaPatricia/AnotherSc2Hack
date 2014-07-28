@@ -117,4 +117,252 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="txtPosY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 57</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lblHeight.Parent" xml:space="preserve">
+    <value>gbInformation</value>
+  </data>
+  <data name="&gt;&gt;txtPosY.Parent" xml:space="preserve">
+    <value>gbInformation</value>
+  </data>
+  <data name="lblPosY.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPosX.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPosX.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtHeight.Name" xml:space="preserve">
+    <value>txtHeight</value>
+  </data>
+  <data name="txtWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 20</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="&gt;&gt;lblPosX.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="txtPosX.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lblWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 90</value>
+  </data>
+  <data name="&gt;&gt;txtWidth.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtPosX.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="lblPosY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 60</value>
+  </data>
+  <data name="gbInformation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblPosX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
+  </data>
+  <data name="&gt;&gt;txtWidth.Parent" xml:space="preserve">
+    <value>gbInformation</value>
+  </data>
+  <data name="&gt;&gt;gbInformation.Name" xml:space="preserve">
+    <value>gbInformation</value>
+  </data>
+  <data name="&gt;&gt;lblPosY.Parent" xml:space="preserve">
+    <value>gbInformation</value>
+  </data>
+  <data name="lblHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtHeight.Parent" xml:space="preserve">
+    <value>gbInformation</value>
+  </data>
+  <data name="&gt;&gt;txtHeight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblWidth.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;gbInformation.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblWidth.Text" xml:space="preserve">
+    <value>Width:</value>
+  </data>
+  <data name="&gt;&gt;lblPosY.Name" xml:space="preserve">
+    <value>lblPosY</value>
+  </data>
+  <data name="txtHeight.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lblPosX.Name" xml:space="preserve">
+    <value>lblPosX</value>
+  </data>
+  <data name="txtPosX.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="txtWidth.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblPosX.Parent" xml:space="preserve">
+    <value>gbInformation</value>
+  </data>
+  <data name="&gt;&gt;lblHeight.Name" xml:space="preserve">
+    <value>lblHeight</value>
+  </data>
+  <data name="&gt;&gt;lblWidth.Name" xml:space="preserve">
+    <value>lblWidth</value>
+  </data>
+  <data name="&gt;&gt;lblHeight.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtPosY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 120</value>
+  </data>
+  <data name="txtPosX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 20</value>
+  </data>
+  <data name="&gt;&gt;txtPosX.Name" xml:space="preserve">
+    <value>txtPosX</value>
+  </data>
+  <data name="lblHeight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtPosX.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblPosX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 30</value>
+  </data>
+  <data name="&gt;&gt;lblPosY.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtPosY.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;txtHeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gbInformation.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="lblWidth.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="gbInformation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 156</value>
+  </data>
+  <data name="lblHeight.Text" xml:space="preserve">
+    <value>Height:</value>
+  </data>
+  <data name="&gt;&gt;txtPosX.Parent" xml:space="preserve">
+    <value>gbInformation</value>
+  </data>
+  <data name="txtHeight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 117</value>
+  </data>
+  <data name="txtWidth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 87</value>
+  </data>
+  <data name="gbInformation.Text" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="txtPosY.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 156</value>
+  </data>
+  <data name="txtHeight.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblPosX.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="txtPosY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 20</value>
+  </data>
+  <data name="&gt;&gt;lblWidth.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;gbInformation.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblHeight.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtPosY.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 20</value>
+  </data>
+  <data name="&gt;&gt;txtPosY.Name" xml:space="preserve">
+    <value>txtPosY</value>
+  </data>
+  <data name="lblHeight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="&gt;&gt;lblWidth.Parent" xml:space="preserve">
+    <value>gbInformation</value>
+  </data>
+  <data name="lblWidth.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPosY.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;gbInformation.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="lblPosY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
+  </data>
+  <data name="lblPosY.Text" xml:space="preserve">
+    <value>Position Y:</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.AbstractUserControl, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="lblPosX.Text" xml:space="preserve">
+    <value>Position X:</value>
+  </data>
+  <data name="&gt;&gt;txtWidth.Name" xml:space="preserve">
+    <value>txtWidth</value>
+  </data>
+  <data name="&gt;&gt;txtWidth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtPosX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 27</value>
+  </data>
+  <data name="&gt;&gt;lblPosY.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>de</value>
+  </metadata>
 </root>

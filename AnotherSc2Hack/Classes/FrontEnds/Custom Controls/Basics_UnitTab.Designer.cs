@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicsUnitTab));
             this.gbUnittabBasics = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.lblRemoveSpellcounter = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.cmBxRemSpellCounter = new System.Windows.Forms.ComboBox();
@@ -58,9 +59,7 @@
             // 
             // gbUnittabBasics
             // 
-            this.gbUnittabBasics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.gbUnittabBasics, "gbUnittabBasics");
             this.gbUnittabBasics.Controls.Add(this.lblRemoveSpellcounter);
             this.gbUnittabBasics.Controls.Add(this.cmBxRemSpellCounter);
             this.gbUnittabBasics.Controls.Add(this.lblRemoveChronoboost);
@@ -85,255 +84,179 @@
             this.gbUnittabBasics.Controls.Add(this.lblSplitBuildings);
             this.gbUnittabBasics.Controls.Add(this.cmBxRemLocalplayer);
             this.gbUnittabBasics.LanguageFile = "";
-            this.gbUnittabBasics.Location = new System.Drawing.Point(0, 0);
             this.gbUnittabBasics.Name = "gbUnittabBasics";
-            this.gbUnittabBasics.Size = new System.Drawing.Size(291, 385);
-            this.gbUnittabBasics.TabIndex = 60;
             this.gbUnittabBasics.TabStop = false;
-            this.gbUnittabBasics.Text = "Basic Panel Options";
             // 
             // lblRemoveSpellcounter
             // 
-            this.lblRemoveSpellcounter.AutoSize = true;
+            resources.ApplyResources(this.lblRemoveSpellcounter, "lblRemoveSpellcounter");
             this.lblRemoveSpellcounter.LanguageFile = "";
-            this.lblRemoveSpellcounter.Location = new System.Drawing.Point(25, 270);
             this.lblRemoveSpellcounter.Name = "lblRemoveSpellcounter";
-            this.lblRemoveSpellcounter.Size = new System.Drawing.Size(115, 13);
-            this.lblRemoveSpellcounter.TabIndex = 65;
-            this.lblRemoveSpellcounter.Text = "Remove Spell counter:";
             // 
             // cmBxRemSpellCounter
             // 
+            resources.ApplyResources(this.cmBxRemSpellCounter, "cmBxRemSpellCounter");
             this.cmBxRemSpellCounter.FormattingEnabled = true;
             this.cmBxRemSpellCounter.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemSpellCounter.Location = new System.Drawing.Point(153, 267);
+            resources.GetString("cmBxRemSpellCounter.Items"),
+            resources.GetString("cmBxRemSpellCounter.Items1")});
             this.cmBxRemSpellCounter.Name = "cmBxRemSpellCounter";
-            this.cmBxRemSpellCounter.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemSpellCounter.TabIndex = 66;
             // 
             // lblRemoveChronoboost
             // 
-            this.lblRemoveChronoboost.AutoSize = true;
+            resources.ApplyResources(this.lblRemoveChronoboost, "lblRemoveChronoboost");
             this.lblRemoveChronoboost.LanguageFile = "";
-            this.lblRemoveChronoboost.Location = new System.Drawing.Point(25, 240);
             this.lblRemoveChronoboost.Name = "lblRemoveChronoboost";
-            this.lblRemoveChronoboost.Size = new System.Drawing.Size(113, 13);
-            this.lblRemoveChronoboost.TabIndex = 63;
-            this.lblRemoveChronoboost.Text = "Remove Chronoboost:";
             // 
             // cmBxRemChronoboost
             // 
+            resources.ApplyResources(this.cmBxRemChronoboost, "cmBxRemChronoboost");
             this.cmBxRemChronoboost.FormattingEnabled = true;
             this.cmBxRemChronoboost.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemChronoboost.Location = new System.Drawing.Point(153, 237);
+            resources.GetString("cmBxRemChronoboost.Items"),
+            resources.GetString("cmBxRemChronoboost.Items1")});
             this.cmBxRemChronoboost.Name = "cmBxRemChronoboost";
-            this.cmBxRemChronoboost.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemChronoboost.TabIndex = 64;
             // 
             // lblRemoveProdLine
             // 
-            this.lblRemoveProdLine.AutoSize = true;
+            resources.ApplyResources(this.lblRemoveProdLine, "lblRemoveProdLine");
             this.lblRemoveProdLine.LanguageFile = "";
-            this.lblRemoveProdLine.Location = new System.Drawing.Point(25, 210);
             this.lblRemoveProdLine.Name = "lblRemoveProdLine";
-            this.lblRemoveProdLine.Size = new System.Drawing.Size(97, 13);
-            this.lblRemoveProdLine.TabIndex = 61;
-            this.lblRemoveProdLine.Text = "Remove Prod. line:";
             // 
             // cmBxRemProdLine
             // 
+            resources.ApplyResources(this.cmBxRemProdLine, "cmBxRemProdLine");
             this.cmBxRemProdLine.FormattingEnabled = true;
             this.cmBxRemProdLine.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemProdLine.Location = new System.Drawing.Point(153, 207);
+            resources.GetString("cmBxRemProdLine.Items"),
+            resources.GetString("cmBxRemProdLine.Items1")});
             this.cmBxRemProdLine.Name = "cmBxRemProdLine";
-            this.cmBxRemProdLine.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemProdLine.TabIndex = 62;
             // 
             // lblRemoveClantag
             // 
-            this.lblRemoveClantag.AutoSize = true;
+            resources.ApplyResources(this.lblRemoveClantag, "lblRemoveClantag");
             this.lblRemoveClantag.LanguageFile = "";
-            this.lblRemoveClantag.Location = new System.Drawing.Point(25, 180);
             this.lblRemoveClantag.Name = "lblRemoveClantag";
-            this.lblRemoveClantag.Size = new System.Drawing.Size(93, 13);
-            this.lblRemoveClantag.TabIndex = 59;
-            this.lblRemoveClantag.Text = "Remove ClanTag:";
             // 
             // cmBxRemClanTag
             // 
+            resources.ApplyResources(this.cmBxRemClanTag, "cmBxRemClanTag");
             this.cmBxRemClanTag.FormattingEnabled = true;
             this.cmBxRemClanTag.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemClanTag.Location = new System.Drawing.Point(153, 177);
+            resources.GetString("cmBxRemClanTag.Items"),
+            resources.GetString("cmBxRemClanTag.Items1")});
             this.cmBxRemClanTag.Name = "cmBxRemClanTag";
-            this.cmBxRemClanTag.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemClanTag.TabIndex = 60;
             // 
             // lblFontName
             // 
-            this.lblFontName.AutoSize = true;
+            resources.ApplyResources(this.lblFontName, "lblFontName");
             this.lblFontName.LanguageFile = "";
-            this.lblFontName.Location = new System.Drawing.Point(25, 300);
             this.lblFontName.Name = "lblFontName";
-            this.lblFontName.Size = new System.Drawing.Size(62, 13);
-            this.lblFontName.TabIndex = 57;
-            this.lblFontName.Text = "Font Name:";
             // 
             // btnFontName
             // 
-            this.btnFontName.Location = new System.Drawing.Point(153, 295);
+            resources.ApplyResources(this.btnFontName, "btnFontName");
             this.btnFontName.Name = "btnFontName";
-            this.btnFontName.Size = new System.Drawing.Size(121, 23);
-            this.btnFontName.TabIndex = 58;
-            this.btnFontName.Text = "FontName:";
             this.btnFontName.UseVisualStyleBackColor = true;
             // 
             // lblRemoveAi
             // 
-            this.lblRemoveAi.AutoSize = true;
+            resources.ApplyResources(this.lblRemoveAi, "lblRemoveAi");
             this.lblRemoveAi.LanguageFile = "";
-            this.lblRemoveAi.Location = new System.Drawing.Point(25, 30);
             this.lblRemoveAi.Name = "lblRemoveAi";
-            this.lblRemoveAi.Size = new System.Drawing.Size(62, 13);
-            this.lblRemoveAi.TabIndex = 44;
-            this.lblRemoveAi.Text = "Remove Ai:";
             // 
             // lblRemoveAllie
             // 
-            this.lblRemoveAllie.AutoSize = true;
+            resources.ApplyResources(this.lblRemoveAllie, "lblRemoveAllie");
             this.lblRemoveAllie.LanguageFile = "";
-            this.lblRemoveAllie.Location = new System.Drawing.Point(25, 60);
             this.lblRemoveAllie.Name = "lblRemoveAllie";
-            this.lblRemoveAllie.Size = new System.Drawing.Size(72, 13);
-            this.lblRemoveAllie.TabIndex = 45;
-            this.lblRemoveAllie.Text = "Remove Allie:";
             // 
             // lblRemoveNeutral
             // 
-            this.lblRemoveNeutral.AutoSize = true;
+            resources.ApplyResources(this.lblRemoveNeutral, "lblRemoveNeutral");
             this.lblRemoveNeutral.LanguageFile = "";
-            this.lblRemoveNeutral.Location = new System.Drawing.Point(25, 90);
             this.lblRemoveNeutral.Name = "lblRemoveNeutral";
-            this.lblRemoveNeutral.Size = new System.Drawing.Size(87, 13);
-            this.lblRemoveNeutral.TabIndex = 46;
-            this.lblRemoveNeutral.Text = "Remove Neutral:";
             // 
             // lblOpacity
             // 
-            this.lblOpacity.AutoSize = true;
-            this.lblOpacity.Location = new System.Drawing.Point(150, 362);
+            resources.ApplyResources(this.lblOpacity, "lblOpacity");
             this.lblOpacity.Name = "lblOpacity";
-            this.lblOpacity.Size = new System.Drawing.Size(35, 13);
-            this.lblOpacity.TabIndex = 56;
-            this.lblOpacity.Text = "label9";
             // 
             // lblRemoveLocalplayer
             // 
-            this.lblRemoveLocalplayer.AutoSize = true;
+            resources.ApplyResources(this.lblRemoveLocalplayer, "lblRemoveLocalplayer");
             this.lblRemoveLocalplayer.LanguageFile = "";
-            this.lblRemoveLocalplayer.Location = new System.Drawing.Point(25, 120);
             this.lblRemoveLocalplayer.Name = "lblRemoveLocalplayer";
-            this.lblRemoveLocalplayer.Size = new System.Drawing.Size(107, 13);
-            this.lblRemoveLocalplayer.TabIndex = 47;
-            this.lblRemoveLocalplayer.Text = "Remove Localplayer:";
             // 
             // tbOpacity
             // 
-            this.tbOpacity.Location = new System.Drawing.Point(153, 330);
+            resources.ApplyResources(this.tbOpacity, "tbOpacity");
             this.tbOpacity.Maximum = 100;
             this.tbOpacity.Name = "tbOpacity";
-            this.tbOpacity.Size = new System.Drawing.Size(121, 45);
-            this.tbOpacity.TabIndex = 55;
             // 
             // cmBxRemAi
             // 
+            resources.ApplyResources(this.cmBxRemAi, "cmBxRemAi");
             this.cmBxRemAi.FormattingEnabled = true;
             this.cmBxRemAi.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemAi.Location = new System.Drawing.Point(153, 27);
+            resources.GetString("cmBxRemAi.Items"),
+            resources.GetString("cmBxRemAi.Items1")});
             this.cmBxRemAi.Name = "cmBxRemAi";
-            this.cmBxRemAi.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemAi.TabIndex = 48;
             // 
             // lblOpacityText
             // 
-            this.lblOpacityText.AutoSize = true;
+            resources.ApplyResources(this.lblOpacityText, "lblOpacityText");
             this.lblOpacityText.LanguageFile = "";
-            this.lblOpacityText.Location = new System.Drawing.Point(25, 330);
             this.lblOpacityText.Name = "lblOpacityText";
-            this.lblOpacityText.Size = new System.Drawing.Size(46, 13);
-            this.lblOpacityText.TabIndex = 54;
-            this.lblOpacityText.Text = "Opacity:";
             // 
             // cmBxRemAllie
             // 
+            resources.ApplyResources(this.cmBxRemAllie, "cmBxRemAllie");
             this.cmBxRemAllie.FormattingEnabled = true;
             this.cmBxRemAllie.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemAllie.Location = new System.Drawing.Point(153, 57);
+            resources.GetString("cmBxRemAllie.Items"),
+            resources.GetString("cmBxRemAllie.Items1")});
             this.cmBxRemAllie.Name = "cmBxRemAllie";
-            this.cmBxRemAllie.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemAllie.TabIndex = 49;
             // 
             // cmBxSplitBuildings
             // 
+            resources.ApplyResources(this.cmBxSplitBuildings, "cmBxSplitBuildings");
             this.cmBxSplitBuildings.FormattingEnabled = true;
             this.cmBxSplitBuildings.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxSplitBuildings.Location = new System.Drawing.Point(153, 147);
+            resources.GetString("cmBxSplitBuildings.Items"),
+            resources.GetString("cmBxSplitBuildings.Items1")});
             this.cmBxSplitBuildings.Name = "cmBxSplitBuildings";
-            this.cmBxSplitBuildings.Size = new System.Drawing.Size(121, 21);
-            this.cmBxSplitBuildings.TabIndex = 53;
             // 
             // cmBxRemNeutral
             // 
+            resources.ApplyResources(this.cmBxRemNeutral, "cmBxRemNeutral");
             this.cmBxRemNeutral.FormattingEnabled = true;
             this.cmBxRemNeutral.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemNeutral.Location = new System.Drawing.Point(153, 87);
+            resources.GetString("cmBxRemNeutral.Items"),
+            resources.GetString("cmBxRemNeutral.Items1")});
             this.cmBxRemNeutral.Name = "cmBxRemNeutral";
-            this.cmBxRemNeutral.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemNeutral.TabIndex = 50;
             // 
             // lblSplitBuildings
             // 
-            this.lblSplitBuildings.AutoSize = true;
+            resources.ApplyResources(this.lblSplitBuildings, "lblSplitBuildings");
             this.lblSplitBuildings.LanguageFile = "";
-            this.lblSplitBuildings.Location = new System.Drawing.Point(25, 150);
             this.lblSplitBuildings.Name = "lblSplitBuildings";
-            this.lblSplitBuildings.Size = new System.Drawing.Size(107, 13);
-            this.lblSplitBuildings.TabIndex = 52;
-            this.lblSplitBuildings.Text = "Split Buildings/ Units:";
             // 
             // cmBxRemLocalplayer
             // 
+            resources.ApplyResources(this.cmBxRemLocalplayer, "cmBxRemLocalplayer");
             this.cmBxRemLocalplayer.FormattingEnabled = true;
             this.cmBxRemLocalplayer.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmBxRemLocalplayer.Location = new System.Drawing.Point(153, 117);
+            resources.GetString("cmBxRemLocalplayer.Items"),
+            resources.GetString("cmBxRemLocalplayer.Items1")});
             this.cmBxRemLocalplayer.Name = "cmBxRemLocalplayer";
-            this.cmBxRemLocalplayer.Size = new System.Drawing.Size(121, 21);
-            this.cmBxRemLocalplayer.TabIndex = 51;
             // 
             // BasicsUnitTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbUnittabBasics);
             this.Name = "BasicsUnitTab";
-            this.Size = new System.Drawing.Size(291, 388);
             this.gbUnittabBasics.ResumeLayout(false);
             this.gbUnittabBasics.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).EndInit();
