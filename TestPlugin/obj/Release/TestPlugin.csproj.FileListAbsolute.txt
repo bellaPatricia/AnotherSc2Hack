@@ -1,0 +1,8 @@
+D:\Programmieren\AnotherSc2Hack\TestPlugin\bin\Release\TestPlugin.dll
+D:\Programmieren\AnotherSc2Hack\TestPlugin\bin\Release\TestPlugin.pdb
+D:\Programmieren\AnotherSc2Hack\TestPlugin\bin\Release\PluginInterface.pdb
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Release\Plugins\TestPlugin.dll
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Release\Plugins\TestPlugin.pdb
+D:\Programmieren\AnotherSc2Hack\TestPlugin\obj\Release\TestPlugin.csprojResolveAssemblyReference.cache
+D:\Programmieren\AnotherSc2Hack\TestPlugin\obj\Release\TestPlugin.dll
+D:\Programmieren\AnotherSc2Hack\TestPlugin\obj\Release\TestPlugin.pdb

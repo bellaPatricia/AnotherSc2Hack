@@ -1,0 +1,13 @@
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Debug\Plugins\PluginUpgradeAlert.exe.config
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Debug\Plugins\PluginUpgradeAlert.exe
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Debug\Plugins\PluginUpgradeAlert.pdb
+D:\Programmieren\AnotherSc2Hack\PluginUpgradeAlert\obj\Debug\PluginUpgradeAlert.csprojResolveAssemblyReference.cache
+D:\Programmieren\AnotherSc2Hack\PluginUpgradeAlert\obj\Debug\MainWindow.baml
+D:\Programmieren\AnotherSc2Hack\PluginUpgradeAlert\obj\Debug\MainWindow.g.cs
+D:\Programmieren\AnotherSc2Hack\PluginUpgradeAlert\obj\Debug\App.g.cs
+D:\Programmieren\AnotherSc2Hack\PluginUpgradeAlert\obj\Debug\PluginUpgradeAlert_MarkupCompile.cache
+D:\Programmieren\AnotherSc2Hack\PluginUpgradeAlert\obj\Debug\PluginUpgradeAlert.g.resources
+D:\Programmieren\AnotherSc2Hack\PluginUpgradeAlert\obj\Debug\PluginUpgradeAlert.Properties.Resources.resources
+D:\Programmieren\AnotherSc2Hack\PluginUpgradeAlert\obj\Debug\PluginUpgradeAlert.csproj.GenerateResource.Cache
+D:\Programmieren\AnotherSc2Hack\PluginUpgradeAlert\obj\Debug\PluginUpgradeAlert.exe
+D:\Programmieren\AnotherSc2Hack\PluginUpgradeAlert\obj\Debug\PluginUpgradeAlert.pdb

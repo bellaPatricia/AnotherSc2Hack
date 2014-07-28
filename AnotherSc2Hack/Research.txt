@@ -1,0 +1,123 @@
+﻿#####################################
+# Research on Upgrades (Production) #
+#####################################
+
+Terran
+======
+							Type					/	Time Max.	/	Minerals	/	Vespine	/	House
+=======================================================================================================================
+Infantrie Weapon I		/	65538	[10002..20002]	/	10485760	/	100			/	100		/	Engineering Bay
+Infantrie Weapon II		/	65539	[10003..20003]	/	12451840	/	175			/	175		/	Engineering Bay
+Infantrie Weapon III	/	65540	[10004..20004]	/	14417920	/	250			/	250		/	Engineering Bay
+Infantrie Armor I		/	65542	[10006..20006]	/	10485760	/	100			/	100		/	Engineering Bay
+Infantrie Armor II		/	65543	[10007..20007]	/	12451840	/	175			/	175		/	Engineering Bay
+Infantrie Armor III		/	65544	[10008..20008]	/	14417920	/	250			/	250		/	Engineering Bay
+Hi-Sec Auto Tracking	/	65536	[10000..20000]	/	5242880		/	100			/	100		/	Engineering Bay
+Neosteel Frame			/	65541	[10005..20005]	/	7208960		/	100			/	100		/	Engineering Bay
+Structure Armor			/	65537	[10001..20001]	/	9175040		/	150			/	150		/	Engineering Bay
+Vehicle Weapon I		/	65541	[10005			/	10485760	/	100			/	100		/	Armory
+Vehicle Weapon II		/	65542	[10006			/	12451840	/	175			/	175		/	Armory
+Vehicle Weapon III		/	65543	[10007			/	14417920	/	250			/	250		/	Armory
+Ship Weapon I			/	65547	[1000B			/	10485760	/	100			/	100		/	Armory
+Ship Weapon II			/	65548	[1000C			/	12451840	/	175			/	175		/	Armory
+Ship Weapon III			/	65549	[1000D			/	14417920	/	250			/	250		/	Armory
+Vehicle/ Ship Armor I	/	65539	[10003			/	10485760	/	100			/	100		/	Armory
+Vehicle/ Ship Armor II	/	65540	[10004			/	12451840	/	175			/	175		/	Armory
+Vehicle/ Ship Armor III	/	65541	[10005			/	14417920	/	250			/	250		/	Armory
+Infernal Pre- Igniter	/	65537	[10001			/	7208960		/	150			/	150		/	Factory Tech-Lab
+Drilling Claws			/	65540	[10004			/	7208960		/	150			/	150		/	Factory Tech-Lab
+Transformation Servos	/	65539	[10003			/	7208960		/	150			/	150		/	Factory Tech-Lab
+Stim					/	65536	[10000			/	11141120	/	100			/	100		/	Barracks Tech-Lab
+Combat Shields			/	65537	[10001			/	7208960		/	100			/	100		/	Barracks Tech-Lab
+Concussive Shells		/	65538	[10002			/	3932160		/	50			/	50		/	Barracks Tech-Lab
+Caduceus Reactor		/	65538	[10002			/	5242880		/	100			/	100		/	Starport Tech-Lab
+Durable Materials		/	65543	[10007			/	7208960		/	150			/	150		/	Starport Tech-Lab
+Corvid Reactor			/	65539	[10003			/	7208960		/	150			/	150		/	Starport Tech-Lab
+Cloaking Field			/	65536	[10000			/	7208960		/	100			/	100		/	Starport Tech-Lab
+Weapon Refit			/	65536	[10000			/	3932160		/	150			/	150		/	Fusion Core
+Behemoth Reactor		/	65537	[10001			/	5242880		/	150			/	150		/	Fusion Core
+Personal Cloaking		/	65536	[10000			/	7864320		/	150			/	150		/	Ghost Academy
+Moebius Reactor			/	65537	[10001			/	5242880		/	100			/	100		/	Ghost Academy
+Nuke					/	65537	[10001			/	5242880		/	100			/	100		/	Ghost Academy
+Orbital Command			/	???						/	???			/	???			/	???		/	Command Center
+Planetary Fortress		/	???						/	???			/	???			/	???		/	Command Center
+
+
+Protoss
+=======
+							Type			/	Time Max.	/	Minerals	/	Vespine	/	House
+=======================================================================================================================
+Ground Weapon I			/	[10000..20000]	/	10485760	/	100			/	100		/	Forge
+Ground Weapon II		/	[10001..20002]	/	12451840	/	150			/	150		/	Forge
+Ground Weapon III		/	[10002..20002]	/	14417920	/	200			/	200		/	Forge
+Ground Armor I			/	[10003..20003]	/	10485760	/	100			/	100		/	Forge
+Ground Armor II			/	[10004..20004]	/	12451840	/	150			/	150		/	Forge
+Ground Armor III		/	[10005..20005]	/	14417920	/	200			/	200		/	Forge
+Shield I				/	[10006..20006]	/	10485760	/	150			/	150		/	Forge
+Shield II				/	[10007..20007]	/	12451840	/	225			/	225		/	Forge
+Shield III				/	[10008..20008]	/	14417920	/	300			/	300		/	Forge
+Air Weapon I			/	[10000..20000]	/	10485760	/	100			/	100		/	CyberCore
+Air Weapon II			/	[10001..20001]	/	12451840	/	175			/	175		/	CyberCore
+Air Weapon III			/	[10002..20002]	/	14417920	/	250			/	250		/	CyberCore
+Air Armor I				/	[10003..20003]	/	10485760	/	150			/	150		/	CyberCore
+Air Armor II			/	[10004..20004]	/	12451840	/	225			/	225		/	CyberCore
+Air Armor III			/	[10005..20005]	/	14417920	/	300			/	300		/	CyberCore
+WarpGate				/	[10006..20006]	/	10485760	/	50			/	50		/	CyberCore
+Gravitic Boosters		/	[10001..20001]	/	5242880		/	100			/	100		/	RoboticcsSupportBay
+Gravitic Drive			/	[10002..20002]	/	5242880		/	100			/	100		/	RoboticcsSupportBay
+Extended Thermal Lance	/	[10005..20005]	/	9175040		/	200			/	200		/	RoboticcsSupportBay
+Storm					/	[10004..20004]	/	7208960		/	200			/	200		/	TemplayArchives
+Anion Pulse Crystals	/	[10002..20002]	/	5898240		/	150			/	150		/	FleetBeacon
+Gravaty Catapult		/	[10000..20000]	/	5242880		/	150			/	150		/	FleetBeacon
+Charge					/	[10000..20000]	/	9175040		/	200			/	200		/	TwilightCouncil
+Blink					/	[10001..20001]	/	11141120	/	150			/	150		/	TwilightCouncil
+
+
+Zerg
+====
+							Type			/	Time Max.	/	Minerals	/	Vespine	/	House
+=======================================================================================================================
+Ground Melee 1		/	[10000]				/	10485760	/	100			/	100		/	EvolutionChamber
+Ground Melee 2		/	[10001]				/	12451840	/	150			/	150		/	EvolutionChamber
+Ground Melee 3		/	[10002]				/	14417920	/	200			/	200		/	EvolutionChamber
+Ground Armor 1		/	[10003]				/	10485760	/	150			/	150		/	EvolutionChamber
+Ground Armor 2		/	[10004]				/	12451840	/	225			/	225		/	EvolutionChamber
+Ground Armor 3		/	[10005]				/	14417920	/	300			/	300		/	EvolutionChamber
+Ground Weapon 1		/	[10006]				/	10485760	/	100			/	100		/	EvolutionChamber
+Ground Weapon 2		/	[10007]				/	12451840	/	150			/	150		/	EvolutionChamber
+Ground Weapon 3		/	[10008]				/	14417920	/	200			/	200		/	EvolutionChamber
+Air Weapon 1		/	[10000]				/	10485760	/	100			/	100		/	GreaterSpire/Spire
+Air Weapon 2		/	[10001]				/	12451840	/	175			/	175		/	GreaterSpire/Spire
+Air Weapon 3		/	[10002]				/	14417920	/	250			/	250		/	GreaterSpire/Spire
+Air Armor 1			/	[10003]				/	10485760	/	150			/	150		/	GreaterSpire/Spire
+Air Armor 2			/	[10004]				/	12451840	/	225			/	225		/	GreaterSpire/Spire
+Air Armor 3			/	[10005]				/	14417920	/	300			/	300		/	GreaterSpire/Spire
+Glial Reconstruction/	[10001]				/	7208960		/	100			/	100		/	RoachWarran
+Tunneling Claws		/	[10002]				/	7208960		/	150			/	150		/	RoachWarran
+Adrenal Grands		/	[10000]				/	8519680		/	200			/	200		/	SpawningPool
+Metabolic Boost		/	[10001]				/	7208960		/	100			/	100		/	SpawningPool
+Centrifugal Hooks	/	[10000]				/	7208960		/	150			/	150		/	BanelingNest
+Grooved Spined		/	[10002]				/	5242880		/	150			/	150		/	HydraDen
+Muscular Augments	/	[10003]				/	6553600		/	150			/	150		/	HydraDen
+Chitinous Plating	/	[10002]				/	7208960		/	150			/	150		/	UltraliskCavern
+Pathogllen Glands	/	[10002]				/	5242880		/	150			/	150		/	InfestationPit
+Neutral Parasite	/	[10003]				/	7208960		/	150			/	150		/	InfestationPit
+Enduring Locusts	/	[10004]				/	7864320		/	200			/	200		/	InfestationPit
+Burrow				/	[10003]				/	6553600		/	100			/	100		/	Hatchery/Hair/Hive
+Pneumatized Carapace/	[10001]				/	3932160		/	100			/	100		/	Hatchery/Hair/Hive
+Ventral Sacs		/	[10002]				/	8519680		/	200			/	200		/	Hatchery/Hair/Hive
+
+
+
+
+
+
+
+
+Something weird:
+TvT Infantry Weapon I
+65538	[10002]	=>	Player 1
+131074	[20002]	=>	Player 2
+
+
+~Patricia 

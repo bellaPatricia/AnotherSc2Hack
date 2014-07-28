@@ -1,0 +1,410 @@
+[Global]
+;Boolean
+DrawOnlyInForeground = False
+;Keys
+Hotkey Resize = NumPad0
+;Int32
+Data Refresh = 100
+;Int32
+Drawing Refresh = 100
+;Type = System.String
+Language = Deutsch
+
+
+[Resource]
+;Int32
+PosX = 500
+;Int32
+PosY = 50
+;Int32
+Width = 600
+;Int32
+Height = 50
+;Boolean
+Remove Ai = False
+;Boolean
+Remove Neutral = True
+;Boolean
+Remove Allie = False
+;Boolean
+Remove Localplayer = False
+;Boolean
+Remove ClanTag = False
+;String
+FontName = Century Gothic
+;float
+Opacity = 0,75
+;String
+On/Off Text = /res
+;String
+Change Position Text = /rcp
+;String
+Change Size Text = /rcs
+;Keys
+Hotkey 1 = ControlKey
+;Keys
+Hotkey 2 = Menu
+;Keys
+Hotkey 3 = NumPad1
+;Boolean
+Draw Background = True
+
+
+[Income]
+;Int32
+PosX = 1500
+;Int32
+PosY = 300
+;Int32
+Width = 600
+;Int32
+Height = 50
+;Boolean
+Remove Ai = False
+;Boolean
+Remove Neutral = True
+;Boolean
+Remove Allie = False
+;Boolean
+Remove Localplayer = False
+;Boolean
+Remove ClanTag = False
+;String
+FontName = Century Gothic
+;float
+Opacity = 0,75
+;String
+On/Off Text = /inc
+;String
+Change Position Text = /icp
+;String
+Change Size Text = /ics
+;Keys
+Hotkey 1 = ControlKey
+;Keys
+Hotkey 2 = Menu
+;Keys
+Hotkey 3 = NumPad2
+;Boolean
+Draw Background = True
+
+
+[Apm]
+;Int32
+PosX = 500
+;Int32
+PosY = 50
+;Int32
+Width = 600
+;Int32
+Height = 50
+;Boolean
+Remove Ai = False
+;Boolean
+Remove Neutral = True
+;Boolean
+Remove Allie = False
+;Boolean
+Remove Localplayer = False
+;Boolean
+Remove ClanTag = False
+;String
+FontName = Century Gothic
+;float
+Opacity = 0,75
+;String
+On/Off Text = /apm
+;String
+Change Position Text = /acp
+;String
+Change Size Text = /acs
+;Keys
+Hotkey 1 = ControlKey
+;Keys
+Hotkey 2 = Menu
+;Keys
+Hotkey 3 = NumPad7
+;Boolean
+Draw Background = True
+
+
+[Army]
+;Int32
+PosX = 500
+;Int32
+PosY = 300
+;Int32
+Width = 600
+;Int32
+Height = 50
+;Boolean
+Remove Ai = False
+;Boolean
+Remove Neutral = True
+;Boolean
+Remove Allie = False
+;Boolean
+Remove Localplayer = False
+;Boolean
+Remove ClanTag = False
+;String
+FontName = Century Gothic
+;float
+Opacity = 0,75
+;String
+On/Off Text = /arm
+;String
+Change Position Text = /amcp
+;String
+Change Size Text = /amcs
+;Keys
+Hotkey 1 = ControlKey
+;Keys
+Hotkey 2 = Menu
+;Keys
+Hotkey 3 = NumPad8
+;Boolean
+Draw Background = True
+
+
+[Worker]
+;Int32
+PosX = 500
+;Int32
+PosY = 300
+;Int32
+Width = 200
+;Int32
+Height = 50
+;String
+FontName = Century Gothic
+;float
+Opacity = 0,75
+;String
+On/Off Text = /wor
+;String
+Change Position Text = /wcp
+;String
+Change Size Text = /wcs
+;Keys
+Hotkey 1 = ControlKey
+;Keys
+Hotkey 2 = Menu
+;Keys
+Hotkey 3 = NumPad3
+;Boolean
+Draw Background = True
+
+
+[Various]
+;Boolean
+Apm Enable = True
+;Boolean
+ApmAlert Enable = False
+;Int32
+ApmAlert Limit = 5
+;Int32
+ApmPosX = 50
+;Int32
+ApmPosY = 50
+;Int32
+ApmWidth = 200
+;Int32
+ApmHeight = 50
+;Boolean
+Clock Enable = True
+;Int32
+ClockPosX = 300
+;Int32
+ClockPosY = 50
+;Int32
+ClockWidth = 200
+;Int32
+ClockHeight = 50
+
+
+[UnitTab]
+;Int32
+PosX = 50
+;Int32
+PosY = 50
+;Int32
+Width = 300
+;Int32
+Height = 50
+;Int32
+Picture Size = 45
+;Boolean
+Remove Ai = False
+;Boolean
+Remove Neutral = True
+;Boolean
+Remove Allie = False
+;Boolean
+Remove Localplayer = False
+;Boolean
+Remove Prod. Line = False
+;Boolean
+Remove ClanTag = False
+;float
+Opacity = 1
+;String
+FontName = Century Gothic
+;String
+On/Off Text = /uni
+;String
+Change Position Text = /ucp
+;String
+Change Size Text = /ucs
+;Keys
+Hotkey 1 = ControlKey
+;Keys
+Hotkey 2 = Menu
+;Keys
+Hotkey 3 = NumPad9
+;Boolean
+Split Buildings/ Units = True
+;Type = System.Boolean
+Show Buildings = True
+;Type = System.Boolean
+Show Units = True
+;Type = System.Boolean
+Remove Chronoboost = False
+;Type = System.Boolean
+Remove Spellcounter = False
+
+
+[Production]
+;Int32
+PosX = 0
+;Int32
+PosY = 0
+;Int32
+Width = 666
+;Int32
+Height = 666
+;Int32
+Picture Size = 45
+;Boolean
+Remove Ai = False
+;Boolean
+Remove Neutral = True
+;Boolean
+Remove Allie = False
+;Boolean
+Remove Localplayer = False
+;Boolean
+Remove ClanTag = True
+;float
+Opacity = 1
+;String
+FontName = Century Gothic
+;String
+On/Off Text = /pro
+;String
+Change Position Text = /pcp
+;String
+Change Size Text = /pcs
+;Keys
+Hotkey 1 = ControlKey
+;Keys
+Hotkey 2 = Menu
+;Keys
+Hotkey 3 = NumPad4
+;Boolean
+Split Buildings/ Units = True
+;Type = System.Boolean
+Show Buildings = True
+;Type = System.Boolean
+Show Units = True
+;Type = System.Boolean
+Show Upgrades = True
+;Type = System.Boolean
+Remove Chronoboost = False
+
+
+[Maphack]
+;Int32
+PosX = 28
+;Int32
+PosY = 811
+;Int32
+Width = 261
+;Int32
+Height = 255
+;Boolean
+Remove Ai = False
+;Boolean
+Remove Neutral = True
+;Boolean
+Remove Allie = False
+;Boolean
+Remove Localplayer = False
+;float
+Opacity = 1
+;String
+On/Off Text = /map
+;String
+Change Position Text = /mcp
+;String
+Change Size Text = /mcs
+;Keys
+Hotkey 1 = ControlKey
+;Keys
+Hotkey 2 = Menu
+;Keys
+Hotkey 3 = NumPad5
+;Boolean
+Disable Destination Line = False
+;Color
+Destination Line Color = Orange
+;Boolean
+Color Def Structures = True
+;Boolean
+Remove Vision Area = True
+;Boolean
+Remove Camera = False
+
+
+[Worker Automation]
+;Type = System.Boolean
+Worker Automation = False
+;Type = System.Int32
+Apm Protection = 150
+;Type = System.Int32
+Start Next Worker At = 90
+;Type = System.Boolean
+Autoupgrade To Oc = True
+;Type = System.Windows.Forms.Keys
+Backup Key = D0
+;Type = System.Boolean
+Selecting = True
+;Type = System.Boolean
+Worker Selected = True
+;Type = System.Windows.Forms.Keys
+Hotkey 1 = ControlKey
+;Type = System.Windows.Forms.Keys
+Hotkey 2 = Menu
+;Type = System.Windows.Forms.Keys
+Hotkey 3 = NumPad0
+;Type = System.Windows.Forms.Keys
+Mainbuilding Key = D3
+;Type = System.Int32
+Maximum Workers in game = 80
+;Type = System.Int32
+Maximum Workers per Base = 30
+;Type = System.Boolean
+Direct Mode = False
+;Type = System.Boolean
+Round Mode = True
+;Type = System.Windows.Forms.Keys
+Orbital Key = B
+;Type = System.Windows.Forms.Keys
+Probe Key = E
+;Type = System.Int32
+Worker Puffer = 5
+;Type = System.Windows.Forms.Keys
+Scv Key = S
+
+
+[Maphack Units]

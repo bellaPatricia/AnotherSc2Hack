@@ -1,0 +1,9 @@
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Debug\Plugins\LostUnits.exe.config
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Debug\Plugins\LostUnits.exe
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Debug\Plugins\LostUnits.pdb
+D:\Programmieren\AnotherSc2Hack\LostUnits\obj\Debug\LostUnits.csprojResolveAssemblyReference.cache
+D:\Programmieren\AnotherSc2Hack\LostUnits\obj\Debug\LostUnits.MainWindow.resources
+D:\Programmieren\AnotherSc2Hack\LostUnits\obj\Debug\LostUnits.Properties.Resources.resources
+D:\Programmieren\AnotherSc2Hack\LostUnits\obj\Debug\LostUnits.csproj.GenerateResource.Cache
+D:\Programmieren\AnotherSc2Hack\LostUnits\obj\Debug\LostUnits.exe
+D:\Programmieren\AnotherSc2Hack\LostUnits\obj\Debug\LostUnits.pdb

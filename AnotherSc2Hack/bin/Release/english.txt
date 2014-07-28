@@ -1,0 +1,113 @@
+﻿;English language- file
+;####################
+;2014-July-05
+;by BellaPatricia
+
+;Global- Tab
+lblGlobalStatus = Status
+lblGlobalChangePosKey = Change position/ size of panels:
+lblGlobalPluginDescription = Description
+lblGlobalDrawingMiliseconds = Miliseconds (ms)
+lblGlobalDataMiliseconds = Miliseconds (ms)
+lblGlobalDrawingRefresh = Draw Interval:
+lblGlobalDataRefresh = Data Interval:
+lblGlobalFileName = Filename:
+lblGlobalLanguage = Language:
+btnGlobalSetPosition = Set position based on your resolution
+btnGlobalDonations = Donations through Paypal
+chBxGlobalForegroundDraw = Only draw Panels when SC2 is in foreground
+gbGlobalPublicInformation = News
+gbGlobalFileInformation = File- information
+gbGlobalUpdates = Updates
+gbGlobalPlugins = Plug- Ins
+
+;Basics (Remove Ai for Resources, Income, Apm and Army)
+lblRemoveAi = Remove AI:
+lblRemoveAllie = Remove Allies:
+lblRemoveNeutral = Remove Neutral:
+lblRemoveLocalplayer = Remove Yourself:
+lblRemoveClantag = Remove Clantags:
+lblFontName = Font:
+chBxDrawBackground = Draw Background
+lblOpacityText = Opacity:
+gbBasicOptions = Basic Panel Options
+
+;Maphack (Destination Line, Disable Dest. Line, Def. Color, Rem Vis. Area, Rem. Camera)
+lblMaphackDestinationLine = Line to target
+gbMaphackBasics = Basic Panel Options
+chBxMaphackRemCamera = Remove Camera
+chBxMaphackRemVisionArea = Remove Vision- Area
+chBxMaphackColorDefensiveStructuresYellow = Color Defensive structures yellow
+chBxMaphackDisableDestinationLine = Remove Line to target
+btnMapAddUnit = Add Units
+gbMaphackColorUnits = Color Units
+
+;Chat- Input for all panels
+gbChatInput = Chat Input
+lblEnablePanel = Enable/ Disable Panel:
+lblChangePosition = Change Position of Panel:
+lblChangeSize = Change Size of Panel:
+
+;Keypresses (Hotkeys) to launch, resize and reposition all panels
+gbLaunchPanels = Launch Panels
+lblHotkey1 = Hotkey 1:
+lblHotkey2 = Hotkey 2:
+lblHotkey3 = Hotkey 3:
+
+;Panelinformation (PosX, PosY, Width, Height)
+gbInformation = Information
+lblPosX = Position X:
+lblPosY = Position Y:
+lblWidth = Width:
+lblHeight = Height:
+
+;Unittab/ Prodtab - (Split buildings and special stuff)
+gbUnittabBasics = Allgemeine Panel Optionen
+gbUnittabShow = Show
+gbProdtabShow = Show
+gbUnitPicture = Picture size
+gbProdPicture = Picture size
+chBxProdTabShowUpgrades = Upgrades
+chBxProdTabShowUnits = Units
+chBxProdTabShowBuildings = Buildings
+chBxUnitTabShowUnits = Units
+chBxUnitTabShowBuildings = Buildings
+lblSplitBuildings = Split Buildings/ Units:
+lblRemoveProdLine = Remove Prod. Line:
+lblRemoveChronoboost = Remove Chronoboost:
+lblRemoveSpellcounter = Remove Spell- Cunter:
+lblUnitPictureSize = Size (px):
+lblUnitPicturePreview = Preview:
+lblProdPictureSize = Size (px):
+lblProdPicturePreview = Preview:
+
+;Various- tab
+gbPersonalOverlay = Personal Overlay
+gbClock = Clock
+gbApm = Apm
+chBxClock = Show Clock
+chBxApm = Show Apm
+chBxApmAlert = Apm Warning
+
+;Worker- Automation
+gbAutoWorker = Worker Production
+lblAutoWorkerMaxWorkers = Maximum Workers in the Game:
+lblAutoWorkerMaynardingPuffer = Maynarding Puffer:
+lblAutoWorkerMaxWorkersPewBase = Maximum Workers per Base:
+lblAutoWorkerApmOver = Disable when APM is over:
+lblAutoWorkerKeyProbe = Key for Probe:
+lblAutoWorkerKeyScv = Key for SCV:
+lblAutoWorkerKeyOrbital = Key for Orbital:
+lblAutoWorkerBackupGroup = Key for Backup- group:
+lblAutoWorkerKeyMainGroup = Key for Mainbuildings:
+lblAutoWorkerNextWorkerPercentage = Next worker at (%) of current worker:
+chBxAutomationEnableWorkerProduction = Enable Workerproduction
+chBxDisableWhenWorkerIsSelected = Disable when Worker is Selected
+chBxDisableWhenSelecting = Disable when Selecting
+chBxAutoUpgradeToOc = Upgrade CC's to OC'S automatically
+rdbRoundWorkerProduction = Round- based production
+rdbDirectWorkerProduction = Direct production
+
+;[Bugs] - Tab
+gbCreateThreadOnD3Scene = Create post on D3Scene
+btnCreateNewPost = Open Topic

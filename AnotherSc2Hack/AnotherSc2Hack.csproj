@@ -1,0 +1,800 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A39F9D3-359A-4A0D-AF04-F1F642A21CC2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnotherSc2Hack</RootNamespace>
+    <AssemblyName>AnotherSc2Hack</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="PluginInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\PluginInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="PredefinedTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\PredefinedTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\BackEnds\Alerts.cs" />
+    <Compile Include="Classes\BackEnds\Automation Helper.cs" />
+    <Compile Include="Classes\BackEnds\Automation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\BackEnds\Constants.cs" />
+    <Compile Include="Classes\BackEnds\Crypting.cs" />
+    <Compile Include="Classes\BackEnds\Drawing.cs" />
+    <Compile Include="Classes\BackEnds\GameInfo.cs" />
+    <Compile Include="Classes\BackEnds\Gameinfo\Player.cs" />
+    <Compile Include="Classes\BackEnds\Hashes.cs" />
+    <Compile Include="Classes\BackEnds\HelpFunctions.cs" />
+    <Compile Include="Classes\BackEnds\ImageComboItem.cs" />
+    <Compile Include="Classes\BackEnds\InteropCalls.cs" />
+    <Compile Include="Classes\BackEnds\Messages.cs" />
+    <Compile Include="Classes\BackEnds\Offsets.cs" />
+    <Compile Include="Classes\BackEnds\Preferences.cs" />
+    <Compile Include="Classes\BackEnds\Processing.cs" />
+    <Compile Include="Classes\BackEnds\Renderer_Helper.cs" />
+    <Compile Include="Classes\BackEnds\Simulation.cs" />
+    <Compile Include="Classes\FrontEnds\Custom Controls\AbstractUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Automation_Worker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Automation_Worker.Designer.cs">
+      <DependentUpon>Automation_Worker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Basics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Basics.Designer.cs">
+      <DependentUpon>Basics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_Map.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_Map.Designer.cs">
+      <DependentUpon>Basics_Map.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_UnitTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_UnitTab.Designer.cs">
+      <DependentUpon>Basics_UnitTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_Wor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_Wor.Designer.cs">
+      <DependentUpon>Basics_Wor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Benchmark.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Benchmark.Designer.cs">
+      <DependentUpon>Benchmark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Bugs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Bugs.Designer.cs">
+      <DependentUpon>Bugs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\ChatInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\ChatInput.Designer.cs">
+      <DependentUpon>ChatInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Control_Global.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Control_Global.Designer.cs">
+      <DependentUpon>Control_Global.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Debug.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Debug.Designer.cs">
+      <DependentUpon>Custom_Debug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Requirements.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Requirements.Designer.cs">
+      <DependentUpon>Custom_Requirements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Various.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Various.Designer.cs">
+      <DependentUpon>Custom_Various.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\GraphicalPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Hotkeys.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Hotkeys.Designer.cs">
+      <DependentUpon>Hotkeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Information.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Information.Designer.cs">
+      <DependentUpon>Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_ProdTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_ProdTab.Designer.cs">
+      <DependentUpon>Basics_ProdTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\KeyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\LanguageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\LanguageCheckbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\LanguageGroupbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\LanguageLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\LanguageRadiobutton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\NumberTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UnitInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UnitInformation.Designer.cs">
+      <DependentUpon>UnitInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_PictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\DefineMarks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\DefineMarks.Designer.cs">
+      <DependentUpon>DefineMarks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\DoubleBufferedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\ImageCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\MainHandler\MainHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\MainHandler\MainHandler.Designer.cs">
+      <DependentUpon>MainHandler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\PlayerInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\PlayerInformation.Designer.cs">
+      <DependentUpon>PlayerInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\MainHandler\MainHandler.ControlEventMethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Renderer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Renderer.Designer.cs">
+      <DependentUpon>Renderer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Automation_Worker.resx">
+      <DependentUpon>Automation_Worker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics.resx">
+      <DependentUpon>Basics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_Map.resx">
+      <DependentUpon>Basics_Map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_UnitTab.resx">
+      <DependentUpon>Basics_UnitTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_Wor.resx">
+      <DependentUpon>Basics_Wor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Benchmark.resx">
+      <DependentUpon>Benchmark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Bugs.resx">
+      <DependentUpon>Bugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\ChatInput.resx">
+      <DependentUpon>ChatInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Control_Global.resx">
+      <DependentUpon>Control_Global.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Debug.resx">
+      <DependentUpon>Custom_Debug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Requirements.resx">
+      <DependentUpon>Custom_Requirements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Various.resx">
+      <DependentUpon>Custom_Various.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Hotkeys.resx">
+      <DependentUpon>Hotkeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Information.resx">
+      <DependentUpon>Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_ProdTab.resx">
+      <DependentUpon>Basics_ProdTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UnitInformation.resx">
+      <DependentUpon>UnitInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\DefineMarks.resx">
+      <DependentUpon>DefineMarks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\MainHandler\MainHandler.resx">
+      <DependentUpon>MainHandler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\PlayerInformation.resx">
+      <DependentUpon>PlayerInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Renderer.resx">
+      <DependentUpon>Renderer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_Assimilator.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_Cannon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_cybercore.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_DarkShrine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_FleetBeacon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_forge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_gateway.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_Nexus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_Pylon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_robotics.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_roboticssupport.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_stargate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_templararchives.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_twillightCouncil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pb_warpgate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_Archon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_carrier.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_Colossus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_DarkTemplar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_ht.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_immortal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_interceptor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_Mothership.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_mothershipcore.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_Observer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_oracle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_pheonix.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_probe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_sentry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_Stalker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_tempest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_Voidray.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_warpprism.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_warpprism_Warp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pu_Zealot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_Armory.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_autoturret.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_bunker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_cc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_ebay.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_fax.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_fusioncore.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_ghostacademy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_oc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_pf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_rax.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_reactor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_refinery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_sensor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_starport.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_supply.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_techlab.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tb_turret.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_banshee.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_battlecruiser.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_battlehellion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_ghost.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_hellion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_marauder.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_marine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_medivac.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_Mule.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_raven.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_reaper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_scv.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_siegedtank.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_tank.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_thor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_vikingAir.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_vikingGround.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tu_widowmine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_banelingnest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_creeptumor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_evochamber.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_extactor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_greaterspire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_hatchery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_hive.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_hydraden.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_infestationpit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_lair.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_nydusnetwork.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_nydusworm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_roachwarren.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_spawningpool.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_spine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_spire.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_spore.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zb_ultracavery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_baneling.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_broodlord.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_changeling.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_corruptor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_drone.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_hydra.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_infestedterran.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_infestor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_larva.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_mutalisk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_overlord.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_overseer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_queen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_roach.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_swarmhost.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_ultra.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_viper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_zergling.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gas_Zerg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mineral_Protoss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mineral_Terran.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mineral_Zerg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P_Probe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Protoss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Terran.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supply_Zerg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T_SCV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Z_Drone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gas_Protoss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gas_Terran.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_overseercocoon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_banelingcocoon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zu_broodlordcocoon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\supplydepot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Research.txt" />
+    <Content Include="Calculations.txt" />
+    <None Include="Resources\Speed_Arrow.png" />
+    <None Include="Resources\Mini_Arrow_Speed.png" />
+    <None Include="Resources\PuForceField.png" />
+    <None Include="Resources\zu_locust.png" />
+    <None Include="Resources\Tu_Nuke.png" />
+    <None Include="Resources\Zup_VentralSacs.png" />
+    <None Include="Resources\Zup_TunnelingClaws.png" />
+    <None Include="Resources\Zup_PneumatizedCarapace.png" />
+    <None Include="Resources\Zup_PathogenGlands.png" />
+    <None Include="Resources\Zup_NeutralParasite.png" />
+    <None Include="Resources\Zup_MuscularAugments.png" />
+    <None Include="Resources\Zup_MetabolicBoost.png" />
+    <None Include="Resources\Zup_GroundW3.png" />
+    <None Include="Resources\Zup_GroundW2.png" />
+    <None Include="Resources\Zup_GroundW1.png" />
+    <None Include="Resources\Zup_GroundM3.png" />
+    <None Include="Resources\Zup_GroundM2.png" />
+    <None Include="Resources\Zup_GroundM1.png" />
+    <None Include="Resources\Zup_GroundA3.png" />
+    <None Include="Resources\Zup_GroundA2.png" />
+    <None Include="Resources\Zup_GroundA1.png" />
+    <None Include="Resources\Zup_GroovedSpines.png" />
+    <None Include="Resources\Zup_GlialReconstruction.png" />
+    <None Include="Resources\Zup_EnduringLocusts.png" />
+    <None Include="Resources\Zup_ChitinousPlating.png" />
+    <None Include="Resources\Zup_CentrifugalHooks.png" />
+    <None Include="Resources\Zup_Burrow.png" />
+    <None Include="Resources\Zup_AirW3.png" />
+    <None Include="Resources\Zup_AirW2.png" />
+    <None Include="Resources\Zup_AirW1.png" />
+    <None Include="Resources\Zup_AirA3.png" />
+    <None Include="Resources\Zup_AirA2.png" />
+    <None Include="Resources\Zup_AirA1.png" />
+    <None Include="Resources\Zup_AdrenalGlands.png" />
+    <None Include="Resources\Pup_Warpgate.png" />
+    <None Include="Resources\Pup_Storm.png" />
+    <None Include="Resources\Pup_S3.png" />
+    <None Include="Resources\Pup_S2.png" />
+    <None Include="Resources\Pup_S1.png" />
+    <None Include="Resources\Pup_GroundW3.png" />
+    <None Include="Resources\Pup_GroundW2.png" />
+    <None Include="Resources\Pup_GroundW1.png" />
+    <None Include="Resources\Pup_GroundA3.png" />
+    <None Include="Resources\Pup_GroundA2.png" />
+    <None Include="Resources\Pup_GroundA1.png" />
+    <None Include="Resources\Pup_GravitonCatapult.png" />
+    <None Include="Resources\Pup_GraviticDrive.png" />
+    <None Include="Resources\Pup_GraviticBoosters.png" />
+    <None Include="Resources\Pup_ExtendedThermalLance.png" />
+    <None Include="Resources\Pup_Charge.png" />
+    <None Include="Resources\Pup_Blink.png" />
+    <None Include="Resources\Pup_AnionPulseCrystals.png" />
+    <None Include="Resources\Pup_AirW3.png" />
+    <None Include="Resources\Pup_AirW2.png" />
+    <None Include="Resources\Pup_AirW1.png" />
+    <None Include="Resources\Pup_AirA3.png" />
+    <None Include="Resources\Pup_AirA2.png" />
+    <None Include="Resources\Pup_AirA1.png" />
+    <None Include="Resources\Zb_Creep_Tumor.png" />
+    <None Include="Resources\obserever_cloaked.png" />
+    <None Include="Resources\Tup_CaduceusReactor.png" />
+    <None Include="Resources\Tup_BlueFlame.png" />
+    <None Include="Resources\BehemothReactor.png" />
+    <None Include="Resources\Tup_WeaponRefit.png" />
+    <None Include="Resources\Tup_VehicleWeapon3.png" />
+    <None Include="Resources\Tup_VehicleWeapon2.png" />
+    <None Include="Resources\Tup_VehicleWeapon1.png" />
+    <None Include="Resources\Tup_VehicleShipPlanting3.png" />
+    <None Include="Resources\Tup_VehicleShipPlanting2.png" />
+    <None Include="Resources\Tup_VehicleShipPlanting1.png" />
+    <None Include="Resources\Tup_TransformationServos.png" />
+    <None Include="Resources\Tup_StructureArmor.png" />
+    <None Include="Resources\Tup_ShipWeapon3.png" />
+    <None Include="Resources\Tup_ShipWeapon2.png" />
+    <None Include="Resources\Tup_ShipWeapon1.png" />
+    <None Include="Resources\Tup_PlanetaryFortress.png" />
+    <None Include="Resources\Tup_PersonalCloak.png" />
+    <None Include="Resources\Tup_OrbitalCommand.png" />
+    <None Include="Resources\Tup_NeosteelFrame.png" />
+    <None Include="Resources\Tup_MoebiusReactor.png" />
+    <None Include="Resources\Tup_InfantyWeapon3.png" />
+    <None Include="Resources\Tup_InfantyWeapon2.png" />
+    <None Include="Resources\Tup_InfantyWeapon1.png" />
+    <None Include="Resources\Tup_InfantyArmor3.png" />
+    <None Include="Resources\Tup_InfantyArmor2.png" />
+    <None Include="Resources\Tup_InfantyArmor1.png" />
+    <None Include="Resources\Tup_HighSecAutotracking.png" />
+    <None Include="Resources\Tup_DurableMaterials.png" />
+    <None Include="Resources\Tup_DrillingClaws.png" />
+    <None Include="Resources\Tup_CorvidReactor.png" />
+    <None Include="Resources\Tup_ConcussiveShells.png" />
+    <None Include="Resources\Tup_CombatShields.png" />
+    <None Include="Resources\Tup_CloakingField.png" />
+    <None Include="Resources\Tup_Stim.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

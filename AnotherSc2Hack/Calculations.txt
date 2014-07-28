@@ -1,0 +1,12 @@
+﻿Transform a time [float integer] to ingame time:
+x = [value] / 65536
+
+E.g.:
+x = 1638400 / 65536
+x = 25
+
+Known situations:
+Unit in production:	TimeLeft
+Unit in production:	MaxTime
+
+

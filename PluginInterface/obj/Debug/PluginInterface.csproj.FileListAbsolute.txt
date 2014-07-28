@@ -1,0 +1,2 @@
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Debug\PluginInterface.dll
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Debug\PluginInterface.pdb

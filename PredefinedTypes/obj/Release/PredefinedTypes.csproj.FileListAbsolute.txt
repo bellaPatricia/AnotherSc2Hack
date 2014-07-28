@@ -1,0 +1,4 @@
+D:\Programmieren\AnotherSc2Hack\PredefinedTypes\bin\Release\PredefinedTypes.dll
+D:\Programmieren\AnotherSc2Hack\PredefinedTypes\bin\Release\PredefinedTypes.pdb
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Release\PredefinedTypes.dll
+D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Release\PredefinedTypes.pdb

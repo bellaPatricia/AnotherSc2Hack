@@ -1,0 +1,9 @@
+﻿<Window x:Class="PluginMinimap.FrontEnd.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Canvas x:Name="CnvMainCanvas" Margin="0,0,0,0" SizeChanged="CnvMainCanvas_SizeChanged"/>
+
+    </Grid>
+</Window>
