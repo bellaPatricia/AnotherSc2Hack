@@ -1,1 +1,6 @@
 *.dat
+*.exe
+*.pdb
+*.dll
+bin/
+obj/

@@ -1,4 +1,0 @@
-D:\Programmieren\AnotherSc2Hack\PluginInterface\bin\Release\PluginInterface.dll
-D:\Programmieren\AnotherSc2Hack\PluginInterface\bin\Release\PluginInterface.pdb
-D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Release\PluginInterface.dll
-D:\Programmieren\AnotherSc2Hack\Sc2Hack\bin\Release\PluginInterface.pdb
