@@ -17,7 +17,7 @@ Requirements to use:
 
 
 FAQ
-===
+---
 1.)	What is this?
 	->	This is a tool to gather information from SC2's memory and draw overlays to display those information
 		You gain a big advantage if used properly.
