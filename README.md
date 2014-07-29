@@ -21,11 +21,10 @@ FAQ
 1.)	What is this?
 	->	This is a tool to gather information from SC2's memory and draw overlays to display those information
 		You gain a big advantage if used properly.
-		
 		As Blizzard defines, it's a 3rd party tool therefore it's forbidden to use.
 		Using this tool can result in a ban from the Blizzard service "Starcraft II".
 		
-		*USE IT ON YOUR OWN RISK*
+		_USE IT ON YOUR OWN RISK_
 
 2.)	Why would you do it?
 	->	I'm just curious what can and can not be done. I like the interaction with SCII and the drawing/ formatting of the data.
