@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.FrontEnds.Rendering;
 using PluginInterface;
 using Predefined;
 
@@ -119,7 +120,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             //Automation am = new Automation(this, PredefinedTypes.Automation.Inject);
             //Automation am = new Automation(this, PredefinedTypes.Automation.Production);
-            
+
+            Apm apm = new Apm(this);
+            apm.Show();
             
 
 #if DEBUG
@@ -1131,7 +1134,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             /* Check if dir. exists */
             if (!Directory.Exists(Constants.StrPluginFolder))
             {
-                CustGlobal.lstBxPlugins.Items.Add("- No Items Found -");
+                CustGlobal.lstBxPlugins.Items.Add(Properties.Resources.strNoPluginsFound);
                 CustGlobal.lstBxPlugins.Enabled = false;
 
                 Directory.CreateDirectory(Constants.StrPluginFolder);

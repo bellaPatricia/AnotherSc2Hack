@@ -761,6 +761,15 @@ namespace AnotherSc2Hack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die - No Plugins found - ähnelt.
+        /// </summary>
+        internal static string strNoPluginsFound {
+            get {
+                return ResourceManager.GetString("strNoPluginsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Supply_Protoss {

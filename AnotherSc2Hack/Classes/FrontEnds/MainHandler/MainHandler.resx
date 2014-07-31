@@ -2062,7 +2062,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADc
-        pAYAAk1TRnQBSQFMAgEBZwEAASABFAFAARQBHgEAAR4BAAT/ASEBEAj/AUIBTQE2BwABNgMAASgDAAF4
+        pAYAAk1TRnQBSQFMAgEBZwEAASABFAFEARQBHgEAAR4BAAT/ASEBEAj/AUIBTQE2BwABNgMAASgDAAF4
         AwABDAEDAgABAQEAASAFAAGAAbYBBRQAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMA
         Af8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8DAAH/AwAB/wMA
         Af8DAAH/AwAB/wMAAf8DAAH/AwAB/wMAAf8CAAEnAf8CAAEdAf8CAAEUAf8DAAH/AwAB/wMAAf8DAAH/
@@ -9889,22 +9889,25 @@
   <data name="&gt;&gt;UnittabInformation.Type" xml:space="preserve">
     <value>AnotherSc2Hack.Classes.FrontEnds.Information, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="tmrGatherInformation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="tmrGatherInformation.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>205, 28</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
     <value>de</value>
-  </metadata>
-  <metadata name="ttInformation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="ttInformation.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>376, 28</value>
-  </metadata>
-  <metadata name="imgUnits.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="imgUnits.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>117, 17</value>
-  </metadata>
-  <metadata name="cmsListboxContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="cmsListboxContext.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>500, 28</value>
-  </metadata>
+  </data>
+  <data name="strNoPluginsFound" xml:space="preserve">
+    <value>- No Plugins Found -</value>
+  </data>
 </root>
