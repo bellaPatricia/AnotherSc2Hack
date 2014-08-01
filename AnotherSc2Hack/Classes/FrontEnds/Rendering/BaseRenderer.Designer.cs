@@ -28,13 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.tmrRefreshGraphic = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // tmrRefreshGraphic
+            // 
+            this.tmrRefreshGraphic.Tick += new System.EventHandler(this.tmrRefreshGraphic_Tick);
             // 
             // BaseRenderer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BaseRenderer";
             this.Text = "BaseRenderer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaseRenderer_FormClosing);
@@ -49,5 +56,7 @@
         }
 
         #endregion
+
+        public System.Windows.Forms.Timer tmrRefreshGraphic;
     }
 }

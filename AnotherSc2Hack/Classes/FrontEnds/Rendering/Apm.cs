@@ -3,8 +3,10 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using Predefined;
 
@@ -17,96 +19,96 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             
         }
 
-        public override void Draw(System.Drawing.BufferedGraphics g)
+        public override void Draw(BufferedGraphics g)
         {
             try
             {
 
 
 
-                if (!_hMainHandler.GInformation.Gameinfo.IsIngame)
+                if (!HMainHandler.GInformation.Gameinfo.IsIngame)
                     return;
 
-                var iValidPlayerCount = _hMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+                var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
 
                 if (iValidPlayerCount == 0)
                     return;
 
-                Opacity = _pSettings.ApmOpacity;
+                Opacity = PSettings.ApmOpacity;
                 var iSingleHeight = Height / iValidPlayerCount;
                 var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
-                var fInternalFont = new Font(_pSettings.ApmFontName, fNewFontSize, FontStyle.Bold);
+                var fInternalFont = new Font(PSettings.ApmFontName, fNewFontSize, FontStyle.Bold);
                 var fInternalFontNormal = new Font(fInternalFont.Name, fNewFontSize, FontStyle.Regular);
 
-                if (!_bChangingPosition)
+                if (!BChangingPosition)
                 {
-                    Height = _pSettings.ApmHeight * iValidPlayerCount;
-                    Width = _pSettings.ApmWidth;
+                    Height = PSettings.ApmHeight * iValidPlayerCount;
+                    Width = PSettings.ApmWidth;
                 }
 
                 var iCounter = 0;
-                for (var i = 0; i < _hMainHandler.GInformation.Player.Count; i++)
+                for (var i = 0; i < HMainHandler.GInformation.Player.Count; i++)
                 {
-                    var clPlayercolor = _hMainHandler.GInformation.Player[i].Color;
+                    var clPlayercolor = HMainHandler.GInformation.Player[i].Color;
 
                     #region Teamcolor
 
-                    RendererHelper.TeamColor(_hMainHandler.GInformation.Player, i,
-                                              _hMainHandler.GInformation.Gameinfo.IsTeamcolor, ref clPlayercolor);
+                    RendererHelper.TeamColor(HMainHandler.GInformation.Player, i,
+                                              HMainHandler.GInformation.Gameinfo.IsTeamcolor, ref clPlayercolor);
 
                     #endregion
 
                     #region Escape sequences
 
-                    if (_hMainHandler.GInformation.Player[i].Name.StartsWith("\0") || _hMainHandler.GInformation.Player[i].NameLength <= 0)
+                    if (HMainHandler.GInformation.Player[i].Name.StartsWith("\0") || HMainHandler.GInformation.Player[i].NameLength <= 0)
                         continue;
 
-                    if (_hMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
+                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
                         continue;
 
-                    if (_hMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
+                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
                         continue;
 
-                    if (_hMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
+                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
                         continue;
 
-                    if (CheckIfGameheart(_hMainHandler.GInformation.Player[i]))
+                    if (CheckIfGameheart(HMainHandler.GInformation.Player[i]))
                         continue;
 
 
 
 
-                    if (_pSettings.ApmRemoveAi)
+                    if (PSettings.ApmRemoveAi)
                     {
-                        if (_hMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
+                        if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue;
                     }
 
-                    if (_pSettings.ApmRemoveNeutral)
+                    if (PSettings.ApmRemoveNeutral)
                     {
-                        if (_hMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
+                        if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue;
                     }
 
-                    if (_pSettings.ApmRemoveAllie)
+                    if (PSettings.ApmRemoveAllie)
                     {
-                        if (_hMainHandler.GInformation.Player[0].Localplayer == 16)
+                        if (HMainHandler.GInformation.Player[0].Localplayer == 16)
                         {
                             //Do nothing
                         }
 
                         else
                         {
-                            if (_hMainHandler.GInformation.Player[i].Team ==
-                                _hMainHandler.GInformation.Player[_hMainHandler.GInformation.Player[i].Localplayer].Team &&
-                                !_hMainHandler.GInformation.Player[i].IsLocalplayer)
+                            if (HMainHandler.GInformation.Player[i].Team ==
+                                HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[i].Localplayer].Team &&
+                                !HMainHandler.GInformation.Player[i].IsLocalplayer)
                                 continue;
                         }
                     }
 
-                    if (_pSettings.ApmRemoveLocalplayer)
+                    if (PSettings.ApmRemoveLocalplayer)
                     {
-                        if (_hMainHandler.GInformation.Player[i].IsLocalplayer)
+                        if (HMainHandler.GInformation.Player[i].IsLocalplayer)
                             continue;
                     }
 
@@ -116,7 +118,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Bounds and Background
 
-                    if (_pSettings.ApmDrawBackground)
+                    if (PSettings.ApmDrawBackground)
                     {
                         /* Background */
                         g.Graphics.FillRectangle(Brushes.Gray, 1, 1 + (iSingleHeight * iCounter), Width - 2,
@@ -134,9 +136,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Name
 
-                    var strName = (_hMainHandler.GInformation.Player[i].ClanTag.StartsWith("\0") || _pSettings.ApmRemoveClanTag)
-                                         ? _hMainHandler.GInformation.Player[i].Name
-                                         : "[" + _hMainHandler.GInformation.Player[i].ClanTag + "] " + _hMainHandler.GInformation.Player[i].Name;
+                    var strName = (HMainHandler.GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ApmRemoveClanTag)
+                                         ? HMainHandler.GInformation.Player[i].Name
+                                         : "[" + HMainHandler.GInformation.Player[i].ClanTag + "] " + HMainHandler.GInformation.Player[i].Name;
 
                     Drawing.DrawString(g.Graphics,
                         strName,
@@ -151,7 +153,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Team
 
                     Drawing.DrawString(g.Graphics,
-                        "#" + _hMainHandler.GInformation.Player[i].Team, fInternalFontNormal,
+                        "#" + HMainHandler.GInformation.Player[i].Team, fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((29.67 / 100) * Width),
                         (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -162,8 +164,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Apm
 
                     Drawing.DrawString(g.Graphics,
-                        "APM: " + _hMainHandler.GInformation.Player[i].ApmAverage +
-                        " [" + _hMainHandler.GInformation.Player[i].Apm + "]", fInternalFontNormal,
+                        "APM: " + HMainHandler.GInformation.Player[i].ApmAverage +
+                        " [" + HMainHandler.GInformation.Player[i].Apm + "]", fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((37.0 / 100) * Width),
                         (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -175,8 +177,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Epm
 
                     Drawing.DrawString(g.Graphics,
-                       "EPM: " + _hMainHandler.GInformation.Player[i].EpmAverage +
-                        " [" + _hMainHandler.GInformation.Player[i].Epm + "]", fInternalFontNormal,
+                       "EPM: " + HMainHandler.GInformation.Player[i].EpmAverage +
+                        " [" + HMainHandler.GInformation.Player[i].Epm + "]", fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((63.67 / 100) * Width),
                                           (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -197,6 +199,167 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 Messages.LogFile("DrawApm", "Over all", ex);
             }
 
+        }
+
+        protected override void MouseUpTransferData()
+        {
+            /* Has to be calculated manually because each panels has it's own Neutral handling.. */
+            var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+
+            HMainHandler.PSettings.ApmPositionX = Location.X;
+            HMainHandler.PSettings.ApmPositionY = Location.Y;
+            HMainHandler.PSettings.ApmWidth = Width;
+            HMainHandler.PSettings.ApmHeight = Height / iValidPlayerCount;
+            HMainHandler.PSettings.ApmOpacity = Opacity;
+
+            /* Transfer to Mainform */
+            HMainHandler.ApmInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ApmInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ApmInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ApmInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+        }
+
+        protected override void MouseWheelTransferData(MouseEventArgs e)
+        {
+            if (e.Delta.Equals(120))
+            {
+                Width += 4;
+                Height += 1;
+            }
+
+            else if (e.Delta.Equals(-120))
+            {
+                Width -= 4;
+                Height -= 1;
+            }
+        }
+
+        protected override void ChangeForecolorOfButton(Color cl)
+        {
+            HMainHandler.btnApm.ForeColor = cl;
+        }
+
+        protected override void AdjustPanelSize()
+        {
+            if (BSetSize)
+            {
+                tmrRefreshGraphic.Interval = 20;
+
+                HMainHandler.PSettings.ApmWidth = Cursor.Position.X - Left;
+
+                var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+                if (HMainHandler.PSettings.ResourceRemoveNeutral)
+                    iValidPlayerCount -= 1;
+
+                if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
+                {
+                    HMainHandler.PSettings.ApmHeight = (Cursor.Position.Y - Top) /
+                                                        iValidPlayerCount;
+                }
+
+                else
+                    HMainHandler.PSettings.MaphackHeight = 5;
+            }
+
+            var strInput = StrBackupSize;
+
+            if (String.IsNullOrEmpty(strInput))
+                return;
+
+            if (strInput.Contains('\0'))
+                strInput = strInput.Substring(0, strInput.IndexOf('\0'));
+
+
+            if (strInput.Equals(HMainHandler.PSettings.ApmChangeSizePanel))
+            {
+                if (BToggleSize)
+                {
+                    BToggleSize = !BToggleSize;
+
+                    if (!BSetSize)
+                        BSetSize = true;
+                }
+            }
+
+            if (HelpFunctions.HotkeysPressed(Keys.Enter, Keys.Enter, Keys.Enter))
+            {
+                tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
+
+                BSetSize = false;
+                StrBackupSize = string.Empty;
+
+                /* Transfer to Mainform */
+                HMainHandler.ApmInformation.txtWidth.Text = HMainHandler.PSettings.ApmWidth.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ApmInformation.txtHeight.Text = HMainHandler.PSettings.ApmHeight.ToString(CultureInfo.InvariantCulture);
+            }
+        }
+
+        protected override void LoadPreferencesIntoControls()
+        {
+            Location = new Point(PSettings.ApmPositionX,
+                                     PSettings.ApmPositionY);
+            Size = new Size(PSettings.ApmWidth, PSettings.ApmHeight);
+            Opacity = PSettings.ApmOpacity;
+        }
+
+        protected override void AdjustPanelPosition()
+        {
+            if (BSetPosition)
+            {
+                tmrRefreshGraphic.Interval = 20;
+
+                Location = Cursor.Position;
+                HMainHandler.PSettings.ApmPositionX = Cursor.Position.X;
+                HMainHandler.PSettings.ApmPositionY = Cursor.Position.Y;
+            }
+
+            var strInput = StrBackup;
+
+            if (String.IsNullOrEmpty(strInput))
+                return;
+
+            if (strInput.Contains('\0'))
+                strInput = strInput.Substring(0, strInput.IndexOf('\0'));
+
+            if (strInput.Equals(HMainHandler.PSettings.ApmChangePositionPanel))
+            {
+                if (BToggle)
+                {
+                    BToggle = !BToggle;
+
+                    if (!BSetPosition)
+                        BSetPosition = true;
+                }
+            }
+
+            if (HelpFunctions.HotkeysPressed(Keys.Enter, Keys.Enter, Keys.Enter))
+            {
+                BSetPosition = false;
+                StrBackup = string.Empty;
+                tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
+
+                /* Transfer to Mainform */
+                HMainHandler.ApmInformation.txtPosX.Text = HMainHandler.PSettings.ApmPositionX.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ApmInformation.txtPosY.Text = HMainHandler.PSettings.ApmPositionY.ToString(CultureInfo.InvariantCulture);
+            }
+        }
+
+        protected override void LoadSpedificData()
+        {
+            /* Nothing special here :) */
+        }
+
+        protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
+        {
+            /* If the Valid Player count is zero, change it.. */
+            var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+
+            var iRealPlayerCount = iValidPlayerCount == 0 ? 1 : iValidPlayerCount;
+
+            HMainHandler.PSettings.ApmHeight = (Height / iRealPlayerCount);
+            HMainHandler.PSettings.ApmWidth = Width;
+            HMainHandler.PSettings.ApmPositionX = Location.X;
+            HMainHandler.PSettings.ApmPositionY = Location.Y;
         }
     }
 }

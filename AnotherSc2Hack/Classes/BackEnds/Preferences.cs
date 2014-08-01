@@ -1333,6 +1333,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                             ApmPositionY = iPosY;
                         }
 
+                        else
                         ApmPositionY = 50;
                     }
 
