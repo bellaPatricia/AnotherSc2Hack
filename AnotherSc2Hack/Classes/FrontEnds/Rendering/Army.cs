@@ -8,9 +8,17 @@ using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
-    public class Apm : BaseRenderer
+    public class Army : BaseRenderer
     {
-        public Apm(MainHandler.MainHandler hnd) : base(hnd)
+
+        private Image _imgMinerals = Properties.Resources.Mineral_Protoss,
+                      _imgGas = Properties.Resources.Gas_Protoss,
+                      _imgSupply = Properties.Resources.Supply_Protoss,
+                      _imgWorker = Properties.Resources.P_Probe;
+
+
+        public Army(MainHandler.MainHandler hnd)
+            : base(hnd)
         {
             
         }
@@ -23,6 +31,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         {
             try
             {
+
                 if (!HMainHandler.GInformation.Gameinfo.IsIngame)
                     return;
 
@@ -31,16 +40,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (iValidPlayerCount == 0)
                     return;
 
-                Opacity = PSettings.ApmOpacity;
+                Opacity = PSettings.ArmyOpacity;
                 var iSingleHeight = Height / iValidPlayerCount;
                 var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
-                var fInternalFont = new Font(PSettings.ApmFontName, fNewFontSize, FontStyle.Bold);
+                var fInternalFont = new Font(PSettings.ArmyFontName, fNewFontSize, FontStyle.Bold);
                 var fInternalFontNormal = new Font(fInternalFont.Name, fNewFontSize, FontStyle.Regular);
 
                 if (!BChangingPosition)
                 {
-                    Height = PSettings.ApmHeight * iValidPlayerCount;
-                    Width = PSettings.ApmWidth;
+                    Height = PSettings.ArmyHeight * iValidPlayerCount;
+                    Width = PSettings.ArmyWidth;
                 }
 
                 var iCounter = 0;
@@ -57,37 +66,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Escape sequences
 
-                    if (HMainHandler.GInformation.Player[i].Name.StartsWith("\0") || HMainHandler.GInformation.Player[i].NameLength <= 0)
-                        continue;
-
-                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
-                        continue;
-
-                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
-                        continue;
-
-                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
-                        continue;
-
-                    if (CheckIfGameheart(HMainHandler.GInformation.Player[i]))
-                        continue;
-
-
-
-
-                    if (PSettings.ApmRemoveAi)
+                    if (PSettings.ArmyRemoveAi)
                     {
                         if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue;
                     }
 
-                    if (PSettings.ApmRemoveNeutral)
+                    if (PSettings.ArmyRemoveNeutral)
                     {
                         if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue;
                     }
 
-                    if (PSettings.ApmRemoveAllie)
+                    if (PSettings.ArmyRemoveAllie)
                     {
                         if (HMainHandler.GInformation.Player[0].Localplayer == 16)
                         {
@@ -103,19 +94,60 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
                     }
 
-                    if (PSettings.ApmRemoveLocalplayer)
+                    if (PSettings.ArmyRemoveLocalplayer)
                     {
                         if (HMainHandler.GInformation.Player[i].IsLocalplayer)
                             continue;
                     }
 
+                    if (HMainHandler.GInformation.Player[i].Name.StartsWith("\0") || HMainHandler.GInformation.Player[i].NameLength <= 0)
+                        continue;
 
+                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
+                        continue;
+
+                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
+                        continue;
+
+                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
+                        continue;
+
+                    if (CheckIfGameheart(HMainHandler.GInformation.Player[i]))
+                        continue;
+
+                    #endregion
+
+                    #region SetValidImages (Race)
+
+                    if (HMainHandler.GInformation.Player[i].PlayerRace.Equals(PredefinedData.PlayerRace.Terran))
+                    {
+                        _imgMinerals = Properties.Resources.Mineral_Terran;
+                        _imgGas = Properties.Resources.Gas_Terran;
+                        _imgSupply = Properties.Resources.Supply_Terran;
+                        _imgWorker = Properties.Resources.T_SCV;
+                    }
+
+                    else if (HMainHandler.GInformation.Player[i].PlayerRace.Equals(PredefinedData.PlayerRace.Protoss))
+                    {
+                        _imgMinerals = Properties.Resources.Mineral_Protoss;
+                        _imgGas = Properties.Resources.Gas_Protoss;
+                        _imgSupply = Properties.Resources.Supply_Protoss;
+                        _imgWorker = Properties.Resources.P_Probe;
+                    }
+
+                    else
+                    {
+                        _imgMinerals = Properties.Resources.Mineral_Zerg;
+                        _imgGas = Properties.Resources.Gas_Zerg;
+                        _imgSupply = Properties.Resources.Supply_Zerg;
+                        _imgWorker = Properties.Resources.Z_Drone;
+                    }
 
                     #endregion
 
                     #region Draw Bounds and Background
 
-                    if (PSettings.ApmDrawBackground)
+                    if (PSettings.ArmyDrawBackground)
                     {
                         /* Background */
                         g.Graphics.FillRectangle(Brushes.Gray, 1, 1 + (iSingleHeight * iCounter), Width - 2,
@@ -133,7 +165,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Name
 
-                    var strName = (HMainHandler.GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ApmRemoveClanTag)
+                    var strName = (HMainHandler.GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ArmyRemoveClanTag)
                                          ? HMainHandler.GInformation.Player[i].Name
                                          : "[" + HMainHandler.GInformation.Player[i].ClanTag + "] " + HMainHandler.GInformation.Player[i].Name;
 
@@ -158,27 +190,54 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #endregion
 
-                    #region Apm
+                    #region Minerals
 
+                    /* Icon */
+                    g.Graphics.DrawImage(_imgMinerals, (float)((37.0 / 100) * Width),
+                                         (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
+                                         (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
+
+                    /* Mineral Count */
                     Drawing.DrawString(g.Graphics,
-                        "APM: " + HMainHandler.GInformation.Player[i].ApmAverage +
-                        " [" + HMainHandler.GInformation.Player[i].Apm + "]", fInternalFontNormal,
+                        HMainHandler.GInformation.Player[i].MineralsArmy.ToString(CultureInfo.InvariantCulture), fInternalFontNormal,
                         Brushes.White,
-                        Brushes.Black, (float)((37.0 / 100) * Width),
-                        (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        Brushes.Black, (float)((43.67 / 100) * Width),
+                                          (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
                         1f, 1f, true);
-
 
                     #endregion
 
-                    #region Epm
+                    #region Gas
 
+                    /* Icon */
+                    g.Graphics.DrawImage(_imgGas, (float)((57.0 / 100) * Width),
+                                         (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
+                                         (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
+
+                    /* Gas Count */
                     Drawing.DrawString(g.Graphics,
-                       "EPM: " + HMainHandler.GInformation.Player[i].EpmAverage +
-                        " [" + HMainHandler.GInformation.Player[i].Epm + "]", fInternalFontNormal,
+                        HMainHandler.GInformation.Player[i].GasArmy.ToString(CultureInfo.InvariantCulture), fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((63.67 / 100) * Width),
                                           (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        1f, 1f, true);
+
+                    #endregion
+
+                    #region Supply
+
+                    /* Icon */
+                    g.Graphics.DrawImage(_imgSupply, (float)((75.0 / 100) * Width),
+                                         (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
+                                         (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
+
+                    /* Mineral Count */
+                    Drawing.DrawString(g.Graphics,
+                        (HMainHandler.GInformation.Player[i].ArmySupply).ToString(CultureInfo.InvariantCulture) + " / " +
+                        HMainHandler.GInformation.Player[i].SupplyMax, fInternalFontNormal,
+                        Brushes.White,
+                        Brushes.Black, (float)((81.67 / 100) * Width),
+                        (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
                         1f, 1f, true);
 
                     #endregion
@@ -188,14 +247,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     iCounter++;
                 }
-
             }
 
             catch (Exception ex)
             {
-                Messages.LogFile("DrawApm", "Over all", ex);
+                Messages.LogFile("DrawArmy", "Over all", ex);
             }
-
         }
 
         /// <summary>
@@ -206,17 +263,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             /* Has to be calculated manually because each panels has it's own Neutral handling.. */
             var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
 
-            HMainHandler.PSettings.ApmPositionX = Location.X;
-            HMainHandler.PSettings.ApmPositionY = Location.Y;
-            HMainHandler.PSettings.ApmWidth = Width;
-            HMainHandler.PSettings.ApmHeight = Height / iValidPlayerCount;
-            HMainHandler.PSettings.ApmOpacity = Opacity;
+            HMainHandler.PSettings.ArmyPositionX = Location.X;
+            HMainHandler.PSettings.ArmyPositionY = Location.Y;
+            HMainHandler.PSettings.ArmyWidth = Width;
+            HMainHandler.PSettings.ArmyHeight = Height / iValidPlayerCount;
+            HMainHandler.PSettings.ArmyOpacity = Opacity;
 
             /* Transfer to Mainform */
-            HMainHandler.ApmInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ApmInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ApmInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ApmInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -242,7 +299,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void ChangeForecolorOfButton(Color cl)
         {
-            HMainHandler.btnApm.ForeColor = cl;
+            HMainHandler.btnArmy.ForeColor = cl;
         }
 
         /// <summary>
@@ -255,20 +312,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                HMainHandler.PSettings.ApmWidth = Cursor.Position.X - Left;
+                HMainHandler.PSettings.ArmyWidth = Cursor.Position.X - Left;
 
                 var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
-                if (HMainHandler.PSettings.ApmRemoveNeutral)
+                if (HMainHandler.PSettings.ArmyRemoveNeutral)
                     iValidPlayerCount -= 1;
 
                 if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
                 {
-                    HMainHandler.PSettings.ApmHeight = (Cursor.Position.Y - Top) /
+                    HMainHandler.PSettings.ArmyHeight = (Cursor.Position.Y - Top) /
                                                         iValidPlayerCount;
                 }
 
                 else
-                    HMainHandler.PSettings.ApmHeight = 5;
+                    HMainHandler.PSettings.ArmyHeight = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -280,7 +337,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(HMainHandler.PSettings.ApmChangeSizePanel))
+            if (strInput.Equals(HMainHandler.PSettings.ArmyChangeSizePanel))
             {
                 if (BToggleSize)
                 {
@@ -299,8 +356,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 StrBackupSizeChatbox = string.Empty;
 
                 /* Transfer to Mainform */
-                HMainHandler.ApmInformation.txtWidth.Text = HMainHandler.PSettings.ApmWidth.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ApmInformation.txtHeight.Text = HMainHandler.PSettings.ApmHeight.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyInformation.txtWidth.Text = HMainHandler.PSettings.ArmyWidth.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyInformation.txtHeight.Text = HMainHandler.PSettings.ArmyHeight.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -309,10 +366,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.ApmPositionX,
-                                     PSettings.ApmPositionY);
-            Size = new Size(PSettings.ApmWidth, PSettings.ApmHeight);
-            Opacity = PSettings.ApmOpacity;
+            Location = new Point(PSettings.ArmyPositionX,
+                                     PSettings.ArmyPositionY);
+            Size = new Size(PSettings.ArmyWidth, PSettings.ArmyHeight);
+            Opacity = PSettings.ArmyOpacity;
         }
 
         /// <summary>
@@ -326,8 +383,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                HMainHandler.PSettings.ApmPositionX = Cursor.Position.X;
-                HMainHandler.PSettings.ApmPositionY = Cursor.Position.Y;
+                HMainHandler.PSettings.ArmyPositionX = Cursor.Position.X;
+                HMainHandler.PSettings.ArmyPositionY = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -338,7 +395,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(HMainHandler.PSettings.ApmChangePositionPanel))
+            if (strInput.Equals(HMainHandler.PSettings.ArmyChangePositionPanel))
             {
                 if (BTogglePosition)
                 {
@@ -349,15 +406,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 }
             }
 
-            if (HelpFunctions.HotkeysPressed(Keys.Enter, Keys.Enter, Keys.Enter))
+            if (HelpFunctions.HotkeysPressed(Keys.Enter))
             {
                 BSetPosition = false;
                 StrBackupChatbox = string.Empty;
                 tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
 
                 /* Transfer to Mainform */
-                HMainHandler.ApmInformation.txtPosX.Text = HMainHandler.PSettings.ApmPositionX.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ApmInformation.txtPosY.Text = HMainHandler.PSettings.ApmPositionY.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyInformation.txtPosX.Text = HMainHandler.PSettings.ArmyPositionX.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyInformation.txtPosY.Text = HMainHandler.PSettings.ArmyPositionY.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -381,10 +438,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var iRealPlayerCount = iValidPlayerCount == 0 ? 1 : iValidPlayerCount;
 
-            HMainHandler.PSettings.ApmHeight = (Height / iRealPlayerCount);
-            HMainHandler.PSettings.ApmWidth = Width;
-            HMainHandler.PSettings.ApmPositionX = Location.X;
-            HMainHandler.PSettings.ApmPositionY = Location.Y;
+            HMainHandler.PSettings.ArmyHeight = (Height / iRealPlayerCount);
+            HMainHandler.PSettings.ArmyWidth = Width;
+            HMainHandler.PSettings.ArmyPositionX = Location.X;
+            HMainHandler.PSettings.ArmyPositionY = Location.Y;
         }
     }
 }

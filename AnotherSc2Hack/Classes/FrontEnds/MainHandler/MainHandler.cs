@@ -121,10 +121,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             //Automation am = new Automation(this, PredefinedTypes.Automation.Inject);
             //Automation am = new Automation(this, PredefinedTypes.Automation.Production);
 
-            Apm apm = new Apm(this);
-            apm.Show();
-            
-
+       
 #if DEBUG
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
             btnLostUnits.Visible = true;
