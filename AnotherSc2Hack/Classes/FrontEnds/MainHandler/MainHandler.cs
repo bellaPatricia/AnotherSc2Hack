@@ -56,7 +56,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
-        private readonly List<BaseRenderer> _lContainer = new List<BaseRenderer>();
+        private readonly RendererContainer _lContainer = new RendererContainer();
 
         private readonly List<IPlugins> _lPlugins = new List<IPlugins>(); 
 
@@ -453,13 +453,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ProductionTabInformation.txtPosY.Text = PSettings.ProdTabPositionY.ToString(CultureInfo.InvariantCulture);
             ProductionTabInformation.txtWidth.Text = PSettings.ProdTabWidth.ToString(CultureInfo.InvariantCulture);
             ProductionTabInformation.txtHeight.Text = PSettings.ProdTabHeight.ToString(CultureInfo.InvariantCulture);
-        }
-
-        /* SetDrawingrefresh- rate */
-        private void SetDrawingRefresh()
-        {
-            foreach (var renderer in _lContainer)
-                renderer.tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
         }
 
         private void CheckIfDeveloper()

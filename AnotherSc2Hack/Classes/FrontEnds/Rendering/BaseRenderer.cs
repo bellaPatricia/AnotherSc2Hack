@@ -586,6 +586,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             InitializeComponent();
 
             LoadPreferencesIntoControls();
+
+            Text = HelpFunctions.SetWindowTitle();
         }
 
         /// <summary>
@@ -851,6 +853,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="e"></param>
         protected abstract void MouseWheelTransferData(MouseEventArgs e);
 
+
         #endregion
 
         #region Protected Methods
@@ -1051,6 +1054,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             else
                 Hide();
+        }
+
+        /// <summary>
+        /// Simply reloads the Preferences and puts them into the controls
+        /// </summary>
+        public void ReloadPreferencesIntoControls()
+        {
+            LoadPreferencesIntoControls();
         }
 
         

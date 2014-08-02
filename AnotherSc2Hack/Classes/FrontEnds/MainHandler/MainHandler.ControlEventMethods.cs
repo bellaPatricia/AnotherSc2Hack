@@ -2185,17 +2185,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 PSettings.GlobalDrawingRefresh = iDummy;
 
-                SetDrawingRefresh();
+                _lContainer.SetDrawingInterval(PSettings.GlobalDrawingRefresh);
 
-                /* Adjust drawing refreshrate */
-               /* SetDrawingRefresh(_rApm, iDummy);
-                SetDrawingRefresh(_rArmy, iDummy);
-                SetDrawingRefresh(_rIncome, iDummy);
-                SetDrawingRefresh(_rMaphack, iDummy);
-                SetDrawingRefresh(_rProduction, iDummy);
-                SetDrawingRefresh(_rResources, iDummy);
-                SetDrawingRefresh(_rUnit, iDummy);
-                SetDrawingRefresh(_rWorker, iDummy);*/
 
                 if (iDummy < 10)
                 {
@@ -2222,12 +2213,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             PSettings.WritePreferences();
 
-            /* Close the Panels */
-            foreach (var renderer in _lContainer)
-            {
-                renderer.IsAllowedToClose = true;
-                renderer.Close();
-            }
+            _lContainer.CloseClean();
 
             tmrGatherInformation.Enabled = false;
             GInformation.HandleThread(false);
@@ -2634,16 +2620,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             {
                 _bProofClickable = 1;
 
-                foreach (BaseRenderer renderer in _lContainer)
-                    renderer.FormBorderStyle = FormBorderStyle.None;
+                _lContainer.SetFormBorderStyle(FormBorderStyle.None);
             }
 
             else
             {
                 _bProofClickable = 0;
 
-                foreach (BaseRenderer renderer in _lContainer)
-                    renderer.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                _lContainer.SetFormBorderStyle(FormBorderStyle.SizableToolWindow);
             }
         }
 
