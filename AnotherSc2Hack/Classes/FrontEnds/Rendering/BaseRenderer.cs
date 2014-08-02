@@ -1022,6 +1022,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 Hide();
         }
 
+        public void ToggleShowHide(Boolean show)
+        {
+            if (show)
+                Show();
+
+            else
+                Hide();
+        }
+
         #endregion
 
         protected void CountUnits()

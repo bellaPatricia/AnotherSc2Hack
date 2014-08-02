@@ -23,8 +23,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Private 
 
-        private Renderer _rPersonalApm;
-        private Renderer _rPersonalClock;
         private PredefinedData.Automation _aWorkerProduction;
 
 
@@ -83,6 +81,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             GInformation.CSleepTime = PSettings.GlobalDataRefresh;
             GInformation.CAccessUnitCommands = true;
 
+            /* Add all the panels to the container... */
+            _lContainer.Add(new ResourcesRenderer(this));
+            _lContainer.Add(new IncomeRenderer(this));
+            _lContainer.Add(new WorkerRenderer(this));
+            _lContainer.Add(new ArmyRenderer(this));
+            _lContainer.Add(new ApmRenderer(this));
+            _lContainer.Add(new MaphackRenderer(this));
+            _lContainer.Add(new UnitRenderer(this));
+            _lContainer.Add(new ProductionRenderer(this));
+            _lContainer.Add(new PersonalApmRenderer(this));
+            _lContainer.Add(new PersonalClockRenderer(this));
+
             SetImageCombolist();
             AssignMethodsToEvents();
             LoadSettingsIntoControls();
@@ -114,15 +124,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             //Automation am = new Automation(this, PredefinedTypes.Automation.Production);
 
 
-            /* Add all the panels to the container... */
-            _lContainer.Add(new ResourcesRenderer(this));
-            _lContainer.Add(new IncomeRenderer(this));
-            _lContainer.Add(new WorkerRenderer(this));
-            _lContainer.Add(new ArmyRenderer(this));
-            _lContainer.Add(new ApmRenderer(this));
-            _lContainer.Add(new MaphackRenderer(this));
-            _lContainer.Add(new UnitRenderer(this));
-            _lContainer.Add(new ProductionRenderer(this));
+            
 #if DEBUG
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
             btnLostUnits.Visible = true;
@@ -378,26 +380,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                         Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
                     }
                 }
-            }
-        }
-
-        private void HandleButtonClicks(ref Renderer ren, PredefinedData.RenderForm typo)
-        {
-
-            if (ren == null)
-                ren = new Renderer(typo, this);
-
-            if (ren.Created)
-                ren.Close();
-            
-
-            else
-            {
-                if (ren.IsDestroyed)
-                    ren = new Renderer(typo, this);
-
-                ren.Text = HelpFunctions.SetWindowTitle();
-                ren.Show();
             }
         }
 
@@ -1299,6 +1281,110 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var dm = new DefineMarks();
             dm.Show();
             
+        }
+
+        private readonly List<PredefinedData.Unit> _lUnitForUniqueness = new List<PredefinedData.Unit>();
+        private void ExportUnitIdsToFile()
+        {
+            var sfdSaveFile = new SaveFileDialog();
+            sfdSaveFile.Filter = "txt (Textfile)|*.txt|csv (Tablesheet)|*.csv";
+            var result = sfdSaveFile.ShowDialog();
+
+            if (!result.Equals(DialogResult.OK))
+            {
+                Close();
+                return;
+            }
+
+            var sw = new StreamWriter(sfdSaveFile.FileName);
+
+            if (Path.GetExtension(sfdSaveFile.FileName) == ".csv")
+            {
+                sw.WriteLine("ID; Name; Raw Name");
+                for (var i = 0; i < GInformation.Unit.Count; i++)
+                {
+                    var bUnique = false;
+
+                    if (_lUnitForUniqueness.Count <= 0)
+                        _lUnitForUniqueness.Add(GInformation.Unit[i]);
+
+                    else
+                    {
+                        for (var j = 0; j < _lUnitForUniqueness.Count; j++)
+                        {
+                            if (_lUnitForUniqueness[j].Id != GInformation.Unit[i].Id)
+                                bUnique = true;
+
+                            else
+                            {
+                                bUnique = false;
+                                break;
+                            }
+                        }
+
+                        if (bUnique)
+                            _lUnitForUniqueness.Add(GInformation.Unit[i]);
+                    }
+                }
+
+                _lUnitForUniqueness.Sort((x, y) => x.Id.CompareTo(y.Id));
+
+                for (var i = 0; i < _lUnitForUniqueness.Count; i++)
+                    sw.WriteLine((int)_lUnitForUniqueness[i].Id + ";" + _lUnitForUniqueness[i].Name + ";" +
+                                             _lUnitForUniqueness[i].RawName);
+                sw.Close();
+                Close();
+
+            }
+
+            else
+            {
+                sw.WriteLine("public enum UnitId");
+                sw.WriteLine("{");
+                for (var i = 0; i < GInformation.Unit.Count; i++)
+                {
+                    var bUnique = false;
+
+                    if (_lUnitForUniqueness.Count <= 0)
+                        _lUnitForUniqueness.Add(GInformation.Unit[i]);
+
+                    else
+                    {
+                        for (var j = 0; j < _lUnitForUniqueness.Count; j++)
+                        {
+                            if (_lUnitForUniqueness[j].Id != GInformation.Unit[i].Id)
+                                bUnique = true;
+
+                            else
+                            {
+                                bUnique = false;
+                                break;
+                            }
+                        }
+
+                        if (bUnique)
+                            _lUnitForUniqueness.Add(GInformation.Unit[i]);
+                    }
+                }
+
+                _lUnitForUniqueness.Sort((x, y) => x.Id.CompareTo(y.Id));
+
+                for (var i = 0; i < _lUnitForUniqueness.Count; i++)
+                {
+                    if (i + 1 == _lUnitForUniqueness.Count)
+                        sw.WriteLine("\t" + _lUnitForUniqueness[i].Name + " = " + (int)_lUnitForUniqueness[i].Id);
+
+                    else
+                        sw.WriteLine("\t" + _lUnitForUniqueness[i].Name + " = " + (int)_lUnitForUniqueness[i].Id + ",");
+                }
+
+
+                sw.WriteLine("}");
+                sw.Close();
+                Close();
+            }
+
+            Process.Start(sfdSaveFile.FileName);
         }
     }
 }

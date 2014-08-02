@@ -1275,16 +1275,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /* Export a file with all information (ID's and Names) of units */
         private void btnExportFile_Click(object sender, EventArgs e)
         {
-            var rExportFile = new Renderer(PredefinedData.RenderForm.ExportIdsToFile, this);
-
-            /* Crashes because the element wasn't used... 
-             * But it was used. Weird shit */
-            try
-            {
-                rExportFile.Show();
-            }
-
-            catch { }
+            ExportUnitIdsToFile();
         }
 
 
@@ -2642,36 +2633,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 foreach (BaseRenderer renderer in _lContainer)
                     renderer.FormBorderStyle = FormBorderStyle.None;
-                /*
-                if (HelpFunctions.RendererWindowAvailable(_rResources))
-                    _rResources.FormBorderStyle = FormBorderStyle.None;
-
-                if (HelpFunctions.RendererWindowAvailable(_rApm))
-                    _rApm.FormBorderStyle = FormBorderStyle.None;
-
-                if (HelpFunctions.RendererWindowAvailable(_rArmy))
-                    _rArmy.FormBorderStyle = FormBorderStyle.None;
-
-                if (HelpFunctions.RendererWindowAvailable(_rIncome))
-                    _rIncome.FormBorderStyle = FormBorderStyle.None;
-
-                if (HelpFunctions.RendererWindowAvailable(_rMaphack))
-                    _rMaphack.FormBorderStyle = FormBorderStyle.None;
-
-                if (HelpFunctions.RendererWindowAvailable(_rPersonalApm))
-                    _rPersonalApm.FormBorderStyle = FormBorderStyle.None;
-
-                if (HelpFunctions.RendererWindowAvailable(_rPersonalClock))
-                    _rPersonalClock.FormBorderStyle = FormBorderStyle.None;
-
-                if (HelpFunctions.RendererWindowAvailable(_rProduction))
-                    _rProduction.FormBorderStyle = FormBorderStyle.None;
-
-                if (HelpFunctions.RendererWindowAvailable(_rUnit))
-                    _rUnit.FormBorderStyle = FormBorderStyle.None;
-
-                if (HelpFunctions.RendererWindowAvailable(_rWorker))
-                    _rWorker.FormBorderStyle = FormBorderStyle.None;*/
             }
 
             else
@@ -2680,36 +2641,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 foreach (BaseRenderer renderer in _lContainer)
                     renderer.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-                /*
-                if (HelpFunctions.RendererWindowAvailable(_rResources))
-                    _rResources.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-
-                if (HelpFunctions.RendererWindowAvailable(_rApm))
-                    _rApm.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-
-                if (HelpFunctions.RendererWindowAvailable(_rArmy))
-                    _rArmy.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-
-                if (HelpFunctions.RendererWindowAvailable(_rIncome))
-                    _rIncome.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-
-                if (HelpFunctions.RendererWindowAvailable(_rMaphack))
-                    _rMaphack.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-
-                if (HelpFunctions.RendererWindowAvailable(_rPersonalApm))
-                    _rPersonalApm.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-
-                if (HelpFunctions.RendererWindowAvailable(_rPersonalClock))
-                    _rPersonalClock.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-
-                if (HelpFunctions.RendererWindowAvailable(_rProduction))
-                    _rProduction.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-
-                if (HelpFunctions.RendererWindowAvailable(_rUnit))
-                    _rUnit.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-
-                if (HelpFunctions.RendererWindowAvailable(_rWorker))
-                    _rWorker.FormBorderStyle = FormBorderStyle.SizableToolWindow;*/
             }
         }
 
@@ -2731,13 +2662,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void chBxVarPersonalApm_CheckedChanged(object sender, EventArgs e)
         {
             PSettings.PersonalApm = Custom_Various.chBxApm.Checked;
-            HandleButtonClicks(ref _rPersonalApm, PredefinedData.RenderForm.PersonalApm);
+
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is PersonalApmRenderer)
+                    renderer.ToggleShowHide(PSettings.PersonalApm);
+            }
         }
 
         private void chBxVarPersonalClock_CheckedChanged(object sender, EventArgs e)
         {
             PSettings.PersonalClock = Custom_Various.chBxClock.Checked;
-            HandleButtonClicks(ref _rPersonalClock, PredefinedData.RenderForm.PersonalClock);
+
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is PersonalClockRenderer)
+                    renderer.ToggleShowHide(PSettings.PersonalClock);
+            }
         }
 
         private void chBxVarPersonalApmAlert_CheckedChanged(object sender, EventArgs e)

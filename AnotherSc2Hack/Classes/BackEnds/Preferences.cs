@@ -276,7 +276,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             sw.WriteLine(";Int32");
             sw.WriteLine("ApmPosX = " + PersonalApmPositionX.ToString(CultureInfo.InvariantCulture));
             sw.WriteLine(";Int32");
-            sw.WriteLine("ApmPosY = " + PersonalApmPositionX.ToString(CultureInfo.InvariantCulture));
+            sw.WriteLine("ApmPosY = " + PersonalApmPositionY.ToString(CultureInfo.InvariantCulture));
             sw.WriteLine(";Int32");
             sw.WriteLine("ApmWidth = " + PersonalApmWidth.ToString(CultureInfo.InvariantCulture));
             sw.WriteLine(";Int32");

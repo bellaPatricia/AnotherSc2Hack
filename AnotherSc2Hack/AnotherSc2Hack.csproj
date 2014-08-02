@@ -228,16 +228,16 @@
     <Compile Include="Classes\FrontEnds\MainHandler\MainHandler.ControlEventMethods.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Renderer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Renderer.Designer.cs">
-      <DependentUpon>Renderer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Classes\FrontEnds\Rendering\ArmyRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Classes\FrontEnds\Rendering\MaphackRenderer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Rendering\PersonalClockRenderer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Rendering\PersonalApmRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Classes\FrontEnds\Rendering\ProductionRenderer.cs">
@@ -376,9 +376,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\PlayerInformation.resx">
       <DependentUpon>PlayerInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Renderer.resx">
-      <DependentUpon>Renderer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Rendering\BaseRenderer.resx">
       <DependentUpon>BaseRenderer.cs</DependentUpon>

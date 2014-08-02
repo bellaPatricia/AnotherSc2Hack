@@ -83,11 +83,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
         }
 
-        public static Boolean RendererWindowAvailable(Renderer rnd)
-        {
-            return ((rnd != null) && rnd.Created);
-        }
-
         public static String SetWindowTitle()
         {
             var rnd = new Random();
@@ -530,54 +525,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
             "Please reload the panels!", "Panelposition channged!");
         }
 
-        public static void AdjustMinimap(bool isIngame, IntPtr hwnd, ref Renderer rRenderer)
-        {
-            if (!isIngame)
-                return;
-
-            
-            
-            InteropCalls.RECT winrect;
-            InteropCalls.GetWindowRect(new HandleRef(null, hwnd), out winrect);
-            InteropCalls.RECT rect;
-            InteropCalls.GetClientRect(hwnd, out rect);
-
-            var info = new InteropCalls.WINDOWINFO();
-            InteropCalls.GetWindowInfo(hwnd, ref info);
-            float screenWidth = rect.Right;
-            float screenHeight = rect.Bottom;
-
-            float aspect = screenWidth / screenHeight;
-
-            double mapSize;
-
-            var xMargin = screenHeight / 41;
-            var yMargin = screenHeight / 108;
-
-            if (aspect <= 1.26)
-            {
-                mapSize = screenWidth / (4.166 + aspect);
-                xMargin = screenHeight / 41;
-                yMargin = screenHeight / 110;
-            }
-            else if (aspect <= 1.30 && aspect > 1.26)
-                mapSize = screenHeight / (2.93 + aspect);
-            else
-                mapSize = screenHeight / 4.068;
-
-            if (mapSize < 178) mapSize = 178;
-
-            InteropCalls.POINT point;
-            point.x = (Int32)(xMargin + info.cxWindowBorders);
-            point.y = (Int32)(winrect.Bottom - mapSize - 10 - yMargin - info.cyWindowBorders);
-            //resize(MapSize, MapSize);
-
-            rRenderer.Location = new Point(point.x + winrect.Left, point.y);
-            rRenderer.Size = new Size((Int32)mapSize, (Int32)mapSize);
-
-            //this->move(point.x + winrect.Left, point.y);
-
-        }
 
         public static void RemoveNonDigits(TextBox txtBox)
         {
