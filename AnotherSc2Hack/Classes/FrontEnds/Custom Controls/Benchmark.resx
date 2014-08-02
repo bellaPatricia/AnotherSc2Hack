@@ -124,20 +124,20 @@
     <value>1</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblDrawingWorIterations.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblDrawingWorkerIterations.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;lblDrawingInterval.Name" xml:space="preserve">
     <value>lblDrawingInterval</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblDrawingArmIterations.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblDrawingArmyIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 13</value>
   </data>
-  <data name="lblDrawingArmIterations.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblDrawingArmyIterations.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;lblDrawingWorIterations.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingWorkerIterations.Parent" xml:space="preserve">
     <value>gpDrawing</value>
   </data>
   <data name="&gt;&gt;lblDrawingInterval.Type" xml:space="preserve">
@@ -146,7 +146,7 @@
   <data name="lblDataIterations.Text" xml:space="preserve">
     <value>Iterations: Unknown</value>
   </data>
-  <data name="lblDrawingArmIterations.Text" xml:space="preserve">
+  <data name="lblDrawingArmyIterations.Text" xml:space="preserve">
     <value>Arm. Iterations: Unknown</value>
   </data>
   <data name="lblDrawingApmIterations.AutoSize" type="System.Boolean, mscorlib">
@@ -158,7 +158,7 @@
   <data name="&gt;&gt;lblDrawingInterval.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;lblDrawingWorIterations.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingWorkerIterations.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
@@ -173,25 +173,25 @@
   <data name="&gt;&gt;lblDataInterval.Parent" xml:space="preserve">
     <value>gpData</value>
   </data>
-  <data name="&gt;&gt;lblDrawingArmIterations.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingArmyIterations.Parent" xml:space="preserve">
     <value>gpDrawing</value>
   </data>
-  <data name="&gt;&gt;lblDrawingIncIterations.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingIncomeIterations.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="lblDrawingMapIterations.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblDrawingMaphackIterations.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblDataInterval.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;lblDrawingIncIterations.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingIncomeIterations.Parent" xml:space="preserve">
     <value>gpDrawing</value>
   </data>
-  <data name="lblDrawingWorIterations.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblDrawingWorkerIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 13</value>
   </data>
-  <data name="lblDrawingMapIterations.Text" xml:space="preserve">
+  <data name="lblDrawingMaphackIterations.Text" xml:space="preserve">
     <value>Map. Iterations: Unknown</value>
   </data>
   <data name="gpDrawing.Size" type="System.Drawing.Size, System.Drawing">
@@ -215,13 +215,13 @@
   <data name="gpDrawing.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;lblDrawingArmIterations.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingArmyIterations.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblDrawingArmIterations.Name" xml:space="preserve">
-    <value>lblDrawingArmIterations</value>
+  <data name="&gt;&gt;lblDrawingArmyIterations.Name" xml:space="preserve">
+    <value>lblDrawingArmyIterations</value>
   </data>
-  <data name="&gt;&gt;lblDrawingResIterations.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingResourceIterations.Parent" xml:space="preserve">
     <value>gpDrawing</value>
   </data>
   <data name="lblDataInterval.Size" type="System.Drawing.Size, System.Drawing">
@@ -230,10 +230,10 @@
   <data name="lblDrawingApmIterations.Text" xml:space="preserve">
     <value>ApmCurrent Iterations: Unknown</value>
   </data>
-  <data name="lblDrawingArmIterations.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblDrawingArmyIterations.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="lblDrawingWorIterations.Text" xml:space="preserve">
+  <data name="lblDrawingWorkerIterations.Text" xml:space="preserve">
     <value>Wor. Iterations: Unknown</value>
   </data>
   <data name="gpData.Location" type="System.Drawing.Point, System.Drawing">
@@ -242,13 +242,13 @@
   <data name="lblDataIterations.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 60</value>
   </data>
-  <data name="&gt;&gt;lblDrawingIncIterations.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingIncomeIterations.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblDrawingResIterations.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingResourceIterations.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="lblDrawingIncIterations.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblDrawingIncomeIterations.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 90</value>
   </data>
   <data name="&gt;&gt;lblDrawingApmIterations.Type" xml:space="preserve">
@@ -269,7 +269,7 @@
   <data name="&gt;&gt;lblDataIterations.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblDrawingIncIterations.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblDrawingIncomeIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 13</value>
   </data>
   <data name="&gt;&gt;lblDataIterations.ZOrder" xml:space="preserve">
@@ -278,13 +278,13 @@
   <data name="&gt;&gt;lblDataIterations.Parent" xml:space="preserve">
     <value>gpData</value>
   </data>
-  <data name="&gt;&gt;lblDrawingResIterations.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingResourceIterations.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblDrawingResIterations.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblDrawingResourceIterations.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 60</value>
   </data>
-  <data name="&gt;&gt;lblDrawingMapIterations.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingMaphackIterations.Parent" xml:space="preserve">
     <value>gpDrawing</value>
   </data>
   <data name="&gt;&gt;gpDrawing.ZOrder" xml:space="preserve">
@@ -299,8 +299,8 @@
   <data name="lblDrawingInterval.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 13</value>
   </data>
-  <data name="&gt;&gt;lblDrawingWorIterations.Name" xml:space="preserve">
-    <value>lblDrawingWorIterations</value>
+  <data name="&gt;&gt;lblDrawingWorkerIterations.Name" xml:space="preserve">
+    <value>lblDrawingWorkerIterations</value>
   </data>
   <data name="&gt;&gt;lblDataInterval.Name" xml:space="preserve">
     <value>lblDataInterval</value>
@@ -308,22 +308,22 @@
   <data name="lblDrawingApmIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 13</value>
   </data>
-  <data name="lblDrawingIncIterations.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblDrawingIncomeIterations.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="lblDrawingUniIterations.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblDrawingResIterations.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblDrawingResourceIterations.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;lblDataInterval.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblDrawingIncIterations.Text" xml:space="preserve">
+  <data name="lblDrawingIncomeIterations.Text" xml:space="preserve">
     <value>Inc. Iterations: Unknown</value>
   </data>
-  <data name="lblDrawingArmIterations.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblDrawingArmyIterations.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 150</value>
   </data>
   <data name="lblDrawingApmIterations.TabIndex" type="System.Int32, mscorlib">
@@ -335,13 +335,13 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="&gt;&gt;lblDrawingMapIterations.Name" xml:space="preserve">
-    <value>lblDrawingMapIterations</value>
+  <data name="&gt;&gt;lblDrawingMaphackIterations.Name" xml:space="preserve">
+    <value>lblDrawingMaphackIterations</value>
   </data>
-  <data name="&gt;&gt;lblDrawingArmIterations.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingArmyIterations.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;lblDrawingMapIterations.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingMaphackIterations.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="&gt;&gt;lblDataInterval.ZOrder" xml:space="preserve">
@@ -359,25 +359,25 @@
   <data name="gpData.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 100</value>
   </data>
-  <data name="&gt;&gt;lblDrawingResIterations.Name" xml:space="preserve">
-    <value>lblDrawingResIterations</value>
+  <data name="&gt;&gt;lblDrawingResourceIterations.Name" xml:space="preserve">
+    <value>lblDrawingResourceIterations</value>
   </data>
-  <data name="&gt;&gt;lblDrawingWorIterations.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingWorkerIterations.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblDrawingIncIterations.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblDrawingIncomeIterations.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblDrawingResIterations.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblDrawingResourceIterations.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblDrawingWorIterations.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblDrawingWorkerIterations.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="lblDrawingResIterations.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblDrawingResourceIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>127, 13</value>
   </data>
   <data name="gpDrawing.Location" type="System.Drawing.Point, System.Drawing">
@@ -386,7 +386,7 @@
   <data name="&gt;&gt;lblDrawingApmIterations.Parent" xml:space="preserve">
     <value>gpDrawing</value>
   </data>
-  <data name="lblDrawingWorIterations.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblDrawingWorkerIterations.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 180</value>
   </data>
   <data name="lblDrawingInterval.Location" type="System.Drawing.Point, System.Drawing">
@@ -404,7 +404,7 @@
   <data name="lblDataIterations.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;lblDrawingMapIterations.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblDrawingMaphackIterations.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblDrawingInterval.TabIndex" type="System.Int32, mscorlib">
@@ -419,29 +419,29 @@
   <data name="&gt;&gt;gpData.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblDrawingMapIterations.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblDrawingMaphackIterations.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 210</value>
   </data>
   <data name="&gt;&gt;lblDrawingApmIterations.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="lblDrawingResIterations.Text" xml:space="preserve">
+  <data name="lblDrawingResourceIterations.Text" xml:space="preserve">
     <value>Res. Iterations: Unknown</value>
   </data>
   <data name="lblDataIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 13</value>
   </data>
-  <data name="lblDrawingMapIterations.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblDrawingMaphackIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 13</value>
   </data>
-  <data name="lblDrawingMapIterations.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblDrawingMaphackIterations.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="lblDrawingUniIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 13</value>
   </data>
-  <data name="&gt;&gt;lblDrawingIncIterations.Name" xml:space="preserve">
-    <value>lblDrawingIncIterations</value>
+  <data name="&gt;&gt;lblDrawingIncomeIterations.Name" xml:space="preserve">
+    <value>lblDrawingIncomeIterations</value>
   </data>
   <data name="&gt;&gt;lblDrawingUniIterations.Parent" xml:space="preserve">
     <value>gpDrawing</value>

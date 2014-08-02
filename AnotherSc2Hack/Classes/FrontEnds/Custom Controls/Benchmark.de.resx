@@ -139,22 +139,22 @@
   <data name="lblDrawingUniIterations.Text" xml:space="preserve">
     <value>Unit Durchläufe: Unbekannt</value>
   </data>
-  <data name="lblDrawingMapIterations.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblDrawingMaphackIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 13</value>
   </data>
-  <data name="lblDrawingMapIterations.Text" xml:space="preserve">
+  <data name="lblDrawingMaphackIterations.Text" xml:space="preserve">
     <value>MH Durchläufe: Unbekannt</value>
   </data>
-  <data name="lblDrawingWorIterations.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblDrawingWorkerIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 13</value>
   </data>
-  <data name="lblDrawingWorIterations.Text" xml:space="preserve">
+  <data name="lblDrawingWorkerIterations.Text" xml:space="preserve">
     <value>Wor. Durchläufe: Unbekannt</value>
   </data>
-  <data name="lblDrawingArmIterations.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblDrawingArmyIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 13</value>
   </data>
-  <data name="lblDrawingArmIterations.Text" xml:space="preserve">
+  <data name="lblDrawingArmyIterations.Text" xml:space="preserve">
     <value>Army Durchläufe: Unbekannt</value>
   </data>
   <data name="lblDrawingApmIterations.Size" type="System.Drawing.Size, System.Drawing">
@@ -163,16 +163,16 @@
   <data name="lblDrawingApmIterations.Text" xml:space="preserve">
     <value>Apm Durchläufe: Unbekannt</value>
   </data>
-  <data name="lblDrawingIncIterations.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblDrawingIncomeIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 13</value>
   </data>
-  <data name="lblDrawingIncIterations.Text" xml:space="preserve">
+  <data name="lblDrawingIncomeIterations.Text" xml:space="preserve">
     <value>Inc. Durchläufe: Unbekannt</value>
   </data>
-  <data name="lblDrawingResIterations.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblDrawingResourceIterations.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 13</value>
   </data>
-  <data name="lblDrawingResIterations.Text" xml:space="preserve">
+  <data name="lblDrawingResourceIterations.Text" xml:space="preserve">
     <value>Res. Durchläufe: Unbekannt</value>
   </data>
   <data name="lblDrawingInterval.Size" type="System.Drawing.Size, System.Drawing">

@@ -24,13 +24,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         #region Private 
 
         
-        private Renderer _rMaphack;
+        //private Renderer _rMaphack;
         private Renderer _rUnit;
-        private Renderer _rResources;
-        private Renderer _rIncome;
-        private Renderer _rWorker;
-        private Renderer _rApm;
-        private Renderer _rArmy;
+        //private Renderer _rResources;
+        //private Renderer _rIncome;
+        //private Renderer _rWorker;
+        //private Renderer _rApm;
+        //private Renderer _rArmy;
         private Renderer _rProduction;
         private Renderer _rLostUnits;
         private Renderer _rPersonalApm;
@@ -68,6 +68,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         #endregion
 
         #endregion
+
+        private readonly List<BaseRenderer> _lContainer = new List<BaseRenderer>();
 
         private readonly List<IPlugins> _lPlugins = new List<IPlugins>(); 
 
@@ -121,7 +123,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             //Automation am = new Automation(this, PredefinedTypes.Automation.Inject);
             //Automation am = new Automation(this, PredefinedTypes.Automation.Production);
 
-       
+
+            /* Add all the panels to the container... */
+            _lContainer.Add(new Resources(this));
+            _lContainer.Add(new Income(this));
+            _lContainer.Add(new Worker(this));
+            _lContainer.Add(new Army(this));
+            _lContainer.Add(new Apm(this));
+            _lContainer.Add(new Maphack(this));
 #if DEBUG
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
             btnLostUnits.Visible = true;
@@ -147,37 +156,74 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnMaphack_Click(object sender, EventArgs e)
         {
-            HandleButtonClicks(ref _rMaphack, PredefinedData.RenderForm.Maphack);
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is Maphack)
+                {
+                    renderer.ToggleShowHide();
+                }
+            }
         }
 
         private void btnUnit_Click(object sender, EventArgs e)
         {
+            
             HandleButtonClicks(ref _rUnit, PredefinedData.RenderForm.Units);
         }
 
         private void btnResources_Click(object sender, EventArgs e)
         {
-            HandleButtonClicks(ref _rResources, PredefinedData.RenderForm.Resources);
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is Resources)
+                {
+                    renderer.ToggleShowHide();
+                }
+            }
         }
 
         private void btnIncome_Click(object sender, EventArgs e)
         {
-            HandleButtonClicks(ref _rIncome, PredefinedData.RenderForm.Income);
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is Income)
+                {
+                    renderer.ToggleShowHide();
+                }
+            }
         }
 
         private void btnArmy_Click(object sender, EventArgs e)
         {
-            HandleButtonClicks(ref _rArmy, PredefinedData.RenderForm.Army);
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is Army)
+                {
+                    renderer.ToggleShowHide();
+                }
+            }
         }
 
         private void btnApm_Click(object sender, EventArgs e)
         {
-            HandleButtonClicks(ref _rApm, PredefinedData.RenderForm.Apm);
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is Apm)
+                {
+                    renderer.ToggleShowHide();
+                }
+            }
         }
 
         private void btnWorker_Click(object sender, EventArgs e)
         {
-            HandleButtonClicks(ref _rWorker, PredefinedData.RenderForm.Worker);
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is Worker)
+                {
+                    renderer.ToggleShowHide();
+                }
+            }
         }
 
         private void btnProduction_Click(object sender, EventArgs e)
@@ -189,43 +235,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Chat Input / Hotkeys / Button- method
 
-        private void LaunchPanels(ref Renderer ren, PredefinedData.RenderForm typo, String shortcut, Keys a, Keys b,
-                                  Keys c)
+        private void LaunchPanels()
         {
-
-            #region Hotkeys
-
-            if (HelpFunctions.HotkeysPressed(a, b, c))
-            {
-                if (ren == null)
-                    ren = new Renderer(typo, this);
-
-                if (ren.Created)
-                    ren.Close();
-
-
-                else
-                {
-                    if (ren.IsDestroyed)
-                        ren = new Renderer(typo, this);
-
-                    ren.Text = HelpFunctions.SetWindowTitle();
-                    ren.Show();
-                }
-
-                Thread.Sleep(200);
-            }
-
-            #endregion
-
-            if (PSc2Process == null)
-                return;
-
-            #region Chatinput
-
             var strInput = GInformation.Gameinfo.ChatInput;
-
-
 
             if (String.IsNullOrEmpty(strInput))
                 return;
@@ -233,32 +245,105 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(shortcut))
+
+            foreach (BaseRenderer renderer in _lContainer)
             {
-                if (ren == null)
-                    ren = new Renderer(typo, this);
-
-                if (ren.Created)
-                    ren.Close();
-
-
-                else
+                if (renderer is Resources)
                 {
-                    if (ren.IsDestroyed)
-                        ren = new Renderer(typo, this);
+                    if (HelpFunctions.HotkeysPressed(PSettings.ResourceHotkey1,
+                        PSettings.ResourceHotkey2,
+                        PSettings.ResourceHotkey3))
+                        renderer.ToggleShowHide();
 
-                    ren.Text = HelpFunctions.SetWindowTitle();
-                    ren.Show();
+                    
+                    if (strInput.Equals(PSettings.ResourceTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
+                    }
                 }
 
-                Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
+                if (renderer is Income)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.IncomeHotkey1,
+                        PSettings.IncomeHotkey2,
+                        PSettings.IncomeHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    if (strInput.Equals(PSettings.IncomeTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
+                    }
+                }
+
+                if (renderer is Worker)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.WorkerHotkey1,
+                        PSettings.WorkerHotkey2,
+                        PSettings.WorkerHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    if (strInput.Equals(PSettings.WorkerTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
+                    }
+                }
+
+                if (renderer is Apm)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.ApmHotkey1,
+                        PSettings.ApmHotkey2,
+                        PSettings.ApmHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    if (strInput.Equals(PSettings.ApmTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
+                    }
+                }
+
+                if (renderer is Army)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.ArmyHotkey1,
+                        PSettings.ArmyHotkey2,
+                        PSettings.ArmyHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    if (strInput.Equals(PSettings.ArmyTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
+                    }
+                }
+
+                if (renderer is Maphack)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.MaphackHotkey1,
+                        PSettings.MaphackHotkey2,
+                        PSettings.MaphackHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    if (strInput.Equals(PSettings.MaphackTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
+                    }
+                }
             }
-
-
-
-
-
-            #endregion
         }
 
         private void HandleButtonClicks(ref Renderer ren, PredefinedData.RenderForm typo)
@@ -292,29 +377,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /* Make panels in/ visible */
         private void ChangeVisibleState(Boolean state)
         {
-            if (_rApm != null)
-                _rApm.Visible = state;
-
-            if (_rArmy != null)
-                _rArmy.Visible = state;
-
-            if (_rIncome != null)
-                _rIncome.Visible = state;
-
-            if (_rMaphack != null)
-                _rMaphack.Visible = state;
-
-            if (_rProduction != null)
-                _rProduction.Visible = state;
-
-            if (_rResources != null)
-                _rResources.Visible = state;
-
-            if (_rUnit != null)
-                _rUnit.Visible = state;
-
-            if (_rWorker != null)
-                _rWorker.Visible = state;
+            foreach (var renderer in _lContainer)
+            {
+                if (!renderer.IsHidden)
+                    renderer.Visible = state;
+            }
         }
 
         /* Change Textbox Content (Width, Height, PosX, PosY) */
@@ -370,14 +437,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         /* SetDrawingrefresh- rate */
-        private void SetDrawingRefresh(Renderer renderForm, int iDummy)
+        private void SetDrawingRefresh()
         {
-            if (renderForm != null &&
-                renderForm.Created)
-            {
-                renderForm.tmrRefreshGraphic.Interval = iDummy;
-            }
-
+            foreach (var renderer in _lContainer)
+                renderer.tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
         }
 
         private void CheckIfDeveloper()

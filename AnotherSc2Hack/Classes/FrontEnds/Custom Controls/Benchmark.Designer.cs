@@ -34,12 +34,12 @@
             this.lblDataInterval = new System.Windows.Forms.Label();
             this.gpDrawing = new System.Windows.Forms.GroupBox();
             this.lblDrawingUniIterations = new System.Windows.Forms.Label();
-            this.lblDrawingMapIterations = new System.Windows.Forms.Label();
-            this.lblDrawingWorIterations = new System.Windows.Forms.Label();
-            this.lblDrawingArmIterations = new System.Windows.Forms.Label();
+            this.lblDrawingMaphackIterations = new System.Windows.Forms.Label();
+            this.lblDrawingWorkerIterations = new System.Windows.Forms.Label();
+            this.lblDrawingArmyIterations = new System.Windows.Forms.Label();
             this.lblDrawingApmIterations = new System.Windows.Forms.Label();
-            this.lblDrawingIncIterations = new System.Windows.Forms.Label();
-            this.lblDrawingResIterations = new System.Windows.Forms.Label();
+            this.lblDrawingIncomeIterations = new System.Windows.Forms.Label();
+            this.lblDrawingResourceIterations = new System.Windows.Forms.Label();
             this.lblDrawingInterval = new System.Windows.Forms.Label();
             this.gpData.SuspendLayout();
             this.gpDrawing.SuspendLayout();
@@ -67,12 +67,12 @@
             // 
             resources.ApplyResources(this.gpDrawing, "gpDrawing");
             this.gpDrawing.Controls.Add(this.lblDrawingUniIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingMapIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingWorIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingArmIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingMaphackIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingWorkerIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingArmyIterations);
             this.gpDrawing.Controls.Add(this.lblDrawingApmIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingIncIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingResIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingIncomeIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingResourceIterations);
             this.gpDrawing.Controls.Add(this.lblDrawingInterval);
             this.gpDrawing.Name = "gpDrawing";
             this.gpDrawing.TabStop = false;
@@ -82,35 +82,35 @@
             resources.ApplyResources(this.lblDrawingUniIterations, "lblDrawingUniIterations");
             this.lblDrawingUniIterations.Name = "lblDrawingUniIterations";
             // 
-            // lblDrawingMapIterations
+            // lblDrawingMaphackIterations
             // 
-            resources.ApplyResources(this.lblDrawingMapIterations, "lblDrawingMapIterations");
-            this.lblDrawingMapIterations.Name = "lblDrawingMapIterations";
+            resources.ApplyResources(this.lblDrawingMaphackIterations, "lblDrawingMaphackIterations");
+            this.lblDrawingMaphackIterations.Name = "lblDrawingMaphackIterations";
             // 
-            // lblDrawingWorIterations
+            // lblDrawingWorkerIterations
             // 
-            resources.ApplyResources(this.lblDrawingWorIterations, "lblDrawingWorIterations");
-            this.lblDrawingWorIterations.Name = "lblDrawingWorIterations";
+            resources.ApplyResources(this.lblDrawingWorkerIterations, "lblDrawingWorkerIterations");
+            this.lblDrawingWorkerIterations.Name = "lblDrawingWorkerIterations";
             // 
-            // lblDrawingArmIterations
+            // lblDrawingArmyIterations
             // 
-            resources.ApplyResources(this.lblDrawingArmIterations, "lblDrawingArmIterations");
-            this.lblDrawingArmIterations.Name = "lblDrawingArmIterations";
+            resources.ApplyResources(this.lblDrawingArmyIterations, "lblDrawingArmyIterations");
+            this.lblDrawingArmyIterations.Name = "lblDrawingArmyIterations";
             // 
             // lblDrawingApmIterations
             // 
             resources.ApplyResources(this.lblDrawingApmIterations, "lblDrawingApmIterations");
             this.lblDrawingApmIterations.Name = "lblDrawingApmIterations";
             // 
-            // lblDrawingIncIterations
+            // lblDrawingIncomeIterations
             // 
-            resources.ApplyResources(this.lblDrawingIncIterations, "lblDrawingIncIterations");
-            this.lblDrawingIncIterations.Name = "lblDrawingIncIterations";
+            resources.ApplyResources(this.lblDrawingIncomeIterations, "lblDrawingIncomeIterations");
+            this.lblDrawingIncomeIterations.Name = "lblDrawingIncomeIterations";
             // 
-            // lblDrawingResIterations
+            // lblDrawingResourceIterations
             // 
-            resources.ApplyResources(this.lblDrawingResIterations, "lblDrawingResIterations");
-            this.lblDrawingResIterations.Name = "lblDrawingResIterations";
+            resources.ApplyResources(this.lblDrawingResourceIterations, "lblDrawingResourceIterations");
+            this.lblDrawingResourceIterations.Name = "lblDrawingResourceIterations";
             // 
             // lblDrawingInterval
             // 
@@ -139,12 +139,12 @@
         public System.Windows.Forms.Label lblDataInterval;
         private System.Windows.Forms.GroupBox gpDrawing;
         public System.Windows.Forms.Label lblDrawingUniIterations;
-        public System.Windows.Forms.Label lblDrawingMapIterations;
-        public System.Windows.Forms.Label lblDrawingWorIterations;
-        public System.Windows.Forms.Label lblDrawingArmIterations;
+        public System.Windows.Forms.Label lblDrawingMaphackIterations;
+        public System.Windows.Forms.Label lblDrawingWorkerIterations;
+        public System.Windows.Forms.Label lblDrawingArmyIterations;
         public System.Windows.Forms.Label lblDrawingApmIterations;
-        public System.Windows.Forms.Label lblDrawingIncIterations;
-        public System.Windows.Forms.Label lblDrawingResIterations;
+        public System.Windows.Forms.Label lblDrawingIncomeIterations;
+        public System.Windows.Forms.Label lblDrawingResourceIterations;
         public System.Windows.Forms.Label lblDrawingInterval;
     }
 }

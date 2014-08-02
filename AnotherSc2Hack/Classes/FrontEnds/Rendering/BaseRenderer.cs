@@ -55,6 +55,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         public Boolean IsDestroyed { get; set; }
         public PredefinedData.CustomWindowStyles SetWindowStyle { get; set; }
+        public Boolean IsHidden { get; private set; }
+        
 
         #endregion
 
@@ -84,6 +86,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         private void InitCode()
         {
+            IsHidden = true;
+
             SetStyle(ControlStyles.DoubleBuffer |
             ControlStyles.UserPaint |
             ControlStyles.OptimizedDoubleBuffer |
@@ -484,6 +488,50 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             //_swMainWatch.Stop();
             //Debug.WriteLine("Time to execute DrawingMethods:" + 1000000 * _swMainWatch.ElapsedTicks / Stopwatch.Frequency + " µs");
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Override Hide- Method to change the IsHidden property [true].
+        /// </summary>
+        public new void Hide()
+        {
+            IsHidden = true;
+
+            tmrRefreshGraphic.Enabled = false;
+
+            ChangeForecolorOfButton(Color.Red);
+
+            base.Hide();
+        }
+
+        /// <summary>
+        /// Override Show- Method to change the IsHidden property [false].
+        /// </summary>
+        public new void Show()
+        {
+            IsHidden = false;
+
+            tmrRefreshGraphic.Enabled = true;
+
+            ChangeForecolorOfButton(Color.Green);
+
+            base.Show();
+        }
+
+        /// <summary>
+        /// Toggles the Show/ Hide based on the state of IsHidden
+        /// </summary>
+        public void ToggleShowHide()
+        {
+            if (IsHidden)
+                Show();
+
+            else
+                Hide();
         }
 
         #endregion

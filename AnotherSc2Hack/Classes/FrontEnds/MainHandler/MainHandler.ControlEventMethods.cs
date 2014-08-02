@@ -10,6 +10,7 @@ using System.Net.NetworkInformation;
 using System.Security;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.FrontEnds.Rendering;
 using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
@@ -1803,9 +1804,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Global
 
-
-
-
         private void AssignMethodsToEvents()
         {
             #region Hotkeys - Keydown
@@ -2102,9 +2100,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
 
-
-
-
         void lstBxPlugins_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CustGlobal.lstBxPlugins.Items.Count <= 0)
@@ -2199,15 +2194,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 PSettings.GlobalDrawingRefresh = iDummy;
 
+                SetDrawingRefresh();
+
                 /* Adjust drawing refreshrate */
-                SetDrawingRefresh(_rApm, iDummy);
+               /* SetDrawingRefresh(_rApm, iDummy);
                 SetDrawingRefresh(_rArmy, iDummy);
                 SetDrawingRefresh(_rIncome, iDummy);
                 SetDrawingRefresh(_rMaphack, iDummy);
                 SetDrawingRefresh(_rProduction, iDummy);
                 SetDrawingRefresh(_rResources, iDummy);
                 SetDrawingRefresh(_rUnit, iDummy);
-                SetDrawingRefresh(_rWorker, iDummy);
+                SetDrawingRefresh(_rWorker, iDummy);*/
 
                 if (iDummy < 10)
                 {
@@ -2312,19 +2309,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             RefreshPluginData();
 
-
-            #region Launch Panels
-
-            LaunchPanels(ref _rResources, PredefinedData.RenderForm.Resources, PSettings.ResourceTogglePanel, PSettings.ResourceHotkey1, PSettings.ResourceHotkey2, PSettings.ResourceHotkey3);
-            LaunchPanels(ref _rIncome, PredefinedData.RenderForm.Income, PSettings.IncomeTogglePanel, PSettings.IncomeHotkey1, PSettings.IncomeHotkey2, PSettings.IncomeHotkey3);
-            LaunchPanels(ref _rWorker, PredefinedData.RenderForm.Worker, PSettings.WorkerTogglePanel, PSettings.WorkerHotkey1, PSettings.WorkerHotkey2, PSettings.WorkerHotkey3);
-            LaunchPanels(ref _rMaphack, PredefinedData.RenderForm.Maphack, PSettings.MaphackTogglePanel, PSettings.MaphackHotkey1, PSettings.MaphackHotkey2, PSettings.MaphackHotkey3);
-            LaunchPanels(ref _rApm, PredefinedData.RenderForm.Apm, PSettings.ApmTogglePanel, PSettings.ApmHotkey1, PSettings.ApmHotkey2, PSettings.ApmHotkey3);
-            LaunchPanels(ref _rArmy, PredefinedData.RenderForm.Army, PSettings.ArmyTogglePanel, PSettings.ArmyHotkey1, PSettings.ArmyHotkey2, PSettings.ArmyHotkey3);
-            LaunchPanels(ref _rUnit, PredefinedData.RenderForm.Units, PSettings.UnitTogglePanel, PSettings.UnitHotkey1, PSettings.UnitHotkey2, PSettings.UnitHotkey3);
-            LaunchPanels(ref _rProduction, PredefinedData.RenderForm.Production, PSettings.ProdTogglePanel, PSettings.ProdHotkey1, PSettings.ProdHotkey2, PSettings.ProdHotkey3);
-
-            #endregion
+            LaunchPanels();
 
             #region Reset Process and gameinfo if Sc2 is not started
 
@@ -2367,7 +2352,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                         GInformation.HandleThread(true);
                     }
 
-
+                    
                     ChangeVisibleState(true);
                     tmrGatherInformation.Interval = PSettings.GlobalDataRefresh;
 
@@ -2391,65 +2376,87 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             GlobalBenchmark.lblDrawingInterval.Text = "Interval: " + PSettings.GlobalDrawingRefresh.ToString(CultureInfo.InvariantCulture) +
                                                       " ms";
 
-
-            if (_rResources != null)
+            foreach (var renderer in _lContainer)
             {
-                if (_rResources.IsDestroyed)
-                    GlobalBenchmark.lblDrawingResIterations.Text = "Resource Iterations: Unknown";
-                else
-                    GlobalBenchmark.lblDrawingResIterations.Text = "Resource Iterations: " +
-                                                                   _rResources.IterationsPerSeconds.ToString(CultureInfo.InvariantCulture);
+                #region Resource
+
+                if (renderer is Resources)
+                {
+                    if (renderer.IsHidden)
+                        GlobalBenchmark.lblDrawingResourceIterations.Text = "Resource Iterations: Unknown";
+
+                    else
+                        GlobalBenchmark.lblDrawingResourceIterations.Text = "Resource Iterations: " + renderer.IterationsPerSeconds;
+                }
+
+                #endregion
+
+                #region Income
+
+                if (renderer is Income)
+                {
+                    if (renderer.IsHidden)
+                        GlobalBenchmark.lblDrawingIncomeIterations.Text = "Income Iterations: Unknown";
+
+                    else
+                        GlobalBenchmark.lblDrawingIncomeIterations.Text = "Income Iterations: " + renderer.IterationsPerSeconds;
+                }
+
+                #endregion
+
+                #region Worker
+
+                if (renderer is Worker)
+                {
+                    if (renderer.IsHidden)
+                        GlobalBenchmark.lblDrawingWorkerIterations.Text = "Worker Iterations: Unknown";
+
+                    else
+                        GlobalBenchmark.lblDrawingWorkerIterations.Text = "Worker Iterations: " + renderer.IterationsPerSeconds;
+                }
+
+                #endregion
+
+                #region Army
+
+                if (renderer is Army)
+                {
+                    if (renderer.IsHidden)
+                        GlobalBenchmark.lblDrawingArmyIterations.Text = "Army Iterations: Unknown";
+
+                    else
+                        GlobalBenchmark.lblDrawingArmyIterations.Text = "Army Iterations: " + renderer.IterationsPerSeconds;
+                }
+
+                #endregion
+
+                #region Apm
+
+                if (renderer is Apm)
+                {
+                    if (renderer.IsHidden)
+                        GlobalBenchmark.lblDrawingApmIterations.Text = "Apm Iterations: Unknown";
+
+                    else
+                        GlobalBenchmark.lblDrawingApmIterations.Text = "Apm Iterations: " + renderer.IterationsPerSeconds;
+                }
+
+                #endregion
+
+                #region Maphack
+
+                if (renderer is Maphack)
+                {
+                    if (renderer.IsHidden)
+                        GlobalBenchmark.lblDrawingMaphackIterations.Text = "Maphack Iterations: Unknown";
+
+                    else
+                        GlobalBenchmark.lblDrawingMaphackIterations.Text = "Maphack Iterations: " + renderer.IterationsPerSeconds;
+                }
+
+                #endregion
             }
-
-            if (_rIncome != null)
-            {
-                if (_rIncome.IsDestroyed)
-                    GlobalBenchmark.lblDrawingIncIterations.Text = "Income Iterations: Unknown";
-
-                else
-                    GlobalBenchmark.lblDrawingIncIterations.Text = "Income Iterations: " +
-                                                                   _rIncome.IterationsPerSeconds.ToString(CultureInfo.InvariantCulture);
-            }
-
-            if (_rApm != null)
-            {
-                if (_rApm.IsDestroyed)
-                    GlobalBenchmark.lblDrawingApmIterations.Text = "Apm Iterations: Unknown";
-
-                else
-                    GlobalBenchmark.lblDrawingApmIterations.Text = "Apm Iterations: " +
-                                                                   _rApm.IterationsPerSeconds.ToString(CultureInfo.InvariantCulture);
-            }
-
-            if (_rArmy != null)
-            {
-                if (_rArmy.IsDestroyed)
-                    GlobalBenchmark.lblDrawingArmIterations.Text = "Army Iterations: Unknown";
-
-                else
-                    GlobalBenchmark.lblDrawingArmIterations.Text = "Army Iterations: " +
-                                                                   _rArmy.IterationsPerSeconds.ToString(CultureInfo.InvariantCulture);
-            }
-
-            if (_rWorker != null)
-            {
-                if (_rWorker.IsDestroyed)
-                    GlobalBenchmark.lblDrawingWorIterations.Text = "Worker Iterations: Unknown";
-
-                else
-                    GlobalBenchmark.lblDrawingWorIterations.Text = "Worker Iterations: " +
-                                                                   _rWorker.IterationsPerSeconds.ToString(CultureInfo.InvariantCulture);
-            }
-
-            if (_rMaphack != null)
-            {
-                if (_rMaphack.IsDestroyed)
-                    GlobalBenchmark.lblDrawingMapIterations.Text = "Maphack Iterations: Unknown";
-
-                else
-                    GlobalBenchmark.lblDrawingMapIterations.Text = "Maphack Iterations: " +
-                                                                   _rMaphack.IterationsPerSeconds.ToString(CultureInfo.InvariantCulture);
-            }
+          
 
             if (_rUnit != null)
             {
@@ -2614,6 +2621,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (_bProofClickable.Equals(0))
             {
                 _bProofClickable = 1;
+
+                foreach (BaseRenderer renderer in _lContainer)
+                    renderer.FormBorderStyle = FormBorderStyle.None;
+                /*
                 if (HelpFunctions.RendererWindowAvailable(_rResources))
                     _rResources.FormBorderStyle = FormBorderStyle.None;
 
@@ -2642,13 +2653,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     _rUnit.FormBorderStyle = FormBorderStyle.None;
 
                 if (HelpFunctions.RendererWindowAvailable(_rWorker))
-                    _rWorker.FormBorderStyle = FormBorderStyle.None;
+                    _rWorker.FormBorderStyle = FormBorderStyle.None;*/
             }
 
             else
             {
                 _bProofClickable = 0;
 
+                foreach (BaseRenderer renderer in _lContainer)
+                    renderer.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                /*
                 if (HelpFunctions.RendererWindowAvailable(_rResources))
                     _rResources.FormBorderStyle = FormBorderStyle.SizableToolWindow;
 
@@ -2677,7 +2691,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     _rUnit.FormBorderStyle = FormBorderStyle.SizableToolWindow;
 
                 if (HelpFunctions.RendererWindowAvailable(_rWorker))
-                    _rWorker.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                    _rWorker.FormBorderStyle = FormBorderStyle.SizableToolWindow;*/
             }
         }
 
