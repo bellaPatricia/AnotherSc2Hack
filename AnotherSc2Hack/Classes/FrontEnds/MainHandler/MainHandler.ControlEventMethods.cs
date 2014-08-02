@@ -2231,48 +2231,63 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             PSettings.WritePreferences();
 
+            /* Close the Panels */
+            foreach (var renderer in _lContainer)
+                renderer.Close();
+
             tmrGatherInformation.Enabled = false;
             GInformation.HandleThread(false);
 
             /* Close Plugins */
             foreach (var i in _lPlugins)
                 i.StopPlugin();
+
+
         }
 
         private void MainHandler_FormClosed(object sender, FormClosedEventArgs e)
         {
+            try
+            {
+                
 
 
-            var strPath = Application.StartupPath + "\\";
-            var strComplete = Application.ExecutablePath;
-            var strFilename = Path.GetFileName(strComplete);
-            var strFilenameNoExt = Path.GetFileNameWithoutExtension(strFilename);
-            var strExtension = Path.GetExtension(strFilename);
+                var strPath = Application.StartupPath + "\\";
+                var strComplete = Application.ExecutablePath;
+                var strFilename = Path.GetFileName(strComplete);
+                var strFilenameNoExt = Path.GetFileNameWithoutExtension(strFilename);
+                var strExtension = Path.GetExtension(strFilename);
 
-            if (!strFilename.Contains("AnotherSc2Hack"))
+                if (!strFilename.Contains("AnotherSc2Hack"))
+                    Environment.Exit(0);
+
+                var strNewFilename = string.Empty;
+                if (CustGlobal.txtFilename.Text.Length <= 3 ||
+                    CustGlobal.txtFilename.Text.Contains("AnotherSc2Hack"))
+                {
+                    var rnd = new Random();
+                    var result = rnd.Next(50000, 90000);
+                    strNewFilename = result.ToString(CultureInfo.InvariantCulture);
+                }
+
+                else
+                {
+                    strNewFilename = CustGlobal.txtFilename.Text;
+                }
+
+                if (File.Exists(strPath + strNewFilename + strExtension))
+                    File.Delete(strPath + strNewFilename + strExtension);
+
+                File.Move(strComplete, strPath + strNewFilename + strExtension);
+
+
                 Environment.Exit(0);
-
-            var strNewFilename = string.Empty;
-            if (CustGlobal.txtFilename.Text.Length <= 3 ||
-                CustGlobal.txtFilename.Text.Contains("AnotherSc2Hack"))
-            {
-                var rnd = new Random();
-                var result = rnd.Next(50000, 90000);
-                strNewFilename = result.ToString(CultureInfo.InvariantCulture);
             }
 
-            else
+            catch (Exception ex)
             {
-                strNewFilename = CustGlobal.txtFilename.Text;
+                throw ex;
             }
-
-            if (File.Exists(strPath + strNewFilename + strExtension))
-                File.Delete(strPath + strNewFilename + strExtension);
-
-            File.Move(strComplete, strPath + strNewFilename + strExtension);
-
-
-            Environment.Exit(0);
         }
 
         private DateTime _dtSecond = DateTime.Now;
@@ -2304,8 +2319,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             //            GInformation.CAccessUnitCommands = true;
 
 
-            CheckPanelState(PredefinedData.RenderForm.Production);
-            CheckPanelState(PredefinedData.RenderForm.Units);
+           // CheckPanelState(PredefinedData.RenderForm.Production);
+           // CheckPanelState(PredefinedData.RenderForm.Units);
 
             RefreshPluginData();
 
@@ -2380,94 +2395,97 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             {
                 #region Resource
 
-                if (renderer is Resources)
+                if (renderer is ResourcesRenderer)
                 {
                     if (renderer.IsHidden)
-                        GlobalBenchmark.lblDrawingResourceIterations.Text = "Resource Iterations: Unknown";
+                        GlobalBenchmark.lblDrawingResourcepanelIterations.Text = "Resource Iterations: Unknown";
 
                     else
-                        GlobalBenchmark.lblDrawingResourceIterations.Text = "Resource Iterations: " + renderer.IterationsPerSeconds;
+                        GlobalBenchmark.lblDrawingResourcepanelIterations.Text = "Resource Iterations: " + renderer.IterationsPerSeconds;
                 }
 
                 #endregion
 
                 #region Income
 
-                if (renderer is Income)
+                if (renderer is IncomeRenderer)
                 {
                     if (renderer.IsHidden)
-                        GlobalBenchmark.lblDrawingIncomeIterations.Text = "Income Iterations: Unknown";
+                        GlobalBenchmark.lblDrawingIncomepanelIterations.Text = "Income Iterations: Unknown";
 
                     else
-                        GlobalBenchmark.lblDrawingIncomeIterations.Text = "Income Iterations: " + renderer.IterationsPerSeconds;
+                        GlobalBenchmark.lblDrawingIncomepanelIterations.Text = "Income Iterations: " + renderer.IterationsPerSeconds;
                 }
 
                 #endregion
 
                 #region Worker
 
-                if (renderer is Worker)
+                if (renderer is WorkerRenderer)
                 {
                     if (renderer.IsHidden)
-                        GlobalBenchmark.lblDrawingWorkerIterations.Text = "Worker Iterations: Unknown";
+                        GlobalBenchmark.lblDrawingWorkerpanelIterations.Text = "Worker Iterations: Unknown";
 
                     else
-                        GlobalBenchmark.lblDrawingWorkerIterations.Text = "Worker Iterations: " + renderer.IterationsPerSeconds;
+                        GlobalBenchmark.lblDrawingWorkerpanelIterations.Text = "Worker Iterations: " + renderer.IterationsPerSeconds;
                 }
 
                 #endregion
 
                 #region Army
 
-                if (renderer is Army)
+                if (renderer is ArmyRenderer)
                 {
                     if (renderer.IsHidden)
-                        GlobalBenchmark.lblDrawingArmyIterations.Text = "Army Iterations: Unknown";
+                        GlobalBenchmark.lblDrawingArmypanelIterations.Text = "Army Iterations: Unknown";
 
                     else
-                        GlobalBenchmark.lblDrawingArmyIterations.Text = "Army Iterations: " + renderer.IterationsPerSeconds;
+                        GlobalBenchmark.lblDrawingArmypanelIterations.Text = "Army Iterations: " + renderer.IterationsPerSeconds;
                 }
 
                 #endregion
 
                 #region Apm
 
-                if (renderer is Apm)
+                if (renderer is ApmRenderer)
                 {
                     if (renderer.IsHidden)
-                        GlobalBenchmark.lblDrawingApmIterations.Text = "Apm Iterations: Unknown";
+                        GlobalBenchmark.lblDrawingApmpanelIterations.Text = "Apm Iterations: Unknown";
 
                     else
-                        GlobalBenchmark.lblDrawingApmIterations.Text = "Apm Iterations: " + renderer.IterationsPerSeconds;
+                        GlobalBenchmark.lblDrawingApmpanelIterations.Text = "Apm Iterations: " + renderer.IterationsPerSeconds;
                 }
 
                 #endregion
 
                 #region Maphack
 
-                if (renderer is Maphack)
+                if (renderer is MaphackRenderer)
                 {
                     if (renderer.IsHidden)
-                        GlobalBenchmark.lblDrawingMaphackIterations.Text = "Maphack Iterations: Unknown";
+                        GlobalBenchmark.lblDrawingMaphackpanelIterations.Text = "Maphack Iterations: Unknown";
 
                     else
-                        GlobalBenchmark.lblDrawingMaphackIterations.Text = "Maphack Iterations: " + renderer.IterationsPerSeconds;
+                        GlobalBenchmark.lblDrawingMaphackpanelIterations.Text = "Maphack Iterations: " + renderer.IterationsPerSeconds;
+                }
+
+                #endregion
+
+                #region Ûnit
+
+                if (renderer is UnitRenderer)
+                {
+                    if (renderer.IsHidden)
+                        GlobalBenchmark.lblDrawingUnitpanelIterations.Text = "Unit Iterations: Unknown";
+
+                    else
+                        GlobalBenchmark.lblDrawingUnitpanelIterations.Text = "Unit Iterations: " + renderer.IterationsPerSeconds;
                 }
 
                 #endregion
             }
-          
 
-            if (_rUnit != null)
-            {
-                if (_rUnit.IsDestroyed)
-                    GlobalBenchmark.lblDrawingUniIterations.Text = "UnitTab Iterations: Unknown";
-                else
-                    GlobalBenchmark.lblDrawingUniIterations.Text = "UnitTab Iterations: " +
-                                                                   _rUnit.IterationsPerSeconds.ToString(CultureInfo.InvariantCulture);
-            }
-
-
+         
             SetUnitListboxInformation();
             SetPlayerListboxInformation();
             SetGameInformationListBox();

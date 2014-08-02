@@ -234,22 +234,28 @@
     <Compile Include="Classes\FrontEnds\Renderer.Designer.cs">
       <DependentUpon>Renderer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Rendering\Army.cs">
+    <Compile Include="Classes\FrontEnds\Rendering\ArmyRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Rendering\Maphack.cs">
+    <Compile Include="Classes\FrontEnds\Rendering\MaphackRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Rendering\Worker.cs">
+    <Compile Include="Classes\FrontEnds\Rendering\ProductionRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Rendering\Income.cs">
+    <Compile Include="Classes\FrontEnds\Rendering\UnitRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Rendering\Resources.cs">
+    <Compile Include="Classes\FrontEnds\Rendering\WorkerRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Rendering\Apm.cs">
+    <Compile Include="Classes\FrontEnds\Rendering\IncomeRenderer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Rendering\ResourcesRenderer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Rendering\ApmRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Classes\FrontEnds\Rendering\BaseRenderer.cs">

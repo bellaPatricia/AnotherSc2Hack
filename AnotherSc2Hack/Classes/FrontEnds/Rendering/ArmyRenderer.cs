@@ -8,7 +8,7 @@ using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
-    public class Income : BaseRenderer
+    public class ArmyRenderer : BaseRenderer
     {
 
         private Image _imgMinerals = Properties.Resources.Mineral_Protoss,
@@ -17,7 +17,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                       _imgWorker = Properties.Resources.P_Probe;
 
 
-        public Income(MainHandler.MainHandler hnd)
+        public ArmyRenderer(MainHandler.MainHandler hnd)
             : base(hnd)
         {
             
@@ -40,16 +40,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (iValidPlayerCount == 0)
                     return;
 
-                Opacity = PSettings.IncomeOpacity;
+                Opacity = PSettings.ArmyOpacity;
                 var iSingleHeight = Height / iValidPlayerCount;
                 var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
-                var fInternalFont = new Font(PSettings.IncomeFontName, fNewFontSize, FontStyle.Bold);
+                var fInternalFont = new Font(PSettings.ArmyFontName, fNewFontSize, FontStyle.Bold);
                 var fInternalFontNormal = new Font(fInternalFont.Name, fNewFontSize, FontStyle.Regular);
 
                 if (!BChangingPosition)
                 {
-                    Height = PSettings.IncomeHeight * iValidPlayerCount;
-                    Width = PSettings.IncomeWidth;
+                    Height = PSettings.ArmyHeight * iValidPlayerCount;
+                    Width = PSettings.ArmyWidth;
                 }
 
                 var iCounter = 0;
@@ -66,19 +66,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Escape sequences
 
-                    if (PSettings.IncomeRemoveAi)
+                    if (PSettings.ArmyRemoveAi)
                     {
                         if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue;
                     }
 
-                    if (PSettings.IncomeRemoveNeutral)
+                    if (PSettings.ArmyRemoveNeutral)
                     {
                         if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue;
                     }
 
-                    if (PSettings.IncomeRemoveAllie)
+                    if (PSettings.ArmyRemoveAllie)
                     {
                         if (HMainHandler.GInformation.Player[0].Localplayer == 16)
                         {
@@ -94,7 +94,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
                     }
 
-                    if (PSettings.IncomeRemoveLocalplayer)
+                    if (PSettings.ArmyRemoveLocalplayer)
                     {
                         if (HMainHandler.GInformation.Player[i].IsLocalplayer)
                             continue;
@@ -147,7 +147,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Bounds and Background
 
-                    if (PSettings.IncomeDrawBackground)
+                    if (PSettings.ArmyDrawBackground)
                     {
                         /* Background */
                         g.Graphics.FillRectangle(Brushes.Gray, 1, 1 + (iSingleHeight * iCounter), Width - 2,
@@ -159,19 +159,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                                  Width - 2, iSingleHeight - 2);
                     }
 
-
                     #endregion
 
                     #region Content Drawing
 
                     #region Name
 
-                    var strName = (HMainHandler.GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.IncomeRemoveClanTag)
+                    var strName = (HMainHandler.GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ArmyRemoveClanTag)
                                          ? HMainHandler.GInformation.Player[i].Name
                                          : "[" + HMainHandler.GInformation.Player[i].ClanTag + "] " + HMainHandler.GInformation.Player[i].Name;
 
-
-                    Drawing.DrawString(g.Graphics, strName, fInternalFont,
+                    Drawing.DrawString(g.Graphics,
+                        strName,
+                        fInternalFont,
                         new SolidBrush(clPlayercolor),
                         Brushes.Black, (float)((1.67 / 100) * Width),
                         (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -181,7 +181,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Team
 
-                    Drawing.DrawString(g.Graphics, "#" + HMainHandler.GInformation.Player[i].Team, fInternalFontNormal,
+                    Drawing.DrawString(g.Graphics,
+                        "#" + HMainHandler.GInformation.Player[i].Team, fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((29.67 / 100) * Width),
                         (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -198,11 +199,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     /* Mineral Count */
                     Drawing.DrawString(g.Graphics,
-                        HMainHandler.GInformation.Player[i].MineralsIncome.ToString(CultureInfo.InvariantCulture),
-                        fInternalFontNormal,
+                        HMainHandler.GInformation.Player[i].MineralsArmy.ToString(CultureInfo.InvariantCulture), fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((43.67 / 100) * Width),
-                        (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                                          (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
                         1f, 1f, true);
 
                     #endregion
@@ -216,8 +216,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     /* Gas Count */
                     Drawing.DrawString(g.Graphics,
-                        HMainHandler.GInformation.Player[i].GasIncome.ToString(CultureInfo.InvariantCulture),
-                        fInternalFontNormal,
+                        HMainHandler.GInformation.Player[i].GasArmy.ToString(CultureInfo.InvariantCulture), fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((63.67 / 100) * Width),
                                           (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -225,17 +224,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #endregion
 
-                    #region Workers
+                    #region Supply
 
                     /* Icon */
-                    g.Graphics.DrawImage(_imgWorker, (float)((75.0 / 100) * Width),
-                        (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
-                        (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
+                    g.Graphics.DrawImage(_imgSupply, (float)((75.0 / 100) * Width),
+                                         (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
+                                         (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
 
-                    /* Worker Count */
+                    /* Mineral Count */
                     Drawing.DrawString(g.Graphics,
-                        HMainHandler.GInformation.Player[i].Worker.ToString(CultureInfo.InvariantCulture),
-                        fInternalFontNormal,
+                        (HMainHandler.GInformation.Player[i].ArmySupply).ToString(CultureInfo.InvariantCulture) + " / " +
+                        HMainHandler.GInformation.Player[i].SupplyMax, fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((81.67 / 100) * Width),
                         (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -252,7 +251,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             catch (Exception ex)
             {
-                Messages.LogFile("DrawIncome", "Over all", ex);
+                Messages.LogFile("DrawArmy", "Over all", ex);
             }
         }
 
@@ -264,17 +263,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             /* Has to be calculated manually because each panels has it's own Neutral handling.. */
             var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
 
-            HMainHandler.PSettings.IncomePositionX = Location.X;
-            HMainHandler.PSettings.IncomePositionY = Location.Y;
-            HMainHandler.PSettings.IncomeWidth = Width;
-            HMainHandler.PSettings.IncomeHeight = Height / iValidPlayerCount;
-            HMainHandler.PSettings.IncomeOpacity = Opacity;
+            HMainHandler.PSettings.ArmyPositionX = Location.X;
+            HMainHandler.PSettings.ArmyPositionY = Location.Y;
+            HMainHandler.PSettings.ArmyWidth = Width;
+            HMainHandler.PSettings.ArmyHeight = Height / iValidPlayerCount;
+            HMainHandler.PSettings.ArmyOpacity = Opacity;
 
             /* Transfer to Mainform */
-            HMainHandler.IncomeInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.IncomeInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.IncomeInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.IncomeInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -300,7 +299,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void ChangeForecolorOfButton(Color cl)
         {
-            HMainHandler.btnIncome.ForeColor = cl;
+            HMainHandler.btnArmy.ForeColor = cl;
         }
 
         /// <summary>
@@ -313,20 +312,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                HMainHandler.PSettings.IncomeWidth = Cursor.Position.X - Left;
+                HMainHandler.PSettings.ArmyWidth = Cursor.Position.X - Left;
 
                 var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
-                if (HMainHandler.PSettings.IncomeRemoveNeutral)
+                if (HMainHandler.PSettings.ArmyRemoveNeutral)
                     iValidPlayerCount -= 1;
 
                 if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
                 {
-                    HMainHandler.PSettings.IncomeHeight = (Cursor.Position.Y - Top) /
+                    HMainHandler.PSettings.ArmyHeight = (Cursor.Position.Y - Top) /
                                                         iValidPlayerCount;
                 }
 
                 else
-                    HMainHandler.PSettings.IncomeHeight = 5;
+                    HMainHandler.PSettings.ArmyHeight = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -338,7 +337,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(HMainHandler.PSettings.IncomeChangeSizePanel))
+            if (strInput.Equals(HMainHandler.PSettings.ArmyChangeSizePanel))
             {
                 if (BToggleSize)
                 {
@@ -357,8 +356,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 StrBackupSizeChatbox = string.Empty;
 
                 /* Transfer to Mainform */
-                HMainHandler.IncomeInformation.txtWidth.Text = HMainHandler.PSettings.IncomeWidth.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.IncomeInformation.txtHeight.Text = HMainHandler.PSettings.IncomeHeight.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyInformation.txtWidth.Text = HMainHandler.PSettings.ArmyWidth.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyInformation.txtHeight.Text = HMainHandler.PSettings.ArmyHeight.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -367,10 +366,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.IncomePositionX,
-                                     PSettings.IncomePositionY);
-            Size = new Size(PSettings.IncomeWidth, PSettings.IncomeHeight);
-            Opacity = PSettings.IncomeOpacity;
+            Location = new Point(PSettings.ArmyPositionX,
+                                     PSettings.ArmyPositionY);
+            Size = new Size(PSettings.ArmyWidth, PSettings.ArmyHeight);
+            Opacity = PSettings.ArmyOpacity;
         }
 
         /// <summary>
@@ -384,8 +383,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                HMainHandler.PSettings.IncomePositionX = Cursor.Position.X;
-                HMainHandler.PSettings.IncomePositionY = Cursor.Position.Y;
+                HMainHandler.PSettings.ArmyPositionX = Cursor.Position.X;
+                HMainHandler.PSettings.ArmyPositionY = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -396,7 +395,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(HMainHandler.PSettings.IncomeChangePositionPanel))
+            if (strInput.Equals(HMainHandler.PSettings.ArmyChangePositionPanel))
             {
                 if (BTogglePosition)
                 {
@@ -414,8 +413,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
 
                 /* Transfer to Mainform */
-                HMainHandler.IncomeInformation.txtPosX.Text = HMainHandler.PSettings.IncomePositionX.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.IncomeInformation.txtPosY.Text = HMainHandler.PSettings.IncomePositionY.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyInformation.txtPosX.Text = HMainHandler.PSettings.ArmyPositionX.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyInformation.txtPosY.Text = HMainHandler.PSettings.ArmyPositionY.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -439,10 +438,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var iRealPlayerCount = iValidPlayerCount == 0 ? 1 : iValidPlayerCount;
 
-            HMainHandler.PSettings.IncomeHeight = (Height / iRealPlayerCount);
-            HMainHandler.PSettings.IncomeWidth = Width;
-            HMainHandler.PSettings.IncomePositionX = Location.X;
-            HMainHandler.PSettings.IncomePositionY = Location.Y;
+            HMainHandler.PSettings.ArmyHeight = (Height / iRealPlayerCount);
+            HMainHandler.PSettings.ArmyWidth = Width;
+            HMainHandler.PSettings.ArmyPositionX = Location.X;
+            HMainHandler.PSettings.ArmyPositionY = Location.Y;
         }
     }
 }

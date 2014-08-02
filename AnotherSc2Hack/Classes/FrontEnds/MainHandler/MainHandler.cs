@@ -23,19 +23,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Private 
 
-        
-        //private Renderer _rMaphack;
-        private Renderer _rUnit;
-        //private Renderer _rResources;
-        //private Renderer _rIncome;
-        //private Renderer _rWorker;
-        //private Renderer _rApm;
-        //private Renderer _rArmy;
-        private Renderer _rProduction;
-        private Renderer _rLostUnits;
         private Renderer _rPersonalApm;
         private Renderer _rPersonalClock;
-        private Renderer _rPersonalSelection;
         private PredefinedData.Automation _aWorkerProduction;
 
 
@@ -92,6 +81,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.ReadPreferences();
             PSc2Process = GInformation.CStarcraft2;
             GInformation.CSleepTime = PSettings.GlobalDataRefresh;
+            GInformation.CAccessUnitCommands = true;
 
             SetImageCombolist();
             AssignMethodsToEvents();
@@ -125,12 +115,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
 
             /* Add all the panels to the container... */
-            _lContainer.Add(new Resources(this));
-            _lContainer.Add(new Income(this));
-            _lContainer.Add(new Worker(this));
-            _lContainer.Add(new Army(this));
-            _lContainer.Add(new Apm(this));
-            _lContainer.Add(new Maphack(this));
+            _lContainer.Add(new ResourcesRenderer(this));
+            _lContainer.Add(new IncomeRenderer(this));
+            _lContainer.Add(new WorkerRenderer(this));
+            _lContainer.Add(new ArmyRenderer(this));
+            _lContainer.Add(new ApmRenderer(this));
+            _lContainer.Add(new MaphackRenderer(this));
+            _lContainer.Add(new UnitRenderer(this));
+            _lContainer.Add(new ProductionRenderer(this));
 #if DEBUG
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
             btnLostUnits.Visible = true;
@@ -158,7 +150,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             foreach (var renderer in _lContainer)
             {
-                if (renderer is Maphack)
+                if (renderer is MaphackRenderer)
                 {
                     renderer.ToggleShowHide();
                 }
@@ -167,15 +159,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnUnit_Click(object sender, EventArgs e)
         {
-            
-            HandleButtonClicks(ref _rUnit, PredefinedData.RenderForm.Units);
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is UnitRenderer)
+                {
+                    renderer.ToggleShowHide();
+                }
+            }
         }
 
         private void btnResources_Click(object sender, EventArgs e)
         {
             foreach (var renderer in _lContainer)
             {
-                if (renderer is Resources)
+                if (renderer is ResourcesRenderer)
                 {
                     renderer.ToggleShowHide();
                 }
@@ -186,7 +183,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             foreach (var renderer in _lContainer)
             {
-                if (renderer is Income)
+                if (renderer is IncomeRenderer)
                 {
                     renderer.ToggleShowHide();
                 }
@@ -197,7 +194,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             foreach (var renderer in _lContainer)
             {
-                if (renderer is Army)
+                if (renderer is ArmyRenderer)
                 {
                     renderer.ToggleShowHide();
                 }
@@ -208,7 +205,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             foreach (var renderer in _lContainer)
             {
-                if (renderer is Apm)
+                if (renderer is ApmRenderer)
                 {
                     renderer.ToggleShowHide();
                 }
@@ -219,7 +216,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             foreach (var renderer in _lContainer)
             {
-                if (renderer is Worker)
+                if (renderer is WorkerRenderer)
                 {
                     renderer.ToggleShowHide();
                 }
@@ -228,7 +225,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnProduction_Click(object sender, EventArgs e)
         {
-            HandleButtonClicks(ref _rProduction, PredefinedData.RenderForm.Production);
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is ProductionRenderer)
+                {
+                    renderer.ToggleShowHide();
+                }
+            }
         }
 
         #endregion
@@ -248,7 +251,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             foreach (BaseRenderer renderer in _lContainer)
             {
-                if (renderer is Resources)
+                if (renderer is ResourcesRenderer)
                 {
                     if (HelpFunctions.HotkeysPressed(PSettings.ResourceHotkey1,
                         PSettings.ResourceHotkey2,
@@ -264,7 +267,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     }
                 }
 
-                if (renderer is Income)
+                if (renderer is IncomeRenderer)
                 {
                     if (HelpFunctions.HotkeysPressed(PSettings.IncomeHotkey1,
                         PSettings.IncomeHotkey2,
@@ -280,7 +283,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     }
                 }
 
-                if (renderer is Worker)
+                if (renderer is WorkerRenderer)
                 {
                     if (HelpFunctions.HotkeysPressed(PSettings.WorkerHotkey1,
                         PSettings.WorkerHotkey2,
@@ -296,7 +299,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     }
                 }
 
-                if (renderer is Apm)
+                if (renderer is ApmRenderer)
                 {
                     if (HelpFunctions.HotkeysPressed(PSettings.ApmHotkey1,
                         PSettings.ApmHotkey2,
@@ -312,7 +315,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     }
                 }
 
-                if (renderer is Army)
+                if (renderer is ArmyRenderer)
                 {
                     if (HelpFunctions.HotkeysPressed(PSettings.ArmyHotkey1,
                         PSettings.ArmyHotkey2,
@@ -328,7 +331,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     }
                 }
 
-                if (renderer is Maphack)
+                if (renderer is MaphackRenderer)
                 {
                     if (HelpFunctions.HotkeysPressed(PSettings.MaphackHotkey1,
                         PSettings.MaphackHotkey2,
@@ -337,6 +340,38 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
 
                     if (strInput.Equals(PSettings.MaphackTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
+                    }
+                }
+
+                if (renderer is UnitRenderer)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.UnitHotkey1,
+                        PSettings.UnitHotkey2,
+                        PSettings.UnitHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    if (strInput.Equals(PSettings.UnitTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
+                    }
+                }
+
+                if (renderer is ProductionRenderer)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.ProdHotkey1,
+                        PSettings.ProdHotkey2,
+                        PSettings.ProdHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    if (strInput.Equals(PSettings.ProdTogglePanel))
                     {
                         renderer.ToggleShowHide();
 
@@ -1103,64 +1138,64 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnLostUnits_Click(object sender, EventArgs e)
         {
-            HandleButtonClicks(ref _rLostUnits, PredefinedData.RenderForm.LostUnits); 
+            MessageBox.Show("Empty, bro");
         }
 
-        private void CheckPanelState(PredefinedData.RenderForm rnd)
-        {
-            #region Unitcommands [Production-/ Unit- panel]
+        //private void CheckPanelState(PredefinedData.RenderForm rnd)
+        //{
+        //    #region Unitcommands [Production-/ Unit- panel]
 
-            if (rnd.Equals(PredefinedData.RenderForm.Production) ||
-                rnd.Equals(PredefinedData.RenderForm.Units))
-            {
+        //    if (rnd.Equals(PredefinedData.RenderForm.Production) ||
+        //        rnd.Equals(PredefinedData.RenderForm.Units))
+        //    {
 
-                if (_rProduction == null &&
-                    _rUnit == null)
-                {
-                    GInformation.CAccessUnitCommands = false;
-                    return;
-                }
+        //        if (_rProduction == null &&
+        //            _rUnit == null)
+        //        {
+        //            GInformation.CAccessUnitCommands = false;
+        //            return;
+        //        }
 
-                if (_rProduction != null &&
-                    _rUnit != null)
-                {
-                    if (!_rProduction.Created &&
-                        !_rUnit.Created)
-                    {
-                        GInformation.CAccessUnitCommands = false;
-                    }
-                }
+        //        if (_rProduction != null &&
+        //            _rUnit != null)
+        //        {
+        //            if (!_rProduction.Created &&
+        //                !_rUnit.Created)
+        //            {
+        //                GInformation.CAccessUnitCommands = false;
+        //            }
+        //        }
 
-                else if (_rProduction != null &&
-                         _rUnit == null)
-                {
-                    if (!_rProduction.Created)
-                        GInformation.CAccessUnitCommands = false;
-                }
+        //        else if (_rProduction != null &&
+        //                 _rUnit == null)
+        //        {
+        //            if (!_rProduction.Created)
+        //                GInformation.CAccessUnitCommands = false;
+        //        }
 
-                else if (_rProduction == null &&
-                         _rUnit != null)
-                {
-                    if (!_rUnit.Created)
-                        GInformation.CAccessUnitCommands = false;
-                }
+        //        else if (_rProduction == null &&
+        //                 _rUnit != null)
+        //        {
+        //            if (!_rUnit.Created)
+        //                GInformation.CAccessUnitCommands = false;
+        //        }
 
-                else
-                {
-                    if (rnd.Equals(PredefinedData.RenderForm.Units))
-                        if (PSettings.UnitTabRemoveProdLine)
-                        {
-                            GInformation.CAccessUnitCommands = false;
-                            return;
-                        }
+        //        else
+        //        {
+        //            if (rnd.Equals(PredefinedData.RenderForm.Units))
+        //                if (PSettings.UnitTabRemoveProdLine)
+        //                {
+        //                    GInformation.CAccessUnitCommands = false;
+        //                    return;
+        //                }
 
-                    GInformation.CAccessUnitCommands = true;
-                }
+        //            GInformation.CAccessUnitCommands = true;
+        //        }
 
-            }
+        //    }
 
-            #endregion
-        }
+        //    #endregion
+        //}
 
         private void RefreshPluginData()
         {

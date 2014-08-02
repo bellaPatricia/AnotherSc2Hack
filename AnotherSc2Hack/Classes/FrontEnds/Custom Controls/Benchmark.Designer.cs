@@ -33,13 +33,13 @@
             this.lblDataIterations = new System.Windows.Forms.Label();
             this.lblDataInterval = new System.Windows.Forms.Label();
             this.gpDrawing = new System.Windows.Forms.GroupBox();
-            this.lblDrawingUniIterations = new System.Windows.Forms.Label();
-            this.lblDrawingMaphackIterations = new System.Windows.Forms.Label();
-            this.lblDrawingWorkerIterations = new System.Windows.Forms.Label();
-            this.lblDrawingArmyIterations = new System.Windows.Forms.Label();
-            this.lblDrawingApmIterations = new System.Windows.Forms.Label();
-            this.lblDrawingIncomeIterations = new System.Windows.Forms.Label();
-            this.lblDrawingResourceIterations = new System.Windows.Forms.Label();
+            this.lblDrawingUnitpanelIterations = new System.Windows.Forms.Label();
+            this.lblDrawingMaphackpanelIterations = new System.Windows.Forms.Label();
+            this.lblDrawingWorkerpanelIterations = new System.Windows.Forms.Label();
+            this.lblDrawingArmypanelIterations = new System.Windows.Forms.Label();
+            this.lblDrawingApmpanelIterations = new System.Windows.Forms.Label();
+            this.lblDrawingIncomepanelIterations = new System.Windows.Forms.Label();
+            this.lblDrawingResourcepanelIterations = new System.Windows.Forms.Label();
             this.lblDrawingInterval = new System.Windows.Forms.Label();
             this.gpData.SuspendLayout();
             this.gpDrawing.SuspendLayout();
@@ -66,51 +66,51 @@
             // gpDrawing
             // 
             resources.ApplyResources(this.gpDrawing, "gpDrawing");
-            this.gpDrawing.Controls.Add(this.lblDrawingUniIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingMaphackIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingWorkerIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingArmyIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingApmIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingIncomeIterations);
-            this.gpDrawing.Controls.Add(this.lblDrawingResourceIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingUnitpanelIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingMaphackpanelIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingWorkerpanelIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingArmypanelIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingApmpanelIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingIncomepanelIterations);
+            this.gpDrawing.Controls.Add(this.lblDrawingResourcepanelIterations);
             this.gpDrawing.Controls.Add(this.lblDrawingInterval);
             this.gpDrawing.Name = "gpDrawing";
             this.gpDrawing.TabStop = false;
             // 
-            // lblDrawingUniIterations
+            // lblDrawingUnitpanelIterations
             // 
-            resources.ApplyResources(this.lblDrawingUniIterations, "lblDrawingUniIterations");
-            this.lblDrawingUniIterations.Name = "lblDrawingUniIterations";
+            resources.ApplyResources(this.lblDrawingUnitpanelIterations, "lblDrawingUnitpanelIterations");
+            this.lblDrawingUnitpanelIterations.Name = "lblDrawingUnitpanelIterations";
             // 
-            // lblDrawingMaphackIterations
+            // lblDrawingMaphackpanelIterations
             // 
-            resources.ApplyResources(this.lblDrawingMaphackIterations, "lblDrawingMaphackIterations");
-            this.lblDrawingMaphackIterations.Name = "lblDrawingMaphackIterations";
+            resources.ApplyResources(this.lblDrawingMaphackpanelIterations, "lblDrawingMaphackpanelIterations");
+            this.lblDrawingMaphackpanelIterations.Name = "lblDrawingMaphackpanelIterations";
             // 
-            // lblDrawingWorkerIterations
+            // lblDrawingWorkerpanelIterations
             // 
-            resources.ApplyResources(this.lblDrawingWorkerIterations, "lblDrawingWorkerIterations");
-            this.lblDrawingWorkerIterations.Name = "lblDrawingWorkerIterations";
+            resources.ApplyResources(this.lblDrawingWorkerpanelIterations, "lblDrawingWorkerpanelIterations");
+            this.lblDrawingWorkerpanelIterations.Name = "lblDrawingWorkerpanelIterations";
             // 
-            // lblDrawingArmyIterations
+            // lblDrawingArmypanelIterations
             // 
-            resources.ApplyResources(this.lblDrawingArmyIterations, "lblDrawingArmyIterations");
-            this.lblDrawingArmyIterations.Name = "lblDrawingArmyIterations";
+            resources.ApplyResources(this.lblDrawingArmypanelIterations, "lblDrawingArmypanelIterations");
+            this.lblDrawingArmypanelIterations.Name = "lblDrawingArmypanelIterations";
             // 
-            // lblDrawingApmIterations
+            // lblDrawingApmpanelIterations
             // 
-            resources.ApplyResources(this.lblDrawingApmIterations, "lblDrawingApmIterations");
-            this.lblDrawingApmIterations.Name = "lblDrawingApmIterations";
+            resources.ApplyResources(this.lblDrawingApmpanelIterations, "lblDrawingApmpanelIterations");
+            this.lblDrawingApmpanelIterations.Name = "lblDrawingApmpanelIterations";
             // 
-            // lblDrawingIncomeIterations
+            // lblDrawingIncomepanelIterations
             // 
-            resources.ApplyResources(this.lblDrawingIncomeIterations, "lblDrawingIncomeIterations");
-            this.lblDrawingIncomeIterations.Name = "lblDrawingIncomeIterations";
+            resources.ApplyResources(this.lblDrawingIncomepanelIterations, "lblDrawingIncomepanelIterations");
+            this.lblDrawingIncomepanelIterations.Name = "lblDrawingIncomepanelIterations";
             // 
-            // lblDrawingResourceIterations
+            // lblDrawingResourcepanelIterations
             // 
-            resources.ApplyResources(this.lblDrawingResourceIterations, "lblDrawingResourceIterations");
-            this.lblDrawingResourceIterations.Name = "lblDrawingResourceIterations";
+            resources.ApplyResources(this.lblDrawingResourcepanelIterations, "lblDrawingResourcepanelIterations");
+            this.lblDrawingResourcepanelIterations.Name = "lblDrawingResourcepanelIterations";
             // 
             // lblDrawingInterval
             // 
@@ -138,13 +138,13 @@
         public System.Windows.Forms.Label lblDataIterations;
         public System.Windows.Forms.Label lblDataInterval;
         private System.Windows.Forms.GroupBox gpDrawing;
-        public System.Windows.Forms.Label lblDrawingUniIterations;
-        public System.Windows.Forms.Label lblDrawingMaphackIterations;
-        public System.Windows.Forms.Label lblDrawingWorkerIterations;
-        public System.Windows.Forms.Label lblDrawingArmyIterations;
-        public System.Windows.Forms.Label lblDrawingApmIterations;
-        public System.Windows.Forms.Label lblDrawingIncomeIterations;
-        public System.Windows.Forms.Label lblDrawingResourceIterations;
+        public System.Windows.Forms.Label lblDrawingUnitpanelIterations;
+        public System.Windows.Forms.Label lblDrawingMaphackpanelIterations;
+        public System.Windows.Forms.Label lblDrawingWorkerpanelIterations;
+        public System.Windows.Forms.Label lblDrawingArmypanelIterations;
+        public System.Windows.Forms.Label lblDrawingApmpanelIterations;
+        public System.Windows.Forms.Label lblDrawingIncomepanelIterations;
+        public System.Windows.Forms.Label lblDrawingResourcepanelIterations;
         public System.Windows.Forms.Label lblDrawingInterval;
     }
 }

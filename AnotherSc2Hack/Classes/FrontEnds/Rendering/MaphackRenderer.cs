@@ -9,9 +9,9 @@ using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
-    public class Maphack : BaseRenderer
+    public class MaphackRenderer : BaseRenderer
     {
-        public Maphack(MainHandler.MainHandler hnd)
+        public MaphackRenderer(MainHandler.MainHandler hnd)
             : base(hnd)
         {
             

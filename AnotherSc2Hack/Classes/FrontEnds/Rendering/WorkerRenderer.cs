@@ -8,7 +8,7 @@ using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
-    public class Worker : BaseRenderer
+    public class WorkerRenderer : BaseRenderer
     {
 
         private Image _imgMinerals = Properties.Resources.Mineral_Protoss,
@@ -16,7 +16,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                       _imgWorker = Properties.Resources.P_Probe;
 
 
-        public Worker(MainHandler.MainHandler hnd)
+        public WorkerRenderer(MainHandler.MainHandler hnd)
             : base(hnd)
         {
             
