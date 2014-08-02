@@ -3,6 +3,29 @@ AnotherSc2Hack
 Hacking Blizzard Entertainment's Game "StarCraft II" with external methods<br>
 
 
+Features
+--------
+<ul>
+<li><b>Resource</b>- Panel<br>
+		Shows the current Minerals, Vespene and Supply for each player.<br>
+<li><b>Income</b>- Panel<br>
+		Shows the current income for Minerals, Vespene and Supply for each player.<br>
+<li><b>Armysize</b>- Panel<br>
+		Shows the army- value in Minerals, Vespene and Supply for each player.<br>
+<li><b>Apm</b>- Panel<br>
+		Shows the Apm and Epm for each player. (Current and Average!)<br>
+<li><b>Unit</b>- Panel<br>
+		Shows the Units and buildings for each player. Includes a Spell- counter and counter for units in production!<br>
+<li><b>Production</b>- Panel<br>
+		Shows the units, buildings and upgrades currently in production and their percentage status.<br>
+<li><b>Maphack</b>- Panel<br>
+		Shows the units and buildings on the map. Also a unit's path and the playercameras.<br>
+<li><b>Apm Alert</b><br>
+		Shows your Apm and alerts (draws red) you if it goes below your limit.<br>
+<li><b>Clock</b><br>
+		Shows the current time.<br>
+</ul>
+
 
 Requirements to compile:
 ------------------------
