@@ -1137,7 +1137,7 @@
         public BasicsProdTab ProductionTabBasics;
         public System.Windows.Forms.Button btnLostUnits;
         private System.Windows.Forms.TabPage tcVarious;
-        private CustomVarious Custom_Various;
+        public CustomVarious Custom_Various;
         internal ControlGlobal CustGlobal;
         public System.Windows.Forms.Button btnChangeBorderstyle;
         private System.Windows.Forms.ContextMenuStrip cmsListboxContext;

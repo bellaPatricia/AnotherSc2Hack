@@ -1,6 +1,4 @@
-﻿using AnotherSc2Hack.Classes.FontEnds;
-
-namespace AnotherSc2Hack.Classes.FrontEnds
+﻿namespace AnotherSc2Hack.Classes.FrontEnds
 {
     partial class CustomDebug
     {

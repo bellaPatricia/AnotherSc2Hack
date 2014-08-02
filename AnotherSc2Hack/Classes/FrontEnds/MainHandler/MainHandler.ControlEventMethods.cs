@@ -2224,7 +2224,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             /* Close the Panels */
             foreach (var renderer in _lContainer)
+            {
+                renderer.IsAllowedToClose = true;
                 renderer.Close();
+            }
 
             tmrGatherInformation.Enabled = false;
             GInformation.HandleThread(false);

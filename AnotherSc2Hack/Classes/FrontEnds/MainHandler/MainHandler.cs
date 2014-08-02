@@ -93,9 +93,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _lContainer.Add(new PersonalApmRenderer(this));
             _lContainer.Add(new PersonalClockRenderer(this));
 
-            SetImageCombolist();
-            AssignMethodsToEvents();
-            LoadSettingsIntoControls();
+
+           
+            
             
             //_rTrainer = new Renderer(PredefinedTypes.RenderForm.Trainer, this);
             //_rTrainer.Show();
@@ -123,7 +123,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             //Automation am = new Automation(this, PredefinedTypes.Automation.Inject);
             //Automation am = new Automation(this, PredefinedTypes.Automation.Production);
 
-
+            SetImageCombolist();
+            AssignMethodsToEvents();
+            LoadSettingsIntoControls();
             
 #if DEBUG
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
@@ -739,7 +741,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             
             /* - Non settings - */
             CustGlobal.lblMainApplication.Text = "[" + Application.ProductName + "] - Ver.: " +
-                                      System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                                      Assembly.GetExecutingAssembly().GetName().Version;
 
             if (File.Exists("Sc2Hack UpdateManager.exe"))
             {
@@ -1122,62 +1124,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             MessageBox.Show("Empty, bro");
         }
-
-        //private void CheckPanelState(PredefinedData.RenderForm rnd)
-        //{
-        //    #region Unitcommands [Production-/ Unit- panel]
-
-        //    if (rnd.Equals(PredefinedData.RenderForm.Production) ||
-        //        rnd.Equals(PredefinedData.RenderForm.Units))
-        //    {
-
-        //        if (_rProduction == null &&
-        //            _rUnit == null)
-        //        {
-        //            GInformation.CAccessUnitCommands = false;
-        //            return;
-        //        }
-
-        //        if (_rProduction != null &&
-        //            _rUnit != null)
-        //        {
-        //            if (!_rProduction.Created &&
-        //                !_rUnit.Created)
-        //            {
-        //                GInformation.CAccessUnitCommands = false;
-        //            }
-        //        }
-
-        //        else if (_rProduction != null &&
-        //                 _rUnit == null)
-        //        {
-        //            if (!_rProduction.Created)
-        //                GInformation.CAccessUnitCommands = false;
-        //        }
-
-        //        else if (_rProduction == null &&
-        //                 _rUnit != null)
-        //        {
-        //            if (!_rUnit.Created)
-        //                GInformation.CAccessUnitCommands = false;
-        //        }
-
-        //        else
-        //        {
-        //            if (rnd.Equals(PredefinedData.RenderForm.Units))
-        //                if (PSettings.UnitTabRemoveProdLine)
-        //                {
-        //                    GInformation.CAccessUnitCommands = false;
-        //                    return;
-        //                }
-
-        //            GInformation.CAccessUnitCommands = true;
-        //        }
-
-        //    }
-
-        //    #endregion
-        //}
 
         private void RefreshPluginData()
         {
