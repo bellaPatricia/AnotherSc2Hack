@@ -544,6 +544,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public Boolean IsDestroyed { get; set; }
         public PredefinedData.CustomWindowStyles SetWindowStyle { get; set; }
         public Boolean IsHidden { get; private set; }
+        public Boolean IsAllowedToClose { get; set; }
         
 
         #endregion
@@ -575,6 +576,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         private void InitCode()
         {
             IsHidden = true;
+            IsAllowedToClose = false;
 
             SetStyle(ControlStyles.DoubleBuffer |
             ControlStyles.UserPaint |
@@ -978,6 +980,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             //Debug.WriteLine("Time to execute DrawingMethods:" + 1000000 * _swMainWatch.ElapsedTicks / Stopwatch.Frequency + " µs");
         }
 
+        /// <summary>
+        /// Override the FormClosing to stop the user from actually destroying the window.
+        /// The BaseRenderer is designed to never die.
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Hide();
+
+            if (!IsAllowedToClose)
+                e.Cancel = true;
+
+
+            base.OnFormClosing(e);
+        }
+
         #endregion
 
         #region Public Methods
@@ -1022,6 +1040,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 Hide();
         }
 
+        /// <summary>
+        /// Hide/ Show Form based on a boolean.
+        /// </summary>
+        /// <param name="show">Hide or Show</param>
         public void ToggleShowHide(Boolean show)
         {
             if (show)
@@ -1030,6 +1052,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             else
                 Hide();
         }
+
+        
 
         #endregion
 
@@ -5429,7 +5453,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }
 #endif
         }
-
 
         protected void SortConstructionStates(ref List<PredefinedData.UnitCount> lCounter)
         {

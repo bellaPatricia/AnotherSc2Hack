@@ -16,7 +16,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         }
 
-        protected override void Draw(System.Drawing.BufferedGraphics g)
+        protected override void Draw(BufferedGraphics g)
         {
             if (!HMainHandler.GInformation.Gameinfo.IsIngame)
                 return;
@@ -50,9 +50,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             /* Nothing */
         }
 
-        protected override void ChangeForecolorOfButton(System.Drawing.Color cl)
+        protected override void ChangeForecolorOfButton(Color cl)
         {
-            /* Nothing */
+            if (cl.Equals(Color.Green))
+                HMainHandler.Custom_Various.chBxClock.Checked = true;
+
+            else if (cl.Equals(Color.Red))
+                HMainHandler.Custom_Various.chBxClock.Checked = false;
         }
 
         protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
