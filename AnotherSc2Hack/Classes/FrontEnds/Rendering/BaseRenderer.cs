@@ -1078,7 +1078,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     HMainHandler.GInformation.Player.Count <= 0 ||
                     HMainHandler.GInformation.Unit.Count <= 0)
                     return;
-
+            
 
                 #region Clear the Lists
 
