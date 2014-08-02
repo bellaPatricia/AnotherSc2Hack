@@ -1,6 +1,13 @@
-*.dat
-*.exe
-*.pdb
-*.dll
+### Folders
 bin/
 obj/
+
+### Binaries
+*.dat
+*.exe
+*.dll
+
+### VS crap
+*.pdb
+*.suo
+*.DotSettings.user
