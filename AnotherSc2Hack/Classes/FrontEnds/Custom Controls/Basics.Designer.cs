@@ -30,63 +30,36 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Basics));
             this.gbBasicOptions = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
-            this.lblRemoveClantag = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.cmBxRemClanTag = new System.Windows.Forms.ComboBox();
+            this.ocOpacity = new AnotherSc2Hack.Classes.FrontEnds.OpacityControl();
             this.chBxDrawBackground = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
-            this.cmBxRemAi = new System.Windows.Forms.ComboBox();
-            this.lblRemoveAi = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblRemoveAllie = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblOpacity = new System.Windows.Forms.Label();
-            this.lblRemoveNeutral = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.tbOpacity = new System.Windows.Forms.TrackBar();
-            this.lblRemoveLocalplayer = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.chBxRemoveClantag = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
+            this.chBxRemoveLocalplayer = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
+            this.chBxRemoveNeutral = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
+            this.chBxRemoveAllie = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
+            this.chBxRemoveAi = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.btnFontName = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.lblFontName = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.cmBxRemLocalplayer = new System.Windows.Forms.ComboBox();
-            this.lblOpacityText = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.cmBxRemNeutral = new System.Windows.Forms.ComboBox();
-            this.cmBxRemAllie = new System.Windows.Forms.ComboBox();
             this.gbBasicOptions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).BeginInit();
             this.SuspendLayout();
             // 
             // gbBasicOptions
             // 
             resources.ApplyResources(this.gbBasicOptions, "gbBasicOptions");
-            this.gbBasicOptions.Controls.Add(this.lblRemoveClantag);
-            this.gbBasicOptions.Controls.Add(this.cmBxRemClanTag);
+            this.gbBasicOptions.Controls.Add(this.ocOpacity);
             this.gbBasicOptions.Controls.Add(this.chBxDrawBackground);
-            this.gbBasicOptions.Controls.Add(this.cmBxRemAi);
-            this.gbBasicOptions.Controls.Add(this.lblRemoveAi);
-            this.gbBasicOptions.Controls.Add(this.lblRemoveAllie);
-            this.gbBasicOptions.Controls.Add(this.lblOpacity);
-            this.gbBasicOptions.Controls.Add(this.lblRemoveNeutral);
-            this.gbBasicOptions.Controls.Add(this.tbOpacity);
-            this.gbBasicOptions.Controls.Add(this.lblRemoveLocalplayer);
+            this.gbBasicOptions.Controls.Add(this.chBxRemoveClantag);
+            this.gbBasicOptions.Controls.Add(this.chBxRemoveLocalplayer);
+            this.gbBasicOptions.Controls.Add(this.chBxRemoveNeutral);
+            this.gbBasicOptions.Controls.Add(this.chBxRemoveAllie);
+            this.gbBasicOptions.Controls.Add(this.chBxRemoveAi);
             this.gbBasicOptions.Controls.Add(this.btnFontName);
-            this.gbBasicOptions.Controls.Add(this.lblFontName);
-            this.gbBasicOptions.Controls.Add(this.cmBxRemLocalplayer);
-            this.gbBasicOptions.Controls.Add(this.lblOpacityText);
-            this.gbBasicOptions.Controls.Add(this.cmBxRemNeutral);
-            this.gbBasicOptions.Controls.Add(this.cmBxRemAllie);
             this.gbBasicOptions.LanguageFile = "";
             this.gbBasicOptions.Name = "gbBasicOptions";
             this.gbBasicOptions.TabStop = false;
             // 
-            // lblRemoveClantag
+            // ocOpacity
             // 
-            resources.ApplyResources(this.lblRemoveClantag, "lblRemoveClantag");
-            this.lblRemoveClantag.LanguageFile = "";
-            this.lblRemoveClantag.Name = "lblRemoveClantag";
-            // 
-            // cmBxRemClanTag
-            // 
-            resources.ApplyResources(this.cmBxRemClanTag, "cmBxRemClanTag");
-            this.cmBxRemClanTag.FormattingEnabled = true;
-            this.cmBxRemClanTag.Items.AddRange(new object[] {
-            resources.GetString("cmBxRemClanTag.Items"),
-            resources.GetString("cmBxRemClanTag.Items1")});
-            this.cmBxRemClanTag.Name = "cmBxRemClanTag";
+            resources.ApplyResources(this.ocOpacity, "ocOpacity");
+            this.ocOpacity.Name = "ocOpacity";
             // 
             // chBxDrawBackground
             // 
@@ -95,95 +68,47 @@
             this.chBxDrawBackground.Name = "chBxDrawBackground";
             this.chBxDrawBackground.UseVisualStyleBackColor = true;
             // 
-            // cmBxRemAi
+            // chBxRemoveClantag
             // 
-            resources.ApplyResources(this.cmBxRemAi, "cmBxRemAi");
-            this.cmBxRemAi.FormattingEnabled = true;
-            this.cmBxRemAi.Items.AddRange(new object[] {
-            resources.GetString("cmBxRemAi.Items"),
-            resources.GetString("cmBxRemAi.Items1")});
-            this.cmBxRemAi.Name = "cmBxRemAi";
+            resources.ApplyResources(this.chBxRemoveClantag, "chBxRemoveClantag");
+            this.chBxRemoveClantag.LanguageFile = "";
+            this.chBxRemoveClantag.Name = "chBxRemoveClantag";
+            this.chBxRemoveClantag.UseVisualStyleBackColor = true;
             // 
-            // lblRemoveAi
+            // chBxRemoveLocalplayer
             // 
-            resources.ApplyResources(this.lblRemoveAi, "lblRemoveAi");
-            this.lblRemoveAi.LanguageFile = "";
-            this.lblRemoveAi.Name = "lblRemoveAi";
+            resources.ApplyResources(this.chBxRemoveLocalplayer, "chBxRemoveLocalplayer");
+            this.chBxRemoveLocalplayer.LanguageFile = "";
+            this.chBxRemoveLocalplayer.Name = "chBxRemoveLocalplayer";
+            this.chBxRemoveLocalplayer.UseVisualStyleBackColor = true;
             // 
-            // lblRemoveAllie
+            // chBxRemoveNeutral
             // 
-            resources.ApplyResources(this.lblRemoveAllie, "lblRemoveAllie");
-            this.lblRemoveAllie.LanguageFile = "";
-            this.lblRemoveAllie.Name = "lblRemoveAllie";
+            resources.ApplyResources(this.chBxRemoveNeutral, "chBxRemoveNeutral");
+            this.chBxRemoveNeutral.LanguageFile = "";
+            this.chBxRemoveNeutral.Name = "chBxRemoveNeutral";
+            this.chBxRemoveNeutral.UseVisualStyleBackColor = true;
             // 
-            // lblOpacity
+            // chBxRemoveAllie
             // 
-            resources.ApplyResources(this.lblOpacity, "lblOpacity");
-            this.lblOpacity.Name = "lblOpacity";
+            resources.ApplyResources(this.chBxRemoveAllie, "chBxRemoveAllie");
+            this.chBxRemoveAllie.LanguageFile = "";
+            this.chBxRemoveAllie.Name = "chBxRemoveAllie";
+            this.chBxRemoveAllie.UseVisualStyleBackColor = true;
             // 
-            // lblRemoveNeutral
+            // chBxRemoveAi
             // 
-            resources.ApplyResources(this.lblRemoveNeutral, "lblRemoveNeutral");
-            this.lblRemoveNeutral.LanguageFile = "";
-            this.lblRemoveNeutral.Name = "lblRemoveNeutral";
-            // 
-            // tbOpacity
-            // 
-            resources.ApplyResources(this.tbOpacity, "tbOpacity");
-            this.tbOpacity.Maximum = 100;
-            this.tbOpacity.Name = "tbOpacity";
-            // 
-            // lblRemoveLocalplayer
-            // 
-            resources.ApplyResources(this.lblRemoveLocalplayer, "lblRemoveLocalplayer");
-            this.lblRemoveLocalplayer.LanguageFile = "";
-            this.lblRemoveLocalplayer.Name = "lblRemoveLocalplayer";
+            resources.ApplyResources(this.chBxRemoveAi, "chBxRemoveAi");
+            this.chBxRemoveAi.LanguageFile = "";
+            this.chBxRemoveAi.Name = "chBxRemoveAi";
+            this.chBxRemoveAi.UseVisualStyleBackColor = true;
             // 
             // btnFontName
             // 
-            resources.ApplyResources(this.btnFontName, "btnFontName");
             this.btnFontName.LanguageFile = "";
+            resources.ApplyResources(this.btnFontName, "btnFontName");
             this.btnFontName.Name = "btnFontName";
             this.btnFontName.UseVisualStyleBackColor = true;
-            // 
-            // lblFontName
-            // 
-            resources.ApplyResources(this.lblFontName, "lblFontName");
-            this.lblFontName.LanguageFile = "";
-            this.lblFontName.Name = "lblFontName";
-            // 
-            // cmBxRemLocalplayer
-            // 
-            resources.ApplyResources(this.cmBxRemLocalplayer, "cmBxRemLocalplayer");
-            this.cmBxRemLocalplayer.FormattingEnabled = true;
-            this.cmBxRemLocalplayer.Items.AddRange(new object[] {
-            resources.GetString("cmBxRemLocalplayer.Items"),
-            resources.GetString("cmBxRemLocalplayer.Items1")});
-            this.cmBxRemLocalplayer.Name = "cmBxRemLocalplayer";
-            // 
-            // lblOpacityText
-            // 
-            resources.ApplyResources(this.lblOpacityText, "lblOpacityText");
-            this.lblOpacityText.LanguageFile = "";
-            this.lblOpacityText.Name = "lblOpacityText";
-            // 
-            // cmBxRemNeutral
-            // 
-            resources.ApplyResources(this.cmBxRemNeutral, "cmBxRemNeutral");
-            this.cmBxRemNeutral.FormattingEnabled = true;
-            this.cmBxRemNeutral.Items.AddRange(new object[] {
-            resources.GetString("cmBxRemNeutral.Items"),
-            resources.GetString("cmBxRemNeutral.Items1")});
-            this.cmBxRemNeutral.Name = "cmBxRemNeutral";
-            // 
-            // cmBxRemAllie
-            // 
-            resources.ApplyResources(this.cmBxRemAllie, "cmBxRemAllie");
-            this.cmBxRemAllie.FormattingEnabled = true;
-            this.cmBxRemAllie.Items.AddRange(new object[] {
-            resources.GetString("cmBxRemAllie.Items"),
-            resources.GetString("cmBxRemAllie.Items1")});
-            this.cmBxRemAllie.Name = "cmBxRemAllie";
             // 
             // Basics
             // 
@@ -193,29 +118,20 @@
             this.Name = "Basics";
             this.gbBasicOptions.ResumeLayout(false);
             this.gbBasicOptions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private LanguageLabel lblRemoveClantag;
-        private LanguageLabel lblRemoveAi;
-        private LanguageLabel lblRemoveAllie;
-        private LanguageLabel lblRemoveNeutral;
-        private LanguageLabel lblRemoveLocalplayer;
-        private LanguageLabel lblFontName;
-        private LanguageLabel lblOpacityText;
         public LanguageGroupbox gbBasicOptions;
-        public System.Windows.Forms.ComboBox cmBxRemClanTag;
-        public LanguageCheckbox chBxDrawBackground;
-        public System.Windows.Forms.ComboBox cmBxRemAi;
-        public System.Windows.Forms.Label lblOpacity;
-        public System.Windows.Forms.TrackBar tbOpacity;
         public LanguageButton btnFontName;
-        public System.Windows.Forms.ComboBox cmBxRemLocalplayer;
-        public System.Windows.Forms.ComboBox cmBxRemNeutral;
-        public System.Windows.Forms.ComboBox cmBxRemAllie;
+        public LanguageCheckbox chBxRemoveAi;
+        public LanguageCheckbox chBxRemoveClantag;
+        public LanguageCheckbox chBxRemoveLocalplayer;
+        public LanguageCheckbox chBxRemoveNeutral;
+        public LanguageCheckbox chBxRemoveAllie;
+        public LanguageCheckbox chBxDrawBackground;
+        public OpacityControl ocOpacity;
     }
 }

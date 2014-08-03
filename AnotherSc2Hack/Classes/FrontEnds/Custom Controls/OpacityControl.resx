@@ -117,120 +117,85 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chBxDrawBackground.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 17</value>
+  <data name="&gt;&gt;lblOpacity.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="chBxDrawBackground.Text" xml:space="preserve">
-    <value>Hintergrund zeichnen</value>
+  <data name="&gt;&gt;tbOpacity.Name" xml:space="preserve">
+    <value>tbOpacity</value>
   </data>
-  <data name="chBxDrawBackground.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="&gt;&gt;lblOpacity.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="chBxRemoveClantag.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="chBxRemoveClantag.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="tbOpacity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="chBxRemoveClantag.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="chBxRemoveClantag.Text" xml:space="preserve">
-    <value>Entferne Clantag</value>
-  </data>
-  <data name="chBxRemoveClantag.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chBxRemoveLocalplayer.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chBxRemoveLocalplayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="chBxRemoveLocalplayer.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="chBxRemoveLocalplayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 17</value>
-  </data>
-  <data name="chBxRemoveLocalplayer.Text" xml:space="preserve">
-    <value>Entferne Dich</value>
-  </data>
-  <data name="chBxRemoveLocalplayer.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chBxRemoveNeutral.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chBxRemoveNeutral.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="chBxRemoveNeutral.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="chBxRemoveNeutral.Text" xml:space="preserve">
-    <value>Entferne Neutral</value>
-  </data>
-  <data name="chBxRemoveNeutral.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chBxRemoveAllie.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chBxRemoveAllie.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="chBxRemoveAllie.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="chBxRemoveAllie.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 17</value>
-  </data>
-  <data name="chBxRemoveAllie.Text" xml:space="preserve">
-    <value>Entferne Verbündete</value>
-  </data>
-  <data name="chBxRemoveAllie.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chBxRemoveAi.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chBxRemoveAi.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="chBxRemoveAi.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="chBxRemoveAi.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 17</value>
-  </data>
-  <data name="chBxRemoveAi.Text" xml:space="preserve">
-    <value>Entferne KI</value>
-  </data>
-  <data name="chBxRemoveAi.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblOpacity.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
   <data name="lblOpacity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 227</value>
-  </data>
-  <data name="tbOpacity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>153, 195</value>
-  </data>
-  <data name="btnFontName.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnFontName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 163</value>
-  </data>
-  <data name="gbBasicOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 250</value>
-  </data>
-  <data name="gbBasicOptions.Text" xml:space="preserve">
-    <value>Standard Einstellungen</value>
+    <value>-3, 35</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 250</value>
+    <value>150, 53</value>
+  </data>
+  <data name="lblOpacity.Text" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="lblOpacity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;lblOpacity.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblOpacity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 13</value>
+  </data>
+  <data name="&gt;&gt;tbOpacity.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblOpacity.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>OpacityControl</value>
+  </data>
+  <data name="&gt;&gt;tbOpacity.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblOpacity.Name" xml:space="preserve">
+    <value>lblOpacity</value>
+  </data>
+  <data name="tbOpacity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 45</value>
+  </data>
+  <data name="&gt;&gt;tbOpacity.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tbOpacity.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="tbOpacity.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="tbOpacity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 3</value>
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
+    <value>de</value>
+  </data>
+  <data name="strOpacity" xml:space="preserve">
+    <value>Opacity</value>
   </data>
 </root>

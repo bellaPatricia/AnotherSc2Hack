@@ -2784,7 +2784,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PuMothershipCore)
+                        {
                             _lPuMothershipcore[tmpUnit.Owner].UnitAmount += 1;
+                            _lPuMothershipcore[tmpUnit.Owner].Id = PredefinedData.UnitId.PuMothershipCore;
+                            _lPuMothershipcore[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                        }
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PuObserver)
@@ -2831,11 +2835,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  PredefinedData.UnitId.PuZealot)
                             _lPuZealot[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Buildings
+                            #region Buildings
 
-                        #region Nexus (Unit Production)
+                            #region Nexus (Unit Production)
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.PbNexus)
                         {
@@ -2867,32 +2871,32 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Pylon
+                            #region Pylon
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.PbPylon)
                             _lPbPylon[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Assimilator
+                            #region Assimilator
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbAssimilator)
                             _lPbAssimilator[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Cannon
+                            #region Cannon
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbCannon)
                             _lPbCannon[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region CyberCore (Upgrade Production)
+                            #region CyberCore (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbCybercore)
@@ -2971,17 +2975,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Dark Shrine
+                            #region Dark Shrine
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbDarkshrine)
                             _lPbDarkshrine[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Fleet Beacon (Upgrade Production)
+                            #region Fleet Beacon (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbFleetbeacon)
@@ -2999,7 +3003,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         _lPupAnionPulseCrystal[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupAnionPulseCrystal[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
-                                        _lPupAnionPulseCrystal[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        _lPupAnionPulseCrystal[tmpUnit.Owner].SpeedMultiplier.Add(
+                                            tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
@@ -3015,9 +3020,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Forge (Upgrade Production)
+                            #region Forge (Upgrade Production)
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.PbForge)
                         {
@@ -3111,9 +3116,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Gateway (Unit Production)
+                            #region Gateway (Unit Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbGateway)
@@ -3168,9 +3173,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Robotics Bay (Unit Production)
+                            #region Robotics Bay (Unit Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbRoboticsbay)
@@ -3218,9 +3223,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Robotics Support Bay (Upgrade Production)
+                            #region Robotics Support Bay (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbRoboticssupportbay)
@@ -3238,7 +3243,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         _lPupExtendedThermalLance[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupExtendedThermalLance[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
-                                        _lPupExtendedThermalLance[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        _lPupExtendedThermalLance[tmpUnit.Owner].SpeedMultiplier.Add(
+                                            tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
@@ -3262,9 +3268,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Stargate (Unit Production)
+                            #region Stargate (Unit Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbStargate)
@@ -3319,9 +3325,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Templar Archives (Upgrade Production)
+                            #region Templar Archives (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbTemplararchives)
@@ -3344,9 +3350,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Twilight Council (Upgrade Production)
+                            #region Twilight Council (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbTwilightcouncil)
@@ -3378,23 +3384,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region WarpGate (Unit Production)
+                            #region WarpGate (Unit Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PbWarpgate)
                             _lPbWarpgate[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #endregion
+                            #endregion
 
-                        #endregion
+                            #endregion
 
-                        #region Zerg
+                            #region Zerg
 
-                        #region Units
+                            #region Units
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZuEgg)
@@ -3497,10 +3503,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lZuLocust[tmpUnit.Owner].Id = PredefinedData.UnitId.ZuLocust;
 
                             if (tmpUnit.AliveSince > 73216f)
-                                _lZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 113920f));
+                                _lZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/113920f));
 
                             else
-                                _lZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 73216f));
+                                _lZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/73216f));
                         }
 
 
@@ -3580,7 +3586,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id == PredefinedData.UnitId.ZuQueen ||
                                  tmpUnit.Id ==
                                  PredefinedData.UnitId.ZuQueenBurrow)
+                        {
                             _lZuQueen[tmpUnit.Owner].UnitAmount += 1;
+                            _lZuQueen[tmpUnit.Owner].Id = PredefinedData.UnitId.ZuQueen;
+                            _lZuQueen[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                        }
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.ZuRoach ||
                                  tmpUnit.Id ==
@@ -3611,11 +3621,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  PredefinedData.UnitId.ZuZerglingBurrow)
                             _lZuZergling[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Structures
+                            #region Structures
 
-                        #region Baneling Nest (Upgrade Production)
+                            #region Baneling Nest (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbBanelingNest)
@@ -3638,9 +3648,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Creeptumor
+                            #region Creeptumor
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbCreeptumor ||
@@ -3652,9 +3662,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  PredefinedData.UnitId.ZbCreepTumorBuilding)
                             _lZbCreepTumor[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Evolution Chamber (Upgrade Production)
+                            #region Evolution Chamber (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbEvolutionChamber)
@@ -3740,17 +3750,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Extractor
+                            #region Extractor
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbExtractor)
                             _lZbExtractor[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Greater Spire (Upgrade Production)
+                            #region Greater Spire (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbGreaterspire)
@@ -3813,9 +3823,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Hatchery (Unit Production, Upgrade Production)
+                            #region Hatchery (Unit Production, Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbHatchery)
@@ -3859,9 +3869,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Hive (Unit Production, Upgrade Production)
+                            #region Hive (Unit Production, Upgrade Production)
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.ZbHive)
                         {
@@ -3904,9 +3914,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Hydra Den (Upgrade Production)
+                            #region Hydra Den (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbHydraDen)
@@ -3939,9 +3949,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Infestation Pit (Upgrade Production)
+                            #region Infestation Pit (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbInfestationPit)
@@ -3977,9 +3987,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Liar (Unit Production, Upgrade Production)
+                            #region Liar (Unit Production, Upgrade Production)
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.ZbLiar)
                         {
@@ -4022,25 +4032,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Nydus Network
+                            #region Nydus Network
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbNydusNetwork)
                             _lZbNydusbegin[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Nydus Worm
+                            #region Nydus Worm
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbNydusWorm)
                             _lZbNydusend[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Roach Warran (Upgrade Production)
+                            #region Roach Warran (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbRoachWarren)
@@ -4070,9 +4080,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Spawning Pool (Upgrade Production)
+                            #region Spawning Pool (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbSpawningPool)
@@ -4101,9 +4111,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Spine Crawler
+                            #region Spine Crawler
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbSpineCrawler ||
@@ -4111,9 +4121,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  PredefinedData.UnitId.ZbSpineCrawlerUnrooted)
                             _lZbSpine[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Spire (Upgrade Production)
+                            #region Spire (Upgrade Production)
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.ZbSpire)
                         {
@@ -4174,9 +4184,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Spore Crawler
+                            #region Spore Crawler
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbSporeCrawler ||
@@ -4184,9 +4194,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  PredefinedData.UnitId.ZbSporeCrawlerUnrooted)
                             _lZbSpore[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Ultra Cavern (Upgrade Production)
+                            #region Ultra Cavern (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZbUltraCavern)

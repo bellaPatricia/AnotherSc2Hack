@@ -730,8 +730,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 u.Id.Equals(PredefinedTypes.UnitId.ZbInfestationPit) ||
                 u.Id.Equals(PredefinedTypes.UnitId.ZbGreaterspire))
             {
-                
-
                     if (u.IsAlive)
                     {
                         var prd = GetGUnitNumberOfQueuedUnit(i,
@@ -1019,47 +1017,47 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     if (!structureId.Equals(PredefinedTypes.UnitId.TbPlanetary))
                         break;
                 }
-
+                
                 #region Debug/ Tests
 
-                //var _iContentOfPointer =
-                //    BitConverter.ToUInt32(
-                //        InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)iUnitAbilitiesPointer + 0x18 + 4 * i, 4),
-                //        0);
+               /* var _iContentOfPointer =
+                    BitConverter.ToUInt32(
+                        InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)iUnitAbilitiesPointer + 0x18 + 4 * i, 4),
+                        0);
 
-                //* Number of queued Units */
-                //var _iNumberOfQueuedUnits = BitConverter.ToInt32(
-                //    InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x28, 4), 0);
+                // Number of queued Units 
+                var _iNumberOfQueuedUnits = BitConverter.ToInt32(
+                    InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x28, 4), 0);
 
-                //var _bReactorAttached = BitConverter.ToInt32(
-                //InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x48, 4), 0) != 0
-                //                       ? true
-                //                       : false;
+                var _bReactorAttached = BitConverter.ToInt32(
+                InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x48, 4), 0) != 0
+                                       ? true
+                                       : false;
 
-                //var _iArrayOfBytes =
-                //    BitConverter.ToInt32(
-                //        InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x34, 4), 0);
+                var _iArrayOfBytes =
+                    BitConverter.ToInt32(
+                        InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x34, 4), 0);
 
-                //var _iTempPtr = BitConverter.ToInt32(
-                //        InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iArrayOfBytes, 4), 0);
+                var _iTempPtr = BitConverter.ToInt32(
+                        InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iArrayOfBytes, 4), 0);
 
-                //var _productionChunk = InteropCalls.Help_ReadProcessMemory(HStarcraft, _iTempPtr, 0x80);
+                var _productionChunk = InteropCalls.Help_ReadProcessMemory(HStarcraft, _iTempPtr, 0x80);
 
-                //var _iType = BitConverter.ToInt32(_productionChunk, 0x44);
-                //var _iSupplyRaw = BitConverter.ToInt32(_productionChunk, 0x64);
-                //var _iTimeMax = BitConverter.ToUInt32(_productionChunk, 0x68);
-                //var _iTimeLeft = (float)BitConverter.ToUInt32(_productionChunk, 0x6C);
-                //var _iMineralCost = BitConverter.ToInt32(_productionChunk, 0x74);
-                //var _iVespineCost = BitConverter.ToInt32(_productionChunk, 0x78);
+                var _iType = BitConverter.ToInt32(_productionChunk, 0x44);
+                var _iSupplyRaw = BitConverter.ToInt32(_productionChunk, 0x64);
+                var _iTimeMax = BitConverter.ToUInt32(_productionChunk, 0x68);
+                var _iTimeLeft = (float)BitConverter.ToUInt32(_productionChunk, 0x6C);
+                var _iMineralCost = BitConverter.ToInt32(_productionChunk, 0x74);
+                var _iVespineCost = BitConverter.ToInt32(_productionChunk, 0x78);
 
-                //Debug.WriteLine("\n");
-                //Debug.WriteLine("i: " + i);
-                //Debug.WriteLine("NumberOfQueuedUnits: " + _iNumberOfQueuedUnits);
-                //Debug.WriteLine("Bytebuffer Item: " + byteBuffer[i].ToString("X2") + "(" + byteBuffer[i] + ")");
-                //Debug.WriteLine("Minerals: " + _iMineralCost);
-                //Debug.WriteLine("Reactor Attached: " + _bReactorAttached);
-                //Debug.WriteLine("iType: " + _iType);
-                //Debug.WriteLine("Time Left: " + _iTimeLeft);
+                Debug.WriteLine("\n");
+                Debug.WriteLine("i: " + i);
+                Debug.WriteLine("NumberOfQueuedUnits: " + _iNumberOfQueuedUnits);
+                Debug.WriteLine("Bytebuffer Item: " + byteBuffer[i].ToString("X2") + "(" + byteBuffer[i] + ")");
+                Debug.WriteLine("Minerals: " + _iMineralCost);
+                Debug.WriteLine("Reactor Attached: " + _bReactorAttached);
+                Debug.WriteLine("iType: " + _iType);
+                Debug.WriteLine("Time Left: " + _iTimeLeft);*/
 
                 #endregion
 

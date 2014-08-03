@@ -207,6 +207,17 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\NumberTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\OpacityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\OpacityControl.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OpacityControl.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\OpacityControl.Designer.cs">
+      <DependentUpon>OpacityControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\UnitInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -291,6 +302,9 @@
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics.de.resx">
       <DependentUpon>Basics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics.prs-AF.resx">
+      <DependentUpon>Basics.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics.resx">
       <DependentUpon>Basics.cs</DependentUpon>
     </EmbeddedResource>
@@ -371,6 +385,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_ProdTab.resx">
       <DependentUpon>Basics_ProdTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\OpacityControl.de.resx">
+      <DependentUpon>OpacityControl.cs</DependentUpon>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OpacityControl.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\OpacityControl.resx">
+      <DependentUpon>OpacityControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\PlayerInformation.de.resx">
       <DependentUpon>PlayerInformation.cs</DependentUpon>

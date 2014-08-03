@@ -822,6 +822,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Energy
 
+                
+
                 #region Protoss
 
                 if (unit.Id.Equals(PredefinedData.UnitId.PbNexus))
@@ -852,6 +854,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         var tmp = energy / 4096;
                         var tmpRes = tmp / 50;
+                        if (tmpRes >= 1)
+                            result += tmpRes;
+                    }
+                }
+
+                else if (unit.Id.Equals(PredefinedData.UnitId.PuMothershipCore))
+                {
+                    foreach (var energy in unit.Energy)
+                    {
+                        var tmp = energy / 4096;
+                        var tmpRes = tmp / 100;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
@@ -904,6 +917,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         var tmp = energy / 4096;
                         var tmpRes = tmp / 75;
+                        if (tmpRes >= 1)
+                            result += tmpRes;
+                    }
+                }
+
+                else if (unit.Id.Equals(PredefinedData.UnitId.ZuQueen) ||
+                    unit.Id.Equals(PredefinedData.UnitId.ZuQueenBurrow))
+                {
+                    foreach (var energy in unit.Energy)
+                    {
+                        var tmp = energy / 4096;
+                        var tmpRes = tmp / 25;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }

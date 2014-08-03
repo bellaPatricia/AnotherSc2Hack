@@ -486,17 +486,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             #region Resources
 
-            ResourceBasics.cmBxRemAi.Text = PSettings.ResourceRemoveAi.ToString();
-            ResourceBasics.cmBxRemAllie.Text = PSettings.ResourceRemoveAllie.ToString();
-            ResourceBasics.cmBxRemNeutral.Text = PSettings.ResourceRemoveNeutral.ToString();
-            ResourceBasics.cmBxRemLocalplayer.Text = PSettings.ResourceRemoveLocalplayer.ToString();
+            ResourceBasics.chBxRemoveAi.Checked = PSettings.ResourceRemoveAi;
+            ResourceBasics.chBxRemoveAllie.Checked = PSettings.ResourceRemoveAllie;
+            ResourceBasics.chBxRemoveNeutral.Checked = PSettings.ResourceRemoveNeutral;
+            ResourceBasics.chBxRemoveLocalplayer.Checked = PSettings.ResourceRemoveLocalplayer;
+            ResourceBasics.chBxRemoveClantag.Checked = PSettings.ResourceRemoveClanTag;
             ResourceBasics.btnFontName.Text = PSettings.ResourceFontName;
             ResourceBasics.btnFontName.Font = new Font(PSettings.ResourceFontName, Font.Size);
-            ResourceBasics.tbOpacity.Value = PSettings.ResourceOpacity > 1.0
+            ResourceBasics.ocOpacity.tbOpacity.Value = PSettings.ResourceOpacity > 1.0
                 ? (Int32) PSettings.ResourceOpacity
                 : (Int32) (PSettings.ResourceOpacity*100);
             //ResourceBasics.tbOpacity.Value = (Int32)(PSettings.ResourceOpacity * 100);
-            ResourceBasics.lblOpacity.Text = "Opacity: " + ResourceBasics.tbOpacity.Value.ToString(CultureInfo.InvariantCulture) + "%";
             ResourceChatInput.txtToggle.Text = PSettings.ResourceTogglePanel;
             ResourceChatInput.txtPosition.Text = PSettings.ResourceChangePositionPanel;
             ResourceChatInput.txtSize.Text = PSettings.ResourceChangeSizePanel;
@@ -504,22 +504,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ResourceHotkeys.txtHotkey2.Text = PSettings.ResourceHotkey2.ToString();
             ResourceHotkeys.txtHotkey3.Text = PSettings.ResourceHotkey3.ToString();
             ResourceBasics.chBxDrawBackground.Checked = PSettings.ResourceDrawBackground;
-            ResourceBasics.cmBxRemClanTag.Text = PSettings.ResourceRemoveClanTag.ToString();
+            ResourceBasics.ocOpacity.SetLabelText(PSettings.ResourceOpacity);
 
             #endregion
 
             #region Income
 
-            IncomeBasics.cmBxRemAi.Text = PSettings.IncomeRemoveAi.ToString();
-            IncomeBasics.cmBxRemAllie.Text = PSettings.IncomeRemoveAllie.ToString();
-            IncomeBasics.cmBxRemNeutral.Text = PSettings.IncomeRemoveNeutral.ToString();
-            IncomeBasics.cmBxRemLocalplayer.Text = PSettings.IncomeRemoveLocalplayer.ToString();
+            IncomeBasics.chBxRemoveAi.Checked = PSettings.IncomeRemoveAi;
+            IncomeBasics.chBxRemoveAllie.Checked = PSettings.IncomeRemoveAllie;
+            IncomeBasics.chBxRemoveNeutral.Checked = PSettings.IncomeRemoveNeutral;
+            IncomeBasics.chBxRemoveLocalplayer.Checked = PSettings.IncomeRemoveLocalplayer;
+            IncomeBasics.chBxRemoveClantag.Checked = PSettings.IncomeRemoveClanTag;
             IncomeBasics.btnFontName.Text = PSettings.IncomeFontName;
             IncomeBasics.btnFontName.Font = new Font(PSettings.IncomeFontName, Font.Size);
-            IncomeBasics.tbOpacity.Value = PSettings.IncomeOpacity > 1.0
+            IncomeBasics.ocOpacity.tbOpacity.Value = PSettings.IncomeOpacity > 1.0
                 ? (Int32)PSettings.IncomeOpacity
                 : (Int32)(PSettings.IncomeOpacity * 100);
-            IncomeBasics.lblOpacity.Text = "Opacity: " + IncomeBasics.tbOpacity.Value.ToString(CultureInfo.InvariantCulture) + "%";
             IncomeChatInput.txtToggle.Text = PSettings.IncomeTogglePanel;
             IncomeChatInput.txtPosition.Text = PSettings.IncomeChangePositionPanel;
             IncomeChatInput.txtSize.Text = PSettings.IncomeChangeSizePanel;
@@ -527,22 +527,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             IncomeHotkeys.txtHotkey2.Text = PSettings.IncomeHotkey2.ToString();
             IncomeHotkeys.txtHotkey3.Text = PSettings.IncomeHotkey3.ToString();
             IncomeBasics.chBxDrawBackground.Checked = PSettings.IncomeDrawBackground;
-            IncomeBasics.cmBxRemClanTag.Text = PSettings.IncomeRemoveClanTag.ToString();
+            IncomeBasics.ocOpacity.SetLabelText(PSettings.IncomeOpacity);
 
             #endregion
 
             #region Army
 
-            ArmyBasics.cmBxRemAi.Text = PSettings.ArmyRemoveAi.ToString();
-            ArmyBasics.cmBxRemAllie.Text = PSettings.ArmyRemoveAllie.ToString();
-            ArmyBasics.cmBxRemNeutral.Text = PSettings.ArmyRemoveNeutral.ToString();
-            ArmyBasics.cmBxRemLocalplayer.Text = PSettings.ArmyRemoveLocalplayer.ToString();
+            ArmyBasics.chBxRemoveAi.Checked = PSettings.ArmyRemoveAi;
+            ArmyBasics.chBxRemoveAllie.Checked = PSettings.ArmyRemoveAllie;
+            ArmyBasics.chBxRemoveNeutral.Checked = PSettings.ArmyRemoveNeutral;
+            ArmyBasics.chBxRemoveLocalplayer.Checked = PSettings.ArmyRemoveLocalplayer;
+            ArmyBasics.chBxRemoveClantag.Checked = PSettings.ArmyRemoveClanTag;
             ArmyBasics.btnFontName.Text = PSettings.ArmyFontName;
             ArmyBasics.btnFontName.Font = new Font(PSettings.ArmyFontName, Font.Size);
-            ArmyBasics.tbOpacity.Value = PSettings.ArmyOpacity > 1.0
+            ArmyBasics.ocOpacity.tbOpacity.Value = PSettings.ArmyOpacity > 1.0
                 ? (Int32)PSettings.ArmyOpacity
                 : (Int32)(PSettings.ArmyOpacity * 100);
-            ArmyBasics.lblOpacity.Text = "Opacity: " + ArmyBasics.tbOpacity.Value.ToString(CultureInfo.InvariantCulture) + "%";
             ArmyChatInput.txtToggle.Text = PSettings.ArmyTogglePanel;
             ArmyChatInput.txtPosition.Text = PSettings.ArmyChangePositionPanel;
             ArmyChatInput.txtSize.Text = PSettings.ArmyChangeSizePanel;
@@ -550,22 +550,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ArmyHotkeys.txtHotkey2.Text = PSettings.ArmyHotkey2.ToString();
             ArmyHotkeys.txtHotkey3.Text = PSettings.ArmyHotkey3.ToString();
             ArmyBasics.chBxDrawBackground.Checked = PSettings.ArmyDrawBackground;
-            ArmyBasics.cmBxRemClanTag.Text = PSettings.ArmyRemoveClanTag.ToString();
+            ArmyBasics.ocOpacity.SetLabelText(PSettings.ArmyOpacity);
 
             #endregion
 
             #region Apm
 
-            ApmBasics.cmBxRemAi.Text = PSettings.ApmRemoveAi.ToString();
-            ApmBasics.cmBxRemAllie.Text = PSettings.ApmRemoveAllie.ToString();
-            ApmBasics.cmBxRemNeutral.Text = PSettings.ApmRemoveNeutral.ToString();
-            ApmBasics.cmBxRemLocalplayer.Text = PSettings.ApmRemoveLocalplayer.ToString();
+            ApmBasics.chBxRemoveAi.Checked = PSettings.ApmRemoveAi;
+            ApmBasics.chBxRemoveAllie.Checked = PSettings.ApmRemoveAllie;
+            ApmBasics.chBxRemoveNeutral.Checked = PSettings.ApmRemoveNeutral;
+            ApmBasics.chBxRemoveLocalplayer.Checked = PSettings.ApmRemoveLocalplayer;
+            ApmBasics.chBxRemoveClantag.Checked = PSettings.ApmRemoveClanTag;
             ApmBasics.btnFontName.Text = PSettings.ApmFontName;
             ApmBasics.btnFontName.Font = new Font(PSettings.ApmFontName, Font.Size);
-            ApmBasics.tbOpacity.Value = PSettings.ApmOpacity > 1.0
+            ApmBasics.ocOpacity.tbOpacity.Value = PSettings.ApmOpacity > 1.0
                 ? (Int32)PSettings.ApmOpacity
                 : (Int32)(PSettings.ApmOpacity * 100);
-            ApmBasics.lblOpacity.Text = "Opacity: " + ApmBasics.tbOpacity.Value.ToString(CultureInfo.InvariantCulture) + "%";
             ApmChatInput.txtToggle.Text = PSettings.ApmTogglePanel;
             ApmChatInput.txtPosition.Text = PSettings.ApmChangePositionPanel;
             ApmChatInput.txtSize.Text = PSettings.ApmChangeSizePanel;
@@ -573,7 +573,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ApmHotkeys.txtHotkey2.Text = PSettings.ApmHotkey2.ToString();
             ApmHotkeys.txtHotkey3.Text = PSettings.ApmHotkey3.ToString();
             ApmBasics.chBxDrawBackground.Checked = PSettings.ApmDrawBackground;
-            ApmBasics.cmBxRemClanTag.Text = PSettings.ApmRemoveClanTag.ToString();
+            ApmBasics.ocOpacity.SetLabelText(PSettings.ApmOpacity);
 
             #endregion
 
@@ -1150,7 +1150,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             /* Check if dir. exists */
             if (!Directory.Exists(Constants.StrPluginFolder))
             {
-                CustGlobal.lstBxPlugins.Items.Add(Properties.Resources.strNoPluginsFound);
+                CustGlobal.lstBxPlugins.Items.Add("- No Plugins found -");
                 CustGlobal.lstBxPlugins.Enabled = false;
 
                 Directory.CreateDirectory(Constants.StrPluginFolder);
