@@ -409,7 +409,7 @@
     <value>0, 0</value>
   </data>
   <data name="gbBasicOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 271</value>
+    <value>210, 271</value>
   </data>
   <data name="gbBasicOptions.TabIndex" type="System.Int32, mscorlib">
     <value>60</value>
@@ -436,7 +436,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 274</value>
+    <value>210, 274</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>UiProductionTabBasics</value>

@@ -70,6 +70,7 @@
             // chBxRemoveLocalplayer
             // 
             resources.ApplyResources(this.chBxRemoveLocalplayer, "chBxRemoveLocalplayer");
+            this.chBxRemoveLocalplayer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxRemoveLocalplayer.LanguageFile = "";
             this.chBxRemoveLocalplayer.Name = "chBxRemoveLocalplayer";
             this.chBxRemoveLocalplayer.UseVisualStyleBackColor = true;
@@ -77,6 +78,7 @@
             // chBxRemoveNeutral
             // 
             resources.ApplyResources(this.chBxRemoveNeutral, "chBxRemoveNeutral");
+            this.chBxRemoveNeutral.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxRemoveNeutral.LanguageFile = "";
             this.chBxRemoveNeutral.Name = "chBxRemoveNeutral";
             this.chBxRemoveNeutral.UseVisualStyleBackColor = true;
@@ -84,6 +86,7 @@
             // chBxRemoveAllie
             // 
             resources.ApplyResources(this.chBxRemoveAllie, "chBxRemoveAllie");
+            this.chBxRemoveAllie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxRemoveAllie.LanguageFile = "";
             this.chBxRemoveAllie.Name = "chBxRemoveAllie";
             this.chBxRemoveAllie.UseVisualStyleBackColor = true;
@@ -91,6 +94,7 @@
             // chBxRemoveAi
             // 
             resources.ApplyResources(this.chBxRemoveAi, "chBxRemoveAi");
+            this.chBxRemoveAi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxRemoveAi.LanguageFile = "";
             this.chBxRemoveAi.Name = "chBxRemoveAi";
             this.chBxRemoveAi.UseVisualStyleBackColor = true;
@@ -98,6 +102,7 @@
             // chBxMaphackRemCamera
             // 
             resources.ApplyResources(this.chBxMaphackRemCamera, "chBxMaphackRemCamera");
+            this.chBxMaphackRemCamera.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxMaphackRemCamera.LanguageFile = "";
             this.chBxMaphackRemCamera.Name = "chBxMaphackRemCamera";
             this.chBxMaphackRemCamera.UseVisualStyleBackColor = true;
@@ -105,6 +110,7 @@
             // chBxMaphackRemVisionArea
             // 
             resources.ApplyResources(this.chBxMaphackRemVisionArea, "chBxMaphackRemVisionArea");
+            this.chBxMaphackRemVisionArea.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxMaphackRemVisionArea.LanguageFile = "";
             this.chBxMaphackRemVisionArea.Name = "chBxMaphackRemVisionArea";
             this.chBxMaphackRemVisionArea.UseVisualStyleBackColor = true;
@@ -112,6 +118,7 @@
             // chBxMaphackColorDefensiveStructuresYellow
             // 
             resources.ApplyResources(this.chBxMaphackColorDefensiveStructuresYellow, "chBxMaphackColorDefensiveStructuresYellow");
+            this.chBxMaphackColorDefensiveStructuresYellow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxMaphackColorDefensiveStructuresYellow.LanguageFile = "";
             this.chBxMaphackColorDefensiveStructuresYellow.Name = "chBxMaphackColorDefensiveStructuresYellow";
             this.chBxMaphackColorDefensiveStructuresYellow.UseVisualStyleBackColor = true;
@@ -119,12 +126,14 @@
             // chBxMaphackDisableDestinationLine
             // 
             resources.ApplyResources(this.chBxMaphackDisableDestinationLine, "chBxMaphackDisableDestinationLine");
+            this.chBxMaphackDisableDestinationLine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxMaphackDisableDestinationLine.LanguageFile = "";
             this.chBxMaphackDisableDestinationLine.Name = "chBxMaphackDisableDestinationLine";
             this.chBxMaphackDisableDestinationLine.UseVisualStyleBackColor = true;
             // 
             // btnDestinationLine
             // 
+            this.btnDestinationLine.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.btnDestinationLine, "btnDestinationLine");
             this.btnDestinationLine.Name = "btnDestinationLine";
             this.btnDestinationLine.UseVisualStyleBackColor = true;

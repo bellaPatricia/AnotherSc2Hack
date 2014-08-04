@@ -240,7 +240,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
-        #region Chat Input / Hotkeys / Button- method
+        #region Chat Input / UiHotkeys / Button- method
 
         private void LaunchPanels()
         {
@@ -407,52 +407,52 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void ChangeTextboxInformation()
         {
             /* Resource */
-            ResourceInformation.txtPosX.Text = PSettings.ResourcePositionX.ToString(CultureInfo.InvariantCulture);
-            ResourceInformation.txtPosY.Text = PSettings.ResourcePositionY.ToString(CultureInfo.InvariantCulture);
-            ResourceInformation.txtWidth.Text = PSettings.ResourceWidth.ToString(CultureInfo.InvariantCulture);
-            ResourceInformation.txtHeight.Text = PSettings.ResourceHeight.ToString(CultureInfo.InvariantCulture);
+            ResourceUiInformation.txtPosX.Text = PSettings.ResourcePositionX.ToString(CultureInfo.InvariantCulture);
+            ResourceUiInformation.txtPosY.Text = PSettings.ResourcePositionY.ToString(CultureInfo.InvariantCulture);
+            ResourceUiInformation.txtWidth.Text = PSettings.ResourceWidth.ToString(CultureInfo.InvariantCulture);
+            ResourceUiInformation.txtHeight.Text = PSettings.ResourceHeight.ToString(CultureInfo.InvariantCulture);
 
             /* Income */
-            IncomeInformation.txtPosX.Text = PSettings.IncomePositionX.ToString(CultureInfo.InvariantCulture);
-            IncomeInformation.txtPosY.Text = PSettings.IncomePositionY.ToString(CultureInfo.InvariantCulture);
-            IncomeInformation.txtWidth.Text = PSettings.IncomeWidth.ToString(CultureInfo.InvariantCulture);
-            IncomeInformation.txtHeight.Text = PSettings.IncomeHeight.ToString(CultureInfo.InvariantCulture);
+            IncomeUiInformation.txtPosX.Text = PSettings.IncomePositionX.ToString(CultureInfo.InvariantCulture);
+            IncomeUiInformation.txtPosY.Text = PSettings.IncomePositionY.ToString(CultureInfo.InvariantCulture);
+            IncomeUiInformation.txtWidth.Text = PSettings.IncomeWidth.ToString(CultureInfo.InvariantCulture);
+            IncomeUiInformation.txtHeight.Text = PSettings.IncomeHeight.ToString(CultureInfo.InvariantCulture);
 
             /* Worker */
-            WorkerInformation.txtPosX.Text = PSettings.WorkerPositionX.ToString(CultureInfo.InvariantCulture);
-            WorkerInformation.txtPosY.Text = PSettings.WorkerPositionY.ToString(CultureInfo.InvariantCulture);
-            WorkerInformation.txtWidth.Text = PSettings.WorkerWidth.ToString(CultureInfo.InvariantCulture);
-            WorkerInformation.txtHeight.Text = PSettings.WorkerHeight.ToString(CultureInfo.InvariantCulture);
+            WorkerUiInformation.txtPosX.Text = PSettings.WorkerPositionX.ToString(CultureInfo.InvariantCulture);
+            WorkerUiInformation.txtPosY.Text = PSettings.WorkerPositionY.ToString(CultureInfo.InvariantCulture);
+            WorkerUiInformation.txtWidth.Text = PSettings.WorkerWidth.ToString(CultureInfo.InvariantCulture);
+            WorkerUiInformation.txtHeight.Text = PSettings.WorkerHeight.ToString(CultureInfo.InvariantCulture);
 
             /* Maphack */
-            MaphackInformation.txtPosX.Text = PSettings.MaphackPositionX.ToString(CultureInfo.InvariantCulture);
-            MaphackInformation.txtPosY.Text = PSettings.MaphackPositionY.ToString(CultureInfo.InvariantCulture);
-            MaphackInformation.txtWidth.Text = PSettings.MaphackWidth.ToString(CultureInfo.InvariantCulture);
-            MaphackInformation.txtHeight.Text = PSettings.MaphackHeight.ToString(CultureInfo.InvariantCulture);
+            MaphackUiInformation.txtPosX.Text = PSettings.MaphackPositionX.ToString(CultureInfo.InvariantCulture);
+            MaphackUiInformation.txtPosY.Text = PSettings.MaphackPositionY.ToString(CultureInfo.InvariantCulture);
+            MaphackUiInformation.txtWidth.Text = PSettings.MaphackWidth.ToString(CultureInfo.InvariantCulture);
+            MaphackUiInformation.txtHeight.Text = PSettings.MaphackHeight.ToString(CultureInfo.InvariantCulture);
 
             /* Apm */
-            ApmInformation.txtPosX.Text = PSettings.ApmPositionX.ToString(CultureInfo.InvariantCulture);
-            ApmInformation.txtPosY.Text = PSettings.ApmPositionY.ToString(CultureInfo.InvariantCulture);
-            ApmInformation.txtWidth.Text = PSettings.ApmWidth.ToString(CultureInfo.InvariantCulture);
-            ApmInformation.txtHeight.Text = PSettings.ApmHeight.ToString(CultureInfo.InvariantCulture);
+            ApmUiInformation.txtPosX.Text = PSettings.ApmPositionX.ToString(CultureInfo.InvariantCulture);
+            ApmUiInformation.txtPosY.Text = PSettings.ApmPositionY.ToString(CultureInfo.InvariantCulture);
+            ApmUiInformation.txtWidth.Text = PSettings.ApmWidth.ToString(CultureInfo.InvariantCulture);
+            ApmUiInformation.txtHeight.Text = PSettings.ApmHeight.ToString(CultureInfo.InvariantCulture);
 
             /* Army */
-            ArmyInformation.txtPosX.Text = PSettings.ArmyPositionX.ToString(CultureInfo.InvariantCulture);
-            ArmyInformation.txtPosY.Text = PSettings.ArmyPositionY.ToString(CultureInfo.InvariantCulture);
-            ArmyInformation.txtWidth.Text = PSettings.ArmyWidth.ToString(CultureInfo.InvariantCulture);
-            ArmyInformation.txtHeight.Text = PSettings.ArmyHeight.ToString(CultureInfo.InvariantCulture);
+            ArmyUiInformation.txtPosX.Text = PSettings.ArmyPositionX.ToString(CultureInfo.InvariantCulture);
+            ArmyUiInformation.txtPosY.Text = PSettings.ArmyPositionY.ToString(CultureInfo.InvariantCulture);
+            ArmyUiInformation.txtWidth.Text = PSettings.ArmyWidth.ToString(CultureInfo.InvariantCulture);
+            ArmyUiInformation.txtHeight.Text = PSettings.ArmyHeight.ToString(CultureInfo.InvariantCulture);
 
             /* UnitTab */
-            UnittabInformation.txtPosX.Text = PSettings.UnitTabPositionX.ToString(CultureInfo.InvariantCulture);
-            UnittabInformation.txtPosY.Text = PSettings.UnitTabPositionY.ToString(CultureInfo.InvariantCulture);
-            UnittabInformation.txtWidth.Text = PSettings.UnitTabWidth.ToString(CultureInfo.InvariantCulture);
-            UnittabInformation.txtHeight.Text = PSettings.UnitTabHeight.ToString(CultureInfo.InvariantCulture);
+            UnittabUiInformation.txtPosX.Text = PSettings.UnitTabPositionX.ToString(CultureInfo.InvariantCulture);
+            UnittabUiInformation.txtPosY.Text = PSettings.UnitTabPositionY.ToString(CultureInfo.InvariantCulture);
+            UnittabUiInformation.txtWidth.Text = PSettings.UnitTabWidth.ToString(CultureInfo.InvariantCulture);
+            UnittabUiInformation.txtHeight.Text = PSettings.UnitTabHeight.ToString(CultureInfo.InvariantCulture);
 
             /* Production */
-            ProductionTabInformation.txtPosX.Text = PSettings.ProdTabPositionX.ToString(CultureInfo.InvariantCulture);
-            ProductionTabInformation.txtPosY.Text = PSettings.ProdTabPositionY.ToString(CultureInfo.InvariantCulture);
-            ProductionTabInformation.txtWidth.Text = PSettings.ProdTabWidth.ToString(CultureInfo.InvariantCulture);
-            ProductionTabInformation.txtHeight.Text = PSettings.ProdTabHeight.ToString(CultureInfo.InvariantCulture);
+            ProductionTabUiInformation.txtPosX.Text = PSettings.ProdTabPositionX.ToString(CultureInfo.InvariantCulture);
+            ProductionTabUiInformation.txtPosY.Text = PSettings.ProdTabPositionY.ToString(CultureInfo.InvariantCulture);
+            ProductionTabUiInformation.txtWidth.Text = PSettings.ProdTabWidth.ToString(CultureInfo.InvariantCulture);
+            ProductionTabUiInformation.txtHeight.Text = PSettings.ProdTabHeight.ToString(CultureInfo.InvariantCulture);
         }
 
         private void CheckIfDeveloper()
@@ -496,12 +496,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ResourceUiBasics.OcUiOpacity.tbOpacity.Value = PSettings.ResourceOpacity > 1.0
                 ? (Int32) PSettings.ResourceOpacity
                 : (Int32) (PSettings.ResourceOpacity*100);
-            ResourceChatInput.txtToggle.Text = PSettings.ResourceTogglePanel;
-            ResourceChatInput.txtPosition.Text = PSettings.ResourceChangePositionPanel;
-            ResourceChatInput.txtSize.Text = PSettings.ResourceChangeSizePanel;
-            ResourceHotkeys.txtHotkey1.Text = PSettings.ResourceHotkey1.ToString();
-            ResourceHotkeys.txtHotkey2.Text = PSettings.ResourceHotkey2.ToString();
-            ResourceHotkeys.txtHotkey3.Text = PSettings.ResourceHotkey3.ToString();
+            ResourceUiChatInput.txtToggle.Text = PSettings.ResourceTogglePanel;
+            ResourceUiChatInput.txtPosition.Text = PSettings.ResourceChangePositionPanel;
+            ResourceUiChatInput.txtSize.Text = PSettings.ResourceChangeSizePanel;
+            ResourceUiHotkeys.txtHotkey1.Text = PSettings.ResourceHotkey1.ToString();
+            ResourceUiHotkeys.txtHotkey2.Text = PSettings.ResourceHotkey2.ToString();
+            ResourceUiHotkeys.txtHotkey3.Text = PSettings.ResourceHotkey3.ToString();
             ResourceUiBasics.chBxDrawBackground.Checked = PSettings.ResourceDrawBackground;
 
             #endregion
@@ -518,12 +518,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             IncomeUiBasics.OcUiOpacity.tbOpacity.Value = PSettings.IncomeOpacity > 1.0
                 ? (Int32)PSettings.IncomeOpacity
                 : (Int32)(PSettings.IncomeOpacity * 100);
-            IncomeChatInput.txtToggle.Text = PSettings.IncomeTogglePanel;
-            IncomeChatInput.txtPosition.Text = PSettings.IncomeChangePositionPanel;
-            IncomeChatInput.txtSize.Text = PSettings.IncomeChangeSizePanel;
-            IncomeHotkeys.txtHotkey1.Text = PSettings.IncomeHotkey1.ToString();
-            IncomeHotkeys.txtHotkey2.Text = PSettings.IncomeHotkey2.ToString();
-            IncomeHotkeys.txtHotkey3.Text = PSettings.IncomeHotkey3.ToString();
+            IncomeUiChatInput.txtToggle.Text = PSettings.IncomeTogglePanel;
+            IncomeUiChatInput.txtPosition.Text = PSettings.IncomeChangePositionPanel;
+            IncomeUiChatInput.txtSize.Text = PSettings.IncomeChangeSizePanel;
+            IncomeUiHotkeys.txtHotkey1.Text = PSettings.IncomeHotkey1.ToString();
+            IncomeUiHotkeys.txtHotkey2.Text = PSettings.IncomeHotkey2.ToString();
+            IncomeUiHotkeys.txtHotkey3.Text = PSettings.IncomeHotkey3.ToString();
             IncomeUiBasics.chBxDrawBackground.Checked = PSettings.IncomeDrawBackground;
 
             #endregion
@@ -540,12 +540,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ArmyUiBasics.OcUiOpacity.tbOpacity.Value = PSettings.ArmyOpacity > 1.0
                 ? (Int32)PSettings.ArmyOpacity
                 : (Int32)(PSettings.ArmyOpacity * 100);
-            ArmyChatInput.txtToggle.Text = PSettings.ArmyTogglePanel;
-            ArmyChatInput.txtPosition.Text = PSettings.ArmyChangePositionPanel;
-            ArmyChatInput.txtSize.Text = PSettings.ArmyChangeSizePanel;
-            ArmyHotkeys.txtHotkey1.Text = PSettings.ArmyHotkey1.ToString();
-            ArmyHotkeys.txtHotkey2.Text = PSettings.ArmyHotkey2.ToString();
-            ArmyHotkeys.txtHotkey3.Text = PSettings.ArmyHotkey3.ToString();
+            ArmyUiChatInput.txtToggle.Text = PSettings.ArmyTogglePanel;
+            ArmyUiChatInput.txtPosition.Text = PSettings.ArmyChangePositionPanel;
+            ArmyUiChatInput.txtSize.Text = PSettings.ArmyChangeSizePanel;
+            ArmyUiHotkeys.txtHotkey1.Text = PSettings.ArmyHotkey1.ToString();
+            ArmyUiHotkeys.txtHotkey2.Text = PSettings.ArmyHotkey2.ToString();
+            ArmyUiHotkeys.txtHotkey3.Text = PSettings.ArmyHotkey3.ToString();
             ArmyUiBasics.chBxDrawBackground.Checked = PSettings.ArmyDrawBackground;
 
             #endregion
@@ -559,12 +559,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ApmUiBasics.chBxRemoveClantag.Checked = PSettings.ApmRemoveClanTag;
             ApmUiBasics.btnFontName.Text = PSettings.ApmFontName;
             ApmUiBasics.btnFontName.Font = new Font(PSettings.ApmFontName, Font.Size);
-            ApmChatInput.txtToggle.Text = PSettings.ApmTogglePanel;
-            ApmChatInput.txtPosition.Text = PSettings.ApmChangePositionPanel;
-            ApmChatInput.txtSize.Text = PSettings.ApmChangeSizePanel;
-            ApmHotkeys.txtHotkey1.Text = PSettings.ApmHotkey1.ToString();
-            ApmHotkeys.txtHotkey2.Text = PSettings.ApmHotkey2.ToString();
-            ApmHotkeys.txtHotkey3.Text = PSettings.ApmHotkey3.ToString();
+            ApmUiChatInput.txtToggle.Text = PSettings.ApmTogglePanel;
+            ApmUiChatInput.txtPosition.Text = PSettings.ApmChangePositionPanel;
+            ApmUiChatInput.txtSize.Text = PSettings.ApmChangeSizePanel;
+            ApmUiHotkeys.txtHotkey1.Text = PSettings.ApmHotkey1.ToString();
+            ApmUiHotkeys.txtHotkey2.Text = PSettings.ApmHotkey2.ToString();
+            ApmUiHotkeys.txtHotkey3.Text = PSettings.ApmHotkey3.ToString();
             ApmUiBasics.chBxDrawBackground.Checked = PSettings.ApmDrawBackground;
             ApmUiBasics.OcUiOpacity.tbOpacity.Value = PSettings.ApmOpacity > 1.0
                 ? (Int32)PSettings.ApmOpacity
@@ -577,12 +577,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             WorkerUiWorkerBasics.btnFontName.Text = PSettings.WorkerFontName;
             WorkerUiWorkerBasics.btnFontName.Font = new Font(PSettings.WorkerFontName, Font.Size);
-            WorkerChatInput.txtToggle.Text = PSettings.WorkerTogglePanel;
-            WorkerChatInput.txtPosition.Text = PSettings.WorkerChangePositionPanel;
-            WorkerChatInput.txtSize.Text = PSettings.WorkerChangeSizePanel;
-            WorkerHotkeys.txtHotkey1.Text = PSettings.WorkerHotkey1.ToString();
-            WorkerHotkeys.txtHotkey2.Text = PSettings.WorkerHotkey2.ToString();
-            WorkerHotkeys.txtHotkey3.Text = PSettings.WorkerHotkey3.ToString();
+            WorkerUiChatInput.txtToggle.Text = PSettings.WorkerTogglePanel;
+            WorkerUiChatInput.txtPosition.Text = PSettings.WorkerChangePositionPanel;
+            WorkerUiChatInput.txtSize.Text = PSettings.WorkerChangeSizePanel;
+            WorkerUiHotkeys.txtHotkey1.Text = PSettings.WorkerHotkey1.ToString();
+            WorkerUiHotkeys.txtHotkey2.Text = PSettings.WorkerHotkey2.ToString();
+            WorkerUiHotkeys.txtHotkey3.Text = PSettings.WorkerHotkey3.ToString();
             WorkerUiWorkerBasics.chBxDrawBackground.Checked = PSettings.WorkerDrawBackground;
             WorkerUiWorkerBasics.OcUiOpacity.tbOpacity.Value = PSettings.WorkerOpacity > 1.0
                 ? (Int32)PSettings.WorkerOpacity
@@ -597,12 +597,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             MaphackUiMaphackBasics.chBxRemoveNeutral.Checked = PSettings.MaphackRemoveNeutral;
             MaphackUiMaphackBasics.chBxRemoveLocalplayer.Checked = PSettings.MaphackRemoveLocalplayer;
             MaphackUiMaphackBasics.btnDestinationLine.BackColor = PSettings.MaphackDestinationColor;
-            MaphackChatInput.txtToggle.Text = PSettings.MaphackTogglePanel;
-            MaphackChatInput.txtPosition.Text = PSettings.MaphackChangePositionPanel;
-            MaphackChatInput.txtSize.Text = PSettings.MaphackChangeSizePanel;
-            MaphackHotkeys.txtHotkey1.Text = PSettings.MaphackHotkey1.ToString();
-            MaphackHotkeys.txtHotkey2.Text = PSettings.MaphackHotkey2.ToString();
-            MaphackHotkeys.txtHotkey3.Text = PSettings.MaphackHotkey3.ToString();
+            MaphackUiChatInput.txtToggle.Text = PSettings.MaphackTogglePanel;
+            MaphackUiChatInput.txtPosition.Text = PSettings.MaphackChangePositionPanel;
+            MaphackUiChatInput.txtSize.Text = PSettings.MaphackChangeSizePanel;
+            MaphackUiHotkeys.txtHotkey1.Text = PSettings.MaphackHotkey1.ToString();
+            MaphackUiHotkeys.txtHotkey2.Text = PSettings.MaphackHotkey2.ToString();
+            MaphackUiHotkeys.txtHotkey3.Text = PSettings.MaphackHotkey3.ToString();
             MaphackUiMaphackBasics.chBxMaphackDisableDestinationLine.Checked = PSettings.MaphackDisableDestinationLine;
             MaphackUiMaphackBasics.chBxMaphackColorDefensiveStructuresYellow.Checked = PSettings.MaphackColorDefensivestructuresYellow;
             MaphackUiMaphackBasics.chBxMaphackRemVisionArea.Checked = PSettings.MaphackRemoveVisionArea;
@@ -639,12 +639,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             UnittabUiUnitTabBasic.chBxRemoveProductionLine.Checked = PSettings.UnitTabRemoveProdLine;
             UnittabUiUnitTabBasic.chBxRemoveChronoboost.Checked = PSettings.UnitTabRemoveChronoboost;
             UnittabUiUnitTabBasic.chBxRemoveClantag.Checked = PSettings.UnitTabRemoveClanTag;
-            UnittabChatInput.txtToggle.Text = PSettings.UnitTogglePanel;
-            UnittabChatInput.txtPosition.Text = PSettings.UnitChangePositionPanel;
-            UnittabChatInput.txtSize.Text = PSettings.UnitChangeSizePanel;
-            UnittabHotkeys.txtHotkey1.Text = PSettings.UnitHotkey1.ToString();
-            UnittabHotkeys.txtHotkey2.Text = PSettings.UnitHotkey2.ToString();
-            UnittabHotkeys.txtHotkey3.Text = PSettings.UnitHotkey3.ToString();
+            UnittabUiChatInput.txtToggle.Text = PSettings.UnitTogglePanel;
+            UnittabUiChatInput.txtPosition.Text = PSettings.UnitChangePositionPanel;
+            UnittabUiChatInput.txtSize.Text = PSettings.UnitChangeSizePanel;
+            UnittabUiHotkeys.txtHotkey1.Text = PSettings.UnitHotkey1.ToString();
+            UnittabUiHotkeys.txtHotkey2.Text = PSettings.UnitHotkey2.ToString();
+            UnittabUiHotkeys.txtHotkey3.Text = PSettings.UnitHotkey3.ToString();
             txtUnitPictureSize.Text = PSettings.UnitPictureSize.ToString(CultureInfo.InvariantCulture);
             UnittabUiUnitTabBasic.btnFontName.Text = PSettings.UnitTabFontName;
             UnittabUiUnitTabBasic.btnFontName.Font = new Font(PSettings.UnitTabFontName, Font.Size);
@@ -665,12 +665,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ProductionTabUiProductionTabBasics.chBxSplitBuildingsUnits.Checked = PSettings.ProdTabSplitUnitsAndBuildings;
             ProductionTabUiProductionTabBasics.chBxRemoveChronoboost.Checked = PSettings.ProdTabRemoveChronoboost;
             ProductionTabUiProductionTabBasics.chBxRemoveClantag.Checked = PSettings.ProdTabRemoveClanTag;
-            ProductionTabChatInput.txtToggle.Text = PSettings.ProdTogglePanel;
-            ProductionTabChatInput.txtPosition.Text = PSettings.ProdChangePositionPanel;
-            ProductionTabChatInput.txtSize.Text = PSettings.ProdChangeSizePanel;
-            ProductionTabHotkeys.txtHotkey1.Text = PSettings.ProdHotkey1.ToString();
-            ProductionTabHotkeys.txtHotkey2.Text = PSettings.ProdHotkey2.ToString();
-            ProductionTabHotkeys.txtHotkey3.Text = PSettings.ProdHotkey3.ToString();
+            ProductionTabUiChatInput.txtToggle.Text = PSettings.ProdTogglePanel;
+            ProductionTabUiChatInput.txtPosition.Text = PSettings.ProdChangePositionPanel;
+            ProductionTabUiChatInput.txtSize.Text = PSettings.ProdChangeSizePanel;
+            ProductionTabUiHotkeys.txtHotkey1.Text = PSettings.ProdHotkey1.ToString();
+            ProductionTabUiHotkeys.txtHotkey2.Text = PSettings.ProdHotkey2.ToString();
+            ProductionTabUiHotkeys.txtHotkey3.Text = PSettings.ProdHotkey3.ToString();
             txtProductionTabPictureSize.Text = PSettings.ProdPictureSize.ToString(CultureInfo.InvariantCulture);
             ProductionTabUiProductionTabBasics.btnFontName.Text = PSettings.ProdTabFontName;
             ProductionTabUiProductionTabBasics.btnFontName.Font = new Font(PSettings.ProdTabFontName, Font.Size);
@@ -703,9 +703,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             workerProductionBasics.ktxtOrbitalUpgradeKey.Text = PSettings.WorkerAutomationOrbitalKey.ToString();
             workerProductionBasics.ktxtProbeBuildingKey.Text = PSettings.WorkerAutomationProbeKey.ToString();
             workerProductionBasics.ktxtScvBuildingKey.Text = PSettings.WorkerAutomationScvKey.ToString();
-            workerProductionHotkeys.txtHotkey1.Text = PSettings.WorkerAutomationHotkey1.ToString();
-            workerProductionHotkeys.txtHotkey2.Text = PSettings.WorkerAutomationHotkey2.ToString();
-            workerProductionHotkeys.txtHotkey3.Text = PSettings.WorkerAutomationHotkey3.ToString();
+            WorkerProductionUiHotkeys.txtHotkey1.Text = PSettings.WorkerAutomationHotkey1.ToString();
+            WorkerProductionUiHotkeys.txtHotkey2.Text = PSettings.WorkerAutomationHotkey2.ToString();
+            WorkerProductionUiHotkeys.txtHotkey3.Text = PSettings.WorkerAutomationHotkey3.ToString();
             workerProductionBasics.ntxtBuildNextWorkerAt.Text = PSettings.WorkerAutomationStartNextWorkerAt.ToString(CultureInfo.InvariantCulture);
 
             #endregion

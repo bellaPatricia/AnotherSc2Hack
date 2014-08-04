@@ -22,7 +22,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                       "############\n" +
                       msgBody;
 
-            msgBody += "\n\n\nAdditional Information:\n" +
+            msgBody += "\n\n\nAdditional UiInformation:\n" +
                         "############\n" + 
                         msgAdditional;
 

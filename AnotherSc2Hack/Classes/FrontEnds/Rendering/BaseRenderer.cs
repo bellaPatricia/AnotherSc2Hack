@@ -603,6 +603,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 var mousePos = MousePosition;
                 mousePos.Offset(-_ptMousePosition.X, -_ptMousePosition.Y);
                 Location = mousePos;
+                RefreshPanelPosition(Location);
             }
         }
 
@@ -724,6 +725,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
+        /// Set data (Size) to the panels (Information)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BaseRenderer_SizeChanged(object sender, EventArgs e)
+        {
+            RefreshPanelSize(Size);
+        }
+
+        /// <summary>
         /// Change the window- style (to make it click- and non-clickable)
         /// </summary>
         private void ChangeWindowStyle()
@@ -839,7 +850,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected abstract void AdjustPanelPosition();
 
         /// <summary>
-        /// Load the preferences for Form X into the Controls (location, size)
+        /// Load the preferences for Form X into the Controls (size, size)
         /// </summary>
         protected abstract void LoadPreferencesIntoControls();
 
@@ -853,6 +864,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         /// <param name="e"></param>
         protected abstract void MouseWheelTransferData(MouseEventArgs e);
+
+        protected abstract void RefreshPanelPosition(Point location);
+        protected abstract void RefreshPanelSize(Size size);
+
 
 
         #endregion
@@ -5499,6 +5514,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }
 #endif
         }
+
+        
 
         
     }

@@ -135,11 +135,11 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\Bugs.Designer.cs">
       <DependentUpon>Bugs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\ChatInput.cs">
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiChatInput.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\ChatInput.Designer.cs">
-      <DependentUpon>ChatInput.cs</DependentUpon>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiChatInput.Designer.cs">
+      <DependentUpon>UiChatInput.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\Control_Global.cs">
       <SubType>UserControl</SubType>
@@ -168,17 +168,17 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\GraphicalPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Hotkeys.cs">
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiHotkeys.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Hotkeys.Designer.cs">
-      <DependentUpon>Hotkeys.cs</DependentUpon>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiHotkeys.Designer.cs">
+      <DependentUpon>UiHotkeys.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Information.cs">
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Information.Designer.cs">
-      <DependentUpon>Information.cs</DependentUpon>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiInformation.Designer.cs">
+      <DependentUpon>UiInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\UiProductionTabBasics.cs">
       <SubType>UserControl</SubType>
@@ -341,11 +341,11 @@
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Bugs.resx">
       <DependentUpon>Bugs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\ChatInput.de.resx">
-      <DependentUpon>ChatInput.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiChatInput.de.resx">
+      <DependentUpon>UiChatInput.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\ChatInput.resx">
-      <DependentUpon>ChatInput.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiChatInput.resx">
+      <DependentUpon>UiChatInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Control_Global.de.resx">
       <DependentUpon>Control_Global.cs</DependentUpon>
@@ -371,17 +371,17 @@
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Various.resx">
       <DependentUpon>Custom_Various.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Hotkeys.de.resx">
-      <DependentUpon>Hotkeys.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiHotkeys.de.resx">
+      <DependentUpon>UiHotkeys.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Hotkeys.resx">
-      <DependentUpon>Hotkeys.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiHotkeys.resx">
+      <DependentUpon>UiHotkeys.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Information.de.resx">
-      <DependentUpon>Information.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiInformation.de.resx">
+      <DependentUpon>UiInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Information.resx">
-      <DependentUpon>Information.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiInformation.resx">
+      <DependentUpon>UiInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiProductionTabBasics.resx">
       <DependentUpon>UiProductionTabBasics.cs</DependentUpon>

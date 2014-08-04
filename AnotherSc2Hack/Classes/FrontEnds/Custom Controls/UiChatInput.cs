@@ -2,9 +2,9 @@
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    public partial class ChatInput : AbstractUserControl
+    public partial class UiChatInput : AbstractUserControl
     {
-        public ChatInput()
+        public UiChatInput()
         {
             InitializeComponent();
         }

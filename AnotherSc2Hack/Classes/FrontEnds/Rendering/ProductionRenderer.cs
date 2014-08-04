@@ -861,10 +861,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             HMainHandler.PSettings.ProdTabOpacity = Opacity;
 
             /* Transfer to Mainform */
-            HMainHandler.ProductionTabInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ProductionTabInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ProductionTabInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ProductionTabInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ProductionTabUiInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ProductionTabUiInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ProductionTabUiInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ProductionTabUiInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -940,8 +940,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 StrBackupSizeChatbox = string.Empty;
 
                 /* Transfer to Mainform */
-                HMainHandler.ProductionTabInformation.txtWidth.Text = HMainHandler.PSettings.ProdTabWidth.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ProductionTabInformation.txtHeight.Text = HMainHandler.PSettings.ProdTabHeight.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ProductionTabUiInformation.txtWidth.Text = HMainHandler.PSettings.ProdTabWidth.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ProductionTabUiInformation.txtHeight.Text = HMainHandler.PSettings.ProdTabHeight.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -996,8 +996,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
 
                 /* Transfer to Mainform */
-                HMainHandler.ProductionTabInformation.txtPosX.Text = HMainHandler.PSettings.ProdTabPositionX.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ProductionTabInformation.txtPosY.Text = HMainHandler.PSettings.ProdTabPositionY.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ProductionTabUiInformation.txtPosX.Text = HMainHandler.PSettings.ProdTabPositionX.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ProductionTabUiInformation.txtPosY.Text = HMainHandler.PSettings.ProdTabPositionY.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -1139,6 +1139,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
             posX += size;
+        }
+
+        protected override void RefreshPanelPosition(Point location)
+        {
+            HMainHandler.ProductionTabUiInformation.SetPosition(location);
+        }
+
+        protected override void RefreshPanelSize(Size size)
+        {
+            HMainHandler.ProductionTabUiInformation.SetSize(size);
         }
     }
 }

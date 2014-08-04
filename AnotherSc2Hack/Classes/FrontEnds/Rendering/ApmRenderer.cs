@@ -213,10 +213,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             HMainHandler.PSettings.ApmOpacity = Opacity;
 
             /* Transfer to Mainform */
-            HMainHandler.ApmInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ApmInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ApmInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ApmInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ApmUiInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ApmUiInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ApmUiInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ApmUiInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -299,8 +299,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 StrBackupSizeChatbox = string.Empty;
 
                 /* Transfer to Mainform */
-                HMainHandler.ApmInformation.txtWidth.Text = HMainHandler.PSettings.ApmWidth.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ApmInformation.txtHeight.Text = HMainHandler.PSettings.ApmHeight.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ApmUiInformation.txtWidth.Text = HMainHandler.PSettings.ApmWidth.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ApmUiInformation.txtHeight.Text = HMainHandler.PSettings.ApmHeight.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -356,8 +356,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
 
                 /* Transfer to Mainform */
-                HMainHandler.ApmInformation.txtPosX.Text = HMainHandler.PSettings.ApmPositionX.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ApmInformation.txtPosY.Text = HMainHandler.PSettings.ApmPositionY.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ApmUiInformation.txtPosX.Text = HMainHandler.PSettings.ApmPositionX.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ApmUiInformation.txtPosY.Text = HMainHandler.PSettings.ApmPositionY.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -385,6 +385,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             HMainHandler.PSettings.ApmWidth = Width;
             HMainHandler.PSettings.ApmPositionX = Location.X;
             HMainHandler.PSettings.ApmPositionY = Location.Y;
+        }
+
+        protected override void RefreshPanelPosition(Point location)
+        {
+            HMainHandler.ApmUiInformation.SetPosition(location);
+        }
+
+        protected override void RefreshPanelSize(Size size)
+        {
+            HMainHandler.ApmUiInformation.SetSize(size);
         }
     }
 }

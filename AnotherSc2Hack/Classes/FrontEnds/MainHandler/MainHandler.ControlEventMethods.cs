@@ -52,39 +52,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void txtResTogglePanel_TextChanged(object sender, EventArgs e)
         {
-            if (ResourceChatInput.txtToggle.Text.Length > 0)
-                PSettings.ResourceTogglePanel = ResourceChatInput.txtToggle.Text;
+            if (ResourceUiChatInput.txtToggle.Text.Length > 0)
+                PSettings.ResourceTogglePanel = ResourceUiChatInput.txtToggle.Text;
         }
 
         private void txtResPositionPanel_TextChanged(object sender, EventArgs e)
         {
-            if (ResourceChatInput.txtPosition.Text.Length > 0)
-                PSettings.ResourceChangePositionPanel = ResourceChatInput.txtPosition.Text;
+            if (ResourceUiChatInput.txtPosition.Text.Length > 0)
+                PSettings.ResourceChangePositionPanel = ResourceUiChatInput.txtPosition.Text;
         }
 
         private void txtResChangeSizePanel_TextChanged(object sender, EventArgs e)
         {
-            if (ResourceChatInput.txtSize.Text.Length > 0)
-                PSettings.ResourceChangeSizePanel = ResourceChatInput.txtSize.Text;
+            if (ResourceUiChatInput.txtSize.Text.Length > 0)
+                PSettings.ResourceChangeSizePanel = ResourceUiChatInput.txtSize.Text;
         }
 
         private void txtResHotkey1_KeyDown(object sender, KeyEventArgs e)
         {
-            ResourceHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
+            ResourceUiHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
             PSettings.ResourceHotkey1 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtResHotkey2_KeyDown(object sender, KeyEventArgs e)
         {
-            ResourceHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
+            ResourceUiHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
             PSettings.ResourceHotkey2 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtResHotkey3_KeyDown(object sender, KeyEventArgs e)
         {
-            ResourceHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
+            ResourceUiHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
             PSettings.ResourceHotkey3 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
@@ -162,39 +162,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void txtIncTogglePanel_TextChanged(object sender, EventArgs e)
         {
-            if (IncomeChatInput.txtToggle.Text.Length > 0)
-                PSettings.IncomeTogglePanel = IncomeChatInput.txtToggle.Text;
+            if (IncomeUiChatInput.txtToggle.Text.Length > 0)
+                PSettings.IncomeTogglePanel = IncomeUiChatInput.txtToggle.Text;
         }
 
         private void txtIncPositionPanel_TextChanged(object sender, EventArgs e)
         {
-            if (IncomeChatInput.txtPosition.Text.Length > 0)
-                PSettings.IncomeChangePositionPanel = IncomeChatInput.txtPosition.Text;
+            if (IncomeUiChatInput.txtPosition.Text.Length > 0)
+                PSettings.IncomeChangePositionPanel = IncomeUiChatInput.txtPosition.Text;
         }
 
         private void txtIncChangeSizePanel_TextChanged(object sender, EventArgs e)
         {
-            if (IncomeChatInput.txtSize.Text.Length > 0)
-                PSettings.IncomeChangeSizePanel = IncomeChatInput.txtSize.Text;
+            if (IncomeUiChatInput.txtSize.Text.Length > 0)
+                PSettings.IncomeChangeSizePanel = IncomeUiChatInput.txtSize.Text;
         }
 
         private void txtIncHotkey1_KeyDown(object sender, KeyEventArgs e)
         {
-            IncomeHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
+            IncomeUiHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
             PSettings.IncomeHotkey1 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtIncHotkey2_KeyDown(object sender, KeyEventArgs e)
         {
-            IncomeHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
+            IncomeUiHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
             PSettings.IncomeHotkey2 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtIncHotkey3_KeyDown(object sender, KeyEventArgs e)
         {
-            IncomeHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
+            IncomeUiHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
             PSettings.IncomeHotkey3 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
@@ -261,39 +261,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void txtWorTogglePanel_TextChanged(object sender, EventArgs e)
         {
-            if (WorkerChatInput.txtToggle.Text.Length > 0)
-                PSettings.WorkerTogglePanel = WorkerChatInput.txtToggle.Text;
+            if (WorkerUiChatInput.txtToggle.Text.Length > 0)
+                PSettings.WorkerTogglePanel = WorkerUiChatInput.txtToggle.Text;
         }
 
         private void txtWorPositionPanel_TextChanged(object sender, EventArgs e)
         {
-            if (WorkerChatInput.txtPosition.Text.Length > 0)
-                PSettings.WorkerChangePositionPanel = WorkerChatInput.txtPosition.Text;
+            if (WorkerUiChatInput.txtPosition.Text.Length > 0)
+                PSettings.WorkerChangePositionPanel = WorkerUiChatInput.txtPosition.Text;
         }
 
         private void txtWorChangeSizePanel_TextChanged(object sender, EventArgs e)
         {
-            if (WorkerChatInput.txtSize.Text.Length > 0)
-                PSettings.WorkerChangeSizePanel = WorkerChatInput.txtSize.Text;
+            if (WorkerUiChatInput.txtSize.Text.Length > 0)
+                PSettings.WorkerChangeSizePanel = WorkerUiChatInput.txtSize.Text;
         }
 
         private void txtWorHotkey1_KeyDown(object sender, KeyEventArgs e)
         {
-            WorkerHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
+            WorkerUiHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
             PSettings.WorkerHotkey1 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtWorHotkey2_KeyDown(object sender, KeyEventArgs e)
         {
-            WorkerHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
+            WorkerUiHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
             PSettings.WorkerHotkey2 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtWorHotkey3_KeyDown(object sender, KeyEventArgs e)
         {
-            WorkerHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
+            WorkerUiHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
             PSettings.WorkerHotkey3 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
@@ -352,39 +352,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void txtApmTogglePanel_TextChanged(object sender, EventArgs e)
         {
-            if (ApmChatInput.txtToggle.Text.Length > 0)
-                PSettings.ApmTogglePanel = ApmChatInput.txtToggle.Text;
+            if (ApmUiChatInput.txtToggle.Text.Length > 0)
+                PSettings.ApmTogglePanel = ApmUiChatInput.txtToggle.Text;
         }
 
         private void txtApmPositionPanel_TextChanged(object sender, EventArgs e)
         {
-            if (ApmChatInput.txtPosition.Text.Length > 0)
-                PSettings.ApmChangePositionPanel = ApmChatInput.txtPosition.Text;
+            if (ApmUiChatInput.txtPosition.Text.Length > 0)
+                PSettings.ApmChangePositionPanel = ApmUiChatInput.txtPosition.Text;
         }
 
         private void txtApmChangeSizePanel_TextChanged(object sender, EventArgs e)
         {
-            if (ApmChatInput.txtSize.Text.Length > 0)
-                PSettings.ApmChangeSizePanel = ApmChatInput.txtSize.Text;
+            if (ApmUiChatInput.txtSize.Text.Length > 0)
+                PSettings.ApmChangeSizePanel = ApmUiChatInput.txtSize.Text;
         }
 
         private void txtApmHotkey1_KeyDown(object sender, KeyEventArgs e)
         {
-            ApmHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
+            ApmUiHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
             PSettings.ApmHotkey1 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtApmHotkey2_KeyDown(object sender, KeyEventArgs e)
         {
-            ApmHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
+            ApmUiHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
             PSettings.ApmHotkey2 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtApmHotkey3_KeyDown(object sender, KeyEventArgs e)
         {
-            ApmHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
+            ApmUiHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
             PSettings.ApmHotkey3 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
@@ -480,39 +480,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void txtArmTogglePanel_TextChanged(object sender, EventArgs e)
         {
-            if (ArmyChatInput.txtToggle.Text.Length > 0)
-                PSettings.ArmyTogglePanel = ArmyChatInput.txtToggle.Text;
+            if (ArmyUiChatInput.txtToggle.Text.Length > 0)
+                PSettings.ArmyTogglePanel = ArmyUiChatInput.txtToggle.Text;
         }
 
         private void txtArmPositionPanel_TextChanged(object sender, EventArgs e)
         {
-            if (ApmChatInput.txtPosition.Text.Length > 0)
-                PSettings.ArmyChangePositionPanel = ApmChatInput.txtPosition.Text;
+            if (ApmUiChatInput.txtPosition.Text.Length > 0)
+                PSettings.ArmyChangePositionPanel = ApmUiChatInput.txtPosition.Text;
         }
 
         private void txtArmChangeSizePanel_TextChanged(object sender, EventArgs e)
         {
-            if (ArmyChatInput.txtSize.Text.Length > 0)
-                PSettings.ArmyChangeSizePanel = ArmyChatInput.txtSize.Text;
+            if (ArmyUiChatInput.txtSize.Text.Length > 0)
+                PSettings.ArmyChangeSizePanel = ArmyUiChatInput.txtSize.Text;
         }
 
         private void txtArmHotkey1_KeyDown(object sender, KeyEventArgs e)
         {
-            ArmyHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
+            ArmyUiHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
             PSettings.ArmyHotkey1 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtArmHotkey2_KeyDown(object sender, KeyEventArgs e)
         {
-            ArmyHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
+            ArmyUiHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
             PSettings.ArmyHotkey2 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtArmHotkey3_KeyDown(object sender, KeyEventArgs e)
         {
-            ArmyHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
+            ArmyUiHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
             PSettings.ArmyHotkey3 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
@@ -578,39 +578,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void txtUnitTogglePanel_TextChanged(object sender, EventArgs e)
         {
-            if (UnittabChatInput.txtToggle.Text.Length > 0)
-                PSettings.UnitTogglePanel = UnittabChatInput.txtToggle.Text;
+            if (UnittabUiChatInput.txtToggle.Text.Length > 0)
+                PSettings.UnitTogglePanel = UnittabUiChatInput.txtToggle.Text;
         }
 
         private void txtUnitPositionPanel_TextChanged(object sender, EventArgs e)
         {
-            if (UnittabChatInput.txtPosition.Text.Length > 0)
-                PSettings.UnitChangePositionPanel = UnittabChatInput.txtPosition.Text;
+            if (UnittabUiChatInput.txtPosition.Text.Length > 0)
+                PSettings.UnitChangePositionPanel = UnittabUiChatInput.txtPosition.Text;
         }
 
         private void txtUnitChangeSizePanel_TextChanged(object sender, EventArgs e)
         {
-            if (UnittabChatInput.txtSize.Text.Length > 0)
-                PSettings.UnitChangeSizePanel = UnittabChatInput.txtSize.Text;
+            if (UnittabUiChatInput.txtSize.Text.Length > 0)
+                PSettings.UnitChangeSizePanel = UnittabUiChatInput.txtSize.Text;
         }
 
         private void txtUnitHotkey1_KeyDown(object sender, KeyEventArgs e)
         {
-            UnittabHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
+            UnittabUiHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
             PSettings.UnitHotkey1 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtUnitHotkey2_KeyDown(object sender, KeyEventArgs e)
         {
-            UnittabHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
+            UnittabUiHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
             PSettings.UnitHotkey2 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtUnitHotkey3_KeyDown(object sender, KeyEventArgs e)
         {
-            UnittabHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
+            UnittabUiHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
             PSettings.UnitHotkey3 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
@@ -719,39 +719,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void txtProdTogglePanel_TextChanged(object sender, EventArgs e)
         {
-            if (ProductionTabChatInput.txtToggle.Text.Length > 0)
-                PSettings.ProdTogglePanel = ProductionTabChatInput.txtToggle.Text;
+            if (ProductionTabUiChatInput.txtToggle.Text.Length > 0)
+                PSettings.ProdTogglePanel = ProductionTabUiChatInput.txtToggle.Text;
         }
 
         private void txtProdPositionPanel_TextChanged(object sender, EventArgs e)
         {
-            if (ProductionTabChatInput.txtPosition.Text.Length > 0)
-                PSettings.ProdChangePositionPanel = ProductionTabChatInput.txtPosition.Text;
+            if (ProductionTabUiChatInput.txtPosition.Text.Length > 0)
+                PSettings.ProdChangePositionPanel = ProductionTabUiChatInput.txtPosition.Text;
         }
 
         private void txtProdChangeSizePanel_TextChanged(object sender, EventArgs e)
         {
-            if (ProductionTabChatInput.txtSize.Text.Length > 0)
-                PSettings.ProdChangeSizePanel = ProductionTabChatInput.txtSize.Text;
+            if (ProductionTabUiChatInput.txtSize.Text.Length > 0)
+                PSettings.ProdChangeSizePanel = ProductionTabUiChatInput.txtSize.Text;
         }
 
         private void txtProdHotkey1_KeyDown(object sender, KeyEventArgs e)
         {
-            ProductionTabHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
+            ProductionTabUiHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
             PSettings.ProdHotkey1 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtProdHotkey2_KeyDown(object sender, KeyEventArgs e)
         {
-            ProductionTabHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
+            ProductionTabUiHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
             PSettings.ProdHotkey2 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtProdHotkey3_KeyDown(object sender, KeyEventArgs e)
         {
-            ProductionTabHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
+            ProductionTabUiHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
             PSettings.ProdHotkey3 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
@@ -1064,39 +1064,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void txtMaphackTogglePanel_TextChanged(object sender, EventArgs e)
         {
-            if (MaphackChatInput.txtToggle.Text.Length > 0)
-                PSettings.MaphackTogglePanel = MaphackChatInput.txtToggle.Text;
+            if (MaphackUiChatInput.txtToggle.Text.Length > 0)
+                PSettings.MaphackTogglePanel = MaphackUiChatInput.txtToggle.Text;
         }
 
         private void txtMaphackPositionPanel_TextChanged(object sender, EventArgs e)
         {
-            if (MaphackChatInput.txtPosition.Text.Length > 0)
-                PSettings.MaphackChangePositionPanel = MaphackChatInput.txtPosition.Text;
+            if (MaphackUiChatInput.txtPosition.Text.Length > 0)
+                PSettings.MaphackChangePositionPanel = MaphackUiChatInput.txtPosition.Text;
         }
 
         private void txtMaphackChangeSizePanel_TextChanged(object sender, EventArgs e)
         {
-            if (MaphackChatInput.txtSize.Text.Length > 0)
-                PSettings.MaphackChangeSizePanel = MaphackChatInput.txtSize.Text;
+            if (MaphackUiChatInput.txtSize.Text.Length > 0)
+                PSettings.MaphackChangeSizePanel = MaphackUiChatInput.txtSize.Text;
         }
 
         private void txtMaphackHotkey1_KeyDown(object sender, KeyEventArgs e)
         {
-            MaphackHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
+            MaphackUiHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
             PSettings.MaphackHotkey1 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtMaphackHotkey2_KeyDown(object sender, KeyEventArgs e)
         {
-            MaphackHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
+            MaphackUiHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
             PSettings.MaphackHotkey2 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
         private void txtMaphackHotkey3_KeyDown(object sender, KeyEventArgs e)
         {
-            MaphackHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
+            MaphackUiHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
             PSettings.MaphackHotkey3 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
@@ -1768,79 +1768,79 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void AssignMethodsToEvents()
         {
-            #region Hotkeys - Keydown
+            #region UiHotkeys - Keydown
 
-            ResourceHotkeys.txtHotkey1.KeyDown += txtResHotkey1_KeyDown;
-            ResourceHotkeys.txtHotkey2.KeyDown += txtResHotkey2_KeyDown;
-            ResourceHotkeys.txtHotkey3.KeyDown += txtResHotkey3_KeyDown;
+            ResourceUiHotkeys.txtHotkey1.KeyDown += txtResHotkey1_KeyDown;
+            ResourceUiHotkeys.txtHotkey2.KeyDown += txtResHotkey2_KeyDown;
+            ResourceUiHotkeys.txtHotkey3.KeyDown += txtResHotkey3_KeyDown;
 
-            IncomeHotkeys.txtHotkey1.KeyDown += txtIncHotkey1_KeyDown;
-            IncomeHotkeys.txtHotkey2.KeyDown += txtIncHotkey2_KeyDown;
-            IncomeHotkeys.txtHotkey3.KeyDown += txtIncHotkey3_KeyDown;
+            IncomeUiHotkeys.txtHotkey1.KeyDown += txtIncHotkey1_KeyDown;
+            IncomeUiHotkeys.txtHotkey2.KeyDown += txtIncHotkey2_KeyDown;
+            IncomeUiHotkeys.txtHotkey3.KeyDown += txtIncHotkey3_KeyDown;
 
-            WorkerHotkeys.txtHotkey1.KeyDown += txtWorHotkey1_KeyDown;
-            WorkerHotkeys.txtHotkey2.KeyDown += txtWorHotkey2_KeyDown;
-            WorkerHotkeys.txtHotkey3.KeyDown += txtWorHotkey3_KeyDown;
+            WorkerUiHotkeys.txtHotkey1.KeyDown += txtWorHotkey1_KeyDown;
+            WorkerUiHotkeys.txtHotkey2.KeyDown += txtWorHotkey2_KeyDown;
+            WorkerUiHotkeys.txtHotkey3.KeyDown += txtWorHotkey3_KeyDown;
 
-            ApmHotkeys.txtHotkey1.KeyDown += txtApmHotkey1_KeyDown;
-            ApmHotkeys.txtHotkey2.KeyDown += txtApmHotkey2_KeyDown;
-            ApmHotkeys.txtHotkey3.KeyDown += txtApmHotkey3_KeyDown;
+            ApmUiHotkeys.txtHotkey1.KeyDown += txtApmHotkey1_KeyDown;
+            ApmUiHotkeys.txtHotkey2.KeyDown += txtApmHotkey2_KeyDown;
+            ApmUiHotkeys.txtHotkey3.KeyDown += txtApmHotkey3_KeyDown;
 
-            ArmyHotkeys.txtHotkey1.KeyDown += txtArmHotkey1_KeyDown;
-            ArmyHotkeys.txtHotkey2.KeyDown += txtArmHotkey2_KeyDown;
-            ArmyHotkeys.txtHotkey3.KeyDown += txtArmHotkey3_KeyDown;
+            ArmyUiHotkeys.txtHotkey1.KeyDown += txtArmHotkey1_KeyDown;
+            ArmyUiHotkeys.txtHotkey2.KeyDown += txtArmHotkey2_KeyDown;
+            ArmyUiHotkeys.txtHotkey3.KeyDown += txtArmHotkey3_KeyDown;
 
-            MaphackHotkeys.txtHotkey1.KeyDown += txtMaphackHotkey1_KeyDown;
-            MaphackHotkeys.txtHotkey2.KeyDown += txtMaphackHotkey2_KeyDown;
-            MaphackHotkeys.txtHotkey3.KeyDown += txtMaphackHotkey3_KeyDown;
+            MaphackUiHotkeys.txtHotkey1.KeyDown += txtMaphackHotkey1_KeyDown;
+            MaphackUiHotkeys.txtHotkey2.KeyDown += txtMaphackHotkey2_KeyDown;
+            MaphackUiHotkeys.txtHotkey3.KeyDown += txtMaphackHotkey3_KeyDown;
 
-            UnittabHotkeys.txtHotkey1.KeyDown += txtUnitHotkey1_KeyDown;
-            UnittabHotkeys.txtHotkey2.KeyDown += txtUnitHotkey2_KeyDown;
-            UnittabHotkeys.txtHotkey3.KeyDown += txtUnitHotkey3_KeyDown;
+            UnittabUiHotkeys.txtHotkey1.KeyDown += txtUnitHotkey1_KeyDown;
+            UnittabUiHotkeys.txtHotkey2.KeyDown += txtUnitHotkey2_KeyDown;
+            UnittabUiHotkeys.txtHotkey3.KeyDown += txtUnitHotkey3_KeyDown;
 
-            ProductionTabHotkeys.txtHotkey1.KeyDown += txtProdHotkey1_KeyDown;
-            ProductionTabHotkeys.txtHotkey2.KeyDown += txtProdHotkey2_KeyDown;
-            ProductionTabHotkeys.txtHotkey3.KeyDown += txtProdHotkey3_KeyDown;
+            ProductionTabUiHotkeys.txtHotkey1.KeyDown += txtProdHotkey1_KeyDown;
+            ProductionTabUiHotkeys.txtHotkey2.KeyDown += txtProdHotkey2_KeyDown;
+            ProductionTabUiHotkeys.txtHotkey3.KeyDown += txtProdHotkey3_KeyDown;
 
-            workerProductionHotkeys.txtHotkey1.KeyDown += txtHotkey1_KeyDown;
-            workerProductionHotkeys.txtHotkey2.KeyDown += txtHotkey2_KeyDown;
-            workerProductionHotkeys.txtHotkey3.KeyDown += txtHotkey3_KeyDown;
+            WorkerProductionUiHotkeys.txtHotkey1.KeyDown += txtHotkey1_KeyDown;
+            WorkerProductionUiHotkeys.txtHotkey2.KeyDown += txtHotkey2_KeyDown;
+            WorkerProductionUiHotkeys.txtHotkey3.KeyDown += txtHotkey3_KeyDown;
 
             #endregion
 
             #region Chatinput
 
-            ResourceChatInput.txtToggle.TextChanged += txtResTogglePanel_TextChanged;
-            ResourceChatInput.txtPosition.TextChanged += txtResPositionPanel_TextChanged;
-            ResourceChatInput.txtSize.TextChanged += txtResChangeSizePanel_TextChanged;
+            ResourceUiChatInput.txtToggle.TextChanged += txtResTogglePanel_TextChanged;
+            ResourceUiChatInput.txtPosition.TextChanged += txtResPositionPanel_TextChanged;
+            ResourceUiChatInput.txtSize.TextChanged += txtResChangeSizePanel_TextChanged;
 
-            IncomeChatInput.txtToggle.TextChanged += txtIncTogglePanel_TextChanged;
-            IncomeChatInput.txtPosition.TextChanged += txtIncPositionPanel_TextChanged;
-            IncomeChatInput.txtSize.TextChanged += txtIncChangeSizePanel_TextChanged;
+            IncomeUiChatInput.txtToggle.TextChanged += txtIncTogglePanel_TextChanged;
+            IncomeUiChatInput.txtPosition.TextChanged += txtIncPositionPanel_TextChanged;
+            IncomeUiChatInput.txtSize.TextChanged += txtIncChangeSizePanel_TextChanged;
 
-            WorkerChatInput.txtToggle.TextChanged += txtWorTogglePanel_TextChanged;
-            WorkerChatInput.txtPosition.TextChanged += txtWorPositionPanel_TextChanged;
-            WorkerChatInput.txtSize.TextChanged += txtWorChangeSizePanel_TextChanged;
+            WorkerUiChatInput.txtToggle.TextChanged += txtWorTogglePanel_TextChanged;
+            WorkerUiChatInput.txtPosition.TextChanged += txtWorPositionPanel_TextChanged;
+            WorkerUiChatInput.txtSize.TextChanged += txtWorChangeSizePanel_TextChanged;
 
-            ApmChatInput.txtToggle.TextChanged += txtApmTogglePanel_TextChanged;
-            ApmChatInput.txtPosition.TextChanged += txtApmPositionPanel_TextChanged;
-            ApmChatInput.txtSize.TextChanged += txtApmChangeSizePanel_TextChanged;
+            ApmUiChatInput.txtToggle.TextChanged += txtApmTogglePanel_TextChanged;
+            ApmUiChatInput.txtPosition.TextChanged += txtApmPositionPanel_TextChanged;
+            ApmUiChatInput.txtSize.TextChanged += txtApmChangeSizePanel_TextChanged;
 
-            ArmyChatInput.txtToggle.TextChanged += txtArmTogglePanel_TextChanged;
-            ArmyChatInput.txtPosition.TextChanged += txtArmPositionPanel_TextChanged;
-            ArmyChatInput.txtSize.TextChanged += txtArmChangeSizePanel_TextChanged;
+            ArmyUiChatInput.txtToggle.TextChanged += txtArmTogglePanel_TextChanged;
+            ArmyUiChatInput.txtPosition.TextChanged += txtArmPositionPanel_TextChanged;
+            ArmyUiChatInput.txtSize.TextChanged += txtArmChangeSizePanel_TextChanged;
 
-            MaphackChatInput.txtToggle.TextChanged += txtMaphackTogglePanel_TextChanged;
-            MaphackChatInput.txtPosition.TextChanged += txtMaphackPositionPanel_TextChanged;
-            MaphackChatInput.txtSize.TextChanged += txtMaphackChangeSizePanel_TextChanged;
+            MaphackUiChatInput.txtToggle.TextChanged += txtMaphackTogglePanel_TextChanged;
+            MaphackUiChatInput.txtPosition.TextChanged += txtMaphackPositionPanel_TextChanged;
+            MaphackUiChatInput.txtSize.TextChanged += txtMaphackChangeSizePanel_TextChanged;
 
-            UnittabChatInput.txtToggle.TextChanged += txtUnitTogglePanel_TextChanged;
-            UnittabChatInput.txtPosition.TextChanged += txtUnitPositionPanel_TextChanged;
-            UnittabChatInput.txtSize.TextChanged += txtUnitChangeSizePanel_TextChanged;
+            UnittabUiChatInput.txtToggle.TextChanged += txtUnitTogglePanel_TextChanged;
+            UnittabUiChatInput.txtPosition.TextChanged += txtUnitPositionPanel_TextChanged;
+            UnittabUiChatInput.txtSize.TextChanged += txtUnitChangeSizePanel_TextChanged;
 
-            ProductionTabChatInput.txtToggle.TextChanged += txtProdTogglePanel_TextChanged;
-            ProductionTabChatInput.txtPosition.TextChanged += txtProdPositionPanel_TextChanged;
-            ProductionTabChatInput.txtSize.TextChanged += txtProdChangeSizePanel_TextChanged;
+            ProductionTabUiChatInput.txtToggle.TextChanged += txtProdTogglePanel_TextChanged;
+            ProductionTabUiChatInput.txtPosition.TextChanged += txtProdPositionPanel_TextChanged;
+            ProductionTabUiChatInput.txtSize.TextChanged += txtProdChangeSizePanel_TextChanged;
 
             #endregion
 
@@ -2011,7 +2011,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             CustGlobal.ChangeLanguageFile(strFile);
             Custom_Various.ChangeLanguageFile(strFile);
             workerProductionBasics.ChangeLanguageFile(strFile);
-            workerProductionHotkeys.ChangeLanguageFile(strFile);
+            WorkerProductionUiHotkeys.ChangeLanguageFile(strFile);
             CustBugs.ChangeLanguageFile(strFile);
 
             /* UiBasics */
@@ -2025,35 +2025,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             WorkerUiWorkerBasics.ChangeLanguageFile(strFile);
 
             /* Chatinput */
-            ResourceChatInput.ChangeLanguageFile(strFile);
-            IncomeChatInput.ChangeLanguageFile(strFile);
-            WorkerChatInput.ChangeLanguageFile(strFile);
-            UnittabChatInput.ChangeLanguageFile(strFile);
-            MaphackChatInput.ChangeLanguageFile(strFile);
-            ProductionTabChatInput.ChangeLanguageFile(strFile);
-            ApmChatInput.ChangeLanguageFile(strFile);
-            ArmyChatInput.ChangeLanguageFile(strFile);
+            ResourceUiChatInput.ChangeLanguageFile(strFile);
+            IncomeUiChatInput.ChangeLanguageFile(strFile);
+            WorkerUiChatInput.ChangeLanguageFile(strFile);
+            UnittabUiChatInput.ChangeLanguageFile(strFile);
+            MaphackUiChatInput.ChangeLanguageFile(strFile);
+            ProductionTabUiChatInput.ChangeLanguageFile(strFile);
+            ApmUiChatInput.ChangeLanguageFile(strFile);
+            ArmyUiChatInput.ChangeLanguageFile(strFile);
 
-            /* Hotkeys */
-            ResourceHotkeys.ChangeLanguageFile(strFile);
-            IncomeHotkeys.ChangeLanguageFile(strFile);
-            WorkerHotkeys.ChangeLanguageFile(strFile);
-            ArmyHotkeys.ChangeLanguageFile(strFile);
-            ApmHotkeys.ChangeLanguageFile(strFile);
-            MaphackHotkeys.ChangeLanguageFile(strFile);
-            UnittabHotkeys.ChangeLanguageFile(strFile);
-            ProductionTabHotkeys.ChangeLanguageFile(strFile);
-            workerProductionHotkeys.ChangeLanguageFile(strFile);
+            /* UiHotkeys */
+            ResourceUiHotkeys.ChangeLanguageFile(strFile);
+            IncomeUiHotkeys.ChangeLanguageFile(strFile);
+            WorkerUiHotkeys.ChangeLanguageFile(strFile);
+            ArmyUiHotkeys.ChangeLanguageFile(strFile);
+            ApmUiHotkeys.ChangeLanguageFile(strFile);
+            MaphackUiHotkeys.ChangeLanguageFile(strFile);
+            UnittabUiHotkeys.ChangeLanguageFile(strFile);
+            ProductionTabUiHotkeys.ChangeLanguageFile(strFile);
+            WorkerProductionUiHotkeys.ChangeLanguageFile(strFile);
 
-            /* Information */
-            ResourceInformation.ChangeLanguageFile(strFile);
-            IncomeInformation.ChangeLanguageFile(strFile);
-            WorkerInformation.ChangeLanguageFile(strFile);
-            ArmyInformation.ChangeLanguageFile(strFile);
-            ApmInformation.ChangeLanguageFile(strFile);
-            MaphackInformation.ChangeLanguageFile(strFile);
-            UnittabInformation.ChangeLanguageFile(strFile);
-            ProductionTabInformation.ChangeLanguageFile(strFile);
+            /* UiInformation */
+            ResourceUiInformation.ChangeLanguageFile(strFile);
+            IncomeUiInformation.ChangeLanguageFile(strFile);
+            WorkerUiInformation.ChangeLanguageFile(strFile);
+            ArmyUiInformation.ChangeLanguageFile(strFile);
+            ApmUiInformation.ChangeLanguageFile(strFile);
+            MaphackUiInformation.ChangeLanguageFile(strFile);
+            UnittabUiInformation.ChangeLanguageFile(strFile);
+            ProductionTabUiInformation.ChangeLanguageFile(strFile);
 
             /* Stuff in the main form */
             gbProdtabShow.LanguageFile = strFile;

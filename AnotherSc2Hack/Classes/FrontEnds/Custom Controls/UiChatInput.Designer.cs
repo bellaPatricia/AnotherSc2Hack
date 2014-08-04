@@ -1,6 +1,6 @@
 ﻿namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    partial class ChatInput
+    partial class UiChatInput
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatInput));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UiChatInput));
             this.gbChatInput = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.txtSize = new System.Windows.Forms.TextBox();
             this.txtPosition = new System.Windows.Forms.TextBox();
@@ -85,12 +85,12 @@
             this.lblEnablePanel.LanguageFile = "";
             this.lblEnablePanel.Name = "lblEnablePanel";
             // 
-            // ChatInput
+            // UiChatInput
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbChatInput);
-            this.Name = "ChatInput";
+            this.Name = "UiChatInput";
             this.gbChatInput.ResumeLayout(false);
             this.gbChatInput.PerformLayout();
             this.ResumeLayout(false);

@@ -938,10 +938,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             HMainHandler.PSettings.MaphackOpacity = Opacity;
 
             /* Transfer to Mainform */
-            HMainHandler.MaphackInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.MaphackInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.MaphackInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.MaphackInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.MaphackUiInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.MaphackUiInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.MaphackUiInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.MaphackUiInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -1024,8 +1024,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 StrBackupSizeChatbox = string.Empty;
 
                 /* Transfer to Mainform */
-                HMainHandler.MaphackInformation.txtWidth.Text = HMainHandler.PSettings.MaphackWidth.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.MaphackInformation.txtHeight.Text = HMainHandler.PSettings.MaphackHeight.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.MaphackUiInformation.txtWidth.Text = HMainHandler.PSettings.MaphackWidth.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.MaphackUiInformation.txtHeight.Text = HMainHandler.PSettings.MaphackHeight.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -1081,8 +1081,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
 
                 /* Transfer to Mainform */
-                HMainHandler.MaphackInformation.txtPosX.Text = HMainHandler.PSettings.MaphackPositionX.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.MaphackInformation.txtPosY.Text = HMainHandler.PSettings.MaphackPositionY.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.MaphackUiInformation.txtPosX.Text = HMainHandler.PSettings.MaphackPositionX.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.MaphackUiInformation.txtPosY.Text = HMainHandler.PSettings.MaphackPositionY.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -1105,6 +1105,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             HMainHandler.PSettings.MaphackWidth = Width;
             HMainHandler.PSettings.MaphackPositionX = Location.X;
             HMainHandler.PSettings.MaphackPositionY = Location.Y;
+        }
+
+        protected override void RefreshPanelPosition(Point location)
+        {
+            HMainHandler.MaphackUiInformation.SetPosition(location);
+        }
+
+        protected override void RefreshPanelSize(Size size)
+        {
+            HMainHandler.MaphackUiInformation.SetSize(size);
         }
     }
 }

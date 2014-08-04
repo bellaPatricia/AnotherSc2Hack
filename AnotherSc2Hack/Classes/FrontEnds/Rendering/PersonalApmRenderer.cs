@@ -118,5 +118,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 Height -= 1;
             }
         }
+
+        protected override void RefreshPanelPosition(Point location)
+        {
+            /* Nothing */
+        }
+
+        protected override void RefreshPanelSize(Size size)
+        {
+            /* Nothing */
+        }
     }
 }

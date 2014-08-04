@@ -270,10 +270,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             HMainHandler.PSettings.ArmyOpacity = Opacity;
 
             /* Transfer to Mainform */
-            HMainHandler.ArmyInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ArmyInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ArmyInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ArmyInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyUiInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyUiInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyUiInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.ArmyUiInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -356,8 +356,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 StrBackupSizeChatbox = string.Empty;
 
                 /* Transfer to Mainform */
-                HMainHandler.ArmyInformation.txtWidth.Text = HMainHandler.PSettings.ArmyWidth.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ArmyInformation.txtHeight.Text = HMainHandler.PSettings.ArmyHeight.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyUiInformation.txtWidth.Text = HMainHandler.PSettings.ArmyWidth.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyUiInformation.txtHeight.Text = HMainHandler.PSettings.ArmyHeight.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -413,8 +413,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
 
                 /* Transfer to Mainform */
-                HMainHandler.ArmyInformation.txtPosX.Text = HMainHandler.PSettings.ArmyPositionX.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ArmyInformation.txtPosY.Text = HMainHandler.PSettings.ArmyPositionY.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyUiInformation.txtPosX.Text = HMainHandler.PSettings.ArmyPositionX.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.ArmyUiInformation.txtPosY.Text = HMainHandler.PSettings.ArmyPositionY.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -442,6 +442,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             HMainHandler.PSettings.ArmyWidth = Width;
             HMainHandler.PSettings.ArmyPositionX = Location.X;
             HMainHandler.PSettings.ArmyPositionY = Location.Y;
+        }
+
+        protected override void RefreshPanelPosition(Point location)
+        {
+            HMainHandler.ArmyUiInformation.SetPosition(location);
+        }
+
+        protected override void RefreshPanelSize(Size size)
+        {
+            HMainHandler.ArmyUiInformation.SetSize(size);
         }
     }
 }

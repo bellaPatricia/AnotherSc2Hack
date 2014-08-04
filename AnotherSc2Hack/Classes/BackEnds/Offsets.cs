@@ -475,7 +475,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             RaceStruct = (int)starcraft.MainModule.BaseAddress + 0x02F6C850;
             RaceSize = 0x10;
 
-            //ChatInput
+            //UiChatInput
             ChatBase = (int)starcraft.MainModule.BaseAddress + 0x0031073C0;
             ChatOff0 = 0x3B0;
             ChatOff1 = 0x208;
@@ -815,7 +815,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             RaceStruct = (int)starcraft.MainModule.BaseAddress + 0x02F73CB0;        //V
             RaceSize = 0x10;
 
-            //ChatInput
+            //UiChatInput
             ChatBase = (int)starcraft.MainModule.BaseAddress + 0x0310E870;          //V
             ChatOff0 = 0x398;
             ChatOff1 = 0x208;
@@ -1159,7 +1159,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             RaceStruct = (int)starcraft.MainModule.BaseAddress + 0x02f75980;        //ok
             RaceSize = 0x10;
 
-            //ChatInput
+            //UiChatInput
             ChatBase = (int)starcraft.MainModule.BaseAddress + 0x003114D30;          //ok
             ChatOff0 = 0x398;
             ChatOff1 = 0x208;

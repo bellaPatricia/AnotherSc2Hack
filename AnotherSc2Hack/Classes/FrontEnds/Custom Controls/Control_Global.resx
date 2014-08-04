@@ -661,7 +661,7 @@
     <value>114, 69</value>
   </data>
   <data name="gbGlobalPublicInformation.Text" xml:space="preserve">
-    <value>Public Information</value>
+    <value>Public UiInformation</value>
   </data>
   <data name="&gt;&gt;gbGlobalPlugins.Name" xml:space="preserve">
     <value>gbGlobalPlugins</value>

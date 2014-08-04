@@ -43,24 +43,24 @@
             this.CustGlobal = new AnotherSc2Hack.Classes.FrontEnds.ControlGlobal();
             this.tcResources = new System.Windows.Forms.TabPage();
             this.ResourceUiBasics = new AnotherSc2Hack.Classes.FrontEnds.UiBasics();
-            this.ResourceChatInput = new AnotherSc2Hack.Classes.FrontEnds.ChatInput();
-            this.ResourceHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
-            this.ResourceInformation = new AnotherSc2Hack.Classes.FrontEnds.Information();
+            this.ResourceUiChatInput = new AnotherSc2Hack.Classes.FrontEnds.UiChatInput();
+            this.ResourceUiHotkeys = new AnotherSc2Hack.Classes.FrontEnds.UiHotkeys();
+            this.ResourceUiInformation = new AnotherSc2Hack.Classes.FrontEnds.UiInformation();
             this.tcIncome = new System.Windows.Forms.TabPage();
             this.IncomeUiBasics = new AnotherSc2Hack.Classes.FrontEnds.UiBasics();
-            this.IncomeChatInput = new AnotherSc2Hack.Classes.FrontEnds.ChatInput();
-            this.IncomeHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
-            this.IncomeInformation = new AnotherSc2Hack.Classes.FrontEnds.Information();
+            this.IncomeUiChatInput = new AnotherSc2Hack.Classes.FrontEnds.UiChatInput();
+            this.IncomeUiHotkeys = new AnotherSc2Hack.Classes.FrontEnds.UiHotkeys();
+            this.IncomeUiInformation = new AnotherSc2Hack.Classes.FrontEnds.UiInformation();
             this.tcWorker = new System.Windows.Forms.TabPage();
             this.WorkerUiWorkerBasics = new AnotherSc2Hack.Classes.FrontEnds.UiWorkerBasics();
-            this.WorkerChatInput = new AnotherSc2Hack.Classes.FrontEnds.ChatInput();
-            this.WorkerHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
-            this.WorkerInformation = new AnotherSc2Hack.Classes.FrontEnds.Information();
+            this.WorkerUiChatInput = new AnotherSc2Hack.Classes.FrontEnds.UiChatInput();
+            this.WorkerUiHotkeys = new AnotherSc2Hack.Classes.FrontEnds.UiHotkeys();
+            this.WorkerUiInformation = new AnotherSc2Hack.Classes.FrontEnds.UiInformation();
             this.tcMaphack = new System.Windows.Forms.TabPage();
             this.MaphackUiMaphackBasics = new AnotherSc2Hack.Classes.FrontEnds.UiMaphackBasics();
-            this.MaphackChatInput = new AnotherSc2Hack.Classes.FrontEnds.ChatInput();
-            this.MaphackHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
-            this.MaphackInformation = new AnotherSc2Hack.Classes.FrontEnds.Information();
+            this.MaphackUiChatInput = new AnotherSc2Hack.Classes.FrontEnds.UiChatInput();
+            this.MaphackUiHotkeys = new AnotherSc2Hack.Classes.FrontEnds.UiHotkeys();
+            this.MaphackUiInformation = new AnotherSc2Hack.Classes.FrontEnds.UiInformation();
             this.gbMaphackColorUnits = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.btnMaphackDefineaMarking = new System.Windows.Forms.Button();
             this.btnMapUnitColor = new System.Windows.Forms.Button();
@@ -73,22 +73,22 @@
             this.deleteAUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcApm = new System.Windows.Forms.TabPage();
             this.ApmUiBasics = new AnotherSc2Hack.Classes.FrontEnds.UiBasics();
-            this.ApmChatInput = new AnotherSc2Hack.Classes.FrontEnds.ChatInput();
-            this.ApmHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
-            this.ApmInformation = new AnotherSc2Hack.Classes.FrontEnds.Information();
+            this.ApmUiChatInput = new AnotherSc2Hack.Classes.FrontEnds.UiChatInput();
+            this.ApmUiHotkeys = new AnotherSc2Hack.Classes.FrontEnds.UiHotkeys();
+            this.ApmUiInformation = new AnotherSc2Hack.Classes.FrontEnds.UiInformation();
             this.tcArmy = new System.Windows.Forms.TabPage();
             this.ArmyUiBasics = new AnotherSc2Hack.Classes.FrontEnds.UiBasics();
-            this.ArmyChatInput = new AnotherSc2Hack.Classes.FrontEnds.ChatInput();
-            this.ArmyHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
-            this.ArmyInformation = new AnotherSc2Hack.Classes.FrontEnds.Information();
+            this.ArmyUiChatInput = new AnotherSc2Hack.Classes.FrontEnds.UiChatInput();
+            this.ArmyUiHotkeys = new AnotherSc2Hack.Classes.FrontEnds.UiHotkeys();
+            this.ArmyUiInformation = new AnotherSc2Hack.Classes.FrontEnds.UiInformation();
             this.tcUnitTab = new System.Windows.Forms.TabPage();
             this.gbUnittabShow = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.chBxUnitTabShowBuildings = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.chBxUnitTabShowUnits = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.UnittabUiUnitTabBasic = new AnotherSc2Hack.Classes.FrontEnds.UiUnitTabBasic();
-            this.UnittabChatInput = new AnotherSc2Hack.Classes.FrontEnds.ChatInput();
-            this.UnittabHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
-            this.UnittabInformation = new AnotherSc2Hack.Classes.FrontEnds.Information();
+            this.UnittabUiChatInput = new AnotherSc2Hack.Classes.FrontEnds.UiChatInput();
+            this.UnittabUiHotkeys = new AnotherSc2Hack.Classes.FrontEnds.UiHotkeys();
+            this.UnittabUiInformation = new AnotherSc2Hack.Classes.FrontEnds.UiInformation();
             this.gbUnitPicture = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.lblUnitPicturePreview = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.pcBxUnitPreview = new AnotherSc2Hack.Classes.FrontEnds.CustomPictureBox();
@@ -104,13 +104,13 @@
             this.pcBxProductionTabPreview = new AnotherSc2Hack.Classes.FrontEnds.CustomPictureBox();
             this.txtProductionTabPictureSize = new System.Windows.Forms.TextBox();
             this.lblProdPictureSize = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ProductionTabInformation = new AnotherSc2Hack.Classes.FrontEnds.Information();
-            this.ProductionTabHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
-            this.ProductionTabChatInput = new AnotherSc2Hack.Classes.FrontEnds.ChatInput();
+            this.ProductionTabUiInformation = new AnotherSc2Hack.Classes.FrontEnds.UiInformation();
+            this.ProductionTabUiHotkeys = new AnotherSc2Hack.Classes.FrontEnds.UiHotkeys();
+            this.ProductionTabUiChatInput = new AnotherSc2Hack.Classes.FrontEnds.UiChatInput();
             this.ProductionTabUiProductionTabBasics = new AnotherSc2Hack.Classes.FrontEnds.UiProductionTabBasics();
             this.tcWorkerAutomation = new System.Windows.Forms.TabPage();
             this.workerProductionBasics = new AnotherSc2Hack.Classes.FrontEnds.AutomationWorker();
-            this.workerProductionHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
+            this.WorkerProductionUiHotkeys = new AnotherSc2Hack.Classes.FrontEnds.UiHotkeys();
             this.tcVarious = new System.Windows.Forms.TabPage();
             this.Custom_Various = new AnotherSc2Hack.Classes.FrontEnds.CustomVarious();
             this.tcBugs = new System.Windows.Forms.TabPage();
@@ -254,9 +254,9 @@
             resources.ApplyResources(this.tcResources, "tcResources");
             this.tcResources.BackColor = System.Drawing.SystemColors.Control;
             this.tcResources.Controls.Add(this.ResourceUiBasics);
-            this.tcResources.Controls.Add(this.ResourceChatInput);
-            this.tcResources.Controls.Add(this.ResourceHotkeys);
-            this.tcResources.Controls.Add(this.ResourceInformation);
+            this.tcResources.Controls.Add(this.ResourceUiChatInput);
+            this.tcResources.Controls.Add(this.ResourceUiHotkeys);
+            this.tcResources.Controls.Add(this.ResourceUiInformation);
             this.tcResources.Name = "tcResources";
             this.ttInformation.SetToolTip(this.tcResources, resources.GetString("tcResources.ToolTip"));
             // 
@@ -266,32 +266,32 @@
             this.ResourceUiBasics.Name = "ResourceUiBasics";
             this.ttInformation.SetToolTip(this.ResourceUiBasics, resources.GetString("ResourceUiBasics.ToolTip"));
             // 
-            // ResourceChatInput
+            // ResourceUiChatInput
             // 
-            resources.ApplyResources(this.ResourceChatInput, "ResourceChatInput");
-            this.ResourceChatInput.Name = "ResourceChatInput";
-            this.ttInformation.SetToolTip(this.ResourceChatInput, resources.GetString("ResourceChatInput.ToolTip"));
+            resources.ApplyResources(this.ResourceUiChatInput, "ResourceUiChatInput");
+            this.ResourceUiChatInput.Name = "ResourceUiChatInput";
+            this.ttInformation.SetToolTip(this.ResourceUiChatInput, resources.GetString("ResourceUiChatInput.ToolTip"));
             // 
-            // ResourceHotkeys
+            // ResourceUiHotkeys
             // 
-            resources.ApplyResources(this.ResourceHotkeys, "ResourceHotkeys");
-            this.ResourceHotkeys.Name = "ResourceHotkeys";
-            this.ttInformation.SetToolTip(this.ResourceHotkeys, resources.GetString("ResourceHotkeys.ToolTip"));
+            resources.ApplyResources(this.ResourceUiHotkeys, "ResourceUiHotkeys");
+            this.ResourceUiHotkeys.Name = "ResourceUiHotkeys";
+            this.ttInformation.SetToolTip(this.ResourceUiHotkeys, resources.GetString("ResourceUiHotkeys.ToolTip"));
             // 
-            // ResourceInformation
+            // ResourceUiInformation
             // 
-            resources.ApplyResources(this.ResourceInformation, "ResourceInformation");
-            this.ResourceInformation.Name = "ResourceInformation";
-            this.ttInformation.SetToolTip(this.ResourceInformation, resources.GetString("ResourceInformation.ToolTip"));
+            resources.ApplyResources(this.ResourceUiInformation, "ResourceUiInformation");
+            this.ResourceUiInformation.Name = "ResourceUiInformation";
+            this.ttInformation.SetToolTip(this.ResourceUiInformation, resources.GetString("ResourceUiInformation.ToolTip"));
             // 
             // tcIncome
             // 
             resources.ApplyResources(this.tcIncome, "tcIncome");
             this.tcIncome.BackColor = System.Drawing.SystemColors.Control;
             this.tcIncome.Controls.Add(this.IncomeUiBasics);
-            this.tcIncome.Controls.Add(this.IncomeChatInput);
-            this.tcIncome.Controls.Add(this.IncomeHotkeys);
-            this.tcIncome.Controls.Add(this.IncomeInformation);
+            this.tcIncome.Controls.Add(this.IncomeUiChatInput);
+            this.tcIncome.Controls.Add(this.IncomeUiHotkeys);
+            this.tcIncome.Controls.Add(this.IncomeUiInformation);
             this.tcIncome.Name = "tcIncome";
             this.ttInformation.SetToolTip(this.tcIncome, resources.GetString("tcIncome.ToolTip"));
             // 
@@ -301,32 +301,32 @@
             this.IncomeUiBasics.Name = "IncomeUiBasics";
             this.ttInformation.SetToolTip(this.IncomeUiBasics, resources.GetString("IncomeUiBasics.ToolTip"));
             // 
-            // IncomeChatInput
+            // IncomeUiChatInput
             // 
-            resources.ApplyResources(this.IncomeChatInput, "IncomeChatInput");
-            this.IncomeChatInput.Name = "IncomeChatInput";
-            this.ttInformation.SetToolTip(this.IncomeChatInput, resources.GetString("IncomeChatInput.ToolTip"));
+            resources.ApplyResources(this.IncomeUiChatInput, "IncomeUiChatInput");
+            this.IncomeUiChatInput.Name = "IncomeUiChatInput";
+            this.ttInformation.SetToolTip(this.IncomeUiChatInput, resources.GetString("IncomeUiChatInput.ToolTip"));
             // 
-            // IncomeHotkeys
+            // IncomeUiHotkeys
             // 
-            resources.ApplyResources(this.IncomeHotkeys, "IncomeHotkeys");
-            this.IncomeHotkeys.Name = "IncomeHotkeys";
-            this.ttInformation.SetToolTip(this.IncomeHotkeys, resources.GetString("IncomeHotkeys.ToolTip"));
+            resources.ApplyResources(this.IncomeUiHotkeys, "IncomeUiHotkeys");
+            this.IncomeUiHotkeys.Name = "IncomeUiHotkeys";
+            this.ttInformation.SetToolTip(this.IncomeUiHotkeys, resources.GetString("IncomeUiHotkeys.ToolTip"));
             // 
-            // IncomeInformation
+            // IncomeUiInformation
             // 
-            resources.ApplyResources(this.IncomeInformation, "IncomeInformation");
-            this.IncomeInformation.Name = "IncomeInformation";
-            this.ttInformation.SetToolTip(this.IncomeInformation, resources.GetString("IncomeInformation.ToolTip"));
+            resources.ApplyResources(this.IncomeUiInformation, "IncomeUiInformation");
+            this.IncomeUiInformation.Name = "IncomeUiInformation";
+            this.ttInformation.SetToolTip(this.IncomeUiInformation, resources.GetString("IncomeUiInformation.ToolTip"));
             // 
             // tcWorker
             // 
             resources.ApplyResources(this.tcWorker, "tcWorker");
             this.tcWorker.BackColor = System.Drawing.SystemColors.Control;
             this.tcWorker.Controls.Add(this.WorkerUiWorkerBasics);
-            this.tcWorker.Controls.Add(this.WorkerChatInput);
-            this.tcWorker.Controls.Add(this.WorkerHotkeys);
-            this.tcWorker.Controls.Add(this.WorkerInformation);
+            this.tcWorker.Controls.Add(this.WorkerUiChatInput);
+            this.tcWorker.Controls.Add(this.WorkerUiHotkeys);
+            this.tcWorker.Controls.Add(this.WorkerUiInformation);
             this.tcWorker.Name = "tcWorker";
             this.ttInformation.SetToolTip(this.tcWorker, resources.GetString("tcWorker.ToolTip"));
             // 
@@ -336,32 +336,32 @@
             this.WorkerUiWorkerBasics.Name = "WorkerUiWorkerBasics";
             this.ttInformation.SetToolTip(this.WorkerUiWorkerBasics, resources.GetString("WorkerUiWorkerBasics.ToolTip"));
             // 
-            // WorkerChatInput
+            // WorkerUiChatInput
             // 
-            resources.ApplyResources(this.WorkerChatInput, "WorkerChatInput");
-            this.WorkerChatInput.Name = "WorkerChatInput";
-            this.ttInformation.SetToolTip(this.WorkerChatInput, resources.GetString("WorkerChatInput.ToolTip"));
+            resources.ApplyResources(this.WorkerUiChatInput, "WorkerUiChatInput");
+            this.WorkerUiChatInput.Name = "WorkerUiChatInput";
+            this.ttInformation.SetToolTip(this.WorkerUiChatInput, resources.GetString("WorkerUiChatInput.ToolTip"));
             // 
-            // WorkerHotkeys
+            // WorkerUiHotkeys
             // 
-            resources.ApplyResources(this.WorkerHotkeys, "WorkerHotkeys");
-            this.WorkerHotkeys.Name = "WorkerHotkeys";
-            this.ttInformation.SetToolTip(this.WorkerHotkeys, resources.GetString("WorkerHotkeys.ToolTip"));
+            resources.ApplyResources(this.WorkerUiHotkeys, "WorkerUiHotkeys");
+            this.WorkerUiHotkeys.Name = "WorkerUiHotkeys";
+            this.ttInformation.SetToolTip(this.WorkerUiHotkeys, resources.GetString("WorkerUiHotkeys.ToolTip"));
             // 
-            // WorkerInformation
+            // WorkerUiInformation
             // 
-            resources.ApplyResources(this.WorkerInformation, "WorkerInformation");
-            this.WorkerInformation.Name = "WorkerInformation";
-            this.ttInformation.SetToolTip(this.WorkerInformation, resources.GetString("WorkerInformation.ToolTip"));
+            resources.ApplyResources(this.WorkerUiInformation, "WorkerUiInformation");
+            this.WorkerUiInformation.Name = "WorkerUiInformation";
+            this.ttInformation.SetToolTip(this.WorkerUiInformation, resources.GetString("WorkerUiInformation.ToolTip"));
             // 
             // tcMaphack
             // 
             resources.ApplyResources(this.tcMaphack, "tcMaphack");
             this.tcMaphack.BackColor = System.Drawing.SystemColors.Control;
             this.tcMaphack.Controls.Add(this.MaphackUiMaphackBasics);
-            this.tcMaphack.Controls.Add(this.MaphackChatInput);
-            this.tcMaphack.Controls.Add(this.MaphackHotkeys);
-            this.tcMaphack.Controls.Add(this.MaphackInformation);
+            this.tcMaphack.Controls.Add(this.MaphackUiChatInput);
+            this.tcMaphack.Controls.Add(this.MaphackUiHotkeys);
+            this.tcMaphack.Controls.Add(this.MaphackUiInformation);
             this.tcMaphack.Controls.Add(this.gbMaphackColorUnits);
             this.tcMaphack.Name = "tcMaphack";
             this.ttInformation.SetToolTip(this.tcMaphack, resources.GetString("tcMaphack.ToolTip"));
@@ -372,23 +372,23 @@
             this.MaphackUiMaphackBasics.Name = "MaphackUiMaphackBasics";
             this.ttInformation.SetToolTip(this.MaphackUiMaphackBasics, resources.GetString("MaphackUiMaphackBasics.ToolTip"));
             // 
-            // MaphackChatInput
+            // MaphackUiChatInput
             // 
-            resources.ApplyResources(this.MaphackChatInput, "MaphackChatInput");
-            this.MaphackChatInput.Name = "MaphackChatInput";
-            this.ttInformation.SetToolTip(this.MaphackChatInput, resources.GetString("MaphackChatInput.ToolTip"));
+            resources.ApplyResources(this.MaphackUiChatInput, "MaphackUiChatInput");
+            this.MaphackUiChatInput.Name = "MaphackUiChatInput";
+            this.ttInformation.SetToolTip(this.MaphackUiChatInput, resources.GetString("MaphackUiChatInput.ToolTip"));
             // 
-            // MaphackHotkeys
+            // MaphackUiHotkeys
             // 
-            resources.ApplyResources(this.MaphackHotkeys, "MaphackHotkeys");
-            this.MaphackHotkeys.Name = "MaphackHotkeys";
-            this.ttInformation.SetToolTip(this.MaphackHotkeys, resources.GetString("MaphackHotkeys.ToolTip"));
+            resources.ApplyResources(this.MaphackUiHotkeys, "MaphackUiHotkeys");
+            this.MaphackUiHotkeys.Name = "MaphackUiHotkeys";
+            this.ttInformation.SetToolTip(this.MaphackUiHotkeys, resources.GetString("MaphackUiHotkeys.ToolTip"));
             // 
-            // MaphackInformation
+            // MaphackUiInformation
             // 
-            resources.ApplyResources(this.MaphackInformation, "MaphackInformation");
-            this.MaphackInformation.Name = "MaphackInformation";
-            this.ttInformation.SetToolTip(this.MaphackInformation, resources.GetString("MaphackInformation.ToolTip"));
+            resources.ApplyResources(this.MaphackUiInformation, "MaphackUiInformation");
+            this.MaphackUiInformation.Name = "MaphackUiInformation";
+            this.ttInformation.SetToolTip(this.MaphackUiInformation, resources.GetString("MaphackUiInformation.ToolTip"));
             // 
             // gbMaphackColorUnits
             // 
@@ -586,9 +586,9 @@
             resources.ApplyResources(this.tcApm, "tcApm");
             this.tcApm.BackColor = System.Drawing.SystemColors.Control;
             this.tcApm.Controls.Add(this.ApmUiBasics);
-            this.tcApm.Controls.Add(this.ApmChatInput);
-            this.tcApm.Controls.Add(this.ApmHotkeys);
-            this.tcApm.Controls.Add(this.ApmInformation);
+            this.tcApm.Controls.Add(this.ApmUiChatInput);
+            this.tcApm.Controls.Add(this.ApmUiHotkeys);
+            this.tcApm.Controls.Add(this.ApmUiInformation);
             this.tcApm.Name = "tcApm";
             this.ttInformation.SetToolTip(this.tcApm, resources.GetString("tcApm.ToolTip"));
             // 
@@ -598,32 +598,32 @@
             this.ApmUiBasics.Name = "ApmUiBasics";
             this.ttInformation.SetToolTip(this.ApmUiBasics, resources.GetString("ApmUiBasics.ToolTip"));
             // 
-            // ApmChatInput
+            // ApmUiChatInput
             // 
-            resources.ApplyResources(this.ApmChatInput, "ApmChatInput");
-            this.ApmChatInput.Name = "ApmChatInput";
-            this.ttInformation.SetToolTip(this.ApmChatInput, resources.GetString("ApmChatInput.ToolTip"));
+            resources.ApplyResources(this.ApmUiChatInput, "ApmUiChatInput");
+            this.ApmUiChatInput.Name = "ApmUiChatInput";
+            this.ttInformation.SetToolTip(this.ApmUiChatInput, resources.GetString("ApmUiChatInput.ToolTip"));
             // 
-            // ApmHotkeys
+            // ApmUiHotkeys
             // 
-            resources.ApplyResources(this.ApmHotkeys, "ApmHotkeys");
-            this.ApmHotkeys.Name = "ApmHotkeys";
-            this.ttInformation.SetToolTip(this.ApmHotkeys, resources.GetString("ApmHotkeys.ToolTip"));
+            resources.ApplyResources(this.ApmUiHotkeys, "ApmUiHotkeys");
+            this.ApmUiHotkeys.Name = "ApmUiHotkeys";
+            this.ttInformation.SetToolTip(this.ApmUiHotkeys, resources.GetString("ApmUiHotkeys.ToolTip"));
             // 
-            // ApmInformation
+            // ApmUiInformation
             // 
-            resources.ApplyResources(this.ApmInformation, "ApmInformation");
-            this.ApmInformation.Name = "ApmInformation";
-            this.ttInformation.SetToolTip(this.ApmInformation, resources.GetString("ApmInformation.ToolTip"));
+            resources.ApplyResources(this.ApmUiInformation, "ApmUiInformation");
+            this.ApmUiInformation.Name = "ApmUiInformation";
+            this.ttInformation.SetToolTip(this.ApmUiInformation, resources.GetString("ApmUiInformation.ToolTip"));
             // 
             // tcArmy
             // 
             resources.ApplyResources(this.tcArmy, "tcArmy");
             this.tcArmy.BackColor = System.Drawing.SystemColors.Control;
             this.tcArmy.Controls.Add(this.ArmyUiBasics);
-            this.tcArmy.Controls.Add(this.ArmyChatInput);
-            this.tcArmy.Controls.Add(this.ArmyHotkeys);
-            this.tcArmy.Controls.Add(this.ArmyInformation);
+            this.tcArmy.Controls.Add(this.ArmyUiChatInput);
+            this.tcArmy.Controls.Add(this.ArmyUiHotkeys);
+            this.tcArmy.Controls.Add(this.ArmyUiInformation);
             this.tcArmy.Name = "tcArmy";
             this.ttInformation.SetToolTip(this.tcArmy, resources.GetString("tcArmy.ToolTip"));
             // 
@@ -633,23 +633,23 @@
             this.ArmyUiBasics.Name = "ArmyUiBasics";
             this.ttInformation.SetToolTip(this.ArmyUiBasics, resources.GetString("ArmyUiBasics.ToolTip"));
             // 
-            // ArmyChatInput
+            // ArmyUiChatInput
             // 
-            resources.ApplyResources(this.ArmyChatInput, "ArmyChatInput");
-            this.ArmyChatInput.Name = "ArmyChatInput";
-            this.ttInformation.SetToolTip(this.ArmyChatInput, resources.GetString("ArmyChatInput.ToolTip"));
+            resources.ApplyResources(this.ArmyUiChatInput, "ArmyUiChatInput");
+            this.ArmyUiChatInput.Name = "ArmyUiChatInput";
+            this.ttInformation.SetToolTip(this.ArmyUiChatInput, resources.GetString("ArmyUiChatInput.ToolTip"));
             // 
-            // ArmyHotkeys
+            // ArmyUiHotkeys
             // 
-            resources.ApplyResources(this.ArmyHotkeys, "ArmyHotkeys");
-            this.ArmyHotkeys.Name = "ArmyHotkeys";
-            this.ttInformation.SetToolTip(this.ArmyHotkeys, resources.GetString("ArmyHotkeys.ToolTip"));
+            resources.ApplyResources(this.ArmyUiHotkeys, "ArmyUiHotkeys");
+            this.ArmyUiHotkeys.Name = "ArmyUiHotkeys";
+            this.ttInformation.SetToolTip(this.ArmyUiHotkeys, resources.GetString("ArmyUiHotkeys.ToolTip"));
             // 
-            // ArmyInformation
+            // ArmyUiInformation
             // 
-            resources.ApplyResources(this.ArmyInformation, "ArmyInformation");
-            this.ArmyInformation.Name = "ArmyInformation";
-            this.ttInformation.SetToolTip(this.ArmyInformation, resources.GetString("ArmyInformation.ToolTip"));
+            resources.ApplyResources(this.ArmyUiInformation, "ArmyUiInformation");
+            this.ArmyUiInformation.Name = "ArmyUiInformation";
+            this.ttInformation.SetToolTip(this.ArmyUiInformation, resources.GetString("ArmyUiInformation.ToolTip"));
             // 
             // tcUnitTab
             // 
@@ -657,9 +657,9 @@
             this.tcUnitTab.BackColor = System.Drawing.SystemColors.Control;
             this.tcUnitTab.Controls.Add(this.gbUnittabShow);
             this.tcUnitTab.Controls.Add(this.UnittabUiUnitTabBasic);
-            this.tcUnitTab.Controls.Add(this.UnittabChatInput);
-            this.tcUnitTab.Controls.Add(this.UnittabHotkeys);
-            this.tcUnitTab.Controls.Add(this.UnittabInformation);
+            this.tcUnitTab.Controls.Add(this.UnittabUiChatInput);
+            this.tcUnitTab.Controls.Add(this.UnittabUiHotkeys);
+            this.tcUnitTab.Controls.Add(this.UnittabUiInformation);
             this.tcUnitTab.Controls.Add(this.gbUnitPicture);
             this.tcUnitTab.Name = "tcUnitTab";
             this.ttInformation.SetToolTip(this.tcUnitTab, resources.GetString("tcUnitTab.ToolTip"));
@@ -698,23 +698,23 @@
             this.UnittabUiUnitTabBasic.Name = "UnittabUiUnitTabBasic";
             this.ttInformation.SetToolTip(this.UnittabUiUnitTabBasic, resources.GetString("UnittabUiUnitTabBasic.ToolTip"));
             // 
-            // UnittabChatInput
+            // UnittabUiChatInput
             // 
-            resources.ApplyResources(this.UnittabChatInput, "UnittabChatInput");
-            this.UnittabChatInput.Name = "UnittabChatInput";
-            this.ttInformation.SetToolTip(this.UnittabChatInput, resources.GetString("UnittabChatInput.ToolTip"));
+            resources.ApplyResources(this.UnittabUiChatInput, "UnittabUiChatInput");
+            this.UnittabUiChatInput.Name = "UnittabUiChatInput";
+            this.ttInformation.SetToolTip(this.UnittabUiChatInput, resources.GetString("UnittabUiChatInput.ToolTip"));
             // 
-            // UnittabHotkeys
+            // UnittabUiHotkeys
             // 
-            resources.ApplyResources(this.UnittabHotkeys, "UnittabHotkeys");
-            this.UnittabHotkeys.Name = "UnittabHotkeys";
-            this.ttInformation.SetToolTip(this.UnittabHotkeys, resources.GetString("UnittabHotkeys.ToolTip"));
+            resources.ApplyResources(this.UnittabUiHotkeys, "UnittabUiHotkeys");
+            this.UnittabUiHotkeys.Name = "UnittabUiHotkeys";
+            this.ttInformation.SetToolTip(this.UnittabUiHotkeys, resources.GetString("UnittabUiHotkeys.ToolTip"));
             // 
-            // UnittabInformation
+            // UnittabUiInformation
             // 
-            resources.ApplyResources(this.UnittabInformation, "UnittabInformation");
-            this.UnittabInformation.Name = "UnittabInformation";
-            this.ttInformation.SetToolTip(this.UnittabInformation, resources.GetString("UnittabInformation.ToolTip"));
+            resources.ApplyResources(this.UnittabUiInformation, "UnittabUiInformation");
+            this.UnittabUiInformation.Name = "UnittabUiInformation";
+            this.ttInformation.SetToolTip(this.UnittabUiInformation, resources.GetString("UnittabUiInformation.ToolTip"));
             // 
             // gbUnitPicture
             // 
@@ -766,9 +766,9 @@
             this.tcProduction.BackColor = System.Drawing.SystemColors.Control;
             this.tcProduction.Controls.Add(this.gbProdtabShow);
             this.tcProduction.Controls.Add(this.gbProdPicture);
-            this.tcProduction.Controls.Add(this.ProductionTabInformation);
-            this.tcProduction.Controls.Add(this.ProductionTabHotkeys);
-            this.tcProduction.Controls.Add(this.ProductionTabChatInput);
+            this.tcProduction.Controls.Add(this.ProductionTabUiInformation);
+            this.tcProduction.Controls.Add(this.ProductionTabUiHotkeys);
+            this.tcProduction.Controls.Add(this.ProductionTabUiChatInput);
             this.tcProduction.Controls.Add(this.ProductionTabUiProductionTabBasics);
             this.tcProduction.Name = "tcProduction";
             this.ttInformation.SetToolTip(this.tcProduction, resources.GetString("tcProduction.ToolTip"));
@@ -855,23 +855,23 @@
             this.lblProdPictureSize.Name = "lblProdPictureSize";
             this.ttInformation.SetToolTip(this.lblProdPictureSize, resources.GetString("lblProdPictureSize.ToolTip"));
             // 
-            // ProductionTabInformation
+            // ProductionTabUiInformation
             // 
-            resources.ApplyResources(this.ProductionTabInformation, "ProductionTabInformation");
-            this.ProductionTabInformation.Name = "ProductionTabInformation";
-            this.ttInformation.SetToolTip(this.ProductionTabInformation, resources.GetString("ProductionTabInformation.ToolTip"));
+            resources.ApplyResources(this.ProductionTabUiInformation, "ProductionTabUiInformation");
+            this.ProductionTabUiInformation.Name = "ProductionTabUiInformation";
+            this.ttInformation.SetToolTip(this.ProductionTabUiInformation, resources.GetString("ProductionTabUiInformation.ToolTip"));
             // 
-            // ProductionTabHotkeys
+            // ProductionTabUiHotkeys
             // 
-            resources.ApplyResources(this.ProductionTabHotkeys, "ProductionTabHotkeys");
-            this.ProductionTabHotkeys.Name = "ProductionTabHotkeys";
-            this.ttInformation.SetToolTip(this.ProductionTabHotkeys, resources.GetString("ProductionTabHotkeys.ToolTip"));
+            resources.ApplyResources(this.ProductionTabUiHotkeys, "ProductionTabUiHotkeys");
+            this.ProductionTabUiHotkeys.Name = "ProductionTabUiHotkeys";
+            this.ttInformation.SetToolTip(this.ProductionTabUiHotkeys, resources.GetString("ProductionTabUiHotkeys.ToolTip"));
             // 
-            // ProductionTabChatInput
+            // ProductionTabUiChatInput
             // 
-            resources.ApplyResources(this.ProductionTabChatInput, "ProductionTabChatInput");
-            this.ProductionTabChatInput.Name = "ProductionTabChatInput";
-            this.ttInformation.SetToolTip(this.ProductionTabChatInput, resources.GetString("ProductionTabChatInput.ToolTip"));
+            resources.ApplyResources(this.ProductionTabUiChatInput, "ProductionTabUiChatInput");
+            this.ProductionTabUiChatInput.Name = "ProductionTabUiChatInput";
+            this.ttInformation.SetToolTip(this.ProductionTabUiChatInput, resources.GetString("ProductionTabUiChatInput.ToolTip"));
             // 
             // ProductionTabUiProductionTabBasics
             // 
@@ -884,7 +884,7 @@
             resources.ApplyResources(this.tcWorkerAutomation, "tcWorkerAutomation");
             this.tcWorkerAutomation.BackColor = System.Drawing.SystemColors.Control;
             this.tcWorkerAutomation.Controls.Add(this.workerProductionBasics);
-            this.tcWorkerAutomation.Controls.Add(this.workerProductionHotkeys);
+            this.tcWorkerAutomation.Controls.Add(this.WorkerProductionUiHotkeys);
             this.tcWorkerAutomation.Name = "tcWorkerAutomation";
             this.ttInformation.SetToolTip(this.tcWorkerAutomation, resources.GetString("tcWorkerAutomation.ToolTip"));
             // 
@@ -894,11 +894,11 @@
             this.workerProductionBasics.Name = "workerProductionBasics";
             this.ttInformation.SetToolTip(this.workerProductionBasics, resources.GetString("workerProductionBasics.ToolTip"));
             // 
-            // workerProductionHotkeys
+            // WorkerProductionUiHotkeys
             // 
-            resources.ApplyResources(this.workerProductionHotkeys, "workerProductionHotkeys");
-            this.workerProductionHotkeys.Name = "workerProductionHotkeys";
-            this.ttInformation.SetToolTip(this.workerProductionHotkeys, resources.GetString("workerProductionHotkeys.ToolTip"));
+            resources.ApplyResources(this.WorkerProductionUiHotkeys, "WorkerProductionUiHotkeys");
+            this.WorkerProductionUiHotkeys.Name = "WorkerProductionUiHotkeys";
+            this.ttInformation.SetToolTip(this.WorkerProductionUiHotkeys, resources.GetString("WorkerProductionUiHotkeys.ToolTip"));
             // 
             // tcVarious
             // 
@@ -1095,27 +1095,27 @@
         public System.Windows.Forms.TextBox txtUnitPictureSize;
         public System.Windows.Forms.TabPage tcBenchmark;
         public Benchmark GlobalBenchmark;
-        public Information UnittabInformation;
-        public Information ResourceInformation;
-        public Information IncomeInformation;
-        public Information WorkerInformation;
-        public Information MaphackInformation;
-        public Information ApmInformation;
-        public Information ArmyInformation;
-        public Hotkeys ResourceHotkeys;
-        public Hotkeys IncomeHotkeys;
-        public Hotkeys WorkerHotkeys;
-        public Hotkeys MaphackHotkeys;
-        public Hotkeys ApmHotkeys;
-        public Hotkeys ArmyHotkeys;
-        public Hotkeys UnittabHotkeys;
-        public ChatInput UnittabChatInput;
-        public ChatInput ResourceChatInput;
-        public ChatInput IncomeChatInput;
-        public ChatInput WorkerChatInput;
-        public ChatInput MaphackChatInput;
-        public ChatInput ApmChatInput;
-        public ChatInput ArmyChatInput;
+        public UiInformation UnittabUiInformation;
+        public UiInformation ResourceUiInformation;
+        public UiInformation IncomeUiInformation;
+        public UiInformation WorkerUiInformation;
+        public UiInformation MaphackUiInformation;
+        public UiInformation ApmUiInformation;
+        public UiInformation ArmyUiInformation;
+        public UiHotkeys ResourceUiHotkeys;
+        public UiHotkeys IncomeUiHotkeys;
+        public UiHotkeys WorkerUiHotkeys;
+        public UiHotkeys MaphackUiHotkeys;
+        public UiHotkeys ApmUiHotkeys;
+        public UiHotkeys ArmyUiHotkeys;
+        public UiHotkeys UnittabUiHotkeys;
+        public UiChatInput UnittabUiChatInput;
+        public UiChatInput ResourceUiChatInput;
+        public UiChatInput IncomeUiChatInput;
+        public UiChatInput WorkerUiChatInput;
+        public UiChatInput MaphackUiChatInput;
+        public UiChatInput ApmUiChatInput;
+        public UiChatInput ArmyUiChatInput;
         public UiBasics ResourceUiBasics;
         public UiBasics IncomeUiBasics;
         public UiBasics ApmUiBasics;
@@ -1131,9 +1131,9 @@
         private CustomPictureBox pcBxProductionTabPreview;
         public System.Windows.Forms.TextBox txtProductionTabPictureSize;
         private LanguageLabel lblProdPictureSize;
-        public Information ProductionTabInformation;
-        public Hotkeys ProductionTabHotkeys;
-        public ChatInput ProductionTabChatInput;
+        public UiInformation ProductionTabUiInformation;
+        public UiHotkeys ProductionTabUiHotkeys;
+        public UiChatInput ProductionTabUiChatInput;
         public UiProductionTabBasics ProductionTabUiProductionTabBasics;
         public System.Windows.Forms.Button btnLostUnits;
         private System.Windows.Forms.TabPage tcVarious;
@@ -1144,7 +1144,7 @@
         private System.Windows.Forms.ToolStripMenuItem addAUnitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteAUnitToolStripMenuItem;
         private AutomationWorker workerProductionBasics;
-        public Hotkeys workerProductionHotkeys;
+        public UiHotkeys WorkerProductionUiHotkeys;
         private System.Windows.Forms.TabPage tcWorkerAutomation;
         private LanguageGroupbox gbUnittabShow;
         private LanguageCheckbox chBxUnitTabShowBuildings;

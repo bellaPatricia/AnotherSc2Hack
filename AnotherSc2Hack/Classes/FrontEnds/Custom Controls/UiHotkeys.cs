@@ -2,9 +2,9 @@
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    public partial class Hotkeys : AbstractUserControl
+    public partial class UiHotkeys : AbstractUserControl
     {
-        public Hotkeys()
+        public UiHotkeys()
         {
             InitializeComponent();
         }

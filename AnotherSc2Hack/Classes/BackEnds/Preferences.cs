@@ -883,7 +883,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     #region Keys
 
-                    /* Hotkeys 1 */
+                    /* UiHotkeys 1 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey1))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey1.Length,
@@ -896,7 +896,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         ResourceHotkey1 = kHotkey1;
                     }
 
-                    /* Hotkeys 2 */
+                    /* UiHotkeys 2 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey2))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey2.Length,
@@ -909,7 +909,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         ResourceHotkey2 = kHotkey2;
                     }
 
-                    /* Hotkeys 3 */
+                    /* UiHotkeys 3 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey3))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey3.Length,
@@ -1149,7 +1149,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     #region Keys
 
-                    /* Hotkeys 1 */
+                    /* UiHotkeys 1 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey1))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey1.Length,
@@ -1162,7 +1162,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         IncomeHotkey1 = kHotkey1;
                     }
 
-                    /* Hotkeys 2 */
+                    /* UiHotkeys 2 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey2))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey2.Length,
@@ -1175,7 +1175,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         IncomeHotkey2 = kHotkey2;
                     }
 
-                    /* Hotkeys 3 */
+                    /* UiHotkeys 3 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey3))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey3.Length,
@@ -1416,7 +1416,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     #region Keys
 
-                    /* Hotkeys 1 */
+                    /* UiHotkeys 1 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey1))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey1.Length,
@@ -1429,7 +1429,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         ApmHotkey1 = kHotkey1;
                     }
 
-                    /* Hotkeys 2 */
+                    /* UiHotkeys 2 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey2))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey2.Length,
@@ -1442,7 +1442,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         ApmHotkey2 = kHotkey2;
                     }
 
-                    /* Hotkeys 3 */
+                    /* UiHotkeys 3 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey3))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey3.Length,
@@ -1684,7 +1684,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     #region Keys
 
-                    /* Hotkeys 1 */
+                    /* UiHotkeys 1 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey1))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey1.Length,
@@ -1697,7 +1697,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         ArmyHotkey1 = kHotkey1;
                     }
 
-                    /* Hotkeys 2 */
+                    /* UiHotkeys 2 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey2))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey2.Length,
@@ -1710,7 +1710,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         ArmyHotkey2 = kHotkey2;
                     }
 
-                    /* Hotkeys 3 */
+                    /* UiHotkeys 3 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey3))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey3.Length,
@@ -1883,7 +1883,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     #region Keys
 
-                    /* Hotkeys 1 */
+                    /* UiHotkeys 1 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey1))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey1.Length,
@@ -1896,7 +1896,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         WorkerHotkey1 = kHotkey1;
                     }
 
-                    /* Hotkeys 2 */
+                    /* UiHotkeys 2 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey2))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey2.Length,
@@ -1909,7 +1909,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         WorkerHotkey2 = kHotkey2;
                     }
 
-                    /* Hotkeys 3 */
+                    /* UiHotkeys 3 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey3))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey3.Length,
@@ -2226,7 +2226,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     #region Keys
 
-                    /* Hotkeys 1 */
+                    /* UiHotkeys 1 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey1))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey1.Length,
@@ -2239,7 +2239,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         UnitHotkey1 = kHotkey1;
                     }
 
-                    /* Hotkeys 2 */
+                    /* UiHotkeys 2 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey2))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey2.Length,
@@ -2252,7 +2252,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         UnitHotkey2 = kHotkey2;
                     }
 
-                    /* Hotkeys 3 */
+                    /* UiHotkeys 3 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey3))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey3.Length,
@@ -2566,7 +2566,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     #region Keys
 
-                    /* Hotkeys 1 */
+                    /* UiHotkeys 1 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey1))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey1.Length,
@@ -2580,7 +2580,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         bProdTabHotkey1Set = true;
                     }
 
-                    /* Hotkeys 2 */
+                    /* UiHotkeys 2 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey2))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey2.Length,
@@ -2594,7 +2594,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         bProdTabHotkey2Set = true;
                     }
 
-                    /* Hotkeys 3 */
+                    /* UiHotkeys 3 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey3))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey3.Length,
@@ -3099,7 +3099,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     #region Keys
 
-                    /* Hotkeys 1 */
+                    /* UiHotkeys 1 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey1))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey1.Length,
@@ -3112,7 +3112,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         MaphackHotkey1 = kHotkey1;
                     }
 
-                    /* Hotkeys 2 */
+                    /* UiHotkeys 2 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey2))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey2.Length,
@@ -3125,7 +3125,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         MaphackHotkey2 = kHotkey2;
                     }
 
-                    /* Hotkeys 3 */
+                    /* UiHotkeys 3 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey3))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey3.Length,
@@ -3378,7 +3378,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     #region Keys
 
-                    /* Hotkeys 1 */
+                    /* UiHotkeys 1 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey1))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey1.Length,
@@ -3393,7 +3393,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         bWorkerAutomationHotKey1 = true;
                     }
 
-                    /* Hotkeys 2 */
+                    /* UiHotkeys 2 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey2))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey2.Length,
@@ -3408,7 +3408,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         bWorkerAutomationHotKey2 = true;
                     }
 
-                    /* Hotkeys 3 */
+                    /* UiHotkeys 3 */
                     if (strInnerValue.StartsWith(Constants.StrPreferenceHotkey3))
                     {
                         strInnerValue = strInnerValue.Substring(Constants.StrPreferenceHotkey3.Length,

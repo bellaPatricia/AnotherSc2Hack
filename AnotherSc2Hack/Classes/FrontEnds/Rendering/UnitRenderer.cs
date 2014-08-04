@@ -577,10 +577,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             HMainHandler.PSettings.UnitTabOpacity = Opacity;
 
             /* Transfer to Mainform */
-            HMainHandler.UnittabInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.UnittabInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.UnittabInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.UnittabInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.UnittabUiInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.UnittabUiInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.UnittabUiInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
+            HMainHandler.UnittabUiInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -656,8 +656,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 StrBackupSizeChatbox = string.Empty;
 
                 /* Transfer to Mainform */
-                HMainHandler.UnittabInformation.txtWidth.Text = HMainHandler.PSettings.UnitTabWidth.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.UnittabInformation.txtHeight.Text = HMainHandler.PSettings.UnitTabHeight.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.UnittabUiInformation.txtWidth.Text = HMainHandler.PSettings.UnitTabWidth.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.UnittabUiInformation.txtHeight.Text = HMainHandler.PSettings.UnitTabHeight.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -712,8 +712,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
 
                 /* Transfer to Mainform */
-                HMainHandler.UnittabInformation.txtPosX.Text = HMainHandler.PSettings.UnitTabPositionX.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.UnittabInformation.txtPosY.Text = HMainHandler.PSettings.UnitTabPositionY.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.UnittabUiInformation.txtPosX.Text = HMainHandler.PSettings.UnitTabPositionX.ToString(CultureInfo.InvariantCulture);
+                HMainHandler.UnittabUiInformation.txtPosY.Text = HMainHandler.PSettings.UnitTabPositionY.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -1045,6 +1045,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
             posX += size;
+        }
+
+        protected override void RefreshPanelPosition(Point location)
+        {
+            HMainHandler.UnittabUiInformation.SetPosition(location);
+        }
+
+        protected override void RefreshPanelSize(Size size)
+        {
+            HMainHandler.UnittabUiInformation.SetSize(size);
         }
     }
 }

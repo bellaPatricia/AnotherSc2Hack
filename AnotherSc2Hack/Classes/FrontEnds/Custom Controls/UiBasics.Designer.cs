@@ -64,6 +64,7 @@
             // chBxDrawBackground
             // 
             resources.ApplyResources(this.chBxDrawBackground, "chBxDrawBackground");
+            this.chBxDrawBackground.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxDrawBackground.LanguageFile = "";
             this.chBxDrawBackground.Name = "chBxDrawBackground";
             this.chBxDrawBackground.UseVisualStyleBackColor = true;
@@ -71,6 +72,7 @@
             // chBxRemoveClantag
             // 
             resources.ApplyResources(this.chBxRemoveClantag, "chBxRemoveClantag");
+            this.chBxRemoveClantag.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxRemoveClantag.LanguageFile = "";
             this.chBxRemoveClantag.Name = "chBxRemoveClantag";
             this.chBxRemoveClantag.UseVisualStyleBackColor = true;
@@ -78,6 +80,7 @@
             // chBxRemoveLocalplayer
             // 
             resources.ApplyResources(this.chBxRemoveLocalplayer, "chBxRemoveLocalplayer");
+            this.chBxRemoveLocalplayer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxRemoveLocalplayer.LanguageFile = "";
             this.chBxRemoveLocalplayer.Name = "chBxRemoveLocalplayer";
             this.chBxRemoveLocalplayer.UseVisualStyleBackColor = true;
@@ -85,6 +88,7 @@
             // chBxRemoveNeutral
             // 
             resources.ApplyResources(this.chBxRemoveNeutral, "chBxRemoveNeutral");
+            this.chBxRemoveNeutral.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxRemoveNeutral.LanguageFile = "";
             this.chBxRemoveNeutral.Name = "chBxRemoveNeutral";
             this.chBxRemoveNeutral.UseVisualStyleBackColor = true;
@@ -92,6 +96,7 @@
             // chBxRemoveAllie
             // 
             resources.ApplyResources(this.chBxRemoveAllie, "chBxRemoveAllie");
+            this.chBxRemoveAllie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxRemoveAllie.LanguageFile = "";
             this.chBxRemoveAllie.Name = "chBxRemoveAllie";
             this.chBxRemoveAllie.UseVisualStyleBackColor = true;
@@ -99,14 +104,16 @@
             // chBxRemoveAi
             // 
             resources.ApplyResources(this.chBxRemoveAi, "chBxRemoveAi");
+            this.chBxRemoveAi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxRemoveAi.LanguageFile = "";
             this.chBxRemoveAi.Name = "chBxRemoveAi";
             this.chBxRemoveAi.UseVisualStyleBackColor = true;
             // 
             // btnFontName
             // 
-            this.btnFontName.LanguageFile = "";
+            this.btnFontName.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.btnFontName, "btnFontName");
+            this.btnFontName.LanguageFile = "";
             this.btnFontName.Name = "btnFontName";
             this.btnFontName.UseVisualStyleBackColor = true;
             // 

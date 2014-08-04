@@ -1,6 +1,6 @@
 ﻿namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    partial class Hotkeys
+    partial class UiHotkeys
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hotkeys));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UiHotkeys));
             this.gbLaunchPanels = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.txtHotkey3 = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
             this.txtHotkey2 = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
@@ -91,12 +91,12 @@
             this.lblHotkey1.LanguageFile = "";
             this.lblHotkey1.Name = "lblHotkey1";
             // 
-            // Hotkeys
+            // UiHotkeys
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbLaunchPanels);
-            this.Name = "Hotkeys";
+            this.Name = "UiHotkeys";
             this.gbLaunchPanels.ResumeLayout(false);
             this.gbLaunchPanels.PerformLayout();
             this.ResumeLayout(false);

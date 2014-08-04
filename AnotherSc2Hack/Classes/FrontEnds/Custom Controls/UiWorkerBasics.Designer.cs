@@ -54,12 +54,14 @@
             // chBxDrawBackground
             // 
             resources.ApplyResources(this.chBxDrawBackground, "chBxDrawBackground");
+            this.chBxDrawBackground.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxDrawBackground.LanguageFile = "";
             this.chBxDrawBackground.Name = "chBxDrawBackground";
             this.chBxDrawBackground.UseVisualStyleBackColor = true;
             // 
             // btnFontName
             // 
+            this.btnFontName.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.btnFontName, "btnFontName");
             this.btnFontName.Name = "btnFontName";
             this.btnFontName.UseVisualStyleBackColor = true;

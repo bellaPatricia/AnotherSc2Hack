@@ -1,6 +1,6 @@
 ﻿namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    partial class Information
+    partial class UiInformation
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Information));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UiInformation));
             this.gbInformation = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.txtHeight = new System.Windows.Forms.TextBox();
             this.txtWidth = new System.Windows.Forms.TextBox();
@@ -100,12 +100,12 @@
             this.lblPosX.LanguageFile = "";
             this.lblPosX.Name = "lblPosX";
             // 
-            // Information
+            // UiInformation
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbInformation);
-            this.Name = "Information";
+            this.Name = "UiInformation";
             this.gbInformation.ResumeLayout(false);
             this.gbInformation.PerformLayout();
             this.ResumeLayout(false);

@@ -182,7 +182,13 @@
   <data name="lblMaphackDestinationLine.Text" xml:space="preserve">
     <value>Richtungslinie:</value>
   </data>
+  <data name="gbMaphackBasics.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 301</value>
+  </data>
   <data name="gbMaphackBasics.Text" xml:space="preserve">
     <value>Standard Einstellungen</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 301</value>
   </data>
 </root>
