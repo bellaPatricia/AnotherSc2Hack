@@ -85,7 +85,7 @@
             this.gbUnittabShow = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.chBxUnitTabShowBuildings = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.chBxUnitTabShowUnits = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
-            this.UnittabBasics = new AnotherSc2Hack.Classes.FrontEnds.BasicsUnitTab();
+            this.UnittabUiUnitTabBasic = new AnotherSc2Hack.Classes.FrontEnds.UiUnitTabBasic();
             this.UnittabChatInput = new AnotherSc2Hack.Classes.FrontEnds.ChatInput();
             this.UnittabHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
             this.UnittabInformation = new AnotherSc2Hack.Classes.FrontEnds.Information();
@@ -107,7 +107,7 @@
             this.ProductionTabInformation = new AnotherSc2Hack.Classes.FrontEnds.Information();
             this.ProductionTabHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
             this.ProductionTabChatInput = new AnotherSc2Hack.Classes.FrontEnds.ChatInput();
-            this.ProductionTabBasics = new AnotherSc2Hack.Classes.FrontEnds.BasicsProdTab();
+            this.ProductionTabUiProductionTabBasics = new AnotherSc2Hack.Classes.FrontEnds.UiProductionTabBasics();
             this.tcWorkerAutomation = new System.Windows.Forms.TabPage();
             this.workerProductionBasics = new AnotherSc2Hack.Classes.FrontEnds.AutomationWorker();
             this.workerProductionHotkeys = new AnotherSc2Hack.Classes.FrontEnds.Hotkeys();
@@ -656,7 +656,7 @@
             resources.ApplyResources(this.tcUnitTab, "tcUnitTab");
             this.tcUnitTab.BackColor = System.Drawing.SystemColors.Control;
             this.tcUnitTab.Controls.Add(this.gbUnittabShow);
-            this.tcUnitTab.Controls.Add(this.UnittabBasics);
+            this.tcUnitTab.Controls.Add(this.UnittabUiUnitTabBasic);
             this.tcUnitTab.Controls.Add(this.UnittabChatInput);
             this.tcUnitTab.Controls.Add(this.UnittabHotkeys);
             this.tcUnitTab.Controls.Add(this.UnittabInformation);
@@ -692,11 +692,11 @@
             this.chBxUnitTabShowUnits.UseVisualStyleBackColor = true;
             this.chBxUnitTabShowUnits.CheckedChanged += new System.EventHandler(this.chBxUnitTabShowUnits_CheckedChanged);
             // 
-            // UnittabBasics
+            // UnittabUiUnitTabBasic
             // 
-            resources.ApplyResources(this.UnittabBasics, "UnittabBasics");
-            this.UnittabBasics.Name = "UnittabBasics";
-            this.ttInformation.SetToolTip(this.UnittabBasics, resources.GetString("UnittabBasics.ToolTip"));
+            resources.ApplyResources(this.UnittabUiUnitTabBasic, "UnittabUiUnitTabBasic");
+            this.UnittabUiUnitTabBasic.Name = "UnittabUiUnitTabBasic";
+            this.ttInformation.SetToolTip(this.UnittabUiUnitTabBasic, resources.GetString("UnittabUiUnitTabBasic.ToolTip"));
             // 
             // UnittabChatInput
             // 
@@ -769,7 +769,7 @@
             this.tcProduction.Controls.Add(this.ProductionTabInformation);
             this.tcProduction.Controls.Add(this.ProductionTabHotkeys);
             this.tcProduction.Controls.Add(this.ProductionTabChatInput);
-            this.tcProduction.Controls.Add(this.ProductionTabBasics);
+            this.tcProduction.Controls.Add(this.ProductionTabUiProductionTabBasics);
             this.tcProduction.Name = "tcProduction";
             this.ttInformation.SetToolTip(this.tcProduction, resources.GetString("tcProduction.ToolTip"));
             // 
@@ -873,11 +873,11 @@
             this.ProductionTabChatInput.Name = "ProductionTabChatInput";
             this.ttInformation.SetToolTip(this.ProductionTabChatInput, resources.GetString("ProductionTabChatInput.ToolTip"));
             // 
-            // ProductionTabBasics
+            // ProductionTabUiProductionTabBasics
             // 
-            resources.ApplyResources(this.ProductionTabBasics, "ProductionTabBasics");
-            this.ProductionTabBasics.Name = "ProductionTabBasics";
-            this.ttInformation.SetToolTip(this.ProductionTabBasics, resources.GetString("ProductionTabBasics.ToolTip"));
+            resources.ApplyResources(this.ProductionTabUiProductionTabBasics, "ProductionTabUiProductionTabBasics");
+            this.ProductionTabUiProductionTabBasics.Name = "ProductionTabUiProductionTabBasics";
+            this.ttInformation.SetToolTip(this.ProductionTabUiProductionTabBasics, resources.GetString("ProductionTabUiProductionTabBasics.ToolTip"));
             // 
             // tcWorkerAutomation
             // 
@@ -1122,7 +1122,7 @@
         public UiBasics ArmyUiBasics;
         public UiWorkerBasics WorkerUiWorkerBasics;
         public UiMaphackBasics MaphackUiMaphackBasics;
-        public BasicsUnitTab UnittabBasics;
+        public UiUnitTabBasic UnittabUiUnitTabBasic;
         public ControlBugs CustBugs;
         private CustomDebug CustDebug;
         private System.Windows.Forms.TabPage tcProduction;
@@ -1134,7 +1134,7 @@
         public Information ProductionTabInformation;
         public Hotkeys ProductionTabHotkeys;
         public ChatInput ProductionTabChatInput;
-        public BasicsProdTab ProductionTabBasics;
+        public UiProductionTabBasics ProductionTabUiProductionTabBasics;
         public System.Windows.Forms.Button btnLostUnits;
         private System.Windows.Forms.TabPage tcVarious;
         public CustomVarious Custom_Various;

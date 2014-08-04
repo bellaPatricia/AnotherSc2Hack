@@ -630,15 +630,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             #region Unittab
 
-            UnittabBasics.cmBxRemAi.Text = PSettings.UnitTabRemoveAi.ToString();
-            UnittabBasics.cmBxRemAllie.Text = PSettings.UnitTabRemoveAllie.ToString();
-            UnittabBasics.cmBxRemNeutral.Text = PSettings.UnitTabRemoveNeutral.ToString();
-            UnittabBasics.cmBxRemLocalplayer.Text = PSettings.UnitTabRemoveLocalplayer.ToString();
-            UnittabBasics.cmBxSplitBuildings.Text = PSettings.UnitTabSplitUnitsAndBuildings.ToString();
-            UnittabBasics.tbOpacity.Value = PSettings.UnitTabOpacity > 1.0
-                ? (Int32)PSettings.UnitTabOpacity
-                : (Int32)(PSettings.UnitTabOpacity * 100);
-            UnittabBasics.lblOpacity.Text = "Opacity: " + UnittabBasics.tbOpacity.Value.ToString(CultureInfo.InvariantCulture) + "%";
+            UnittabUiUnitTabBasic.chBxRemoveAi.Checked = PSettings.UnitTabRemoveAi;
+            UnittabUiUnitTabBasic.chBxRemoveAllie.Checked = PSettings.UnitTabRemoveAllie;
+            UnittabUiUnitTabBasic.chBxRemoveNeutral.Checked = PSettings.UnitTabRemoveNeutral;
+            UnittabUiUnitTabBasic.chBxRemoveLocalplayer.Checked = PSettings.UnitTabRemoveLocalplayer;
+            UnittabUiUnitTabBasic.chBxSplitBuildingsUnits.Checked = PSettings.UnitTabSplitUnitsAndBuildings;
+            UnittabUiUnitTabBasic.chBxRemoveSpellcounter.Checked = PSettings.UnitTabRemoveSpellCounter;
+            UnittabUiUnitTabBasic.chBxRemoveProductionLine.Checked = PSettings.UnitTabRemoveProdLine;
+            UnittabUiUnitTabBasic.chBxRemoveChronoboost.Checked = PSettings.UnitTabRemoveChronoboost;
+            UnittabUiUnitTabBasic.chBxRemoveClantag.Checked = PSettings.UnitTabRemoveClanTag;
             UnittabChatInput.txtToggle.Text = PSettings.UnitTogglePanel;
             UnittabChatInput.txtPosition.Text = PSettings.UnitChangePositionPanel;
             UnittabChatInput.txtSize.Text = PSettings.UnitChangeSizePanel;
@@ -646,28 +646,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             UnittabHotkeys.txtHotkey2.Text = PSettings.UnitHotkey2.ToString();
             UnittabHotkeys.txtHotkey3.Text = PSettings.UnitHotkey3.ToString();
             txtUnitPictureSize.Text = PSettings.UnitPictureSize.ToString(CultureInfo.InvariantCulture);
-            UnittabBasics.btnFontName.Text = PSettings.UnitTabFontName;
-            UnittabBasics.btnFontName.Font = new Font(PSettings.UnitTabFontName, Font.Size);
-            UnittabBasics.cmBxRemClanTag.Text = PSettings.UnitTabRemoveClanTag.ToString();
-            UnittabBasics.cmBxRemProdLine.Text = PSettings.UnitTabRemoveProdLine.ToString();
+            UnittabUiUnitTabBasic.btnFontName.Text = PSettings.UnitTabFontName;
+            UnittabUiUnitTabBasic.btnFontName.Font = new Font(PSettings.UnitTabFontName, Font.Size);
             chBxUnitTabShowUnits.Checked = PSettings.UnitShowUnits;
             chBxUnitTabShowBuildings.Checked = PSettings.UnitShowBuildings;
-            UnittabBasics.cmBxRemChronoboost.Text = PSettings.UnitTabRemoveChronoboost.ToString();
-            UnittabBasics.cmBxRemSpellCounter.Text = PSettings.UnitTabRemoveSpellCounter.ToString();
+            UnittabUiUnitTabBasic.OcUiOpacity.tbOpacity.Value = PSettings.UnitTabOpacity > 1.0
+                ? (Int32)PSettings.UnitTabOpacity
+                : (Int32)(PSettings.UnitTabOpacity * 100);
 
             #endregion
 
             #region Productiontab
 
-            ProductionTabBasics.cmBxRemAi.Text = PSettings.ProdTabRemoveAi.ToString();
-            ProductionTabBasics.cmBxRemAllie.Text = PSettings.ProdTabRemoveAllie.ToString();
-            ProductionTabBasics.cmBxRemNeutral.Text = PSettings.ProdTabRemoveNeutral.ToString();
-            ProductionTabBasics.cmBxRemLocalplayer.Text = PSettings.ProdTabRemoveLocalplayer.ToString();
-            ProductionTabBasics.cmBxSplitBuildings.Text = PSettings.ProdTabSplitUnitsAndBuildings.ToString();
-            ProductionTabBasics.tbOpacity.Value = PSettings.ProdTabOpacity > 1.0
-                ? (Int32)PSettings.ProdTabOpacity
-                : (Int32)(PSettings.ProdTabOpacity * 100);
-            ProductionTabBasics.lblOpacity.Text = "Opacity: " + ProductionTabBasics.tbOpacity.Value.ToString(CultureInfo.InvariantCulture) + "%";
+            ProductionTabUiProductionTabBasics.chBxRemoveAi.Checked = PSettings.ProdTabRemoveAi;
+            ProductionTabUiProductionTabBasics.chBxRemoveAllie.Checked = PSettings.ProdTabRemoveAllie;
+            ProductionTabUiProductionTabBasics.chBxRemoveNeutral.Checked = PSettings.ProdTabRemoveNeutral;
+            ProductionTabUiProductionTabBasics.chBxRemoveLocalplayer.Checked = PSettings.ProdTabRemoveLocalplayer;
+            ProductionTabUiProductionTabBasics.chBxSplitBuildingsUnits.Checked = PSettings.ProdTabSplitUnitsAndBuildings;
+            ProductionTabUiProductionTabBasics.chBxRemoveChronoboost.Checked = PSettings.ProdTabRemoveChronoboost;
+            ProductionTabUiProductionTabBasics.chBxRemoveClantag.Checked = PSettings.ProdTabRemoveClanTag;
             ProductionTabChatInput.txtToggle.Text = PSettings.ProdTogglePanel;
             ProductionTabChatInput.txtPosition.Text = PSettings.ProdChangePositionPanel;
             ProductionTabChatInput.txtSize.Text = PSettings.ProdChangeSizePanel;
@@ -675,13 +672,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ProductionTabHotkeys.txtHotkey2.Text = PSettings.ProdHotkey2.ToString();
             ProductionTabHotkeys.txtHotkey3.Text = PSettings.ProdHotkey3.ToString();
             txtProductionTabPictureSize.Text = PSettings.ProdPictureSize.ToString(CultureInfo.InvariantCulture);
-            ProductionTabBasics.btnFontName.Text = PSettings.ProdTabFontName;
-            ProductionTabBasics.btnFontName.Font = new Font(PSettings.ProdTabFontName, Font.Size);
-            ProductionTabBasics.cmBxRemClanTag.Text = PSettings.ProdTabRemoveClanTag.ToString();
+            ProductionTabUiProductionTabBasics.btnFontName.Text = PSettings.ProdTabFontName;
+            ProductionTabUiProductionTabBasics.btnFontName.Font = new Font(PSettings.ProdTabFontName, Font.Size);
             chBxProdTabShowBuildings.Checked = PSettings.ProdTabShowBuildings;
             chBxProdTabShowUnits.Checked = PSettings.ProdTabShowUnits;
             chBxProdTabShowUpgrades.Checked = PSettings.ProdTabShowUpgrades;
-            ProductionTabBasics.cmBxRemChronoboost.Text = PSettings.ProdTabRemoveChronoboost.ToString();
+            ProductionTabUiProductionTabBasics.OcUiOpacity.tbOpacity.Value = PSettings.ProdTabOpacity > 1.0
+                ? (Int32)PSettings.ProdTabOpacity
+                : (Int32)(PSettings.ProdTabOpacity * 100);
 
             #endregion
 

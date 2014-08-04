@@ -222,8 +222,8 @@
   <data name="btnIncome.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;ProductionTabBasics.Name" xml:space="preserve">
-    <value>ProductionTabBasics</value>
+  <data name="&gt;&gt;ProductionTabUiProductionTabBasics.Name" xml:space="preserve">
+    <value>ProductionTabUiProductionTabBasics</value>
   </data>
   <data name="lblUnitPicturePreview.Text" xml:space="preserve">
     <value>Preview:</value>
@@ -258,7 +258,7 @@
   <data name="&gt;&gt;btnUnit.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="UnittabBasics.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="UnittabUiUnitTabBasic.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 384</value>
   </data>
   <data name="btnMaphack.Font" type="System.Drawing.Font, System.Drawing">
@@ -637,7 +637,7 @@
   <data name="lblProdPictureSize.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="ProductionTabBasics.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ProductionTabUiProductionTabBasics.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 367</value>
   </data>
   <data name="UnittabHotkeys.Location" type="System.Drawing.Point, System.Drawing">
@@ -682,7 +682,7 @@
   <data name="&gt;&gt;btnMapAddUnit.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;UnittabBasics.Type" xml:space="preserve">
+  <data name="&gt;&gt;UnittabUiUnitTabBasic.Type" xml:space="preserve">
     <value>AnotherSc2Hack.Classes.FrontEnds.UiBasicsUnitTab, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;workerProductionBasics.Parent" xml:space="preserve">
@@ -1061,7 +1061,7 @@
   <data name="&gt;&gt;WorkerInformation.Type" xml:space="preserve">
     <value>AnotherSc2Hack.Classes.FrontEnds.Information, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="ProductionTabBasics.ToolTip" xml:space="preserve">
+  <data name="ProductionTabUiProductionTabBasics.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="btnProduction.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -1307,7 +1307,7 @@
   <data name="Custom_Various.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 18</value>
   </data>
-  <data name="UnittabBasics.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="UnittabUiUnitTabBasic.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 18</value>
   </data>
   <data name="tcMainTab.Location" type="System.Drawing.Point, System.Drawing">
@@ -1325,7 +1325,7 @@
   <data name="UnittabInformation.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 156</value>
   </data>
-  <data name="UnittabBasics.ToolTip" xml:space="preserve">
+  <data name="UnittabUiUnitTabBasic.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="&gt;&gt;ProductionTabHotkeys.Parent" xml:space="preserve">
@@ -1391,7 +1391,7 @@
   <data name="&gt;&gt;WorkerHotkeys.Name" xml:space="preserve">
     <value>WorkerHotkeys</value>
   </data>
-  <data name="UnittabBasics.TabIndex" type="System.Int32, mscorlib">
+  <data name="UnittabUiUnitTabBasic.TabIndex" type="System.Int32, mscorlib">
     <value>67</value>
   </data>
   <data name="&gt;&gt;pcBxUnitPreview.Parent" xml:space="preserve">
@@ -1511,7 +1511,7 @@
   <data name="gbUnitPicture.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 128</value>
   </data>
-  <data name="&gt;&gt;UnittabBasics.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;UnittabUiUnitTabBasic.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="&gt;&gt;btnArmy.Parent" xml:space="preserve">
@@ -1910,8 +1910,8 @@
   <data name="txtProductionTabPictureSize.Location" type="System.Drawing.Point, System.Drawing">
     <value>89, 27</value>
   </data>
-  <data name="&gt;&gt;UnittabBasics.Name" xml:space="preserve">
-    <value>UnittabBasics</value>
+  <data name="&gt;&gt;UnittabUiUnitTabBasic.Name" xml:space="preserve">
+    <value>UnittabUiUnitTabBasic</value>
   </data>
   <data name="&gt;&gt;ArmyUiBasics.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1949,7 +1949,7 @@
   <data name="&gt;&gt;gbProdtabShow.Type" xml:space="preserve">
     <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="ProductionTabBasics.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ProductionTabUiProductionTabBasics.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 18</value>
   </data>
   <data name="CustBugs.TabIndex" type="System.Int32, mscorlib">
@@ -1985,7 +1985,7 @@
   <data name="tcGlobal.Text" xml:space="preserve">
     <value>Global</value>
   </data>
-  <data name="&gt;&gt;UnittabBasics.Parent" xml:space="preserve">
+  <data name="&gt;&gt;UnittabUiUnitTabBasic.Parent" xml:space="preserve">
     <value>tcUnitTab</value>
   </data>
   <data name="UnittabHotkeys.TabIndex" type="System.Int32, mscorlib">
@@ -9337,7 +9337,7 @@
   <data name="pcBxUnitPreview.Location" type="System.Drawing.Point, System.Drawing">
     <value>89, 53</value>
   </data>
-  <data name="&gt;&gt;ProductionTabBasics.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ProductionTabUiProductionTabBasics.Parent" xml:space="preserve">
     <value>tcProduction</value>
   </data>
   <data name="lblProdPictureSize.Text" xml:space="preserve">
@@ -9358,7 +9358,7 @@
   <data name="&gt;&gt;tcBugs.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="ProductionTabBasics.TabIndex" type="System.Int32, mscorlib">
+  <data name="ProductionTabUiProductionTabBasics.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="ProductionTabInformation.ToolTip" xml:space="preserve">
@@ -9601,7 +9601,7 @@
   <data name="&gt;&gt;ApmUiBasics.Type" xml:space="preserve">
     <value>AnotherSc2Hack.Classes.FrontEnds.UiBasics, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;ProductionTabBasics.Type" xml:space="preserve">
+  <data name="&gt;&gt;ProductionTabUiProductionTabBasics.Type" xml:space="preserve">
     <value>AnotherSc2Hack.Classes.FrontEnds.UiBasicsProdTab, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;gbUnittabShow.Name" xml:space="preserve">
@@ -9799,7 +9799,7 @@
   <data name="icbMapUnit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;ProductionTabBasics.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ProductionTabUiProductionTabBasics.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="pcBxProductionTabPreview.Location" type="System.Drawing.Point, System.Drawing">

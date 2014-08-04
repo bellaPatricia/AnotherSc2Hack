@@ -117,57 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblRemoveChronoboost.Text" xml:space="preserve">
-    <value>Entferne Chronoboost:</value>
+  <data name="chBxRemoveChronoboost.Text" xml:space="preserve">
+    <value>Entferne Chronoboost</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblRemoveClantag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 13</value>
+  <data name="chBxSplitBuildingsUnits.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 17</value>
   </data>
-  <data name="lblRemoveClantag.Text" xml:space="preserve">
-    <value>Entferne Clantag:</value>
+  <data name="chBxSplitBuildingsUnits.Text" xml:space="preserve">
+    <value>Einheiten/ Gebäude aufteilen</value>
   </data>
-  <data name="lblFontName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
+  <data name="chBxRemoveClantag.Text" xml:space="preserve">
+    <value>Entferne Clantag</value>
   </data>
-  <data name="lblFontName.Text" xml:space="preserve">
-    <value>Schriftart:</value>
+  <data name="chBxRemoveLocalplayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 17</value>
   </data>
-  <data name="lblRemoveAi.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 13</value>
+  <data name="chBxRemoveLocalplayer.Text" xml:space="preserve">
+    <value>Entferne Dich</value>
   </data>
-  <data name="lblRemoveAi.Text" xml:space="preserve">
-    <value>Entferne KI:</value>
+  <data name="chBxRemoveNeutral.Text" xml:space="preserve">
+    <value>Entferne Neutral</value>
   </data>
-  <data name="lblRemoveAllie.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 13</value>
+  <data name="chBxRemoveAllie.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 17</value>
   </data>
-  <data name="lblRemoveAllie.Text" xml:space="preserve">
-    <value>Entferne Verbündete:</value>
+  <data name="chBxRemoveAllie.Text" xml:space="preserve">
+    <value>Entferne Verbündete</value>
   </data>
-  <data name="lblRemoveNeutral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 13</value>
-  </data>
-  <data name="lblRemoveNeutral.Text" xml:space="preserve">
-    <value>Entferne "Neutral":</value>
-  </data>
-  <data name="lblRemoveLocalplayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 13</value>
-  </data>
-  <data name="lblRemoveLocalplayer.Text" xml:space="preserve">
-    <value>Entferne Dich:</value>
-  </data>
-  <data name="lblOpacityText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 13</value>
-  </data>
-  <data name="lblOpacityText.Text" xml:space="preserve">
-    <value>Sichtbarkeit:</value>
-  </data>
-  <data name="lblSplitBuildings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 13</value>
-  </data>
-  <data name="lblSplitBuildings.Text" xml:space="preserve">
-    <value>Einheiten/Gebäude teilen:</value>
+  <data name="chBxRemoveAi.Text" xml:space="preserve">
+    <value>Entferne Ai</value>
   </data>
   <data name="gbBasicOptions.Text" xml:space="preserve">
     <value>Standard Einstellungen</value>

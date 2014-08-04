@@ -2,9 +2,9 @@
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    public partial class BasicsUnitTab : AbstractUserControl
+    public partial class UiProductionTabBasics : AbstractUserControl
     {
-        public BasicsUnitTab()
+        public UiProductionTabBasics()
         {
             InitializeComponent();
         }

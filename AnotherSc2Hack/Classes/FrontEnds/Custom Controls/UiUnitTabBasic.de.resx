@@ -118,70 +118,59 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblRemoveSpellcounter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 13</value>
+  <data name="chBxRemoveSpellcounter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 17</value>
   </data>
-  <data name="lblRemoveSpellcounter.Text" xml:space="preserve">
-    <value>Entferne Fähigkeitenzhlr:</value>
+  <data name="chBxRemoveSpellcounter.Text" xml:space="preserve">
+    <value>Entferne Spellzähler</value>
   </data>
-  <data name="lblRemoveChronoboost.Text" xml:space="preserve">
-    <value>Entferne Chronoboost:</value>
+  <data name="chBxRemoveChronoboost.Text" xml:space="preserve">
+    <value>Entferne Chronoboost</value>
   </data>
-  <data name="lblRemoveProdLine.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 13</value>
+  <data name="chBxRemoveProductionLine.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 17</value>
   </data>
-  <data name="lblRemoveProdLine.Text" xml:space="preserve">
-    <value>Entferne Prod.- status:</value>
+  <data name="chBxRemoveProductionLine.Text" xml:space="preserve">
+    <value>Entferne Produktionsstaus</value>
   </data>
-  <data name="lblRemoveClantag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 13</value>
+  <data name="chBxSplitBuildingsUnits.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 17</value>
   </data>
-  <data name="lblRemoveClantag.Text" xml:space="preserve">
-    <value>Entferne Clantag:</value>
+  <data name="chBxSplitBuildingsUnits.Text" xml:space="preserve">
+    <value>Einheiten/ Gebäude aufspalten</value>
   </data>
-  <data name="lblFontName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
+  <data name="chBxRemoveClantag.Text" xml:space="preserve">
+    <value>Entferne Clantag</value>
   </data>
-  <data name="lblFontName.Text" xml:space="preserve">
-    <value>Schriftart:</value>
+  <data name="chBxRemoveLocalplayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 17</value>
   </data>
-  <data name="lblRemoveAi.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 13</value>
+  <data name="chBxRemoveLocalplayer.Text" xml:space="preserve">
+    <value>Entferne Dich</value>
   </data>
-  <data name="lblRemoveAi.Text" xml:space="preserve">
-    <value>Entferne KI:</value>
+  <data name="chBxRemoveNeutral.Text" xml:space="preserve">
+    <value>Entferne Neutral</value>
   </data>
-  <data name="lblRemoveAllie.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 13</value>
+  <data name="chBxRemoveAllie.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 17</value>
   </data>
-  <data name="lblRemoveAllie.Text" xml:space="preserve">
-    <value>Entferne Verbündete:</value>
+  <data name="chBxRemoveAllie.Text" xml:space="preserve">
+    <value>Entferne Verbündete</value>
   </data>
-  <data name="lblRemoveNeutral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 13</value>
+  <data name="chBxRemoveAi.Text" xml:space="preserve">
+    <value>Entferne Ki</value>
   </data>
-  <data name="lblRemoveNeutral.Text" xml:space="preserve">
-    <value>Entferne "Neutral":</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnFontName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="lblRemoveLocalplayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 13</value>
-  </data>
-  <data name="lblRemoveLocalplayer.Text" xml:space="preserve">
-    <value>Entferne Dich:</value>
-  </data>
-  <data name="lblOpacityText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 13</value>
-  </data>
-  <data name="lblOpacityText.Text" xml:space="preserve">
-    <value>Sichtbarkeit:</value>
-  </data>
-  <data name="lblSplitBuildings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 13</value>
-  </data>
-  <data name="lblSplitBuildings.Text" xml:space="preserve">
-    <value>Einheiten/Gebäude teilen:</value>
+  <data name="gbUnittabBasics.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 321</value>
   </data>
   <data name="gbUnittabBasics.Text" xml:space="preserve">
     <value>Standard Einstellungen</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 324</value>
   </data>
 </root>

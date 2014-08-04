@@ -526,45 +526,54 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Unittab
 
-        private void cmBxUniRemAi_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxUnitTabRemoveSpellcounter_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.UnitTabRemoveAi = Convert.ToBoolean(UnittabBasics.cmBxRemAi.Text);
+            PSettings.UnitTabRemoveSpellCounter = UnittabUiUnitTabBasic.chBxRemoveSpellcounter.Checked;
         }
 
-        private void cmBxUniRemAllie_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxUnitTabRemoveChronoboost_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.UnitTabRemoveAllie = Convert.ToBoolean(UnittabBasics.cmBxRemAllie.Text);
+            PSettings.UnitTabRemoveChronoboost = UnittabUiUnitTabBasic.chBxRemoveChronoboost.Checked;
         }
 
-        private void cmBxUniRemNeutral_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxUnitTabRemoveClantag_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.UnitTabRemoveNeutral = Convert.ToBoolean(UnittabBasics.cmBxRemNeutral.Text);
+            PSettings.UnitTabRemoveClanTag = UnittabUiUnitTabBasic.chBxRemoveClantag.Checked;
         }
 
-        private void cmBxUniRemLocalplayer_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxUnitTabRemoveProductionLine_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.UnitTabRemoveLocalplayer = Convert.ToBoolean(UnittabBasics.cmBxRemLocalplayer.Text);
+            PSettings.UnitTabRemoveProdLine = UnittabUiUnitTabBasic.chBxRemoveProductionLine.Checked;
         }
 
-        private void cmBxUniSplitBuildings_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxUnitTabSplitBuildingsUnits_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.UnitTabSplitUnitsAndBuildings = Convert.ToBoolean(UnittabBasics.cmBxSplitBuildings.Text);
+            PSettings.UnitTabSplitUnitsAndBuildings = UnittabUiUnitTabBasic.chBxSplitBuildingsUnits.Checked;
         }
 
-        private void cmBxUniRemProdLine_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxUnitTabRemoveLocalplayer_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.UnitTabRemoveProdLine = Convert.ToBoolean(UnittabBasics.cmBxRemProdLine.Text);
+            PSettings.UnitTabRemoveLocalplayer = UnittabUiUnitTabBasic.chBxRemoveLocalplayer.Checked;
         }
 
-        private void tbUniOpacity_Scroll(object sender, EventArgs e)
+        void chBxUnitTabRemoveNeutral_CheckedChanged(object sender, EventArgs e)
         {
-            if (UnittabBasics.tbOpacity.Value > 0)
-                UnittabBasics.lblOpacity.Text = "Opacity: " + (UnittabBasics.tbOpacity.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
+            PSettings.UnitTabRemoveNeutral = UnittabUiUnitTabBasic.chBxRemoveNeutral.Checked;
+        }
 
-            else
-                UnittabBasics.tbOpacity.Value = 1;
+        void chBxUnitTabRemoveAllie_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.UnitTabRemoveAllie = UnittabUiUnitTabBasic.chBxRemoveAllie.Checked;
+        }
 
-            PSettings.UnitTabOpacity = (double)UnittabBasics.tbOpacity.Value / 100;
+        void chBxUnitTabRemoveAi_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.UnitTabRemoveAi = UnittabUiUnitTabBasic.chBxRemoveAi.Checked;
+        }
+
+        private void tbUnitTabOpacity_Scroll(object sender, EventArgs e)
+        {
+            PSettings.UnitTabOpacity = (double)UnittabUiUnitTabBasic.OcUiOpacity.tbOpacity.Value / 100;
         }
 
         private void txtUnitTogglePanel_TextChanged(object sender, EventArgs e)
@@ -651,13 +660,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             try
             {
                 var fd = new FontDialog();
-                fd.Font = new Font(UnittabBasics.btnFontName.Text, 15);
+                fd.Font = new Font(UnittabUiUnitTabBasic.btnFontName.Text, 15);
                 var result = fd.ShowDialog();
 
                 if (result.Equals(DialogResult.OK))
                 {
-                    UnittabBasics.btnFontName.Text = fd.Font.Name;
-                    UnittabBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
+                    UnittabUiUnitTabBasic.btnFontName.Text = fd.Font.Name;
+                    UnittabUiUnitTabBasic.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
                     PSettings.UnitTabFontName = fd.Font.Name;
                 }
             }
@@ -667,11 +676,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 MessageBox.Show("Only TrueType Fonts are allowed!");
                 goto FontAgain;
             }
-        }
-
-        private void cmBxUniRemClanTag_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PSettings.UnitTabRemoveClanTag = Convert.ToBoolean(UnittabBasics.cmBxRemClanTag.Text);
         }
 
         private void chBxUnitTabShowUnits_CheckedChanged(object sender, EventArgs e)
@@ -684,15 +688,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.UnitShowBuildings = chBxUnitTabShowBuildings.Checked;
         }
 
-        void cmBxRemSpellCounter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PSettings.UnitTabRemoveSpellCounter = Convert.ToBoolean(UnittabBasics.cmBxRemSpellCounter.Text);
-        }
-
-        void cmBxRemChronoboost_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PSettings.UnitTabRemoveChronoboost = Convert.ToBoolean(UnittabBasics.cmBxRemChronoboost.Text);
-        }
 
 
         #endregion
@@ -714,40 +709,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.ProdTabShowUpgrades = chBxProdTabShowUpgrades.Checked;
         }
 
-        private void cmBxProRemAi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PSettings.ProdTabRemoveAi = Convert.ToBoolean(ProductionTabBasics.cmBxRemAi.Text);
-        }
-
-        private void cmBxProRemAllie_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PSettings.ProdTabRemoveAllie = Convert.ToBoolean(ProductionTabBasics.cmBxRemAllie.Text);
-        }
-
-        private void cmBxProRemNeutral_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PSettings.ProdTabRemoveNeutral = Convert.ToBoolean(ProductionTabBasics.cmBxRemNeutral.Text);
-        }
-
-        private void cmBxProRemLocalplayer_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PSettings.ProdTabRemoveLocalplayer = Convert.ToBoolean(ProductionTabBasics.cmBxRemLocalplayer.Text);
-        }
-
-        private void cmBxProSplitBuildings_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PSettings.ProdTabSplitUnitsAndBuildings = Convert.ToBoolean(ProductionTabBasics.cmBxSplitBuildings.Text);
-        }
+        
 
         private void tbProOpacity_Scroll(object sender, EventArgs e)
         {
-            if (ProductionTabBasics.tbOpacity.Value > 0)
-                ProductionTabBasics.lblOpacity.Text = "Opacity: " + (ProductionTabBasics.tbOpacity.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
 
-            else
-                ProductionTabBasics.tbOpacity.Value = 1;
-
-            PSettings.ProdTabOpacity = (double)ProductionTabBasics.tbOpacity.Value / 100;
+            PSettings.ProdTabOpacity = (double)ProductionTabUiProductionTabBasics.OcUiOpacity.tbOpacity.Value / 100;
         }
 
         private void txtProdTogglePanel_TextChanged(object sender, EventArgs e)
@@ -834,13 +801,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             try
             {
                 var fd = new FontDialog();
-                fd.Font = new Font(ProductionTabBasics.btnFontName.Text, 15);
+                fd.Font = new Font(ProductionTabUiProductionTabBasics.btnFontName.Text, 15);
                 var result = fd.ShowDialog();
 
                 if (result.Equals(DialogResult.OK))
                 {
-                    ProductionTabBasics.btnFontName.Text = fd.Font.Name;
-                    ProductionTabBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
+                    ProductionTabUiProductionTabBasics.btnFontName.Text = fd.Font.Name;
+                    ProductionTabUiProductionTabBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
                     PSettings.ProdTabFontName = fd.Font.Name;
                 }
             }
@@ -852,15 +819,41 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private void cmBxProRemClanTag_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxProductionTabRemoveChronoboost_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ProdTabRemoveClanTag = Convert.ToBoolean(ProductionTabBasics.cmBxRemClanTag.Text);
+            PSettings.ProdTabRemoveChronoboost = ProductionTabUiProductionTabBasics.chBxRemoveChronoboost.Checked;
         }
 
-        void cmBxProdRemChronoboost_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxProductionTabSplitBuildingsUnits_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ProdTabRemoveChronoboost = Convert.ToBoolean(ProductionTabBasics.cmBxRemChronoboost.Text);
+            PSettings.ProdTabSplitUnitsAndBuildings = ProductionTabUiProductionTabBasics.chBxSplitBuildingsUnits.Checked;
         }
+
+        void chBxProductionTabRemoveClantag_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.ProdTabRemoveClanTag = ProductionTabUiProductionTabBasics.chBxRemoveClantag.Checked;
+        }
+
+        void chBxProductionTabRemoveLocalplayer_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.ProdTabRemoveLocalplayer = ProductionTabUiProductionTabBasics.chBxRemoveLocalplayer.Checked;
+        }
+
+        void chBxProductionTabRemoveNeutral_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.ProdTabRemoveNeutral = ProductionTabUiProductionTabBasics.chBxRemoveNeutral.Checked;
+        }
+
+        void chBxProductionTabRemoveAllie_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.ProdTabRemoveAllie = ProductionTabUiProductionTabBasics.chBxRemoveAllie.Checked;
+        }
+
+        void chBxProductionTabRemoveAi_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.ProdTabRemoveAi = ProductionTabUiProductionTabBasics.chBxRemoveAi.Checked;
+        }
+
 
 
         #endregion
@@ -1904,27 +1897,27 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             MaphackUiMaphackBasics.btnDestinationLine.Click += btnMaphackDestinationLine_Click;
             MaphackUiMaphackBasics.OcUiOpacity.tbOpacity.Scroll += tbMaphackOpacity_Scroll;
 
-            UnittabBasics.cmBxRemAi.SelectedIndexChanged += cmBxUniRemAi_SelectedIndexChanged;
-            UnittabBasics.cmBxRemAllie.SelectedIndexChanged += cmBxUniRemAllie_SelectedIndexChanged;
-            UnittabBasics.cmBxRemNeutral.SelectedIndexChanged += cmBxUniRemNeutral_SelectedIndexChanged;
-            UnittabBasics.cmBxRemLocalplayer.SelectedIndexChanged += cmBxUniRemLocalplayer_SelectedIndexChanged;
-            UnittabBasics.cmBxRemClanTag.SelectedIndexChanged += cmBxUniRemClanTag_SelectedIndexChanged;
-            UnittabBasics.cmBxSplitBuildings.SelectedIndexChanged += cmBxUniSplitBuildings_SelectedIndexChanged;
-            UnittabBasics.cmBxRemProdLine.SelectedIndexChanged += cmBxUniRemProdLine_SelectedIndexChanged;
-            UnittabBasics.btnFontName.Click += btnUniFontName_Click;
-            UnittabBasics.tbOpacity.Scroll += tbUniOpacity_Scroll;
-            UnittabBasics.cmBxRemChronoboost.SelectedIndexChanged += cmBxRemChronoboost_SelectedIndexChanged;
-            UnittabBasics.cmBxRemSpellCounter.SelectedIndexChanged += cmBxRemSpellCounter_SelectedIndexChanged;
+            UnittabUiUnitTabBasic.chBxRemoveAi.CheckedChanged += chBxUnitTabRemoveAi_CheckedChanged;
+            UnittabUiUnitTabBasic.chBxRemoveAllie.CheckedChanged += chBxUnitTabRemoveAllie_CheckedChanged;
+            UnittabUiUnitTabBasic.chBxRemoveNeutral.CheckedChanged += chBxUnitTabRemoveNeutral_CheckedChanged;
+            UnittabUiUnitTabBasic.chBxRemoveLocalplayer.CheckedChanged += chBxUnitTabRemoveLocalplayer_CheckedChanged;
+            UnittabUiUnitTabBasic.chBxRemoveClantag.CheckedChanged += chBxUnitTabRemoveClantag_CheckedChanged;
+            UnittabUiUnitTabBasic.chBxSplitBuildingsUnits.CheckedChanged += chBxUnitTabSplitBuildingsUnits_CheckedChanged;
+            UnittabUiUnitTabBasic.chBxRemoveProductionLine.CheckedChanged += chBxUnitTabRemoveProductionLine_CheckedChanged;
+            UnittabUiUnitTabBasic.btnFontName.Click += btnUniFontName_Click;
+            UnittabUiUnitTabBasic.OcUiOpacity.tbOpacity.Scroll += tbUnitTabOpacity_Scroll;
+            UnittabUiUnitTabBasic.chBxRemoveChronoboost.CheckedChanged += chBxUnitTabRemoveChronoboost_CheckedChanged;
+            UnittabUiUnitTabBasic.chBxRemoveSpellcounter.CheckedChanged += chBxUnitTabRemoveSpellcounter_CheckedChanged;
 
-            ProductionTabBasics.cmBxRemAi.SelectedIndexChanged += cmBxProRemAi_SelectedIndexChanged;
-            ProductionTabBasics.cmBxRemAllie.SelectedIndexChanged += cmBxProRemAllie_SelectedIndexChanged;
-            ProductionTabBasics.cmBxRemNeutral.SelectedIndexChanged += cmBxProRemNeutral_SelectedIndexChanged;
-            ProductionTabBasics.cmBxRemLocalplayer.SelectedIndexChanged += cmBxProRemLocalplayer_SelectedIndexChanged;
-            ProductionTabBasics.cmBxRemClanTag.SelectedIndexChanged += cmBxProRemClanTag_SelectedIndexChanged;
-            ProductionTabBasics.cmBxSplitBuildings.SelectedIndexChanged += cmBxProSplitBuildings_SelectedIndexChanged;
-            ProductionTabBasics.btnFontName.Click += btnProFontName_Click;
-            ProductionTabBasics.tbOpacity.Scroll += tbProOpacity_Scroll;
-            ProductionTabBasics.cmBxRemChronoboost.SelectedIndexChanged += cmBxProdRemChronoboost_SelectedIndexChanged;
+            ProductionTabUiProductionTabBasics.chBxRemoveAi.CheckedChanged += chBxProductionTabRemoveAi_CheckedChanged;
+            ProductionTabUiProductionTabBasics.chBxRemoveAllie.CheckedChanged +=chBxProductionTabRemoveAllie_CheckedChanged; ;
+            ProductionTabUiProductionTabBasics.chBxRemoveNeutral.CheckedChanged +=chBxProductionTabRemoveNeutral_CheckedChanged; ;
+            ProductionTabUiProductionTabBasics.chBxRemoveLocalplayer.CheckedChanged +=chBxProductionTabRemoveLocalplayer_CheckedChanged; ;
+            ProductionTabUiProductionTabBasics.chBxRemoveClantag.CheckedChanged +=chBxProductionTabRemoveClantag_CheckedChanged; ;
+            ProductionTabUiProductionTabBasics.chBxSplitBuildingsUnits.CheckedChanged +=chBxProductionTabSplitBuildingsUnits_CheckedChanged; ;
+            ProductionTabUiProductionTabBasics.chBxRemoveChronoboost.CheckedChanged += chBxProductionTabRemoveChronoboost_CheckedChanged; ;
+            ProductionTabUiProductionTabBasics.btnFontName.Click += btnProFontName_Click;
+            ProductionTabUiProductionTabBasics.OcUiOpacity.tbOpacity.Scroll += tbProOpacity_Scroll;
 
             CustBugs.btnCreateNewPost.Click += btnCreateNewPost_Click;
             CustBugs.btnEmailSend.Click += btnEmailSend_Click;
@@ -1985,6 +1978,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             #endregion
         }
 
+       
+        
+
         
 
        
@@ -2024,8 +2020,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ArmyUiBasics.ChangeLanguageFile(strFile);
             ApmUiBasics.ChangeLanguageFile(strFile);
             MaphackUiMaphackBasics.ChangeLanguageFile(strFile);
-            UnittabBasics.ChangeLanguageFile(strFile);
-            ProductionTabBasics.ChangeLanguageFile(strFile);
+            UnittabUiUnitTabBasic.ChangeLanguageFile(strFile);
+            ProductionTabUiProductionTabBasics.ChangeLanguageFile(strFile);
             WorkerUiWorkerBasics.ChangeLanguageFile(strFile);
 
             /* Chatinput */
