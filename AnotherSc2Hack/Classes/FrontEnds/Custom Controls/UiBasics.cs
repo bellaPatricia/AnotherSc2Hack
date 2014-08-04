@@ -1,8 +1,8 @@
 ﻿namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    public partial class BasicsMap : AbstractUserControl
+    public partial class UiBasics : AbstractUserControl
     {
-        public BasicsMap()
+        public UiBasics()
         {
             InitializeComponent();
         }

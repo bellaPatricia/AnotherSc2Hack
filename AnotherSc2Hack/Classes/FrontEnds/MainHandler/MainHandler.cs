@@ -486,38 +486,36 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             #region Resources
 
-            ResourceBasics.chBxRemoveAi.Checked = PSettings.ResourceRemoveAi;
-            ResourceBasics.chBxRemoveAllie.Checked = PSettings.ResourceRemoveAllie;
-            ResourceBasics.chBxRemoveNeutral.Checked = PSettings.ResourceRemoveNeutral;
-            ResourceBasics.chBxRemoveLocalplayer.Checked = PSettings.ResourceRemoveLocalplayer;
-            ResourceBasics.chBxRemoveClantag.Checked = PSettings.ResourceRemoveClanTag;
-            ResourceBasics.btnFontName.Text = PSettings.ResourceFontName;
-            ResourceBasics.btnFontName.Font = new Font(PSettings.ResourceFontName, Font.Size);
-            ResourceBasics.ocOpacity.tbOpacity.Value = PSettings.ResourceOpacity > 1.0
+            ResourceUiBasics.chBxRemoveAi.Checked = PSettings.ResourceRemoveAi;
+            ResourceUiBasics.chBxRemoveAllie.Checked = PSettings.ResourceRemoveAllie;
+            ResourceUiBasics.chBxRemoveNeutral.Checked = PSettings.ResourceRemoveNeutral;
+            ResourceUiBasics.chBxRemoveLocalplayer.Checked = PSettings.ResourceRemoveLocalplayer;
+            ResourceUiBasics.chBxRemoveClantag.Checked = PSettings.ResourceRemoveClanTag;
+            ResourceUiBasics.btnFontName.Text = PSettings.ResourceFontName;
+            ResourceUiBasics.btnFontName.Font = new Font(PSettings.ResourceFontName, Font.Size);
+            ResourceUiBasics.OcUiOpacity.tbOpacity.Value = PSettings.ResourceOpacity > 1.0
                 ? (Int32) PSettings.ResourceOpacity
                 : (Int32) (PSettings.ResourceOpacity*100);
-            //ResourceBasics.tbOpacity.Value = (Int32)(PSettings.ResourceOpacity * 100);
             ResourceChatInput.txtToggle.Text = PSettings.ResourceTogglePanel;
             ResourceChatInput.txtPosition.Text = PSettings.ResourceChangePositionPanel;
             ResourceChatInput.txtSize.Text = PSettings.ResourceChangeSizePanel;
             ResourceHotkeys.txtHotkey1.Text = PSettings.ResourceHotkey1.ToString();
             ResourceHotkeys.txtHotkey2.Text = PSettings.ResourceHotkey2.ToString();
             ResourceHotkeys.txtHotkey3.Text = PSettings.ResourceHotkey3.ToString();
-            ResourceBasics.chBxDrawBackground.Checked = PSettings.ResourceDrawBackground;
-            ResourceBasics.ocOpacity.SetLabelText(PSettings.ResourceOpacity);
+            ResourceUiBasics.chBxDrawBackground.Checked = PSettings.ResourceDrawBackground;
 
             #endregion
 
             #region Income
 
-            IncomeBasics.chBxRemoveAi.Checked = PSettings.IncomeRemoveAi;
-            IncomeBasics.chBxRemoveAllie.Checked = PSettings.IncomeRemoveAllie;
-            IncomeBasics.chBxRemoveNeutral.Checked = PSettings.IncomeRemoveNeutral;
-            IncomeBasics.chBxRemoveLocalplayer.Checked = PSettings.IncomeRemoveLocalplayer;
-            IncomeBasics.chBxRemoveClantag.Checked = PSettings.IncomeRemoveClanTag;
-            IncomeBasics.btnFontName.Text = PSettings.IncomeFontName;
-            IncomeBasics.btnFontName.Font = new Font(PSettings.IncomeFontName, Font.Size);
-            IncomeBasics.ocOpacity.tbOpacity.Value = PSettings.IncomeOpacity > 1.0
+            IncomeUiBasics.chBxRemoveAi.Checked = PSettings.IncomeRemoveAi;
+            IncomeUiBasics.chBxRemoveAllie.Checked = PSettings.IncomeRemoveAllie;
+            IncomeUiBasics.chBxRemoveNeutral.Checked = PSettings.IncomeRemoveNeutral;
+            IncomeUiBasics.chBxRemoveLocalplayer.Checked = PSettings.IncomeRemoveLocalplayer;
+            IncomeUiBasics.chBxRemoveClantag.Checked = PSettings.IncomeRemoveClanTag;
+            IncomeUiBasics.btnFontName.Text = PSettings.IncomeFontName;
+            IncomeUiBasics.btnFontName.Font = new Font(PSettings.IncomeFontName, Font.Size);
+            IncomeUiBasics.OcUiOpacity.tbOpacity.Value = PSettings.IncomeOpacity > 1.0
                 ? (Int32)PSettings.IncomeOpacity
                 : (Int32)(PSettings.IncomeOpacity * 100);
             IncomeChatInput.txtToggle.Text = PSettings.IncomeTogglePanel;
@@ -526,21 +524,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             IncomeHotkeys.txtHotkey1.Text = PSettings.IncomeHotkey1.ToString();
             IncomeHotkeys.txtHotkey2.Text = PSettings.IncomeHotkey2.ToString();
             IncomeHotkeys.txtHotkey3.Text = PSettings.IncomeHotkey3.ToString();
-            IncomeBasics.chBxDrawBackground.Checked = PSettings.IncomeDrawBackground;
-            IncomeBasics.ocOpacity.SetLabelText(PSettings.IncomeOpacity);
+            IncomeUiBasics.chBxDrawBackground.Checked = PSettings.IncomeDrawBackground;
 
             #endregion
 
             #region Army
 
-            ArmyBasics.chBxRemoveAi.Checked = PSettings.ArmyRemoveAi;
-            ArmyBasics.chBxRemoveAllie.Checked = PSettings.ArmyRemoveAllie;
-            ArmyBasics.chBxRemoveNeutral.Checked = PSettings.ArmyRemoveNeutral;
-            ArmyBasics.chBxRemoveLocalplayer.Checked = PSettings.ArmyRemoveLocalplayer;
-            ArmyBasics.chBxRemoveClantag.Checked = PSettings.ArmyRemoveClanTag;
-            ArmyBasics.btnFontName.Text = PSettings.ArmyFontName;
-            ArmyBasics.btnFontName.Font = new Font(PSettings.ArmyFontName, Font.Size);
-            ArmyBasics.ocOpacity.tbOpacity.Value = PSettings.ArmyOpacity > 1.0
+            ArmyUiBasics.chBxRemoveAi.Checked = PSettings.ArmyRemoveAi;
+            ArmyUiBasics.chBxRemoveAllie.Checked = PSettings.ArmyRemoveAllie;
+            ArmyUiBasics.chBxRemoveNeutral.Checked = PSettings.ArmyRemoveNeutral;
+            ArmyUiBasics.chBxRemoveLocalplayer.Checked = PSettings.ArmyRemoveLocalplayer;
+            ArmyUiBasics.chBxRemoveClantag.Checked = PSettings.ArmyRemoveClanTag;
+            ArmyUiBasics.btnFontName.Text = PSettings.ArmyFontName;
+            ArmyUiBasics.btnFontName.Font = new Font(PSettings.ArmyFontName, Font.Size);
+            ArmyUiBasics.OcUiOpacity.tbOpacity.Value = PSettings.ArmyOpacity > 1.0
                 ? (Int32)PSettings.ArmyOpacity
                 : (Int32)(PSettings.ArmyOpacity * 100);
             ArmyChatInput.txtToggle.Text = PSettings.ArmyTogglePanel;
@@ -549,74 +546,71 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ArmyHotkeys.txtHotkey1.Text = PSettings.ArmyHotkey1.ToString();
             ArmyHotkeys.txtHotkey2.Text = PSettings.ArmyHotkey2.ToString();
             ArmyHotkeys.txtHotkey3.Text = PSettings.ArmyHotkey3.ToString();
-            ArmyBasics.chBxDrawBackground.Checked = PSettings.ArmyDrawBackground;
-            ArmyBasics.ocOpacity.SetLabelText(PSettings.ArmyOpacity);
+            ArmyUiBasics.chBxDrawBackground.Checked = PSettings.ArmyDrawBackground;
 
             #endregion
 
             #region Apm
 
-            ApmBasics.chBxRemoveAi.Checked = PSettings.ApmRemoveAi;
-            ApmBasics.chBxRemoveAllie.Checked = PSettings.ApmRemoveAllie;
-            ApmBasics.chBxRemoveNeutral.Checked = PSettings.ApmRemoveNeutral;
-            ApmBasics.chBxRemoveLocalplayer.Checked = PSettings.ApmRemoveLocalplayer;
-            ApmBasics.chBxRemoveClantag.Checked = PSettings.ApmRemoveClanTag;
-            ApmBasics.btnFontName.Text = PSettings.ApmFontName;
-            ApmBasics.btnFontName.Font = new Font(PSettings.ApmFontName, Font.Size);
-            ApmBasics.ocOpacity.tbOpacity.Value = PSettings.ApmOpacity > 1.0
-                ? (Int32)PSettings.ApmOpacity
-                : (Int32)(PSettings.ApmOpacity * 100);
+            ApmUiBasics.chBxRemoveAi.Checked = PSettings.ApmRemoveAi;
+            ApmUiBasics.chBxRemoveAllie.Checked = PSettings.ApmRemoveAllie;
+            ApmUiBasics.chBxRemoveNeutral.Checked = PSettings.ApmRemoveNeutral;
+            ApmUiBasics.chBxRemoveLocalplayer.Checked = PSettings.ApmRemoveLocalplayer;
+            ApmUiBasics.chBxRemoveClantag.Checked = PSettings.ApmRemoveClanTag;
+            ApmUiBasics.btnFontName.Text = PSettings.ApmFontName;
+            ApmUiBasics.btnFontName.Font = new Font(PSettings.ApmFontName, Font.Size);
             ApmChatInput.txtToggle.Text = PSettings.ApmTogglePanel;
             ApmChatInput.txtPosition.Text = PSettings.ApmChangePositionPanel;
             ApmChatInput.txtSize.Text = PSettings.ApmChangeSizePanel;
             ApmHotkeys.txtHotkey1.Text = PSettings.ApmHotkey1.ToString();
             ApmHotkeys.txtHotkey2.Text = PSettings.ApmHotkey2.ToString();
             ApmHotkeys.txtHotkey3.Text = PSettings.ApmHotkey3.ToString();
-            ApmBasics.chBxDrawBackground.Checked = PSettings.ApmDrawBackground;
-            ApmBasics.ocOpacity.SetLabelText(PSettings.ApmOpacity);
+            ApmUiBasics.chBxDrawBackground.Checked = PSettings.ApmDrawBackground;
+            ApmUiBasics.OcUiOpacity.tbOpacity.Value = PSettings.ApmOpacity > 1.0
+                ? (Int32)PSettings.ApmOpacity
+                : (Int32)(PSettings.ApmOpacity * 100);
+            
 
             #endregion
 
             #region Worker
 
-            WorkerBasics.btnFontName.Text = PSettings.WorkerFontName;
-            WorkerBasics.btnFontName.Font = new Font(PSettings.WorkerFontName, Font.Size);
-            WorkerBasics.tbOpacity.Value = PSettings.WorkerOpacity > 1.0
-                ? (Int32)PSettings.WorkerOpacity
-                : (Int32)(PSettings.WorkerOpacity * 100);
-            WorkerBasics.lblOpacity.Text = "Opacity: " + WorkerBasics.tbOpacity.Value.ToString(CultureInfo.InvariantCulture) + "%";
+            WorkerUiWorkerBasics.btnFontName.Text = PSettings.WorkerFontName;
+            WorkerUiWorkerBasics.btnFontName.Font = new Font(PSettings.WorkerFontName, Font.Size);
             WorkerChatInput.txtToggle.Text = PSettings.WorkerTogglePanel;
             WorkerChatInput.txtPosition.Text = PSettings.WorkerChangePositionPanel;
             WorkerChatInput.txtSize.Text = PSettings.WorkerChangeSizePanel;
             WorkerHotkeys.txtHotkey1.Text = PSettings.WorkerHotkey1.ToString();
             WorkerHotkeys.txtHotkey2.Text = PSettings.WorkerHotkey2.ToString();
             WorkerHotkeys.txtHotkey3.Text = PSettings.WorkerHotkey3.ToString();
-            WorkerBasics.chBxDrawBackground.Checked = PSettings.WorkerDrawBackground;
+            WorkerUiWorkerBasics.chBxDrawBackground.Checked = PSettings.WorkerDrawBackground;
+            WorkerUiWorkerBasics.OcUiOpacity.tbOpacity.Value = PSettings.WorkerOpacity > 1.0
+                ? (Int32)PSettings.WorkerOpacity
+                : (Int32)(PSettings.WorkerOpacity * 100);
 
             #endregion
 
             #region Maphack
 
-            MaphackBasics.cmBxRemAi.Text = PSettings.MaphackRemoveAi.ToString();
-            MaphackBasics.cmBxRemAllie.Text = PSettings.MaphackRemoveAllie.ToString();
-            MaphackBasics.cmBxRemNeutral.Text = PSettings.MaphackRemoveNeutral.ToString();
-            MaphackBasics.cmBxRemLocalplayer.Text = PSettings.MaphackRemoveLocalplayer.ToString();
-            MaphackBasics.tbOpacity.Value = PSettings.MaphackOpacity > 1.0
-                ? (Int32)PSettings.MaphackOpacity
-                : (Int32)(PSettings.MaphackOpacity * 100);
-            MaphackBasics.lblOpacity.Text = "Opacity: " + MaphackBasics.tbOpacity.Value.ToString(CultureInfo.InvariantCulture) + "%";
-            MaphackBasics.btnDestinationLine.BackColor = PSettings.MaphackDestinationColor;
+            MaphackUiMaphackBasics.chBxRemoveAi.Checked = PSettings.MaphackRemoveAi;
+            MaphackUiMaphackBasics.chBxRemoveAllie.Checked = PSettings.MaphackRemoveAllie;
+            MaphackUiMaphackBasics.chBxRemoveNeutral.Checked = PSettings.MaphackRemoveNeutral;
+            MaphackUiMaphackBasics.chBxRemoveLocalplayer.Checked = PSettings.MaphackRemoveLocalplayer;
+            MaphackUiMaphackBasics.btnDestinationLine.BackColor = PSettings.MaphackDestinationColor;
             MaphackChatInput.txtToggle.Text = PSettings.MaphackTogglePanel;
             MaphackChatInput.txtPosition.Text = PSettings.MaphackChangePositionPanel;
             MaphackChatInput.txtSize.Text = PSettings.MaphackChangeSizePanel;
             MaphackHotkeys.txtHotkey1.Text = PSettings.MaphackHotkey1.ToString();
             MaphackHotkeys.txtHotkey2.Text = PSettings.MaphackHotkey2.ToString();
             MaphackHotkeys.txtHotkey3.Text = PSettings.MaphackHotkey3.ToString();
-            MaphackBasics.chBxMaphackDisableDestinationLine.Checked = PSettings.MaphackDisableDestinationLine;
-            MaphackBasics.chBxMaphackColorDefensiveStructuresYellow.Checked = PSettings.MaphackColorDefensivestructuresYellow;
-            MaphackBasics.chBxMaphackRemVisionArea.Checked = PSettings.MaphackRemoveVisionArea;
-            MaphackBasics.chBxMaphackRemCamera.Checked = PSettings.MaphackRemoveCamera;
-
+            MaphackUiMaphackBasics.chBxMaphackDisableDestinationLine.Checked = PSettings.MaphackDisableDestinationLine;
+            MaphackUiMaphackBasics.chBxMaphackColorDefensiveStructuresYellow.Checked = PSettings.MaphackColorDefensivestructuresYellow;
+            MaphackUiMaphackBasics.chBxMaphackRemVisionArea.Checked = PSettings.MaphackRemoveVisionArea;
+            MaphackUiMaphackBasics.chBxMaphackRemCamera.Checked = PSettings.MaphackRemoveCamera;
+            MaphackUiMaphackBasics.OcUiOpacity.tbOpacity.Value = PSettings.MaphackOpacity > 1.0
+                ? (Int32)PSettings.MaphackOpacity
+                : (Int32)(PSettings.MaphackOpacity * 100);
+            
             
 
             /* UnitIds */

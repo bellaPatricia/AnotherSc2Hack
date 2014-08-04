@@ -124,18 +124,6 @@
   <data name="chBxDrawBackground.Text" xml:space="preserve">
     <value>Hintergrund zeichnen</value>
   </data>
-  <data name="lblFontName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
-  </data>
-  <data name="lblFontName.Text" xml:space="preserve">
-    <value>Schriftart:</value>
-  </data>
-  <data name="lblOpacityText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 13</value>
-  </data>
-  <data name="lblOpacityText.Text" xml:space="preserve">
-    <value>Sichtbarkeit:</value>
-  </data>
   <data name="gbBasicOptions.Text" xml:space="preserve">
     <value>Standard Einstellungen</value>
   </data>

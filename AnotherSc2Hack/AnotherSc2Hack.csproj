@@ -99,17 +99,17 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\Automation_Worker.Designer.cs">
       <DependentUpon>Automation_Worker.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Basics.cs">
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiBasics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Basics.Designer.cs">
-      <DependentUpon>Basics.cs</DependentUpon>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiBasics.Designer.cs">
+      <DependentUpon>UiBasics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_Map.cs">
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiMaphackBasics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_Map.Designer.cs">
-      <DependentUpon>Basics_Map.cs</DependentUpon>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiMaphackBasics.Designer.cs">
+      <DependentUpon>UiMaphackBasics.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\Basics_UnitTab.cs">
       <SubType>UserControl</SubType>
@@ -117,11 +117,11 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\Basics_UnitTab.Designer.cs">
       <DependentUpon>Basics_UnitTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_Wor.cs">
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiWorkerBasics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Basics_Wor.Designer.cs">
-      <DependentUpon>Basics_Wor.cs</DependentUpon>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiWorkerBasics.Designer.cs">
+      <DependentUpon>UiWorkerBasics.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\Benchmark.cs">
       <SubType>UserControl</SubType>
@@ -207,16 +207,16 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\NumberTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\OpacityControl.cs">
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\OpacityControl.de.Designer.cs">
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.de.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OpacityControl.de.resx</DependentUpon>
+      <DependentUpon>UiOpacityControl.de.resx</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\OpacityControl.Designer.cs">
-      <DependentUpon>OpacityControl.cs</DependentUpon>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.Designer.cs">
+      <DependentUpon>UiOpacityControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\UnitInformation.cs">
       <SubType>UserControl</SubType>
@@ -299,20 +299,20 @@
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Automation_Worker.resx">
       <DependentUpon>Automation_Worker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics.de.resx">
-      <DependentUpon>Basics.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiBasics.de.resx">
+      <DependentUpon>UiBasics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics.prs-AF.resx">
-      <DependentUpon>Basics.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiBasics.prs-AF.resx">
+      <DependentUpon>UiBasics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics.resx">
-      <DependentUpon>Basics.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiBasics.resx">
+      <DependentUpon>UiBasics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_Map.de.resx">
-      <DependentUpon>Basics_Map.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiMaphackBasics.de.resx">
+      <DependentUpon>UiMaphackBasics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_Map.resx">
-      <DependentUpon>Basics_Map.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiMaphackBasics.resx">
+      <DependentUpon>UiMaphackBasics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_ProdTab.de.resx">
       <DependentUpon>Basics_ProdTab.cs</DependentUpon>
@@ -323,11 +323,11 @@
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_UnitTab.resx">
       <DependentUpon>Basics_UnitTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_Wor.de.resx">
-      <DependentUpon>Basics_Wor.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiWorkerBasics.de.resx">
+      <DependentUpon>UiWorkerBasics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_Wor.resx">
-      <DependentUpon>Basics_Wor.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiWorkerBasics.resx">
+      <DependentUpon>UiWorkerBasics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Benchmark.de.resx">
       <DependentUpon>Benchmark.cs</DependentUpon>
@@ -386,13 +386,13 @@
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Basics_ProdTab.resx">
       <DependentUpon>Basics_ProdTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\OpacityControl.de.resx">
-      <DependentUpon>OpacityControl.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.de.resx">
+      <DependentUpon>UiOpacityControl.cs</DependentUpon>
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>OpacityControl.de.Designer.cs</LastGenOutput>
+      <LastGenOutput>UiOpacityControl.de.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\OpacityControl.resx">
-      <DependentUpon>OpacityControl.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.resx">
+      <DependentUpon>UiOpacityControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\PlayerInformation.de.resx">
       <DependentUpon>PlayerInformation.cs</DependentUpon>

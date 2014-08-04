@@ -122,26 +122,26 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ocOpacity.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="OcUiOpacity.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 192</value>
   </data>
-  <data name="ocOpacity.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="OcUiOpacity.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 53</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ocOpacity.TabIndex" type="System.Int32, mscorlib">
+  <data name="OcUiOpacity.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
-  <data name="&gt;&gt;ocOpacity.Name" xml:space="preserve">
-    <value>ocOpacity</value>
+  <data name="&gt;&gt;OcUiOpacity.Name" xml:space="preserve">
+    <value>OcUiOpacity</value>
   </data>
-  <data name="&gt;&gt;ocOpacity.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.OpacityControl, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;OcUiOpacity.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;ocOpacity.Parent" xml:space="preserve">
+  <data name="&gt;&gt;OcUiOpacity.Parent" xml:space="preserve">
     <value>gbBasicOptions</value>
   </data>
-  <data name="&gt;&gt;ocOpacity.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;OcUiOpacity.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="chBxDrawBackground.AutoSize" type="System.Boolean, mscorlib">
@@ -161,6 +161,9 @@
   </data>
   <data name="chBxDrawBackground.Text" xml:space="preserve">
     <value>Draw Background</value>
+  </data>
+  <data name="chBxDrawBackground.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;chBxDrawBackground.Name" xml:space="preserve">
     <value>chBxDrawBackground</value>
@@ -189,6 +192,9 @@
   <data name="chBxRemoveClantag.Text" xml:space="preserve">
     <value>Remove Clantag</value>
   </data>
+  <data name="chBxRemoveClantag.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
   <data name="&gt;&gt;chBxRemoveClantag.Name" xml:space="preserve">
     <value>chBxRemoveClantag</value>
   </data>
@@ -215,6 +221,9 @@
   </data>
   <data name="chBxRemoveLocalplayer.Text" xml:space="preserve">
     <value>Remove Yourself</value>
+  </data>
+  <data name="chBxRemoveLocalplayer.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;chBxRemoveLocalplayer.Name" xml:space="preserve">
     <value>chBxRemoveLocalplayer</value>
@@ -243,6 +252,9 @@
   <data name="chBxRemoveNeutral.Text" xml:space="preserve">
     <value>Remove Neutral</value>
   </data>
+  <data name="chBxRemoveNeutral.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
   <data name="&gt;&gt;chBxRemoveNeutral.Name" xml:space="preserve">
     <value>chBxRemoveNeutral</value>
   </data>
@@ -270,6 +282,9 @@
   <data name="chBxRemoveAllie.Text" xml:space="preserve">
     <value>Remove Allie</value>
   </data>
+  <data name="chBxRemoveAllie.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
   <data name="&gt;&gt;chBxRemoveAllie.Name" xml:space="preserve">
     <value>chBxRemoveAllie</value>
   </data>
@@ -296,6 +311,9 @@
   </data>
   <data name="chBxRemoveAi.Text" xml:space="preserve">
     <value>Remove Ai</value>
+  </data>
+  <data name="chBxRemoveAi.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;chBxRemoveAi.Name" xml:space="preserve">
     <value>chBxRemoveAi</value>
@@ -367,7 +385,7 @@
     <value>186, 248</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Basics</value>
+    <value>UiBasics</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>AnotherSc2Hack.Classes.FrontEnds.AbstractUserControl, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>

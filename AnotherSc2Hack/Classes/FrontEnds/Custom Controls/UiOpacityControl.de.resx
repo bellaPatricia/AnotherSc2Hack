@@ -117,65 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="chBxMaphackRemCamera.Text" xml:space="preserve">
-    <value>Entferne Kamera</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="chBxMaphackRemVisionArea.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 17</value>
-  </data>
-  <data name="chBxMaphackRemVisionArea.Text" xml:space="preserve">
-    <value>Entferne Kartengrenze</value>
-  </data>
-  <data name="chBxMaphackColorDefensiveStructuresYellow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 17</value>
-  </data>
-  <data name="chBxMaphackColorDefensiveStructuresYellow.Text" xml:space="preserve">
-    <value>Verteidigung gelb umranden</value>
-  </data>
-  <data name="chBxMaphackDisableDestinationLine.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 17</value>
-  </data>
-  <data name="chBxMaphackDisableDestinationLine.Text" xml:space="preserve">
-    <value>Deaktiviere Richtungslinie</value>
-  </data>
-  <data name="lblRemoveAi.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 13</value>
-  </data>
-  <data name="lblRemoveAi.Text" xml:space="preserve">
-    <value>Entferne KI:</value>
-  </data>
-  <data name="lblRemoveAllie.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 13</value>
-  </data>
-  <data name="lblRemoveAllie.Text" xml:space="preserve">
-    <value>Entferne Verbündete:</value>
-  </data>
-  <data name="lblRemoveNeutral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 13</value>
-  </data>
-  <data name="lblRemoveNeutral.Text" xml:space="preserve">
-    <value>Entferne "Neutral":</value>
-  </data>
-  <data name="lblRemoveLocalplayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 13</value>
-  </data>
-  <data name="lblRemoveLocalplayer.Text" xml:space="preserve">
-    <value>Entferne Dich:</value>
-  </data>
-  <data name="lblMaphackDestinationLine.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 13</value>
-  </data>
-  <data name="lblMaphackDestinationLine.Text" xml:space="preserve">
-    <value>Richtungslinie:</value>
-  </data>
-  <data name="lblOpacityText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 13</value>
-  </data>
-  <data name="lblOpacityText.Text" xml:space="preserve">
-    <value>Sichtbarkeit:</value>
-  </data>
-  <data name="gbMaphackBasics.Text" xml:space="preserve">
-    <value>Standard Einstellungen</value>
+  <data name="lblOpacity.Text" xml:space="preserve">
+    <value>Blubb</value>
   </data>
 </root>

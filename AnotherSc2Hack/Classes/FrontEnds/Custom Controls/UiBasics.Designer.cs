@@ -1,6 +1,6 @@
 ﻿namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    partial class Basics
+    partial class UiBasics
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Basics));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UiBasics));
             this.gbBasicOptions = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
-            this.ocOpacity = new AnotherSc2Hack.Classes.FrontEnds.OpacityControl();
+            this.OcUiOpacity = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
             this.chBxDrawBackground = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.chBxRemoveClantag = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.chBxRemoveLocalplayer = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
@@ -44,7 +44,7 @@
             // gbBasicOptions
             // 
             resources.ApplyResources(this.gbBasicOptions, "gbBasicOptions");
-            this.gbBasicOptions.Controls.Add(this.ocOpacity);
+            this.gbBasicOptions.Controls.Add(this.OcUiOpacity);
             this.gbBasicOptions.Controls.Add(this.chBxDrawBackground);
             this.gbBasicOptions.Controls.Add(this.chBxRemoveClantag);
             this.gbBasicOptions.Controls.Add(this.chBxRemoveLocalplayer);
@@ -56,10 +56,10 @@
             this.gbBasicOptions.Name = "gbBasicOptions";
             this.gbBasicOptions.TabStop = false;
             // 
-            // ocOpacity
+            // OcUiOpacity
             // 
-            resources.ApplyResources(this.ocOpacity, "ocOpacity");
-            this.ocOpacity.Name = "ocOpacity";
+            resources.ApplyResources(this.OcUiOpacity, "OcUiOpacity");
+            this.OcUiOpacity.Name = "OcUiOpacity";
             // 
             // chBxDrawBackground
             // 
@@ -110,12 +110,12 @@
             this.btnFontName.Name = "btnFontName";
             this.btnFontName.UseVisualStyleBackColor = true;
             // 
-            // Basics
+            // UiBasics
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbBasicOptions);
-            this.Name = "Basics";
+            this.Name = "UiBasics";
             this.gbBasicOptions.ResumeLayout(false);
             this.gbBasicOptions.PerformLayout();
             this.ResumeLayout(false);
@@ -132,6 +132,6 @@
         public LanguageCheckbox chBxRemoveNeutral;
         public LanguageCheckbox chBxRemoveAllie;
         public LanguageCheckbox chBxDrawBackground;
-        public OpacityControl ocOpacity;
+        public UiOpacityControl OcUiOpacity;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    partial class BasicsWor
+    partial class UiWorkerBasics
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -28,30 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicsWor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UiWorkerBasics));
             this.gbBasicOptions = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
+            this.OcUiOpacity = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
             this.chBxDrawBackground = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
-            this.lblFontName = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblOpacityText = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.btnFontName = new System.Windows.Forms.Button();
-            this.lblOpacity = new System.Windows.Forms.Label();
-            this.tbOpacity = new System.Windows.Forms.TrackBar();
             this.gbBasicOptions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).BeginInit();
             this.SuspendLayout();
             // 
             // gbBasicOptions
             // 
             resources.ApplyResources(this.gbBasicOptions, "gbBasicOptions");
+            this.gbBasicOptions.Controls.Add(this.OcUiOpacity);
             this.gbBasicOptions.Controls.Add(this.chBxDrawBackground);
-            this.gbBasicOptions.Controls.Add(this.lblFontName);
-            this.gbBasicOptions.Controls.Add(this.lblOpacityText);
             this.gbBasicOptions.Controls.Add(this.btnFontName);
-            this.gbBasicOptions.Controls.Add(this.lblOpacity);
-            this.gbBasicOptions.Controls.Add(this.tbOpacity);
             this.gbBasicOptions.LanguageFile = "";
             this.gbBasicOptions.Name = "gbBasicOptions";
             this.gbBasicOptions.TabStop = false;
+            // 
+            // OcUiOpacity
+            // 
+            resources.ApplyResources(this.OcUiOpacity, "OcUiOpacity");
+            this.OcUiOpacity.Name = "OcUiOpacity";
             // 
             // chBxDrawBackground
             // 
@@ -60,44 +58,20 @@
             this.chBxDrawBackground.Name = "chBxDrawBackground";
             this.chBxDrawBackground.UseVisualStyleBackColor = true;
             // 
-            // lblFontName
-            // 
-            resources.ApplyResources(this.lblFontName, "lblFontName");
-            this.lblFontName.LanguageFile = "";
-            this.lblFontName.Name = "lblFontName";
-            // 
-            // lblOpacityText
-            // 
-            resources.ApplyResources(this.lblOpacityText, "lblOpacityText");
-            this.lblOpacityText.LanguageFile = "";
-            this.lblOpacityText.Name = "lblOpacityText";
-            // 
             // btnFontName
             // 
             resources.ApplyResources(this.btnFontName, "btnFontName");
             this.btnFontName.Name = "btnFontName";
             this.btnFontName.UseVisualStyleBackColor = true;
             // 
-            // lblOpacity
-            // 
-            resources.ApplyResources(this.lblOpacity, "lblOpacity");
-            this.lblOpacity.Name = "lblOpacity";
-            // 
-            // tbOpacity
-            // 
-            resources.ApplyResources(this.tbOpacity, "tbOpacity");
-            this.tbOpacity.Maximum = 100;
-            this.tbOpacity.Name = "tbOpacity";
-            // 
-            // BasicsWor
+            // UiWorkerBasics
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbBasicOptions);
-            this.Name = "BasicsWor";
+            this.Name = "UiWorkerBasics";
             this.gbBasicOptions.ResumeLayout(false);
             this.gbBasicOptions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -105,11 +79,8 @@
         #endregion
 
         private LanguageGroupbox gbBasicOptions;
-        private LanguageLabel lblFontName;
-        private LanguageLabel lblOpacityText;
         public LanguageCheckbox chBxDrawBackground;
         public System.Windows.Forms.Button btnFontName;
-        public System.Windows.Forms.Label lblOpacity;
-        public System.Windows.Forms.TrackBar tbOpacity;
+        public UiOpacityControl OcUiOpacity;
     }
 }

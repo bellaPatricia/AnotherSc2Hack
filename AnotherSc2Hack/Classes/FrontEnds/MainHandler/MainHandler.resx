@@ -130,7 +130,7 @@
   <data name="lstMapUnits.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;IncomeBasics.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;IncomeUiBasics.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -171,7 +171,7 @@
   <data name="ProductionTabInformation.Location" type="System.Drawing.Point, System.Drawing">
     <value>590, 18</value>
   </data>
-  <data name="ApmBasics.TabIndex" type="System.Int32, mscorlib">
+  <data name="ApmUiBasics.TabIndex" type="System.Int32, mscorlib">
     <value>70</value>
   </data>
   <data name="tcBenchmark.Location" type="System.Drawing.Point, System.Drawing">
@@ -201,7 +201,7 @@
   <data name="btnIncome.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="ResourceBasics.TabIndex" type="System.Int32, mscorlib">
+  <data name="ResourceUiBasics.TabIndex" type="System.Int32, mscorlib">
     <value>68</value>
   </data>
   <data name="chBxUnitTabShowUnits.ToolTip" xml:space="preserve">
@@ -228,13 +228,13 @@
   <data name="lblUnitPicturePreview.Text" xml:space="preserve">
     <value>Preview:</value>
   </data>
-  <data name="&gt;&gt;MaphackBasics.Name" xml:space="preserve">
-    <value>MaphackBasics</value>
+  <data name="&gt;&gt;MaphackUiMaphackBasics.Name" xml:space="preserve">
+    <value>MaphackUiMaphackBasics</value>
   </data>
   <data name="ResourceInformation.Location" type="System.Drawing.Point, System.Drawing">
     <value>590, 18</value>
   </data>
-  <data name="&gt;&gt;ApmBasics.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ApmUiBasics.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;ProductionTabChatInput.ZOrder" xml:space="preserve">
@@ -531,7 +531,7 @@
   <data name="&gt;&gt;tcMainTab.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;MaphackBasics.Parent" xml:space="preserve">
+  <data name="&gt;&gt;MaphackUiMaphackBasics.Parent" xml:space="preserve">
     <value>tcMaphack</value>
   </data>
   <data name="btnMaphack.Location" type="System.Drawing.Point, System.Drawing">
@@ -613,7 +613,7 @@
   <data name="ProductionTabChatInput.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="MaphackBasics.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="MaphackUiMaphackBasics.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 367</value>
   </data>
   <data name="&gt;&gt;CustDebug.Type" xml:space="preserve">
@@ -643,7 +643,7 @@
   <data name="UnittabHotkeys.Location" type="System.Drawing.Point, System.Drawing">
     <value>331, 271</value>
   </data>
-  <data name="WorkerBasics.ToolTip" xml:space="preserve">
+  <data name="WorkerUiWorkerBasics.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="&gt;&gt;tcMaphack.ZOrder" xml:space="preserve">
@@ -683,7 +683,7 @@
     <value>2</value>
   </data>
   <data name="&gt;&gt;UnittabBasics.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.BasicsUnitTab, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.UiBasicsUnitTab, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;workerProductionBasics.Parent" xml:space="preserve">
     <value>tcWorkerAutomation</value>
@@ -706,8 +706,8 @@
   <data name="IncomeHotkeys.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;IncomeBasics.Name" xml:space="preserve">
-    <value>IncomeBasics</value>
+  <data name="&gt;&gt;IncomeUiBasics.Name" xml:space="preserve">
+    <value>IncomeUiBasics</value>
   </data>
   <data name="&gt;&gt;lstMapUnits.Parent" xml:space="preserve">
     <value>gbMaphackColorUnits</value>
@@ -830,7 +830,7 @@
   <data name="lblUnitPicturePreview.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;WorkerBasics.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;WorkerUiWorkerBasics.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="chBxProdTabShowUpgrades.Size" type="System.Drawing.Size, System.Drawing">
@@ -953,7 +953,7 @@
   <data name="tcCredits.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="ResourceBasics.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ResourceUiBasics.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 18</value>
   </data>
   <data name="tcBugs.Location" type="System.Drawing.Point, System.Drawing">
@@ -962,7 +962,7 @@
   <data name="&gt;&gt;WorkerChatInput.Name" xml:space="preserve">
     <value>WorkerChatInput</value>
   </data>
-  <data name="&gt;&gt;MaphackBasics.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;MaphackUiMaphackBasics.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="chBxUnitTabShowBuildings.AutoSize" type="System.Boolean, mscorlib">
@@ -980,8 +980,8 @@
   <data name="&gt;&gt;GlobalBenchmark.Parent" xml:space="preserve">
     <value>tcBenchmark</value>
   </data>
-  <data name="&gt;&gt;ArmyBasics.Name" xml:space="preserve">
-    <value>ArmyBasics</value>
+  <data name="&gt;&gt;ArmyUiBasics.Name" xml:space="preserve">
+    <value>ArmyUiBasics</value>
   </data>
   <data name="&gt;&gt;btnWorker.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1004,10 +1004,10 @@
   <data name="ApmInformation.Location" type="System.Drawing.Point, System.Drawing">
     <value>590, 18</value>
   </data>
-  <data name="&gt;&gt;WorkerBasics.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.BasicsWor, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;WorkerUiWorkerBasics.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.UiBasicsWor, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="WorkerBasics.TabIndex" type="System.Int32, mscorlib">
+  <data name="WorkerUiWorkerBasics.TabIndex" type="System.Int32, mscorlib">
     <value>68</value>
   </data>
   <data name="IncomeHotkeys.TabIndex" type="System.Int32, mscorlib">
@@ -1016,7 +1016,7 @@
   <data name="WorkerHotkeys.TabIndex" type="System.Int32, mscorlib">
     <value>65</value>
   </data>
-  <data name="ApmBasics.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ApmUiBasics.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 18</value>
   </data>
   <data name="tcArmy.Text" xml:space="preserve">
@@ -1175,8 +1175,8 @@
   <data name="&gt;&gt;ResourceHotkeys.Parent" xml:space="preserve">
     <value>tcResources</value>
   </data>
-  <data name="&gt;&gt;ArmyBasics.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.Basics, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;ArmyUiBasics.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.UiBasics, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pcBxProductionTabPreview.Type" xml:space="preserve">
     <value>AnotherSc2Hack.Classes.FrontEnds.CustomPictureBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
@@ -1235,14 +1235,14 @@
   <data name="&gt;&gt;gbProdPicture.Name" xml:space="preserve">
     <value>gbProdPicture</value>
   </data>
-  <data name="MaphackBasics.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="MaphackUiMaphackBasics.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 18</value>
   </data>
   <data name="&gt;&gt;tcVarious.Parent" xml:space="preserve">
     <value>tcMainTab</value>
   </data>
-  <data name="&gt;&gt;ResourceBasics.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.Basics, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;ResourceUiBasics.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.UiBasics, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tmrGatherInformation.Name" xml:space="preserve">
     <value>tmrGatherInformation</value>
@@ -1313,7 +1313,7 @@
   <data name="tcMainTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
-  <data name="ArmyBasics.ToolTip" xml:space="preserve">
+  <data name="ArmyUiBasics.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="WorkerHotkeys.ToolTip" xml:space="preserve">
@@ -1433,10 +1433,10 @@
   <data name="lblProdPicturePreview.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="ArmyBasics.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ArmyUiBasics.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 300</value>
   </data>
-  <data name="ApmBasics.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ApmUiBasics.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 300</value>
   </data>
   <data name="&gt;&gt;icbMapUnit.ZOrder" xml:space="preserve">
@@ -1451,8 +1451,8 @@
   <data name="WorkerInformation.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 156</value>
   </data>
-  <data name="&gt;&gt;IncomeBasics.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.Basics, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;IncomeUiBasics.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.UiBasics, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="tcProduction.ToolTip" xml:space="preserve">
     <value />
@@ -1544,8 +1544,8 @@
   <data name="&gt;&gt;btnIncome.Name" xml:space="preserve">
     <value>btnIncome</value>
   </data>
-  <data name="&gt;&gt;WorkerBasics.Name" xml:space="preserve">
-    <value>WorkerBasics</value>
+  <data name="&gt;&gt;WorkerUiWorkerBasics.Name" xml:space="preserve">
+    <value>WorkerUiWorkerBasics</value>
   </data>
   <data name="CustBugs.Size" type="System.Drawing.Size, System.Drawing">
     <value>669, 392</value>
@@ -1592,7 +1592,7 @@
   <data name="tcGlobal.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;WorkerBasics.Parent" xml:space="preserve">
+  <data name="&gt;&gt;WorkerUiWorkerBasics.Parent" xml:space="preserve">
     <value>tcWorker</value>
   </data>
   <data name="WorkerHotkeys.Size" type="System.Drawing.Size, System.Drawing">
@@ -1613,7 +1613,7 @@
   <data name="ProductionTabChatInput.Location" type="System.Drawing.Point, System.Drawing">
     <value>331, 18</value>
   </data>
-  <data name="&gt;&gt;ArmyBasics.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ArmyUiBasics.Parent" xml:space="preserve">
     <value>tcArmy</value>
   </data>
   <data name="pcBxProductionTabPreview.TabIndex" type="System.Int32, mscorlib">
@@ -1634,7 +1634,7 @@
   <data name="tcArmy.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="WorkerBasics.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="WorkerUiWorkerBasics.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 18</value>
   </data>
   <data name="txtProductionTabPictureSize.ToolTip" xml:space="preserve">
@@ -1682,7 +1682,7 @@
   <data name="&gt;&gt;ApmInformation.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="IncomeBasics.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="IncomeUiBasics.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 300</value>
   </data>
   <data name="&gt;&gt;ResourceChatInput.Parent" xml:space="preserve">
@@ -1730,7 +1730,7 @@
   <data name="&gt;&gt;CustDebug.Name" xml:space="preserve">
     <value>CustDebug</value>
   </data>
-  <data name="IncomeBasics.TabIndex" type="System.Int32, mscorlib">
+  <data name="IncomeUiBasics.TabIndex" type="System.Int32, mscorlib">
     <value>69</value>
   </data>
   <data name="gbUnitPicture.Text" xml:space="preserve">
@@ -1811,13 +1811,13 @@
   <data name="icbMapUnit.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;ApmBasics.Name" xml:space="preserve">
-    <value>ApmBasics</value>
+  <data name="&gt;&gt;ApmUiBasics.Name" xml:space="preserve">
+    <value>ApmUiBasics</value>
   </data>
   <data name="&gt;&gt;tmrGatherInformation.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ResourceBasics.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ResourceUiBasics.Parent" xml:space="preserve">
     <value>tcResources</value>
   </data>
   <data name="GlobalBenchmark.Location" type="System.Drawing.Point, System.Drawing">
@@ -1826,7 +1826,7 @@
   <data name="&gt;&gt;chBxProdTabShowBuildings.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="WorkerBasics.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="WorkerUiWorkerBasics.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 141</value>
   </data>
   <data name="tcApm.Location" type="System.Drawing.Point, System.Drawing">
@@ -1844,7 +1844,7 @@
   <data name="&gt;&gt;tcWorker.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;IncomeBasics.Parent" xml:space="preserve">
+  <data name="&gt;&gt;IncomeUiBasics.Parent" xml:space="preserve">
     <value>tcIncome</value>
   </data>
   <data name="btnMapUnitColor.TabIndex" type="System.Int32, mscorlib">
@@ -1913,7 +1913,7 @@
   <data name="&gt;&gt;UnittabBasics.Name" xml:space="preserve">
     <value>UnittabBasics</value>
   </data>
-  <data name="&gt;&gt;ArmyBasics.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ArmyUiBasics.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;gbProdPicture.Parent" xml:space="preserve">
@@ -1928,7 +1928,7 @@
   <data name="&gt;&gt;btnIncome.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MaphackBasics.ToolTip" xml:space="preserve">
+  <data name="MaphackUiMaphackBasics.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="&gt;&gt;UnittabChatInput.Parent" xml:space="preserve">
@@ -2006,7 +2006,7 @@
   <data name="tcArmy.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="MaphackBasics.TabIndex" type="System.Int32, mscorlib">
+  <data name="MaphackUiMaphackBasics.TabIndex" type="System.Int32, mscorlib">
     <value>72</value>
   </data>
   <data name="&gt;&gt;btnChangeBorderstyle.ZOrder" xml:space="preserve">
@@ -2036,7 +2036,7 @@
   <data name="btnUnit.Text" xml:space="preserve">
     <value>Unit</value>
   </data>
-  <data name="ArmyBasics.TabIndex" type="System.Int32, mscorlib">
+  <data name="ArmyUiBasics.TabIndex" type="System.Int32, mscorlib">
     <value>72</value>
   </data>
   <data name="&gt;&gt;tcWorker.ZOrder" xml:space="preserve">
@@ -9442,7 +9442,7 @@
   <data name="btnMaphack.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="IncomeBasics.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="IncomeUiBasics.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 18</value>
   </data>
   <data name="&gt;&gt;btnUnit.Name" xml:space="preserve">
@@ -9457,8 +9457,8 @@
   <data name="tcCredits.Text" xml:space="preserve">
     <value>Credits</value>
   </data>
-  <data name="&gt;&gt;ResourceBasics.Name" xml:space="preserve">
-    <value>ResourceBasics</value>
+  <data name="&gt;&gt;ResourceUiBasics.Name" xml:space="preserve">
+    <value>ResourceUiBasics</value>
   </data>
   <data name="gbMaphackColorUnits.Text" xml:space="preserve">
     <value>Mark Units</value>
@@ -9598,11 +9598,11 @@
   <data name="CustDebug.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;ApmBasics.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.Basics, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;ApmUiBasics.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.UiBasics, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ProductionTabBasics.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.BasicsProdTab, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.UiBasicsProdTab, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;gbUnittabShow.Name" xml:space="preserve">
     <value>gbUnittabShow</value>
@@ -9631,7 +9631,7 @@
   <data name="ArmyInformation.TabIndex" type="System.Int32, mscorlib">
     <value>63</value>
   </data>
-  <data name="&gt;&gt;ApmBasics.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ApmUiBasics.Parent" xml:space="preserve">
     <value>tcApm</value>
   </data>
   <data name="&gt;&gt;tcBugs.Name" xml:space="preserve">
@@ -9661,7 +9661,7 @@
   <data name="tcMaphack.Size" type="System.Drawing.Size, System.Drawing">
     <value>940, 405</value>
   </data>
-  <data name="ApmBasics.ToolTip" xml:space="preserve">
+  <data name="ApmUiBasics.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="&gt;&gt;Custom_Various.Type" xml:space="preserve">
@@ -9688,7 +9688,7 @@
   <data name="tcResources.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="IncomeBasics.ToolTip" xml:space="preserve">
+  <data name="IncomeUiBasics.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="btnMapAddUnit.Text" xml:space="preserve">
@@ -9697,7 +9697,7 @@
   <data name="&gt;&gt;tcCredits.Name" xml:space="preserve">
     <value>tcCredits</value>
   </data>
-  <data name="&gt;&gt;ResourceBasics.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ResourceUiBasics.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="lblUnitPicturePreview.TabIndex" type="System.Int32, mscorlib">
@@ -9775,7 +9775,7 @@
   <data name="btnChangeBorderstyle.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="ResourceBasics.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ResourceUiBasics.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 300</value>
   </data>
   <data name="tcMaphack.Location" type="System.Drawing.Point, System.Drawing">
@@ -9838,7 +9838,7 @@
   <data name="btnChangeBorderstyle.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="ArmyBasics.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ArmyUiBasics.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 18</value>
   </data>
   <data name="&gt;&gt;tcApm.ZOrder" xml:space="preserve">
@@ -9856,8 +9856,8 @@
   <data name="btnProduction.Text" xml:space="preserve">
     <value>Production</value>
   </data>
-  <data name="&gt;&gt;MaphackBasics.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.BasicsMap, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;MaphackUiMaphackBasics.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.UiBasicsMap, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="tcMaphack.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -9883,7 +9883,7 @@
   <data name="&gt;&gt;btnIncome.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="ResourceBasics.ToolTip" xml:space="preserve">
+  <data name="ResourceUiBasics.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="&gt;&gt;UnittabInformation.Type" xml:space="preserve">

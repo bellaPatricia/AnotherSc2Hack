@@ -1,6 +1,6 @@
 ﻿namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    partial class OpacityControl
+    partial class UiOpacityControl
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpacityControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UiOpacityControl));
             this.lblOpacity = new System.Windows.Forms.Label();
             this.tbOpacity = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).BeginInit();
@@ -45,14 +45,15 @@
             this.tbOpacity.Maximum = 100;
             this.tbOpacity.Name = "tbOpacity";
             this.tbOpacity.Scroll += new System.EventHandler(this.tbOpacity_Scroll);
+            this.tbOpacity.ValueChanged += new System.EventHandler(this.tbOpacity_ValueChanged);
             // 
-            // OpacityControl
+            // UiOpacityControl
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblOpacity);
             this.Controls.Add(this.tbOpacity);
-            this.Name = "OpacityControl";
+            this.Name = "UiOpacityControl";
             ((System.ComponentModel.ISupportInitialize)(this.tbOpacity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

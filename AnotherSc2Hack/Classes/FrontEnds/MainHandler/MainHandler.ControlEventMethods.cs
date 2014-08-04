@@ -27,13 +27,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             try
             {
                 var fd = new FontDialog();
-                fd.Font = new Font(ResourceBasics.btnFontName.Text, 15);
+                fd.Font = new Font(ResourceUiBasics.btnFontName.Text, 15);
                 var result = fd.ShowDialog();
 
                 if (result.Equals(DialogResult.OK))
                 {
-                    ResourceBasics.btnFontName.Text = fd.Font.Name;
-                    ResourceBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
+                    ResourceUiBasics.btnFontName.Text = fd.Font.Name;
+                    ResourceUiBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
                     PSettings.ResourceFontName = fd.Font.Name;
                 }
             }
@@ -47,13 +47,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void tbResourceOpacity_Scroll(object sender, EventArgs e)
         {
-            /*if (ResourceBasics.ocOpacity.tbOpacity.Value > 0)
-                ResourceBasics.lblOpacity.Text = "Opacity: " + (ResourceBasics.tbOpacityf.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
-
-            else
-                ResourceBasics.ocOpacity.tbOpacity.Value = 1;
-            */
-            PSettings.ResourceOpacity = (double)ResourceBasics.ocOpacity.tbOpacity.Value / 100;
+            PSettings.ResourceOpacity = (double)ResourceUiBasics.OcUiOpacity.tbOpacity.Value / 100;
         }
 
         private void txtResTogglePanel_TextChanged(object sender, EventArgs e)
@@ -97,32 +91,32 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void chBxResourceDrawBackground_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ResourceDrawBackground = ResourceBasics.chBxDrawBackground.Checked;
+            PSettings.ResourceDrawBackground = ResourceUiBasics.chBxDrawBackground.Checked;
         }
 
         void chBxResourceRemoveNeutral_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ResourceRemoveNeutral = ResourceBasics.chBxRemoveNeutral.Checked;
+            PSettings.ResourceRemoveNeutral = ResourceUiBasics.chBxRemoveNeutral.Checked;
         }
 
         void chBxResourceRemoveLocalplayer_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.IncomeRemoveLocalplayer = IncomeBasics.chBxRemoveLocalplayer.Checked;
+            PSettings.IncomeRemoveLocalplayer = IncomeUiBasics.chBxRemoveLocalplayer.Checked;
         }
 
         void chBxResourceRemoveClantag_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ApmRemoveClanTag = ApmBasics.chBxRemoveClantag.Checked;
+            PSettings.ApmRemoveClanTag = ApmUiBasics.chBxRemoveClantag.Checked;
         }
 
         void chBxResourceRemoveAllie_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ResourceRemoveAllie = ResourceBasics.chBxRemoveAllie.Checked;
+            PSettings.ResourceRemoveAllie = ResourceUiBasics.chBxRemoveAllie.Checked;
         }
 
         void chBxResourceRemoveAi_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ResourceRemoveAi = ResourceBasics.chBxRemoveAi.Checked;
+            PSettings.ResourceRemoveAi = ResourceUiBasics.chBxRemoveAi.Checked;
         }
 
         #endregion
@@ -137,13 +131,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             try
             {
                 var fd = new FontDialog();
-                fd.Font = new Font(IncomeBasics.btnFontName.Text, 15);
+                fd.Font = new Font(IncomeUiBasics.btnFontName.Text, 15);
                 var result = fd.ShowDialog();
 
                 if (result.Equals(DialogResult.OK))
                 {
-                    IncomeBasics.btnFontName.Text = fd.Font.Name;
-                    IncomeBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
+                    IncomeUiBasics.btnFontName.Text = fd.Font.Name;
+                    IncomeUiBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
                     PSettings.IncomeFontName = fd.Font.Name;
                 }
             }
@@ -157,13 +151,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void tbIncomeOpacity_Scroll(object sender, EventArgs e)
         {
-            /*if (IncomeBasics.tbOpacityf.Value > 0)
-                IncomeBasics.lblOpacity.Text = "Opacity: " + (IncomeBasics.tbOpacityf.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
+            /*if (IncomeUiBasics.tbOpacityf.Value > 0)
+                IncomeUiBasics.lblOpacity.Text = "Opacity: " + (IncomeUiBasics.tbOpacityf.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
 
             else
-                IncomeBasics.tbOpacityf.Value = 1;*/
+                IncomeUiBasics.tbOpacityf.Value = 1;*/
 
-            PSettings.IncomeOpacity = (double)IncomeBasics.ocOpacity.tbOpacity.Value / 100;
+            PSettings.IncomeOpacity = (double)IncomeUiBasics.OcUiOpacity.tbOpacity.Value / 100;
         }
 
         private void txtIncTogglePanel_TextChanged(object sender, EventArgs e)
@@ -207,32 +201,32 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void chBxIncomeDrawBackground_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.IncomeDrawBackground = IncomeBasics.chBxDrawBackground.Checked;
+            PSettings.IncomeDrawBackground = IncomeUiBasics.chBxDrawBackground.Checked;
         }
 
         void chBxIncomeRemoveNeutral_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.IncomeRemoveNeutral = IncomeBasics.chBxRemoveNeutral.Checked;
+            PSettings.IncomeRemoveNeutral = IncomeUiBasics.chBxRemoveNeutral.Checked;
         }
 
         void chBxIncomeRemoveLocalplayer_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.IncomeRemoveLocalplayer = IncomeBasics.chBxRemoveLocalplayer.Checked;
+            PSettings.IncomeRemoveLocalplayer = IncomeUiBasics.chBxRemoveLocalplayer.Checked;
         }
 
         void chBxIncomeRemoveClantag_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ApmRemoveClanTag = ApmBasics.chBxRemoveClantag.Checked;
+            PSettings.ApmRemoveClanTag = ApmUiBasics.chBxRemoveClantag.Checked;
         }
 
         void chBxIncomeRemoveAllie_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.IncomeRemoveAllie = IncomeBasics.chBxRemoveAllie.Checked;
+            PSettings.IncomeRemoveAllie = IncomeUiBasics.chBxRemoveAllie.Checked;
         }
 
         void chBxIncomeRemoveAi_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.IncomeRemoveAi = IncomeBasics.chBxRemoveAi.Checked;
+            PSettings.IncomeRemoveAi = IncomeUiBasics.chBxRemoveAi.Checked;
         }
 
   
@@ -247,13 +241,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             try
             {
                 var fd = new FontDialog();
-                fd.Font = new Font(WorkerBasics.btnFontName.Text, 15);
+                fd.Font = new Font(WorkerUiWorkerBasics.btnFontName.Text, 15);
                 var result = fd.ShowDialog();
 
                 if (result.Equals(DialogResult.OK))
                 {
-                    WorkerBasics.btnFontName.Text = fd.Font.Name;
-                    WorkerBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
+                    WorkerUiWorkerBasics.btnFontName.Text = fd.Font.Name;
+                    WorkerUiWorkerBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
                     PSettings.WorkerFontName = fd.Font.Name;
                 }
             }
@@ -263,17 +257,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 MessageBox.Show("Only TrueType Fonts are allowed!");
                 goto FontAgain;
             }
-        }
-
-        private void tbWorOpacity_Scroll(object sender, EventArgs e)
-        {
-            if (WorkerBasics.tbOpacity.Value > 0)
-                WorkerBasics.lblOpacity.Text = "Opacity: " + (WorkerBasics.tbOpacity.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
-
-            else
-                WorkerBasics.tbOpacity.Value = 1;
-
-            PSettings.WorkerOpacity = (double)WorkerBasics.tbOpacity.Value / 100;
         }
 
         private void txtWorTogglePanel_TextChanged(object sender, EventArgs e)
@@ -317,7 +300,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void chBxWorDrawBackground_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.WorkerDrawBackground = WorkerBasics.chBxDrawBackground.Checked;
+            PSettings.WorkerDrawBackground = WorkerUiWorkerBasics.chBxDrawBackground.Checked;
+        }
+
+        void tbWorkerOpacity_Scroll(object sender, EventArgs e)
+        {
+            PSettings.WorkerOpacity = (double)WorkerUiWorkerBasics.OcUiOpacity.tbOpacity.Value / 100;
         }
 
         #endregion
@@ -333,13 +321,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             try
             {
                 var fd = new FontDialog();
-                fd.Font = new Font(ApmBasics.btnFontName.Text, 15);
+                fd.Font = new Font(ApmUiBasics.btnFontName.Text, 15);
                 var result = fd.ShowDialog();
 
                 if (result.Equals(DialogResult.OK))
                 {
-                    ApmBasics.btnFontName.Text = fd.Font.Name;
-                    ApmBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
+                    ApmUiBasics.btnFontName.Text = fd.Font.Name;
+                    ApmUiBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
                     PSettings.ApmFontName = fd.Font.Name;
                 }
             }
@@ -353,13 +341,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void tbApmOpacity_Scroll(object sender, EventArgs e)
         {
-           /* if (ApmBasics.tbOpacityf.Value > 0)
-                ApmBasics.lblOpacity.Text = "Opacity: " + (ApmBasics.tbOpacityf.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
+           /* if (ApmUiBasics.tbOpacityf.Value > 0)
+                ApmUiBasics.lblOpacity.Text = "Opacity: " + (ApmUiBasics.tbOpacityf.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
 
             else
-                ApmBasics.tbOpacityf.Value = 1;*/
+                ApmUiBasics.tbOpacityf.Value = 1;*/
 
-            PSettings.ApmOpacity = (double)ApmBasics.ocOpacity.tbOpacity.Value / 100;
+            PSettings.ApmOpacity = (double)ApmUiBasics.OcUiOpacity.tbOpacity.Value / 100;
         }
 
         private void txtApmTogglePanel_TextChanged(object sender, EventArgs e)
@@ -403,32 +391,32 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void chBxApmDrawBackground_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ApmDrawBackground = ApmBasics.chBxDrawBackground.Checked;
+            PSettings.ApmDrawBackground = ApmUiBasics.chBxDrawBackground.Checked;
         }
 
         void chBxApmRemoveNeutral_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ApmRemoveNeutral = ApmBasics.chBxRemoveNeutral.Checked;
+            PSettings.ApmRemoveNeutral = ApmUiBasics.chBxRemoveNeutral.Checked;
         }
 
         void chBxApmRemoveLocalplayer_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ApmRemoveLocalplayer = ApmBasics.chBxRemoveLocalplayer.Checked;
+            PSettings.ApmRemoveLocalplayer = ApmUiBasics.chBxRemoveLocalplayer.Checked;
         }
 
         void chBxApmRemoveClantag_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ApmRemoveClanTag = ApmBasics.chBxRemoveClantag.Checked;
+            PSettings.ApmRemoveClanTag = ApmUiBasics.chBxRemoveClantag.Checked;
         }
 
         void chBxApmRemoveAllie_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ApmRemoveAllie = ApmBasics.chBxRemoveAllie.Checked;
+            PSettings.ApmRemoveAllie = ApmUiBasics.chBxRemoveAllie.Checked;
         }
 
         void chBxApmRemoveAi_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ApmRemoveAi = ApmBasics.chBxRemoveAi.Checked;
+            PSettings.ApmRemoveAi = ApmUiBasics.chBxRemoveAi.Checked;
         }
 
         #endregion
@@ -437,27 +425,27 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void chBxArmyRemoveNeutral_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ArmyRemoveNeutral = ArmyBasics.chBxRemoveNeutral.Checked;
+            PSettings.ArmyRemoveNeutral = ArmyUiBasics.chBxRemoveNeutral.Checked;
         }
 
         void chBxArmyRemoveLocalplayer_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ArmyRemoveLocalplayer = ArmyBasics.chBxRemoveLocalplayer.Checked;
+            PSettings.ArmyRemoveLocalplayer = ArmyUiBasics.chBxRemoveLocalplayer.Checked;
         }
 
         void chBxArmyRemoveClantag_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ArmyRemoveClanTag = ArmyBasics.chBxRemoveClantag.Checked;
+            PSettings.ArmyRemoveClanTag = ArmyUiBasics.chBxRemoveClantag.Checked;
         }
 
         void chBxArmyRemoveAllie_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ArmyRemoveAllie = ArmyBasics.chBxRemoveAllie.Checked;
+            PSettings.ArmyRemoveAllie = ArmyUiBasics.chBxRemoveAllie.Checked;
         }
 
         void chBxArmyRemoveAi_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ArmyRemoveAi = ArmyBasics.chBxRemoveAi.Checked;
+            PSettings.ArmyRemoveAi = ArmyUiBasics.chBxRemoveAi.Checked;
         }
 
         private void btnArmyFontName_Click(object sender, EventArgs e)
@@ -467,13 +455,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             try
             {
                 var fd = new FontDialog();
-                fd.Font = new Font(ArmyBasics.btnFontName.Text, 15);
+                fd.Font = new Font(ArmyUiBasics.btnFontName.Text, 15);
                 var result = fd.ShowDialog();
 
                 if (result.Equals(DialogResult.OK))
                 {
-                    ArmyBasics.btnFontName.Text = fd.Font.Name;
-                    ArmyBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
+                    ArmyUiBasics.btnFontName.Text = fd.Font.Name;
+                    ArmyUiBasics.btnFontName.Font = new Font(fd.Font.Name, Font.Size, FontStyle.Regular);
                     PSettings.ArmyFontName = fd.Font.Name;
                 }
             }
@@ -487,13 +475,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void tbArmyOpacity_Scroll(object sender, EventArgs e)
         {
-           /* if (ArmyBasics.tbOpacityf.Value > 0)
-                ArmyBasics.lblOpacity.Text = "Opacity: " + (ArmyBasics.tbOpacityf.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
-
-            else
-                ArmyBasics.tbOpacityf.Value = 1;*/
-
-            PSettings.ArmyOpacity = (double)ArmyBasics.ocOpacity.tbOpacity.Value / 100;
+            PSettings.ArmyOpacity = (double)ArmyUiBasics.OcUiOpacity.tbOpacity.Value / 100;
         }
 
         private void txtArmTogglePanel_TextChanged(object sender, EventArgs e)
@@ -537,7 +519,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void chBxArmyDrawBackground_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ArmyDrawBackground = ArmyBasics.chBxDrawBackground.Checked;
+            PSettings.ArmyDrawBackground = ArmyUiBasics.chBxDrawBackground.Checked;
         }
 
         #endregion
@@ -1035,40 +1017,34 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             lstMapUnits.Invalidate();
         }
 
-        private void cmBxMapRemAi_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxMaphackRemoveNeutral_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.MaphackRemoveAi = Convert.ToBoolean(MaphackBasics.cmBxRemAi.Text);
+            PSettings.MaphackRemoveNeutral = MaphackUiMaphackBasics.chBxRemoveNeutral.Checked;
         }
 
-        private void cmBxMapRemAllie_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxMaphackRemoveLocalplayer_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.MaphackRemoveAllie = Convert.ToBoolean(MaphackBasics.cmBxRemAllie.Text);
+            PSettings.MaphackRemoveLocalplayer = MaphackUiMaphackBasics.chBxRemoveLocalplayer.Checked;
         }
 
-        private void cmBxMapRemNeutral_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxMaphackRemoveAllie_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.MaphackRemoveNeutral = Convert.ToBoolean(MaphackBasics.cmBxRemNeutral.Text);
+            PSettings.MaphackRemoveAllie = MaphackUiMaphackBasics.chBxRemoveAllie.Checked;
         }
 
-        private void cmBxMapRemLocalplayer_SelectedIndexChanged(object sender, EventArgs e)
+        void chBxMaphackRemoveAi_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.MaphackRemoveLocalplayer = Convert.ToBoolean(MaphackBasics.cmBxRemLocalplayer.Text);
+            PSettings.MaphackRemoveAi = MaphackUiMaphackBasics.chBxRemoveAi.Checked;
         }
 
         private void ChBxMaphackDisableDestinationLineCheckedChanged(object sender, EventArgs e)
         {
-            PSettings.MaphackDisableDestinationLine = MaphackBasics.chBxMaphackDisableDestinationLine.Checked;
+            PSettings.MaphackDisableDestinationLine = MaphackUiMaphackBasics.chBxMaphackDisableDestinationLine.Checked;
         }
 
-        private void tbMapOpacity_Scroll(object sender, EventArgs e)
+        private void tbMaphackOpacity_Scroll(object sender, EventArgs e)
         {
-            if (MaphackBasics.tbOpacity.Value > 0)
-                MaphackBasics.lblOpacity.Text = "Opacity: " + (MaphackBasics.tbOpacity.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
-
-            else
-                MaphackBasics.tbOpacity.Value = 1;
-
-            PSettings.MaphackOpacity = (double)MaphackBasics.tbOpacity.Value / 100;
+            PSettings.MaphackOpacity = (double)MaphackUiMaphackBasics.OcUiOpacity.tbOpacity.Value / 100;
         }
 
         private void lstMapUnits_DrawItem(object sender, DrawItemEventArgs e)
@@ -1090,42 +1066,42 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (cl.Equals(DialogResult.OK))
                 PSettings.MaphackDestinationColor = clDia.Color;
 
-            MaphackBasics.btnDestinationLine.BackColor = PSettings.MaphackDestinationColor;
+            MaphackUiMaphackBasics.btnDestinationLine.BackColor = PSettings.MaphackDestinationColor;
         }
 
-        private void txtMapTogglePanel_TextChanged(object sender, EventArgs e)
+        private void txtMaphackTogglePanel_TextChanged(object sender, EventArgs e)
         {
             if (MaphackChatInput.txtToggle.Text.Length > 0)
                 PSettings.MaphackTogglePanel = MaphackChatInput.txtToggle.Text;
         }
 
-        private void txtMapPositionPanel_TextChanged(object sender, EventArgs e)
+        private void txtMaphackPositionPanel_TextChanged(object sender, EventArgs e)
         {
             if (MaphackChatInput.txtPosition.Text.Length > 0)
                 PSettings.MaphackChangePositionPanel = MaphackChatInput.txtPosition.Text;
         }
 
-        private void txtMapChangeSizePanel_TextChanged(object sender, EventArgs e)
+        private void txtMaphackChangeSizePanel_TextChanged(object sender, EventArgs e)
         {
             if (MaphackChatInput.txtSize.Text.Length > 0)
                 PSettings.MaphackChangeSizePanel = MaphackChatInput.txtSize.Text;
         }
 
-        private void txtMapHotkey1_KeyDown(object sender, KeyEventArgs e)
+        private void txtMaphackHotkey1_KeyDown(object sender, KeyEventArgs e)
         {
             MaphackHotkeys.txtHotkey1.Text = e.KeyCode.ToString();
             PSettings.MaphackHotkey1 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
-        private void txtMapHotkey2_KeyDown(object sender, KeyEventArgs e)
+        private void txtMaphackHotkey2_KeyDown(object sender, KeyEventArgs e)
         {
             MaphackHotkeys.txtHotkey2.Text = e.KeyCode.ToString();
             PSettings.MaphackHotkey2 = e.KeyCode;
             e.SuppressKeyPress = true;
         }
 
-        private void txtMapHotkey3_KeyDown(object sender, KeyEventArgs e)
+        private void txtMaphackHotkey3_KeyDown(object sender, KeyEventArgs e)
         {
             MaphackHotkeys.txtHotkey3.Text = e.KeyCode.ToString();
             PSettings.MaphackHotkey3 = e.KeyCode;
@@ -1134,17 +1110,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void ChBxMaphackMaphackColorDefensiveStructuresYellowCheckedChanged(object sender, EventArgs e)
         {
-            PSettings.MaphackColorDefensivestructuresYellow = MaphackBasics.chBxMaphackColorDefensiveStructuresYellow.Checked;
+            PSettings.MaphackColorDefensivestructuresYellow = MaphackUiMaphackBasics.chBxMaphackColorDefensiveStructuresYellow.Checked;
         }
 
         private void ChBxMaphackMaphackRemVisionAreaCheckedChanged(object sender, EventArgs e)
         {
-            PSettings.MaphackRemoveVisionArea = MaphackBasics.chBxMaphackRemVisionArea.Checked;
+            PSettings.MaphackRemoveVisionArea = MaphackUiMaphackBasics.chBxMaphackRemVisionArea.Checked;
         }
 
         private void ChBxMaphackMapRemCameraCheckedChanged(object sender, EventArgs e)
         {
-            PSettings.MaphackRemoveCamera = MaphackBasics.chBxMaphackRemCamera.Checked;
+            PSettings.MaphackRemoveCamera = MaphackUiMaphackBasics.chBxMaphackRemCamera.Checked;
         }
 
         /* Throw images and Strings into the Imageboxes [Maphack] */
@@ -1821,9 +1797,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ArmyHotkeys.txtHotkey2.KeyDown += txtArmHotkey2_KeyDown;
             ArmyHotkeys.txtHotkey3.KeyDown += txtArmHotkey3_KeyDown;
 
-            MaphackHotkeys.txtHotkey1.KeyDown += txtMapHotkey1_KeyDown;
-            MaphackHotkeys.txtHotkey2.KeyDown += txtMapHotkey2_KeyDown;
-            MaphackHotkeys.txtHotkey3.KeyDown += txtMapHotkey3_KeyDown;
+            MaphackHotkeys.txtHotkey1.KeyDown += txtMaphackHotkey1_KeyDown;
+            MaphackHotkeys.txtHotkey2.KeyDown += txtMaphackHotkey2_KeyDown;
+            MaphackHotkeys.txtHotkey3.KeyDown += txtMaphackHotkey3_KeyDown;
 
             UnittabHotkeys.txtHotkey1.KeyDown += txtUnitHotkey1_KeyDown;
             UnittabHotkeys.txtHotkey2.KeyDown += txtUnitHotkey2_KeyDown;
@@ -1861,9 +1837,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ArmyChatInput.txtPosition.TextChanged += txtArmPositionPanel_TextChanged;
             ArmyChatInput.txtSize.TextChanged += txtArmChangeSizePanel_TextChanged;
 
-            MaphackChatInput.txtToggle.TextChanged += txtMapTogglePanel_TextChanged;
-            MaphackChatInput.txtPosition.TextChanged += txtMapPositionPanel_TextChanged;
-            MaphackChatInput.txtSize.TextChanged += txtMapChangeSizePanel_TextChanged;
+            MaphackChatInput.txtToggle.TextChanged += txtMaphackTogglePanel_TextChanged;
+            MaphackChatInput.txtPosition.TextChanged += txtMaphackPositionPanel_TextChanged;
+            MaphackChatInput.txtSize.TextChanged += txtMaphackChangeSizePanel_TextChanged;
 
             UnittabChatInput.txtToggle.TextChanged += txtUnitTogglePanel_TextChanged;
             UnittabChatInput.txtPosition.TextChanged += txtUnitPositionPanel_TextChanged;
@@ -1875,59 +1851,58 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             #endregion
 
-            #region Basics
+            #region UiBasics
 
-            ResourceBasics.chBxRemoveAi.CheckedChanged += chBxResourceRemoveAi_CheckedChanged;
-            ResourceBasics.chBxRemoveAllie.CheckedChanged += chBxResourceRemoveAllie_CheckedChanged;
-            ResourceBasics.chBxRemoveClantag.CheckedChanged += chBxResourceRemoveClantag_CheckedChanged;
-            ResourceBasics.chBxRemoveLocalplayer.CheckedChanged += chBxResourceRemoveLocalplayer_CheckedChanged;
-            ResourceBasics.chBxDrawBackground.CheckedChanged += chBxResourceDrawBackground_CheckedChanged;
-            ResourceBasics.chBxRemoveNeutral.CheckedChanged += chBxResourceRemoveNeutral_CheckedChanged;
-            ResourceBasics.btnFontName.Click += btnResourceFontName_Click;
-            ResourceBasics.ocOpacity.tbOpacity.Scroll += tbResourceOpacity_Scroll;
+            ResourceUiBasics.chBxRemoveAi.CheckedChanged += chBxResourceRemoveAi_CheckedChanged;
+            ResourceUiBasics.chBxRemoveAllie.CheckedChanged += chBxResourceRemoveAllie_CheckedChanged;
+            ResourceUiBasics.chBxRemoveClantag.CheckedChanged += chBxResourceRemoveClantag_CheckedChanged;
+            ResourceUiBasics.chBxRemoveLocalplayer.CheckedChanged += chBxResourceRemoveLocalplayer_CheckedChanged;
+            ResourceUiBasics.chBxDrawBackground.CheckedChanged += chBxResourceDrawBackground_CheckedChanged;
+            ResourceUiBasics.chBxRemoveNeutral.CheckedChanged += chBxResourceRemoveNeutral_CheckedChanged;
+            ResourceUiBasics.btnFontName.Click += btnResourceFontName_Click;
+            ResourceUiBasics.OcUiOpacity.tbOpacity.Scroll += tbResourceOpacity_Scroll;
 
-            IncomeBasics.chBxRemoveAi.CheckedChanged += chBxIncomeRemoveAi_CheckedChanged;
-            IncomeBasics.chBxRemoveAllie.CheckedChanged += chBxIncomeRemoveAllie_CheckedChanged;
-            IncomeBasics.chBxRemoveClantag.CheckedChanged += chBxIncomeRemoveClantag_CheckedChanged;
-            IncomeBasics.chBxRemoveLocalplayer.CheckedChanged += chBxIncomeRemoveLocalplayer_CheckedChanged;
-            IncomeBasics.chBxRemoveNeutral.CheckedChanged += chBxIncomeRemoveNeutral_CheckedChanged;
-            IncomeBasics.chBxDrawBackground.CheckedChanged += chBxIncomeDrawBackground_CheckedChanged;
-            IncomeBasics.btnFontName.Click += btnIncomeFontName_Click;
-            IncomeBasics.ocOpacity.tbOpacity.Scroll += tbIncomeOpacity_Scroll;
+            IncomeUiBasics.chBxRemoveAi.CheckedChanged += chBxIncomeRemoveAi_CheckedChanged;
+            IncomeUiBasics.chBxRemoveAllie.CheckedChanged += chBxIncomeRemoveAllie_CheckedChanged;
+            IncomeUiBasics.chBxRemoveClantag.CheckedChanged += chBxIncomeRemoveClantag_CheckedChanged;
+            IncomeUiBasics.chBxRemoveLocalplayer.CheckedChanged += chBxIncomeRemoveLocalplayer_CheckedChanged;
+            IncomeUiBasics.chBxRemoveNeutral.CheckedChanged += chBxIncomeRemoveNeutral_CheckedChanged;
+            IncomeUiBasics.chBxDrawBackground.CheckedChanged += chBxIncomeDrawBackground_CheckedChanged;
+            IncomeUiBasics.btnFontName.Click += btnIncomeFontName_Click;
+            IncomeUiBasics.OcUiOpacity.tbOpacity.Scroll += tbIncomeOpacity_Scroll;
 
-            ApmBasics.chBxRemoveAi.CheckedChanged += chBxApmRemoveAi_CheckedChanged;
-            ApmBasics.chBxRemoveAllie.CheckedChanged += chBxApmRemoveAllie_CheckedChanged;
-            ApmBasics.chBxRemoveClantag.CheckedChanged += chBxApmRemoveClantag_CheckedChanged;
-            ApmBasics.chBxRemoveNeutral.CheckedChanged += chBxApmRemoveNeutral_CheckedChanged;
-            ApmBasics.chBxRemoveLocalplayer.CheckedChanged += chBxApmRemoveLocalplayer_CheckedChanged;
-            ApmBasics.chBxDrawBackground.CheckedChanged += chBxApmDrawBackground_CheckedChanged;
-            ApmBasics.btnFontName.Click += btnApmFontName_Click;
-            ApmBasics.ocOpacity.tbOpacity.Scroll += tbApmOpacity_Scroll;
+            ApmUiBasics.chBxRemoveAi.CheckedChanged += chBxApmRemoveAi_CheckedChanged;
+            ApmUiBasics.chBxRemoveAllie.CheckedChanged += chBxApmRemoveAllie_CheckedChanged;
+            ApmUiBasics.chBxRemoveClantag.CheckedChanged += chBxApmRemoveClantag_CheckedChanged;
+            ApmUiBasics.chBxRemoveNeutral.CheckedChanged += chBxApmRemoveNeutral_CheckedChanged;
+            ApmUiBasics.chBxRemoveLocalplayer.CheckedChanged += chBxApmRemoveLocalplayer_CheckedChanged;
+            ApmUiBasics.chBxDrawBackground.CheckedChanged += chBxApmDrawBackground_CheckedChanged;
+            ApmUiBasics.btnFontName.Click += btnApmFontName_Click;
+            ApmUiBasics.OcUiOpacity.tbOpacity.Scroll += tbApmOpacity_Scroll;
 
-            ArmyBasics.chBxRemoveAi.CheckedChanged += chBxArmyRemoveAi_CheckedChanged;
-            ArmyBasics.chBxRemoveAllie.CheckedChanged += chBxArmyRemoveAllie_CheckedChanged;
-            ArmyBasics.chBxRemoveClantag.CheckedChanged += chBxArmyRemoveClantag_CheckedChanged;
-            ArmyBasics.chBxRemoveNeutral.CheckedChanged += chBxArmyRemoveNeutral_CheckedChanged;
-            ArmyBasics.chBxRemoveLocalplayer.CheckedChanged += chBxArmyRemoveLocalplayer_CheckedChanged;
-            ArmyBasics.chBxDrawBackground.CheckedChanged += chBxArmyDrawBackground_CheckedChanged;
-            ArmyBasics.btnFontName.Click += btnArmyFontName_Click;
-            ArmyBasics.ocOpacity.tbOpacity.Scroll += tbArmyOpacity_Scroll;
+            ArmyUiBasics.chBxRemoveAi.CheckedChanged += chBxArmyRemoveAi_CheckedChanged;
+            ArmyUiBasics.chBxRemoveAllie.CheckedChanged += chBxArmyRemoveAllie_CheckedChanged;
+            ArmyUiBasics.chBxRemoveClantag.CheckedChanged += chBxArmyRemoveClantag_CheckedChanged;
+            ArmyUiBasics.chBxRemoveNeutral.CheckedChanged += chBxArmyRemoveNeutral_CheckedChanged;
+            ArmyUiBasics.chBxRemoveLocalplayer.CheckedChanged += chBxArmyRemoveLocalplayer_CheckedChanged;
+            ArmyUiBasics.chBxDrawBackground.CheckedChanged += chBxArmyDrawBackground_CheckedChanged;
+            ArmyUiBasics.btnFontName.Click += btnArmyFontName_Click;
+            ArmyUiBasics.OcUiOpacity.tbOpacity.Scroll += tbArmyOpacity_Scroll;
 
-            WorkerBasics.chBxDrawBackground.CheckedChanged += chBxWorDrawBackground_CheckedChanged;
-            WorkerBasics.btnFontName.Click += btnWorFontName_Click;
-            WorkerBasics.tbOpacity.Scroll += tbWorOpacity_Scroll;
+            WorkerUiWorkerBasics.chBxDrawBackground.CheckedChanged += chBxWorDrawBackground_CheckedChanged;
+            WorkerUiWorkerBasics.btnFontName.Click += btnWorFontName_Click;
+            WorkerUiWorkerBasics.OcUiOpacity.tbOpacity.Scroll += tbWorkerOpacity_Scroll;
 
-            MaphackBasics.cmBxRemAi.SelectedIndexChanged += cmBxMapRemAi_SelectedIndexChanged;
-            MaphackBasics.cmBxRemAllie.SelectedIndexChanged += cmBxMapRemAllie_SelectedIndexChanged;
-            MaphackBasics.cmBxRemNeutral.SelectedIndexChanged += cmBxMapRemNeutral_SelectedIndexChanged;
-            MaphackBasics.cmBxRemLocalplayer.SelectedIndexChanged += cmBxMapRemLocalplayer_SelectedIndexChanged;
-            MaphackBasics.chBxMaphackColorDefensiveStructuresYellow.CheckedChanged +=
-                ChBxMaphackMaphackColorDefensiveStructuresYellowCheckedChanged;
-            MaphackBasics.chBxMaphackDisableDestinationLine.CheckedChanged += ChBxMaphackDisableDestinationLineCheckedChanged;
-            MaphackBasics.chBxMaphackRemCamera.CheckedChanged += ChBxMaphackMapRemCameraCheckedChanged;
-            MaphackBasics.chBxMaphackRemVisionArea.CheckedChanged += ChBxMaphackMaphackRemVisionAreaCheckedChanged;
-            MaphackBasics.tbOpacity.Scroll += tbMapOpacity_Scroll;
-            MaphackBasics.btnDestinationLine.Click += btnMaphackDestinationLine_Click;
+            MaphackUiMaphackBasics.chBxRemoveAi.CheckedChanged += chBxMaphackRemoveAi_CheckedChanged;
+            MaphackUiMaphackBasics.chBxRemoveAllie.CheckedChanged += chBxMaphackRemoveAllie_CheckedChanged;
+            MaphackUiMaphackBasics.chBxRemoveNeutral.CheckedChanged += chBxMaphackRemoveNeutral_CheckedChanged;
+            MaphackUiMaphackBasics.chBxRemoveLocalplayer.CheckedChanged += chBxMaphackRemoveLocalplayer_CheckedChanged;
+            MaphackUiMaphackBasics .chBxMaphackColorDefensiveStructuresYellow.CheckedChanged += ChBxMaphackMaphackColorDefensiveStructuresYellowCheckedChanged;
+            MaphackUiMaphackBasics.chBxMaphackDisableDestinationLine.CheckedChanged += ChBxMaphackDisableDestinationLineCheckedChanged;
+            MaphackUiMaphackBasics.chBxMaphackRemCamera.CheckedChanged += ChBxMaphackMapRemCameraCheckedChanged;
+            MaphackUiMaphackBasics.chBxMaphackRemVisionArea.CheckedChanged += ChBxMaphackMaphackRemVisionAreaCheckedChanged;
+            MaphackUiMaphackBasics.btnDestinationLine.Click += btnMaphackDestinationLine_Click;
+            MaphackUiMaphackBasics.OcUiOpacity.tbOpacity.Scroll += tbMaphackOpacity_Scroll;
 
             UnittabBasics.cmBxRemAi.SelectedIndexChanged += cmBxUniRemAi_SelectedIndexChanged;
             UnittabBasics.cmBxRemAllie.SelectedIndexChanged += cmBxUniRemAllie_SelectedIndexChanged;
@@ -2010,6 +1985,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             #endregion
         }
 
+        
+
        
 
        
@@ -2041,15 +2018,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             workerProductionHotkeys.ChangeLanguageFile(strFile);
             CustBugs.ChangeLanguageFile(strFile);
 
-            /* Basics */
-            ResourceBasics.ChangeLanguageFile(strFile);
-            IncomeBasics.ChangeLanguageFile(strFile);
-            ArmyBasics.ChangeLanguageFile(strFile);
-            ApmBasics.ChangeLanguageFile(strFile);
-            MaphackBasics.ChangeLanguageFile(strFile);
+            /* UiBasics */
+            ResourceUiBasics.ChangeLanguageFile(strFile);
+            IncomeUiBasics.ChangeLanguageFile(strFile);
+            ArmyUiBasics.ChangeLanguageFile(strFile);
+            ApmUiBasics.ChangeLanguageFile(strFile);
+            MaphackUiMaphackBasics.ChangeLanguageFile(strFile);
             UnittabBasics.ChangeLanguageFile(strFile);
             ProductionTabBasics.ChangeLanguageFile(strFile);
-            WorkerBasics.ChangeLanguageFile(strFile);
+            WorkerUiWorkerBasics.ChangeLanguageFile(strFile);
 
             /* Chatinput */
             ResourceChatInput.ChangeLanguageFile(strFile);

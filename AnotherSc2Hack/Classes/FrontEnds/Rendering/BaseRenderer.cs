@@ -565,6 +565,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             InitCode();
         }
 
+
         #endregion
 
         #region Private Methods
@@ -997,6 +998,30 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
             base.OnFormClosing(e);
+        }
+
+        /// <summary>
+        /// Sorts the Construction- states of a unit- List. (Units in production)
+        /// </summary>
+        /// <param name="lCounter"></param>
+        protected void SortConstructionStates(ref List<PredefinedData.UnitCount> lCounter)
+        {
+            for (var i = 0; i < lCounter.Count; i++)
+            {
+                lCounter[i].ConstructionState.Sort((x, y) => y.CompareTo(x));
+            }
+        }
+
+        /// <summary>
+        /// Sorts the AliveSince- states of a unit- List. (e.g. Mules, Forces, Locusts)
+        /// </summary>
+        /// <param name="lCounter"></param>
+        protected void SortAliveSinceStates(ref List<PredefinedData.UnitCount> lCounter)
+        {
+            for (var i = 0; i < lCounter.Count; i++)
+            {
+                lCounter[i].AliveSince.Sort((x, y) => x.CompareTo(y));
+            }
         }
 
         #endregion
@@ -5475,20 +5500,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 #endif
         }
 
-        protected void SortConstructionStates(ref List<PredefinedData.UnitCount> lCounter)
-        {
-            for (var i = 0; i < lCounter.Count; i++)
-            {
-                lCounter[i].ConstructionState.Sort((x, y) => y.CompareTo(x));
-            }
-        }
-
-        protected void SortAliveSinceStates(ref List<PredefinedData.UnitCount> lCounter)
-        {
-            for (var i = 0; i < lCounter.Count; i++)
-            {
-                lCounter[i].AliveSince.Sort((x, y) => x.CompareTo(y));
-            }
-        }
+        
     }
 }

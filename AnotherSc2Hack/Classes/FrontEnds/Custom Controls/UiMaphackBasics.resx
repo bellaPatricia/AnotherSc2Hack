@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="chBxMaphackColorDefensiveStructuresYellow.Text" xml:space="preserve">
+    <value>Color Defensivestructures Yellow</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chBxMaphackDisableDestinationLine.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="chBxMaphackDisableDestinationLine.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 17</value>
+  </data>
+  <data name="chBxRemoveNeutral.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="OcUiOpacity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 241</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackRemVisionArea.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="chBxRemoveNeutral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 17</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveLocalplayer.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="&gt;&gt;btnDestinationLine.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveAllie.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chBxRemoveAllie.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackColorDefensiveStructuresYellow.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="chBxMaphackColorDefensiveStructuresYellow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 140</value>
+  </data>
+  <data name="gbMaphackBasics.Text" xml:space="preserve">
+    <value>Basic Panel Options</value>
+  </data>
+  <data name="chBxRemoveAi.TabIndex" type="System.Int32, mscorlib">
+    <value>74</value>
+  </data>
+  <data name="lblMaphackDestinationLine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 213</value>
+  </data>
+  <data name="&gt;&gt;btnDestinationLine.Name" xml:space="preserve">
+    <value>btnDestinationLine</value>
+  </data>
+  <data name="chBxRemoveAi.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackRemVisionArea.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="chBxRemoveAllie.TabIndex" type="System.Int32, mscorlib">
+    <value>75</value>
+  </data>
+  <data name="&gt;&gt;btnDestinationLine.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="OcUiOpacity.TabIndex" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <data name="chBxRemoveNeutral.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveAllie.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="chBxMaphackRemVisionArea.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chBxRemoveLocalplayer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 94</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chBxRemoveNeutral.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chBxRemoveLocalplayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 17</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveNeutral.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveNeutral.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="chBxMaphackColorDefensiveStructuresYellow.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="chBxRemoveLocalplayer.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="lblMaphackDestinationLine.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveNeutral.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="chBxMaphackDisableDestinationLine.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gbMaphackBasics.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 301</value>
+  </data>
+  <data name="chBxMaphackRemVisionArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 17</value>
+  </data>
+  <data name="chBxRemoveAi.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackDisableDestinationLine.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackColorDefensiveStructuresYellow.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;OcUiOpacity.Name" xml:space="preserve">
+    <value>OcUiOpacity</value>
+  </data>
+  <data name="&gt;&gt;gbMaphackBasics.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="chBxMaphackColorDefensiveStructuresYellow.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackDisableDestinationLine.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="chBxRemoveNeutral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 71</value>
+  </data>
+  <data name="chBxMaphackRemCamera.TabIndex" type="System.Int32, mscorlib">
+    <value>73</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveAi.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackColorDefensiveStructuresYellow.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="chBxMaphackDisableDestinationLine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 117</value>
+  </data>
+  <data name="chBxRemoveAllie.Text" xml:space="preserve">
+    <value>Remove Allie</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackRemVisionArea.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnDestinationLine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 210</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveLocalplayer.Name" xml:space="preserve">
+    <value>chBxRemoveLocalplayer</value>
+  </data>
+  <data name="chBxRemoveLocalplayer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackRemCamera.Name" xml:space="preserve">
+    <value>chBxMaphackRemCamera</value>
+  </data>
+  <data name="chBxMaphackRemCamera.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chBxRemoveLocalplayer.TabIndex" type="System.Int32, mscorlib">
+    <value>77</value>
+  </data>
+  <data name="chBxRemoveAllie.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chBxMaphackRemCamera.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveAi.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="chBxRemoveAllie.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveAllie.Name" xml:space="preserve">
+    <value>chBxRemoveAllie</value>
+  </data>
+  <data name="chBxMaphackDisableDestinationLine.Text" xml:space="preserve">
+    <value>Disable DestinationLine  </value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveAllie.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackDisableDestinationLine.Name" xml:space="preserve">
+    <value>chBxMaphackDisableDestinationLine</value>
+  </data>
+  <data name="&gt;&gt;gbMaphackBasics.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chBxMaphackRemVisionArea.Text" xml:space="preserve">
+    <value>Remove Vision-Area</value>
+  </data>
+  <data name="&gt;&gt;OcUiOpacity.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveAi.Name" xml:space="preserve">
+    <value>chBxRemoveAi</value>
+  </data>
+  <data name="chBxRemoveLocalplayer.Text" xml:space="preserve">
+    <value>Remove Yourself</value>
+  </data>
+  <data name="chBxRemoveAi.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 17</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackRemCamera.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="chBxMaphackRemCamera.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 186</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveAi.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackRemCamera.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="gbMaphackBasics.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="lblMaphackDestinationLine.Text" xml:space="preserve">
+    <value>Destination Line:</value>
+  </data>
+  <data name="chBxRemoveAi.Text" xml:space="preserve">
+    <value>Remove Ai</value>
+  </data>
+  <data name="btnDestinationLine.TabIndex" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+  <data name="chBxMaphackColorDefensiveStructuresYellow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 17</value>
+  </data>
+  <data name="&gt;&gt;btnDestinationLine.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OcUiOpacity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 53</value>
+  </data>
+  <data name="chBxRemoveAi.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblMaphackDestinationLine.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="chBxMaphackColorDefensiveStructuresYellow.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lblMaphackDestinationLine.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;OcUiOpacity.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="gbMaphackBasics.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>UiMaphackBasics</value>
+  </data>
+  <data name="lblMaphackDestinationLine.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 13</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 301</value>
+  </data>
+  <data name="chBxMaphackDisableDestinationLine.TabIndex" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
+  <data name="chBxRemoveNeutral.Text" xml:space="preserve">
+    <value>Remove Neutral</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveLocalplayer.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="chBxRemoveAi.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveNeutral.Name" xml:space="preserve">
+    <value>chBxRemoveNeutral</value>
+  </data>
+  <data name="&gt;&gt;gbMaphackBasics.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnDestinationLine.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;lblMaphackDestinationLine.Name" xml:space="preserve">
+    <value>lblMaphackDestinationLine</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackRemCamera.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="chBxRemoveLocalplayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chBxMaphackRemCamera.Text" xml:space="preserve">
+    <value>Remove Camera</value>
+  </data>
+  <data name="chBxMaphackRemVisionArea.TabIndex" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
+  <data name="gbMaphackBasics.TabIndex" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackRemVisionArea.Name" xml:space="preserve">
+    <value>chBxMaphackRemVisionArea</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackDisableDestinationLine.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="chBxMaphackRemVisionArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 163</value>
+  </data>
+  <data name="chBxRemoveNeutral.TabIndex" type="System.Int32, mscorlib">
+    <value>76</value>
+  </data>
+  <data name="&gt;&gt;gbMaphackBasics.Name" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="lblMaphackDestinationLine.TabIndex" type="System.Int32, mscorlib">
+    <value>63</value>
+  </data>
+  <data name="chBxMaphackRemVisionArea.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.AbstractUserControl, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="btnDestinationLine.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 18</value>
+  </data>
+  <data name="chBxMaphackRemCamera.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 17</value>
+  </data>
+  <data name="&gt;&gt;lblMaphackDestinationLine.Parent" xml:space="preserve">
+    <value>gbMaphackBasics</value>
+  </data>
+  <data name="&gt;&gt;chBxRemoveLocalplayer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;chBxMaphackColorDefensiveStructuresYellow.Name" xml:space="preserve">
+    <value>chBxMaphackColorDefensiveStructuresYellow</value>
+  </data>
+  <data name="&gt;&gt;OcUiOpacity.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chBxRemoveAllie.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 17</value>
+  </data>
+  <data name="chBxRemoveAllie.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 48</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>de</value>
+  </metadata>
+</root>

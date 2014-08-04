@@ -2,9 +2,9 @@
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    public partial class BasicsWor : AbstractUserControl
+    public partial class UiWorkerBasics : AbstractUserControl
     {
-        public BasicsWor()
+        public UiWorkerBasics()
         {
             InitializeComponent();
         }
