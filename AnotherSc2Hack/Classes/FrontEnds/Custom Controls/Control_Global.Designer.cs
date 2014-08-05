@@ -255,7 +255,6 @@
             this.cmBxLanguage.Name = "cmBxLanguage";
             this.cmBxLanguage.Size = new System.Drawing.Size(154, 21);
             this.cmBxLanguage.TabIndex = 31;
-            this.cmBxLanguage.Visible = false;
             // 
             // lblGlobalLanguage
             // 
@@ -266,7 +265,6 @@
             this.lblGlobalLanguage.Size = new System.Drawing.Size(58, 13);
             this.lblGlobalLanguage.TabIndex = 30;
             this.lblGlobalLanguage.Text = "Language:";
-            this.lblGlobalLanguage.Visible = false;
             // 
             // lblGlobalFileName
             // 
