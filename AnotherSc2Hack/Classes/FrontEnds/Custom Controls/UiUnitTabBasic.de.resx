@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chBxShowBuildings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 17</value>
+  </data>
+  <data name="chBxShowBuildings.Text" xml:space="preserve">
+    <value>Gebäude anzeigen</value>
+  </data>
+  <data name="chBxShowUnits.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 17</value>
+  </data>
+  <data name="chBxShowUnits.Text" xml:space="preserve">
+    <value>Einheiten anzeigen</value>
+  </data>
   <data name="chBxRemoveSpellcounter.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 17</value>
   </data>
@@ -164,13 +176,7 @@
   <data name="btnFontName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="gbUnittabBasics.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 321</value>
-  </data>
   <data name="gbUnittabBasics.Text" xml:space="preserve">
     <value>Standard Einstellungen</value>
-  </data>
-  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 324</value>
   </data>
 </root>

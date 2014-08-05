@@ -133,18 +133,25 @@
   <data name="&gt;&gt;lblGlobalDrawingRefresh.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
+  <data name="btnGlobalDonations.Text" xml:space="preserve">
+    <value>Donations through Paypal</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="gbGlobalPublicInformation.Size" type="System.Drawing.Size, System.Drawing">
     <value>249, 192</value>
   </data>
-  <data name="btnGlobalDonations.Text" xml:space="preserve">
-    <value>Donations through Paypal</value>
+  <data name="lblMainApplication.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lblGlobalPluginDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>163, 26</value>
   </data>
   <data name="&gt;&gt;lblGlobalFileName.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblGlobalChangePosKey.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="&gt;&gt;lblGlobalDrawingMiliseconds.ZOrder" xml:space="preserve">
     <value>13</value>
@@ -162,7 +169,7 @@
     <value>84, 13</value>
   </data>
   <data name="&gt;&gt;btnGlobalDonations.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageButton, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageButton, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblMainApplication.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -173,11 +180,8 @@
   <data name="btnGetUpdate.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;lblGlobalLanguage.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblGlobalStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 26</value>
+  <data name="&gt;&gt;lblGlobalDataRefresh.Name" xml:space="preserve">
+    <value>lblGlobalDataRefresh</value>
   </data>
   <data name="lblGlobalDrawingMiliseconds.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -192,13 +196,13 @@
     <value>114, 97</value>
   </data>
   <data name="&gt;&gt;chBxGlobalForegroundDraw.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;rtbPublicInformation.Name" xml:space="preserve">
     <value>rtbPublicInformation</value>
   </data>
   <data name="&gt;&gt;lblGlobalDataRefresh.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cmBxLanguage.Name" xml:space="preserve">
     <value>cmBxLanguage</value>
@@ -216,19 +220,13 @@
     <value>0</value>
   </data>
   <data name="&gt;&gt;gbGlobalPlugins.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnGetUpdate.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;lblGlobalFileName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="btnGetUpdate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
-  </data>
-  <data name="lblGlobalPluginDescription.Text" xml:space="preserve">
-    <value>Description:</value>
   </data>
   <data name="&gt;&gt;cmBxLanguage.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -236,9 +234,8 @@
   <data name="gbGlobalUpdates.Text" xml:space="preserve">
     <value>Updates</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblGlobalChangePosKey.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;lblGlobalLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="gbGlobalPublicInformation.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -361,7 +358,7 @@
     <value>lblGlobalFileName</value>
   </data>
   <data name="&gt;&gt;lblUpdaterApplication.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtDataInterval.Name" xml:space="preserve">
     <value>txtDataInterval</value>
@@ -370,7 +367,7 @@
     <value>14</value>
   </data>
   <data name="&gt;&gt;lblGlobalDrawingRefresh.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lblMainApplication.Name" xml:space="preserve">
     <value>lblMainApplication</value>
@@ -394,7 +391,7 @@
     <value>114, 43</value>
   </data>
   <data name="&gt;&gt;lblGlobalChangePosKey.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtDataInterval.Parent" xml:space="preserve">
     <value>$this</value>
@@ -426,8 +423,8 @@
   <data name="lblUpdaterApplication.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 55</value>
   </data>
-  <data name="&gt;&gt;btnGlobalSetPosition.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageButton, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="lblGlobalStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 26</value>
   </data>
   <data name="lblGlobalLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -447,8 +444,8 @@
   <data name="&gt;&gt;btnGlobalSetPosition.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="lblMainApplication.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="cmBxLanguage.Items1" xml:space="preserve">
+    <value>Deutsch</value>
   </data>
   <data name="cmBxLanguage.Items" xml:space="preserve">
     <value>English</value>
@@ -457,7 +454,7 @@
     <value>19</value>
   </data>
   <data name="&gt;&gt;lblGlobalLanguage.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="btnGlobalDonations.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -465,8 +462,8 @@
   <data name="rtbPublicInformation.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="rtbPublicInformation.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10pt</value>
+  <data name="&gt;&gt;lblGlobalChangePosKey.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;rtbPublicInformation.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -480,8 +477,8 @@
   <data name="lblGlobalChangePosKey.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
-  <data name="&gt;&gt;lblGlobalDataRefresh.Name" xml:space="preserve">
-    <value>lblGlobalDataRefresh</value>
+  <data name="&gt;&gt;lblGlobalFileName.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="chBxGlobalForegroundDraw.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -496,7 +493,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbGlobalPublicInformation.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="gbGlobalUpdates.Size" type="System.Drawing.Size, System.Drawing">
     <value>249, 53</value>
@@ -519,6 +516,9 @@
   <data name="&gt;&gt;gbGlobalPublicInformation.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="&gt;&gt;btnGlobalSetPosition.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageButton, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="&gt;&gt;gbGlobalPlugins.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
@@ -531,11 +531,11 @@
   <data name="&gt;&gt;lblUpdaterApplication.Name" xml:space="preserve">
     <value>lblUpdaterApplication</value>
   </data>
+  <data name="btnGlobalSetPosition.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="btnGetUpdate.Size" type="System.Drawing.Size, System.Drawing">
     <value>127, 23</value>
-  </data>
-  <data name="&gt;&gt;lblGlobalChangePosKey.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;gbGlobalFileInformation.Parent" xml:space="preserve">
     <value>$this</value>
@@ -544,7 +544,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="&gt;&gt;lblMainApplication.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtDrawingInterval.Name" xml:space="preserve">
     <value>txtDrawingInterval</value>
@@ -592,7 +592,7 @@
     <value>Miliseconds (ms)</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.AbstractUserControl, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.AbstractUserControl, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lblGlobalDrawingRefresh.Name" xml:space="preserve">
     <value>lblGlobalDrawingRefresh</value>
@@ -610,7 +610,7 @@
     <value>label49</value>
   </data>
   <data name="&gt;&gt;lblGlobalDrawingMiliseconds.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lstBxPlugins.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 26</value>
@@ -630,8 +630,8 @@
   <data name="&gt;&gt;lblGlobalDataRefresh.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
-  <data name="btnGlobalSetPosition.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;btnGetUpdate.Name" xml:space="preserve">
+    <value>btnGetUpdate</value>
   </data>
   <data name="lblGlobalDataRefresh.Text" xml:space="preserve">
     <value>Data Refresh:</value>
@@ -687,8 +687,8 @@
   <data name="cmBxLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 21</value>
   </data>
-  <data name="&gt;&gt;btnGetUpdate.Name" xml:space="preserve">
-    <value>btnGetUpdate</value>
+  <data name="txtDataInterval.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
   <data name="lblGlobalLanguage.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -714,17 +714,20 @@
   <data name="gbGlobalPlugins.Text" xml:space="preserve">
     <value>Plugins</value>
   </data>
-  <data name="cmBxLanguage.Items1" xml:space="preserve">
-    <value>Deutsch</value>
+  <data name="rtbPublicInformation.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
   </data>
   <data name="txtDrawingInterval.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="chBxGlobalForegroundDraw.Location" type="System.Drawing.Point, System.Drawing">
-    <value>38, 367</value>
+  <data name="lblGlobalPluginDescription.Text" xml:space="preserve">
+    <value>Description:</value>
   </data>
   <data name="btnGlobalSetPosition.Text" xml:space="preserve">
     <value>Set Position based on Resolution</value>
+  </data>
+  <data name="chBxGlobalForegroundDraw.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 367</value>
   </data>
   <data name="lblGlobalDrawingRefresh.Location" type="System.Drawing.Point, System.Drawing">
     <value>35, 46</value>
@@ -739,13 +742,10 @@
     <value>Flat</value>
   </data>
   <data name="&gt;&gt;lblGlobalStatus.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="txtDataInterval.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;gbGlobalFileInformation.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cmBxLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -760,7 +760,7 @@
     <value>True</value>
   </data>
   <data name="&gt;&gt;lblGlobalFileName.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="btnGlobalDonations.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -799,7 +799,7 @@
     <value>gbGlobalUpdates</value>
   </data>
   <data name="&gt;&gt;lblGlobalDataMiliseconds.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblGlobalFileName.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -808,7 +808,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblGlobalPluginDescription.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;rtbPublicInformation.Parent" xml:space="preserve">
     <value>gbGlobalPublicInformation</value>
@@ -817,15 +817,9 @@
     <value>3</value>
   </data>
   <data name="&gt;&gt;gbGlobalUpdates.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblMainApplication.Text" xml:space="preserve">
     <value>label49</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>de</value>
-  </metadata>
 </root>

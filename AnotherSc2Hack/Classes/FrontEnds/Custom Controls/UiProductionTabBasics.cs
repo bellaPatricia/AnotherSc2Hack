@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace AnotherSc2Hack.Classes.FrontEnds
+﻿namespace AnotherSc2Hack.Classes.FrontEnds
 {
     public partial class UiProductionTabBasics : AbstractUserControl
     {
@@ -8,5 +6,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         {
             InitializeComponent();
         }
+
+        
     }
 }

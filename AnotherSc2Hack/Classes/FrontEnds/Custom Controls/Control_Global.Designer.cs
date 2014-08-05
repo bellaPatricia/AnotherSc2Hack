@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlGlobal));
             this.btnGlobalSetPosition = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
             this.gbGlobalPublicInformation = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.rtbPublicInformation = new System.Windows.Forms.RichTextBox();
@@ -63,179 +62,277 @@
             // 
             // btnGlobalSetPosition
             // 
-            resources.ApplyResources(this.btnGlobalSetPosition, "btnGlobalSetPosition");
+            this.btnGlobalSetPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGlobalSetPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGlobalSetPosition.LanguageFile = "";
+            this.btnGlobalSetPosition.Location = new System.Drawing.Point(38, 400);
             this.btnGlobalSetPosition.Name = "btnGlobalSetPosition";
+            this.btnGlobalSetPosition.Size = new System.Drawing.Size(316, 23);
+            this.btnGlobalSetPosition.TabIndex = 25;
+            this.btnGlobalSetPosition.Text = "Set Position based on Resolution";
             this.btnGlobalSetPosition.UseVisualStyleBackColor = true;
             // 
             // gbGlobalPublicInformation
             // 
-            resources.ApplyResources(this.gbGlobalPublicInformation, "gbGlobalPublicInformation");
             this.gbGlobalPublicInformation.Controls.Add(this.rtbPublicInformation);
             this.gbGlobalPublicInformation.LanguageFile = "";
+            this.gbGlobalPublicInformation.Location = new System.Drawing.Point(684, 173);
             this.gbGlobalPublicInformation.Name = "gbGlobalPublicInformation";
+            this.gbGlobalPublicInformation.Size = new System.Drawing.Size(249, 192);
+            this.gbGlobalPublicInformation.TabIndex = 24;
             this.gbGlobalPublicInformation.TabStop = false;
+            this.gbGlobalPublicInformation.Text = "Public UiInformation";
             // 
             // rtbPublicInformation
             // 
-            resources.ApplyResources(this.rtbPublicInformation, "rtbPublicInformation");
+            this.rtbPublicInformation.Enabled = false;
+            this.rtbPublicInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rtbPublicInformation.Location = new System.Drawing.Point(20, 33);
             this.rtbPublicInformation.Name = "rtbPublicInformation";
+            this.rtbPublicInformation.Size = new System.Drawing.Size(209, 142);
+            this.rtbPublicInformation.TabIndex = 0;
+            this.rtbPublicInformation.Text = "";
             // 
             // txtGlobalAdjustKey
             // 
-            resources.ApplyResources(this.txtGlobalAdjustKey, "txtGlobalAdjustKey");
+            this.txtGlobalAdjustKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtGlobalAdjustKey.Location = new System.Drawing.Point(268, 338);
             this.txtGlobalAdjustKey.Name = "txtGlobalAdjustKey";
+            this.txtGlobalAdjustKey.Size = new System.Drawing.Size(86, 20);
+            this.txtGlobalAdjustKey.TabIndex = 23;
             // 
             // chBxGlobalForegroundDraw
             // 
-            resources.ApplyResources(this.chBxGlobalForegroundDraw, "chBxGlobalForegroundDraw");
+            this.chBxGlobalForegroundDraw.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chBxGlobalForegroundDraw.AutoSize = true;
             this.chBxGlobalForegroundDraw.LanguageFile = "";
+            this.chBxGlobalForegroundDraw.Location = new System.Drawing.Point(38, 367);
             this.chBxGlobalForegroundDraw.Name = "chBxGlobalForegroundDraw";
+            this.chBxGlobalForegroundDraw.Size = new System.Drawing.Size(205, 17);
+            this.chBxGlobalForegroundDraw.TabIndex = 21;
+            this.chBxGlobalForegroundDraw.Text = "Only Draw when SC2 is in Foreground";
             this.chBxGlobalForegroundDraw.UseVisualStyleBackColor = true;
             // 
             // gbGlobalFileInformation
             // 
-            resources.ApplyResources(this.gbGlobalFileInformation, "gbGlobalFileInformation");
             this.gbGlobalFileInformation.Controls.Add(this.lblUpdaterApplication);
             this.gbGlobalFileInformation.Controls.Add(this.lblMainApplication);
             this.gbGlobalFileInformation.LanguageFile = "";
+            this.gbGlobalFileInformation.Location = new System.Drawing.Point(684, 76);
             this.gbGlobalFileInformation.Name = "gbGlobalFileInformation";
+            this.gbGlobalFileInformation.Size = new System.Drawing.Size(249, 91);
+            this.gbGlobalFileInformation.TabIndex = 20;
             this.gbGlobalFileInformation.TabStop = false;
+            this.gbGlobalFileInformation.Text = "Fileinformation";
             // 
             // lblUpdaterApplication
             // 
-            resources.ApplyResources(this.lblUpdaterApplication, "lblUpdaterApplication");
+            this.lblUpdaterApplication.AutoSize = true;
             this.lblUpdaterApplication.LanguageFile = null;
+            this.lblUpdaterApplication.Location = new System.Drawing.Point(17, 55);
             this.lblUpdaterApplication.Name = "lblUpdaterApplication";
+            this.lblUpdaterApplication.Size = new System.Drawing.Size(41, 13);
+            this.lblUpdaterApplication.TabIndex = 1;
+            this.lblUpdaterApplication.Text = "label49";
             // 
             // lblMainApplication
             // 
-            resources.ApplyResources(this.lblMainApplication, "lblMainApplication");
+            this.lblMainApplication.AutoSize = true;
             this.lblMainApplication.LanguageFile = null;
+            this.lblMainApplication.Location = new System.Drawing.Point(17, 24);
             this.lblMainApplication.Name = "lblMainApplication";
+            this.lblMainApplication.Size = new System.Drawing.Size(41, 13);
+            this.lblMainApplication.TabIndex = 0;
+            this.lblMainApplication.Text = "label49";
             // 
             // gbGlobalUpdates
             // 
-            resources.ApplyResources(this.gbGlobalUpdates, "gbGlobalUpdates");
             this.gbGlobalUpdates.Controls.Add(this.btnGetUpdate);
             this.gbGlobalUpdates.Controls.Add(this.lblGlobalStatus);
             this.gbGlobalUpdates.LanguageFile = "";
+            this.gbGlobalUpdates.Location = new System.Drawing.Point(684, 17);
             this.gbGlobalUpdates.Name = "gbGlobalUpdates";
+            this.gbGlobalUpdates.Size = new System.Drawing.Size(249, 53);
+            this.gbGlobalUpdates.TabIndex = 19;
             this.gbGlobalUpdates.TabStop = false;
+            this.gbGlobalUpdates.Text = "Updates";
             // 
             // btnGetUpdate
             // 
-            resources.ApplyResources(this.btnGetUpdate, "btnGetUpdate");
+            this.btnGetUpdate.Enabled = false;
+            this.btnGetUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnGetUpdate.ForeColor = System.Drawing.Color.Black;
+            this.btnGetUpdate.Location = new System.Drawing.Point(74, 21);
             this.btnGetUpdate.Name = "btnGetUpdate";
+            this.btnGetUpdate.Size = new System.Drawing.Size(127, 23);
+            this.btnGetUpdate.TabIndex = 1;
+            this.btnGetUpdate.Text = "Nothing set :(";
             this.btnGetUpdate.UseVisualStyleBackColor = true;
             // 
             // lblGlobalStatus
             // 
-            resources.ApplyResources(this.lblGlobalStatus, "lblGlobalStatus");
+            this.lblGlobalStatus.AutoSize = true;
             this.lblGlobalStatus.LanguageFile = null;
+            this.lblGlobalStatus.Location = new System.Drawing.Point(17, 26);
             this.lblGlobalStatus.Name = "lblGlobalStatus";
+            this.lblGlobalStatus.Size = new System.Drawing.Size(40, 13);
+            this.lblGlobalStatus.TabIndex = 0;
+            this.lblGlobalStatus.Text = "Status:";
             // 
             // txtDrawingInterval
             // 
-            resources.ApplyResources(this.txtDrawingInterval, "txtDrawingInterval");
+            this.txtDrawingInterval.Location = new System.Drawing.Point(114, 43);
             this.txtDrawingInterval.Name = "txtDrawingInterval";
+            this.txtDrawingInterval.Size = new System.Drawing.Size(64, 20);
+            this.txtDrawingInterval.TabIndex = 16;
             // 
             // txtDataInterval
             // 
-            resources.ApplyResources(this.txtDataInterval, "txtDataInterval");
+            this.txtDataInterval.Location = new System.Drawing.Point(114, 17);
             this.txtDataInterval.Name = "txtDataInterval";
+            this.txtDataInterval.Size = new System.Drawing.Size(64, 20);
+            this.txtDataInterval.TabIndex = 15;
             // 
             // btnGlobalDonations
             // 
-            resources.ApplyResources(this.btnGlobalDonations, "btnGlobalDonations");
+            this.btnGlobalDonations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGlobalDonations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGlobalDonations.ForeColor = System.Drawing.Color.Black;
             this.btnGlobalDonations.LanguageFile = "";
+            this.btnGlobalDonations.Location = new System.Drawing.Point(684, 400);
             this.btnGlobalDonations.Name = "btnGlobalDonations";
+            this.btnGlobalDonations.Size = new System.Drawing.Size(251, 23);
+            this.btnGlobalDonations.TabIndex = 26;
+            this.btnGlobalDonations.Text = "Donations through Paypal";
             this.btnGlobalDonations.UseVisualStyleBackColor = true;
             // 
             // txtFilename
             // 
-            resources.ApplyResources(this.txtFilename, "txtFilename");
+            this.txtFilename.Location = new System.Drawing.Point(114, 69);
             this.txtFilename.Name = "txtFilename";
+            this.txtFilename.Size = new System.Drawing.Size(154, 20);
+            this.txtFilename.TabIndex = 28;
             // 
             // gbGlobalPlugins
             // 
-            resources.ApplyResources(this.gbGlobalPlugins, "gbGlobalPlugins");
             this.gbGlobalPlugins.Controls.Add(this.lstBxPlugins);
             this.gbGlobalPlugins.Controls.Add(this.lblGlobalPluginDescription);
             this.gbGlobalPlugins.LanguageFile = "";
+            this.gbGlobalPlugins.Location = new System.Drawing.Point(307, 17);
             this.gbGlobalPlugins.Name = "gbGlobalPlugins";
+            this.gbGlobalPlugins.Size = new System.Drawing.Size(371, 150);
+            this.gbGlobalPlugins.TabIndex = 29;
             this.gbGlobalPlugins.TabStop = false;
+            this.gbGlobalPlugins.Text = "Plugins";
             // 
             // lstBxPlugins
             // 
-            resources.ApplyResources(this.lstBxPlugins, "lstBxPlugins");
             this.lstBxPlugins.CheckOnClick = true;
             this.lstBxPlugins.FormattingEnabled = true;
+            this.lstBxPlugins.Location = new System.Drawing.Point(17, 26);
             this.lstBxPlugins.Name = "lstBxPlugins";
+            this.lstBxPlugins.Size = new System.Drawing.Size(120, 109);
+            this.lstBxPlugins.TabIndex = 2;
             // 
             // lblGlobalPluginDescription
             // 
-            resources.ApplyResources(this.lblGlobalPluginDescription, "lblGlobalPluginDescription");
+            this.lblGlobalPluginDescription.AutoSize = true;
             this.lblGlobalPluginDescription.LanguageFile = null;
+            this.lblGlobalPluginDescription.Location = new System.Drawing.Point(163, 26);
             this.lblGlobalPluginDescription.Name = "lblGlobalPluginDescription";
+            this.lblGlobalPluginDescription.Size = new System.Drawing.Size(63, 13);
+            this.lblGlobalPluginDescription.TabIndex = 1;
+            this.lblGlobalPluginDescription.Text = "Description:";
             // 
             // cmBxLanguage
             // 
-            resources.ApplyResources(this.cmBxLanguage, "cmBxLanguage");
             this.cmBxLanguage.FormattingEnabled = true;
             this.cmBxLanguage.Items.AddRange(new object[] {
-            resources.GetString("cmBxLanguage.Items"),
-            resources.GetString("cmBxLanguage.Items1")});
+            "English",
+            "Deutsch"});
+            this.cmBxLanguage.Location = new System.Drawing.Point(114, 97);
             this.cmBxLanguage.Name = "cmBxLanguage";
+            this.cmBxLanguage.Size = new System.Drawing.Size(154, 21);
+            this.cmBxLanguage.TabIndex = 31;
+            this.cmBxLanguage.Visible = false;
             // 
             // lblGlobalLanguage
             // 
-            resources.ApplyResources(this.lblGlobalLanguage, "lblGlobalLanguage");
+            this.lblGlobalLanguage.AutoSize = true;
             this.lblGlobalLanguage.LanguageFile = null;
+            this.lblGlobalLanguage.Location = new System.Drawing.Point(35, 100);
             this.lblGlobalLanguage.Name = "lblGlobalLanguage";
+            this.lblGlobalLanguage.Size = new System.Drawing.Size(58, 13);
+            this.lblGlobalLanguage.TabIndex = 30;
+            this.lblGlobalLanguage.Text = "Language:";
+            this.lblGlobalLanguage.Visible = false;
             // 
             // lblGlobalFileName
             // 
-            resources.ApplyResources(this.lblGlobalFileName, "lblGlobalFileName");
+            this.lblGlobalFileName.AutoSize = true;
             this.lblGlobalFileName.LanguageFile = null;
+            this.lblGlobalFileName.Location = new System.Drawing.Point(35, 72);
             this.lblGlobalFileName.Name = "lblGlobalFileName";
+            this.lblGlobalFileName.Size = new System.Drawing.Size(52, 13);
+            this.lblGlobalFileName.TabIndex = 27;
+            this.lblGlobalFileName.Text = "Filename:";
             // 
             // lblGlobalChangePosKey
             // 
-            resources.ApplyResources(this.lblGlobalChangePosKey, "lblGlobalChangePosKey");
+            this.lblGlobalChangePosKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblGlobalChangePosKey.AutoSize = true;
             this.lblGlobalChangePosKey.LanguageFile = null;
+            this.lblGlobalChangePosKey.Location = new System.Drawing.Point(35, 341);
             this.lblGlobalChangePosKey.Name = "lblGlobalChangePosKey";
+            this.lblGlobalChangePosKey.Size = new System.Drawing.Size(162, 13);
+            this.lblGlobalChangePosKey.TabIndex = 22;
+            this.lblGlobalChangePosKey.Text = "Change Position/ Size of Panels:";
             // 
             // lblGlobalDrawingMiliseconds
             // 
-            resources.ApplyResources(this.lblGlobalDrawingMiliseconds, "lblGlobalDrawingMiliseconds");
             this.lblGlobalDrawingMiliseconds.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.lblGlobalDrawingMiliseconds.AutoSize = true;
             this.lblGlobalDrawingMiliseconds.LanguageFile = null;
+            this.lblGlobalDrawingMiliseconds.Location = new System.Drawing.Point(184, 46);
             this.lblGlobalDrawingMiliseconds.Name = "lblGlobalDrawingMiliseconds";
+            this.lblGlobalDrawingMiliseconds.Size = new System.Drawing.Size(84, 13);
+            this.lblGlobalDrawingMiliseconds.TabIndex = 18;
+            this.lblGlobalDrawingMiliseconds.Text = "Miliseconds (ms)";
             // 
             // lblGlobalDataMiliseconds
             // 
-            resources.ApplyResources(this.lblGlobalDataMiliseconds, "lblGlobalDataMiliseconds");
+            this.lblGlobalDataMiliseconds.AutoSize = true;
             this.lblGlobalDataMiliseconds.LanguageFile = null;
+            this.lblGlobalDataMiliseconds.Location = new System.Drawing.Point(184, 20);
             this.lblGlobalDataMiliseconds.Name = "lblGlobalDataMiliseconds";
+            this.lblGlobalDataMiliseconds.Size = new System.Drawing.Size(84, 13);
+            this.lblGlobalDataMiliseconds.TabIndex = 17;
+            this.lblGlobalDataMiliseconds.Text = "Miliseconds (ms)";
             // 
             // lblGlobalDrawingRefresh
             // 
-            resources.ApplyResources(this.lblGlobalDrawingRefresh, "lblGlobalDrawingRefresh");
+            this.lblGlobalDrawingRefresh.AutoSize = true;
             this.lblGlobalDrawingRefresh.LanguageFile = null;
+            this.lblGlobalDrawingRefresh.Location = new System.Drawing.Point(35, 46);
             this.lblGlobalDrawingRefresh.Name = "lblGlobalDrawingRefresh";
+            this.lblGlobalDrawingRefresh.Size = new System.Drawing.Size(49, 13);
+            this.lblGlobalDrawingRefresh.TabIndex = 14;
+            this.lblGlobalDrawingRefresh.Text = "Drawing:";
             // 
             // lblGlobalDataRefresh
             // 
-            resources.ApplyResources(this.lblGlobalDataRefresh, "lblGlobalDataRefresh");
+            this.lblGlobalDataRefresh.AutoSize = true;
             this.lblGlobalDataRefresh.LanguageFile = null;
+            this.lblGlobalDataRefresh.Location = new System.Drawing.Point(35, 20);
             this.lblGlobalDataRefresh.Name = "lblGlobalDataRefresh";
+            this.lblGlobalDataRefresh.Size = new System.Drawing.Size(73, 13);
+            this.lblGlobalDataRefresh.TabIndex = 13;
+            this.lblGlobalDataRefresh.Text = "Data Refresh:";
             // 
             // ControlGlobal
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmBxLanguage);
             this.Controls.Add(this.lblGlobalLanguage);
@@ -257,6 +354,7 @@
             this.Controls.Add(this.lblGlobalDrawingRefresh);
             this.Controls.Add(this.lblGlobalDataRefresh);
             this.Name = "ControlGlobal";
+            this.Size = new System.Drawing.Size(935, 438);
             this.gbGlobalPublicInformation.ResumeLayout(false);
             this.gbGlobalFileInformation.ResumeLayout(false);
             this.gbGlobalFileInformation.PerformLayout();

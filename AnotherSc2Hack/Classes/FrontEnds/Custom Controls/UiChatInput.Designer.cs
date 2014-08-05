@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UiChatInput));
             this.gbChatInput = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.txtSize = new System.Windows.Forms.TextBox();
             this.txtPosition = new System.Windows.Forms.TextBox();
@@ -41,7 +40,9 @@
             // 
             // gbChatInput
             // 
-            resources.ApplyResources(this.gbChatInput, "gbChatInput");
+            this.gbChatInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbChatInput.Controls.Add(this.txtSize);
             this.gbChatInput.Controls.Add(this.txtPosition);
             this.gbChatInput.Controls.Add(this.txtToggle);
@@ -49,48 +50,77 @@
             this.gbChatInput.Controls.Add(this.lblChangePosition);
             this.gbChatInput.Controls.Add(this.lblEnablePanel);
             this.gbChatInput.LanguageFile = "";
+            this.gbChatInput.Location = new System.Drawing.Point(0, 0);
             this.gbChatInput.Name = "gbChatInput";
+            this.gbChatInput.Size = new System.Drawing.Size(260, 105);
+            this.gbChatInput.TabIndex = 27;
             this.gbChatInput.TabStop = false;
+            this.gbChatInput.Text = "Chat Input";
             // 
             // txtSize
             // 
-            resources.ApplyResources(this.txtSize, "txtSize");
+            this.txtSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSize.Location = new System.Drawing.Point(157, 74);
             this.txtSize.Name = "txtSize";
+            this.txtSize.Size = new System.Drawing.Size(83, 20);
+            this.txtSize.TabIndex = 16;
             // 
             // txtPosition
             // 
-            resources.ApplyResources(this.txtPosition, "txtPosition");
+            this.txtPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPosition.Location = new System.Drawing.Point(157, 48);
             this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(83, 20);
+            this.txtPosition.TabIndex = 15;
             // 
             // txtToggle
             // 
-            resources.ApplyResources(this.txtToggle, "txtToggle");
+            this.txtToggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtToggle.Location = new System.Drawing.Point(157, 22);
             this.txtToggle.Name = "txtToggle";
+            this.txtToggle.Size = new System.Drawing.Size(83, 20);
+            this.txtToggle.TabIndex = 14;
             // 
             // lblChangeSize
             // 
-            resources.ApplyResources(this.lblChangeSize, "lblChangeSize");
+            this.lblChangeSize.AutoSize = true;
+            this.lblChangeSize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblChangeSize.LanguageFile = "";
+            this.lblChangeSize.Location = new System.Drawing.Point(20, 77);
             this.lblChangeSize.Name = "lblChangeSize";
+            this.lblChangeSize.Size = new System.Drawing.Size(112, 13);
+            this.lblChangeSize.TabIndex = 2;
+            this.lblChangeSize.Text = "Change Size of Panel:";
             // 
             // lblChangePosition
             // 
-            resources.ApplyResources(this.lblChangePosition, "lblChangePosition");
+            this.lblChangePosition.AutoSize = true;
+            this.lblChangePosition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblChangePosition.LanguageFile = "";
+            this.lblChangePosition.Location = new System.Drawing.Point(20, 51);
             this.lblChangePosition.Name = "lblChangePosition";
+            this.lblChangePosition.Size = new System.Drawing.Size(129, 13);
+            this.lblChangePosition.TabIndex = 1;
+            this.lblChangePosition.Text = "Change Position of Panel:";
             // 
             // lblEnablePanel
             // 
-            resources.ApplyResources(this.lblEnablePanel, "lblEnablePanel");
+            this.lblEnablePanel.AutoSize = true;
+            this.lblEnablePanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblEnablePanel.LanguageFile = "";
+            this.lblEnablePanel.Location = new System.Drawing.Point(20, 25);
             this.lblEnablePanel.Name = "lblEnablePanel";
+            this.lblEnablePanel.Size = new System.Drawing.Size(116, 13);
+            this.lblEnablePanel.TabIndex = 0;
+            this.lblEnablePanel.Text = "Enable/ Disable Panel:";
             // 
             // UiChatInput
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbChatInput);
             this.Name = "UiChatInput";
+            this.Size = new System.Drawing.Size(260, 105);
             this.gbChatInput.ResumeLayout(false);
             this.gbChatInput.PerformLayout();
             this.ResumeLayout(false);

@@ -220,7 +220,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Units
 
-                    if (HMainHandler.PSettings.UnitShowUnits)
+                    if (HMainHandler.PSettings.UnitTabShowUnits)
                     {
 
                         /* Terran */
@@ -388,7 +388,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Buildings
 
-                    if (HMainHandler.PSettings.UnitShowBuildings)
+                    if (HMainHandler.PSettings.UnitTabShowBuildings)
                     {
                         /* Terran */
                         Helper_DrawUnits(_lTbCommandCenter[i],

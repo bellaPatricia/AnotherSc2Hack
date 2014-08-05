@@ -678,14 +678,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private void chBxUnitTabShowUnits_CheckedChanged(object sender, EventArgs e)
+        void chBxUnitTabShowUnits_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.UnitShowUnits = chBxUnitTabShowUnits.Checked;
+            PSettings.UnitTabShowUnits = UnittabUiUnitTabBasic.chBxShowUnits.Checked;
         }
 
-        private void chBxUnitTabShowBuildings_CheckedChanged(object sender, EventArgs e)
+        void chBxUnitTabShowBuildings_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.UnitShowBuildings = chBxUnitTabShowBuildings.Checked;
+            PSettings.UnitTabShowBuildings = UnittabUiUnitTabBasic.chBxShowBuildings.Checked;
         }
 
 
@@ -693,23 +693,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         #endregion
 
         #region Production
-
-        private void chBxProdTabShowUnits_CheckedChanged(object sender, EventArgs e)
-        {
-            PSettings.ProdTabShowUnits = chBxProdTabShowUnits.Checked;
-        }
-
-        private void chBxProdTabShowBuildings_CheckedChanged(object sender, EventArgs e)
-        {
-            PSettings.ProdTabShowBuildings = chBxProdTabShowBuildings.Checked;
-        }
-
-        private void chBxProdTabShowUpgrades_CheckedChanged(object sender, EventArgs e)
-        {
-            PSettings.ProdTabShowUpgrades = chBxProdTabShowUpgrades.Checked;
-        }
-
-        
 
         private void tbProOpacity_Scroll(object sender, EventArgs e)
         {
@@ -853,6 +836,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             PSettings.ProdTabRemoveAi = ProductionTabUiProductionTabBasics.chBxRemoveAi.Checked;
         }
+
+        void chBxProductionTabShowUpgrades_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.ProdTabShowUpgrades = ProductionTabUiProductionTabBasics.chBxShowUpgrades.Checked;
+        }
+
+        void chBxProductionTabShowUnits_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.ProdTabShowUnits = ProductionTabUiProductionTabBasics.chBxShowUnits.Checked;
+        }
+
+        void chBxProductionTabShowBuildings_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.ProdTabShowBuildings = ProductionTabUiProductionTabBasics.chBxShowBuildings.Checked;
+        }
+
 
 
 
@@ -1908,14 +1907,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             UnittabUiUnitTabBasic.OcUiOpacity.tbOpacity.Scroll += tbUnitTabOpacity_Scroll;
             UnittabUiUnitTabBasic.chBxRemoveChronoboost.CheckedChanged += chBxUnitTabRemoveChronoboost_CheckedChanged;
             UnittabUiUnitTabBasic.chBxRemoveSpellcounter.CheckedChanged += chBxUnitTabRemoveSpellcounter_CheckedChanged;
+            UnittabUiUnitTabBasic.chBxShowBuildings.CheckedChanged += chBxUnitTabShowBuildings_CheckedChanged;
+            UnittabUiUnitTabBasic.chBxShowUnits.CheckedChanged += chBxUnitTabShowUnits_CheckedChanged;
 
             ProductionTabUiProductionTabBasics.chBxRemoveAi.CheckedChanged += chBxProductionTabRemoveAi_CheckedChanged;
-            ProductionTabUiProductionTabBasics.chBxRemoveAllie.CheckedChanged +=chBxProductionTabRemoveAllie_CheckedChanged; ;
-            ProductionTabUiProductionTabBasics.chBxRemoveNeutral.CheckedChanged +=chBxProductionTabRemoveNeutral_CheckedChanged; ;
-            ProductionTabUiProductionTabBasics.chBxRemoveLocalplayer.CheckedChanged +=chBxProductionTabRemoveLocalplayer_CheckedChanged; ;
-            ProductionTabUiProductionTabBasics.chBxRemoveClantag.CheckedChanged +=chBxProductionTabRemoveClantag_CheckedChanged; ;
-            ProductionTabUiProductionTabBasics.chBxSplitBuildingsUnits.CheckedChanged +=chBxProductionTabSplitBuildingsUnits_CheckedChanged; ;
-            ProductionTabUiProductionTabBasics.chBxRemoveChronoboost.CheckedChanged += chBxProductionTabRemoveChronoboost_CheckedChanged; ;
+            ProductionTabUiProductionTabBasics.chBxRemoveAllie.CheckedChanged +=chBxProductionTabRemoveAllie_CheckedChanged;
+            ProductionTabUiProductionTabBasics.chBxRemoveNeutral.CheckedChanged +=chBxProductionTabRemoveNeutral_CheckedChanged;
+            ProductionTabUiProductionTabBasics.chBxRemoveLocalplayer.CheckedChanged +=chBxProductionTabRemoveLocalplayer_CheckedChanged;
+            ProductionTabUiProductionTabBasics.chBxRemoveClantag.CheckedChanged +=chBxProductionTabRemoveClantag_CheckedChanged;
+            ProductionTabUiProductionTabBasics.chBxSplitBuildingsUnits.CheckedChanged +=chBxProductionTabSplitBuildingsUnits_CheckedChanged;
+            ProductionTabUiProductionTabBasics.chBxRemoveChronoboost.CheckedChanged += chBxProductionTabRemoveChronoboost_CheckedChanged;
+            ProductionTabUiProductionTabBasics.chBxShowBuildings.CheckedChanged += chBxProductionTabShowBuildings_CheckedChanged;
+            ProductionTabUiProductionTabBasics.chBxShowUnits.CheckedChanged += chBxProductionTabShowUnits_CheckedChanged;
+            ProductionTabUiProductionTabBasics.chBxShowUpgrades.CheckedChanged += chBxProductionTabShowUpgrades_CheckedChanged;
             ProductionTabUiProductionTabBasics.btnFontName.Click += btnProFontName_Click;
             ProductionTabUiProductionTabBasics.OcUiOpacity.tbOpacity.Scroll += tbProOpacity_Scroll;
 
@@ -1977,6 +1981,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             #endregion
         }
+
+        
+        
 
        
         
@@ -2056,13 +2063,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ProductionTabUiInformation.ChangeLanguageFile(strFile);
 
             /* Stuff in the main form */
-            gbProdtabShow.LanguageFile = strFile;
-            gbUnittabShow.LanguageFile = strFile;
-            chBxUnitTabShowBuildings.LanguageFile = strFile;
-            chBxUnitTabShowUnits.LanguageFile = strFile;
-            chBxProdTabShowBuildings.LanguageFile = strFile;
-            chBxProdTabShowUnits.LanguageFile = strFile;
-            chBxProdTabShowUpgrades.LanguageFile = strFile;
             btnMapAddUnit.LanguageFile = strFile;
             gbMaphackColorUnits.LanguageFile = strFile;
             gbUnitPicture.LanguageFile = strFile;

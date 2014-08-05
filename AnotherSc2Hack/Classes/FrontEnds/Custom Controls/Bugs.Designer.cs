@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlBugs));
             this.gbCreateThreadOnD3Scene = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.btnCreateNewPost = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
@@ -45,22 +44,27 @@
             // 
             // gbCreateThreadOnD3Scene
             // 
-            resources.ApplyResources(this.gbCreateThreadOnD3Scene, "gbCreateThreadOnD3Scene");
             this.gbCreateThreadOnD3Scene.Controls.Add(this.btnCreateNewPost);
             this.gbCreateThreadOnD3Scene.LanguageFile = "";
+            this.gbCreateThreadOnD3Scene.Location = new System.Drawing.Point(507, 0);
             this.gbCreateThreadOnD3Scene.Name = "gbCreateThreadOnD3Scene";
+            this.gbCreateThreadOnD3Scene.Size = new System.Drawing.Size(163, 69);
+            this.gbCreateThreadOnD3Scene.TabIndex = 4;
             this.gbCreateThreadOnD3Scene.TabStop = false;
+            this.gbCreateThreadOnD3Scene.Text = "Beitrag auf D3Scene erstellen";
             // 
             // btnCreateNewPost
             // 
-            resources.ApplyResources(this.btnCreateNewPost, "btnCreateNewPost");
             this.btnCreateNewPost.LanguageFile = "";
+            this.btnCreateNewPost.Location = new System.Drawing.Point(33, 28);
             this.btnCreateNewPost.Name = "btnCreateNewPost";
+            this.btnCreateNewPost.Size = new System.Drawing.Size(87, 23);
+            this.btnCreateNewPost.TabIndex = 1;
+            this.btnCreateNewPost.Text = "Thema öffnen";
             this.btnCreateNewPost.UseVisualStyleBackColor = true;
             // 
             // groupBox25
             // 
-            resources.ApplyResources(this.groupBox25, "groupBox25");
             this.groupBox25.Controls.Add(this.label95);
             this.groupBox25.Controls.Add(this.btnEmailSend);
             this.groupBox25.Controls.Add(this.label94);
@@ -68,57 +72,90 @@
             this.groupBox25.Controls.Add(this.txtEmailSubject);
             this.groupBox25.Controls.Add(this.cmBxEmailSubject);
             this.groupBox25.Controls.Add(this.label93);
+            this.groupBox25.Enabled = false;
+            this.groupBox25.Location = new System.Drawing.Point(0, 0);
             this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(501, 393);
+            this.groupBox25.TabIndex = 3;
             this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Send Email";
+            this.groupBox25.Visible = false;
             // 
             // label95
             // 
-            resources.ApplyResources(this.label95, "label95");
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(29, 56);
             this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(34, 13);
+            this.label95.TabIndex = 5;
+            this.label95.Text = "Body:";
             // 
             // btnEmailSend
             // 
-            resources.ApplyResources(this.btnEmailSend, "btnEmailSend");
+            this.btnEmailSend.Enabled = false;
+            this.btnEmailSend.Location = new System.Drawing.Point(32, 339);
             this.btnEmailSend.Name = "btnEmailSend";
+            this.btnEmailSend.Size = new System.Drawing.Size(446, 27);
+            this.btnEmailSend.TabIndex = 1;
+            this.btnEmailSend.Text = "Send";
             this.btnEmailSend.UseVisualStyleBackColor = true;
             // 
             // label94
             // 
-            resources.ApplyResources(this.label94, "label94");
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(78, 284);
             this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(314, 52);
+            this.label94.TabIndex = 4;
+            this.label94.Text = "Please be as accurate as you can be!\r\n\r\nIf you have problems to speak English, us" +
+    "e your native language.\r\nI\'ll use google translator and see what I can do.";
             // 
             // txtEmailBody
             // 
-            resources.ApplyResources(this.txtEmailBody, "txtEmailBody");
+            this.txtEmailBody.Location = new System.Drawing.Point(81, 53);
+            this.txtEmailBody.Multiline = true;
             this.txtEmailBody.Name = "txtEmailBody";
+            this.txtEmailBody.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtEmailBody.Size = new System.Drawing.Size(397, 216);
+            this.txtEmailBody.TabIndex = 3;
             // 
             // txtEmailSubject
             // 
-            resources.ApplyResources(this.txtEmailSubject, "txtEmailSubject");
+            this.txtEmailSubject.Enabled = false;
+            this.txtEmailSubject.Location = new System.Drawing.Point(338, 26);
             this.txtEmailSubject.Name = "txtEmailSubject";
+            this.txtEmailSubject.Size = new System.Drawing.Size(140, 20);
+            this.txtEmailSubject.TabIndex = 2;
             // 
             // cmBxEmailSubject
             // 
-            resources.ApplyResources(this.cmBxEmailSubject, "cmBxEmailSubject");
             this.cmBxEmailSubject.FormattingEnabled = true;
             this.cmBxEmailSubject.Items.AddRange(new object[] {
-            resources.GetString("cmBxEmailSubject.Items"),
-            resources.GetString("cmBxEmailSubject.Items1"),
-            resources.GetString("cmBxEmailSubject.Items2")});
+            "Bug",
+            "Suggestion",
+            "Other"});
+            this.cmBxEmailSubject.Location = new System.Drawing.Point(81, 30);
             this.cmBxEmailSubject.Name = "cmBxEmailSubject";
+            this.cmBxEmailSubject.Size = new System.Drawing.Size(121, 21);
+            this.cmBxEmailSubject.TabIndex = 1;
             // 
             // label93
             // 
-            resources.ApplyResources(this.label93, "label93");
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(29, 33);
             this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(46, 13);
+            this.label93.TabIndex = 0;
+            this.label93.Text = "Subject:";
             // 
             // ControlBugs
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbCreateThreadOnD3Scene);
             this.Controls.Add(this.groupBox25);
             this.Name = "ControlBugs";
+            this.Size = new System.Drawing.Size(669, 392);
             this.gbCreateThreadOnD3Scene.ResumeLayout(false);
             this.groupBox25.ResumeLayout(false);
             this.groupBox25.PerformLayout();

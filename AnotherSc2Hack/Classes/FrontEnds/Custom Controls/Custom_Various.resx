@@ -188,9 +188,6 @@
   <data name="txtApmAlertLimit.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 46</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.AbstractUserControl, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="&gt;&gt;chBxClock.Parent" xml:space="preserve">
     <value>gbClock</value>
   </data>
@@ -202,6 +199,9 @@
   </data>
   <data name="gbApm.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>CustomVarious</value>
   </data>
   <data name="chBxClock.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -231,8 +231,8 @@
   <data name="gbClock.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;gbApm.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;txtApmAlertLimit.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="$this.ToolTip" xml:space="preserve">
     <value />
@@ -252,9 +252,6 @@ This is printed as 24h clock!</value>
   <data name="chBxApmAlert.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 17</value>
   </data>
-  <data name="&gt;&gt;txtApmAlertLimit.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="chBxApm.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -272,6 +269,9 @@ This is printed as 24h clock!</value>
   </data>
   <data name="&gt;&gt;gbPersonalOverlay.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbApm.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="gbClock.Text" xml:space="preserve">
     <value>Clock</value>
@@ -336,8 +336,8 @@ change to red!</value>
   <data name="&gt;&gt;gbClock.Type" xml:space="preserve">
     <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>CustomVarious</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.AbstractUserControl, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;chBxClock.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -348,11 +348,5 @@ is dropping. Could improve your speed!</value>
   </data>
   <metadata name="ttVarious.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>de</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
   </metadata>
 </root>

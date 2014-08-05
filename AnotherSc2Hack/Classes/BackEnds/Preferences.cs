@@ -340,8 +340,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             sw.WriteLine("Hotkey 3 = " + UnitHotkey3);
             sw.WriteLine(";Boolean");
             sw.WriteLine("Split Buildings/ Units = " + UnitTabSplitUnitsAndBuildings);
-            WriteSubSetting(sw, UnitShowBuildings, "Show Buildings");
-            WriteSubSetting(sw, UnitShowUnits, "Show Units");
+            WriteSubSetting(sw, UnitTabShowBuildings, "Show Buildings");
+            WriteSubSetting(sw, UnitTabShowUnits, "Show Units");
             WriteSubSetting(sw, UnitTabRemoveChronoboost, "Remove Chronoboost");
             WriteSubSetting(sw, UnitTabRemoveSpellCounter, "Remove Spellcounter");
 
@@ -2054,7 +2054,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         bool bDummy;
                         Boolean.TryParse(strInnerValue, out bDummy);
 
-                        UnitShowUnits = bDummy;
+                        UnitTabShowUnits = bDummy;
                         bUnitTabShowUnits = true;
                     }
 
@@ -2068,7 +2068,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         bool bDummy;
                         Boolean.TryParse(strInnerValue, out bDummy);
 
-                        UnitShowBuildings = bDummy;
+                        UnitTabShowBuildings = bDummy;
                         bUnitTabShowBuildings = true;
                     }
 
@@ -3589,10 +3589,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 UnitTabFontName = "Century Gothic";
 
             if (!bUnitTabShowBuildings)
-                UnitShowBuildings = true;
+                UnitTabShowBuildings = true;
 
             if (!bUnitTabShowUnits)
-                UnitShowUnits = true;
+                UnitTabShowUnits = true;
 
             if (!bUnitTabChronoboost)
                 UnitTabRemoveChronoboost = false;
@@ -3803,8 +3803,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             UnitTabHeight = 50;
             UnitTabOpacity = 1;
             UnitPictureSize = 45;
-            UnitShowBuildings = true;
-            UnitShowUnits = true;
+            UnitTabShowBuildings = true;
+            UnitTabShowUnits = true;
             UnitTabRemoveSpellCounter = false;
             UnitTabRemoveChronoboost = false;
             MaphackRemoveAi = false;
@@ -4128,8 +4128,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Int32 UnitTabHeight { get; set; }
         public Double UnitTabOpacity { get; set; }
         public Int32 UnitPictureSize { get; set; }
-        public Boolean UnitShowUnits { get; set; }
-        public Boolean UnitShowBuildings { get; set; }
+        public Boolean UnitTabShowUnits { get; set; }
+        public Boolean UnitTabShowBuildings { get; set; }
         public String UnitTabFontName { get; set; }
         public Boolean MaphackRemoveAi { get; set; }
         public Boolean MaphackRemoveAllie { get; set; }

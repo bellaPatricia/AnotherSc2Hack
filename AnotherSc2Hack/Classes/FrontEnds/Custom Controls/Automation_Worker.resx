@@ -122,7 +122,7 @@
     <value>True</value>
   </data>
   <data name="&gt;&gt;gbAutoWorker.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chBxDisableWhenWorkerIsSelected.Size" type="System.Drawing.Size, System.Drawing">
@@ -137,6 +137,9 @@
   <data name="chBxDisableWhenSelecting.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;ktxtProbeBuildingKey.Name" xml:space="preserve">
+    <value>ktxtProbeBuildingKey</value>
+  </data>
   <data name="ntxtMaximumWorkersInGame.Location" type="System.Drawing.Point, System.Drawing">
     <value>191, 57</value>
   </data>
@@ -144,16 +147,13 @@
     <value>16</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerNextWorkerPercentage.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ntxtMaynardWorkerCount.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.NumberTextBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.NumberTextBox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblAutoWorkerKeyMainGroup.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 13</value>
-  </data>
-  <data name="lblAutoWorkerMaynardingPuffer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 13</value>
   </data>
   <data name="ktxtBackupGroupKey.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 20</value>
@@ -258,13 +258,16 @@
     <value>gbAutoWorker</value>
   </data>
   <data name="&gt;&gt;ntxtMaximumWorkersPerBase.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.NumberTextBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.NumberTextBox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ktxtMainbuildingGroupKey.Parent" xml:space="preserve">
     <value>gbAutoWorker</value>
   </data>
   <data name="chBxAutoUpgradeToOc.Location" type="System.Drawing.Point, System.Drawing">
     <value>278, 60</value>
+  </data>
+  <data name="&gt;&gt;lblAutoWorkerMaxWorkers.Type" xml:space="preserve">
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -293,11 +296,8 @@
   <data name="&gt;&gt;lblAutoWorkerKeyMainGroup.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="lblAutoWorkerKeyOrbital.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 150</value>
-  </data>
   <data name="&gt;&gt;chBxAutomationEnableWorkerProduction.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerKeyScv.ZOrder" xml:space="preserve">
     <value>13</value>
@@ -315,7 +315,7 @@
     <value>20</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerMaxWorkersPewBase.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ktxtOrbitalUpgradeKey.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -350,11 +350,11 @@
   <data name="lblAutoWorkerBackupGroup.Location" type="System.Drawing.Point, System.Drawing">
     <value>278, 210</value>
   </data>
-  <data name="lblAutoWorkerKeyProbe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 13</value>
+  <data name="lblAutoWorkerKeyOrbital.Location" type="System.Drawing.Point, System.Drawing">
+    <value>278, 150</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerKeyMainGroup.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblAutoWorkerKeyOrbital.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -396,10 +396,10 @@
     <value>2</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerApmOver.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="lblAutoWorkerKeyScv.Text" xml:space="preserve">
-    <value>Key For SCV:</value>
+  <data name="&gt;&gt;ktxtBackupGroupKey.Name" xml:space="preserve">
+    <value>ktxtBackupGroupKey</value>
   </data>
   <data name="&gt;&gt;rdbDirectWorkerProduction.Name" xml:space="preserve">
     <value>rdbDirectWorkerProduction</value>
@@ -414,7 +414,7 @@
     <value>4</value>
   </data>
   <data name="&gt;&gt;chBxDisableWhenSelecting.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblAutoWorkerKeyProbe.Location" type="System.Drawing.Point, System.Drawing">
     <value>278, 120</value>
@@ -423,7 +423,7 @@
     <value>444, 117</value>
   </data>
   <data name="&gt;&gt;ktxtProbeBuildingKey.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.KeyTextBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.KeyTextBox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;chBxAutoUpgradeToOc.Name" xml:space="preserve">
     <value>chBxAutoUpgradeToOc</value>
@@ -432,28 +432,28 @@
     <value>gbAutoWorker</value>
   </data>
   <data name="&gt;&gt;ktxtBackupGroupKey.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.KeyTextBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.KeyTextBox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblAutoWorkerMaxWorkers.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 13</value>
   </data>
   <data name="&gt;&gt;rdbDirectWorkerProduction.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageRadiobutton, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageRadiobutton, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;ktxtProbeBuildingKey.Name" xml:space="preserve">
-    <value>ktxtProbeBuildingKey</value>
+  <data name="&gt;&gt;ntxtMaynardWorkerCount.Parent" xml:space="preserve">
+    <value>gbAutoWorker</value>
   </data>
   <data name="&gt;&gt;chBxDisableWhenWorkerIsSelected.Name" xml:space="preserve">
     <value>chBxDisableWhenWorkerIsSelected</value>
   </data>
   <data name="&gt;&gt;ktxtScvBuildingKey.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.KeyTextBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.KeyTextBox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblAutoWorkerMaxWorkers.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerKeyOrbital.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerMaxWorkers.Name" xml:space="preserve">
     <value>lblAutoWorkerMaxWorkers</value>
@@ -479,6 +479,9 @@
   <data name="&gt;&gt;lblAutoWorkerKeyMainGroup.Name" xml:space="preserve">
     <value>lblAutoWorkerKeyMainGroup</value>
   </data>
+  <data name="ktxtScvBuildingKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 20</value>
+  </data>
   <data name="&gt;&gt;lblAutoWorkerKeyOrbital.Name" xml:space="preserve">
     <value>lblAutoWorkerKeyOrbital</value>
   </data>
@@ -500,8 +503,8 @@
   <data name="&gt;&gt;rdbRoundWorkerProduction.Name" xml:space="preserve">
     <value>rdbRoundWorkerProduction</value>
   </data>
-  <data name="&gt;&gt;gbAutoWorker.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lblAutoWorkerKeyProbe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
   </data>
   <data name="chBxDisableWhenSelecting.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -533,26 +536,32 @@
   <data name="lblAutoWorkerMaxWorkersPewBase.Text" xml:space="preserve">
     <value>Maximum Workers per Base:</value>
   </data>
+  <data name="lblAutoWorkerKeyScv.Text" xml:space="preserve">
+    <value>Key For SCV:</value>
+  </data>
   <data name="lblAutoWorkerMaxWorkersPewBase.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;ktxtBackupGroupKey.Name" xml:space="preserve">
-    <value>ktxtBackupGroupKey</value>
-  </data>
   <data name="&gt;&gt;ktxtMainbuildingGroupKey.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.KeyTextBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.KeyTextBox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="ntxtMaximumWorkersPerBase.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerKeyProbe.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblAutoWorkerMaxWorkers.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 60</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>514, 268</value>
+  </data>
+  <data name="lblAutoWorkerKeyOrbital.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;gbAutoWorker.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerKeyScv.Parent" xml:space="preserve">
     <value>gbAutoWorker</value>
@@ -585,9 +594,9 @@
     <value>True</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.AbstractUserControl, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.AbstractUserControl, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="ktxtScvBuildingKey.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ntxtMaximumWorkersPerBase.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 20</value>
   </data>
   <data name="lblAutoWorkerBackupGroup.TabIndex" type="System.Int32, mscorlib">
@@ -596,14 +605,11 @@
   <data name="&gt;&gt;lblAutoWorkerNextWorkerPercentage.Parent" xml:space="preserve">
     <value>gbAutoWorker</value>
   </data>
-  <data name="ntxtMaynardWorkerCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>191, 117</value>
-  </data>
   <data name="lblAutoWorkerKeyProbe.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
   <data name="&gt;&gt;ntxtMaximumWorkersInGame.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.NumberTextBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.NumberTextBox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="chBxAutoUpgradeToOc.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -621,7 +627,7 @@
     <value>0, 0</value>
   </data>
   <data name="&gt;&gt;ntxtBuildNextWorkerAt.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.NumberTextBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.NumberTextBox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblAutoWorkerMaxWorkers.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -644,9 +650,6 @@
   <data name="ntxtMaynardWorkerCount.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;chBxAutomationEnableWorkerProduction.Parent" xml:space="preserve">
-    <value>gbAutoWorker</value>
-  </data>
   <data name="&gt;&gt;ntxtDisableWhenApmIsOver.Parent" xml:space="preserve">
     <value>gbAutoWorker</value>
   </data>
@@ -654,13 +657,10 @@
     <value>147, 17</value>
   </data>
   <data name="&gt;&gt;chBxDisableWhenWorkerIsSelected.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="ktxtMainbuildingGroupKey.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
-  </data>
-  <data name="&gt;&gt;ntxtMaynardWorkerCount.Parent" xml:space="preserve">
-    <value>gbAutoWorker</value>
   </data>
   <data name="&gt;&gt;chBxDisableWhenWorkerIsSelected.Parent" xml:space="preserve">
     <value>gbAutoWorker</value>
@@ -672,7 +672,7 @@
     <value>25, 240</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerMaynardingPuffer.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblAutoWorkerMaxWorkersPewBase.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Strikeout</value>
@@ -689,8 +689,8 @@
   <data name="&gt;&gt;lblAutoWorkerMaxWorkersPewBase.Name" xml:space="preserve">
     <value>lblAutoWorkerMaxWorkersPewBase</value>
   </data>
-  <data name="ntxtMaximumWorkersPerBase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 20</value>
+  <data name="ntxtMaynardWorkerCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 117</value>
   </data>
   <data name="chBxAutoUpgradeToOc.Text" xml:space="preserve">
     <value>Upgrade CC's to OC's automatically</value>
@@ -711,7 +711,7 @@
     <value>gbAutoWorker</value>
   </data>
   <data name="&gt;&gt;chBxAutoUpgradeToOc.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="ntxtDisableWhenApmIsOver.Location" type="System.Drawing.Point, System.Drawing">
     <value>191, 207</value>
@@ -720,7 +720,7 @@
     <value>17</value>
   </data>
   <data name="&gt;&gt;ktxtOrbitalUpgradeKey.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.KeyTextBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.KeyTextBox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ktxtScvBuildingKey.ZOrder" xml:space="preserve">
     <value>10</value>
@@ -731,8 +731,8 @@
   <data name="lblAutoWorkerApmOver.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 210</value>
   </data>
-  <data name="lblAutoWorkerKeyOrbital.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lblAutoWorkerMaynardingPuffer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 13</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerMaynardingPuffer.Parent" xml:space="preserve">
     <value>gbAutoWorker</value>
@@ -747,10 +747,10 @@
     <value>444, 87</value>
   </data>
   <data name="&gt;&gt;ntxtDisableWhenApmIsOver.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.NumberTextBox, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.NumberTextBox, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;lblAutoWorkerMaxWorkers.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;gbAutoWorker.Name" xml:space="preserve">
+    <value>gbAutoWorker</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerKeyProbe.Parent" xml:space="preserve">
     <value>gbAutoWorker</value>
@@ -762,7 +762,7 @@
     <value>gbAutoWorker</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerBackupGroup.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;rdbDirectWorkerProduction.ZOrder" xml:space="preserve">
     <value>18</value>
@@ -777,13 +777,13 @@
     <value>25, 150</value>
   </data>
   <data name="&gt;&gt;rdbRoundWorkerProduction.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageRadiobutton, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageRadiobutton, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerMaxWorkers.Parent" xml:space="preserve">
     <value>gbAutoWorker</value>
   </data>
   <data name="&gt;&gt;lblAutoWorkerKeyScv.Type" xml:space="preserve">
-    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AnotherSc2Hack.Classes.FrontEnds.LanguageLabel, AnotherSc2Hack, Version=0.6.5.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="gbAutoWorker.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -791,7 +791,7 @@
   <data name="lblAutoWorkerKeyScv.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="&gt;&gt;gbAutoWorker.Name" xml:space="preserve">
+  <data name="&gt;&gt;chBxAutomationEnableWorkerProduction.Parent" xml:space="preserve">
     <value>gbAutoWorker</value>
   </data>
   <data name="&gt;&gt;ntxtDisableWhenApmIsOver.ZOrder" xml:space="preserve">
@@ -803,10 +803,4 @@
   <data name="chBxAutoUpgradeToOc.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 17</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>de</value>
-  </metadata>
 </root>

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomDebug));
             this.btnDebugExportIds = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MapInfo = new System.Windows.Forms.ListBox();
@@ -44,59 +43,91 @@
             // 
             // btnDebugExportIds
             // 
-            resources.ApplyResources(this.btnDebugExportIds, "btnDebugExportIds");
+            this.btnDebugExportIds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDebugExportIds.Location = new System.Drawing.Point(684, 324);
             this.btnDebugExportIds.Name = "btnDebugExportIds";
+            this.btnDebugExportIds.Size = new System.Drawing.Size(200, 38);
+            this.btnDebugExportIds.TabIndex = 1;
+            this.btnDebugExportIds.Text = "Aktuelle Unit ID\'s mit Namen exportieren";
             this.btnDebugExportIds.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.MapInfo);
+            this.groupBox1.Location = new System.Drawing.Point(684, 18);
             this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 109);
+            this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Karten- UiInformation";
             // 
             // MapInfo
             // 
-            resources.ApplyResources(this.MapInfo, "MapInfo");
+            this.MapInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MapInfo.FormattingEnabled = true;
+            this.MapInfo.Location = new System.Drawing.Point(6, 19);
             this.MapInfo.Name = "MapInfo";
+            this.MapInfo.Size = new System.Drawing.Size(188, 82);
+            this.MapInfo.TabIndex = 0;
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.lstGameinformation);
+            this.groupBox2.Location = new System.Drawing.Point(684, 133);
             this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 185);
+            this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Match- UiInformation";
             // 
             // lstGameinformation
             // 
-            resources.ApplyResources(this.lstGameinformation, "lstGameinformation");
+            this.lstGameinformation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstGameinformation.FormattingEnabled = true;
+            this.lstGameinformation.Location = new System.Drawing.Point(6, 19);
             this.lstGameinformation.Name = "lstGameinformation";
+            this.lstGameinformation.Size = new System.Drawing.Size(188, 147);
+            this.lstGameinformation.TabIndex = 0;
             // 
             // lblPlayerObjects
             // 
-            resources.ApplyResources(this.lblPlayerObjects, "lblPlayerObjects");
+            this.lblPlayerObjects.AutoSize = true;
+            this.lblPlayerObjects.Location = new System.Drawing.Point(27, 365);
             this.lblPlayerObjects.Name = "lblPlayerObjects";
+            this.lblPlayerObjects.Size = new System.Drawing.Size(88, 13);
+            this.lblPlayerObjects.TabIndex = 7;
+            this.lblPlayerObjects.Text = "Objekte (Spieler):";
             // 
             // lblUnitObjects
             // 
-            resources.ApplyResources(this.lblUnitObjects, "lblUnitObjects");
+            this.lblUnitObjects.AutoSize = true;
+            this.lblUnitObjects.Location = new System.Drawing.Point(354, 365);
             this.lblUnitObjects.Name = "lblUnitObjects";
+            this.lblUnitObjects.Size = new System.Drawing.Size(100, 13);
+            this.lblUnitObjects.TabIndex = 8;
+            this.lblUnitObjects.Text = "Objekte (Einheiten):";
             // 
             // UnitInfo
             // 
-            resources.ApplyResources(this.UnitInfo, "UnitInfo");
+            this.UnitInfo.Location = new System.Drawing.Point(357, 18);
             this.UnitInfo.Name = "UnitInfo";
+            this.UnitInfo.Size = new System.Drawing.Size(321, 344);
+            this.UnitInfo.TabIndex = 4;
             // 
             // PlayerInfo
             // 
-            resources.ApplyResources(this.PlayerInfo, "PlayerInfo");
+            this.PlayerInfo.Location = new System.Drawing.Point(30, 18);
             this.PlayerInfo.Name = "PlayerInfo";
+            this.PlayerInfo.Size = new System.Drawing.Size(321, 344);
+            this.PlayerInfo.TabIndex = 3;
             // 
             // CustomDebug
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblUnitObjects);
             this.Controls.Add(this.lblPlayerObjects);
@@ -106,6 +137,7 @@
             this.Controls.Add(this.PlayerInfo);
             this.Controls.Add(this.btnDebugExportIds);
             this.Name = "CustomDebug";
+            this.Size = new System.Drawing.Size(895, 385);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);

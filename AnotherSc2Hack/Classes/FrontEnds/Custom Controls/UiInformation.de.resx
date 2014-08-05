@@ -130,4 +130,7 @@
   <data name="lblWidth.Text" xml:space="preserve">
     <value>Breite:</value>
   </data>
+  <data name="gbInformation.Text" xml:space="preserve">
+    <value>Geometrie Informationen</value>
+  </data>
 </root>
