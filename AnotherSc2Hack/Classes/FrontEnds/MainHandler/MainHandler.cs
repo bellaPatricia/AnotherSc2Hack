@@ -134,7 +134,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
 #else 
             tcWorkerAutomation.Enabled = false;
-            tcMainTab.TabPages.Remove(tcDebug);
+            CustGlobal.cmBxLanguage.Enabled = false;
+            CustGlobal.cmBxLanguage.Visible = false;
 #endif
 
 
