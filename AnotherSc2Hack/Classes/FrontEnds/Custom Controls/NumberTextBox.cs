@@ -3,13 +3,51 @@ using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
+    public delegate void NumberChangeHandler(NumberTextBox o, EventNumber e);
+
+    public class EventNumber : EventArgs
+    {
+        public Int64 TheNumber;
+
+        public EventNumber(Int64 number)
+        {
+            TheNumber = number;
+        }
+    }
+
     public class NumberTextBox : TextBox
     {
-        public Int32 Number { get; set; }
+        public event NumberChangeHandler NumberChanged;
+
+        private Int32 _number;
+
+        public Int32 Number
+        {
+            get { return _number; }
+            set
+            {
+                //If it's the same number...
+                if (_number == value)
+                    return;
+
+                _number = value;
+                var en = new EventNumber(_number);
+
+                //Call the Event
+                OnNumberChange(this, en);
+
+            }
+        }
 
         public NumberTextBox()
         {
             TextChanged += NumberTextBox_TextChanged;
+        }
+
+        public void OnNumberChange(NumberTextBox o, EventNumber e)
+        {
+            if (NumberChanged != null)
+                NumberChanged(o, e);
         }
 
         private void NumberTextBox_TextChanged(object sender, EventArgs e)

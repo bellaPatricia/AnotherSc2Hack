@@ -1662,29 +1662,29 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.WorkerAutomationModeDirect = workerProductionBasics.rdbDirectWorkerProduction.Checked;
         }
 
-        void ntxtMaynardWorkerCount_TextChanged(object sender, EventArgs e)
+        void ntxtMaynardWorkerCount_NumberChanged(NumberTextBox sender, EventArgs e)
         {
-            PSettings.WorkerAutomationPufferWorker = workerProductionBasics.ntxtMaynardWorkerCount.Number;
+            PSettings.WorkerAutomationPufferWorker = sender.Number;
         }
 
-        void ntxtMaximumWorkersPerBase_TextChanged(object sender, EventArgs e)
+        void ntxtMaximumWorkersPerBase_NumberChanged(NumberTextBox sender, EventArgs e)
         {
-            PSettings.WorkerAutomationMaximumWorkersPerBase = workerProductionBasics.ntxtMaximumWorkersPerBase.Number;
+            PSettings.WorkerAutomationMaximumWorkersPerBase = sender.Number;
         }
 
-        void ntxtMaximumWorkersInGame_TextChanged(object sender, EventArgs e)
+        void ntxtMaximumWorkersInGame_NumberChanged(NumberTextBox sender, EventArgs e)
         {
-            PSettings.WorkerAutomationMaximumWorkers = workerProductionBasics.ntxtMaximumWorkersInGame.Number;
+            PSettings.WorkerAutomationMaximumWorkers = sender.Number;
         }
 
-        void ntxtStartNextWorkerAt_TextChanged(object sender, EventArgs e)
+        void ntxtStartNextWorkerAt_NumberChanged(NumberTextBox sender, EventArgs e)
         {
-            PSettings.WorkerAutomationStartNextWorkerAt = workerProductionBasics.ntxtBuildNextWorkerAt.Number;
+            PSettings.WorkerAutomationStartNextWorkerAt = sender.Number;
         }
 
-        void ntxtDisableWhenApmIsOver_TextChanged(object sender, EventArgs e)
+        void ntxtDisableWhenApmIsOver_NumberChanged(NumberTextBox sender, EventArgs e)
         {
-            PSettings.WorkerAutomationApmProtection = workerProductionBasics.ntxtDisableWhenApmIsOver.Number;
+            PSettings.WorkerAutomationApmProtection = sender.Number;
         }
 
         void chBxDisableWhenWorkerIsSelected_CheckedChanged(object sender, EventArgs e)
@@ -1949,11 +1949,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             workerProductionBasics.chBxAutomationEnableWorkerProduction.CheckedChanged += chBxAutomationEnableWorkerProduction_CheckedChanged;
             workerProductionBasics.chBxDisableWhenSelecting.CheckedChanged += chBxDisableWhenSelecting_CheckedChanged;
             workerProductionBasics.chBxDisableWhenWorkerIsSelected.CheckedChanged += chBxDisableWhenWorkerIsSelected_CheckedChanged;
-            workerProductionBasics.ntxtDisableWhenApmIsOver.TextChanged += ntxtDisableWhenApmIsOver_TextChanged;
-            workerProductionBasics.ntxtBuildNextWorkerAt.TextChanged += ntxtStartNextWorkerAt_TextChanged;
-            workerProductionBasics.ntxtMaximumWorkersInGame.TextChanged += ntxtMaximumWorkersInGame_TextChanged;
-            workerProductionBasics.ntxtMaximumWorkersPerBase.TextChanged += ntxtMaximumWorkersPerBase_TextChanged;
-            workerProductionBasics.ntxtMaynardWorkerCount.TextChanged += ntxtMaynardWorkerCount_TextChanged;
+            workerProductionBasics.ntxtDisableWhenApmIsOver.NumberChanged += ntxtDisableWhenApmIsOver_NumberChanged;
+            workerProductionBasics.ntxtBuildNextWorkerAt.NumberChanged += ntxtStartNextWorkerAt_NumberChanged;
+            workerProductionBasics.ntxtMaximumWorkersInGame.NumberChanged += ntxtMaximumWorkersInGame_NumberChanged;
+            workerProductionBasics.ntxtMaximumWorkersPerBase.NumberChanged += ntxtMaximumWorkersPerBase_NumberChanged;
+            workerProductionBasics.ntxtMaynardWorkerCount.NumberChanged += ntxtMaynardWorkerCount_NumberChanged;
             workerProductionBasics.rdbDirectWorkerProduction.CheckedChanged += rdbDirectWorkerProduction_CheckedChanged;
             workerProductionBasics.rdbRoundWorkerProduction.CheckedChanged += rdbRoundWorkerProduction_CheckedChanged;
 

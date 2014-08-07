@@ -130,7 +130,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 #if DEBUG
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
             btnLostUnits.Visible = true;
-            
+            Customize.Customizer c = new Customize.Customizer();
+            c.Show();
 
 #else 
             tcWorkerAutomation.Enabled = false;
