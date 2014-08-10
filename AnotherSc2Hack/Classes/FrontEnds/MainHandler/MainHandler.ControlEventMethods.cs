@@ -101,12 +101,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void chBxResourceRemoveLocalplayer_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.IncomeRemoveLocalplayer = IncomeUiBasics.chBxRemoveLocalplayer.Checked;
+            PSettings.ResourceRemoveLocalplayer = ResourceUiBasics.chBxRemoveLocalplayer.Checked;
         }
 
         void chBxResourceRemoveClantag_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ApmRemoveClanTag = ApmUiBasics.chBxRemoveClantag.Checked;
+            PSettings.ResourceRemoveClanTag = ResourceUiBasics.chBxRemoveClantag.Checked;
         }
 
         void chBxResourceRemoveAllie_CheckedChanged(object sender, EventArgs e)
@@ -151,12 +151,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void tbIncomeOpacity_Scroll(object sender, EventArgs e)
         {
-            /*if (IncomeUiBasics.tbOpacityf.Value > 0)
-                IncomeUiBasics.lblOpacity.Text = "Opacity: " + (IncomeUiBasics.tbOpacityf.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
-
-            else
-                IncomeUiBasics.tbOpacityf.Value = 1;*/
-
             PSettings.IncomeOpacity = (double)IncomeUiBasics.OcUiOpacity.tbOpacity.Value / 100;
         }
 
@@ -216,7 +210,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void chBxIncomeRemoveClantag_CheckedChanged(object sender, EventArgs e)
         {
-            PSettings.ApmRemoveClanTag = ApmUiBasics.chBxRemoveClantag.Checked;
+            PSettings.IncomeRemoveClanTag = IncomeUiBasics.chBxRemoveClantag.Checked;
         }
 
         void chBxIncomeRemoveAllie_CheckedChanged(object sender, EventArgs e)
@@ -341,12 +335,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void tbApmOpacity_Scroll(object sender, EventArgs e)
         {
-           /* if (ApmUiBasics.tbOpacityf.Value > 0)
-                ApmUiBasics.lblOpacity.Text = "Opacity: " + (ApmUiBasics.tbOpacityf.Value * 1).ToString(CultureInfo.InvariantCulture) + "%";
-
-            else
-                ApmUiBasics.tbOpacityf.Value = 1;*/
-
             PSettings.ApmOpacity = (double)ApmUiBasics.OcUiOpacity.tbOpacity.Value / 100;
         }
 
