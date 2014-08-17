@@ -919,20 +919,35 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (logicalId.Equals(0))
                 return PredefinedTypes.UnitId.NbXelNagaTower;
 
-            var strStuff = Convert.ToString(logicalId, 16);
-            strStuff = "1" + strStuff.Substring(1);
+            if (!logicalId.Equals(-1))
+            {
 
-            var inumber = int.Parse(strStuff, NumberStyles.HexNumber);
+                var strStuff = Convert.ToString(logicalId, 16);
+                strStuff = "1" + strStuff.Substring(1);
 
-            logicalId = inumber;
+                var inumber = int.Parse(strStuff, NumberStyles.HexNumber);
 
+                logicalId = inumber;
+            }
 
             #region Terran 
 
             #region CC - Orbital - PF
 
             if (structureBuildFrom.Equals(PredefinedTypes.UnitId.TbCcGround))
+            {
+                //E.G. Upgrade to Lair/ Hive
+                if (logicalId == -1)
+                {
+                    if (mineralCost == 150 && vespineCost == 0)
+                        return PredefinedTypes.UnitId.TupUpgradeToOrbital;
+
+                    if (mineralCost == 150 && vespineCost == 150)
+                        return PredefinedTypes.UnitId.TupUpgradeToPlanetary;
+                }
+
                 return PredefinedTypes.UnitId.TuScv;
+            }
 
             if (structureBuildFrom.Equals(PredefinedTypes.UnitId.TbPlanetary))
                 return PredefinedTypes.UnitId.TuScv;
@@ -1235,6 +1250,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #region Protoss
 
+            if (structureBuildFrom.Equals(PredefinedTypes.UnitId.PuMothershipCore))
+            {
+                //E.G. Upgrade to Lair/ Hive
+                if (logicalId == -1)
+                {
+                    if (mineralCost == 300 && vespineCost == 300)
+                        return PredefinedTypes.UnitId.PupUpgradeToMothership;
+                }
+            }
+
             #region Units
 
             #region Nexus
@@ -1494,7 +1519,27 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 if (logicalId.Equals(0x10003))
                     return PredefinedTypes.UnitId.ZupBurrow;
 
+                //E.G. Upgrade to Lair/ Hive
+                if (logicalId == -1)
+                {
+                    if (mineralCost == 150 && vespineCost == 100)
+                        return PredefinedTypes.UnitId.ZupUpgradeToLair;
+
+                    if (mineralCost == 200 && vespineCost == 150)
+                        return PredefinedTypes.UnitId.ZupUpgradeToHive;
+                }
+
                 return PredefinedTypes.UnitId.ZuQueen;
+            }
+
+            if (structureBuildFrom.Equals(PredefinedTypes.UnitId.ZbSpire))
+            {
+                //E.G. Upgrade to Lair/ Hive
+                if (logicalId == -1)
+                {
+                    if (mineralCost == 100 && vespineCost == 150)
+                        return PredefinedTypes.UnitId.ZupUpgradeToGreaterSpire;
+                }
             }
 
             #region Units
@@ -1503,6 +1548,26 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 if (maximumTime.Equals(1310720))
                     return PredefinedTypes.UnitId.ZuBaneling;
+            }
+
+            if (structureBuildFrom.Equals(PredefinedTypes.UnitId.ZuBroodlordCocoon))
+            {
+                //E.G. Upgrade to Lair/ Hive
+                if (logicalId == -1)
+                {
+                    if (mineralCost == 150 && vespineCost == 150)
+                        return PredefinedTypes.UnitId.ZupUpgradeToBroodlord;
+                }
+            }
+
+            if (structureBuildFrom.Equals(PredefinedTypes.UnitId.ZuOverseerCocoon))
+            {
+                //E.G. Upgrade to Lair/ Hive
+                if (logicalId == -1)
+                {
+                    if (mineralCost == 50 && vespineCost == 50)
+                        return PredefinedTypes.UnitId.ZupUpgradeToOverseer;
+                }
             }
 
             /* For the eggs, we have to cchack using other values.. 

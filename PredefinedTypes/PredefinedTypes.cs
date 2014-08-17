@@ -11,6 +11,9 @@
  * Those classes allow you to save codelines and work.
  * In addition, you can manipulate the elements of a class without any nasty structhacking, making the code more readable.
  * 
+ * 
+ * 
+ * NOTE: To use this, you have to recompile in Release mode so it get's refreshed (The assembly is pointed to the release version, not debug)!
  */
 
 using System;
@@ -220,6 +223,8 @@ namespace Predefined
             TupCaduceusReactor,
             TupDurableMeterials,
             TupCorvidReactor,
+            TupUpgradeToOrbital,
+            TupUpgradeToPlanetary,
 
             /* Protoss */
             PupAirW1,
@@ -246,6 +251,8 @@ namespace Predefined
             PupWarpGate,
             PupAnionPulseCrystals,
             PupGravitonCatapult,
+            PupUpgradeToMothership,
+            PupUpgradeToArchon,
 
             /* Zerg */
             ZupAirA1,
@@ -277,6 +284,11 @@ namespace Predefined
             ZupPneumatizedCarapace,
             ZupTunnelingClaws,
             ZupVentralSacs,
+            ZupUpgradeToLair,
+            ZupUpgradeToHive,
+            ZupUpgradeToGreaterSpire,
+            ZupUpgradeToBroodlord,
+            ZupUpgradeToOverseer,
 
         };
 

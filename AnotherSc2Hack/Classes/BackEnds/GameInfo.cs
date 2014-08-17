@@ -703,7 +703,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 u.Id.Equals(PredefinedTypes.UnitId.ZbLiar) ||
                 u.Id.Equals(PredefinedTypes.UnitId.ZbHive) ||
                 u.Id.Equals(PredefinedTypes.UnitId.ZuBanelingCocoon) ||
+                u.Id.Equals(PredefinedTypes.UnitId.ZuBroodlordCocoon) ||
                 u.Id.Equals(PredefinedTypes.UnitId.ZuEgg) ||
+                u.Id.Equals(PredefinedTypes.UnitId.ZuOverseerCocoon) ||
                 u.Id.Equals(PredefinedTypes.UnitId.TbEbay) ||
                 u.Id.Equals(PredefinedTypes.UnitId.TbTechlabFactory) ||
                 u.Id.Equals(PredefinedTypes.UnitId.TbTechlabRax) ||
@@ -717,6 +719,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 u.Id.Equals(PredefinedTypes.UnitId.PbTemplararchives) ||
                 u.Id.Equals(PredefinedTypes.UnitId.PbTwilightcouncil) ||
                 u.Id.Equals(PredefinedTypes.UnitId.PbRoboticssupportbay) ||
+                u.Id.Equals(PredefinedTypes.UnitId.PuMothershipCore) ||
                 u.Id.Equals(PredefinedTypes.UnitId.ZbEvolutionChamber) ||
                 u.Id.Equals(PredefinedTypes.UnitId.ZbSpire) ||
                 u.Id.Equals(PredefinedTypes.UnitId.ZbSpawningPool) ||
@@ -981,9 +984,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var lUnitIds = new List<PredefinedTypes.UnitProduction>();
 
-            /* Content of Abilities */
+            /* Content of Abilities (pAbilities) */
             var iUnitAbilitiesPointer =
                 BitConverter.ToUInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UnitStruct + 0xDC + Of.UnitStructSize * iUnitNum, 4), 0);
+
+
+            
+            
 
             /* Bitwise AND */
             iUnitAbilitiesPointer = iUnitAbilitiesPointer & 0xFFFFFFFC;
@@ -997,7 +1004,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             /* Reading the Bytearray */
 
-            /* Read the result of iUnitAbilitiesPointer */
+            /* Read the result of iUnitAbilitiesPointer (p1) */
             var iUnitAbilitiesPointerResult = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft,
                                                                                              (int)iUnitAbilitiesPointer, 4),
                                                          0);
@@ -1010,6 +1017,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             for (var i = 0; i < byteBuffer.Length; i++)
             {
+#if !DEBUG
+
                 if (byteBuffer[i].Equals(0x19))
                 {
                     iIndexToLookAt = i;
@@ -1018,9 +1027,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         break;
                 }
                 
+#else
                 #region Debug/ Tests
 
-               /* var _iContentOfPointer =
+                var _iContentOfPointer =
                     BitConverter.ToUInt32(
                         InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)iUnitAbilitiesPointer + 0x18 + 4 * i, 4),
                         0);
@@ -1034,12 +1044,34 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                        ? true
                                        : false;
 
+                var result2 =
+                    BitConverter.ToUInt32(
+                        InteropCalls.Help_ReadProcessMemory(HStarcraft, iUnitAbilitiesPointerResult - 3 + 0xA4 + (i * 4), 4), 0);
+
+               /* var result3 =
+                    BitConverter.ToInt32(
+                        InteropCalls.Help_ReadProcessMemory(HStarcraft, iUnitAbilitiesPointerResult - 3, 4), 0);*/
+
+                var resultOfResult2 =
+                    BitConverter.ToUInt32(
+                        InteropCalls.Help_ReadProcessMemory(HStarcraft, (UInt32)(result2 + 4), 4), 0);
+
+             /*   var resultOfResult3 =
+                    BitConverter.ToInt32(
+                        InteropCalls.Help_ReadProcessMemory(HStarcraft, result3, 4), 0);*/
+
+                var strAbilityName =
+                    Encoding.UTF8.GetString(InteropCalls.Help_ReadProcessMemory(HStarcraft, resultOfResult2,
+                        16));
+
+
                 var _iArrayOfBytes =
                     BitConverter.ToInt32(
                         InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x34, 4), 0);
 
                 var _iTempPtr = BitConverter.ToInt32(
                         InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iArrayOfBytes, 4), 0);
+
 
                 var _productionChunk = InteropCalls.Help_ReadProcessMemory(HStarcraft, _iTempPtr, 0x80);
 
@@ -1050,18 +1082,33 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 var _iMineralCost = BitConverter.ToInt32(_productionChunk, 0x74);
                 var _iVespineCost = BitConverter.ToInt32(_productionChunk, 0x78);
 
+                var _iSomething =
+                    BitConverter.ToInt32(
+                        InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32) _iContentOfPointer + 0x4, 4), 0);
+
                 Debug.WriteLine("\n");
                 Debug.WriteLine("i: " + i);
-                Debug.WriteLine("NumberOfQueuedUnits: " + _iNumberOfQueuedUnits);
-                Debug.WriteLine("Bytebuffer Item: " + byteBuffer[i].ToString("X2") + "(" + byteBuffer[i] + ")");
-                Debug.WriteLine("Minerals: " + _iMineralCost);
-                Debug.WriteLine("Reactor Attached: " + _bReactorAttached);
-                Debug.WriteLine("iType: " + _iType);
-                Debug.WriteLine("Time Left: " + _iTimeLeft);*/
+                Debug.WriteLine("iPointerResult - 3: 0x" + (iUnitAbilitiesPointerResult - 3).ToString("X8"));
+                Debug.WriteLine("Result2 (0xA4): 0x" + result2.ToString("X8"));
+                Debug.WriteLine("Result of Result2: 0x" + result2.ToString("X8"));
+                Debug.WriteLine("Ability Name: " + strAbilityName);
+                //Debug.WriteLine("NumberOfQueuedUnits: " + _iNumberOfQueuedUnits);
+                //Debug.WriteLine("Bytebuffer Item: 0x" + byteBuffer[i].ToString("X2") + " - " + byteBuffer[i]);
+                //Debug.WriteLine("Minerals: " + _iMineralCost);
+                //Debug.WriteLine("Reactor Attached: " + _bReactorAttached);
+                //Debug.WriteLine("iType: " + _iType);
+                //Debug.WriteLine("Time Left: " + _iTimeLeft);
+                //Debug.WriteLine("iContent of pointer: 0x" + _iContentOfPointer.ToString("X8"));
+                //Debug.WriteLine("Temp ptr: 0x" + _iTempPtr.ToString("X8"));
+                //Debug.WriteLine("iSometzhing: 0x" + _iSomething.ToString("X8"));
+               
 
                 #endregion
 
+#endif
             }
+
+            
 
             /* Read the DATA Pointer (that leads to our result) */
             var iContentOfPointer =
@@ -1113,6 +1160,55 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 
 
                 lUnitIds.Add(prd2);
+            }
+
+            //That will happen if there is no unit to be build or something is morphing like a Hatch => Lair
+            //Thus: Check if the sourcebuilding is a hatch or something..
+            else if (iNumberOfQueuedUnits <= 0)
+            {
+                if (structureId.Equals(PredefinedTypes.UnitId.ZbHatchery) ||
+                    structureId.Equals(PredefinedTypes.UnitId.ZbLiar) ||
+                    structureId.Equals(PredefinedTypes.UnitId.ZbSpire) ||
+                    structureId.Equals(PredefinedTypes.UnitId.ZuBroodlordCocoon) ||
+                    structureId.Equals(PredefinedTypes.UnitId.ZuOverseerCocoon) ||
+                    structureId.Equals(PredefinedTypes.UnitId.TbCcGround) ||
+                    structureId.Equals(PredefinedTypes.UnitId.PuMothershipCore) ||
+                    structureId.Equals(PredefinedTypes.UnitId.PuArchon))
+                {
+                    var iUnitCommandQueuePointer = InteropCalls.ReadUInt32(HStarcraft,
+                    Of.UnitStruct + 0xD4 + Of.UnitStructSize * iUnitNum);
+
+                    if (iUnitCommandQueuePointer > 0)
+                    {
+                        var iUnitCommandQueueChunk = InteropCalls.Help_ReadProcessMemory(HStarcraft,
+                            iUnitCommandQueuePointer + 0x98,
+                            0xCC);
+
+                        var iType2 = -1; //BitConverter.ToInt32(iUnitCommandQueueChunk, 0x44);
+                        var iTimeMax2 = BitConverter.ToUInt32(iUnitCommandQueueChunk, 0x1C);
+                        var iTimeLeft2 = (float)BitConverter.ToUInt32(iUnitCommandQueueChunk, 0);
+                        var iMineralCost2 = BitConverter.ToInt32(iUnitCommandQueueChunk, 0xC4);
+                        var iVespineCost2 = BitConverter.ToInt32(iUnitCommandQueueChunk, 0xC8);
+
+                        var prd2 = new PredefinedTypes.UnitProduction
+                        {
+                            Id =
+                                HelpFunctions.GetUnitIdFromLogicalId(structureId, iType2, (Int32) iTimeMax2,
+                                    iMineralCost2, iVespineCost2),
+                            MineralCost = iMineralCost2,
+                            ProductionStatus = 100 - (iTimeLeft2/iTimeMax2)*100,
+                            ProductionTimeLeft = iTimeLeft2/65536,
+                            ReactorAttached = false,
+                            Supply = 0,
+                            SupplyRaw = 0,
+                            UnitsInProduction = 0,
+                            VespineCost = iVespineCost2
+                        };
+
+                        lUnitIds.Add(prd2);
+
+                    }
+                }
             }
 
             var productionChunk = InteropCalls.Help_ReadProcessMemory(HStarcraft, iTempPtr, 0x80);

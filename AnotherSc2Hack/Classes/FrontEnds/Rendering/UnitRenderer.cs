@@ -396,10 +396,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             clPlayercolor, fStringFont, true);
                         Helper_DrawUnits(_lTbOrbitalCommand[i],
                             ref iPosX, iPosY, iSize, _imgTbOc, g,
-                            clPlayercolor, fStringFont, true);
+                            clPlayercolor, fStringFont, false);
                         Helper_DrawUnits(_lTbPlanetaryFortress[i],
                             ref iPosX, iPosY, iSize, _imgTbPf, g,
-                            clPlayercolor, fStringFont, true);
+                            clPlayercolor, fStringFont, false);
                         Helper_DrawUnits(_lTbSupply[i], ref iPosX, iPosY,
                             iSize, _imgTbSupply, g, clPlayercolor, fStringFont, true);
                         Helper_DrawUnits(_lTbRefinery[i], ref iPosX, iPosY,
@@ -475,10 +475,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             clPlayercolor, fStringFont, true);
                         Helper_DrawUnits(_lZbHatchery[i], ref iPosX, iPosY, iSize, _imgZbHatchery, g,
                             clPlayercolor, fStringFont, true);
+                        //Note: Since Lairs/ Hives can not be placed plainly on the ground, we have to hack here
+                        //We'll pretend them to be units so we don't subtract the units in procution from the unitamount
                         Helper_DrawUnits(_lZbLair[i], ref iPosX, iPosY, iSize, _imgZbLair, g, clPlayercolor,
-                            fStringFont, true);
+                            fStringFont, false);
                         Helper_DrawUnits(_lZbHive[i], ref iPosX, iPosY, iSize, _imgZbHive, g, clPlayercolor,
-                            fStringFont, true);
+                            fStringFont, false);
                         Helper_DrawUnits(_lZbSpawningpool[i], ref iPosX, iPosY, iSize, _imgZbSpawningpool, g,
                             clPlayercolor, fStringFont, true);
                         Helper_DrawUnits(_lZbEvochamber[i], ref iPosX, iPosY, iSize, _imgZbEvochamber, g,
@@ -496,7 +498,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         Helper_DrawUnits(_lZbSpire[i], ref iPosX, iPosY, iSize, _imgZbSpire, g, clPlayercolor,
                             fStringFont, true);
                         Helper_DrawUnits(_lZbGreaterspire[i], ref iPosX, iPosY, iSize, _imgZbGreaterspire, g,
-                            clPlayercolor, fStringFont, true);
+                            clPlayercolor, fStringFont, false);
                         Helper_DrawUnits(_lZbUltracavern[i], ref iPosX, iPosY, iSize, _imgZbUltracavern, g,
                             clPlayercolor, fStringFont, true);
                         Helper_DrawUnits(_lZbInfestationpit[i], ref iPosX, iPosY, iSize, _imgZbInfestationpit, g,
@@ -783,7 +785,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             Int32 result = 0;
             float fWidthSize = 0f;
 
-            /* Unitamount defines all buildings*/
+            //Unitamount defines all buildings (applied to buildings actually placed on the map, not Upgrade To Lair and such..
             if (isStructure)
                 unit.UnitAmount -= unit.UnitUnderConstruction;
 
@@ -860,6 +862,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 }
 
                 else if (unit.Id.Equals(PredefinedData.UnitId.PuMothershipCore))
+                {
+                    foreach (var energy in unit.Energy)
+                    {
+                        var tmp = energy / 4096;
+                        var tmpRes = tmp / 100;
+                        if (tmpRes >= 1)
+                            result += tmpRes;
+                    }
+                }
+
+                else if (unit.Id.Equals(PredefinedData.UnitId.PuMothership))
                 {
                     foreach (var energy in unit.Energy)
                     {

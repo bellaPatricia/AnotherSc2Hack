@@ -378,10 +378,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             clPlayercolor, fStringFont, true);
                         Helper_DrawUnitsProduction(_lTbOrbitalCommand[i],
                             ref iPosX, iPosY, iSize, _imgTbOc, g,
-                            clPlayercolor, fStringFont, true);
+                            clPlayercolor, fStringFont, false);
                         Helper_DrawUnitsProduction(_lTbPlanetaryFortress[i],
                             ref iPosX, iPosY, iSize, _imgTbPf, g,
-                            clPlayercolor, fStringFont, true);
+                            clPlayercolor, fStringFont, false);
                         Helper_DrawUnitsProduction(_lTbSupply[i], ref iPosX, iPosY,
                             iSize, _imgTbSupply, g, clPlayercolor, fStringFont, true);
                         Helper_DrawUnitsProduction(_lTbRefinery[i], ref iPosX, iPosY,

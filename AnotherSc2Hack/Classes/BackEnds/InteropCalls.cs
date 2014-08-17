@@ -328,7 +328,30 @@ namespace AnotherSc2Hack.Classes.BackEnds
             EnableComposition = 1,
         }
 
+        public static Int32 ReadInt32(IntPtr handle, uint address)
+        {
+            return BitConverter.ToInt32(Help_ReadProcessMemory(handle, address, sizeof(Int32)), 0);
+        }
+
+        public static UInt32 ReadUInt32(IntPtr handle, int address)
+        {
+            return BitConverter.ToUInt32(Help_ReadProcessMemory(handle, address, sizeof(UInt32)), 0);
+        }
+
         public static byte[] Help_ReadProcessMemory(IntPtr handle, int address, int size)
+        {
+            if (size < 0)
+                return new byte[0];
+
+            IntPtr bytesRead;
+            var buffer = new byte[size];
+
+            ReadProcessMemory(handle, (IntPtr)address, buffer, size, out bytesRead);
+
+            return buffer;
+        }
+
+        public static byte[] Help_ReadProcessMemory(IntPtr handle, uint address, int size)
         {
             if (size < 0)
                 return new byte[0];

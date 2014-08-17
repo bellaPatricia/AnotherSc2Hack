@@ -2013,7 +2013,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         {
                             _lTuMule[tmpUnit.Owner].UnitAmount += 1;
                             _lTuMule[tmpUnit.Owner].Id = PredefinedData.UnitId.TuMule;
-                            _lTuMule[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 387328.0f));
+                            _lTuMule[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/387328.0f));
                         }
 
                         else if (tmpUnit.Id ==
@@ -2086,11 +2086,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  PredefinedData.UnitId.TuVikingGround)
                             _lTuViking[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Buildings
+                            #region Buildings
 
-                        #region Command Center (Air/ Ground/ Unit Production)
+                            #region Command Center (Air/ Ground/ Unit Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbCcGround ||
@@ -2106,11 +2106,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     _lTuScv[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                 }
                             }
+
+                            else
+                            {
+                                
+                                    for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
+                                    {
+                                        if (
+                                            tmpUnit.ProdUnitProductionId[k].Equals(
+                                                PredefinedData.UnitId.TupUpgradeToOrbital))
+                                        {
+                                            _lTbOrbitalCommand[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                            _lTbOrbitalCommand[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        }
+
+                                        else if (
+                                            tmpUnit.ProdUnitProductionId[k].Equals(
+                                                PredefinedData.UnitId.TupUpgradeToPlanetary))
+                                            {
+                                                _lTbPlanetaryFortress[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                                _lTbPlanetaryFortress[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                            }
+                                    }
+                                
+                            }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Orbital Command (Air/ Ground/ Unit Production)
+                            #region Orbital Command (Air/ Ground/ Unit Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbOrbitalAir ||
@@ -2131,9 +2155,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Barracks (Air/ Ground/ Unit Production)
+                            #region Barracks (Air/ Ground/ Unit Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbRaxAir ||
@@ -2182,41 +2206,41 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Bunker
+                            #region Bunker
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbBunker)
                             _lTbBunker[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Turret
+                            #region Turret
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbTurret)
                             _lTbTurrent[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Refinery
+                            #region Refinery
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbRefinery)
                             _lTbRefinery[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Sensor Tower
+                            #region Sensor Tower
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbSensortower)
                             _lTbSensorTower[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Planetary (Unit Production)
+                            #region Planetary (Unit Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbPlanetary)
@@ -2233,9 +2257,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Engineering Bay (Upgrade Production)
+                            #region Engineering Bay (Upgrade Production)
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.TbEbay)
                         {
@@ -2321,9 +2345,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Factory (Air/ Ground/ Unit Production)
+                            #region Factory (Air/ Ground/ Unit Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbFactoryAir ||
@@ -2381,9 +2405,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Starport (Air/ Ground/ Unit Production)
+                            #region Starport (Air/ Ground/ Unit Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbStarportAir ||
@@ -2441,9 +2465,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Supply (Hidden/ Normal)
+                            #region Supply (Hidden/ Normal)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbSupplyGround ||
@@ -2451,9 +2475,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  PredefinedData.UnitId.TbSupplyHidden)
                             _lTbSupply[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Ghost Academy (Upgrade Production)
+                            #region Ghost Academy (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbGhostacademy)
@@ -2491,9 +2515,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Fucion Core (Upgrade Production)
+                            #region Fucion Core (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbFusioncore)
@@ -2523,9 +2547,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Armory (Upgrade Production)
+                            #region Armory (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbArmory)
@@ -2614,17 +2638,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region AutoTurret
+                            #region AutoTurret
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbAutoTurret)
                             _lTbAutoTurret[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
-                        #region Techlab Barracks (Upgrade Production)
+                            #region Techlab Barracks (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbTechlabRax)
@@ -2664,9 +2688,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Techlab Factory (Upgrade Production)
+                            #region Techlab Factory (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbTechlabFactory)
@@ -2705,9 +2729,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Techlab Starport (Upgrade Production)
+                            #region Techlab Starport (Upgrade Production)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbTechlabStarport)
@@ -2754,9 +2778,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Reactor (Normal, Starport, Factory, Barracks COMBINED)
+                            #region Reactor (Normal, Starport, Factory, Barracks COMBINED)
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.TbReactor ||
@@ -2768,16 +2792,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  PredefinedData.UnitId.TbReactorStarport)
                             _lTbReactor[tmpUnit.Owner].UnitAmount += 1;
 
-                        #endregion
+                            #endregion
 
 
-                        #endregion
+                            #endregion
 
-                        #endregion
+                            #endregion
 
-                        #region Protoss
+                            #region Protoss
 
-                        #region Units
+                            #region Units
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PuForceField)
@@ -2786,13 +2810,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lPuForcefield[HMainHandler.GInformation.Player.Count].Id =
                                 PredefinedData.UnitId.PuForceField;
                             _lPuForcefield[HMainHandler.GInformation.Player.Count].AliveSince.Add(1 -
-                                                                                                   (tmpUnit.AliveSince /
-                                                                                                    62208.0f));
+                                                                                                  (tmpUnit.AliveSince/
+                                                                                                   62208.0f));
                         }
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PuArchon)
+                        {
                             _lPuArchon[tmpUnit.Owner].UnitAmount += 1;
+                            
+                            //Archons take 12 seconds to finish morphing
+                            //12 secs = 49152 SC2 ticks (* 4096)
+                            //Thus AliveSince > 49152 = Ready to roll
+
+                            if (tmpUnit.AliveSince < 49152)
+                            {
+                                _lPuArchon[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                _lPuArchon[tmpUnit.Owner].ConstructionState.Add((tmpUnit.AliveSince/49152f) * 100);
+                            }
+
+                        }
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PuCarrier)
@@ -2820,7 +2857,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PuMothership)
+                        {
                             _lPuMothership[tmpUnit.Owner].UnitAmount += 1;
+                            _lPuMothership[tmpUnit.Owner].Id = PredefinedData.UnitId.PuMothership;
+                            _lPuMothership[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                        }
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PuMothershipCore)
@@ -2828,6 +2869,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lPuMothershipcore[tmpUnit.Owner].UnitAmount += 1;
                             _lPuMothershipcore[tmpUnit.Owner].Id = PredefinedData.UnitId.PuMothershipCore;
                             _lPuMothershipcore[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+
+                            if (tmpUnit.ProdNumberOfQueuedUnits == 0)
+                            {
+
+                                for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
+                                {
+                                    if (
+                                        tmpUnit.ProdUnitProductionId[k].Equals(
+                                            PredefinedData.UnitId.PupUpgradeToMothership))
+                                    {
+                                        _lPuMothership[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        _lPuMothership[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    }
+
+
+                                }
+
+                            }
                         }
 
                         else if (tmpUnit.Id ==
@@ -3577,7 +3636,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZuBroodlordCocoon)
+                        {
                             _lZuBroodlordCocoon[tmpUnit.Owner].UnitAmount += 1;
+
+                            if (tmpUnit.ProdNumberOfQueuedUnits == 0)
+                            {
+                                for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
+                                {
+                                    if (
+                                        tmpUnit.ProdUnitProductionId[k].Equals(
+                                            PredefinedData.UnitId.ZupUpgradeToBroodlord))
+                                    {
+                                        _lZuBroodlord[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        _lZuBroodlord[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    }
+                                }
+                            }
+                        }
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZuCorruptor)
@@ -3621,7 +3696,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.ZuOverseerCocoon)
+                        {
                             _lZuOverseerCocoon[tmpUnit.Owner].UnitAmount += 1;
+
+                            if (tmpUnit.ProdNumberOfQueuedUnits == 0)
+                            {
+                                for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
+                                {
+                                    if (
+                                        tmpUnit.ProdUnitProductionId[k].Equals(
+                                            PredefinedData.UnitId.ZupUpgradeToOverseer))
+                                    {
+                                        _lZuOverseer[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        _lZuOverseer[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    }
+                                }
+                            }
+                        }
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.ZuQueen ||
                                  tmpUnit.Id ==
@@ -3907,6 +3998,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
                                 }
                             }
+
+                                //Upgrade To Lair
+                            else
+                            {
+                                for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
+                                {
+                                    if (
+                                        tmpUnit.ProdUnitProductionId[k].Equals(
+                                            PredefinedData.UnitId.ZupUpgradeToLair))
+                                    {
+                                        _lZbLair[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        _lZbLair[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    }
+                                }
+                            }
                         }
 
                             #endregion
@@ -4070,6 +4176,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
                                 }
                             }
+
+                                //Upgrade To Hive
+                            else
+                            {
+                                for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
+                                {
+                                    if (
+                                        tmpUnit.ProdUnitProductionId[k].Equals(
+                                            PredefinedData.UnitId.ZupUpgradeToHive))
+                                    {
+                                        _lZbHive[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        _lZbHive[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    }
+                                }
+                            }
                         }
 
                             #endregion
@@ -4219,6 +4340,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     {
                                         _lZupAirWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    }
+                                }
+                            }
+
+                                //Upgrade To Greater Spire
+                            else
+                            {
+                                for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
+                                {
+                                    if (
+                                        tmpUnit.ProdUnitProductionId[k].Equals(
+                                            PredefinedData.UnitId.ZupUpgradeToGreaterSpire))
+                                    {
+                                        _lZbGreaterspire[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        _lZbGreaterspire[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4839,9 +4975,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         #region Units
 
-                        else if (tmpUnit.Id ==
+                        /*else if (tmpUnit.Id ==
                             PredefinedData.UnitId.PuArchon)
-                            _lPuArchon[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            _lPuArchon[tmpUnit.Owner].UnitUnderConstruction += 1;*/
 
                         else if (tmpUnit.Id ==
                             PredefinedData.UnitId.PuCarrier)
