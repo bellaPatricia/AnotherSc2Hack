@@ -44,6 +44,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         private readonly List<PredefinedTypes.UnitAssigner> _lUnitAssigner = new List<PredefinedTypes.UnitAssigner>();
         private bool _bSkip;
         private Random _rnd = new Random();
+        private Memory _memory = new Memory();
 
 
         private long _lTimesRefreshed;

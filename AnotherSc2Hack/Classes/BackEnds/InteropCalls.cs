@@ -364,6 +364,19 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return buffer;
         }
 
+        public static byte[] Help_ReadProcessMemory(IntPtr handle, IntPtr address, int size)
+        {
+            if (size < 0)
+                return new byte[0];
+
+            IntPtr bytesRead;
+            var buffer = new byte[size];
+
+            ReadProcessMemory(handle, address, buffer, size, out bytesRead);
+
+            return buffer;
+        }
+
         public static bool Help_ReadProcessMemory(IntPtr handle, int address, int size, ref byte[] buffer)
         {
             IntPtr bytesRead;
