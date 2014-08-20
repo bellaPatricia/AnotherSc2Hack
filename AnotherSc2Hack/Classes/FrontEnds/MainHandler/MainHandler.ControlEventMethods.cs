@@ -2312,7 +2312,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     else if (GInformation != null &&
                              !GInformation.CThreadState)
                     {
-                        GInformation.HStarcraft = IntPtr.Zero;
+                        GInformation.Memory.Handle = IntPtr.Zero;
                         GInformation.CStarcraft2 = PSc2Process;
                         GInformation.Of = new Offsets();
                         GInformation.HandleThread(true);
