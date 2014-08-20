@@ -328,43 +328,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             EnableComposition = 1,
         }
 
-        public static Int32 ReadInt32(IntPtr handle, uint address)
-        {
-            return BitConverter.ToInt32(Help_ReadProcessMemory(handle, address, sizeof(Int32)), 0);
-        }
-
-        public static UInt32 ReadUInt32(IntPtr handle, int address)
-        {
-            return BitConverter.ToUInt32(Help_ReadProcessMemory(handle, address, sizeof(UInt32)), 0);
-        }
-
-        public static byte[] Help_ReadProcessMemory(IntPtr handle, int address, int size)
-        {
-            if (size < 0)
-                return new byte[0];
-
-            IntPtr bytesRead;
-            var buffer = new byte[size];
-
-            ReadProcessMemory(handle, (IntPtr)address, buffer, size, out bytesRead);
-
-            return buffer;
-        }
-
-        public static byte[] Help_ReadProcessMemory(IntPtr handle, uint address, int size)
-        {
-            if (size < 0)
-                return new byte[0];
-
-            IntPtr bytesRead;
-            var buffer = new byte[size];
-
-            ReadProcessMemory(handle, (IntPtr) address, buffer, size, out bytesRead);
-
-            return buffer;
-        }
-
-        public static byte[] Help_ReadProcessMemory(IntPtr handle, IntPtr address, int size)
+        public static byte[] ReadProcessMemoryHelper(IntPtr handle, IntPtr address, int size)
         {
             if (size < 0)
                 return new byte[0];
@@ -375,15 +339,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
             ReadProcessMemory(handle, address, buffer, size, out bytesRead);
 
             return buffer;
-        }
-
-        public static bool Help_ReadProcessMemory(IntPtr handle, int address, int size, ref byte[] buffer)
-        {
-            IntPtr bytesRead;
-
-
-            return ReadProcessMemory(handle, (IntPtr)address, buffer, size, out bytesRead);
-
         }
 
         public static IntPtr Help_OpenProcess(int dwDesiredAccess, bool bInheritHandle, string strProcessName)
