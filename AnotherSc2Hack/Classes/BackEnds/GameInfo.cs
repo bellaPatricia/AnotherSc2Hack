@@ -116,11 +116,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
                     {
                         Memory.Process = proc;
-                        Memory.UnlockProcess(Memory.VmRead);
+                        Memory.DesiredAccess = Memory.VmRead;
+                        //Memory.UnlockProcess(Memory.VmRead);
 
-                        
-                        /*HStarcraft = InteropCalls.Help_OpenProcess((int) InteropCalls.ProcessAccess.VmRead, true,
-                            proc);*/
                         CStarcraft2 = Memory.Process;
 
                         CWindowStyle = GetGWindowStyle();
@@ -140,7 +138,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 /*if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out Memory.Process)) 
                 {}*/
 
-                Memory.UnlockProcess(Memory.VmRead);
+                Memory.DesiredAccess = Memory.VmRead;
+                //Memory.UnlockProcess(Memory.VmRead);
 
                 CStarcraft2 = Memory.Process;
 
@@ -169,11 +168,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
                     {
                         Memory.Process = proc;
-                        Memory.UnlockProcess(Memory.VmRead);
+                        Memory.DesiredAccess = Memory.VmRead;
+                        //Memory.UnlockProcess(Memory.VmRead);
 
-                       /* _pStarcraft = proc;
-                        HStarcraft = InteropCalls.Help_OpenProcess((int) InteropCalls.ProcessAccess.VmRead, true,
-                                                                    proc);*/
                         CStarcraft2 = Memory.Process;
 
                         CWindowStyle = GetGWindowStyle();
@@ -1045,50 +1042,48 @@ namespace AnotherSc2Hack.Classes.BackEnds
 #else
                 #region Debug/ Tests
 
-                var _iContentOfPointer =
-                    BitConverter.ToUInt32(
+                var _iContentOfPointer = Memory.ReadUInt32(iUnitAbilitiesPointer + 0x18 + 4*i);
+                   /* BitConverter.ToUInt32(
                         InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)iUnitAbilitiesPointer + 0x18 + 4 * i, 4),
-                        0);
+                        0);*/
 
                 // Number of queued Units 
-                var _iNumberOfQueuedUnits = BitConverter.ToInt32(
-                    InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x28, 4), 0);
+                var _iNumberOfQueuedUnits = Memory.ReadInt32(_iContentOfPointer + 0x28);
+                    /*BitConverter.ToInt32(
+                    InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x28, 4), 0);*/
 
-                var _bReactorAttached = BitConverter.ToInt32(
+                var _bReactorAttached = Memory.ReadInt32(_iContentOfPointer + 0x48);
+                    /*BitConverter.ToInt32(
                 InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x48, 4), 0) != 0
                                        ? true
-                                       : false;
+                                       : false;*/
 
-                var result2 =
-                    BitConverter.ToUInt32(
+                var result2 = Memory.ReadUInt32(iUnitAbilitiesPointerResult - 3 + 0xA4 + (i*4));
+                /*    BitConverter.ToUInt32(
                         InteropCalls.Help_ReadProcessMemory(HStarcraft, iUnitAbilitiesPointerResult - 3 + 0xA4 + (i * 4), 4), 0);
-
-               /* var result3 =
-                    BitConverter.ToInt32(
-                        InteropCalls.Help_ReadProcessMemory(HStarcraft, iUnitAbilitiesPointerResult - 3, 4), 0);*/
-
-                var resultOfResult2 =
-                    BitConverter.ToUInt32(
+                */
+                var resultOfResult2 = Memory.ReadUInt32(result2 + 4);
+                  /*  BitConverter.ToUInt32(
                         InteropCalls.Help_ReadProcessMemory(HStarcraft, (UInt32)(result2 + 4), 4), 0);
+                */
 
-             /*   var resultOfResult3 =
-                    BitConverter.ToInt32(
-                        InteropCalls.Help_ReadProcessMemory(HStarcraft, result3, 4), 0);*/
-
-                var strAbilityName =
-                    Encoding.UTF8.GetString(InteropCalls.Help_ReadProcessMemory(HStarcraft, resultOfResult2,
-                        16));
+                var strAbilityName = Memory.ReadString(resultOfResult2, 16, Encoding.UTF8);
+                   /* Encoding.UTF8.GetString(InteropCalls.Help_ReadProcessMemory(HStarcraft, resultOfResult2,
+                        16));*/
 
 
-                var _iArrayOfBytes =
-                    BitConverter.ToInt32(
+                var _iArrayOfBytes = Memory.ReadInt32(_iContentOfPointer + 0x34);
+                   /* BitConverter.ToInt32(
                         InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iContentOfPointer + 0x34, 4), 0);
+                */
 
-                var _iTempPtr = BitConverter.ToInt32(
+                var _iTempPtr = Memory.ReadInt32(_iArrayOfBytes);
+                   /* BitConverter.ToInt32(
                         InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32)_iArrayOfBytes, 4), 0);
+                */
 
-
-                var _productionChunk = InteropCalls.Help_ReadProcessMemory(HStarcraft, _iTempPtr, 0x80);
+                var _productionChunk = Memory.ReadMemory(_iTempPtr, 0x80);
+                   /* InteropCalls.Help_ReadProcessMemory(HStarcraft, _iTempPtr, 0x80);*/
 
                 var _iType = BitConverter.ToInt32(_productionChunk, 0x44);
                 var _iSupplyRaw = BitConverter.ToInt32(_productionChunk, 0x64);
@@ -1097,9 +1092,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 var _iMineralCost = BitConverter.ToInt32(_productionChunk, 0x74);
                 var _iVespineCost = BitConverter.ToInt32(_productionChunk, 0x78);
 
-                var _iSomething =
-                    BitConverter.ToInt32(
+                var _iSomething = Memory.ReadInt32(_iContentOfPointer + 0x4);
+                   /* BitConverter.ToInt32(
                         InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32) _iContentOfPointer + 0x4, 4), 0);
+                */
 
                 Debug.WriteLine("\n");
                 Debug.WriteLine("i: " + i);

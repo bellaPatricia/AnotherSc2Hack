@@ -8,16 +8,15 @@
  * */
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
     public class Memory
     {
+        #region Constants for the ProcessAccess
+
         // <summary>
         /// Required to create a thread.
         /// </summary>
@@ -111,7 +110,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             /// All possible access rights for a process object.
             /// </summary>
             AllAccess = StandardRightsRequired | Synchronize | 0xFFFF;
-        
+
+        #endregion
 
         /// <summary>
         /// Default Constructor
@@ -121,16 +121,35 @@ namespace AnotherSc2Hack.Classes.BackEnds
             
         }
 
+        /// <summary>
+        /// Deconstructor to kill the handle
+        /// </summary>
+        ~Memory()
+        {
+            InteropCalls.CloseHandle(Handle);
+        }
+
+        /// <summary>
+        /// Constructor which allows the process- parameter
+        /// </summary>
+        /// <param name="process">The process you want to pass</param>
         public Memory(Process process)
         {
             Process = process;
         }
 
+        /// <summary>
+        /// Constructor which allows two parameters (process and process privileges
+        /// </summary>
+        /// <param name="process">The process you want to pass AND unlock</param>
+        /// <param name="desiredAccess">The privilege- level you want to open the process with</param>
         public Memory(Process process, int desiredAccess)
         {
             Process = process;
-            UnlockProcess(desiredAccess);
+            DesiredAccess = desiredAccess;
         }
+
+        #region Read Memory
 
         /// <summary>
         /// Read an SByte out of memory (byte with -/+)
@@ -278,6 +297,172 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return result;
         }
 
+        #endregion
+
+        #region Write Memory
+
+        /// <summary>
+        /// Writes an SByte at a specific address into memory.
+        /// </summary>
+        /// <typeparam name="T">Type of address</typeparam>
+        /// <param name="address">The actual address to write at</param>
+        /// <param name="input">The data you want to put into memory</param>
+        /// <returns>True/ False if the writing was successful or not</returns>
+        public Boolean WriteSByte<T>(T address, SByte input)
+        {
+            var adr = CastToIntPtr(address);
+
+            var byteBuffer = BitConverter.GetBytes(input);
+
+            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+        }
+
+        /// <summary>
+        /// Writes a Byte at a specific address into memory.
+        /// </summary>
+        /// <typeparam name="T">Type of address</typeparam>
+        /// <param name="address">The actual address to write at</param>
+        /// <param name="input">The data you want to put into memory</param>
+        /// <returns>True/ False if the writing was successful or not</returns>
+        public Boolean WriteByte<T>(T address, Byte input)
+        {
+            var adr = CastToIntPtr(address);
+
+            var byteBuffer = BitConverter.GetBytes(input);
+
+            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+        }
+
+        /// <summary>
+        /// Writes an Int16 at a specific address into memory.
+        /// </summary>
+        /// <typeparam name="T">Type of address</typeparam>
+        /// <param name="address">The actual address to write at</param>
+        /// <param name="input">The data you want to put into memory</param>
+        /// <returns>True/ False if the writing was successful or not</returns>
+        public Boolean WriteInt16<T>(T address, Int16 input)
+        {
+            var adr = CastToIntPtr(address);
+
+            var byteBuffer = BitConverter.GetBytes(input);
+
+            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+        }
+
+        /// <summary>
+        /// Writes an UInt16 at a specific address into memory.
+        /// </summary>
+        /// <typeparam name="T">Type of address</typeparam>
+        /// <param name="address">The actual address to write at</param>
+        /// <param name="input">The data you want to put into memory</param>
+        /// <returns>True/ False if the writing was successful or not</returns>
+        public Boolean WriteUInt16<T>(T address, UInt16 input)
+        {
+            var adr = CastToIntPtr(address);
+
+            var byteBuffer = BitConverter.GetBytes(input);
+
+            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+        }
+
+        /// <summary>
+        /// Writes an Int32 at a specific address into memory.
+        /// </summary>
+        /// <typeparam name="T">Type of address</typeparam>
+        /// <param name="address">The actual address to write at</param>
+        /// <param name="input">The data you want to put into memory</param>
+        /// <returns>True/ False if the writing was successful or not</returns>
+        public Boolean WriteInt32<T>(T address, Int32 input)
+        {
+            var adr = CastToIntPtr(address);
+
+            var byteBuffer = BitConverter.GetBytes(input);
+
+            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+        }
+
+        /// <summary>
+        /// Writes an UInt32 at a specific address into memory.
+        /// </summary>
+        /// <typeparam name="T">Type of address</typeparam>
+        /// <param name="address">The actual address to write at</param>
+        /// <param name="input">The data you want to put into memory</param>
+        /// <returns>True/ False if the writing was successful or not</returns>
+        public Boolean WriteUInt32<T>(T address, UInt32 input)
+        {
+            var adr = CastToIntPtr(address);
+
+            var byteBuffer = BitConverter.GetBytes(input);
+
+            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+        }
+
+        /// <summary>
+        /// Writes an Int64 at a specific address into memory.
+        /// </summary>
+        /// <typeparam name="T">Type of address</typeparam>
+        /// <param name="address">The actual address to write at</param>
+        /// <param name="input">The data you want to put into memory</param>
+        /// <returns>True/ False if the writing was successful or not</returns>
+        public Boolean WriteInt64<T>(T address, Int64 input)
+        {
+            var adr = CastToIntPtr(address);
+
+            var byteBuffer = BitConverter.GetBytes(input);
+
+            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+        }
+
+        /// <summary>
+        /// Writes an UInt64 at a specific address into memory.
+        /// </summary>
+        /// <typeparam name="T">Type of address</typeparam>
+        /// <param name="address">The actual address to write at</param>
+        /// <param name="input">The data you want to put into memory</param>
+        /// <returns>True/ False if the writing was successful or not</returns>
+        public Boolean WriteUInt64<T>(T address, UInt64 input)
+        {
+            var adr = CastToIntPtr(address);
+
+            var byteBuffer = BitConverter.GetBytes(input);
+
+            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+        }
+
+        /// <summary>
+        /// Writes a String at a specific address into memory.
+        /// </summary>
+        /// <typeparam name="T">Type of address</typeparam>
+        /// <param name="address">The actual address to write at</param>
+        /// <param name="input">The data you want to put into memory</param>
+        /// <param name="enc">The kind of encoding used to convert the string into a bytebuffer</param>
+        /// <returns>True/ False if the writing was successful or not</returns>
+        public Boolean WriteString<T>(T address, String input, Encoding enc)
+        {
+            var adr = CastToIntPtr(address);
+
+            var byteBuffer = enc.GetBytes(input);
+
+            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+        }
+
+        /// <summary>
+        /// Writes a chunk of data at a specific address into memory.
+        /// </summary>
+        /// <typeparam name="T">Type of address</typeparam>
+        /// <param name="address">The actual address to write at</param>
+        /// <param name="input">The data you want to put into memory</param>
+        /// <returns>True/ False if the writing was successful or not</returns>
+        public Boolean WriteMemory<T>(T address, Byte[] input)
+        {
+            var adr = CastToIntPtr(address);
+
+            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, input);
+        }
+
+        #endregion
+
+
         /// <summary>
         /// Casts your (unsigned)Int32/Int64 to IntPtr!
         /// </summary>
@@ -310,6 +495,23 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         public IntPtr Handle { get; set; }
 
+        private Int32 _desiredAccess = 0;
+
+        /// <summary>
+        /// The privilege- level you want to give (aka. open the Handle with)
+        /// </summary>
+        public Int32 DesiredAccess
+        {
+            get { return _desiredAccess; }
+
+            set
+            {
+                _desiredAccess = value;
+
+                ReUnlockProcess(_desiredAccess, Process);
+            }
+        }
+
         /// <summary>
         /// Unlocks the process' handle to make it possible to read from that process!
         /// </summary>
@@ -319,6 +521,25 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (process == null)
                 process = Process;
+
+            Handle = InteropCalls.OpenProcess(desiredAccess, true, process.Id);
+        }
+
+        /// <summary>
+        /// Reunlocks the Handle. Surely closes the first handle and opens it with a neat new access- level (to write memory)
+        /// </summary>
+        /// <param name="desiredAccess">The level of access you want to give the process</param>
+        /// <param name="process">The process you want to crack</param>
+        public void ReUnlockProcess(int desiredAccess = 0, Process process = null)
+        {
+            if (desiredAccess == 0)
+                desiredAccess = DesiredAccess;
+
+            if (process == null)
+                process = Process;
+
+            if (Handle != null)
+                InteropCalls.CloseHandle(Handle);
 
             Handle = InteropCalls.OpenProcess(desiredAccess, true, process.Id);
         }

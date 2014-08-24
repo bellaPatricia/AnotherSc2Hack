@@ -36,6 +36,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
             out IntPtr lpNumberOfBytesRead
             );
 
+        /* WriteProcessMemory */
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern bool WriteProcessMemory(
+            IntPtr hProcess,
+            IntPtr lpBaseAddress,
+            byte[] lpBuffer,
+            int nSize,
+            out IntPtr lpNumberOfBytesWritten);
+
         /* OpenProcess */
         [DllImport("kernel32.dll")]
         public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
@@ -339,6 +348,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
             ReadProcessMemory(handle, address, buffer, size, out bytesRead);
 
             return buffer;
+        }
+
+        public static bool WriteProcessMemoryHelper(IntPtr handle, IntPtr baseAddress, byte[] newVal)
+        {
+            var bytesWritten = IntPtr.Zero;
+
+            return WriteProcessMemory(handle, baseAddress, newVal, newVal.Length, out bytesWritten);
         }
 
         public static IntPtr Help_OpenProcess(int dwDesiredAccess, bool bInheritHandle, string strProcessName)

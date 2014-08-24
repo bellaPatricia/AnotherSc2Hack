@@ -293,6 +293,7 @@
     <Compile Include="Classes\FrontEnds\Rendering\BaseRenderer.Designer.cs">
       <DependentUpon>BaseRenderer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\TempTestShitPlaing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Automation_Worker.resx">
