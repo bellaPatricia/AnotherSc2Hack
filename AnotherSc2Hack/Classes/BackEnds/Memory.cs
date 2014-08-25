@@ -538,6 +538,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (process == null)
                 process = Process;
 
+            if (process == null)
+                return;
+
             if (Handle != null)
                 InteropCalls.CloseHandle(Handle);
 

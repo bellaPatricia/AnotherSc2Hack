@@ -129,7 +129,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             
 #if DEBUG
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
-            btnLostUnits.Visible = true;
+            btnTrainer.Visible = true;
             Customize.Customizer c = new Customize.Customizer();
             c.Show();
 
@@ -1107,9 +1107,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
-        private void btnLostUnits_Click(object sender, EventArgs e)
+        private void btnTrainer_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Empty, bro");
+            var trainer = new Trainer.Trainer(GInformation);
+            trainer.Show();
         }
 
         private void RefreshPluginData()

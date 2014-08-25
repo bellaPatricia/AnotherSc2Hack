@@ -115,7 +115,7 @@
             this.tcDebug = new System.Windows.Forms.TabPage();
             this.CustDebug = new AnotherSc2Hack.Classes.FrontEnds.CustomDebug();
             this.btnProduction = new System.Windows.Forms.Button();
-            this.btnLostUnits = new System.Windows.Forms.Button();
+            this.btnTrainer = new System.Windows.Forms.Button();
             this.btnChangeBorderstyle = new System.Windows.Forms.Button();
             this.ttInformation = new System.Windows.Forms.ToolTip(this.components);
             this.tcMainTab.SuspendLayout();
@@ -1057,19 +1057,19 @@
             this.btnProduction.UseVisualStyleBackColor = true;
             this.btnProduction.Click += new System.EventHandler(this.btnProduction_Click);
             // 
-            // btnLostUnits
+            // btnTrainer
             // 
-            this.btnLostUnits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLostUnits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLostUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnLostUnits.Location = new System.Drawing.Point(663, 449);
-            this.btnLostUnits.Name = "btnLostUnits";
-            this.btnLostUnits.Size = new System.Drawing.Size(78, 23);
-            this.btnLostUnits.TabIndex = 8;
-            this.btnLostUnits.Text = "Lost Units";
-            this.btnLostUnits.UseVisualStyleBackColor = true;
-            this.btnLostUnits.Visible = false;
-            this.btnLostUnits.Click += new System.EventHandler(this.btnLostUnits_Click);
+            this.btnTrainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTrainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnTrainer.Location = new System.Drawing.Point(663, 449);
+            this.btnTrainer.Name = "btnTrainer";
+            this.btnTrainer.Size = new System.Drawing.Size(78, 23);
+            this.btnTrainer.TabIndex = 8;
+            this.btnTrainer.Text = "Trainer";
+            this.btnTrainer.UseVisualStyleBackColor = true;
+            this.btnTrainer.Visible = false;
+            this.btnTrainer.Click += new System.EventHandler(this.btnTrainer_Click);
             // 
             // btnChangeBorderstyle
             // 
@@ -1095,7 +1095,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 484);
             this.Controls.Add(this.btnChangeBorderstyle);
-            this.Controls.Add(this.btnLostUnits);
+            this.Controls.Add(this.btnTrainer);
             this.Controls.Add(this.btnProduction);
             this.Controls.Add(this.tcMainTab);
             this.Controls.Add(this.btnWorker);
@@ -1220,7 +1220,7 @@
         public UiHotkeys ProductionTabUiHotkeys;
         public UiChatInput ProductionTabUiChatInput;
         public UiProductionTabBasics ProductionTabUiProductionTabBasics;
-        public System.Windows.Forms.Button btnLostUnits;
+        public System.Windows.Forms.Button btnTrainer;
         private System.Windows.Forms.TabPage tcVarious;
         public CustomVarious Custom_Various;
         internal ControlGlobal CustGlobal;
