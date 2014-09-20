@@ -1106,6 +1106,7 @@
             this.Controls.Add(this.btnUnit);
             this.Controls.Add(this.btnMaphack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainHandler";
             this.Text = "MainHandler";

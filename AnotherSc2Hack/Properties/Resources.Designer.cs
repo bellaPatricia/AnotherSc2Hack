@@ -22,7 +22,7 @@ namespace AnotherSc2Hack.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace AnotherSc2Hack.Properties {
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AnotherSc2Hack.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace AnotherSc2Hack.Properties {
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Gas_Protoss {
+        public static System.Drawing.Bitmap Gas_Protoss {
             get {
                 object obj = ResourceManager.GetObject("Gas_Protoss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Gas_Terran {
+        public static System.Drawing.Bitmap Gas_Terran {
             get {
                 object obj = ResourceManager.GetObject("Gas_Terran", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Gas_Zerg {
+        public static System.Drawing.Bitmap Gas_Zerg {
             get {
                 object obj = ResourceManager.GetObject("Gas_Zerg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mineral_Protoss {
+        public static System.Drawing.Bitmap Mineral_Protoss {
             get {
                 object obj = ResourceManager.GetObject("Mineral_Protoss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mineral_Terran {
+        public static System.Drawing.Bitmap Mineral_Terran {
             get {
                 object obj = ResourceManager.GetObject("Mineral_Terran", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mineral_Zerg {
+        public static System.Drawing.Bitmap Mineral_Zerg {
             get {
                 object obj = ResourceManager.GetObject("Mineral_Zerg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mini_Arrow_Speed {
+        public static System.Drawing.Bitmap Mini_Arrow_Speed {
             get {
                 object obj = ResourceManager.GetObject("Mini_Arrow_Speed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap obserever_cloaked {
+        public static System.Drawing.Bitmap obserever_cloaked {
             get {
                 object obj = ResourceManager.GetObject("obserever_cloaked", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +143,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap P_Probe {
+        public static System.Drawing.Bitmap P_Probe {
             get {
                 object obj = ResourceManager.GetObject("P_Probe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +153,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_Assimilator {
+        public static System.Drawing.Bitmap pb_Assimilator {
             get {
                 object obj = ResourceManager.GetObject("pb_Assimilator", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +163,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_Cannon {
+        public static System.Drawing.Bitmap pb_Cannon {
             get {
                 object obj = ResourceManager.GetObject("pb_Cannon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +173,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_cybercore {
+        public static System.Drawing.Bitmap pb_cybercore {
             get {
                 object obj = ResourceManager.GetObject("pb_cybercore", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +183,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_DarkShrine {
+        public static System.Drawing.Bitmap pb_DarkShrine {
             get {
                 object obj = ResourceManager.GetObject("pb_DarkShrine", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +193,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_FleetBeacon {
+        public static System.Drawing.Bitmap pb_FleetBeacon {
             get {
                 object obj = ResourceManager.GetObject("pb_FleetBeacon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +203,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_forge {
+        public static System.Drawing.Bitmap pb_forge {
             get {
                 object obj = ResourceManager.GetObject("pb_forge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +213,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_gateway {
+        public static System.Drawing.Bitmap pb_gateway {
             get {
                 object obj = ResourceManager.GetObject("pb_gateway", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +223,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_Nexus {
+        public static System.Drawing.Bitmap pb_Nexus {
             get {
                 object obj = ResourceManager.GetObject("pb_Nexus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +233,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_Pylon {
+        public static System.Drawing.Bitmap pb_Pylon {
             get {
                 object obj = ResourceManager.GetObject("pb_Pylon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +243,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_robotics {
+        public static System.Drawing.Bitmap pb_robotics {
             get {
                 object obj = ResourceManager.GetObject("pb_robotics", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -253,7 +253,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_roboticssupport {
+        public static System.Drawing.Bitmap pb_roboticssupport {
             get {
                 object obj = ResourceManager.GetObject("pb_roboticssupport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -263,7 +263,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_stargate {
+        public static System.Drawing.Bitmap pb_stargate {
             get {
                 object obj = ResourceManager.GetObject("pb_stargate", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,7 +273,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_templararchives {
+        public static System.Drawing.Bitmap pb_templararchives {
             get {
                 object obj = ResourceManager.GetObject("pb_templararchives", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -283,7 +283,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_twillightCouncil {
+        public static System.Drawing.Bitmap pb_twillightCouncil {
             get {
                 object obj = ResourceManager.GetObject("pb_twillightCouncil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -293,7 +293,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pb_warpgate {
+        public static System.Drawing.Bitmap pb_warpgate {
             get {
                 object obj = ResourceManager.GetObject("pb_warpgate", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -303,7 +303,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_Archon {
+        public static System.Drawing.Bitmap pu_Archon {
             get {
                 object obj = ResourceManager.GetObject("pu_Archon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -313,7 +313,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_carrier {
+        public static System.Drawing.Bitmap pu_carrier {
             get {
                 object obj = ResourceManager.GetObject("pu_carrier", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -323,7 +323,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_Colossus {
+        public static System.Drawing.Bitmap pu_Colossus {
             get {
                 object obj = ResourceManager.GetObject("pu_Colossus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -333,7 +333,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_DarkTemplar {
+        public static System.Drawing.Bitmap pu_DarkTemplar {
             get {
                 object obj = ResourceManager.GetObject("pu_DarkTemplar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -343,7 +343,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_ht {
+        public static System.Drawing.Bitmap pu_ht {
             get {
                 object obj = ResourceManager.GetObject("pu_ht", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -353,7 +353,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_immortal {
+        public static System.Drawing.Bitmap pu_immortal {
             get {
                 object obj = ResourceManager.GetObject("pu_immortal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -363,7 +363,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_interceptor {
+        public static System.Drawing.Bitmap pu_interceptor {
             get {
                 object obj = ResourceManager.GetObject("pu_interceptor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -373,7 +373,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_Mothership {
+        public static System.Drawing.Bitmap pu_Mothership {
             get {
                 object obj = ResourceManager.GetObject("pu_Mothership", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -383,7 +383,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_mothershipcore {
+        public static System.Drawing.Bitmap pu_mothershipcore {
             get {
                 object obj = ResourceManager.GetObject("pu_mothershipcore", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -393,7 +393,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_Observer {
+        public static System.Drawing.Bitmap pu_Observer {
             get {
                 object obj = ResourceManager.GetObject("pu_Observer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -403,7 +403,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_oracle {
+        public static System.Drawing.Bitmap pu_oracle {
             get {
                 object obj = ResourceManager.GetObject("pu_oracle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -413,7 +413,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_pheonix {
+        public static System.Drawing.Bitmap pu_pheonix {
             get {
                 object obj = ResourceManager.GetObject("pu_pheonix", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -423,7 +423,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_probe {
+        public static System.Drawing.Bitmap pu_probe {
             get {
                 object obj = ResourceManager.GetObject("pu_probe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -433,7 +433,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_sentry {
+        public static System.Drawing.Bitmap pu_sentry {
             get {
                 object obj = ResourceManager.GetObject("pu_sentry", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -443,7 +443,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_Stalker {
+        public static System.Drawing.Bitmap pu_Stalker {
             get {
                 object obj = ResourceManager.GetObject("pu_Stalker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -453,7 +453,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_tempest {
+        public static System.Drawing.Bitmap pu_tempest {
             get {
                 object obj = ResourceManager.GetObject("pu_tempest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -463,7 +463,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_Voidray {
+        public static System.Drawing.Bitmap pu_Voidray {
             get {
                 object obj = ResourceManager.GetObject("pu_Voidray", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -473,7 +473,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_warpprism {
+        public static System.Drawing.Bitmap pu_warpprism {
             get {
                 object obj = ResourceManager.GetObject("pu_warpprism", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -483,7 +483,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_warpprism_Warp {
+        public static System.Drawing.Bitmap pu_warpprism_Warp {
             get {
                 object obj = ResourceManager.GetObject("pu_warpprism_Warp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -493,7 +493,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pu_Zealot {
+        public static System.Drawing.Bitmap pu_Zealot {
             get {
                 object obj = ResourceManager.GetObject("pu_Zealot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -503,7 +503,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PuForceField {
+        public static System.Drawing.Bitmap PuForceField {
             get {
                 object obj = ResourceManager.GetObject("PuForceField", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -513,7 +513,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_AirA1 {
+        public static System.Drawing.Bitmap Pup_AirA1 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -523,7 +523,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_AirA2 {
+        public static System.Drawing.Bitmap Pup_AirA2 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirA2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -533,7 +533,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_AirA3 {
+        public static System.Drawing.Bitmap Pup_AirA3 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirA3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -543,7 +543,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_AirW1 {
+        public static System.Drawing.Bitmap Pup_AirW1 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirW1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -553,7 +553,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_AirW2 {
+        public static System.Drawing.Bitmap Pup_AirW2 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirW2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -563,7 +563,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_AirW3 {
+        public static System.Drawing.Bitmap Pup_AirW3 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirW3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -573,7 +573,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_AnionPulseCrystals {
+        public static System.Drawing.Bitmap Pup_AnionPulseCrystals {
             get {
                 object obj = ResourceManager.GetObject("Pup_AnionPulseCrystals", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -583,7 +583,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_Blink {
+        public static System.Drawing.Bitmap Pup_Blink {
             get {
                 object obj = ResourceManager.GetObject("Pup_Blink", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -593,7 +593,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_Charge {
+        public static System.Drawing.Bitmap Pup_Charge {
             get {
                 object obj = ResourceManager.GetObject("Pup_Charge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -603,7 +603,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_ExtendedThermalLance {
+        public static System.Drawing.Bitmap Pup_ExtendedThermalLance {
             get {
                 object obj = ResourceManager.GetObject("Pup_ExtendedThermalLance", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -613,7 +613,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_GraviticBoosters {
+        public static System.Drawing.Bitmap Pup_GraviticBoosters {
             get {
                 object obj = ResourceManager.GetObject("Pup_GraviticBoosters", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -623,7 +623,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_GraviticDrive {
+        public static System.Drawing.Bitmap Pup_GraviticDrive {
             get {
                 object obj = ResourceManager.GetObject("Pup_GraviticDrive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -633,7 +633,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_GravitonCatapult {
+        public static System.Drawing.Bitmap Pup_GravitonCatapult {
             get {
                 object obj = ResourceManager.GetObject("Pup_GravitonCatapult", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -643,7 +643,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_GroundA1 {
+        public static System.Drawing.Bitmap Pup_GroundA1 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -653,7 +653,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_GroundA2 {
+        public static System.Drawing.Bitmap Pup_GroundA2 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundA2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -663,7 +663,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_GroundA3 {
+        public static System.Drawing.Bitmap Pup_GroundA3 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundA3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -673,7 +673,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_GroundW1 {
+        public static System.Drawing.Bitmap Pup_GroundW1 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundW1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -683,7 +683,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_GroundW2 {
+        public static System.Drawing.Bitmap Pup_GroundW2 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundW2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -693,7 +693,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_GroundW3 {
+        public static System.Drawing.Bitmap Pup_GroundW3 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundW3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -703,7 +703,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_S1 {
+        public static System.Drawing.Bitmap Pup_S1 {
             get {
                 object obj = ResourceManager.GetObject("Pup_S1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -713,7 +713,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_S2 {
+        public static System.Drawing.Bitmap Pup_S2 {
             get {
                 object obj = ResourceManager.GetObject("Pup_S2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -723,7 +723,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_S3 {
+        public static System.Drawing.Bitmap Pup_S3 {
             get {
                 object obj = ResourceManager.GetObject("Pup_S3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -733,7 +733,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_Storm {
+        public static System.Drawing.Bitmap Pup_Storm {
             get {
                 object obj = ResourceManager.GetObject("Pup_Storm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -743,7 +743,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pup_Warpgate {
+        public static System.Drawing.Bitmap Pup_Warpgate {
             get {
                 object obj = ResourceManager.GetObject("Pup_Warpgate", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -753,7 +753,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Speed_Arrow {
+        public static System.Drawing.Bitmap Speed_Arrow {
             get {
                 object obj = ResourceManager.GetObject("Speed_Arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -761,9 +761,19 @@ namespace AnotherSc2Hack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+        /// </summary>
+        public static System.Drawing.Icon StarCraft_Icon {
+            get {
+                object obj = ResourceManager.GetObject("StarCraft_Icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Supply_Protoss {
+        public static System.Drawing.Bitmap Supply_Protoss {
             get {
                 object obj = ResourceManager.GetObject("Supply_Protoss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -773,7 +783,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Supply_Terran {
+        public static System.Drawing.Bitmap Supply_Terran {
             get {
                 object obj = ResourceManager.GetObject("Supply_Terran", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -783,7 +793,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Supply_Zerg {
+        public static System.Drawing.Bitmap Supply_Zerg {
             get {
                 object obj = ResourceManager.GetObject("Supply_Zerg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -793,7 +803,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap T_SCV {
+        public static System.Drawing.Bitmap T_SCV {
             get {
                 object obj = ResourceManager.GetObject("T_SCV", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -803,7 +813,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_Armory {
+        public static System.Drawing.Bitmap tb_Armory {
             get {
                 object obj = ResourceManager.GetObject("tb_Armory", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -813,7 +823,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_autoturret {
+        public static System.Drawing.Bitmap tb_autoturret {
             get {
                 object obj = ResourceManager.GetObject("tb_autoturret", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -823,7 +833,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_bunker {
+        public static System.Drawing.Bitmap tb_bunker {
             get {
                 object obj = ResourceManager.GetObject("tb_bunker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -833,7 +843,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_cc {
+        public static System.Drawing.Bitmap tb_cc {
             get {
                 object obj = ResourceManager.GetObject("tb_cc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -843,7 +853,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_ebay {
+        public static System.Drawing.Bitmap tb_ebay {
             get {
                 object obj = ResourceManager.GetObject("tb_ebay", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -853,7 +863,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_fax {
+        public static System.Drawing.Bitmap tb_fax {
             get {
                 object obj = ResourceManager.GetObject("tb_fax", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -863,7 +873,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_fusioncore {
+        public static System.Drawing.Bitmap tb_fusioncore {
             get {
                 object obj = ResourceManager.GetObject("tb_fusioncore", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -873,7 +883,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_ghostacademy {
+        public static System.Drawing.Bitmap tb_ghostacademy {
             get {
                 object obj = ResourceManager.GetObject("tb_ghostacademy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -883,7 +893,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_oc {
+        public static System.Drawing.Bitmap tb_oc {
             get {
                 object obj = ResourceManager.GetObject("tb_oc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -893,7 +903,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_pf {
+        public static System.Drawing.Bitmap tb_pf {
             get {
                 object obj = ResourceManager.GetObject("tb_pf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -903,7 +913,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_rax {
+        public static System.Drawing.Bitmap tb_rax {
             get {
                 object obj = ResourceManager.GetObject("tb_rax", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -913,7 +923,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_reactor {
+        public static System.Drawing.Bitmap tb_reactor {
             get {
                 object obj = ResourceManager.GetObject("tb_reactor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -923,7 +933,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_refinery {
+        public static System.Drawing.Bitmap tb_refinery {
             get {
                 object obj = ResourceManager.GetObject("tb_refinery", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -933,7 +943,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_sensor {
+        public static System.Drawing.Bitmap tb_sensor {
             get {
                 object obj = ResourceManager.GetObject("tb_sensor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -943,7 +953,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_starport {
+        public static System.Drawing.Bitmap tb_starport {
             get {
                 object obj = ResourceManager.GetObject("tb_starport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -953,7 +963,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_supply {
+        public static System.Drawing.Bitmap tb_supply {
             get {
                 object obj = ResourceManager.GetObject("tb_supply", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -963,7 +973,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tb_T_Supply {
+        public static System.Drawing.Bitmap Tb_T_Supply {
             get {
                 object obj = ResourceManager.GetObject("Tb_T_Supply", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -973,7 +983,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_techlab {
+        public static System.Drawing.Bitmap tb_techlab {
             get {
                 object obj = ResourceManager.GetObject("tb_techlab", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -983,7 +993,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tb_turret {
+        public static System.Drawing.Bitmap tb_turret {
             get {
                 object obj = ResourceManager.GetObject("tb_turret", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -993,7 +1003,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_banshee {
+        public static System.Drawing.Bitmap tu_banshee {
             get {
                 object obj = ResourceManager.GetObject("tu_banshee", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1003,7 +1013,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_battlecruiser {
+        public static System.Drawing.Bitmap tu_battlecruiser {
             get {
                 object obj = ResourceManager.GetObject("tu_battlecruiser", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1013,7 +1023,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_battlehellion {
+        public static System.Drawing.Bitmap tu_battlehellion {
             get {
                 object obj = ResourceManager.GetObject("tu_battlehellion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1023,7 +1033,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_ghost {
+        public static System.Drawing.Bitmap tu_ghost {
             get {
                 object obj = ResourceManager.GetObject("tu_ghost", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1033,7 +1043,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_hellion {
+        public static System.Drawing.Bitmap tu_hellion {
             get {
                 object obj = ResourceManager.GetObject("tu_hellion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1043,7 +1053,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_marauder {
+        public static System.Drawing.Bitmap tu_marauder {
             get {
                 object obj = ResourceManager.GetObject("tu_marauder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1053,7 +1063,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_marine {
+        public static System.Drawing.Bitmap tu_marine {
             get {
                 object obj = ResourceManager.GetObject("tu_marine", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1063,7 +1073,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_medivac {
+        public static System.Drawing.Bitmap tu_medivac {
             get {
                 object obj = ResourceManager.GetObject("tu_medivac", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1073,7 +1083,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_Mule {
+        public static System.Drawing.Bitmap tu_Mule {
             get {
                 object obj = ResourceManager.GetObject("tu_Mule", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1083,7 +1093,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tu_Nuke {
+        public static System.Drawing.Bitmap Tu_Nuke {
             get {
                 object obj = ResourceManager.GetObject("Tu_Nuke", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1093,7 +1103,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_pdd {
+        public static System.Drawing.Bitmap tu_pdd {
             get {
                 object obj = ResourceManager.GetObject("tu_pdd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1103,7 +1113,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_raven {
+        public static System.Drawing.Bitmap tu_raven {
             get {
                 object obj = ResourceManager.GetObject("tu_raven", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1113,7 +1123,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_reaper {
+        public static System.Drawing.Bitmap tu_reaper {
             get {
                 object obj = ResourceManager.GetObject("tu_reaper", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1123,7 +1133,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_scv {
+        public static System.Drawing.Bitmap tu_scv {
             get {
                 object obj = ResourceManager.GetObject("tu_scv", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1133,7 +1143,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_siegedtank {
+        public static System.Drawing.Bitmap tu_siegedtank {
             get {
                 object obj = ResourceManager.GetObject("tu_siegedtank", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1143,7 +1153,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_tank {
+        public static System.Drawing.Bitmap tu_tank {
             get {
                 object obj = ResourceManager.GetObject("tu_tank", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1153,7 +1163,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_thor {
+        public static System.Drawing.Bitmap tu_thor {
             get {
                 object obj = ResourceManager.GetObject("tu_thor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1163,7 +1173,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_vikingAir {
+        public static System.Drawing.Bitmap tu_vikingAir {
             get {
                 object obj = ResourceManager.GetObject("tu_vikingAir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1173,7 +1183,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_vikingGround {
+        public static System.Drawing.Bitmap tu_vikingGround {
             get {
                 object obj = ResourceManager.GetObject("tu_vikingGround", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1183,7 +1193,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tu_widowmine {
+        public static System.Drawing.Bitmap tu_widowmine {
             get {
                 object obj = ResourceManager.GetObject("tu_widowmine", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1193,7 +1203,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_BehemothReactor {
+        public static System.Drawing.Bitmap Tup_BehemothReactor {
             get {
                 object obj = ResourceManager.GetObject("Tup_BehemothReactor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1203,7 +1213,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_BlueFlame {
+        public static System.Drawing.Bitmap Tup_BlueFlame {
             get {
                 object obj = ResourceManager.GetObject("Tup_BlueFlame", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1213,7 +1223,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_CaduceusReactor {
+        public static System.Drawing.Bitmap Tup_CaduceusReactor {
             get {
                 object obj = ResourceManager.GetObject("Tup_CaduceusReactor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1223,7 +1233,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_CloakingField {
+        public static System.Drawing.Bitmap Tup_CloakingField {
             get {
                 object obj = ResourceManager.GetObject("Tup_CloakingField", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1233,7 +1243,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_CombatShields {
+        public static System.Drawing.Bitmap Tup_CombatShields {
             get {
                 object obj = ResourceManager.GetObject("Tup_CombatShields", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1243,7 +1253,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_ConcussiveShells {
+        public static System.Drawing.Bitmap Tup_ConcussiveShells {
             get {
                 object obj = ResourceManager.GetObject("Tup_ConcussiveShells", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1253,7 +1263,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_CorvidReactor {
+        public static System.Drawing.Bitmap Tup_CorvidReactor {
             get {
                 object obj = ResourceManager.GetObject("Tup_CorvidReactor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1263,7 +1273,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_DrillingClaws {
+        public static System.Drawing.Bitmap Tup_DrillingClaws {
             get {
                 object obj = ResourceManager.GetObject("Tup_DrillingClaws", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1273,7 +1283,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_DurableMaterials {
+        public static System.Drawing.Bitmap Tup_DurableMaterials {
             get {
                 object obj = ResourceManager.GetObject("Tup_DurableMaterials", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1283,7 +1293,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_HighSecAutotracking {
+        public static System.Drawing.Bitmap Tup_HighSecAutotracking {
             get {
                 object obj = ResourceManager.GetObject("Tup_HighSecAutotracking", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1293,7 +1303,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_InfantyArmor1 {
+        public static System.Drawing.Bitmap Tup_InfantyArmor1 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyArmor1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1303,7 +1313,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_InfantyArmor2 {
+        public static System.Drawing.Bitmap Tup_InfantyArmor2 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyArmor2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1313,7 +1323,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_InfantyArmor3 {
+        public static System.Drawing.Bitmap Tup_InfantyArmor3 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyArmor3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1323,7 +1333,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_InfantyWeapon1 {
+        public static System.Drawing.Bitmap Tup_InfantyWeapon1 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyWeapon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1333,7 +1343,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_InfantyWeapon2 {
+        public static System.Drawing.Bitmap Tup_InfantyWeapon2 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyWeapon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1343,7 +1353,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_InfantyWeapon3 {
+        public static System.Drawing.Bitmap Tup_InfantyWeapon3 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyWeapon3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1353,7 +1363,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_MoebiusReactor {
+        public static System.Drawing.Bitmap Tup_MoebiusReactor {
             get {
                 object obj = ResourceManager.GetObject("Tup_MoebiusReactor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1363,7 +1373,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_NeosteelFrame {
+        public static System.Drawing.Bitmap Tup_NeosteelFrame {
             get {
                 object obj = ResourceManager.GetObject("Tup_NeosteelFrame", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1373,7 +1383,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_OrbitalCommand {
+        public static System.Drawing.Bitmap Tup_OrbitalCommand {
             get {
                 object obj = ResourceManager.GetObject("Tup_OrbitalCommand", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1383,7 +1393,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_PersonalCloak {
+        public static System.Drawing.Bitmap Tup_PersonalCloak {
             get {
                 object obj = ResourceManager.GetObject("Tup_PersonalCloak", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1393,7 +1403,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_PlanetaryFortress {
+        public static System.Drawing.Bitmap Tup_PlanetaryFortress {
             get {
                 object obj = ResourceManager.GetObject("Tup_PlanetaryFortress", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1403,7 +1413,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_ShipWeapon1 {
+        public static System.Drawing.Bitmap Tup_ShipWeapon1 {
             get {
                 object obj = ResourceManager.GetObject("Tup_ShipWeapon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1413,7 +1423,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_ShipWeapon2 {
+        public static System.Drawing.Bitmap Tup_ShipWeapon2 {
             get {
                 object obj = ResourceManager.GetObject("Tup_ShipWeapon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1423,7 +1433,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_ShipWeapon3 {
+        public static System.Drawing.Bitmap Tup_ShipWeapon3 {
             get {
                 object obj = ResourceManager.GetObject("Tup_ShipWeapon3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1433,7 +1443,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_Stim {
+        public static System.Drawing.Bitmap Tup_Stim {
             get {
                 object obj = ResourceManager.GetObject("Tup_Stim", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1443,7 +1453,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_StructureArmor {
+        public static System.Drawing.Bitmap Tup_StructureArmor {
             get {
                 object obj = ResourceManager.GetObject("Tup_StructureArmor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1453,7 +1463,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_TransformationServos {
+        public static System.Drawing.Bitmap Tup_TransformationServos {
             get {
                 object obj = ResourceManager.GetObject("Tup_TransformationServos", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1463,7 +1473,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_VehicleShipPlanting1 {
+        public static System.Drawing.Bitmap Tup_VehicleShipPlanting1 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleShipPlanting1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1473,7 +1483,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_VehicleShipPlanting2 {
+        public static System.Drawing.Bitmap Tup_VehicleShipPlanting2 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleShipPlanting2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1483,7 +1493,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_VehicleShipPlanting3 {
+        public static System.Drawing.Bitmap Tup_VehicleShipPlanting3 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleShipPlanting3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1493,7 +1503,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_VehicleWeapon1 {
+        public static System.Drawing.Bitmap Tup_VehicleWeapon1 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleWeapon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1503,7 +1513,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_VehicleWeapon2 {
+        public static System.Drawing.Bitmap Tup_VehicleWeapon2 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleWeapon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1513,7 +1523,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_VehicleWeapon3 {
+        public static System.Drawing.Bitmap Tup_VehicleWeapon3 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleWeapon3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1523,7 +1533,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tup_WeaponRefit {
+        public static System.Drawing.Bitmap Tup_WeaponRefit {
             get {
                 object obj = ResourceManager.GetObject("Tup_WeaponRefit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1533,7 +1543,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Z_Drone {
+        public static System.Drawing.Bitmap Z_Drone {
             get {
                 object obj = ResourceManager.GetObject("Z_Drone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1543,7 +1553,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_banelingnest {
+        public static System.Drawing.Bitmap zb_banelingnest {
             get {
                 object obj = ResourceManager.GetObject("zb_banelingnest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1553,7 +1563,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zb_Creep_Tumor {
+        public static System.Drawing.Bitmap Zb_Creep_Tumor {
             get {
                 object obj = ResourceManager.GetObject("Zb_Creep_Tumor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1563,7 +1573,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_creeptumor {
+        public static System.Drawing.Bitmap zb_creeptumor {
             get {
                 object obj = ResourceManager.GetObject("zb_creeptumor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1573,7 +1583,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_evochamber {
+        public static System.Drawing.Bitmap zb_evochamber {
             get {
                 object obj = ResourceManager.GetObject("zb_evochamber", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1583,7 +1593,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_extactor {
+        public static System.Drawing.Bitmap zb_extactor {
             get {
                 object obj = ResourceManager.GetObject("zb_extactor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1593,7 +1603,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_greaterspire {
+        public static System.Drawing.Bitmap zb_greaterspire {
             get {
                 object obj = ResourceManager.GetObject("zb_greaterspire", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1603,7 +1613,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_hatchery {
+        public static System.Drawing.Bitmap zb_hatchery {
             get {
                 object obj = ResourceManager.GetObject("zb_hatchery", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1613,7 +1623,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_hive {
+        public static System.Drawing.Bitmap zb_hive {
             get {
                 object obj = ResourceManager.GetObject("zb_hive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1623,7 +1633,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_hydraden {
+        public static System.Drawing.Bitmap zb_hydraden {
             get {
                 object obj = ResourceManager.GetObject("zb_hydraden", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1633,7 +1643,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_infestationpit {
+        public static System.Drawing.Bitmap zb_infestationpit {
             get {
                 object obj = ResourceManager.GetObject("zb_infestationpit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1643,7 +1653,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_lair {
+        public static System.Drawing.Bitmap zb_lair {
             get {
                 object obj = ResourceManager.GetObject("zb_lair", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1653,7 +1663,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_nydusnetwork {
+        public static System.Drawing.Bitmap zb_nydusnetwork {
             get {
                 object obj = ResourceManager.GetObject("zb_nydusnetwork", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1663,7 +1673,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_nydusworm {
+        public static System.Drawing.Bitmap zb_nydusworm {
             get {
                 object obj = ResourceManager.GetObject("zb_nydusworm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1673,7 +1683,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_roachwarren {
+        public static System.Drawing.Bitmap zb_roachwarren {
             get {
                 object obj = ResourceManager.GetObject("zb_roachwarren", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1683,7 +1693,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_spawningpool {
+        public static System.Drawing.Bitmap zb_spawningpool {
             get {
                 object obj = ResourceManager.GetObject("zb_spawningpool", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1693,7 +1703,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_spine {
+        public static System.Drawing.Bitmap zb_spine {
             get {
                 object obj = ResourceManager.GetObject("zb_spine", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1703,7 +1713,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_spire {
+        public static System.Drawing.Bitmap zb_spire {
             get {
                 object obj = ResourceManager.GetObject("zb_spire", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1713,7 +1723,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_spore {
+        public static System.Drawing.Bitmap zb_spore {
             get {
                 object obj = ResourceManager.GetObject("zb_spore", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1723,7 +1733,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zb_ultracavery {
+        public static System.Drawing.Bitmap zb_ultracavery {
             get {
                 object obj = ResourceManager.GetObject("zb_ultracavery", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1733,7 +1743,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_baneling {
+        public static System.Drawing.Bitmap zu_baneling {
             get {
                 object obj = ResourceManager.GetObject("zu_baneling", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1743,7 +1753,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_banelingcocoon {
+        public static System.Drawing.Bitmap zu_banelingcocoon {
             get {
                 object obj = ResourceManager.GetObject("zu_banelingcocoon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1753,7 +1763,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_broodlord {
+        public static System.Drawing.Bitmap zu_broodlord {
             get {
                 object obj = ResourceManager.GetObject("zu_broodlord", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1763,7 +1773,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_broodlordcocoon {
+        public static System.Drawing.Bitmap zu_broodlordcocoon {
             get {
                 object obj = ResourceManager.GetObject("zu_broodlordcocoon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1773,7 +1783,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_changeling {
+        public static System.Drawing.Bitmap zu_changeling {
             get {
                 object obj = ResourceManager.GetObject("zu_changeling", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1783,7 +1793,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_corruptor {
+        public static System.Drawing.Bitmap zu_corruptor {
             get {
                 object obj = ResourceManager.GetObject("zu_corruptor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1793,7 +1803,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_drone {
+        public static System.Drawing.Bitmap zu_drone {
             get {
                 object obj = ResourceManager.GetObject("zu_drone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1803,7 +1813,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_hydra {
+        public static System.Drawing.Bitmap zu_hydra {
             get {
                 object obj = ResourceManager.GetObject("zu_hydra", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1813,7 +1823,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_infestedterran {
+        public static System.Drawing.Bitmap zu_infestedterran {
             get {
                 object obj = ResourceManager.GetObject("zu_infestedterran", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1823,7 +1833,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_infestor {
+        public static System.Drawing.Bitmap zu_infestor {
             get {
                 object obj = ResourceManager.GetObject("zu_infestor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1833,7 +1843,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_larva {
+        public static System.Drawing.Bitmap zu_larva {
             get {
                 object obj = ResourceManager.GetObject("zu_larva", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1843,7 +1853,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_locust {
+        public static System.Drawing.Bitmap zu_locust {
             get {
                 object obj = ResourceManager.GetObject("zu_locust", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1853,7 +1863,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_mutalisk {
+        public static System.Drawing.Bitmap zu_mutalisk {
             get {
                 object obj = ResourceManager.GetObject("zu_mutalisk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1863,7 +1873,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_overlord {
+        public static System.Drawing.Bitmap zu_overlord {
             get {
                 object obj = ResourceManager.GetObject("zu_overlord", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1873,7 +1883,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_overseer {
+        public static System.Drawing.Bitmap zu_overseer {
             get {
                 object obj = ResourceManager.GetObject("zu_overseer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1883,7 +1893,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_overseercocoon {
+        public static System.Drawing.Bitmap zu_overseercocoon {
             get {
                 object obj = ResourceManager.GetObject("zu_overseercocoon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1893,7 +1903,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_queen {
+        public static System.Drawing.Bitmap zu_queen {
             get {
                 object obj = ResourceManager.GetObject("zu_queen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1903,7 +1913,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_roach {
+        public static System.Drawing.Bitmap zu_roach {
             get {
                 object obj = ResourceManager.GetObject("zu_roach", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1913,7 +1923,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_swarmhost {
+        public static System.Drawing.Bitmap zu_swarmhost {
             get {
                 object obj = ResourceManager.GetObject("zu_swarmhost", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1923,7 +1933,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_ultra {
+        public static System.Drawing.Bitmap zu_ultra {
             get {
                 object obj = ResourceManager.GetObject("zu_ultra", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1933,7 +1943,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_viper {
+        public static System.Drawing.Bitmap zu_viper {
             get {
                 object obj = ResourceManager.GetObject("zu_viper", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1943,7 +1953,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zu_zergling {
+        public static System.Drawing.Bitmap zu_zergling {
             get {
                 object obj = ResourceManager.GetObject("zu_zergling", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1953,7 +1963,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_AdrenalGlands {
+        public static System.Drawing.Bitmap Zup_AdrenalGlands {
             get {
                 object obj = ResourceManager.GetObject("Zup_AdrenalGlands", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1963,7 +1973,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_AirA1 {
+        public static System.Drawing.Bitmap Zup_AirA1 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1973,7 +1983,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_AirA2 {
+        public static System.Drawing.Bitmap Zup_AirA2 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirA2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1983,7 +1993,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_AirA3 {
+        public static System.Drawing.Bitmap Zup_AirA3 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirA3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1993,7 +2003,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_AirW1 {
+        public static System.Drawing.Bitmap Zup_AirW1 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirW1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2003,7 +2013,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_AirW2 {
+        public static System.Drawing.Bitmap Zup_AirW2 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirW2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2013,7 +2023,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_AirW3 {
+        public static System.Drawing.Bitmap Zup_AirW3 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirW3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2023,7 +2033,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_Burrow {
+        public static System.Drawing.Bitmap Zup_Burrow {
             get {
                 object obj = ResourceManager.GetObject("Zup_Burrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2033,7 +2043,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_CentrifugalHooks {
+        public static System.Drawing.Bitmap Zup_CentrifugalHooks {
             get {
                 object obj = ResourceManager.GetObject("Zup_CentrifugalHooks", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2043,7 +2053,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_ChitinousPlating {
+        public static System.Drawing.Bitmap Zup_ChitinousPlating {
             get {
                 object obj = ResourceManager.GetObject("Zup_ChitinousPlating", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2053,7 +2063,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_EnduringLocusts {
+        public static System.Drawing.Bitmap Zup_EnduringLocusts {
             get {
                 object obj = ResourceManager.GetObject("Zup_EnduringLocusts", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2063,7 +2073,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GlialReconstruction {
+        public static System.Drawing.Bitmap Zup_GlialReconstruction {
             get {
                 object obj = ResourceManager.GetObject("Zup_GlialReconstruction", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2073,7 +2083,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GroovedSpines {
+        public static System.Drawing.Bitmap Zup_GroovedSpines {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroovedSpines", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2083,7 +2093,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GroundA1 {
+        public static System.Drawing.Bitmap Zup_GroundA1 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2093,7 +2103,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GroundA2 {
+        public static System.Drawing.Bitmap Zup_GroundA2 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundA2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2103,7 +2113,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GroundA3 {
+        public static System.Drawing.Bitmap Zup_GroundA3 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundA3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2113,7 +2123,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GroundM1 {
+        public static System.Drawing.Bitmap Zup_GroundM1 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundM1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2123,7 +2133,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GroundM2 {
+        public static System.Drawing.Bitmap Zup_GroundM2 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundM2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2133,7 +2143,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GroundM3 {
+        public static System.Drawing.Bitmap Zup_GroundM3 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundM3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2143,7 +2153,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GroundW1 {
+        public static System.Drawing.Bitmap Zup_GroundW1 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundW1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2153,7 +2163,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GroundW2 {
+        public static System.Drawing.Bitmap Zup_GroundW2 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundW2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2163,7 +2173,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_GroundW3 {
+        public static System.Drawing.Bitmap Zup_GroundW3 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundW3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2173,7 +2183,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_MetabolicBoost {
+        public static System.Drawing.Bitmap Zup_MetabolicBoost {
             get {
                 object obj = ResourceManager.GetObject("Zup_MetabolicBoost", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2183,7 +2193,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_MuscularAugments {
+        public static System.Drawing.Bitmap Zup_MuscularAugments {
             get {
                 object obj = ResourceManager.GetObject("Zup_MuscularAugments", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2193,7 +2203,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_NeutralParasite {
+        public static System.Drawing.Bitmap Zup_NeutralParasite {
             get {
                 object obj = ResourceManager.GetObject("Zup_NeutralParasite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2203,7 +2213,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_PathogenGlands {
+        public static System.Drawing.Bitmap Zup_PathogenGlands {
             get {
                 object obj = ResourceManager.GetObject("Zup_PathogenGlands", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2213,7 +2223,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_PneumatizedCarapace {
+        public static System.Drawing.Bitmap Zup_PneumatizedCarapace {
             get {
                 object obj = ResourceManager.GetObject("Zup_PneumatizedCarapace", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2223,7 +2233,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_TunnelingClaws {
+        public static System.Drawing.Bitmap Zup_TunnelingClaws {
             get {
                 object obj = ResourceManager.GetObject("Zup_TunnelingClaws", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -2233,7 +2243,7 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Zup_VentralSacs {
+        public static System.Drawing.Bitmap Zup_VentralSacs {
             get {
                 object obj = ResourceManager.GetObject("Zup_VentralSacs", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
