@@ -1,0 +1,25 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:PluginWorkerTrainer" x:Class="PluginWorkerTrainer.Settings"
+        Title="Settings" Height="298" Width="179">
+    <Grid>
+        <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Margin="10,223,0,10" Width="75" Click="btnSubmit_Click"/>
+        <Label Content="Width" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Height" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="Top" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
+        <Label Content="Left" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top"/>
+        <Label Content="HomeKey" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top"/>
+        <Label Content="Interval" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtHomekey" HorizontalAlignment="Left" Height="23" Margin="76,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="82" KeyDown="txtHomekey_KeyDown" MaxLines="1"/>
+        <local:NumberTextBox x:Name="txtInterval" HorizontalAlignment="Left" Height="23" Margin="76,144,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="82" NumberChanged="txtInterval_NumberChanged" MaxLines="1"/>
+        <TextBox x:Name="txtWidth" HorizontalAlignment="Left" Height="23" Margin="76,14,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="82" IsReadOnly="True" IsEnabled="False" MaxLines="1"/>
+        <TextBox x:Name="txtHeight" HorizontalAlignment="Left" Height="23" Margin="76,40,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="82" IsReadOnly="True" IsEnabled="False" MaxLines="1"/>
+        <TextBox x:Name="txtLeft" HorizontalAlignment="Left" Height="23" Margin="76,66,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="82" IsReadOnly="True" IsEnabled="False" MaxLines="1"/>
+        <TextBox x:Name="txtTop" HorizontalAlignment="Left" Height="23" Margin="76,92,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="82" IsReadOnly="True" IsEnabled="False" MaxLines="1"/>
+        <Label Content="Disable in" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top"/>
+        <local:NumberTextBox x:Name="txtMinutes" HorizontalAlignment="Left" Height="23" Margin="76,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="25" NumberChanged="txtMinutes_NumberChanged" MaxLines="1"/>
+        <Label Content="minutes" HorizontalAlignment="Left" Margin="106,166,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

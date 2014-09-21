@@ -334,9 +334,11 @@ namespace Predefined
             public Int32 Localplayer { get; set; }   //Makes no sense to put this into the struct but it makes stuff easier
             public Boolean IsLocalplayer { get; set; }
             public Int32 ValidSize { get; set; }
+            public List<Unit> Units { get; set; }
 
             public PlayerStruct()
             {
+                Units = new List<Unit>();
                 ClassObjectCount += 1;
             }
 
@@ -347,7 +349,15 @@ namespace Predefined
         };
 
         public class PList : List<PlayerStruct>
-        {     
+        {
+            public PList()
+            {
+                
+                LocalplayerIndex = -1;
+                HasLocalplayer = false;
+            }
+
+            public Boolean HasLocalplayer { get; set; }
             public Int32 LocalplayerIndex { get; set; }
         }
 
@@ -577,19 +587,19 @@ namespace Predefined
 
         }
 
-        public struct Gameinformation
+        public class Gameinformation
         {
-            public Int32 Timer;
-            public Boolean IsIngame;
-            public Int32 Fps;
-            public Gametype Type;
-            public Gamespeed Speed;
-            public WindowStyle Style;
-            public String ChatInput;
-            public Boolean ChatIsOpen;
-            public Boolean IsTeamcolor;
-            public Int32 ValidPlayerCount;
-            public Boolean Pause;
+            public Int32 Timer {get; set;}
+            public Boolean IsIngame { get; set; }
+            public Int32 Fps { get; set; }
+            public Gametype Type { get; set; }
+            public Gamespeed Speed { get; set; }
+            public WindowStyle Style { get; set; }
+            public String ChatInput { get; set; }
+            public Boolean ChatIsOpen { get; set; }
+            public Boolean IsTeamcolor { get; set; }
+            public Int32 ValidPlayerCount { get; set; }
+            public Boolean Pause { get; set; }
         };
 
         public struct LeagueInfo
