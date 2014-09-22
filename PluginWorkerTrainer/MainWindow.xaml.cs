@@ -61,40 +61,49 @@ namespace PluginWorkerTrainer
 
         void _tmrMainTick_Tick(object sender, EventArgs e)
         {
-            if (!Refresh())
+            try
             {
-                Opacity = 0.3;
-                cnvMiddle.Visibility = Visibility.Hidden;
-            }
 
-            else
-            {
-                Opacity = 1;
-                cnvMiddle.Visibility = Visibility.Visible;
-            }
-
-            if (Gameinfo == null ||
-                Various.HotkeysPressed(_pSettings.HomeKey) ||
-                !Gameinfo.IsIngame ||
-                _bMouseDown)
-            {
-                if (Various.HotkeysPressed(_pSettings.HomeKey) || _bMouseDown)
+                if (!Refresh())
                 {
-                    brdCanvasBorder.BorderThickness = new Thickness(4, 4, 4, 4);
-                    brdCanvasBorder.BorderBrush = new SolidColorBrush(Colors.YellowGreen);
-                    Opacity = Constants.MaximalOpacity;
-                    
+                    Opacity = 0.3;
+                    cnvMiddle.Visibility = Visibility.Hidden;
                 }
 
-                btnSettings.Visibility = Visibility.Visible;
-                Various.SetWindowStyle(Handle, PredefinedTypes.CustomWindowStyles.Clickable);
+                else
+                {
+                    Opacity = 1;
+                    cnvMiddle.Visibility = Visibility.Visible;
+                }
+
+                if (Gameinfo == null ||
+                    Various.HotkeysPressed(_pSettings.HomeKey) ||
+                    !Gameinfo.IsIngame ||
+                    _bMouseDown)
+                {
+                    if (Various.HotkeysPressed(_pSettings.HomeKey) || _bMouseDown)
+                    {
+                        brdCanvasBorder.BorderThickness = new Thickness(4, 4, 4, 4);
+                        brdCanvasBorder.BorderBrush = new SolidColorBrush(Colors.YellowGreen);
+                        Opacity = Constants.MaximalOpacity;
+
+                    }
+
+                    btnSettings.Visibility = Visibility.Visible;
+                    Various.SetWindowStyle(Handle, PredefinedTypes.CustomWindowStyles.Clickable);
+                }
+
+                else
+                {
+                    Various.SetWindowStyle(Handle, PredefinedTypes.CustomWindowStyles.NotClickable);
+                    brdCanvasBorder.BorderThickness = new Thickness(0, 0, 0, 0);
+                    btnSettings.Visibility = Visibility.Hidden;
+                }
             }
 
-            else
+            catch (Exception ex)
             {
-                Various.SetWindowStyle(Handle, PredefinedTypes.CustomWindowStyles.NotClickable);
-                brdCanvasBorder.BorderThickness = new Thickness(0, 0, 0, 0);
-                btnSettings.Visibility = Visibility.Hidden;
+                throw new Exception("If you see this: copy the message and send it to me!", ex);
             }
         }
 
@@ -175,6 +184,10 @@ namespace PluginWorkerTrainer
 
             if (!Players.HasLocalplayer)
                 return false;
+
+            if (Players.LocalplayerIndex == 16)
+                return false;
+            
 
             if (Gameinfo.Timer/60 >= _pSettings.DisableAfterMinute)
             {
