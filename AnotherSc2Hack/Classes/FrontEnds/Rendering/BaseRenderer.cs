@@ -711,6 +711,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         private void GetKeyboardInput()
         {
+            if (HMainHandler.GInformation.Gameinfo == null)
+                return;
+
             var sInput = HMainHandler.GInformation.Gameinfo.ChatInput;
 
             if (sInput != StrBackupChatbox)
@@ -927,7 +930,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 buffer.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
                 buffer.Graphics.SmoothingMode = SmoothingMode.HighSpeed;
 
-                if (HMainHandler.GInformation.Gameinfo.IsIngame)
+                if (HMainHandler.GInformation.Gameinfo != null &&
+                    HMainHandler.GInformation.Gameinfo.IsIngame)
                 {
                     if (PSettings.GlobalDrawOnlyInForeground && !BSurpressForeground)
                     {
@@ -1114,7 +1118,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             try
             {
 #endif
-                if (!HMainHandler.GInformation.Gameinfo.IsIngame ||
+                if (HMainHandler.GInformation.Gameinfo == null ||
+                    !HMainHandler.GInformation.Gameinfo.IsIngame ||
                     HMainHandler.GInformation.Player.Count <= 0 ||
                     HMainHandler.GInformation.Unit.Count <= 0)
                     return;

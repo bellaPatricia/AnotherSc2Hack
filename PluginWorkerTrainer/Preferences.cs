@@ -26,11 +26,6 @@ namespace PluginWorkerTrainer
             ReadPreferences();
         }
 
-        ~Preferences()
-        {
-            WritePreferences();
-        }
-
         public void ReadPreferences()
         {
             if (!File.Exists(Constants.PreferenceFile))

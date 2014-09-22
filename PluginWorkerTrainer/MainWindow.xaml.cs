@@ -54,6 +54,9 @@ namespace PluginWorkerTrainer
 
             txtEnergy.Foreground = new SolidColorBrush(Colors.Orange);
             txtWorkers.Foreground = new SolidColorBrush(Colors.Orange);
+
+            Left = _pSettings.Left;
+            Top = _pSettings.Top;
         }
 
         void _tmrMainTick_Tick(object sender, EventArgs e)
@@ -151,6 +154,8 @@ namespace PluginWorkerTrainer
             base.DragMove();
 
             TransformImage();
+            _pSettings.Left = Left;
+            _pSettings.Top = Top;
         }
 
         public Boolean Refresh()
@@ -299,6 +304,12 @@ namespace PluginWorkerTrainer
         private void Window_MouseUp(object sender, MouseButtonEventArgs e)
         {
             _bMouseDown = false;
+        }
+
+        private void Window_LocationChanged(object sender, EventArgs e)
+        {
+            _pSettings.Left = Left;
+            _pSettings.Top = Top;
         }
     }
 
