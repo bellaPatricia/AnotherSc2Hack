@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sc2Hack UpdateManager", "Sc2Hack UpdateManager\Sc2Hack UpdateManager\Sc2Hack UpdateManager.csproj", "{7970248B-3E79-4C0E-AFF3-632535FE99C9}"
 EndProject
@@ -12,8 +12,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherSc2Hack", "AnotherSc2Hack\AnotherSc2Hack.csproj", "{8A39F9D3-359A-4A0D-AF04-F1F642A21CC2}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DCA4E026-F889-42AE-AF51-F8628C6A076B} = {DCA4E026-F889-42AE-AF51-F8628C6A076B}
+		{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F} = {2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}
 		{F5FA0AD3-E5D0-4050-8094-1839A950D47A} = {F5FA0AD3-E5D0-4050-8094-1839A950D47A}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginWorkerTrainer", "PluginWorkerTrainer\PluginWorkerTrainer.csproj", "{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +40,10 @@ Global
 		{8A39F9D3-359A-4A0D-AF04-F1F642A21CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A39F9D3-359A-4A0D-AF04-F1F642A21CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A39F9D3-359A-4A0D-AF04-F1F642A21CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

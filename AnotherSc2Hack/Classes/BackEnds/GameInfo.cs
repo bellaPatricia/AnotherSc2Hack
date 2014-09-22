@@ -346,7 +346,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     p.Localplayer = GetGPlayerLocalplayer();
                     p.IsLocalplayer = p.Localplayer == i;
                     lPlayer.LocalplayerIndex = p.Localplayer;
-                   
 
                     if (p.Type == PredefinedTypes.PlayerType.Human ||
                         p.Type == PredefinedTypes.PlayerType.Ai)
@@ -371,6 +370,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 }
 
                 Player = lPlayer;
+                Player.HasLocalplayer = lPlayer.LocalplayerIndex != -1;
             }
 
             else
@@ -448,6 +448,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     /* Reset owner */
                     if (u.Owner >= Player.Count)
                         u.Owner = 0;
+
+
                     
                     //if (u.IsStructure)
                     //    u.ProdNumberOfQueuedUnits = GetGUnitNumberOfQueuedUnit(i);
@@ -485,7 +487,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     }
 
 
-                    
+                    //Add the specific units to each player
+                    Player[u.Owner].Units.Add(u);
 
 
                     //_swmainwatch.Stop();

@@ -1584,7 +1584,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void SetGameInformationListBox()
         {
-            if (GInformation == null)
+            if (GInformation == null ||
+                GInformation.Gameinfo == null)
                 return;
 
             if (CustDebug.lstGameinformation.Items.Count <= 0)

@@ -246,6 +246,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void LaunchPanels()
         {
+            if (GInformation.Gameinfo == null)
+                return;
+
             var strInput = GInformation.Gameinfo.ChatInput;
 
             if (String.IsNullOrEmpty(strInput))
