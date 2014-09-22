@@ -9,11 +9,11 @@
     <Grid>
         <Canvas x:Name="cnvMainCanvas">
             <Canvas x:Name="cnvMiddle" Height="76" Canvas.Left="33" Canvas.Top="28" Width="177">
-                <TextBox x:Name="txtWorkers" Height="35" TextWrapping="Wrap" Text="     " Width="51" Background="{x:Null}" Foreground="#FFEA844A" FontSize="25" FontFamily="Century Gothic" IsReadOnly="True" BorderBrush="{x:Null}" Canvas.Left="41" IsEnabled="False"/>
+                <TextBox x:Name="txtWorkers" Height="35" TextWrapping="Wrap" Text="     " Width="51" Background="{x:Null}" Foreground="#FFEA844A" FontSize="25" FontFamily="Century Gothic" IsReadOnly="True" BorderBrush="{x:Null}" Canvas.Left="41" Focusable="False"/>
                 <Image x:Name="imgScv" Height="36" Width="36" Source="TuScv.png" RenderTransformOrigin="0.341,0.332"/>
                 <Image x:Name="imgProbe" Height="36" Width="36" Source="PuProbe.png" RenderTransformOrigin="0.341,0.332" Canvas.Top="-1"/>
                 <Image x:Name="imgMule" Height="36" Width="36" Source="TuMule.png" RenderTransformOrigin="0.341,0.332" Canvas.Top="40"/>
-                <TextBox x:Name="txtEnergy" Height="36" TextWrapping="Wrap" Text="     " Width="51" Background="{x:Null}" Foreground="#FFEA844A" FontSize="25" FontFamily="Century Gothic" IsReadOnly="True" BorderBrush="{x:Null}" Canvas.Left="41" Canvas.Top="40"/>
+                <TextBox x:Name="txtEnergy" Height="36" TextWrapping="Wrap" Text="     " Width="51" Background="{x:Null}" Foreground="#FFEA844A" FontSize="25" FontFamily="Century Gothic" IsReadOnly="True" BorderBrush="{x:Null}" Canvas.Left="41" Canvas.Top="40" Focusable="False"/>
                 <Image x:Name="imgChronoboost" Height="36" Width="36" Source="PuChronoBoost.png" RenderTransformOrigin="0.341,0.332" Canvas.Top="40"/>
             </Canvas>
             <Button x:Name="btnSettings" Content="..." Canvas.Left="180" Canvas.Top="28" Width="30" Height="31" Background="#FF4F4A4A" BorderBrush="#FF252525" ClickMode="Press" Click="btnSettings_Click" Visibility="Hidden"/>

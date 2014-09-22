@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace PluginWorkerTrainer
 {
@@ -51,6 +53,8 @@ namespace PluginWorkerTrainer
 
             var txt = (TextBox) sender;
             txt.Text = e.Key.ToString();
+
+            Pref.HomeKey = (Keys)KeyInterop.VirtualKeyFromKey(e.Key);
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)

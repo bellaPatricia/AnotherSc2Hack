@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -26,7 +27,6 @@ namespace PluginWorkerTrainer
     {
         private readonly DispatcherTimer _tmrMainTick = new DispatcherTimer();
         private Preferences _pSettings = new Preferences();
-        private Point _ptMouseDown;
         private Boolean _bMouseDown;
 
         public Boolean IsClosed { get; private set; }
@@ -51,6 +51,9 @@ namespace PluginWorkerTrainer
             imgScv.Visibility = Visibility.Hidden;
             imgChronoboost.Visibility = Visibility.Hidden;
             imgMule.Visibility = Visibility.Hidden;
+
+            txtEnergy.Foreground = new SolidColorBrush(Colors.Orange);
+            txtWorkers.Foreground = new SolidColorBrush(Colors.Orange);
         }
 
         void _tmrMainTick_Tick(object sender, EventArgs e)
@@ -67,10 +70,8 @@ namespace PluginWorkerTrainer
                 cnvMiddle.Visibility = Visibility.Visible;
             }
 
-            if (Gameinfo == null)
-                return;
-
-            if (Various.HotkeysPressed(_pSettings.HomeKey) ||
+            if (Gameinfo == null ||
+                Various.HotkeysPressed(_pSettings.HomeKey) ||
                 !Gameinfo.IsIngame ||
                 _bMouseDown)
             {
@@ -79,9 +80,10 @@ namespace PluginWorkerTrainer
                     brdCanvasBorder.BorderThickness = new Thickness(4, 4, 4, 4);
                     brdCanvasBorder.BorderBrush = new SolidColorBrush(Colors.YellowGreen);
                     Opacity = Constants.MaximalOpacity;
-                    btnSettings.Visibility = Visibility.Visible;
+                    
                 }
 
+                btnSettings.Visibility = Visibility.Visible;
                 Various.SetWindowStyle(Handle, PredefinedTypes.CustomWindowStyles.Clickable);
             }
 
@@ -249,7 +251,7 @@ namespace PluginWorkerTrainer
             {
                 txtWorkers.Visibility = Visibility.Visible;
                 tmpImgWorkers.Visibility = Visibility.Visible;
-                txtWorkers.Text = iWorkers.ToString();
+                txtWorkers.Text = iWorkers.ToString(CultureInfo.InvariantCulture);
             }
 
             else
@@ -298,9 +300,6 @@ namespace PluginWorkerTrainer
         {
             _bMouseDown = false;
         }
-
-
-        
     }
 
     public class AnotherSc2HackPlugin : IPlugins
