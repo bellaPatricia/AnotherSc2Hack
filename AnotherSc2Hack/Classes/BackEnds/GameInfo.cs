@@ -192,6 +192,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         _memory.Handle = IntPtr.Zero;
                     }*/
 
+                    if (Gameinfo == null)
+                        Gameinfo = new PredefinedTypes.Gameinformation();
+
+                    Gameinfo.IsIngame = false;
+
                     //We slow down...
                     Thread.Sleep(100);
                     _maxPlayerAmount = 16;  /* Reset playersize to maximum */
@@ -251,7 +256,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
             /* Unit Buffer */
-            var unitLength = GetGUnitReadUnitCount() *Of.UnitStructSize;
+
+            int pew = GetGUnitReadUnitCount();
+            var unitLength = pew *Of.UnitStructSize;
 
             var unitChunk = Memory.ReadMemory(Of.UnitStruct, unitLength);
 
@@ -894,6 +901,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* Get the name */
         private PredefinedTypes.UnitModelStruct GetGUnitStruct(Int32 iUnitNum)
         {
+
             var iContentofUnitModel = Memory.ReadInt32(Of.UnitModel + Of.UnitStructSize*iUnitNum);
                 /*BitConverter.ToInt32(
                     InteropCalls.Help_ReadProcessMemory(HStarcraft,
@@ -1026,6 +1034,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             /* Add 3 to that value */
             iUnitAbilitiesPointerResult += 3;
+
+            try
+            {
+                Memory.ReadMemory(iUnitAbilitiesPointerResult, iAbilityCount);
+            }
+
+            catch
+            {
+                throw new Exception();
+            }
 
             Int32 iIndexToLookAt = -1;
             var byteBuffer = Memory.ReadMemory(iUnitAbilitiesPointerResult, iAbilityCount);// InteropCalls.Help_ReadProcessMemory(HStarcraft, iUnitAbilitiesPointerResult, iAbilityCount);
@@ -1379,6 +1397,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* Gathered from Timerdata */
         private Boolean GetGIngame()
         {
+
+
             return (GetGTimer() != 0);
         }
 
