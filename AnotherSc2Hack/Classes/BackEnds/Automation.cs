@@ -30,7 +30,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             BackColor = Color.Pink;
             FormBorderStyle = FormBorderStyle.None;
             DrawText = "Active";
-
+            TopMost = true;
 
         }
 
@@ -192,6 +192,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         //TODO: Exception when writing
         private void AutoWorkerProduction()
         {
+            var bSleepLonger = false;
+
             var gMainInfo = new GameInfo(false);
             gMainInfo.CAccessUnitCommands = true;
             gMainInfo.CAccessSelection = true;
@@ -205,7 +207,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
             while (WorkerProduction)
             {
                 /* Sleeptime *has* to be set that high - some bugs will happen (doubled Workers in queue) if it will be lower */
-                Thread.Sleep(1);
+                if (bSleepLonger)
+                    Thread.Sleep(250);
+
+                else
+                    Thread.Sleep(1);
+
+                bSleepLonger = false;
 
                 #region Check if MainInfo was actually set...
 
@@ -227,28 +235,45 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                 /* Exceptions when not in a game/ SC2 not started */
                 if (pSc2 == null)
+                {
+                    bSleepLonger = true;
                     continue;
+                }
 
-                
+                if (gMainInfo.Gameinfo == null)
+                {
+                    bSleepLonger = true;
+                    continue;
+                }
 
                 if (!gMainInfo.Gameinfo.IsIngame)
+                {
+                    bSleepLonger = true;
                     continue;
+                }
 
                 if (gMainInfo.Player == null ||
                     gMainInfo.Unit == null ||
                     gMainInfo.Group == null ||
                     gMainInfo.Selection == null)
+                {
+                    bSleepLonger = true;
                     continue;
+                }
 
 
                 /* Check if the localplayer is in the game */
                 if (gMainInfo.Player.LocalplayerIndex >= 16)
+                {
+                    bSleepLonger = true;
                     continue;
+                }
 
                 /* Open Chat */
                 if (gMainInfo.Gameinfo.ChatIsOpen)
                 {
                     _dPnl.DrawText = "Chat Open";
+                    bSleepLonger = true;
                     continue;
                 }
 
@@ -256,12 +281,17 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 var tmpLocPlayer = gMainInfo.Player[gMainInfo.Player.LocalplayerIndex];
                 if (tmpLocPlayer.SupplyMin >= tmpLocPlayer.SupplyMax ||
                     tmpLocPlayer.SupplyMin >= 200)
+                {
+                    bSleepLonger = true;
                     continue;
+                }
+                    
 
                 /* If there are enough Minerals for Workers */
                 if (tmpLocPlayer.Minerals < 50)
                 {
                     _dPnl.DrawText = "Not enough Minerals";
+                    bSleepLonger = true;
                     continue;
                 }
 
@@ -269,6 +299,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 if (tmpLocPlayer.Worker >= _hMainhandler.PSettings.WorkerAutomationMaximumWorkers)
                 {
                     _dPnl.DrawText = "Harvestercount reached!";
+                    bSleepLonger = true;
                     continue;
                 }
 
@@ -279,6 +310,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     {
                         _dPnl.DrawText = "Mouse selecting";
+                        bSleepLonger = true;
                         continue;
                     }
                 }
@@ -289,13 +321,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     HelpFunctions.HotkeysPressed(Keys.ControlKey))
                 {
                     _dPnl.DrawText = "Shift/ CTRL beeing pressed";
+                    bSleepLonger = true;
                     continue;
                 }
 
                 /* Apm protection */
                 if (tmpLocPlayer.Apm >= _hMainhandler.PSettings.WorkerAutomationApmProtection)
                 {
-                    _dPnl.DrawText = "APM protection [" + tmpLocPlayer.Apm.ToString() + "]";
+                    _dPnl.DrawText = "APM protection [" + tmpLocPlayer.Apm + "]";
+                    bSleepLonger = true;
                     continue;
                 }
 
@@ -325,7 +359,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                 if (HelpFunctions.HotkeysPressed(Keys.Escape))
                 {
-                    _dPnl.DrawText = "Escapte pressed";
+                    _dPnl.DrawText = "Escape pressed";
                     Thread.Sleep(3000);
                     continue;
                 }
@@ -480,11 +514,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                     tmpUnit.ProdProcess[0] <= 0 ||
                                     float.IsNaN(tmpUnit.ProdProcess[0]))
                                 {
-                                    if (!lLockedUnitListOld[i].IsLocked)
-                                    {
-                                        keys.Add(_hMainhandler.PSettings.WorkerAutomationScvKey);
-                                    }
-                                    isLocked = true;
+                                    /*
+                                        if (!lLockedUnitListOld[i].IsLocked)
+                                        {
+                                            keys.Add(_hMainhandler.PSettings.WorkerAutomationScvKey);
+                                        }
+                                        isLocked = true;
+                                    */
+                                    keys.Add(_hMainhandler.PSettings.WorkerAutomationScvKey);
                                 }
 
                             }
@@ -552,6 +589,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 {
                     Simulation.Keyboard.PressKeysDownAndUpSync(pSc2.MainWindowHandle, keys[i]);
                 }
+
+
 
                 /* Select old selection */
                 Simulation.Keyboard.PressKeysDownAndUpSync(pSc2.MainWindowHandle, _hMainhandler.PSettings.WorkerAutomationBackupGroup);

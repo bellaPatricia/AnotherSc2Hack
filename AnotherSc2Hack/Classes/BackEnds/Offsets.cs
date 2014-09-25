@@ -1216,6 +1216,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #endregion
         }
+
+
         private void Version__2_1_4_32283(Process starcraft)
         {
             #region PlayerInformation
@@ -1455,14 +1457,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
             #region Selection - Unused & outdated
 
             //Selected stuff
-            UiSelectionStruct = (int)starcraft.MainModule.BaseAddress + 0x468A200; //ok
+            UiSelectionStruct = (int)starcraft.MainModule.BaseAddress + 0x046B6200; //ok
             UiTotalSelectedUnits = UiSelectionStruct + 0x0; //
             UiTotalSelectedTypes = UiSelectionStruct + 0x2; //
             UiSelectedType = UiSelectionStruct + 0x4; //
             UiSelectedIndex = UiSelectionStruct + 0xA; //
             UiSize = 4; //147
 
-            UiRawSelectionStruct = (int)starcraft.MainModule.BaseAddress + 0x0468A200;
+            UiRawSelectionStruct = (int)starcraft.MainModule.BaseAddress + 0x046B6200;
             UiRawTotalSelectedUnits = 0x0;
             UiRawTotalSelectedTypes = 0x2;
             UiRawSelectedType = 0x4;
@@ -1475,7 +1477,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             #region Groups - unused & outdated
 
             /* 4 Bytes */
-            RawGroupBase = (int)starcraft.MainModule.BaseAddress + 0x031DD730;
+            RawGroupBase = (int)starcraft.MainModule.BaseAddress + 0x046D3360;
 
             /* 4 Bytes */
             RawGroupSize = 0x1b60;

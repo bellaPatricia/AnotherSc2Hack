@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
 using PluginInterface;
-using Predefined;
+using PredefinedTypes = Predefined.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
@@ -23,7 +23,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Private 
 
-        private PredefinedData.Automation _aWorkerProduction;
+        private PredefinedTypes.Automation _aWorkerProduction;
 
 
         private const String StrOnlinePath =
@@ -126,12 +126,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             SetImageCombolist();
             AssignMethodsToEvents();
             LoadSettingsIntoControls();
+            //var am = new Automation(this, PredefinedTypes.Automation.Testing);
             
 #if DEBUG
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
-            btnTrainer.Visible = true;
-            Customize.Customizer c = new Customize.Customizer();
-            c.Show();
+            //btnTrainer.Visible = true;
+            //Customize.Customizer c = new Customize.Customizer();
+            //c.Show();
 
 #else 
             tcWorkerAutomation.Enabled = false;
@@ -464,12 +465,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             if (!_bDevSet)
             {
-                if (PSettings.GlobalIsDeveloper.Equals(PredefinedData.IsDeveloper.Dunno))
+                if (PSettings.GlobalIsDeveloper.Equals(PredefinedTypes.IsDeveloper.Dunno))
                 {
                     //Do nothing
                 }
 
-                else if (PSettings.GlobalIsDeveloper.Equals(PredefinedData.IsDeveloper.True))
+                else if (PSettings.GlobalIsDeveloper.Equals(PredefinedTypes.IsDeveloper.True))
                 {
                     btnProduction.Enabled = true;
                     btnProduction.Visible = true;
@@ -901,7 +902,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             /* Version- check */
             if (newVer > curVer)
             {
-                PSettings.GlobalIsDeveloper = PredefinedData.IsDeveloper.False;
+                PSettings.GlobalIsDeveloper = PredefinedTypes.IsDeveloper.False;
                 //_strDownloadString = GetStringItems(1, strSource);
 
                 MethodInvoker inv =
@@ -934,7 +935,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             MethodInvoker inv2;
             if (curVer > newVer)
             {
-                PSettings.GlobalIsDeveloper = PredefinedData.IsDeveloper.True;
+                PSettings.GlobalIsDeveloper = PredefinedTypes.IsDeveloper.True;
                 inv2 = delegate
                     {
                         CustGlobal.btnGetUpdate.Text = "Developer!";
@@ -1220,7 +1221,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             
         }
 
-        private readonly List<PredefinedData.Unit> _lUnitForUniqueness = new List<PredefinedData.Unit>();
+        private readonly List<PredefinedTypes.Unit> _lUnitForUniqueness = new List<PredefinedTypes.Unit>();
         private void ExportUnitIdsToFile()
         {
             var sfdSaveFile = new SaveFileDialog();

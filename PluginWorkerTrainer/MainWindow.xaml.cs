@@ -28,6 +28,10 @@ namespace PluginWorkerTrainer
         private readonly DispatcherTimer _tmrMainTick = new DispatcherTimer();
         private Preferences _pSettings = new Preferences();
         private Boolean _bMouseDown;
+        private Int32 _iTimerBegin = 0;
+        private Int32 _iTimerEnd = 0;
+        private Int32 _iTimerSum = 0;
+        private Boolean _bToggle = false;
 
         public Boolean IsClosed { get; private set; }
         public IntPtr Handle { get; private set; }
@@ -176,7 +180,10 @@ namespace PluginWorkerTrainer
                 return false;
 
             if (!Gameinfo.IsIngame)
+            {
+                _iTimerSum = 0;
                 return false;
+            }
 
             if (Players.Count <= 0 ||
                 Units.Count <= 0)
@@ -232,6 +239,9 @@ namespace PluginWorkerTrainer
 
             foreach (var unit in localPlayer.Units)
             {
+                if (localPlayer.Minerals < 50)
+                    return false;
+
                 if (unit.Id.Equals(PredefinedTypes.UnitId.TbCcGround) ||
                     unit.Id.Equals(PredefinedTypes.UnitId.TbPlanetary) ||
                     unit.Id.Equals(PredefinedTypes.UnitId.TbOrbitalGround))
@@ -269,6 +279,7 @@ namespace PluginWorkerTrainer
             {
                 txtWorkers.Visibility = Visibility.Visible;
                 tmpImgWorkers.Visibility = Visibility.Visible;
+                txtTimerSum.Visibility = Visibility.Visible;
                 txtWorkers.Text = iWorkers.ToString(CultureInfo.InvariantCulture);
             }
 
