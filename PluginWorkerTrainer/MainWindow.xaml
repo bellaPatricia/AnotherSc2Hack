@@ -10,7 +10,7 @@
         <Canvas x:Name="cnvMainCanvas">
             <Canvas x:Name="cnvMiddle" Height="76" Canvas.Left="33" Canvas.Top="28" Width="177">
                 <TextBox x:Name="txtWorkers" Height="35" TextWrapping="Wrap" Text="     " Width="51" Background="{x:Null}" Foreground="#FFEA844A" FontSize="25" FontFamily="Century Gothic" IsReadOnly="True" BorderBrush="{x:Null}" Canvas.Left="41" Focusable="False"/>
-                <TextBox x:Name="txtTimerSum" Height="35" TextWrapping="Wrap" Text="     " Width="51" Background="{x:Null}" Foreground="#FFEA844A" FontSize="25" FontFamily="Century Gothic" IsReadOnly="True" BorderBrush="{x:Null}" Canvas.Left="116" Focusable="False"/>
+                <TextBox x:Name="txtTimerSum" Height="35" TextWrapping="Wrap" Text="     " Width="140" Background="{x:Null}" Foreground="#FFEA844A" FontSize="25" FontFamily="Century Gothic" IsReadOnly="True" BorderBrush="{x:Null}" Canvas.Left="75" Focusable="False"/>
                 <Image x:Name="imgScv" Height="36" Width="36" Source="TuScv.png" RenderTransformOrigin="0.341,0.332"/>
                 <Image x:Name="imgProbe" Height="36" Width="36" Source="PuProbe.png" RenderTransformOrigin="0.341,0.332" Canvas.Top="-1"/>
                 <Image x:Name="imgMule" Height="36" Width="36" Source="TuMule.png" RenderTransformOrigin="0.341,0.332" Canvas.Top="40"/>

@@ -31,7 +31,7 @@ namespace PluginWorkerTrainer
         private Int32 _iTimerBegin = 0;
         private Int32 _iTimerEnd = 0;
         private Int32 _iTimerSum = 0;
-        private Boolean _bToggle = false;
+        private Boolean _bWorkerOverlayIsActive = false;
 
         public Boolean IsClosed { get; private set; }
         public IntPtr Handle { get; private set; }
@@ -103,6 +103,48 @@ namespace PluginWorkerTrainer
                     brdCanvasBorder.BorderThickness = new Thickness(0, 0, 0, 0);
                     btnSettings.Visibility = Visibility.Hidden;
                 }
+
+                if (Gameinfo != null)
+                {
+                    if (!Gameinfo.IsIngame)
+                    {
+                        _iTimerSum = 0;
+                        _iTimerEnd = 0;
+                        _iTimerBegin = 0;
+                    }
+
+                    if (Opacity >= 1)
+                    {
+                        if (!_bWorkerOverlayIsActive)
+                        {
+                            _iTimerBegin = Gameinfo.Timer;
+                            _bWorkerOverlayIsActive = true;
+                        }
+
+                        else
+                        {
+                            _iTimerEnd = Gameinfo.Timer;
+                        }
+                    }
+
+                    else
+                    {
+                        if (_bWorkerOverlayIsActive)
+                        {
+                            _iTimerEnd = Gameinfo.Timer;
+                            _bWorkerOverlayIsActive = false;
+                            _iTimerSum += _iTimerEnd - _iTimerBegin;
+                        }
+                    }
+
+                    var strText = ((_iTimerEnd - _iTimerBegin)/60) + ":" + (_iTimerEnd - _iTimerBegin)%60;
+                    var iNewSum = _iTimerSum + (_iTimerEnd - _iTimerBegin);
+                    var strTextSum = iNewSum/60 + ":" + iNewSum%60;
+                    txtTimerSum.Text = strText + " [" + strTextSum + "]";
+                }
+
+                
+
             }
 
             catch (Exception ex)
