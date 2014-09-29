@@ -2038,6 +2038,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lTuGhost[tmpUnit.Owner].UnitAmount += 1;
                             _lTuGhost[tmpUnit.Owner].Id = PredefinedData.UnitId.TuGhost;
                             _lTuGhost[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            _lTuGhost[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
@@ -2148,6 +2149,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         {
                             _lTbOrbitalCommand[tmpUnit.Owner].UnitAmount += 1;
                             _lTbOrbitalCommand[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            _lTbOrbitalCommand[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                             _lTbOrbitalCommand[tmpUnit.Owner].Id = PredefinedData.UnitId.TbOrbitalGround;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -2854,6 +2856,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lPuHt[tmpUnit.Owner].UnitAmount += 1;
                             _lPuHt[tmpUnit.Owner].Id = PredefinedData.UnitId.PuHightemplar;
                             _lPuHt[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            _lPuHt[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
@@ -2866,6 +2869,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lPuMothership[tmpUnit.Owner].UnitAmount += 1;
                             _lPuMothership[tmpUnit.Owner].Id = PredefinedData.UnitId.PuMothership;
                             _lPuMothership[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            _lPuMothership[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
@@ -2874,6 +2878,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lPuMothershipcore[tmpUnit.Owner].UnitAmount += 1;
                             _lPuMothershipcore[tmpUnit.Owner].Id = PredefinedData.UnitId.PuMothershipCore;
                             _lPuMothershipcore[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            _lPuMothershipcore[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
 
                             if (tmpUnit.ProdNumberOfQueuedUnits == 0)
                             {
@@ -2915,6 +2920,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lPuSentry[tmpUnit.Owner].UnitAmount += 1;
                             _lPuSentry[tmpUnit.Owner].Id = PredefinedData.UnitId.PuSentry;
                             _lPuSentry[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            _lPuSentry[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
@@ -2950,6 +2956,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lPbNexus[tmpUnit.Owner].UnitAmount += 1;
                             _lPbNexus[tmpUnit.Owner].Id = tmpUnit.Id;
                             _lPbNexus[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            _lPbNexus[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3682,6 +3689,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lZuInfestor[tmpUnit.Owner].UnitAmount += 1;
                             _lZuInfestor[tmpUnit.Owner].Id = PredefinedData.UnitId.ZuInfestor;
                             _lZuInfestor[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            _lZuInfestor[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.ZuLarva)
@@ -3726,6 +3734,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lZuQueen[tmpUnit.Owner].UnitAmount += 1;
                             _lZuQueen[tmpUnit.Owner].Id = PredefinedData.UnitId.ZuQueen;
                             _lZuQueen[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            _lZuQueen[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id == PredefinedData.UnitId.ZuRoach ||
@@ -3749,6 +3758,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lZuViper[tmpUnit.Owner].UnitAmount += 1;
                             _lZuViper[tmpUnit.Owner].Id = PredefinedData.UnitId.ZuViper;
                             _lZuViper[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            _lZuViper[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==

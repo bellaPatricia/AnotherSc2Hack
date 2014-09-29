@@ -495,6 +495,7 @@ namespace Predefined
             public Int32 DamageTaken { get; set; }
             public Int32 ShieldDamageTaken { get; set; }
             public Int32 Energy { get; set; }
+            public Int32 MaximumEnergy { get; set; }
             public Int32 Owner { get; set; }
             public Int32 State { get; set; }
             public Int32 Movestate { get; set; }
@@ -543,6 +544,7 @@ namespace Predefined
             public float Size;
             public Int32 MaximumHealth;
             public Int32 MaximumShield;
+            public Int32 MaximumEnergy;
             public UnitId Id;
             public Int32 NameLenght;
             public String RawName;
@@ -639,6 +641,7 @@ namespace Predefined
                 ConstructionTimeLeft = new List<float>();
                 Energy = new List<int>();
                 SpeedMultiplier = new List<int>();
+                MaximumEnergy = new List<int>();
             }
 
             public Int32 UnitAmount { get; set; }
@@ -649,6 +652,7 @@ namespace Predefined
             public Int32 UnitUnderConstruction { get; set; }
             public UnitId Id { get; set; }
             public List<float> AliveSince { get; set; }
+            public List<Int32> MaximumEnergy { get; set; }
         }
 
         public enum IsDeveloper

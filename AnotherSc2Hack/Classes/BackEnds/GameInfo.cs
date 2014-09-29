@@ -479,6 +479,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                             u.Size = tmp.Size;
                             u.MaximumHealth = tmp.MaximumHealth;
                             u.MaximumShield = tmp.MaximumShield;
+                            u.MaximumEnergy = tmp.MaximumEnergy;
 
                             if (CAccessUnitCommands)
                                 AssignUnitCommands(ref u, i);
@@ -524,6 +525,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     u.NameLength = tmp2.NameLenght;
                     u.Size = tmp2.Size;
                     u.MaximumHealth = tmp2.MaximumHealth;
+                    u.MaximumEnergy = tmp2.MaximumEnergy;
 
                     /* If the code reaches this point, there are A LOT units without 
                      * assigned commands. We have to redo that!
@@ -901,7 +903,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* Get the name */
         private PredefinedTypes.UnitModelStruct GetGUnitStruct(Int32 iUnitNum)
         {
-
             var iContentofUnitModel = Memory.ReadInt32(Of.UnitModel + Of.UnitStructSize*iUnitNum);
                 /*BitConverter.ToInt32(
                     InteropCalls.Help_ReadProcessMemory(HStarcraft,
@@ -936,14 +937,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UnitMaxHealth + (int)iContentofUnitModelShifted, 4),
                     0);*/       // HelpFunctions.GetMaximumHealth((PredefinedTypes.UnitId) id) << 12;
 
-            if (health == 0)
-            {
-                health = Memory.ReadInt32(Of.UnitMaxHealth + (int) iContentofUnitModelShifted);
-               /* BitConverter.ToInt32(
-                    InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UnitMaxHealth + (int) iContentofUnitModelShifted,
-                                                        4),
-                    0);*/
-            }
+            var maximumEnergy = Memory.ReadInt32(Of.UnitMaxEnergy + iContentofUnitModelShifted);
 
 
             /* Maximum Health - 4 Byte 
@@ -983,6 +977,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             str.MaximumHealth = health;
             str.MaximumShield = shield;
             str.Size = size;
+            str.MaximumEnergy = maximumEnergy;
 
             if (sName.Contains("Unit/Name"))
                 str.Name = sName.Substring(10);
@@ -1042,7 +1037,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             catch
             {
-                throw new Exception();
+                throw new Exception("If you read this, don't commit suicide! I fucked up - sorry.\n" + 
+                "Just report this thing!");
             }
 
             Int32 iIndexToLookAt = -1;

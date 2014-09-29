@@ -1502,6 +1502,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                                                                 GInformation.Unit[_sUnitNum].AliveSince);
                 CustDebug.UnitInfo.lstUnitInformation.Items.Add("Hp Damage: " + GInformation.Unit[_sUnitNum].DamageTaken);
                 CustDebug.UnitInfo.lstUnitInformation.Items.Add("Energy: " + GInformation.Unit[_sUnitNum].Energy);
+                CustDebug.UnitInfo.lstUnitInformation.Items.Add("Max. Energy: " + GInformation.Unit[_sUnitNum].MaximumEnergy);
                 CustDebug.UnitInfo.lstUnitInformation.Items.Add("IsAlive: " + GInformation.Unit[_sUnitNum].IsAlive);
                 CustDebug.UnitInfo.lstUnitInformation.Items.Add("IsCloaked: " + GInformation.Unit[_sUnitNum].IsCloaked);
                 CustDebug.UnitInfo.lstUnitInformation.Items.Add("IsStructure: " +
@@ -1553,28 +1554,29 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                                                                 GInformation.Unit[_sUnitNum].AliveSince;
                 CustDebug.UnitInfo.lstUnitInformation.Items[15] = "Hp Damage: " + GInformation.Unit[_sUnitNum].DamageTaken;
                 CustDebug.UnitInfo.lstUnitInformation.Items[16] = "Energy: " + GInformation.Unit[_sUnitNum].Energy;
-                CustDebug.UnitInfo.lstUnitInformation.Items[17] = "IsAlive: " + GInformation.Unit[_sUnitNum].IsAlive;
-                CustDebug.UnitInfo.lstUnitInformation.Items[18] = "IsCloaked: " + GInformation.Unit[_sUnitNum].IsCloaked;
-                CustDebug.UnitInfo.lstUnitInformation.Items[19] = "IsStructure: " +
+                CustDebug.UnitInfo.lstUnitInformation.Items[17] = "Max. Energy: " + GInformation.Unit[_sUnitNum].MaximumEnergy;
+                CustDebug.UnitInfo.lstUnitInformation.Items[18] = "IsAlive: " + GInformation.Unit[_sUnitNum].IsAlive;
+                CustDebug.UnitInfo.lstUnitInformation.Items[19] = "IsCloaked: " + GInformation.Unit[_sUnitNum].IsCloaked;
+                CustDebug.UnitInfo.lstUnitInformation.Items[20] = "IsStructure: " +
                                                                 GInformation.Unit[_sUnitNum].IsStructure;
-                CustDebug.UnitInfo.lstUnitInformation.Items[20] = "IsUnderConstruction: " +
+                CustDebug.UnitInfo.lstUnitInformation.Items[21] = "IsUnderConstruction: " +
                                                                 GInformation.Unit[_sUnitNum].IsUnderConstruction;
-                CustDebug.UnitInfo.lstUnitInformation.Items[21] = "IsAir: " + GInformation.Unit[_sUnitNum].IsAir;
-                CustDebug.UnitInfo.lstUnitInformation.Items[22] = "IsArmored: " + GInformation.Unit[_sUnitNum].IsArmored;
-                CustDebug.UnitInfo.lstUnitInformation.Items[23] = "IsBiological: " +
-                                                                GInformation.Unit[_sUnitNum].IsBiological;
-                CustDebug.UnitInfo.lstUnitInformation.Items[24] = "IsBurried: " + GInformation.Unit[_sUnitNum].IsBurried;
-                CustDebug.UnitInfo.lstUnitInformation.Items[25] = "IsDetector: " + GInformation.Unit[_sUnitNum].IsDetector;
-                CustDebug.UnitInfo.lstUnitInformation.Items[26] = "IsGround: " + GInformation.Unit[_sUnitNum].IsGround;
-                CustDebug.UnitInfo.lstUnitInformation.Items[27] = "IsHallucination: " +
+                CustDebug.UnitInfo.lstUnitInformation.Items[22] = "IsAir: " + GInformation.Unit[_sUnitNum].IsAir;
+                CustDebug.UnitInfo.lstUnitInformation.Items[23] = "IsArmored: " + GInformation.Unit[_sUnitNum].IsArmored;
+                CustDebug.UnitInfo.lstUnitInformation.Items[24] = "IsBiological: " +
+                                                               GInformation.Unit[_sUnitNum].IsBiological;
+                CustDebug.UnitInfo.lstUnitInformation.Items[25] = "IsBurried: " + GInformation.Unit[_sUnitNum].IsBurried;
+                CustDebug.UnitInfo.lstUnitInformation.Items[26] = "IsDetector: " + GInformation.Unit[_sUnitNum].IsDetector;
+                CustDebug.UnitInfo.lstUnitInformation.Items[27] = "IsGround: " + GInformation.Unit[_sUnitNum].IsGround;
+                CustDebug.UnitInfo.lstUnitInformation.Items[28] = "IsHallucination: " +
                                                                 GInformation.Unit[_sUnitNum].IsHallucination;
-                CustDebug.UnitInfo.lstUnitInformation.Items[28] = "IsLight: " + GInformation.Unit[_sUnitNum].IsLight;
-                CustDebug.UnitInfo.lstUnitInformation.Items[29] = "IsMassive: " + GInformation.Unit[_sUnitNum].IsMassive;
-                CustDebug.UnitInfo.lstUnitInformation.Items[30] = "IsMechanical: " +
+                CustDebug.UnitInfo.lstUnitInformation.Items[29] = "IsLight: " + GInformation.Unit[_sUnitNum].IsLight;
+                CustDebug.UnitInfo.lstUnitInformation.Items[30] = "IsMassive: " + GInformation.Unit[_sUnitNum].IsMassive;
+                CustDebug.UnitInfo.lstUnitInformation.Items[31] = "IsMechanical: " +
                                                                 GInformation.Unit[_sUnitNum].IsMechanical;
-                CustDebug.UnitInfo.lstUnitInformation.Items[31] = "IsPsionic: " + GInformation.Unit[_sUnitNum].IsPsionic;
-                CustDebug.UnitInfo.lstUnitInformation.Items[32] = "IsRobotic: " + GInformation.Unit[_sUnitNum].IsRobotic;
-                CustDebug.UnitInfo.lstUnitInformation.Items[33] = "IsVisible: " + GInformation.Unit[_sUnitNum].IsVisible;
+                CustDebug.UnitInfo.lstUnitInformation.Items[32] = "IsPsionic: " + GInformation.Unit[_sUnitNum].IsPsionic;
+                CustDebug.UnitInfo.lstUnitInformation.Items[33] = "IsRobotic: " + GInformation.Unit[_sUnitNum].IsRobotic;
+                CustDebug.UnitInfo.lstUnitInformation.Items[34] = "IsVisible: " + GInformation.Unit[_sUnitNum].IsVisible;
 
             }
 

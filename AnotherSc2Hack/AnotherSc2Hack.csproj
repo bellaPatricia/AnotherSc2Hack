@@ -81,6 +81,7 @@
     <Compile Include="Classes\BackEnds\Constants.cs" />
     <Compile Include="Classes\BackEnds\Crypting.cs" />
     <Compile Include="Classes\BackEnds\Drawing.cs" />
+    <Compile Include="Classes\BackEnds\ExternsionMethods.cs" />
     <Compile Include="Classes\BackEnds\GameInfo.cs" />
     <Compile Include="Classes\BackEnds\Gameinfo\Player.cs" />
     <Compile Include="Classes\BackEnds\Hashes.cs" />

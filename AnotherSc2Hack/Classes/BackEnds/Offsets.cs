@@ -137,6 +137,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                    UnitMaxShield = 0,
                    UnitModelId = 0,
                    UnitMaxHealth = 0,
+                   UnitMaxEnergy = 0,
                    UnitModelSize = 0;
 
         public Int32 StructureStruct = 0,
@@ -1375,6 +1376,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             /* 4 Bytes  */
             UnitMaxHealth = 0x818;
+
+            /* 4 Bytes */
+            UnitMaxEnergy = 0x860;
 
             /* 4 Bytes  */
             UnitMaxShield = 0x88C;

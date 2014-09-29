@@ -952,20 +952,68 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 #endregion
             }
 
-            if (result > 0 && !PSettings.UnitTabRemoveSpellCounter)
+            if (!PSettings.UnitTabRemoveSpellCounter)
             {
-                HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
-                    new SolidBrush(Color.FromArgb(100, Color.Black)),
-                    posX + size -
-                    TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Width,
-                    posY + font.Size + 10, fWidthSize, font.Size + 9, 5);
+                float newWidth = 10;
+                float newHeight = 10;
+                float newPosX = 0;
+                float newPosY = 0;
+                if (result > 0)
+                {
+                    var fWidth = TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Width;
+                    var fHeight = TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Height;
+
+                    g.Graphics.FillRoundRectangle(new SolidBrush(Color.FromArgb(100, Color.GreenYellow)),
+                        posX + size - fWidth + 5,
+                        posY + size - fHeight,
+                        fWidth - 5,
+                        fHeight,
+                        5);
+
+                    g.Graphics.DrawString(result.ToString(CultureInfo.InvariantCulture),
+                        font,
+                        Brushes.DeepPink,
+                        posX + size - fWidth + 5,
+                        posY + size - fHeight);
+                        
+
+                   /* HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
+                        new SolidBrush(Color.FromArgb(100, Color.Black)),
+                        posX + size -
+                        TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Width,
+                        posY + font.Size + 10, fWidthSize, font.Size + 9, 5);*/
 
 
-                g.Graphics.DrawString(result.ToString(CultureInfo.InvariantCulture), font,
-                    Brushes.DeepPink,
-                    posX + size -
-                    TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Width,
-                    posY + font.Size + 9);
+                  /*  g.Graphics.DrawString(result.ToString(CultureInfo.InvariantCulture), font,
+                        Brushes.DeepPink,
+                        posX + size -
+                        TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Width,
+                        posY + font.Size + 9);*/
+
+                    newWidth = fWidth -5;
+                    newHeight = fHeight;
+                    newPosX = posX + size - fWidth + 5;
+                    newPosY = posY + size - fHeight;
+
+                }
+
+                else
+                {
+                    newPosX = posX + size - 30;
+                    newPosY = posY + size - 30;
+                }
+
+                if (unit.Energy.Count > 0)
+                {
+                    //g.Graphics.DrawPie(new Pen(Brushes.Red), posX, posY, size + 5, size + 5, 0, 270);
+                    var brsh = new SolidBrush(Color.FromArgb(170, Color.GreenYellow));
+                    var iUpperLimit = (float) unit.Energy[0]/unit.MaximumEnergy[0];
+                    iUpperLimit *= 360;
+
+                    g.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                    g.Graphics.DrawArc(new Pen(brsh, 2), newPosX - 2, newPosY - 2, newWidth, newHeight, 0, iUpperLimit);
+                    g.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
+                }
             }
 
 
@@ -1031,7 +1079,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                     /* Draw status- line */
-                    g.Graphics.DrawRectangle(new Pen(Brushes.Yellow, 1), posX + 2, posY + size - 5, (Int32)ftemp, 1);
+                    //g.Graphics.DrawRectangle(new Pen(Brushes.Yellow, 1), posX + 2, posY + size - 5, (Int32)ftemp, 1);
+                    g.Graphics.DrawLine(new Pen(Brushes.Yellow), posX + 2, posY + size - 3, posX + 2 + (Int32) ftemp,
+                        posY + size - 3);
                     g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5, size - 3, 3);
                 }
 
