@@ -138,6 +138,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             tcWorkerAutomation.Enabled = false;
             CustGlobal.cmBxLanguage.Enabled = false;
             CustGlobal.cmBxLanguage.Visible = false;
+            CustGlobal.lblGlobalLanguage.Visible = false;
 #endif
 
 
@@ -1224,58 +1225,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly List<PredefinedTypes.Unit> _lUnitForUniqueness = new List<PredefinedTypes.Unit>();
         private void ExportUnitIdsToFile()
         {
-            var sfdSaveFile = new SaveFileDialog();
-            sfdSaveFile.Filter = "txt (Textfile)|*.txt|csv (Tablesheet)|*.csv";
-            var result = sfdSaveFile.ShowDialog();
+            string strFile = DateTime.Now.Ticks + ".txt";
 
-            if (!result.Equals(DialogResult.OK))
-            {
-                Close();
-                return;
-            }
-
-            var sw = new StreamWriter(sfdSaveFile.FileName);
-
-            if (Path.GetExtension(sfdSaveFile.FileName) == ".csv")
-            {
-                sw.WriteLine("ID; Name; Raw Name");
-                for (var i = 0; i < GInformation.Unit.Count; i++)
-                {
-                    var bUnique = false;
-
-                    if (_lUnitForUniqueness.Count <= 0)
-                        _lUnitForUniqueness.Add(GInformation.Unit[i]);
-
-                    else
-                    {
-                        for (var j = 0; j < _lUnitForUniqueness.Count; j++)
-                        {
-                            if (_lUnitForUniqueness[j].Id != GInformation.Unit[i].Id)
-                                bUnique = true;
-
-                            else
-                            {
-                                bUnique = false;
-                                break;
-                            }
-                        }
-
-                        if (bUnique)
-                            _lUnitForUniqueness.Add(GInformation.Unit[i]);
-                    }
-                }
-
-                _lUnitForUniqueness.Sort((x, y) => x.Id.CompareTo(y.Id));
-
-                for (var i = 0; i < _lUnitForUniqueness.Count; i++)
-                    sw.WriteLine((int)_lUnitForUniqueness[i].Id + ";" + _lUnitForUniqueness[i].Name + ";" +
-                                             _lUnitForUniqueness[i].RawName);
-                sw.Close();
-                Close();
-
-            }
-
-            else
+            using (var sw = new StreamWriter(strFile))
             {
                 sw.WriteLine("public enum UnitId");
                 sw.WriteLine("{");
@@ -1315,14 +1267,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     else
                         sw.WriteLine("\t" + _lUnitForUniqueness[i].Name + " = " + (int)_lUnitForUniqueness[i].Id + ",");
                 }
-
-
                 sw.WriteLine("}");
-                sw.Close();
-                Close();
             }
 
-            Process.Start(sfdSaveFile.FileName);
+            Process.Start(strFile);
+
+            Thread.Sleep(100);
+
+            File.Delete(strFile);
         }
     }
 }

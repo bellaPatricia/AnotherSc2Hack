@@ -53,7 +53,7 @@
             this.gpData.Size = new System.Drawing.Size(166, 100);
             this.gpData.TabIndex = 0;
             this.gpData.TabStop = false;
-            this.gpData.Text = "Daten";
+            this.gpData.Text = "Data";
             // 
             // lblDataIterations
             // 
@@ -88,7 +88,7 @@
             this.gpDrawing.Size = new System.Drawing.Size(182, 275);
             this.gpDrawing.TabIndex = 2;
             this.gpDrawing.TabStop = false;
-            this.gpDrawing.Text = "Zeichnen";
+            this.gpDrawing.Text = "Drawing";
             // 
             // lblDrawingUnitpanelIterations
             // 

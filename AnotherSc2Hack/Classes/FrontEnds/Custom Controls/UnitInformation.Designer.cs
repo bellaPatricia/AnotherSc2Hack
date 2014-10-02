@@ -54,7 +54,7 @@
             this.groupBox1.Size = new System.Drawing.Size(315, 334);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Einheiten- Informationen";
+            this.groupBox1.Text = "Unit Information";
             // 
             // txtUnitNum
             // 
@@ -72,9 +72,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 315);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Springe zur Einheit #:";
+            this.label1.Text = "Jump to unit #:";
             // 
             // lstUnitInformation
             // 
@@ -95,7 +95,7 @@
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(100, 39);
             this.btnPrev.TabIndex = 1;
-            this.btnPrev.Text = "< Zurück";
+            this.btnPrev.Text = "< Previous";
             this.btnPrev.UseVisualStyleBackColor = true;
             // 
             // lblUnitNum
@@ -117,7 +117,7 @@
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 39);
             this.btnNext.TabIndex = 2;
-            this.btnNext.Text = "Weiter >";
+            this.btnNext.Text = "Next >";
             this.btnNext.UseVisualStyleBackColor = true;
             // 
             // UnitInformation

@@ -55,7 +55,7 @@
             this.gbPersonalOverlay.Size = new System.Drawing.Size(311, 176);
             this.gbPersonalOverlay.TabIndex = 0;
             this.gbPersonalOverlay.TabStop = false;
-            this.gbPersonalOverlay.Text = "Persönliches Overlay";
+            this.gbPersonalOverlay.Text = "Personal Overlay";
             // 
             // gbClock
             // 
@@ -66,7 +66,7 @@
             this.gbClock.Size = new System.Drawing.Size(261, 45);
             this.gbClock.TabIndex = 3;
             this.gbClock.TabStop = false;
-            this.gbClock.Text = "Uhr";
+            this.gbClock.Text = "Clock";
             // 
             // chBxClock
             // 
@@ -74,9 +74,9 @@
             this.chBxClock.LanguageFile = "";
             this.chBxClock.Location = new System.Drawing.Point(24, 19);
             this.chBxClock.Name = "chBxClock";
-            this.chBxClock.Size = new System.Drawing.Size(105, 17);
+            this.chBxClock.Size = new System.Drawing.Size(83, 17);
             this.chBxClock.TabIndex = 1;
-            this.chBxClock.Text = "Uhrzeit anzeigen";
+            this.chBxClock.Text = "Show Clock";
             this.ttVarious.SetToolTip(this.chBxClock, "This will show the current time.\r\nBased on your system\'s clock.\r\n\r\nThis is printe" +
         "d as 24h clock!");
             this.chBxClock.UseVisualStyleBackColor = true;
@@ -110,9 +110,9 @@
             this.chBxApmAlert.LanguageFile = "";
             this.chBxApmAlert.Location = new System.Drawing.Point(24, 49);
             this.chBxApmAlert.Name = "chBxApmAlert";
-            this.chBxApmAlert.Size = new System.Drawing.Size(91, 17);
+            this.chBxApmAlert.Size = new System.Drawing.Size(71, 17);
             this.chBxApmAlert.TabIndex = 1;
-            this.chBxApmAlert.Text = "Apm Meldung";
+            this.chBxApmAlert.Text = "Apm Alert";
             this.ttVarious.SetToolTip(this.chBxApmAlert, "Allows you to know when your APM\r\nis dropping. Could improve your speed!");
             this.chBxApmAlert.UseVisualStyleBackColor = true;
             // 
@@ -122,9 +122,9 @@
             this.chBxApm.LanguageFile = "";
             this.chBxApm.Location = new System.Drawing.Point(24, 19);
             this.chBxApm.Name = "chBxApm";
-            this.chBxApm.Size = new System.Drawing.Size(93, 17);
+            this.chBxApm.Size = new System.Drawing.Size(77, 17);
             this.chBxApm.TabIndex = 0;
-            this.chBxApm.Text = "Apm anzeigen";
+            this.chBxApm.Text = "Show Apm";
             this.ttVarious.SetToolTip(this.chBxApm, "Shows your current APM\r\n(only in game you play!)");
             this.chBxApm.UseVisualStyleBackColor = true;
             // 

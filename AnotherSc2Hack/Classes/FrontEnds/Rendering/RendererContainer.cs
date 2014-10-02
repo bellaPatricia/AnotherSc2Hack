@@ -56,7 +56,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 renderer.FormBorderStyle = fbs;
         }
 
-        public void CloseClean()
+        public void CloseNicely()
         {
             foreach (var renderer in this)
             {

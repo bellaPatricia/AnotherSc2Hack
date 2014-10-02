@@ -389,10 +389,10 @@
         private LanguageLabel lblGlobalDrawingRefresh;
         private LanguageLabel lblGlobalDataRefresh;
         private LanguageLabel lblGlobalFileName;
-        private LanguageLabel lblGlobalLanguage;
         private LanguageLabel lblGlobalChangePosKey;
         private LanguageLabel lblGlobalDrawingMiliseconds;
         private LanguageLabel lblGlobalDataMiliseconds;
+        public LanguageLabel lblGlobalLanguage;
         
     }
 }

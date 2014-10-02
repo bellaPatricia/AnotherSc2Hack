@@ -2187,7 +2187,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             PSettings.WritePreferences();
 
-            _lContainer.CloseClean();
+            _lContainer.CloseNicely();
 
             tmrGatherInformation.Enabled = false;
             GInformation.HandleThread(false);
@@ -2211,6 +2211,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 var strFilename = Path.GetFileName(strComplete);
                 var strFilenameNoExt = Path.GetFileNameWithoutExtension(strFilename);
                 var strExtension = Path.GetExtension(strFilename);
+
+                //This is a folder for my projects...
+                if (strPath.Contains("Programmieren"))
+                    Environment.Exit(0);
 
                 if (!strFilename.Contains("AnotherSc2Hack"))
                     Environment.Exit(0);

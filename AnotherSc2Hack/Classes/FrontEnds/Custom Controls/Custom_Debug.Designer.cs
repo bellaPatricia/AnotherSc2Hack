@@ -48,7 +48,7 @@
             this.btnDebugExportIds.Name = "btnDebugExportIds";
             this.btnDebugExportIds.Size = new System.Drawing.Size(200, 38);
             this.btnDebugExportIds.TabIndex = 1;
-            this.btnDebugExportIds.Text = "Aktuelle Unit ID\'s mit Namen exportieren";
+            this.btnDebugExportIds.Text = "Export current unit IDs";
             this.btnDebugExportIds.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -59,7 +59,7 @@
             this.groupBox1.Size = new System.Drawing.Size(200, 109);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Karten- UiInformation";
+            this.groupBox1.Text = "Map Information";
             // 
             // MapInfo
             // 
@@ -80,7 +80,7 @@
             this.groupBox2.Size = new System.Drawing.Size(200, 185);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Match- UiInformation";
+            this.groupBox2.Text = "Match Information";
             // 
             // lstGameinformation
             // 
@@ -98,18 +98,18 @@
             this.lblPlayerObjects.AutoSize = true;
             this.lblPlayerObjects.Location = new System.Drawing.Point(27, 365);
             this.lblPlayerObjects.Name = "lblPlayerObjects";
-            this.lblPlayerObjects.Size = new System.Drawing.Size(88, 13);
+            this.lblPlayerObjects.Size = new System.Drawing.Size(76, 13);
             this.lblPlayerObjects.TabIndex = 7;
-            this.lblPlayerObjects.Text = "Objekte (Spieler):";
+            this.lblPlayerObjects.Text = "Player objects:";
             // 
             // lblUnitObjects
             // 
             this.lblUnitObjects.AutoSize = true;
             this.lblUnitObjects.Location = new System.Drawing.Point(354, 365);
             this.lblUnitObjects.Name = "lblUnitObjects";
-            this.lblUnitObjects.Size = new System.Drawing.Size(100, 13);
+            this.lblUnitObjects.Size = new System.Drawing.Size(66, 13);
             this.lblUnitObjects.TabIndex = 8;
-            this.lblUnitObjects.Text = "Objekte (Einheiten):";
+            this.lblUnitObjects.Text = "Unit objects:";
             // 
             // UnitInfo
             // 

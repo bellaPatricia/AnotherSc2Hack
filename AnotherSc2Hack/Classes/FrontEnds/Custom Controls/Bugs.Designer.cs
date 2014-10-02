@@ -51,7 +51,7 @@
             this.gbCreateThreadOnD3Scene.Size = new System.Drawing.Size(163, 69);
             this.gbCreateThreadOnD3Scene.TabIndex = 4;
             this.gbCreateThreadOnD3Scene.TabStop = false;
-            this.gbCreateThreadOnD3Scene.Text = "Beitrag auf D3Scene erstellen";
+            this.gbCreateThreadOnD3Scene.Text = "CXreate post on D3Scene";
             // 
             // btnCreateNewPost
             // 
@@ -60,7 +60,7 @@
             this.btnCreateNewPost.Name = "btnCreateNewPost";
             this.btnCreateNewPost.Size = new System.Drawing.Size(87, 23);
             this.btnCreateNewPost.TabIndex = 1;
-            this.btnCreateNewPost.Text = "Thema öffnen";
+            this.btnCreateNewPost.Text = "Open Thread";
             this.btnCreateNewPost.UseVisualStyleBackColor = true;
             // 
             // groupBox25
