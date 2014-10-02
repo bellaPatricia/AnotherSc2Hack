@@ -963,7 +963,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     var fWidth = TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Width;
                     var fHeight = TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Height;
 
-                    g.Graphics.FillRoundRectangle(new SolidBrush(Color.FromArgb(100, Color.GreenYellow)),
+                    g.Graphics.FillRoundRectangle(new SolidBrush(Color.FromArgb(100, Color.Black)),
                         posX + size - fWidth + 5,
                         posY + size - fHeight,
                         fWidth - 5,
@@ -1003,16 +1003,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     newPosY = posY + size - 30;
                 }
 
+                //TODO: Clean this up/ fix it<
                 if (unit.Energy.Count > 0)
                 {
+
+#if DEBUG
+                    throw new Exception("THIS PART NEEDS SOME CORRECTION!!");
+#endif
+
                     //g.Graphics.DrawPie(new Pen(Brushes.Red), posX, posY, size + 5, size + 5, 0, 270);
-                    var brsh = new SolidBrush(Color.FromArgb(170, Color.GreenYellow));
+                    /* var brsh = new SolidBrush(Color.FromArgb(170, Color.GreenYellow));
                     var iUpperLimit = (float) unit.Energy[0]/unit.MaximumEnergy[0];
                     iUpperLimit *= 360;
 
                     g.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                     g.Graphics.DrawArc(new Pen(brsh, 2), newPosX - 2, newPosY - 2, newWidth, newHeight, 0, iUpperLimit);
-                    g.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
+                    g.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;*/
                 }
             }
 
