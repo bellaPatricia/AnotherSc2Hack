@@ -24,6 +24,9 @@ Features
 		Shows your Apm and alerts (draws red) you if it goes below your limit.<br>
 <li><b>Clock</b><br>
 		Shows the current time.<br>
+<li><b>Pluginsystem</b><br>
+		Build your own plugins depending on your need!<br>
+		Sample Plugins are available!<br>
 </ul>
 
 
