@@ -102,6 +102,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     //_swMainWatch.Start();
 
                     var clPlayercolor = HMainHandler.GInformation.Player[i].Color;
+                    var tmpPlayer = HMainHandler.GInformation.Player[i];
 
                     #region Teamcolor
 
@@ -130,7 +131,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Ai - Works */
                     if (PSettings.UnitTabRemoveAi)
                     {
-                        if (HMainHandler.GInformation.Player[i].Type == PredefinedData.PlayerType.Ai)
+                        if (tmpPlayer.Type == PredefinedData.PlayerType.Ai)
                         {
                             continue;
                         }
@@ -139,7 +140,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Referee - Not Tested */
                     if (PSettings.UnitTabRemoveReferee)
                     {
-                        if (HMainHandler.GInformation.Player[i].Type == PredefinedData.PlayerType.Referee)
+                        if (tmpPlayer.Type == PredefinedData.PlayerType.Referee)
                         {
                             continue;
                         }
@@ -148,7 +149,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Observer - Not Tested */
                     if (PSettings.UnitTabRemoveObserver)
                     {
-                        if (HMainHandler.GInformation.Player[i].Type == PredefinedData.PlayerType.Observer)
+                        if (tmpPlayer.Type == PredefinedData.PlayerType.Observer)
                         {
                             continue;
                         }
@@ -157,7 +158,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Neutral - Works */
                     if (PSettings.UnitTabRemoveNeutral)
                     {
-                        if (HMainHandler.GInformation.Player[i].Type == PredefinedData.PlayerType.Neutral)
+                        if (tmpPlayer.Type == PredefinedData.PlayerType.Neutral)
                         {
                             continue;
                         }
@@ -166,7 +167,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Localplayer - Works */
                     if (PSettings.UnitTabRemoveLocalplayer)
                     {
-                        if (HMainHandler.GInformation.Player[i].IsLocalplayer)
+                        if (tmpPlayer.IsLocalplayer)
                         {
                             continue;
                         }
@@ -175,15 +176,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Allie - Works */
                     if (PSettings.UnitTabRemoveAllie)
                     {
-                        if (HMainHandler.GInformation.Player[i].Team ==
+                        if (tmpPlayer.Team ==
                             HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[i].Localplayer].Team &&
-                            !HMainHandler.GInformation.Player[i].IsLocalplayer)
+                            !tmpPlayer.IsLocalplayer)
                         {
                             continue;
                         }
                     }
 
-                    if (HMainHandler.GInformation.Player[i].Type == PredefinedData.PlayerType.Hostile)
+                    if (tmpPlayer.Type == PredefinedData.PlayerType.Hostile)
                         continue;
 
 
@@ -197,7 +198,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (CheckIfGameheart(HMainHandler.GInformation.Player[i]))
                         continue;
-
 
                     iPosX = 0;
 
@@ -380,6 +380,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 iPosX = iPosXAfterName;
                             }
                         }
+
+                        if (PSettings.UnitTabUseTransparentImages)
+                            iPosY += 3;
                     }
 
                     #endregion
@@ -519,7 +522,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                     if (iPosX > iPosXAfterName)
+                    {
                         iPosY += iSize + 2;
+
+                        if (PSettings.UnitTabUseTransparentImages)
+                            iPosY += 5;
+                    }
 
                     /* Check which width is bigger */
                     iPosX = iWidthUnits > iWidthBuildings ? iWidthUnits : iWidthBuildings;
@@ -811,14 +819,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Amount of Units
 
+
+
                 HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
-                                                               new SolidBrush(Color.FromArgb(100, Color.Black)),
-                                                               posX + 1, posY + 1, fWidth, font.Size + 9, 5);
+                                                               new SolidBrush(Color.FromArgb(100, Color.Gray)),
+                                                               posX + 1, posY + 1 - 1, fWidth, font.Size + 9, 5);
 
 
                 g.Graphics.DrawString(unit.UnitAmount.ToString(CultureInfo.InvariantCulture), font, Brushes.White,
                                       posX + 2,
-                                      posY + 2);
+                                      posY + 2 - 1);
 
                 #endregion
 
@@ -963,7 +973,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     var fWidth = TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Width;
                     var fHeight = TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Height;
 
-                    g.Graphics.FillRoundRectangle(new SolidBrush(Color.FromArgb(100, Color.Black)),
+                    g.Graphics.FillRoundRectangle(new SolidBrush(Color.FromArgb(100, Color.Gray)),
                         posX + size - fWidth + 5,
                         posY + size - fHeight,
                         fWidth - 5,
@@ -972,7 +982,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     g.Graphics.DrawString(result.ToString(CultureInfo.InvariantCulture),
                         font,
-                        Brushes.DeepPink,
+                        Brushes.Cyan,
                         posX + size - fWidth + 5,
                         posY + size - fHeight);
                         
@@ -1062,7 +1072,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     fWidth = unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length * (font.Size);
 
                 HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
-                                                               new SolidBrush(Color.FromArgb(100, Color.Black)),
+                                                               new SolidBrush(Color.FromArgb(100, Color.Gray)),
                                                                posX + 1, posY + font.Size + 10, fWidth, font.Size + 9, 5);
 
 
@@ -1086,9 +1096,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     /* Draw status- line */
                     //g.Graphics.DrawRectangle(new Pen(Brushes.Yellow, 1), posX + 2, posY + size - 5, (Int32)ftemp, 1);
-                    g.Graphics.DrawLine(new Pen(Brushes.Yellow), posX + 2, posY + size - 3, posX + 2 + (Int32) ftemp,
-                        posY + size - 3);
-                    g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5, size - 3, 3);
+
+                    var iOffset = 5;
+
+                    if (!PSettings.UnitTabUseTransparentImages)
+                        iOffset = 0;
+                    
+
+                    g.Graphics.DrawLine(new Pen(Brushes.Yellow, 2), posX + 2, posY + size - 3 + iOffset,
+                            posX + 2 + (Int32)ftemp,
+                            posY + size - 3 + iOffset);
+                    g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);
                 }
 
 
@@ -1105,14 +1123,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 ftemp *= (unit.AliveSince[0]);
 
                 /* Draw status- line */
-                g.Graphics.DrawRectangle(new Pen(Brushes.Yellow, 1), posX + 2, posY + size - 5, (Int32)ftemp, 1);
-                g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5, size - 3, 3);
+                var iOffset = 5;
+
+                if (!PSettings.UnitTabUseTransparentImages)
+                    iOffset = 0;
+
+
+                g.Graphics.DrawLine(new Pen(Brushes.Yellow, 2), posX + 2, posY + size - 3 + iOffset,
+                        posX + 2 + (Int32)ftemp,
+                        posY + size - 3 + iOffset);
+                g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);
             }
 
 
 
+            if (!PSettings.UnitTabUseTransparentImages)
+                g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
 
-            g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
             posX += size;
         }
 

@@ -660,6 +660,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             UnittabUiUnitTabBasic.OcUiOpacity.tbOpacity.Value = PSettings.UnitTabOpacity > 1.0
                 ? (Int32)PSettings.UnitTabOpacity
                 : (Int32)(PSettings.UnitTabOpacity * 100);
+            UnittabUiUnitTabBasic.chBxUseTransparentImages.Checked = PSettings.UnitTabUseTransparentImages;
 
             #endregion
 
@@ -687,6 +688,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ProductionTabUiProductionTabBasics.OcUiOpacity.tbOpacity.Value = PSettings.ProdTabOpacity > 1.0
                 ? (Int32)PSettings.ProdTabOpacity
                 : (Int32)(PSettings.ProdTabOpacity * 100);
+            ProductionTabUiProductionTabBasics.chBxUseTransparentImages.Checked = PSettings.ProdTabUseTransparentImages;
 
             #endregion
 

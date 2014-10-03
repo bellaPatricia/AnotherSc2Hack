@@ -41,6 +41,7 @@
             this.chBxRemoveAllie = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.chBxRemoveAi = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.btnFontName = new System.Windows.Forms.Button();
+            this.chBxUseTransparentImages = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.gbBasicOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.gbBasicOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbBasicOptions.Controls.Add(this.chBxUseTransparentImages);
             this.gbBasicOptions.Controls.Add(this.chBxShowUpgrades);
             this.gbBasicOptions.Controls.Add(this.chBxShowUnits);
             this.gbBasicOptions.Controls.Add(this.chBxShowBuildings);
@@ -64,7 +66,7 @@
             this.gbBasicOptions.LanguageFile = "";
             this.gbBasicOptions.Location = new System.Drawing.Point(0, 0);
             this.gbBasicOptions.Name = "gbBasicOptions";
-            this.gbBasicOptions.Size = new System.Drawing.Size(210, 357);
+            this.gbBasicOptions.Size = new System.Drawing.Size(210, 370);
             this.gbBasicOptions.TabIndex = 60;
             this.gbBasicOptions.TabStop = false;
             this.gbBasicOptions.Text = "Basic Panel Options";
@@ -113,7 +115,7 @@
             // 
             // OcUiOpacity
             // 
-            this.OcUiOpacity.Location = new System.Drawing.Point(25, 298);
+            this.OcUiOpacity.Location = new System.Drawing.Point(25, 308);
             this.OcUiOpacity.Name = "OcUiOpacity";
             this.OcUiOpacity.Size = new System.Drawing.Size(150, 53);
             this.OcUiOpacity.TabIndex = 84;
@@ -221,12 +223,26 @@
             this.btnFontName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFontName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFontName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnFontName.Location = new System.Drawing.Point(25, 269);
+            this.btnFontName.Location = new System.Drawing.Point(25, 279);
             this.btnFontName.Name = "btnFontName";
             this.btnFontName.Size = new System.Drawing.Size(121, 23);
             this.btnFontName.TabIndex = 58;
             this.btnFontName.Text = "FontName:";
             this.btnFontName.UseVisualStyleBackColor = true;
+            // 
+            // chBxUseTransparentImages
+            // 
+            this.chBxUseTransparentImages.AutoSize = true;
+            this.chBxUseTransparentImages.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chBxUseTransparentImages.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chBxUseTransparentImages.LanguageFile = "";
+            this.chBxUseTransparentImages.Location = new System.Drawing.Point(25, 255);
+            this.chBxUseTransparentImages.Name = "chBxUseTransparentImages";
+            this.chBxUseTransparentImages.Size = new System.Drawing.Size(142, 17);
+            this.chBxUseTransparentImages.TabIndex = 88;
+            this.chBxUseTransparentImages.Text = "Use Transparent Images";
+            this.chBxUseTransparentImages.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chBxUseTransparentImages.UseVisualStyleBackColor = true;
             // 
             // UiProductionTabBasics
             // 
@@ -234,7 +250,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbBasicOptions);
             this.Name = "UiProductionTabBasics";
-            this.Size = new System.Drawing.Size(210, 360);
+            this.Size = new System.Drawing.Size(210, 373);
             this.gbBasicOptions.ResumeLayout(false);
             this.gbBasicOptions.PerformLayout();
             this.ResumeLayout(false);
@@ -256,5 +272,6 @@
         public LanguageCheckbox chBxShowUpgrades;
         public LanguageCheckbox chBxShowUnits;
         public LanguageCheckbox chBxShowBuildings;
+        public LanguageCheckbox chBxUseTransparentImages;
     }
 }

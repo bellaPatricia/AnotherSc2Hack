@@ -54,6 +54,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 Int32 iSize = PSettings.ProdPictureSize;
                 var iPosY = 0;
                 var iPosX = 0;
+                var iPosYName = 0;
 
                 var iMaximumWidth = 0;
                 var fsize = (float)(iSize / 3.5);
@@ -91,6 +92,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     var clPlayercolor = HMainHandler.GInformation.Player[i].Color;
 
+                    var tmpPlayer = HMainHandler.GInformation.Player[i];
+
                     #region Teamcolor
 
                     if (HMainHandler.GInformation.Gameinfo.IsTeamcolor)
@@ -126,7 +129,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Referee - Not Tested */
                     if (PSettings.ProdTabRemoveReferee)
                     {
-                        if (HMainHandler.GInformation.Player[i].Type == PredefinedData.PlayerType.Referee)
+                        if (tmpPlayer.Type == PredefinedData.PlayerType.Referee)
                         {
                             continue;
                         }
@@ -135,7 +138,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Observer - Not Tested */
                     if (PSettings.ProdTabRemoveObserver)
                     {
-                        if (HMainHandler.GInformation.Player[i].Type == PredefinedData.PlayerType.Observer)
+                        if (tmpPlayer.Type == PredefinedData.PlayerType.Observer)
                         {
                             continue;
                         }
@@ -144,7 +147,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Neutral - Works */
                     if (PSettings.ProdTabRemoveNeutral)
                     {
-                        if (HMainHandler.GInformation.Player[i].Type == PredefinedData.PlayerType.Neutral)
+                        if (tmpPlayer.Type == PredefinedData.PlayerType.Neutral)
                         {
                             continue;
                         }
@@ -153,7 +156,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Localplayer - Works */
                     if (PSettings.ProdTabRemoveLocalplayer)
                     {
-                        if (HMainHandler.GInformation.Player[i].IsLocalplayer)
+                        if (tmpPlayer.IsLocalplayer)
                         {
                             continue;
                         }
@@ -162,14 +165,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Allie - Works */
                     if (PSettings.ProdTabRemoveAllie)
                     {
-                        if (HMainHandler.GInformation.Player[i].Team == HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[i].Localplayer].Team &&
-                            !HMainHandler.GInformation.Player[i].IsLocalplayer)
+                        if (tmpPlayer.Team == HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[i].Localplayer].Team &&
+                            !tmpPlayer.IsLocalplayer)
                         {
                             continue;
                         }
                     }
 
-                    if (HMainHandler.GInformation.Player[i].Type == PredefinedData.PlayerType.Hostile)
+                    if (tmpPlayer.Type == PredefinedData.PlayerType.Hostile)
                         continue;
 
 
@@ -183,6 +186,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (CheckIfGameheart(HMainHandler.GInformation.Player[i]))
                         continue;
 
+
                     iPosX = 0;
 
                     /* Draw Name in front of Icons */
@@ -190,13 +194,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                          ? HMainHandler.GInformation.Player[i].Name
                                          : "[" + HMainHandler.GInformation.Player[i].ClanTag + "] " + HMainHandler.GInformation.Player[i].Name;
 
-                    Drawing.DrawString(g.Graphics,
-                       strName,
-                       fStringFont,
-                       new SolidBrush(clPlayercolor),
-                       Brushes.Black, iPosX + 10,
-                       iPosY + 10,
-                       1f, 1f, true);
+                    //Name gets drawn after the icon- drawing is done!
 
 
                     iPosX = iPosXAfterName;
@@ -363,6 +361,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 iPosX = iPosXAfterName;
                             }
                         }
+
+                        if (PSettings.ProdTabUseTransparentImages)
+                            iPosY += 3;
                     }
 
                     #endregion
@@ -524,6 +525,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 iPosX = iPosXAfterName;
                             }
                         }
+
+                        if (PSettings.ProdTabUseTransparentImages)
+                            iPosY += 3;
                     }
 
                     #endregion
@@ -776,10 +780,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (iPosX > iPosXAfterName)
                     {
                         iPosY += iSize + 2;
+                        
+                        if (PSettings.ProdTabUseTransparentImages)
+                            iPosY += 5;
+                    
                     }
 
-
-
+                    
 
 
                     /* Check which width is bigger */
@@ -823,6 +830,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (iHavetoadd > 0)
                         iMaximumWidth += iSize;
+
+                    
+                    if (iWidthMax > iPosXAfterName)
+                    {
+                        Drawing.DrawString(g.Graphics,
+                            strName,
+                            fStringFont,
+                            new SolidBrush(clPlayercolor),
+                            Brushes.Black, 0 + 10,
+                            iPosYName + 10,
+                            1f, 1f, true);
+                    }
+
+                    iPosYName = iPosY;
+
                 }
 
                 if (FormBorderStyle == FormBorderStyle.None)
@@ -1131,13 +1153,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 float ftemp = size - 4;
                 ftemp *= (unit.ConstructionState[0] / 100);
 
+                var iOffset = 5;
+
+                if (!PSettings.ProdTabUseTransparentImages)
+                    iOffset = 0;
+                    
+
+
                 /* Draw status- line */
-                g.Graphics.DrawRectangle(new Pen(Brushes.Yellow, 1), posX + 2, posY + size - 5, (Int32)ftemp, 1);
-                g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5, size - 3, 3);
+                g.Graphics.DrawLine(new Pen(Brushes.Yellow, 2), posX + 2, posY + size - 3 + iOffset,
+                            posX + 2 + (Int32)ftemp,
+                            posY + size - 3 + iOffset);
+                g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);
             }
 
+            if (!PSettings.ProdTabUseTransparentImages)
+                g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
 
-            g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
             posX += size;
         }
 

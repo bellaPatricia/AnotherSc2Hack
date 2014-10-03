@@ -344,6 +344,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             WriteSubSetting(sw, UnitTabShowUnits, "Show Units");
             WriteSubSetting(sw, UnitTabRemoveChronoboost, "Remove Chronoboost");
             WriteSubSetting(sw, UnitTabRemoveSpellCounter, "Remove Spellcounter");
+            WriteSubSetting(sw, UnitTabUseTransparentImages, "Use Transparent Images");
 
 
             #endregion
@@ -397,6 +398,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             WriteSubSetting(sw, ProdTabShowUnits, "Show Units");
             WriteSubSetting(sw, ProdTabShowUpgrades, "Show Upgrades");
             WriteSubSetting(sw, ProdTabRemoveChronoboost, "Remove Chronoboost");
+            WriteSubSetting(sw, ProdTabUseTransparentImages, "Use Transparent Images");
 
 
             #endregion
@@ -2100,6 +2102,19 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         bUnitTabSpellCounter = true;
                     }
 
+                    /* Use Transparent Images */
+                    if (strInnerValue.StartsWith("Use Transparent Images"))
+                    {
+                        strInnerValue = strInnerValue.Substring("Use Transparent Images".Length,
+                            strInnerValue.Length -
+                            "Use Transparent Images".Length);
+
+                        bool bDummy;
+                        Boolean.TryParse(strInnerValue, out bDummy);
+
+                        UnitTabUseTransparentImages = bDummy;
+                    }
+
                     #endregion
 
                     #region Int32 values
@@ -2432,6 +2447,19 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                         ProdTabRemoveChronoboost = bDummy;
                         bProdChronoboost = true;
+                    }
+
+                    /* Use Transparent Images */
+                    if (strInnerValue.StartsWith("Use Transparent Images"))
+                    {
+                        strInnerValue = strInnerValue.Substring("Use Transparent Images".Length,
+                            strInnerValue.Length -
+                            "Use Transparent Images".Length);
+
+                        bool bDummy;
+                        Boolean.TryParse(strInnerValue, out bDummy);
+
+                        ProdTabUseTransparentImages = bDummy;
                     }
 
                     #endregion
@@ -4084,6 +4112,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
     public class PreferencesStruct
     {
+        /// <summary>
+        /// Setting up default values..
+        /// </summary>
+        public PreferencesStruct()
+        {
+            ProdTabUseTransparentImages = true;
+
+            UnitTabUseTransparentImages = true;
+        }
+
         public Byte PreferencesSet { get; set; }
         public PredefinedTypes.IsDeveloper GlobalIsDeveloper { get; set; }
         public Boolean ProdTabRemoveAi { get; set; }
@@ -4093,6 +4131,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Boolean ProdTabRemoveNeutral { get; set; }
         public Boolean ProdTabRemoveLocalplayer { get; set; }
         public Boolean ProdTabSplitUnitsAndBuildings { get; set; }
+        public Boolean ProdTabUseTransparentImages { get; set; }
         public Boolean ProdTabRemoveClanTag { get; set; }
         public Boolean ProdTabRemoveChronoboost{ get; set; }
         public Int32 ProdTabPositionX { get; set; }
@@ -4122,6 +4161,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Boolean UnitTabRemoveProdLine { get; set; }
         public Boolean UnitTabRemoveChronoboost { get; set; }
         public Boolean UnitTabRemoveSpellCounter { get; set; }
+        public Boolean UnitTabUseTransparentImages { get; set; }
         public Int32 UnitTabPositionX { get; set; }
         public Int32 UnitTabPositionY { get; set; }
         public Int32 UnitTabWidth { get; set; }
@@ -4299,7 +4339,5 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Keys WorkerAutomationHotkey2 { get; set; }
         public Keys WorkerAutomationHotkey3 { get; set; }
         public String GlobalLanguage { get; set; }
-    
-
     };
 }

@@ -152,7 +152,7 @@
             this.btnMaphack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnMaphack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaphack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnMaphack.Location = new System.Drawing.Point(255, 449);
+            this.btnMaphack.Location = new System.Drawing.Point(255, 471);
             this.btnMaphack.Name = "btnMaphack";
             this.btnMaphack.Size = new System.Drawing.Size(75, 23);
             this.btnMaphack.TabIndex = 3;
@@ -165,7 +165,7 @@
             this.btnUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnUnit.Location = new System.Drawing.Point(498, 449);
+            this.btnUnit.Location = new System.Drawing.Point(498, 471);
             this.btnUnit.Name = "btnUnit";
             this.btnUnit.Size = new System.Drawing.Size(75, 23);
             this.btnUnit.TabIndex = 6;
@@ -178,7 +178,7 @@
             this.btnResources.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnResources.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResources.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnResources.Location = new System.Drawing.Point(12, 449);
+            this.btnResources.Location = new System.Drawing.Point(12, 471);
             this.btnResources.Name = "btnResources";
             this.btnResources.Size = new System.Drawing.Size(75, 23);
             this.btnResources.TabIndex = 0;
@@ -191,7 +191,7 @@
             this.btnIncome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnIncome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnIncome.Location = new System.Drawing.Point(93, 449);
+            this.btnIncome.Location = new System.Drawing.Point(93, 471);
             this.btnIncome.Name = "btnIncome";
             this.btnIncome.Size = new System.Drawing.Size(75, 23);
             this.btnIncome.TabIndex = 1;
@@ -204,7 +204,7 @@
             this.btnApm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnApm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnApm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnApm.Location = new System.Drawing.Point(336, 449);
+            this.btnApm.Location = new System.Drawing.Point(336, 471);
             this.btnApm.Name = "btnApm";
             this.btnApm.Size = new System.Drawing.Size(75, 23);
             this.btnApm.TabIndex = 4;
@@ -217,7 +217,7 @@
             this.btnArmy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnArmy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArmy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnArmy.Location = new System.Drawing.Point(417, 449);
+            this.btnArmy.Location = new System.Drawing.Point(417, 471);
             this.btnArmy.Name = "btnArmy";
             this.btnArmy.Size = new System.Drawing.Size(75, 23);
             this.btnArmy.TabIndex = 5;
@@ -230,7 +230,7 @@
             this.btnWorker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnWorker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnWorker.Location = new System.Drawing.Point(174, 449);
+            this.btnWorker.Location = new System.Drawing.Point(174, 471);
             this.btnWorker.Name = "btnWorker";
             this.btnWorker.Size = new System.Drawing.Size(75, 23);
             this.btnWorker.TabIndex = 2;
@@ -258,7 +258,7 @@
             this.tcMainTab.Location = new System.Drawing.Point(12, 12);
             this.tcMainTab.Name = "tcMainTab";
             this.tcMainTab.SelectedIndex = 0;
-            this.tcMainTab.Size = new System.Drawing.Size(948, 431);
+            this.tcMainTab.Size = new System.Drawing.Size(948, 453);
             this.tcMainTab.TabIndex = 7;
             this.tcMainTab.SelectedIndexChanged += new System.EventHandler(this.tcMainTab_SelectedIndexChanged);
             // 
@@ -268,7 +268,7 @@
             this.tcGlobal.Controls.Add(this.CustGlobal);
             this.tcGlobal.Location = new System.Drawing.Point(4, 22);
             this.tcGlobal.Name = "tcGlobal";
-            this.tcGlobal.Size = new System.Drawing.Size(940, 405);
+            this.tcGlobal.Size = new System.Drawing.Size(940, 427);
             this.tcGlobal.TabIndex = 7;
             this.tcGlobal.Text = "Global";
             // 
@@ -745,7 +745,7 @@
             this.tcUnitTab.Location = new System.Drawing.Point(4, 22);
             this.tcUnitTab.Name = "tcUnitTab";
             this.tcUnitTab.Padding = new System.Windows.Forms.Padding(3);
-            this.tcUnitTab.Size = new System.Drawing.Size(940, 405);
+            this.tcUnitTab.Size = new System.Drawing.Size(940, 427);
             this.tcUnitTab.TabIndex = 1;
             this.tcUnitTab.Text = "UnitTab";
             // 
@@ -753,7 +753,7 @@
             // 
             this.UnittabUiUnitTabBasic.Location = new System.Drawing.Point(30, 18);
             this.UnittabUiUnitTabBasic.Name = "UnittabUiUnitTabBasic";
-            this.UnittabUiUnitTabBasic.Size = new System.Drawing.Size(210, 380);
+            this.UnittabUiUnitTabBasic.Size = new System.Drawing.Size(210, 403);
             this.UnittabUiUnitTabBasic.TabIndex = 67;
             // 
             // UnittabUiChatInput
@@ -842,7 +842,7 @@
             this.tcProduction.Controls.Add(this.ProductionTabUiProductionTabBasics);
             this.tcProduction.Location = new System.Drawing.Point(4, 22);
             this.tcProduction.Name = "tcProduction";
-            this.tcProduction.Size = new System.Drawing.Size(940, 405);
+            this.tcProduction.Size = new System.Drawing.Size(940, 427);
             this.tcProduction.TabIndex = 13;
             this.tcProduction.Text = "Production";
             // 
@@ -926,7 +926,7 @@
             // 
             this.ProductionTabUiProductionTabBasics.Location = new System.Drawing.Point(30, 18);
             this.ProductionTabUiProductionTabBasics.Name = "ProductionTabUiProductionTabBasics";
-            this.ProductionTabUiProductionTabBasics.Size = new System.Drawing.Size(210, 380);
+            this.ProductionTabUiProductionTabBasics.Size = new System.Drawing.Size(210, 406);
             this.ProductionTabUiProductionTabBasics.TabIndex = 0;
             // 
             // tcWorkerAutomation
@@ -1049,7 +1049,7 @@
             this.btnProduction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnProduction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProduction.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnProduction.Location = new System.Drawing.Point(579, 449);
+            this.btnProduction.Location = new System.Drawing.Point(579, 471);
             this.btnProduction.Name = "btnProduction";
             this.btnProduction.Size = new System.Drawing.Size(78, 23);
             this.btnProduction.TabIndex = 7;
@@ -1062,7 +1062,7 @@
             this.btnTrainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnTrainer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btnTrainer.Location = new System.Drawing.Point(663, 449);
+            this.btnTrainer.Location = new System.Drawing.Point(663, 471);
             this.btnTrainer.Name = "btnTrainer";
             this.btnTrainer.Size = new System.Drawing.Size(78, 23);
             this.btnTrainer.TabIndex = 8;
@@ -1075,7 +1075,7 @@
             // 
             this.btnChangeBorderstyle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChangeBorderstyle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeBorderstyle.Location = new System.Drawing.Point(865, 449);
+            this.btnChangeBorderstyle.Location = new System.Drawing.Point(865, 471);
             this.btnChangeBorderstyle.Name = "btnChangeBorderstyle";
             this.btnChangeBorderstyle.Size = new System.Drawing.Size(95, 23);
             this.btnChangeBorderstyle.TabIndex = 27;
@@ -1093,7 +1093,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 484);
+            this.ClientSize = new System.Drawing.Size(972, 506);
             this.Controls.Add(this.btnChangeBorderstyle);
             this.Controls.Add(this.btnTrainer);
             this.Controls.Add(this.btnProduction);

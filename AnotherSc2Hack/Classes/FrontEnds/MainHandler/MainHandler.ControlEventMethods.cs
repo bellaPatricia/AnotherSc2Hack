@@ -559,6 +559,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.UnitTabRemoveAi = UnittabUiUnitTabBasic.chBxRemoveAi.Checked;
         }
 
+        void chBxUseUnitTransparentImages_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.UnitTabUseTransparentImages = ((LanguageCheckbox)sender).Checked;
+
+            foreach (var item in _lContainer)
+            {
+                if (item.GetType() == typeof (UnitRenderer))
+                {
+                    item.ChangeImageResources(PSettings.UnitTabUseTransparentImages);
+                }
+            }
+        }
+
         private void tbUnitTabOpacity_Scroll(object sender, EventArgs e)
         {
             PSettings.UnitTabOpacity = (double)UnittabUiUnitTabBasic.OcUiOpacity.tbOpacity.Value / 100;
@@ -803,6 +816,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         void chBxProductionTabRemoveClantag_CheckedChanged(object sender, EventArgs e)
         {
             PSettings.ProdTabRemoveClanTag = ProductionTabUiProductionTabBasics.chBxRemoveClantag.Checked;
+        }
+
+        void chBxUseProductionTransparentImages_CheckedChanged(object sender, EventArgs e)
+        {
+            PSettings.ProdTabUseTransparentImages = ((LanguageCheckbox)sender).Checked;
+
+            foreach (var item in _lContainer)
+            {
+                if (item.GetType() == typeof(ProductionRenderer))
+                {
+                    item.ChangeImageResources(PSettings.ProdTabUseTransparentImages);
+                }
+            }
         }
 
         void chBxProductionTabRemoveLocalplayer_CheckedChanged(object sender, EventArgs e)
@@ -1900,6 +1926,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             UnittabUiUnitTabBasic.chBxRemoveSpellcounter.CheckedChanged += chBxUnitTabRemoveSpellcounter_CheckedChanged;
             UnittabUiUnitTabBasic.chBxShowBuildings.CheckedChanged += chBxUnitTabShowBuildings_CheckedChanged;
             UnittabUiUnitTabBasic.chBxShowUnits.CheckedChanged += chBxUnitTabShowUnits_CheckedChanged;
+            UnittabUiUnitTabBasic.chBxUseTransparentImages.CheckedChanged += chBxUseUnitTransparentImages_CheckedChanged;
 
             ProductionTabUiProductionTabBasics.chBxRemoveAi.CheckedChanged += chBxProductionTabRemoveAi_CheckedChanged;
             ProductionTabUiProductionTabBasics.chBxRemoveAllie.CheckedChanged +=chBxProductionTabRemoveAllie_CheckedChanged;
@@ -1913,6 +1940,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ProductionTabUiProductionTabBasics.chBxShowUpgrades.CheckedChanged += chBxProductionTabShowUpgrades_CheckedChanged;
             ProductionTabUiProductionTabBasics.btnFontName.Click += btnProFontName_Click;
             ProductionTabUiProductionTabBasics.OcUiOpacity.tbOpacity.Scroll += tbProOpacity_Scroll;
+            ProductionTabUiProductionTabBasics.chBxUseTransparentImages.CheckedChanged +=chBxUseProductionTransparentImages_CheckedChanged;
 
             CustBugs.btnCreateNewPost.Click += btnCreateNewPost_Click;
             CustBugs.btnEmailSend.Click += btnEmailSend_Click;
@@ -1972,22 +2000,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             #endregion
         }
-
-        
-        
-
-       
-        
-
-        
-
-       
-
-       
-
-        
-
-       
 
         void cmBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {

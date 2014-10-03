@@ -42,6 +42,7 @@
             this.chBxRemoveAllie = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.chBxRemoveAi = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.btnFontName = new System.Windows.Forms.Button();
+            this.chBxUseTransparentImages = new AnotherSc2Hack.Classes.FrontEnds.LanguageCheckbox();
             this.gbUnittabBasics.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             this.gbUnittabBasics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbUnittabBasics.Controls.Add(this.chBxUseTransparentImages);
             this.gbUnittabBasics.Controls.Add(this.chBxShowBuildings);
             this.gbUnittabBasics.Controls.Add(this.chBxShowUnits);
             this.gbUnittabBasics.Controls.Add(this.OcUiOpacity);
@@ -66,7 +68,7 @@
             this.gbUnittabBasics.LanguageFile = "";
             this.gbUnittabBasics.Location = new System.Drawing.Point(0, 0);
             this.gbUnittabBasics.Name = "gbUnittabBasics";
-            this.gbUnittabBasics.Size = new System.Drawing.Size(210, 377);
+            this.gbUnittabBasics.Size = new System.Drawing.Size(210, 392);
             this.gbUnittabBasics.TabIndex = 60;
             this.gbUnittabBasics.TabStop = false;
             this.gbUnittabBasics.Text = "Basic Panel Options";
@@ -101,7 +103,7 @@
             // 
             // OcUiOpacity
             // 
-            this.OcUiOpacity.Location = new System.Drawing.Point(25, 316);
+            this.OcUiOpacity.Location = new System.Drawing.Point(25, 334);
             this.OcUiOpacity.Name = "OcUiOpacity";
             this.OcUiOpacity.Size = new System.Drawing.Size(150, 53);
             this.OcUiOpacity.TabIndex = 76;
@@ -235,12 +237,26 @@
             // btnFontName
             // 
             this.btnFontName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFontName.Location = new System.Drawing.Point(25, 287);
+            this.btnFontName.Location = new System.Drawing.Point(25, 305);
             this.btnFontName.Name = "btnFontName";
             this.btnFontName.Size = new System.Drawing.Size(121, 23);
             this.btnFontName.TabIndex = 58;
             this.btnFontName.Text = "FontName:";
             this.btnFontName.UseVisualStyleBackColor = true;
+            // 
+            // chBxUseTransparentImages
+            // 
+            this.chBxUseTransparentImages.AutoSize = true;
+            this.chBxUseTransparentImages.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chBxUseTransparentImages.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chBxUseTransparentImages.LanguageFile = "";
+            this.chBxUseTransparentImages.Location = new System.Drawing.Point(25, 278);
+            this.chBxUseTransparentImages.Name = "chBxUseTransparentImages";
+            this.chBxUseTransparentImages.Size = new System.Drawing.Size(142, 17);
+            this.chBxUseTransparentImages.TabIndex = 79;
+            this.chBxUseTransparentImages.Text = "Use Transparent Images";
+            this.chBxUseTransparentImages.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chBxUseTransparentImages.UseVisualStyleBackColor = true;
             // 
             // UiUnitTabBasic
             // 
@@ -248,7 +264,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbUnittabBasics);
             this.Name = "UiUnitTabBasic";
-            this.Size = new System.Drawing.Size(210, 380);
+            this.Size = new System.Drawing.Size(210, 395);
             this.gbUnittabBasics.ResumeLayout(false);
             this.gbUnittabBasics.PerformLayout();
             this.ResumeLayout(false);
@@ -271,5 +287,6 @@
         public UiOpacityControl OcUiOpacity;
         public LanguageCheckbox chBxShowBuildings;
         public LanguageCheckbox chBxShowUnits;
+        public LanguageCheckbox chBxUseTransparentImages;
     }
 }

@@ -262,9 +262,6 @@
   <data name="tu_tank" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tu_tank.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pu_mothershipcore" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pu_mothershipcore.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="zu_overlord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zu_overlord.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -754,9 +751,6 @@
   <data name="Zup_TunnelingClaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Zup_TunnelingClaws.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Zup_VentralSacs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Zup_VentralSacs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Tu_Nuke" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tu_Nuke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -774,5 +768,350 @@
   </data>
   <data name="StarCraft_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StarCraft_Icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pu_mothershipcore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pu_mothershipcore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Zup_VentralSacs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Zup_VentralSacs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_assimilator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_assimilator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_cyberneticscore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_cyberneticscore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_darkshrine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_darkshrine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_fleetbeacon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_fleetbeacon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_forge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_forge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_gateway" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_gateway.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_nexus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_nexus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_photoncannon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_photoncannon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_roboticsbay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_roboticsbay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_roboticsfacility" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_roboticsfacility.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_stargate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_stargate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_templararchive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_templararchive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_warpgate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_warpgate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_archon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_archon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_carrier" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_carrier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_colossus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_colossus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_darktemplar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_darktemplar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_hightemplar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_hightemplar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_immortal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_immortal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_interceptor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_interceptor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_mothership" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_mothership.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_mothershipcore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_mothershipcore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_observer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_observer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_oracle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_oracle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_phoenix" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_phoenix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_probe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_probe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_sentry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_sentry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_stalker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_stalker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_tempest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_tempest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_voidray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_voidray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_warpprism" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_warpprism.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_warpprismphasing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_warpprismphasing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pu_zealot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pu_zealot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_armory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_armory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_autoturret" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_autoturret.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_barracks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_barracks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_bunker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_bunker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_commandcenter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_commandcenter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_engineeringbay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_engineeringbay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_factory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_factory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_fusioncore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_fusioncore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_ghostacademy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_ghostacademy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_missileturret" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_missileturret.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_orbitalcommand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_orbitalcommand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_planetaryfortress" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_planetaryfortress.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_reactor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_reactor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_refinery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_refinery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_sensortower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_sensortower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_starport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_starport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_supplydepot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_supplydepot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_supplydepotlowered" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_supplydepotlowered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tb_techlab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_techlab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_twilightcouncil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tb_twilightcouncil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_baneling" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_baneling.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_banelingcocoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_banelingcocoon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_banshee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_banshee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_battlecruiser" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_battlecruiser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_broodlord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_broodlord.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_BroodLordCocoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_BroodLordCocoon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_changeling" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_changeling.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_corruptor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_corruptor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_drone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_drone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_egg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_egg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_ghost" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_ghost.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_hellbat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_hellbat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_hellion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_hellion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_hydralisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_hydralisk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_InfestedTerran" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_InfestedTerran.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_infestor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_infestor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_larva" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_larva.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_locust" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_locust.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_marauder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_marauder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_marine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_marine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_medivac" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_medivac.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_mule" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_mule.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_mutalisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_mutalisk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_nuke" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_nuke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_overlord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_overlord.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_OverlordCocoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_OverlordCocoon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_overseer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_overseer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_pdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_pdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_queen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_queen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_raven" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_raven.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_reaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_reaper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_roach" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_roach.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_scv" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_scv.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_siegetank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_siegetank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_swarmhost" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_swarmhost.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_thor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_thor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_vikingair" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_vikingair.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_viper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_viper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_tu_widowmine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_widowmine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_zergling" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_tu_zergling.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_banelingnest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_banelingnest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_creeptumor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_creeptumor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_evolutionchamber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_evolutionchamber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_extractor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_extractor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_greaterspire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_greaterspire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_hatchery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_hatchery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_hive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_hive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_hydraliskden" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_hydraliskden.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_infestationpit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_infestationpit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_lair" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_lair.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_nyduscanal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_nyduscanal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_nydusnetwork" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_nydusnetwork.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_roachwarren" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_roachwarren.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_spawningpool" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_spawningpool.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_spinecrawler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_spinecrawler.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_spire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_spire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_sporecrawler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_sporecrawler.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zb_ultraliskcavern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zb_ultraliskcavern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_pb_pylon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_pb_pylon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trans_zu_ultralisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_zu_ultralisk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

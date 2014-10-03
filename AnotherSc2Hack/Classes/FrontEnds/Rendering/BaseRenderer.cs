@@ -14,6 +14,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using Predefined;
@@ -281,7 +282,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Units
 
-        protected readonly Image _imgTuScv = Properties.Resources.tu_scv,
+        protected Image _imgTuScv = Properties.Resources.tu_scv,
                                _imgTuMule = Properties.Resources.tu_Mule,
                                _imgTuMarine = Properties.Resources.tu_marine,
                                _imgTuMarauder = Properties.Resources.tu_marauder,
@@ -304,7 +305,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Buildings
 
-        protected readonly Image _imgTbCc = Properties.Resources.tb_cc,
+        protected Image _imgTbCc = Properties.Resources.tb_cc,
                                _imgTbOc = Properties.Resources.tb_oc,
                                _imgTbPf = Properties.Resources.tb_pf,
                                _imgTbSupply = Properties.Resources.tb_supply,
@@ -368,7 +369,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Units
 
-        protected readonly Image _imgPuProbe = Properties.Resources.pu_probe,
+       
+       protected Image _imgPuProbe = Properties.Resources.pu_probe,
                                _imgPuZealot = Properties.Resources.pu_Zealot,
                                _imgPuStalker = Properties.Resources.pu_Stalker,
                                _imgPuSentry = Properties.Resources.pu_sentry,
@@ -387,12 +389,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                _imgPuMothership = Properties.Resources.pu_Mothership,
                                _imgPuArchon = Properties.Resources.pu_Archon,
                                _imgPuForceField = Properties.Resources.PuForceField;
+        
+        
 
         #endregion
 
         #region Buildings
 
-        protected readonly Image _imgPbNexus = Properties.Resources.pb_Nexus,
+        protected Image _imgPbNexus = Properties.Resources.pb_Nexus,
                                _imgPbPylon = Properties.Resources.pb_Pylon,
                                _imgPbGateway = Properties.Resources.pb_gateway,
                                _imgPbWarpgate = Properties.Resources.pb_warpgate,
@@ -445,7 +449,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Units
 
-        protected readonly Image _imgZuDrone = Properties.Resources.zu_drone,
+        protected Image _imgZuDrone = Properties.Resources.zu_drone,
                                _imgZuLarva = Properties.Resources.zu_larva,
                                _imgZuZergling = Properties.Resources.zu_zergling,
                                _imgZuBaneling = Properties.Resources.zu_baneling,
@@ -470,7 +474,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Buildings
 
-        protected readonly Image _imgZbHatchery = Properties.Resources.zb_hatchery,
+        protected Image _imgZbHatchery = Properties.Resources.zb_hatchery,
                                _imgZbLair = Properties.Resources.zb_lair,
                                _imgZbHive = Properties.Resources.zb_hive,
                                _imgZbCreepTumor = Properties.Resources.Zb_Creep_Tumor,
@@ -1059,6 +1063,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             ChangeForecolorOfButton(Color.Red);
 
             base.Hide();
+
+            Thread.Sleep(100);
         }
 
         /// <summary>
@@ -1073,6 +1079,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             ChangeForecolorOfButton(Color.Green);
 
             base.Show();
+
+            Thread.Sleep(100);
         }
 
         /// <summary>
@@ -1108,7 +1116,266 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             LoadPreferencesIntoControls();
         }
 
-        
+        public void ChangeImageResources(Boolean useTransparentImages = false)
+        {
+            if (!useTransparentImages)
+            {
+                #region Terran
+
+                _imgTuScv = Properties.Resources.tu_scv;
+                _imgTuMule = Properties.Resources.tu_Mule;
+                _imgTuMarine = Properties.Resources.tu_marine;
+                _imgTuMarauder = Properties.Resources.tu_marauder;
+                _imgTuReaper = Properties.Resources.tu_reaper;
+                _imgTuGhost = Properties.Resources.tu_ghost;
+                _imgTuHellion = Properties.Resources.tu_hellion;
+                _imgTuHellbat = Properties.Resources.tu_battlehellion;
+                _imgTuSiegetank = Properties.Resources.tu_tank;
+                _imgTuThor = Properties.Resources.tu_thor;
+                _imgTuWidowMine = Properties.Resources.tu_widowmine;
+                _imgTuViking = Properties.Resources.tu_vikingAir;
+                _imgTuRaven = Properties.Resources.tu_raven;
+                _imgTuMedivac = Properties.Resources.tu_medivac;
+                _imgTuBattlecruiser = Properties.Resources.tu_battlecruiser;
+                _imgTuBanshee = Properties.Resources.tu_banshee;
+                _imgTuPointDefenseDrone = Properties.Resources.tu_pdd;
+                _imgTuNuke = Properties.Resources.Tu_Nuke;
+
+                _imgTbCc = Properties.Resources.tb_cc;
+                _imgTbOc = Properties.Resources.tb_oc;
+                _imgTbPf = Properties.Resources.tb_pf;
+                _imgTbSupply = Properties.Resources.tb_supply;
+                _imgTbRefinery = Properties.Resources.tb_refinery;
+                _imgTbBarracks = Properties.Resources.tb_rax;
+                _imgTbEbay = Properties.Resources.tb_ebay;
+                _imgTbTurrent = Properties.Resources.tb_turret;
+                _imgTbSensorTower = Properties.Resources.tb_sensor;
+                _imgTbFactory = Properties.Resources.tb_fax;
+                _imgTbStarport = Properties.Resources.tb_starport;
+                _imgTbGhostacademy = Properties.Resources.tb_ghostacademy;
+                _imgTbArmory = Properties.Resources.tb_Armory;
+                _imgTbBunker = Properties.Resources.tb_bunker;
+                _imgTbFusioncore = Properties.Resources.tb_fusioncore;
+                _imgTbTechlab = Properties.Resources.tb_techlab;
+                _imgTbReactor = Properties.Resources.tb_reactor;
+                _imgTbAutoTurret = Properties.Resources.tb_autoturret;
+
+                #endregion
+
+                #region Protoss
+
+                _imgPuProbe = Properties.Resources.pu_probe;
+                _imgPuZealot = Properties.Resources.pu_Zealot;
+                _imgPuStalker = Properties.Resources.pu_Stalker;
+                _imgPuSentry = Properties.Resources.pu_sentry;
+                _imgPuDarkTemplar = Properties.Resources.pu_DarkTemplar;
+                _imgPuHighTemplar = Properties.Resources.pu_ht;
+                _imgPuColossus = Properties.Resources.pu_Colossus;
+                _imgPuImmortal = Properties.Resources.pu_immortal;
+                _imgPuWapprism = Properties.Resources.pu_warpprism;
+                _imgPuObserver = Properties.Resources.pu_Observer;
+                _imgPuOracle = Properties.Resources.pu_oracle;
+                _imgPuTempest = Properties.Resources.pu_tempest;
+                _imgPuPhoenix = Properties.Resources.pu_pheonix;
+                _imgPuVoidray = Properties.Resources.pu_Voidray;
+                _imgPuCarrier = Properties.Resources.pu_carrier;
+                _imgPuMothershipcore = Properties.Resources.pu_mothershipcore;
+                _imgPuMothership = Properties.Resources.pu_Mothership;
+                _imgPuArchon = Properties.Resources.pu_Archon;
+                _imgPuForceField = Properties.Resources.PuForceField;
+
+                _imgPbNexus = Properties.Resources.pb_Nexus;
+                _imgPbPylon = Properties.Resources.pb_Pylon;
+                _imgPbGateway = Properties.Resources.pb_gateway;
+                _imgPbWarpgate = Properties.Resources.pb_warpgate;
+                _imgPbAssimilator = Properties.Resources.pb_Assimilator;
+                _imgPbForge = Properties.Resources.pb_forge;
+                _imgPbCannon = Properties.Resources.pb_Cannon;
+                _imgPbCybercore = Properties.Resources.pb_cybercore;
+                _imgPbStargate = Properties.Resources.pb_stargate;
+                _imgPbRobotics = Properties.Resources.pb_robotics;
+                _imgPbRoboticsSupport = Properties.Resources.pb_roboticssupport;
+                _imgPbTwillightCouncil = Properties.Resources.pb_twillightCouncil;
+                _imgPbDarkShrine = Properties.Resources.pb_DarkShrine;
+                _imgPbTemplarArchives = Properties.Resources.pb_templararchives;
+                _imgPbFleetBeacon = Properties.Resources.pb_FleetBeacon;
+
+                #endregion
+
+                #region Zerg
+
+                _imgZuDrone = Properties.Resources.zu_drone;
+                _imgZuLarva = Properties.Resources.zu_larva;
+                _imgZuZergling = Properties.Resources.zu_zergling;
+                _imgZuBaneling = Properties.Resources.zu_baneling;
+                _imgZuBanelingCocoon = Properties.Resources.zu_banelingcocoon;
+                _imgZuRoach = Properties.Resources.zu_roach;
+                _imgZuHydra = Properties.Resources.zu_hydra;
+                _imgZuMutalisk = Properties.Resources.zu_mutalisk;
+                _imgZuUltra = Properties.Resources.zu_ultra;
+                _imgZuViper = Properties.Resources.zu_viper;
+                _imgZuSwarmhost = Properties.Resources.zu_swarmhost;
+                _imgZuInfestor = Properties.Resources.zu_infestor;
+                _imgZuCorruptor = Properties.Resources.zu_corruptor;
+                _imgZuBroodlord = Properties.Resources.zu_broodlord;
+                _imgZuBroodlordCocoon = Properties.Resources.zu_broodlordcocoon;
+                _imgZuQueen = Properties.Resources.zu_queen;
+                _imgZuOverlord = Properties.Resources.zu_overlord;
+                _imgZuOverseer = Properties.Resources.zu_overseer;
+                _imgZuOvserseerCocoon = Properties.Resources.zu_overseercocoon;
+                _imgZuLocust = Properties.Resources.zu_locust;
+
+                _imgZbHatchery = Properties.Resources.zb_hatchery;
+                _imgZbLair = Properties.Resources.zb_lair;
+                _imgZbHive = Properties.Resources.zb_hive;
+                _imgZbCreepTumor = Properties.Resources.Zb_Creep_Tumor;
+                _imgZbSpawningpool = Properties.Resources.zb_spawningpool;
+                _imgZbExtractor = Properties.Resources.zb_extactor;
+                _imgZbEvochamber = Properties.Resources.zb_evochamber;
+                _imgZbSpinecrawler = Properties.Resources.zb_spine;
+                _imgZbSporecrawler = Properties.Resources.zb_spore;
+                _imgZbRoachwarren = Properties.Resources.zb_roachwarren;
+                _imgZbGreaterspire = Properties.Resources.zb_greaterspire;
+                _imgZbSpire = Properties.Resources.zb_spire;
+                _imgZbNydusNetwork = Properties.Resources.zb_nydusnetwork;
+                _imgZbNydusWorm = Properties.Resources.zb_nydusworm;
+                _imgZbHydraden = Properties.Resources.zb_hydraden;
+                _imgZbInfestationpit = Properties.Resources.zb_infestationpit;
+                _imgZbUltracavern = Properties.Resources.zb_ultracavery;
+                _imgZbBanelingnest = Properties.Resources.zb_banelingnest;
+
+                #endregion
+            }
+
+            else
+            {
+                #region Terran
+
+                _imgTuScv = Properties.Resources.trans_tu_scv;
+                _imgTuMule = Properties.Resources.trans_tu_mule;
+                _imgTuMarine = Properties.Resources.trans_tu_marine;
+                _imgTuMarauder = Properties.Resources.trans_tu_marauder;
+                _imgTuReaper = Properties.Resources.trans_tu_reaper;
+                _imgTuGhost = Properties.Resources.trans_tu_ghost;
+                _imgTuHellion = Properties.Resources.trans_tu_hellion;
+                _imgTuHellbat = Properties.Resources.trans_tu_hellbat;
+                _imgTuSiegetank = Properties.Resources.trans_tu_siegetank;
+                _imgTuThor = Properties.Resources.trans_tu_thor;
+                _imgTuWidowMine = Properties.Resources.trans_tu_widowmine;
+                _imgTuViking = Properties.Resources.trans_tu_vikingair;
+                _imgTuRaven = Properties.Resources.trans_tu_raven;
+                _imgTuMedivac = Properties.Resources.trans_tu_medivac;
+                _imgTuBattlecruiser = Properties.Resources.trans_tu_battlecruiser;
+                _imgTuBanshee = Properties.Resources.trans_tu_banshee;
+                _imgTuPointDefenseDrone = Properties.Resources.trans_tu_pdd;
+                _imgTuNuke = Properties.Resources.trans_tu_nuke;
+
+                _imgTbCc = Properties.Resources.trans_tb_commandcenter;
+                _imgTbOc = Properties.Resources.trans_tb_orbitalcommand;
+                _imgTbPf = Properties.Resources.trans_tb_planetaryfortress;
+                _imgTbSupply = Properties.Resources.trans_tb_supplydepot;
+                _imgTbRefinery = Properties.Resources.trans_tb_refinery;
+                _imgTbBarracks = Properties.Resources.trans_tb_barracks;
+                _imgTbEbay = Properties.Resources.trans_tb_engineeringbay;
+                _imgTbTurrent = Properties.Resources.trans_tb_missileturret;
+                _imgTbSensorTower = Properties.Resources.trans_tb_sensortower;
+                _imgTbFactory = Properties.Resources.trans_tb_factory;
+                _imgTbStarport = Properties.Resources.trans_tb_starport;
+                _imgTbGhostacademy = Properties.Resources.trans_tb_ghostacademy;
+                _imgTbArmory = Properties.Resources.trans_tb_armory;
+                _imgTbBunker = Properties.Resources.trans_tb_bunker;
+                _imgTbFusioncore = Properties.Resources.trans_tb_fusioncore;
+                _imgTbTechlab = Properties.Resources.trans_tb_techlab;
+                _imgTbReactor = Properties.Resources.trans_tb_reactor;
+                _imgTbAutoTurret = Properties.Resources.trans_tb_autoturret;
+
+                #endregion
+
+                #region Protoss
+
+                _imgPuProbe = Properties.Resources.trans_pu_probe;
+                _imgPuZealot = Properties.Resources.trans_pu_zealot;
+                _imgPuStalker = Properties.Resources.trans_pu_stalker;
+                _imgPuSentry = Properties.Resources.trans_pu_sentry;
+                _imgPuDarkTemplar = Properties.Resources.trans_pu_darktemplar;
+                _imgPuHighTemplar = Properties.Resources.trans_pu_hightemplar;
+                _imgPuColossus = Properties.Resources.trans_pu_colossus;
+                _imgPuImmortal = Properties.Resources.trans_pu_immortal;
+                _imgPuWapprism = Properties.Resources.trans_pu_warpprism;
+                _imgPuObserver = Properties.Resources.trans_pu_observer;
+                _imgPuOracle = Properties.Resources.trans_pu_oracle;
+                _imgPuTempest = Properties.Resources.trans_pu_tempest;
+                _imgPuPhoenix = Properties.Resources.trans_pu_phoenix;
+                _imgPuVoidray = Properties.Resources.trans_pu_voidray;
+                _imgPuCarrier = Properties.Resources.trans_pu_carrier;
+                _imgPuMothershipcore = Properties.Resources.trans_pu_mothershipcore;
+                _imgPuMothership = Properties.Resources.trans_pu_mothership;
+                _imgPuArchon = Properties.Resources.trans_pu_archon;
+                _imgPuForceField = Properties.Resources.PuForceField;
+
+                _imgPbNexus = Properties.Resources.trans_pb_nexus;
+                _imgPbPylon = Properties.Resources.trans_pb_pylon;
+                _imgPbGateway = Properties.Resources.trans_pb_gateway;
+                _imgPbWarpgate = Properties.Resources.trans_pb_warpgate;
+                _imgPbAssimilator = Properties.Resources.trans_pb_assimilator;
+                _imgPbForge = Properties.Resources.trans_pb_forge;
+                _imgPbCannon = Properties.Resources.trans_pb_photoncannon;
+                _imgPbCybercore = Properties.Resources.trans_pb_cyberneticscore;
+                _imgPbStargate = Properties.Resources.trans_pb_stargate;
+                _imgPbRobotics = Properties.Resources.trans_pb_roboticsfacility;
+                _imgPbRoboticsSupport = Properties.Resources.trans_pb_roboticsbay;
+                _imgPbTwillightCouncil = Properties.Resources.trans_pb_twilightcouncil;
+                _imgPbDarkShrine = Properties.Resources.trans_pb_darkshrine;
+                _imgPbTemplarArchives = Properties.Resources.trans_pb_templararchive;
+                _imgPbFleetBeacon = Properties.Resources.trans_pb_fleetbeacon;
+
+                #endregion
+
+                #region Zerg
+
+                _imgZuDrone = Properties.Resources.trans_zu_drone;
+                _imgZuLarva = Properties.Resources.trans_zu_larva;
+                _imgZuZergling = Properties.Resources.trans_zu_zergling;
+                _imgZuBaneling = Properties.Resources.trans_zu_baneling;
+                _imgZuBanelingCocoon = Properties.Resources.trans_zu_banelingcocoon;
+                _imgZuRoach = Properties.Resources.trans_zu_roach;
+                _imgZuHydra = Properties.Resources.trans_zu_hydralisk;
+                _imgZuMutalisk = Properties.Resources.trans_zu_mutalisk;
+                _imgZuUltra = Properties.Resources.trans_zu_ultralisk;
+                _imgZuViper = Properties.Resources.trans_zu_viper;
+                _imgZuSwarmhost = Properties.Resources.trans_zu_swarmhost;
+                _imgZuInfestor = Properties.Resources.trans_zu_infestor;
+                _imgZuCorruptor = Properties.Resources.trans_zu_corruptor;
+                _imgZuBroodlord = Properties.Resources.trans_zu_broodlord;
+                _imgZuBroodlordCocoon = Properties.Resources.trans_zu_BroodLordCocoon;
+                _imgZuQueen = Properties.Resources.trans_zu_queen;
+                _imgZuOverlord = Properties.Resources.trans_zu_overlord;
+                _imgZuOverseer = Properties.Resources.trans_zu_overseer;
+                _imgZuOvserseerCocoon = Properties.Resources.trans_zu_OverlordCocoon;
+                _imgZuLocust = Properties.Resources.trans_zu_locust;
+
+                _imgZbHatchery = Properties.Resources.trans_zb_hatchery;
+                _imgZbLair = Properties.Resources.trans_zb_lair;
+                _imgZbHive = Properties.Resources.trans_zb_hive;
+                _imgZbCreepTumor = Properties.Resources.trans_zb_creeptumor;
+                _imgZbSpawningpool = Properties.Resources.trans_zb_spawningpool;
+                _imgZbExtractor = Properties.Resources.trans_zb_extractor;
+                _imgZbEvochamber = Properties.Resources.trans_zb_evolutionchamber;
+                _imgZbSpinecrawler = Properties.Resources.trans_zb_spinecrawler;
+                _imgZbSporecrawler = Properties.Resources.trans_zb_sporecrawler;
+                _imgZbRoachwarren = Properties.Resources.trans_zb_roachwarren;
+                _imgZbGreaterspire = Properties.Resources.trans_zb_greaterspire;
+                _imgZbSpire = Properties.Resources.trans_zb_spire;
+                _imgZbNydusNetwork = Properties.Resources.trans_zb_nydusnetwork;
+                _imgZbNydusWorm = Properties.Resources.trans_zb_nyduscanal;
+                _imgZbHydraden = Properties.Resources.trans_zb_hydraliskden;
+                _imgZbInfestationpit = Properties.Resources.trans_zb_infestationpit;
+                _imgZbUltracavern = Properties.Resources.trans_zb_ultraliskcavern;
+                _imgZbBanelingnest = Properties.Resources.trans_zb_banelingnest;
+
+                #endregion
+            }
+        }
 
         #endregion
 
