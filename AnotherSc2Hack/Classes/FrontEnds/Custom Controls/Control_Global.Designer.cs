@@ -206,6 +206,7 @@
             this.btnGlobalDonations.TabIndex = 26;
             this.btnGlobalDonations.Text = "Donations through Paypal";
             this.btnGlobalDonations.UseVisualStyleBackColor = true;
+            this.btnGlobalDonations.Paint += new System.Windows.Forms.PaintEventHandler(this.btnGlobalDonations_Paint);
             // 
             // txtFilename
             // 
