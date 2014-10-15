@@ -1227,6 +1227,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly List<PredefinedTypes.Unit> _lUnitForUniqueness = new List<PredefinedTypes.Unit>();
         private void ExportUnitIdsToFile()
         {
+            if (GInformation.Gameinfo == null ||
+                !GInformation.Gameinfo.IsIngame)
+            {
+                MessageBox.Show("Your are not ingame!");
+                return;
+            }
+
             string strFile = DateTime.Now.Ticks + ".txt";
 
             using (var sw = new StreamWriter(strFile))

@@ -328,7 +328,7 @@ namespace PluginSupply
                 buffer.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 buffer.Graphics.SmoothingMode = SmoothingMode.HighQuality;
 
-                if (GInfo.IsIngame)
+                if (GInfo != null && GInfo.IsIngame)
                 {
                     Drawing(buffer.Graphics);
                 }

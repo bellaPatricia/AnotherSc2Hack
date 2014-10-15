@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Sc2Hack\bin\Debug\Plugins\</OutputPath>
+    <OutputPath>..\AnotherSc2Hack\bin\Debug\Plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,17 +25,20 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Sc2Hack\bin\Release\Plugins\</OutputPath>
+    <OutputPath>..\AnotherSc2Hack\bin\Release\Plugins\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PluginInterface">
-      <HintPath>..\Sc2Hack\bin\Release\PluginInterface.dll</HintPath>
+      <HintPath>..\AnotherSc2Hack\bin\Release\PluginInterface.dll</HintPath>
     </Reference>
     <Reference Include="PredefinedTypes">
-      <HintPath>..\Sc2Hack\bin\Release\PredefinedTypes.dll</HintPath>
+      <HintPath>..\AnotherSc2Hack\bin\Release\PredefinedTypes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

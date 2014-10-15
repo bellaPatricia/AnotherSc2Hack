@@ -790,6 +790,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         private void Helper_DrawUnits(PredefinedData.UnitCount unit, ref Int32 posX, Int32 posY, Int32 size, Image img,
                                       BufferedGraphics g, Color clPlayercolor, Font font, Boolean isStructure)
         {
+            Boolean bSpaceForPercentage = false;
             Int32 result = 0;
             float fWidthSize = 0f;
 
@@ -834,7 +835,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Energy
 
-                
+                if (unit.Energy.Count > 0)
+                {
+                    g.Graphics.FillRectangle(Brushes.Black, posX + size, posY, 10, size);
+                    g.Graphics.DrawRectangle(new Pen(Brushes.Gray), posX + size, posY, 10, size);
+                    bSpaceForPercentage = true;
+                }
 
                 #region Protoss
 
@@ -958,6 +964,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 }
 
                 #endregion
+
+                
 
                 #endregion
             }
@@ -1138,9 +1146,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
             if (!PSettings.UnitTabUseTransparentImages)
-                g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
+            {
+                if (bSpaceForPercentage)
+                    g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size + 10, size);
+
+                else 
+                    g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
+            }
 
             posX += size;
+
+            if (bSpaceForPercentage)
+                posX += 10;
         }
 
         protected override void RefreshPanelPosition(Point location)

@@ -260,6 +260,12 @@
     <Compile Include="Classes\FrontEnds\MainHandler\MainHandler.ControlEventMethods.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Classes\FrontEnds\Plugins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Plugins.Designer.cs">
+      <DependentUpon>Plugins.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\FrontEnds\Rendering\ArmyRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\PlayerInformation.resx">
       <DependentUpon>PlayerInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Plugins.resx">
+      <DependentUpon>Plugins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Rendering\BaseRenderer.resx">
       <DependentUpon>BaseRenderer.cs</DependentUpon>
