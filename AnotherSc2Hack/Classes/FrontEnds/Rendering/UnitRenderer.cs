@@ -835,10 +835,29 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Energy
 
-                if (unit.Energy.Count > 0)
+                if (unit.Energy.Count == 1)
                 {
-                    g.Graphics.FillRectangle(Brushes.Black, posX + size, posY, 10, size);
-                    g.Graphics.DrawRectangle(new Pen(Brushes.Gray), posX + size, posY, 10, size);
+
+                    var fLenght = unit.Energy[0]/(float)unit.MaximumEnergy[0];
+                    fLenght *= size;
+
+                    g.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Black)), posX + size, posY, 16, fLenght);
+
+                    if (PSettings.UnitTabUseTransparentImages)
+                        g.Graphics.DrawRectangle(new Pen(Brushes.Gray), posX + size, posY, 16, size);
+
+                    string text = (unit.Energy[0] >> 12).ToString(CultureInfo.InvariantCulture);
+
+                    var pt = new PointF(posX + size, posY);
+
+
+                    g.Graphics.TranslateTransform(pt.X, pt.Y); // Set rotation point
+                    g.Graphics.RotateTransform(90); // Rotate text
+                    g.Graphics.TranslateTransform(-pt.X, -pt.Y); // Reset translate transform
+                    SizeF sz = g.Graphics.MeasureString(text, Font); // Get size of rotated text (bounding box)
+                    g.Graphics.DrawString(text, Font, Brushes.Cyan, new PointF(pt.X, pt.Y - sz.Height)); // Draw string centered in x, y
+                    g.Graphics.ResetTransform(); // Only needed if you reuse the Graphics object for multiple calls to DrawString
+
                     bSpaceForPercentage = true;
                 }
 
@@ -982,7 +1001,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     var fHeight = TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Height;
 
                     g.Graphics.FillRoundRectangle(new SolidBrush(Color.FromArgb(100, Color.Gray)),
-                        posX + size - fWidth + 5,
+                        posX + size - fWidth + 5 - 2,
                         posY + size - fHeight,
                         fWidth - 5,
                         fHeight,
@@ -991,7 +1010,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     g.Graphics.DrawString(result.ToString(CultureInfo.InvariantCulture),
                         font,
                         Brushes.Cyan,
-                        posX + size - fWidth + 5,
+                        posX + size - fWidth + 5 - 2,
                         posY + size - fHeight);
                         
 
@@ -1148,7 +1167,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (!PSettings.UnitTabUseTransparentImages)
             {
                 if (bSpaceForPercentage)
-                    g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size + 10, size);
+                    g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size + 16, size);
 
                 else 
                     g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
@@ -1157,7 +1176,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             posX += size;
 
             if (bSpaceForPercentage)
-                posX += 10;
+                posX += 16;
         }
 
         protected override void RefreshPanelPosition(Point location)
