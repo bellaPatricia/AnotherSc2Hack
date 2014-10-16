@@ -95,6 +95,7 @@
     <Compile Include="Classes\BackEnds\Processing.cs" />
     <Compile Include="Classes\BackEnds\Renderer_Helper.cs" />
     <Compile Include="Classes\BackEnds\Simulation.cs" />
+    <Compile Include="Classes\BackEnds\UpdateCheck.cs" />
     <Compile Include="Classes\FrontEnds\Custom Controls\AbstractUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -602,7 +602,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 #endregion
 
                 
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
             }
         }
 

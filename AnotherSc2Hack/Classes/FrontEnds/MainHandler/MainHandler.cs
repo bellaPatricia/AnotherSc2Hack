@@ -126,7 +126,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             SetImageCombolist();
             AssignMethodsToEvents();
             LoadSettingsIntoControls();
-            //var am = new Automation(this, PredefinedTypes.Automation.Testing);
+            UpdateCheck.CheckPlugins();
+
+            var am = new Automation(this, PredefinedTypes.Automation.Testing);
             
 #if DEBUG
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
@@ -1199,6 +1201,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 catch
                 {
                     /* Eat the error! */
+                    
                     MessageBox.Show("Couldn't load the plugin \"" + strPlugin + "\".\n" +
                                     "We ignore it!");
                 }
