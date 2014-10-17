@@ -15,6 +15,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
 {
     public static class UpdateCheck
     {
+        /// <summary>
+        /// Checks if a plugin needs an update and if it does, returns true
+        /// </summary>
+        /// <returns>Returns true whenever an update for an available (e.g. downloaded) plugin is available</returns>
         public static bool CheckPlugins()
         {
             var _strUrlPlugins = @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Plugins.txt";
@@ -142,6 +146,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return false;
         }
 
+        /// <summary>
+        /// Downloads the newest Download Manager and replaces the old one...
+        /// </summary>
+        /// <returns>Returns false if the Download failed</returns>
         public static bool DownloadUpdateManager()
         {
             var strUrlUpdater =
@@ -149,7 +157,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var wc = new WebClient();
 
-            var strSource = DownloadString(strUrlUpdater, 0, 5);
+            var strSource = DownloadString(strUrlUpdater, 5);
 
             if (strSource == String.Empty)
                 return false;
@@ -196,7 +204,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return true;
         }
 
-        public static String DownloadString(string url, int times, int maxTimes)
+        /// <summary>
+        /// Downloads a string from an online environment.
+        /// If the Download fails, it tries to redo the action.
+        /// </summary>
+        /// <param name="url">The Url to download the string from</param>
+        /// <param name="times">The amount you already tried</param>
+        /// <param name="maxTimes">The maximum amount of tries</param>
+        /// <returns></returns>
+        public static String DownloadString(string url, int maxTimes, int times = 0)
         {
             if (times >= maxTimes)
                 return String.Empty;
@@ -212,7 +228,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             catch
             {
-                return DownloadString(url, ++times, maxTimes);
+                return DownloadString(url, maxTimes, ++times);
             }
         }
     }
