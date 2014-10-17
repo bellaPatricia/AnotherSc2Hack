@@ -10,6 +10,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static String StrAlertsSettings = Application.StartupPath + "\\Alerts.dat";
         public static String StrPreferencesFile = Application.StartupPath + "\\Preferences.dat";
         public static String StrLogFile = Application.StartupPath + "\\AnotherLogFile.rtf";
+        public static String StrUpdateManager = Application.StartupPath + "\\Sc2Hack UpdateManager.exe";
         public static Pen PBlack1 = new Pen(Brushes.Black, 1);
         public static Pen PBlack2 = new Pen(Brushes.Black, 2);
         public static Pen PBlack3 = new Pen(Brushes.Black, 3);

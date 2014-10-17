@@ -760,34 +760,29 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /* Get new Updates */
         private void btnGetUpdate_Click(object sender, EventArgs e)
         {
-            if (File.Exists("Sc2Hack UpdateManager.exe"))
+            if (File.Exists(Constants.StrUpdateManager))
             {
-                Process.Start("Sc2Hack UpdateManager.exe");
+                Process.Start(Constants.StrUpdateManager);
                 Close();
             }
 
             else
             {
-                var wc = new WebClient();
-                wc.DownloadFileAsync(
-                    new Uri(
-                        "https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/Binaries/AnotherSc2Hack_0.2.2.0/Sc2Hack%20UpdateManager.exe"),
-                    "Sc2Hack UpdateManager.exe");
+                if (!UpdateCheck.DownloadUpdateManager())
+                {
+                    MessageBox.Show("Something went wrong!\n" +
+                                    "Please try again!", "Ouch..");
+                }
 
-                wc.DownloadFileCompleted += wc_DownloadFileCompleted;
+                else
+                {
+                    if (File.Exists(Constants.StrUpdateManager))
+                        Process.Start(Constants.StrUpdateManager);
 
+                    else
+                        CustGlobal.btnGetUpdate.PerformClick();
+                }
             }
-        }
-
-        /* In case the file is lost.. */
-        void wc_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-        {
-            if (File.Exists("Sc2Hack UpdateManager.exe"))
-                Process.Start("Sc2Hack UpdateManager.exe");
-
-            else 
-                CustGlobal.btnGetUpdate.PerformClick();
-            
         }
 
         /* Initial search for updates */
@@ -899,7 +894,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
 
             /* Build version from this file */
-            var curVer = new Version(System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            var curVer = new Version(Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
             /* Build version from online- file (string) */
             var newVer = new Version(GetStringItems(0, strSource));
@@ -907,6 +902,30 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             /* Version- check */
             if (newVer > curVer)
             {
+                var result = MessageBox.Show("There are updates available!\n\nDo you wish to update?", "New Updates",
+                    MessageBoxButtons.YesNo);
+
+
+                if (result == DialogResult.Yes)
+                {
+                    NastyCodeIsNasty:
+
+                    //This is where we close the application and call the updater!
+                    if (File.Exists(Constants.StrUpdateManager))
+                    {
+                        Process.Start(Constants.StrUpdateManager);
+
+
+                        Application.Exit();
+                    }
+
+                    else
+                    {
+                        if (UpdateCheck.DownloadUpdateManager())
+                            goto NastyCodeIsNasty;
+                    }
+                }
+
                 PSettings.GlobalIsDeveloper = PredefinedTypes.IsDeveloper.False;
                 //_strDownloadString = GetStringItems(1, strSource);
 
@@ -919,7 +938,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     };
 
                 byte bCounter = 0;
-            InvokeAgain:
+                InvokeAgain:
                 try
                 {
                     Invoke(inv);
@@ -935,6 +954,36 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 }
 
                 return;
+            }
+
+            else
+            {
+                if (UpdateCheck.CheckPlugins())
+                {
+                    var result = MessageBox.Show("There are updates available!\n\nDo you wish to update?", "New Updates",
+                    MessageBoxButtons.YesNo);
+
+
+                    if (result == DialogResult.Yes)
+                    {
+                    NastyCodeIsNasty:
+
+                        //This is where we close the application and call the updater!
+                        if (File.Exists(Constants.StrUpdateManager))
+                        {
+                            Process.Start(Constants.StrUpdateManager);
+
+
+                            Application.Exit();
+                        }
+
+                        else
+                        {
+                            if (UpdateCheck.DownloadUpdateManager())
+                                goto NastyCodeIsNasty;
+                        }
+                    }
+                }
             }
 
             MethodInvoker inv2;

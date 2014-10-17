@@ -15,7 +15,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 {
     public static class UpdateCheck
     {
-        public static void CheckPlugins()
+        public static bool CheckPlugins()
         {
             var _strUrlPlugins = @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Plugins.txt";
             var lstPlugins = new List<Plugin>();
@@ -119,6 +119,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             if (lstPlugins.Count(x => x.RequiresUpdate) > 0)
             {
+                return true;
+                /*
                 var strPluginNames = String.Empty;
                 foreach (var plug in lstPlugins)
                 {
@@ -134,7 +136,83 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 if (result == DialogResult.Yes)
                 {
                     //This is where we close the application and call the updater!
+                }*/
+            }
+
+            return false;
+        }
+
+        public static bool DownloadUpdateManager()
+        {
+            var strUrlUpdater =
+                @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Sc2Hack_Updater";
+
+            var wc = new WebClient();
+
+            var strSource = DownloadString(strUrlUpdater, 0, 5);
+
+            if (strSource == String.Empty)
+                return false;
+
+            var strSplitted = strSource.Split('\n');
+
+            var version = new Version(strSplitted[0].Trim());
+            var path = strSplitted[1].Trim();
+
+            if (!File.Exists(Constants.StrUpdateManager))
+            {
+                try
+                {
+                    wc.DownloadFile(new Uri(path), Constants.StrUpdateManager);
                 }
+
+                catch
+                {
+                    //fml
+                    return false;
+                }
+            }
+
+            else
+            {
+                //Check if a new version can be downloaded
+                var fileVersionInfo = FileVersionInfo.GetVersionInfo(Constants.StrUpdateManager);
+
+                if (version > new Version(fileVersionInfo.FileVersion))
+                {
+                    try
+                    {
+                        wc.DownloadFile(new Uri(path), Constants.StrUpdateManager);
+                    }
+
+                    catch
+                    {
+                        //fml
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        public static String DownloadString(string url, int times, int maxTimes)
+        {
+            if (times >= maxTimes)
+                return String.Empty;
+
+            var wc = new WebClient();
+
+            try
+            {
+                return
+                    wc.DownloadString(
+                        url);
+            }
+
+            catch
+            {
+                return DownloadString(url, ++times, maxTimes);
             }
         }
     }
