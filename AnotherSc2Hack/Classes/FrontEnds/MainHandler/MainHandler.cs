@@ -126,7 +126,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             SetImageCombolist();
             AssignMethodsToEvents();
             LoadSettingsIntoControls();
-            UpdateCheck.CheckPlugins();
 
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
             
@@ -974,7 +973,33 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                             Process.Start(Constants.StrUpdateManager);
 
 
-                            Application.Exit();
+                            MethodInvoker inv =
+                    delegate
+                    {
+                        
+                        Close();
+                    };
+
+                            byte bCounter = 0;
+                        InvokeAgain:
+                            try
+                            {
+                                Invoke(inv);
+                                return;
+                            }
+
+                            catch
+                            {
+                                bCounter++;
+                                if (bCounter >= 5)
+                                {
+                                    Application.Exit();
+                                    MessageBox.Show("Please close the application by hand!");
+                                    return;
+                                }
+
+                                goto InvokeAgain;
+                            }
                         }
 
                         else
@@ -1225,7 +1250,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             {
                 try
                 {
-                    var pluginTypes = Assembly.LoadFile(strPlugin).GetTypes();
+                    var pluginTypes = Assembly.LoadFrom(strPlugin).GetTypes();
 
                     foreach (var pluginType in pluginTypes)
                     {
@@ -1247,7 +1272,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     }
                 }
 
-                catch
+                catch (Exception ex)
                 {
                     /* Eat the error! */
                     

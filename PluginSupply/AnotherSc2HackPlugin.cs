@@ -540,7 +540,7 @@ namespace PluginSupply
     }
 
     /* Required shit - Interface and such.. */
-    public class AnotherSc2HackPlugin : IPlugins
+    public class AnotherSc2HackPlugin :  IPlugins
     {
 
         private Renderer _rndMainWindow = null;

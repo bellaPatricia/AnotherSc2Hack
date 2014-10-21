@@ -408,7 +408,8 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             if (!Directory.Exists(StrPluginFolder))
                 return false;
 
-            var domain = AppDomain.CreateDomain("tmp");
+            var manager = new AssemblyReflectionManager();
+            var domain = AppDomain.CreateDomain("tmp", AppDomain.CurrentDomain.Evidence, new AppDomainSetup{ PrivateBinPath = "Plugins"});
             var _strUrlPlugins = @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Plugins.txt";
             var lstPlugins = new List<Plugin>();
             var _lPlugins = new List<IPlugins>();
@@ -459,8 +460,12 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             {
                 try
                 {
+
+
                     var name = new AssemblyName();
                     name.CodeBase = strPlugin;
+
+                    
                     var pluginTypes = domain.Load(name).GetTypes();
                     var fileInfo = FileVersionInfo.GetVersionInfo(strPlugin);
                     var version = new Version(fileInfo.FileVersion);
@@ -648,7 +653,7 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
                         if (File.Exists(plug.LocalPath))
                             File.Delete(plug.LocalPath);
 
-                        wc.DownloadFileAsync(new Uri(plug.DownloadLink), plug.LocalPath);
+                        wc.DownloadFile(new Uri(plug.DownloadLink), plug.LocalPath);
                         wc.DownloadProgressChanged += WcOnDownloadProgressChanged;
                     }
                 }               
