@@ -128,7 +128,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             LoadSettingsIntoControls();
             UpdateCheck.CheckPlugins();
 
-            var am = new Automation(this, PredefinedTypes.Automation.Testing);
+            //var am = new Automation(this, PredefinedTypes.Automation.Testing);
             
 #if DEBUG
             //var am = new Automation(this, PredefinedTypes.Automation.Testing);
