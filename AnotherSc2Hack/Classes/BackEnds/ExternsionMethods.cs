@@ -9,6 +9,16 @@ namespace AnotherSc2Hack
 {
     public static class ExternsionMethods
     {
+        public static Boolean IsNullOrEmpty(this String text)
+        {
+            return String.IsNullOrEmpty(text);
+        }
+
+        public static Boolean IsNullOrWhitespace(this String text)
+        {
+            return String.IsNullOrWhiteSpace(text);
+        }
+
         /// The following is from Arun Reginald Zaheeruddin
         /// The article about rounded rectangles can be found here:
         /// http://www.codeproject.com/Articles/5649/Extended-Graphics-An-implementation-of-Rounded-Rec
