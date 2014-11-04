@@ -533,6 +533,7 @@ namespace Predefined
             public List<Int32> ProdVespineCost { get; set; }
             public List<Int32> ProdSupplyRaw { get; set; }
             public List<Int32> ProdSupply { get; set; }
+            public Boolean ProdAttachingAddOn { get; set; }
 
 
 
@@ -562,6 +563,7 @@ namespace Predefined
             public Int32 VespineCost;
             public Int32 SupplyRaw;
             public Int32 Supply;
+            public Boolean AttachingAddOn;
         }
 
         public struct Map

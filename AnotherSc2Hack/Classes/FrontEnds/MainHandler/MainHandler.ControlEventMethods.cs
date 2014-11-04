@@ -1551,6 +1551,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 CustDebug.UnitInfo.lstUnitInformation.Items.Add("IsPsionic: " + GInformation.Unit[_sUnitNum].IsPsionic);
                 CustDebug.UnitInfo.lstUnitInformation.Items.Add("IsRobotic: " + GInformation.Unit[_sUnitNum].IsRobotic);
                 CustDebug.UnitInfo.lstUnitInformation.Items.Add("IsVisible: " + GInformation.Unit[_sUnitNum].IsVisible);
+                CustDebug.UnitInfo.lstUnitInformation.Items.Add("AddonBeeingAdded: " + GInformation.Unit[_sUnitNum].ProdAttachingAddOn);
             }
 
             else
@@ -1603,6 +1604,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 CustDebug.UnitInfo.lstUnitInformation.Items[32] = "IsPsionic: " + GInformation.Unit[_sUnitNum].IsPsionic;
                 CustDebug.UnitInfo.lstUnitInformation.Items[33] = "IsRobotic: " + GInformation.Unit[_sUnitNum].IsRobotic;
                 CustDebug.UnitInfo.lstUnitInformation.Items[34] = "IsVisible: " + GInformation.Unit[_sUnitNum].IsVisible;
+                CustDebug.UnitInfo.lstUnitInformation.Items[35] = "AddonBeeingAdded: " + GInformation.Unit[_sUnitNum].ProdAttachingAddOn;
 
             }
 

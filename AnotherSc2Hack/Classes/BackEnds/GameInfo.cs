@@ -767,7 +767,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
                             u.ProdMineralCost.Add(prd[k].MineralCost);
                             u.ProdVespineCost.Add(prd[k].VespineCost);
                             u.ProdTimeLeft.Add(prd[k].ProductionTimeLeft);
+                            u.ProdAttachingAddOn = prd[k].AttachingAddOn;
                         }
+
+                        
                     }
                 
             }
@@ -996,8 +999,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         private List<PredefinedTypes.UnitProduction> GetGUnitNumberOfQueuedUnit(Int32 iUnitNum, PredefinedTypes.UnitId structureId)
         {
-            
-
             var lUnitIds = new List<PredefinedTypes.UnitProduction>();
 
             /* Content of Abilities (pAbilities) */
@@ -1148,6 +1149,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
              /*   BitConverter.ToInt32(
                 InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32) iContentOfPointer + 0x28, 4), 0);*/
 
+            //Check if an addon is beeing added
+            var bAddOnAttaching = Memory.ReadInt32(iContentOfPointer + 0x9C) == 260;
+
             var bReactorAttached = Memory.ReadInt32(iContentOfPointer + 0x48) != 0;
               /*  BitConverter.ToInt32(
                 InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32) iContentOfPointer + 0x48, 4), 0) != 0;*/
@@ -1186,6 +1190,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 prd2.ReactorAttached = bReactorAttached;
                 prd2.UnitsInProduction = iNumberOfQueuedUnits;
                 prd2.MineralCost = iMineralCost2;
+                prd2.AttachingAddOn = bAddOnAttaching;
                 prd2.VespineCost = iVespineCost2;
                 prd2.SupplyRaw = iSupplyRaw2;
                 prd2.Supply = iSupplyRaw2 >> 12;
@@ -1316,6 +1321,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var iUnitIndexBuiltFrom = BitConverter.ToUInt16(productionChunk, 0x5E)/4;
             var strType = Convert.ToString(iType, 16);
 
+            iUnitIndexBuiltFrom = iUnitIndexBuiltFrom;
             //Debug.WriteLine(strType);
 
 
@@ -1329,6 +1335,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             prd.SupplyRaw = iSupplyRaw;
             prd.Supply = iSupplyRaw >> 12;
             prd.ProductionTimeLeft = iTimeLeft / 65536;
+            prd.AttachingAddOn = bAddOnAttaching;
 
             lUnitIds.Add(prd);
 
