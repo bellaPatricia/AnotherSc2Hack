@@ -1,0 +1,26 @@
+﻿<Window x:Class="PluginWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="739.35" Width="525" FontFamily="Courier New">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Players">
+                <ListBox x:Name="LstPlayer" Margin="15,15,15,50" SelectionChanged="LstPlayer_SelectionChanged"/>
+            </TabItem>
+            <TabItem Header="Units">
+                <ListBox x:Name="LstUnit" Margin="15,15,15,50" SelectionChanged="LstUnit_SelectionChanged"/>
+            </TabItem>
+            <TabItem Header="Gameinfo">
+                <ListBox x:Name="LstGameinfo" Margin="15,15,15,50"/>
+            </TabItem>
+            <TabItem Header="Map">
+                <ListBox x:Name="LstMap" Margin="15,15,15,50"/>
+            </TabItem>
+            <TabItem Header="Selections">
+                <ListBox x:Name="LstSelection" Margin="15,15,15,50" SelectionChanged="LstSelection_SelectionChanged"/>
+            </TabItem>
+            
+
+        </TabControl>
+    </Grid>
+</Window>

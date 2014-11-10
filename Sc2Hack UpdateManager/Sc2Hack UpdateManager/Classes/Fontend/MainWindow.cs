@@ -79,13 +79,15 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             InitializeComponent();
             SetupDataCompare();
             CheckForIllegalCrossThreadCalls = false;
-            new Thread(UpdateThread).Start();
+           // new Thread(UpdateThread).Start();
 
             SetStyle(ControlStyles.DoubleBuffer |
                      ControlStyles.OptimizedDoubleBuffer |
                      ControlStyles.UserPaint, true);
 
-            SetupFilelist();
+           // SetupFilelist();
+
+            CheckPlugins();
 
         }
 
@@ -403,13 +405,18 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
         {
         }
 
-        public static bool CheckPlugins()
+        public bool CheckPlugins()
         {
-            if (!Directory.Exists(StrPluginFolder))
-                return false;
+            Logger("Checking Plugins...");
 
-            var manager = new AssemblyReflectionManager();
-            var domain = AppDomain.CreateDomain("tmp", AppDomain.CurrentDomain.Evidence, new AppDomainSetup{ PrivateBinPath = "Plugins"});
+            if (!Directory.Exists(StrPluginFolder))
+            {
+                Logger("No Plugins to check - Leaving now!");
+                return false;
+            }
+
+            //var domain = AppDomain.CreateDomain("tmp", AppDomain.CurrentDomain.Evidence, new AppDomainSetup{ PrivateBinPath = "Plugins"});
+            var domain = AppDomain.CreateDomain("PluginHost", AppDomain.CurrentDomain.Evidence, new AppDomainSetup { PrivateBinPath = Environment.CurrentDirectory + StrPluginFolder });
             var _strUrlPlugins = @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Plugins.txt";
             var lstPlugins = new List<Plugin>();
             var _lPlugins = new List<IPlugins>();
@@ -445,6 +452,8 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
                     lstPlugins[lstPlugins.Count - 1].Version = new Version(str.Substring(1).Trim());
             }
 
+            Logger("Found {0} plugins online!", lstPlugins.Count);
+
             /* List all Plugins */
             var strPlugins = Directory.GetFiles(StrPluginFolder, "*.exe");
             var strTmpPlugins = Directory.GetFiles(StrPluginFolder, "*.dll");
@@ -455,18 +464,52 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             foreach (var s in strTmpPlugins)
                 lTmpPlugins.Add(s);
 
+            Logger("Found {0} potential plugins locally!", lTmpPlugins.Count);
+            Logger("Checking compatibility now...");
+
+            foreach (var strPlugin in lTmpPlugins)
+            {
+                Logger(">> Checking {0} now!", Path.GetFileName(strPlugin));
+
+                try
+                {
+                    var name = new AssemblyName();
+                    name.CodeBase = strPlugin;
+
+                    RemoteLoader load =
+                        (RemoteLoader)domain.CreateInstanceAndUnwrap("Sc2Hack_UpdateManager", "Sc2Hack_UpdateManager.Classes.Fontend.RemoteLoader");
+                    //var pluginTypes = load.LoadAssembly(name).GetTypes();
+                    load.LoadAndExecute(strPlugin);
+
+                    /*if (pluginTypes.Any(x => x.ToString().Contains("AnotherSc2HackPlugin")))
+                        Logger("==>> legit!");*/
+                }
+
+                catch
+                {
+                    Logger("Something with {0} went wrong!", strPlugin);
+                }
+            }
+
+            AppDomain.Unload(domain);
+
+            return false;
 
             foreach (var strPlugin in lTmpPlugins)
             {
                 try
                 {
-
+                    
 
                     var name = new AssemblyName();
                     name.CodeBase = strPlugin;
 
-                    
-                    var pluginTypes = domain.Load(name).GetTypes();
+                    RemoteLoader load =
+                        (RemoteLoader)domain.CreateInstanceAndUnwrap("Sc2Hack_UpdateManager", "Sc2Hack_UpdateManager.Classes.Fontend.RemoteLoader");
+                    var pluginTypes = load.LoadAssembly(name).GetTypes();
+
+
+                    //var pluginTypes = domain.Load(name).GetTypes();
                     var fileInfo = FileVersionInfo.GetVersionInfo(strPlugin);
                     var version = new Version(fileInfo.FileVersion);
                     //var pluginTypes = Assembly.LoadFile(strPlugin).GetTypes();
@@ -478,18 +521,30 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
                         {
                             var plugin = Activator.CreateInstance(pluginType) as IPlugins;
 
+                            
 
                             if (plugin == null)
                                 break;
 
+                            Logger(">> {0} loaded!", plugin.GetPluginName());
+
                             for (int index = 0; index < lstPlugins.Count; index++)
                             {
                                 var onlinePlug = lstPlugins[index];
+
+                                
+
                                 if (onlinePlug.Name == plugin.GetPluginName())
                                 {
+                                    Logger("Found plugin '{0}' locally!\n" +
+                                       "Path: [{1}]", onlinePlug.Name, onlinePlug.LocalPath);
+
                                     //Cool
                                     if (onlinePlug.Version > version)
                                     {
+                                        Logger("Plugin '{0}' requires an update!\n" +
+                                               "[{1}] => [{2}]", onlinePlug.Name, version, onlinePlug.Version);
+
                                         lstPlugins[index].RequiresUpdate = true;
                                         lstPlugins[index].LocalPath = strPlugin;
                                     }
@@ -662,6 +717,23 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
 
         }
 
+        public void Logger(String message)
+        {
+            rtbLog.Text += message + "\n";
+        }
+
+        public void Logger(String message, params Object[] obs)
+        {
+            var strResult = message;
+
+            for (int i = 0; i < obs.Length; i++)
+            {
+                strResult = strResult.Replace("{" + i + "}", obs[i].ToString());
+            }
+
+            Logger(strResult);
+        }
+
     }
 
     public class DataCompare
@@ -708,5 +780,33 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
         public String DownloadLink { get; set; }
         public Boolean RequiresUpdate { get; set; }
         public String LocalPath { get; set; }
+    }
+
+    public class RemoteLoader : MarshalByRefObject
+    {
+        public void LoadAndExecute(string assemblyName)
+        {
+            Assembly pluginAassembly = AppDomain.CurrentDomain.Load(assemblyName);
+
+            foreach (Type type in pluginAassembly.GetTypes())
+            {
+                if (type.GetInterface("IPlugin") != null)
+                {
+                    object instance = Activator.CreateInstance(type, null, null);
+                    string s = ((IPlugins) instance).GetPluginName();
+                    MessageBox.Show(s);
+                }
+            }
+        }
+
+        public Assembly LoadAssembly(string assemblyName)
+        {
+            return AppDomain.CurrentDomain.Load(assemblyName);
+        }
+
+        public Assembly LoadAssembly(AssemblyName assemblyName)
+        {
+            return AppDomain.CurrentDomain.Load(assemblyName);
+        }
     }
 }
