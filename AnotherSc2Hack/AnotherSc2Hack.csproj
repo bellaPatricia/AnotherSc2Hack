@@ -105,6 +105,9 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\Automation_Worker.Designer.cs">
       <DependentUpon>Automation_Worker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\ClickablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\UiBasics.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -261,6 +264,12 @@
     <Compile Include="Classes\FrontEnds\MainHandler\MainHandler.ControlEventMethods.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Classes\FrontEnds\MainHandler\NewMainHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\MainHandler\NewMainHandler.Designer.cs">
+      <DependentUpon>NewMainHandler.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\FrontEnds\Plugins.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,7 +319,6 @@
     <Compile Include="Classes\FrontEnds\Trainer\Trainer.Designer.cs">
       <DependentUpon>Trainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\TempTestShitPlaing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Automation_Worker.resx">
@@ -375,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\PlayerInformation.resx">
       <DependentUpon>PlayerInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\MainHandler\NewMainHandler.resx">
+      <DependentUpon>NewMainHandler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Plugins.resx">
       <DependentUpon>Plugins.cs</DependentUpon>

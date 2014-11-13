@@ -416,7 +416,8 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             }
 
             //var domain = AppDomain.CreateDomain("tmp", AppDomain.CurrentDomain.Evidence, new AppDomainSetup{ PrivateBinPath = "Plugins"});
-            var domain = AppDomain.CreateDomain("PluginHost", AppDomain.CurrentDomain.Evidence, new AppDomainSetup { PrivateBinPath = Environment.CurrentDirectory + StrPluginFolder });
+            var domain = AppDomain.CreateDomain("PluginHost", AppDomain.CurrentDomain.Evidence,
+                new AppDomainSetup {PrivateBinPath = Path.Combine(Environment.CurrentDirectory, StrPluginFolder)});
             var _strUrlPlugins = @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Plugins.txt";
             var lstPlugins = new List<Plugin>();
             var _lPlugins = new List<IPlugins>();
@@ -467,7 +468,22 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             Logger("Found {0} potential plugins locally!", lTmpPlugins.Count);
             Logger("Checking compatibility now...");
 
-            foreach (var strPlugin in lTmpPlugins)
+            var lNewList = FileGhosting.Initialize(lTmpPlugins);
+
+            //Copy the plugins to one level up...
+           /* foreach (var file in lTmpPlugins)
+            {
+                var targetPath = Path.Combine(Environment.CurrentDirectory, Path.GetFileName(file));
+
+                if (File.Exists(targetPath))
+                    File.Delete(targetPath);
+
+
+                File.Copy(file, targetPath);
+                lNewList.Add(targetPath);
+            }*/
+
+            foreach (var strPlugin in lNewList)
             {
                 Logger(">> Checking {0} now!", Path.GetFileName(strPlugin));
 
@@ -478,20 +494,23 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
 
                     RemoteLoader load =
                         (RemoteLoader)domain.CreateInstanceAndUnwrap("Sc2Hack_UpdateManager", "Sc2Hack_UpdateManager.Classes.Fontend.RemoteLoader");
-                    //var pluginTypes = load.LoadAssembly(name).GetTypes();
-                    load.LoadAndExecute(strPlugin);
+                    var pluginTypes = load.LoadAssembly(name).GetTypes();
+                    //load.LoadAndExecute(strPlugin);
 
-                    /*if (pluginTypes.Any(x => x.ToString().Contains("AnotherSc2HackPlugin")))
-                        Logger("==>> legit!");*/
+                    if (pluginTypes.Any(x => x.ToString().Contains("AnotherSc2HackPlugin")))
+                        Logger("==>> legit!");
                 }
 
                 catch
                 {
-                    Logger("Something with {0} went wrong!", strPlugin);
+                    Logger("Error!");
                 }
             }
 
+            
+
             AppDomain.Unload(domain);
+            //FileGhosting.Finalize(lNewList);
 
             return false;
 
@@ -734,6 +753,37 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             Logger(strResult);
         }
 
+        
+
+    }
+
+    public static class FileGhosting
+    {
+        public static List<String> Initialize(List<String> files)
+        {
+            var lFiles = new List<string>();
+
+            //Copy the plugins to one level up...
+            foreach (var file in files)
+            {
+                var targetPath = Path.Combine(Environment.CurrentDirectory, Path.GetFileName(file));
+
+                if (File.Exists(targetPath))
+                    File.Delete(targetPath);
+
+
+                File.Copy(file, targetPath);
+                lFiles.Add(targetPath);
+            }
+
+            return lFiles;
+        }
+
+        public static void Finalize(List<String> files)
+        {
+            foreach (var file in files)
+                File.Delete(file);
+        }
     }
 
     public class DataCompare
