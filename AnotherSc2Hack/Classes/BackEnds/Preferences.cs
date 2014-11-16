@@ -15,6 +15,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             MaphackUnitColors = new List<Color>();
             MaphackUnitIds = new List<PredefinedTypes.UnitId>();
+
+            ReadPreferences();
         }
 
         public void WritePreferences()

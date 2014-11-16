@@ -944,6 +944,17 @@
     <None Include="Resources\trans_tb_twilightcouncil.png" />
     <None Include="Resources\trans_zu_ultralisk.png" />
     <None Include="Resources\trans_pb_pylon.png" />
+    <None Include="Resources\Application.png" />
+    <None Include="Resources\Automation.png" />
+    <None Include="Resources\Overlays.png" />
+    <None Include="Resources\Plugins.png" />
+    <None Include="Resources\Automation1.png" />
+    <None Include="Resources\Overlays1.png" />
+    <None Include="Resources\Plugins1.png" />
+    <None Include="Resources\Icon_Application.png" />
+    <None Include="Resources\Icon_Automation.png" />
+    <None Include="Resources\Icon_Overlays.png" />
+    <None Include="Resources\Icon_Plugins.png" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />

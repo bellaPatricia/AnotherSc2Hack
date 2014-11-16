@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.FrontEnds
@@ -36,6 +37,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
                 //Call the Event
                 OnNumberChange(this, en);
 
+                Text = _number.ToString(CultureInfo.InvariantCulture);
             }
         }
 
