@@ -37,11 +37,11 @@ namespace AnotherSc2Hack
             g.SmoothingMode = oldQuality;
         }
 
-        public static void DrawRoundRect(Graphics g, Pen p, float x, float y, float width, float height, float radius)
+        public static void DrawRoundRect(this Graphics g, Pen p, float x, float y, float width, float height, float radius)
         {
-            g.CompositingQuality = CompositingQuality.HighQuality;
+            /*g.CompositingQuality = CompositingQuality.HighQuality;
             g.SmoothingMode = SmoothingMode.HighQuality;
-            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            g.PixelOffsetMode = PixelOffsetMode.HighQuality;*/
             var gp = new GraphicsPath();
 
             gp.AddLine(x + radius, y, x + width - (radius*2), y); // Line

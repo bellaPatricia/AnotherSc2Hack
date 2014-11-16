@@ -65,5 +65,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             pnlMainArea.Invalidate();
         }
+
+        private void chBxOnlyDrawInForeground_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

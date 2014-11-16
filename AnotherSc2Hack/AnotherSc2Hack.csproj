@@ -99,6 +99,9 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\AbstractUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\AnotherCheckbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\Automation_Worker.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -955,6 +958,7 @@
     <None Include="Resources\Icon_Automation.png" />
     <None Include="Resources\Icon_Overlays.png" />
     <None Include="Resources\Icon_Plugins.png" />
+    <None Include="Resources\checkmark.png" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />
