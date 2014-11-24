@@ -959,6 +959,7 @@
     <None Include="Resources\Icon_Overlays.png" />
     <None Include="Resources\Icon_Plugins.png" />
     <None Include="Resources\checkmark.png" />
+    <None Include="Resources\Icon_Bug.png" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />

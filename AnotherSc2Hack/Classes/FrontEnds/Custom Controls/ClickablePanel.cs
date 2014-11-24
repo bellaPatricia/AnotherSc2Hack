@@ -8,8 +8,53 @@ using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
+    public enum ActiveBorderPosition
+    {
+        Left,
+        Right,
+        Top,
+        Bottom
+    };
+
     public class ClickablePanel : Panel
     {
+        
+
+        public ActiveBorderPosition ActiveBorderPosition { get; set; }
+
+
+        public Color InactiveBackgroundColor
+        {
+            get { return _inactiveBackgroundColor; }
+            set { _inactiveBackgroundColor = value; }
+        }
+
+        public Color ActiveBackgroundColor
+        {
+            get { return _activeBackgroundColor; }
+            set { _activeBackgroundColor = value; }
+        }
+
+        public Color HoverBackgroundColor
+        {
+            get { return _hoverBackgroundColor; }
+            set {  _hoverBackgroundColor = value; }
+        }
+
+        public Color ActiveForegroundColor
+        {
+            get { return _activeForegroundColor; }
+            set { _activeForegroundColor = value; }
+        }
+
+        public Color InactiveForegroundColor
+        {
+            get { return _inactiveForegroundColor; }
+            set { _inactiveForegroundColor = value; }
+        }
+
+
+
         private Boolean _isClicked = false;
 
         public Boolean IsClicked
@@ -85,7 +130,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
                     var fHeight = (float)Size.Height / 2;
                     var fY = fHeight - ((float)fTextHeight / 2);
 
-                    _lMainText.Location = new Point(45, (int)fY);
+                    _lMainText.Location = new Point(_iTextPosX, (int)fY);
                 }
             }
         }
@@ -98,12 +143,37 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             {
                 _imgIcon = value;
 
+                if (value == null)
+                {
+                    _pcbImage.Visible = false;
+
+                    _iTextPosX = 0;
+                    _lMainText.Location = new Point(0,0);
+                    _lMainText.TextAlign = ContentAlignment.MiddleCenter;
+                }
+
+                else
+                {
+                    _pcbImage.Visible = true;
+                    _iTextPosX = 45;
+                    _lMainText.Location = new Point(_iTextPosX, _lMainText.Location.Y);
+                }
+
                 if (_pcbImage != null)
                     _pcbImage.Image = _imgIcon;
             }
         }
+        private Boolean _isHovering = false;
 
-        public Boolean IsHovering { get; set; }
+        public Boolean IsHovering
+        {
+            get { return _isHovering; }
+            set
+            {
+                _isHovering = value;
+                Refresh();
+            }
+        }
 
         private Color _inactiveBackgroundColor = Color.FromArgb(255, 66, 79, 90);
         private Color _activeBackgroundColor = Color.FromArgb(255, 52, 63, 72);
@@ -112,30 +182,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         private Color _activeForegroundColor = Color.FromArgb(255, 242, 242, 242);
         private Color _newBackgroundColor = Color.Wheat;
         private Label _lMainText = new Label();
+        private Int32 _iTextPosX = 45;
         
         private PictureBox _pcbImage = new PictureBox();
 
-        private Brush _inactiveBackground = new SolidBrush(Color.FromArgb(255, 66, 79, 90));
-        private Brush _activeBackground = new SolidBrush(Color.FromArgb(255, 52, 63, 72));
-        private Brush _inactiveForeground = new SolidBrush(Color.FromArgb(255, 193, 193, 193));
-        private Brush _activeForeground = new SolidBrush(Color.FromArgb(255, 242, 242, 242));
-        private Brush _hoverBackground = new SolidBrush(Color.FromArgb(255, 94, 105, 114));
         private Brush _selectionColor = Brushes.Orange;
         private Boolean _bInitCalled = false;
 
         public ClickablePanel()
         {
-           // Init();
+            SetStyle(ControlStyles.DoubleBuffer |
+             ControlStyles.UserPaint |
+             ControlStyles.OptimizedDoubleBuffer |
+             ControlStyles.AllPaintingInWmPaint, true);
+
         }
 
         private void Init()
         {
-            SetStyle(ControlStyles.DoubleBuffer |
-            ControlStyles.UserPaint |
-            ControlStyles.OptimizedDoubleBuffer |
-            ControlStyles.AllPaintingInWmPaint, true);
-
-            BackColor = _inactiveBackgroundColor;
+            
+           // BackColor = _inactiveBackgroundColor;
 
             if (DisplayText.Length <= 0)
                 DisplayText = "[SampleText]";
@@ -149,7 +215,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
             var fYImage = ((float) Size.Height/2) - 12;
 
-            _lMainText.Location = new Point(45, (int)fY);
+            //_lMainText.Location = new Point(_iTextPosX, (int)fY);
             _lMainText.MouseEnter += _lMainText_MouseEnter;
             _lMainText.Click += _lMainText_Click;
 
@@ -160,7 +226,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             _pcbImage.Height = 24;
             _pcbImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
-
             Controls.Add(_pcbImage);
             Controls.Add(_lMainText);
 
@@ -170,44 +235,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         void _pcbImage_Click(object sender, EventArgs e)
         {
-            if (!IsClicked)
-                IsClicked = true;
-
-            OnClick(new EventArgs());
+            OnClick(e);
         }
 
         void _pcbImage_MouseEnter(object sender, EventArgs e)
         {
-            IsHovering = true;
+            OnMouseEnter(e);
         }
 
         void _lMainText_Click(object sender, EventArgs e)
         {
-            if (!IsClicked)
-                IsClicked = true;
-
-            OnClick(new EventArgs());
+            OnClick(e);
         }
 
         void _lMainText_MouseEnter(object sender, EventArgs e)
         {
-            IsHovering = true;
-        }
-
-        protected override void OnMouseClick(MouseEventArgs e)
-        {
-            base.OnMouseClick(e);
-
-            
-            if (!IsClicked)
-                IsClicked = true;
-
-            OnClick(new EventArgs());
+            OnMouseEnter(e);
         }
 
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
+
+            //Remove the Hovering on the other panels (in case there's a hovering issue which happens)
+            foreach (var pnl in Parent.Controls)
+            {
+                if (pnl == this)
+                    continue;
+
+                if (pnl.GetType() == typeof (ClickablePanel))
+                {
+                    ((ClickablePanel)pnl).IsHovering = false;
+                }
+            }
 
             IsHovering = true;
 
@@ -223,6 +283,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             Invalidate();
         }
 
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+
+
+            if (!IsClicked)
+                IsClicked = true;
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -230,7 +299,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
             if (IsClicked)
             {
-                e.Graphics.FillRectangle(_selectionColor, 0, 0, 5, Height);
+                if (ActiveBorderPosition == ActiveBorderPosition.Left)
+                    e.Graphics.FillRectangle(_selectionColor, 0, 0, 5, Height);
+
+                else if (ActiveBorderPosition == ActiveBorderPosition.Top)
+                    e.Graphics.FillRectangle(_selectionColor, 0, 0, Width, 5);
+
+                else if (ActiveBorderPosition == ActiveBorderPosition.Right)
+                    e.Graphics.FillRectangle(_selectionColor, Width - 5, 0, 5, Height);
+
+                else if (ActiveBorderPosition == ActiveBorderPosition.Bottom)
+                    e.Graphics.FillRectangle(_selectionColor, 0, Height - 5, Width, 5);
+
                 _newBackgroundColor = _activeBackgroundColor;
             }
 
@@ -254,7 +334,5 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             if (!_bInitCalled)
                 Init();
         }
-
-        
     }
 }

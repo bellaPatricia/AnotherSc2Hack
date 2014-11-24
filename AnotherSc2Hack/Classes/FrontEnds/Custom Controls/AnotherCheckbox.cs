@@ -73,12 +73,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
         void _lMainText_Click(object sender, EventArgs e)
         {
-            Checked ^= true;
+            OnClick(e);
         }
 
         void _lMainText_MouseEnter(object sender, EventArgs e)
         {
-            _bMouseOver = true;
+            OnMouseEnter(e);
         }
 
         public AnotherCheckbox()

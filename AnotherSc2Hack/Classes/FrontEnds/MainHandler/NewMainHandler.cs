@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
     public partial class NewMainHandler : Form
     {
+        
+
         private Preferences _pSettings = new Preferences();
 
         public NewMainHandler()
@@ -19,14 +22,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             InitializeComponent();
 
             ControlsFill();
+            Init();
+
+        }
+
+        private void Init()
+        {
+            cpnlApplication.IsClicked = true;
         }
 
         private void ControlsFill()
         {
+            //Application / Global
             ntxtMemoryRefresh.Number = _pSettings.GlobalDataRefresh;
             ntxtGraphicsRefresh.Number = _pSettings.GlobalDrawingRefresh;
             ktxtReposition.Text = _pSettings.GlobalChangeSizeAndPosition.ToString();
             chBxOnlyDrawInForeground.Checked = _pSettings.GlobalDrawOnlyInForeground;
+
+
         }
 
         private void NewMainHandler_Load(object sender, EventArgs e)
@@ -70,5 +83,31 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
 
         }
+
+        private void cpnlDebug_Click(object sender, EventArgs e)
+        {
+            lblTabname.Text = "Debug";
+        }
+
+        private void pnlLeftSelection_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cpnlApplication_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        //Draw a new border on the top and bottom of the panel
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            var send = (Panel)sender;
+
+            e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(193, 193, 193))), 0, 0, Width, 0);
+            e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(193, 193, 193))), 0, send.Height - 1, Width, send.Height - 1);
+        }
     }
+
+    
 }
