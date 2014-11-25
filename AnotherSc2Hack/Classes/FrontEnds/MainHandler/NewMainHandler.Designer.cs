@@ -87,11 +87,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.pnlMainArea.Controls.Add(this.pnlOverlays);
             this.pnlMainArea.Controls.Add(this.lblTabname);
             this.pnlMainArea.Controls.Add(this.pnlApplication);
             this.pnlMainArea.Location = new System.Drawing.Point(152, 0);
             this.pnlMainArea.Name = "pnlMainArea";
-            this.pnlMainArea.Size = new System.Drawing.Size(1134, 555);
+            this.pnlMainArea.Size = new System.Drawing.Size(1306, 555);
             this.pnlMainArea.TabIndex = 6;
             this.pnlMainArea.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMainArea_Paint);
             // 
@@ -111,7 +112,6 @@
             this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlApplication.Controls.Add(this.pnlOverlays);
             this.pnlApplication.Controls.Add(this.chBxLanguage);
             this.pnlApplication.Controls.Add(this.label4);
             this.pnlApplication.Controls.Add(this.chBxOnlyDrawInForeground);
@@ -124,7 +124,7 @@
             this.pnlApplication.Controls.Add(this.label1);
             this.pnlApplication.Location = new System.Drawing.Point(0, 80);
             this.pnlApplication.Name = "pnlApplication";
-            this.pnlApplication.Size = new System.Drawing.Size(1134, 475);
+            this.pnlApplication.Size = new System.Drawing.Size(1306, 475);
             this.pnlApplication.TabIndex = 0;
             // 
             // pnlOverlays
@@ -133,9 +133,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlOverlays.Controls.Add(this.pnlPanelContainer);
-            this.pnlOverlays.Location = new System.Drawing.Point(394, 63);
+            this.pnlOverlays.Location = new System.Drawing.Point(361, 40);
             this.pnlOverlays.Name = "pnlOverlays";
-            this.pnlOverlays.Size = new System.Drawing.Size(1134, 475);
+            this.pnlOverlays.Size = new System.Drawing.Size(1306, 475);
             this.pnlOverlays.TabIndex = 11;
             // 
             // pnlPanelContainer
@@ -151,7 +151,7 @@
             this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysResources);
             this.pnlPanelContainer.Location = new System.Drawing.Point(73, 56);
             this.pnlPanelContainer.Name = "pnlPanelContainer";
-            this.pnlPanelContainer.Size = new System.Drawing.Size(826, 52);
+            this.pnlPanelContainer.Size = new System.Drawing.Size(824, 52);
             this.pnlPanelContainer.TabIndex = 0;
             this.pnlPanelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -395,6 +395,7 @@
             this.chBxOnlyDrawInForeground.Name = "chBxOnlyDrawInForeground";
             this.chBxOnlyDrawInForeground.Size = new System.Drawing.Size(283, 30);
             this.chBxOnlyDrawInForeground.TabIndex = 8;
+            this.chBxOnlyDrawInForeground.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.CheckedChangeHandler(this.chBxOnlyDrawInForeground_CheckedChanged);
             // 
             // ktxtReposition
             // 
@@ -540,7 +541,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1285, 554);
+            this.ClientSize = new System.Drawing.Size(1457, 554);
             this.Controls.Add(this.pnlMainArea);
             this.Controls.Add(this.pnlLeftSelection);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -49,13 +49,36 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void cpnlApplication_Click(object sender, EventArgs e)
         {
-            pnlApplication.Visible = true;
             lblTabname.Text = "Application";
+
+            pnlApplication.Visible = true;
+            foreach (var pnl in pnlMainArea.Controls)
+            {
+                if (pnl == pnlApplication)
+                    continue;
+
+                if (pnl.GetType() == typeof(Panel))
+                {
+                    ((Panel)pnl).Visible = false;
+                }
+            }
         }
 
         private void cpnlOverlays_Click(object sender, EventArgs e)
         {
             lblTabname.Text = "Overlays";
+
+            pnlOverlays.Visible = true;
+            foreach (var pnl in pnlMainArea.Controls)
+            {
+                if (pnl == pnlOverlays)
+                    continue;
+
+                if (pnl.GetType() == typeof(Panel))
+                {
+                    ((Panel)pnl).Visible = false;
+                }
+            }
         }
 
         private void cpnlAutomation_Click(object sender, EventArgs e)
@@ -77,11 +100,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void NewMainHandler_Resize(object sender, EventArgs e)
         {
             pnlMainArea.Invalidate();
-        }
-
-        private void chBxOnlyDrawInForeground_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cpnlDebug_Click(object sender, EventArgs e)
@@ -106,6 +124,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(193, 193, 193))), 0, 0, Width, 0);
             e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(193, 193, 193))), 0, send.Height - 1, Width, send.Height - 1);
+        }
+
+        private void chBxOnlyDrawInForeground_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+
         }
     }
 

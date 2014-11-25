@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         }
     }
 
+    [DefaultEvent("CheckedChanged")]
     public class AnotherCheckbox : Panel
     {
         private String _displayText = string.Empty;
