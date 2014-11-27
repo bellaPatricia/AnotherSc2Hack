@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMainHandler));
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
             this.pnlMainArea = new System.Windows.Forms.Panel();
-            this.lblTabname = new System.Windows.Forms.Label();
-            this.pnlApplication = new System.Windows.Forms.Panel();
             this.pnlOverlays = new System.Windows.Forms.Panel();
             this.pnlPanelContainer = new System.Windows.Forms.Panel();
+            this.lblTabname = new System.Windows.Forms.Label();
+            this.pnlApplication = new System.Windows.Forms.Panel();
             this.chBxLanguage = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnReposition = new System.Windows.Forms.Button();
@@ -60,9 +60,9 @@
             this.cpnlAutomation = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
-            this.pnlApplication.SuspendLayout();
             this.pnlOverlays.SuspendLayout();
             this.pnlPanelContainer.SuspendLayout();
+            this.pnlApplication.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLeftSelection
@@ -96,6 +96,34 @@
             this.pnlMainArea.TabIndex = 6;
             this.pnlMainArea.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMainArea_Paint);
             // 
+            // pnlOverlays
+            // 
+            this.pnlOverlays.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlOverlays.Controls.Add(this.pnlPanelContainer);
+            this.pnlOverlays.Location = new System.Drawing.Point(361, 40);
+            this.pnlOverlays.Name = "pnlOverlays";
+            this.pnlOverlays.Size = new System.Drawing.Size(1306, 475);
+            this.pnlOverlays.TabIndex = 11;
+            // 
+            // pnlPanelContainer
+            // 
+            this.pnlPanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysProduction);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysUnits);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysMaphack);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysApm);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysArmy);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysWorker);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysIncome);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysResources);
+            this.pnlPanelContainer.Location = new System.Drawing.Point(73, 56);
+            this.pnlPanelContainer.Name = "pnlPanelContainer";
+            this.pnlPanelContainer.Size = new System.Drawing.Size(824, 52);
+            this.pnlPanelContainer.TabIndex = 0;
+            this.pnlPanelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
             // lblTabname
             // 
             this.lblTabname.AutoSize = true;
@@ -126,34 +154,6 @@
             this.pnlApplication.Name = "pnlApplication";
             this.pnlApplication.Size = new System.Drawing.Size(1306, 475);
             this.pnlApplication.TabIndex = 0;
-            // 
-            // pnlOverlays
-            // 
-            this.pnlOverlays.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlOverlays.Controls.Add(this.pnlPanelContainer);
-            this.pnlOverlays.Location = new System.Drawing.Point(361, 40);
-            this.pnlOverlays.Name = "pnlOverlays";
-            this.pnlOverlays.Size = new System.Drawing.Size(1306, 475);
-            this.pnlOverlays.TabIndex = 11;
-            // 
-            // pnlPanelContainer
-            // 
-            this.pnlPanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysProduction);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysUnits);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysMaphack);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysApm);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysArmy);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysWorker);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysIncome);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysResources);
-            this.pnlPanelContainer.Location = new System.Drawing.Point(73, 56);
-            this.pnlPanelContainer.Name = "pnlPanelContainer";
-            this.pnlPanelContainer.Size = new System.Drawing.Size(824, 52);
-            this.pnlPanelContainer.TabIndex = 0;
-            this.pnlPanelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // chBxLanguage
             // 
@@ -552,11 +552,11 @@
             this.pnlLeftSelection.ResumeLayout(false);
             this.pnlMainArea.ResumeLayout(false);
             this.pnlMainArea.PerformLayout();
-            this.pnlApplication.ResumeLayout(false);
-            this.pnlApplication.PerformLayout();
             this.pnlOverlays.ResumeLayout(false);
             this.pnlPanelContainer.ResumeLayout(false);
             this.pnlPanelContainer.PerformLayout();
+            this.pnlApplication.ResumeLayout(false);
+            this.pnlApplication.PerformLayout();
             this.ResumeLayout(false);
 
         }

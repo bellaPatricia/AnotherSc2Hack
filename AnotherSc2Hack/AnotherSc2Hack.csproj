@@ -88,6 +88,7 @@
     <Compile Include="Classes\BackEnds\HelpFunctions.cs" />
     <Compile Include="Classes\BackEnds\ImageComboItem.cs" />
     <Compile Include="Classes\BackEnds\InteropCalls.cs" />
+    <Compile Include="Classes\BackEnds\LanguageString.cs" />
     <Compile Include="Classes\BackEnds\Memory.cs" />
     <Compile Include="Classes\BackEnds\Messages.cs" />
     <Compile Include="Classes\BackEnds\Offsets.cs" />
