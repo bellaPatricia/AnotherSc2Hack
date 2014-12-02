@@ -24,6 +24,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds
     [DefaultEvent("CheckedChanged")]
     public class AnotherCheckbox : Panel
     {
+        public enum TextAlignment
+        {
+            Left,
+            Right
+        };
+
         private String _displayText = string.Empty;
 
         private readonly Pen _pInactiveBpxBorder = new Pen(new SolidBrush(Color.FromArgb(193, 193, 193)));
@@ -48,6 +54,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             }
         }
 
+        public TextAlignment TextAlign { get; set; }
+
         private Boolean _checked = false;
 
         public Boolean Checked
@@ -58,6 +66,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
                 _checked = value;
                 OnCheckedChanged(this, new EventChecked(_checked));
                 Invalidate();
+                
             }
         }
 
@@ -69,6 +78,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             _lMainText.AutoSize = true;
             _lMainText.MouseEnter += _lMainText_MouseEnter;
             _lMainText.Click += _lMainText_Click;
+
+            TextAlign = TextAlignment.Left;
 
             Controls.Add(_lMainText);
         }
@@ -120,7 +131,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             var fHeight = (float)Size.Height / 2;
             var fY = fHeight - ((float)fTextHeight / 2);
 
-            _lMainText.Location = new Point(0, (int)fY);
+            
 
 
 
@@ -128,6 +139,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             var posY = 5;
             var width = 20;
             var height = 20;
+
+            if (TextAlign == TextAlignment.Right)
+            {
+                _lMainText.Location = new Point(width + 5, (int)fY);
+                posX = 0;
+            }
+
+            else 
+                _lMainText.Location = new Point(0, (int)fY);
 
             //e.Graphics.DrawRoundRect(new Pen(new SolidBrush(Color.Gray)), Width - 50, 10, 20, 20, 1f);
             e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(251, 251, 251)), posX, posY, width, height);

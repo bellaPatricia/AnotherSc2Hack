@@ -29,6 +29,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void Init()
         {
             cpnlApplication.IsClicked = true;
+            cpnlOverlaysResources.IsClicked = true;
         }
 
         private void ControlsFill()

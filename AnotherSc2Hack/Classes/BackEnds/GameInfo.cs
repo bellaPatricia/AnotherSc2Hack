@@ -1321,9 +1321,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var iUnitIndexBuiltFrom = BitConverter.ToUInt16(productionChunk, 0x5E)/4;
             var strType = Convert.ToString(iType, 16);
 
-            iUnitIndexBuiltFrom = iUnitIndexBuiltFrom;
-            //Debug.WriteLine(strType);
-
 
             var prd = new PredefinedTypes.UnitProduction();
                 prd.ProductionStatus = 100 - (iTimeLeft/iTimeMax)*100;

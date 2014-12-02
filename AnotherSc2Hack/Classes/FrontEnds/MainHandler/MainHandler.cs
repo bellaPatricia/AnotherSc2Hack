@@ -1272,7 +1272,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     }
                 }
 
-                catch (Exception ex)
+                catch
                 {
                     /* Eat the error! */
                     

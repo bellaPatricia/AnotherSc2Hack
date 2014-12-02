@@ -58,6 +58,7 @@
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlAutomation = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.basicPanelSettings1 = new AnotherSc2Hack.Classes.FrontEnds.Container.BasicPanelSettings();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
             this.pnlOverlays.SuspendLayout();
@@ -101,8 +102,9 @@
             this.pnlOverlays.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlOverlays.Controls.Add(this.basicPanelSettings1);
             this.pnlOverlays.Controls.Add(this.pnlPanelContainer);
-            this.pnlOverlays.Location = new System.Drawing.Point(361, 40);
+            this.pnlOverlays.Location = new System.Drawing.Point(0, 80);
             this.pnlOverlays.Name = "pnlOverlays";
             this.pnlOverlays.Size = new System.Drawing.Size(1306, 475);
             this.pnlOverlays.TabIndex = 11;
@@ -118,7 +120,7 @@
             this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysWorker);
             this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysIncome);
             this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysResources);
-            this.pnlPanelContainer.Location = new System.Drawing.Point(73, 56);
+            this.pnlPanelContainer.Location = new System.Drawing.Point(19, 15);
             this.pnlPanelContainer.Name = "pnlPanelContainer";
             this.pnlPanelContainer.Size = new System.Drawing.Size(824, 52);
             this.pnlPanelContainer.TabIndex = 0;
@@ -537,6 +539,13 @@
             this.cpnlAutomation.TextSize = 11F;
             this.cpnlAutomation.Click += new System.EventHandler(this.cpnlAutomation_Click);
             // 
+            // basicPanelSettings1
+            // 
+            this.basicPanelSettings1.Location = new System.Drawing.Point(19, 120);
+            this.basicPanelSettings1.Name = "basicPanelSettings1";
+            this.basicPanelSettings1.Size = new System.Drawing.Size(162, 182);
+            this.basicPanelSettings1.TabIndex = 1;
+            // 
             // NewMainHandler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,6 +601,7 @@
         private Custom_Controls.ClickablePanel cpnlOverlaysApm;
         private Custom_Controls.ClickablePanel cpnlOverlaysArmy;
         private Custom_Controls.ClickablePanel cpnlOverlaysWorker;
+        private Container.BasicPanelSettings basicPanelSettings1;
 
     }
 }
