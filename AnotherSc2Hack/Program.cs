@@ -15,7 +15,7 @@ namespace AnotherSc2Hack
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NewMainHandler());
+            Application.Run(new MainHandler());
         }
     }
 }
