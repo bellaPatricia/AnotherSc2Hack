@@ -1,6 +1,6 @@
 ﻿namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
-    partial class BasicPanelSettings
+    partial class PanelSettingsBasics
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -33,6 +33,7 @@
             this.aChBxRemoveNeutral = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.aChBxRemoveYourself = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.aChBxRemoveClantags = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
+            this.uiOpacityControl1 = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
             this.SuspendLayout();
             // 
             // aChBxRemoveAi
@@ -79,7 +80,7 @@
             this.aChBxRemoveYourself.Location = new System.Drawing.Point(3, 111);
             this.aChBxRemoveYourself.Name = "aChBxRemoveYourself";
             this.aChBxRemoveYourself.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxRemoveYourself.Size = new System.Drawing.Size(149, 30);
+            this.aChBxRemoveYourself.Size = new System.Drawing.Size(150, 30);
             this.aChBxRemoveYourself.TabIndex = 2;
             this.aChBxRemoveYourself.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
             // 
@@ -95,17 +96,27 @@
             this.aChBxRemoveClantags.TabIndex = 3;
             this.aChBxRemoveClantags.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
             // 
-            // BasicPanelSettings
+            // uiOpacityControl1
+            // 
+            this.uiOpacityControl1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiOpacityControl1.Location = new System.Drawing.Point(4, 185);
+            this.uiOpacityControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiOpacityControl1.Name = "uiOpacityControl1";
+            this.uiOpacityControl1.Size = new System.Drawing.Size(153, 91);
+            this.uiOpacityControl1.TabIndex = 4;
+            // 
+            // PanelSettingsBasics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.uiOpacityControl1);
             this.Controls.Add(this.aChBxRemoveClantags);
             this.Controls.Add(this.aChBxRemoveYourself);
             this.Controls.Add(this.aChBxRemoveNeutral);
             this.Controls.Add(this.aChBxRemoveAllie);
             this.Controls.Add(this.aChBxRemoveAi);
-            this.Name = "BasicPanelSettings";
-            this.Size = new System.Drawing.Size(162, 182);
+            this.Name = "PanelSettingsBasics";
+            this.Size = new System.Drawing.Size(162, 281);
             this.ResumeLayout(false);
 
         }
@@ -117,6 +128,7 @@
         public AnotherCheckbox aChBxRemoveNeutral;
         public AnotherCheckbox aChBxRemoveYourself;
         public AnotherCheckbox aChBxRemoveClantags;
+        private UiOpacityControl uiOpacityControl1;
 
     }
 }

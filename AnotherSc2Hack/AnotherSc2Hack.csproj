@@ -97,11 +97,17 @@
     <Compile Include="Classes\BackEnds\Renderer_Helper.cs" />
     <Compile Include="Classes\BackEnds\Simulation.cs" />
     <Compile Include="Classes\BackEnds\UpdateCheck.cs" />
-    <Compile Include="Classes\FrontEnds\Container\BasicPanelSettings.cs">
+    <Compile Include="Classes\FrontEnds\Container\PanelSettingsBasics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Container\BasicPanelSettings.Designer.cs">
-      <DependentUpon>BasicPanelSettings.cs</DependentUpon>
+    <Compile Include="Classes\FrontEnds\Container\PanelSettingsBasics.Designer.cs">
+      <DependentUpon>PanelSettingsBasics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Container\PanelSettingsLauncher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Container\PanelSettingsLauncher.Designer.cs">
+      <DependentUpon>PanelSettingsLauncher.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\AbstractUserControl.cs">
       <SubType>UserControl</SubType>
@@ -331,8 +337,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Classes\FrontEnds\Container\BasicPanelSettings.resx">
-      <DependentUpon>BasicPanelSettings.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Container\PanelSettingsBasics.resx">
+      <DependentUpon>PanelSettingsBasics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Container\PanelSettingsLauncher.resx">
+      <DependentUpon>PanelSettingsLauncher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Automation_Worker.resx">
       <DependentUpon>Automation_Worker.cs</DependentUpon>

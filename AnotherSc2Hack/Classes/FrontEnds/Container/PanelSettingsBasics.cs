@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
-    public partial class BasicPanelSettings : UserControl
+    public partial class PanelSettingsBasics : UserControl
     {
-        public BasicPanelSettings()
+        public PanelSettingsBasics()
         {
             InitializeComponent();
         }
