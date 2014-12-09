@@ -30,15 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMainHandler));
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
-            this.cpnlDebug = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.cpnlAutomation = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlMainArea = new System.Windows.Forms.Panel();
             this.pnlOverlays = new System.Windows.Forms.Panel();
-            this._panelSettings1 = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsBasics();
             this.pnlPanelContainer = new System.Windows.Forms.Panel();
+            this.lblTabname = new System.Windows.Forms.Label();
+            this.pnlApplication = new System.Windows.Forms.Panel();
+            this.chBxLanguage = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnReposition = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlOverlayResource = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
             this.cpnlOverlaysProduction = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysUnits = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysMaphack = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
@@ -47,19 +50,15 @@
             this.cpnlOverlaysWorker = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysIncome = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysResources = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.lblTabname = new System.Windows.Forms.Label();
-            this.pnlApplication = new System.Windows.Forms.Panel();
-            this.chBxLanguage = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.chBxOnlyDrawInForeground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.btnReposition = new System.Windows.Forms.Button();
             this.ktxtReposition = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.ntxtGraphicsRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.ntxtMemoryRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelSettingsLauncher1 = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsLauncher();
+            this.cpnlDebug = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.cpnlAutomation = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
             this.pnlOverlays.SuspendLayout();
@@ -83,117 +82,6 @@
             this.pnlLeftSelection.TabIndex = 5;
             this.pnlLeftSelection.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLeftSelection_Paint);
             // 
-            // cpnlDebug
-            // 
-            this.cpnlDebug.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-            this.cpnlDebug.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-            this.cpnlDebug.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.cpnlDebug.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlDebug.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlDebug.DisplayText = "Debug";
-            this.cpnlDebug.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpnlDebug.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlDebug.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Bug;
-            this.cpnlDebug.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlDebug.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlDebug.IsClicked = false;
-            this.cpnlDebug.IsHovering = false;
-            this.cpnlDebug.Location = new System.Drawing.Point(0, 200);
-            this.cpnlDebug.Name = "cpnlDebug";
-            this.cpnlDebug.Size = new System.Drawing.Size(152, 40);
-            this.cpnlDebug.TabIndex = 4;
-            this.cpnlDebug.TextSize = 11F;
-            this.cpnlDebug.Click += new System.EventHandler(this.cpnlDebug_Click);
-            // 
-            // cpnlApplication
-            // 
-            this.cpnlApplication.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-            this.cpnlApplication.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-            this.cpnlApplication.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.cpnlApplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlApplication.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlApplication.DisplayText = "Application";
-            this.cpnlApplication.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpnlApplication.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlApplication.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlApplication.Icon")));
-            this.cpnlApplication.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlApplication.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlApplication.IsClicked = false;
-            this.cpnlApplication.IsHovering = false;
-            this.cpnlApplication.Location = new System.Drawing.Point(0, 40);
-            this.cpnlApplication.Name = "cpnlApplication";
-            this.cpnlApplication.Size = new System.Drawing.Size(152, 40);
-            this.cpnlApplication.TabIndex = 0;
-            this.cpnlApplication.TextSize = 11F;
-            this.cpnlApplication.Click += new System.EventHandler(this.cpnlApplication_Click);
-            this.cpnlApplication.Paint += new System.Windows.Forms.PaintEventHandler(this.cpnlApplication_Paint);
-            // 
-            // cpnlOverlays
-            // 
-            this.cpnlOverlays.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-            this.cpnlOverlays.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-            this.cpnlOverlays.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.cpnlOverlays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlOverlays.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlOverlays.DisplayText = "Overlays";
-            this.cpnlOverlays.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpnlOverlays.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlOverlays.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlOverlays.Icon")));
-            this.cpnlOverlays.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlOverlays.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlOverlays.IsClicked = false;
-            this.cpnlOverlays.IsHovering = false;
-            this.cpnlOverlays.Location = new System.Drawing.Point(0, 80);
-            this.cpnlOverlays.Name = "cpnlOverlays";
-            this.cpnlOverlays.Size = new System.Drawing.Size(152, 40);
-            this.cpnlOverlays.TabIndex = 1;
-            this.cpnlOverlays.TextSize = 11F;
-            this.cpnlOverlays.Click += new System.EventHandler(this.cpnlOverlays_Click);
-            // 
-            // cpnlPlugins
-            // 
-            this.cpnlPlugins.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-            this.cpnlPlugins.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-            this.cpnlPlugins.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.cpnlPlugins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlPlugins.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlPlugins.DisplayText = "Plugins";
-            this.cpnlPlugins.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpnlPlugins.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlPlugins.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlPlugins.Icon")));
-            this.cpnlPlugins.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlPlugins.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlPlugins.IsClicked = false;
-            this.cpnlPlugins.IsHovering = false;
-            this.cpnlPlugins.Location = new System.Drawing.Point(0, 160);
-            this.cpnlPlugins.Name = "cpnlPlugins";
-            this.cpnlPlugins.Size = new System.Drawing.Size(152, 40);
-            this.cpnlPlugins.TabIndex = 3;
-            this.cpnlPlugins.TextSize = 11F;
-            this.cpnlPlugins.Click += new System.EventHandler(this.cpnlPlugins_Click);
-            // 
-            // cpnlAutomation
-            // 
-            this.cpnlAutomation.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-            this.cpnlAutomation.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-            this.cpnlAutomation.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.cpnlAutomation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlAutomation.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlAutomation.DisplayText = "Automation";
-            this.cpnlAutomation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpnlAutomation.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlAutomation.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlAutomation.Icon")));
-            this.cpnlAutomation.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlAutomation.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlAutomation.IsClicked = false;
-            this.cpnlAutomation.IsHovering = false;
-            this.cpnlAutomation.Location = new System.Drawing.Point(0, 120);
-            this.cpnlAutomation.Name = "cpnlAutomation";
-            this.cpnlAutomation.Size = new System.Drawing.Size(152, 40);
-            this.cpnlAutomation.TabIndex = 2;
-            this.cpnlAutomation.TextSize = 11F;
-            this.cpnlAutomation.Click += new System.EventHandler(this.cpnlAutomation_Click);
-            // 
             // pnlMainArea
             // 
             this.pnlMainArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -214,20 +102,12 @@
             this.pnlOverlays.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlOverlays.Controls.Add(this.panelSettingsLauncher1);
-            this.pnlOverlays.Controls.Add(this._panelSettings1);
+            this.pnlOverlays.Controls.Add(this.pnlOverlayResource);
             this.pnlOverlays.Controls.Add(this.pnlPanelContainer);
             this.pnlOverlays.Location = new System.Drawing.Point(0, 80);
             this.pnlOverlays.Name = "pnlOverlays";
             this.pnlOverlays.Size = new System.Drawing.Size(1306, 475);
             this.pnlOverlays.TabIndex = 11;
-            // 
-            // _panelSettings1
-            // 
-            this._panelSettings1.Location = new System.Drawing.Point(19, 120);
-            this._panelSettings1.Name = "_panelSettings1";
-            this._panelSettings1.Size = new System.Drawing.Size(162, 274);
-            this._panelSettings1.TabIndex = 1;
             // 
             // pnlPanelContainer
             // 
@@ -245,6 +125,106 @@
             this.pnlPanelContainer.Size = new System.Drawing.Size(824, 52);
             this.pnlPanelContainer.TabIndex = 0;
             this.pnlPanelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblTabname
+            // 
+            this.lblTabname.AutoSize = true;
+            this.lblTabname.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTabname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblTabname.Location = new System.Drawing.Point(15, 15);
+            this.lblTabname.Name = "lblTabname";
+            this.lblTabname.Size = new System.Drawing.Size(118, 30);
+            this.lblTabname.TabIndex = 1;
+            this.lblTabname.Text = "Application";
+            // 
+            // pnlApplication
+            // 
+            this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlApplication.Controls.Add(this.chBxLanguage);
+            this.pnlApplication.Controls.Add(this.label4);
+            this.pnlApplication.Controls.Add(this.chBxOnlyDrawInForeground);
+            this.pnlApplication.Controls.Add(this.btnReposition);
+            this.pnlApplication.Controls.Add(this.ktxtReposition);
+            this.pnlApplication.Controls.Add(this.label3);
+            this.pnlApplication.Controls.Add(this.ntxtGraphicsRefresh);
+            this.pnlApplication.Controls.Add(this.ntxtMemoryRefresh);
+            this.pnlApplication.Controls.Add(this.label2);
+            this.pnlApplication.Controls.Add(this.label1);
+            this.pnlApplication.Location = new System.Drawing.Point(0, 80);
+            this.pnlApplication.Name = "pnlApplication";
+            this.pnlApplication.Size = new System.Drawing.Size(1306, 475);
+            this.pnlApplication.TabIndex = 0;
+            // 
+            // chBxLanguage
+            // 
+            this.chBxLanguage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBxLanguage.FormattingEnabled = true;
+            this.chBxLanguage.Location = new System.Drawing.Point(133, 102);
+            this.chBxLanguage.Name = "chBxLanguage";
+            this.chBxLanguage.Size = new System.Drawing.Size(170, 28);
+            this.chBxLanguage.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(16, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Language:";
+            // 
+            // btnReposition
+            // 
+            this.btnReposition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnReposition.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnReposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReposition.Location = new System.Drawing.Point(19, 172);
+            this.btnReposition.Name = "btnReposition";
+            this.btnReposition.Size = new System.Drawing.Size(284, 32);
+            this.btnReposition.TabIndex = 7;
+            this.btnReposition.Text = "Reset panelposition and -size";
+            this.btnReposition.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(15, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Reposition key:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Graphics Refresh (ms):";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Memory Reading (ms):";
+            // 
+            // pnlOverlayResource
+            // 
+            this.pnlOverlayResource.Location = new System.Drawing.Point(19, 75);
+            this.pnlOverlayResource.Name = "pnlOverlayResource";
+            this.pnlOverlayResource.Size = new System.Drawing.Size(456, 346);
+            this.pnlOverlayResource.TabIndex = 1;
             // 
             // cpnlOverlaysProduction
             // 
@@ -414,56 +394,6 @@
             this.cpnlOverlaysResources.TabIndex = 1;
             this.cpnlOverlaysResources.TextSize = 11F;
             // 
-            // lblTabname
-            // 
-            this.lblTabname.AutoSize = true;
-            this.lblTabname.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.lblTabname.Location = new System.Drawing.Point(15, 15);
-            this.lblTabname.Name = "lblTabname";
-            this.lblTabname.Size = new System.Drawing.Size(118, 30);
-            this.lblTabname.TabIndex = 1;
-            this.lblTabname.Text = "Application";
-            // 
-            // pnlApplication
-            // 
-            this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlApplication.Controls.Add(this.chBxLanguage);
-            this.pnlApplication.Controls.Add(this.label4);
-            this.pnlApplication.Controls.Add(this.chBxOnlyDrawInForeground);
-            this.pnlApplication.Controls.Add(this.btnReposition);
-            this.pnlApplication.Controls.Add(this.ktxtReposition);
-            this.pnlApplication.Controls.Add(this.label3);
-            this.pnlApplication.Controls.Add(this.ntxtGraphicsRefresh);
-            this.pnlApplication.Controls.Add(this.ntxtMemoryRefresh);
-            this.pnlApplication.Controls.Add(this.label2);
-            this.pnlApplication.Controls.Add(this.label1);
-            this.pnlApplication.Location = new System.Drawing.Point(0, 80);
-            this.pnlApplication.Name = "pnlApplication";
-            this.pnlApplication.Size = new System.Drawing.Size(1306, 475);
-            this.pnlApplication.TabIndex = 0;
-            // 
-            // chBxLanguage
-            // 
-            this.chBxLanguage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBxLanguage.FormattingEnabled = true;
-            this.chBxLanguage.Location = new System.Drawing.Point(133, 102);
-            this.chBxLanguage.Name = "chBxLanguage";
-            this.chBxLanguage.Size = new System.Drawing.Size(170, 28);
-            this.chBxLanguage.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Language:";
-            // 
             // chBxOnlyDrawInForeground
             // 
             this.chBxOnlyDrawInForeground.Checked = false;
@@ -477,19 +407,6 @@
             this.chBxOnlyDrawInForeground.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Left;
             this.chBxOnlyDrawInForeground.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.CheckedChangeHandler(this.chBxOnlyDrawInForeground_CheckedChanged);
             // 
-            // btnReposition
-            // 
-            this.btnReposition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnReposition.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnReposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReposition.Location = new System.Drawing.Point(19, 172);
-            this.btnReposition.Name = "btnReposition";
-            this.btnReposition.Size = new System.Drawing.Size(284, 32);
-            this.btnReposition.TabIndex = 7;
-            this.btnReposition.Text = "Reset panelposition and -size";
-            this.btnReposition.UseVisualStyleBackColor = false;
-            // 
             // ktxtReposition
             // 
             this.ktxtReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -498,16 +415,6 @@
             this.ktxtReposition.Name = "ktxtReposition";
             this.ktxtReposition.Size = new System.Drawing.Size(105, 27);
             this.ktxtReposition.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(15, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Reposition key:";
             // 
             // ntxtGraphicsRefresh
             // 
@@ -529,34 +436,116 @@
             this.ntxtMemoryRefresh.TabIndex = 2;
             this.ntxtMemoryRefresh.Text = "42";
             // 
-            // label2
+            // cpnlDebug
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Graphics Refresh (ms):";
+            this.cpnlDebug.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlDebug.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlDebug.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlDebug.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlDebug.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlDebug.DisplayText = "Debug";
+            this.cpnlDebug.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlDebug.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlDebug.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Bug;
+            this.cpnlDebug.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlDebug.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlDebug.IsClicked = false;
+            this.cpnlDebug.IsHovering = false;
+            this.cpnlDebug.Location = new System.Drawing.Point(0, 200);
+            this.cpnlDebug.Name = "cpnlDebug";
+            this.cpnlDebug.Size = new System.Drawing.Size(152, 40);
+            this.cpnlDebug.TabIndex = 4;
+            this.cpnlDebug.TextSize = 11F;
+            this.cpnlDebug.Click += new System.EventHandler(this.cpnlDebug_Click);
             // 
-            // label1
+            // cpnlApplication
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Memory Reading (ms):";
+            this.cpnlApplication.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlApplication.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlApplication.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlApplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlApplication.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlApplication.DisplayText = "Application";
+            this.cpnlApplication.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlApplication.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlApplication.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlApplication.Icon")));
+            this.cpnlApplication.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlApplication.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlApplication.IsClicked = false;
+            this.cpnlApplication.IsHovering = false;
+            this.cpnlApplication.Location = new System.Drawing.Point(0, 40);
+            this.cpnlApplication.Name = "cpnlApplication";
+            this.cpnlApplication.Size = new System.Drawing.Size(152, 40);
+            this.cpnlApplication.TabIndex = 0;
+            this.cpnlApplication.TextSize = 11F;
+            this.cpnlApplication.Click += new System.EventHandler(this.cpnlApplication_Click);
+            this.cpnlApplication.Paint += new System.Windows.Forms.PaintEventHandler(this.cpnlApplication_Paint);
             // 
-            // panelSettingsLauncher1
+            // cpnlOverlays
             // 
-            this.panelSettingsLauncher1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelSettingsLauncher1.Location = new System.Drawing.Point(431, 105);
-            this.panelSettingsLauncher1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelSettingsLauncher1.Name = "panelSettingsLauncher1";
-            this.panelSettingsLauncher1.Size = new System.Drawing.Size(268, 261);
-            this.panelSettingsLauncher1.TabIndex = 2;
+            this.cpnlOverlays.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlOverlays.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlOverlays.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlOverlays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlOverlays.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlOverlays.DisplayText = "Overlays";
+            this.cpnlOverlays.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlOverlays.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlOverlays.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlOverlays.Icon")));
+            this.cpnlOverlays.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlOverlays.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlOverlays.IsClicked = false;
+            this.cpnlOverlays.IsHovering = false;
+            this.cpnlOverlays.Location = new System.Drawing.Point(0, 80);
+            this.cpnlOverlays.Name = "cpnlOverlays";
+            this.cpnlOverlays.Size = new System.Drawing.Size(152, 40);
+            this.cpnlOverlays.TabIndex = 1;
+            this.cpnlOverlays.TextSize = 11F;
+            this.cpnlOverlays.Click += new System.EventHandler(this.cpnlOverlays_Click);
+            // 
+            // cpnlPlugins
+            // 
+            this.cpnlPlugins.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlPlugins.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlPlugins.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlPlugins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlPlugins.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlPlugins.DisplayText = "Plugins";
+            this.cpnlPlugins.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlPlugins.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlPlugins.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlPlugins.Icon")));
+            this.cpnlPlugins.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlPlugins.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlPlugins.IsClicked = false;
+            this.cpnlPlugins.IsHovering = false;
+            this.cpnlPlugins.Location = new System.Drawing.Point(0, 160);
+            this.cpnlPlugins.Name = "cpnlPlugins";
+            this.cpnlPlugins.Size = new System.Drawing.Size(152, 40);
+            this.cpnlPlugins.TabIndex = 3;
+            this.cpnlPlugins.TextSize = 11F;
+            this.cpnlPlugins.Click += new System.EventHandler(this.cpnlPlugins_Click);
+            // 
+            // cpnlAutomation
+            // 
+            this.cpnlAutomation.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlAutomation.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlAutomation.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlAutomation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlAutomation.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlAutomation.DisplayText = "Automation";
+            this.cpnlAutomation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlAutomation.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlAutomation.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlAutomation.Icon")));
+            this.cpnlAutomation.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlAutomation.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlAutomation.IsClicked = false;
+            this.cpnlAutomation.IsHovering = false;
+            this.cpnlAutomation.Location = new System.Drawing.Point(0, 120);
+            this.cpnlAutomation.Name = "cpnlAutomation";
+            this.cpnlAutomation.Size = new System.Drawing.Size(152, 40);
+            this.cpnlAutomation.TabIndex = 2;
+            this.cpnlAutomation.TextSize = 11F;
+            this.cpnlAutomation.Click += new System.EventHandler(this.cpnlAutomation_Click);
             // 
             // NewMainHandler
             // 
@@ -613,8 +602,7 @@
         private Custom_Controls.ClickablePanel cpnlOverlaysApm;
         private Custom_Controls.ClickablePanel cpnlOverlaysArmy;
         private Custom_Controls.ClickablePanel cpnlOverlaysWorker;
-        private Container.PanelSettingsBasics _panelSettings1;
-        private Container.PanelSettingsLauncher panelSettingsLauncher1;
+        private Container.PanelOverlayBasics pnlOverlayResource;
 
     }
 }

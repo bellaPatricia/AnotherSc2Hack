@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+using AnotherSc2Hack.Classes.FrontEnds.Container;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
@@ -30,6 +31,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             cpnlApplication.IsClicked = true;
             cpnlOverlaysResources.IsClicked = true;
+
+            InitializeResources();
         }
 
         private void ControlsFill()
@@ -39,8 +42,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ntxtGraphicsRefresh.Number = _pSettings.GlobalDrawingRefresh;
             ktxtReposition.Text = _pSettings.GlobalChangeSizeAndPosition.ToString();
             chBxOnlyDrawInForeground.Checked = _pSettings.GlobalDrawOnlyInForeground;
+        }
 
 
+        //Rethink this
+        private void InitializeResources()
+        {
+            pnlOverlayResource.pnlBasics.aChBxDrawBackground.Checked = _pSettings.ResourceDrawBackground;
+            pnlOverlayResource.pnlBasics.aChBxRemoveAi.Checked = _pSettings.ResourceRemoveAi;
+            pnlOverlayResource.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.ResourceRemoveAllie;
+            pnlOverlayResource.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.ResourceRemoveClanTag;
+            pnlOverlayResource.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ResourceRemoveNeutral;
+            pnlOverlayResource.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ResourceRemoveLocalplayer;
+            pnlOverlayResource.pnlBasics.btnSetFont.Text = _pSettings.ResourceFontName;
+            pnlOverlayResource.pnlBasics.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.ResourceOpacity);
+
+            pnlOverlayResource.pnlLauncher.ktxtHotkey1.Text = _pSettings.ResourceHotkey1.ToString();
+            pnlOverlayResource.pnlLauncher.ktxtHotkey2.Text = _pSettings.ResourceHotkey2.ToString();
+            pnlOverlayResource.pnlLauncher.ktxtHotkey3.Text = _pSettings.ResourceHotkey3.ToString();
+
+            pnlOverlayResource.pnlLauncher.txtReposition.Text = _pSettings.ResourceChangePositionPanel;
+            pnlOverlayResource.pnlLauncher.txtResize.Text = _pSettings.ResourceChangeSizePanel;
+            pnlOverlayResource.pnlLauncher.txtToggle.Text = _pSettings.ResourceTogglePanel;
         }
 
         private void NewMainHandler_Load(object sender, EventArgs e)
