@@ -5927,7 +5927,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }
             catch (Exception ex)
             {
-                Messages.LogFile("CountUnits_2", "Over all", ex);
+                Messages.LogFile("Over all", ex);
 
             }
 #endif

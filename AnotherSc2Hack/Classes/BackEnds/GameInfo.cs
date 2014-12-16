@@ -63,7 +63,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 _thrWorker.Priority = ThreadPriority.Highest;
                 _thrWorker.Name = "Worker \"RefreshData()\"";
                 _thrWorker.Start();
-                Debug.WriteLine("Worker \"RefreshData()\" just started!");
+                Console.WriteLine("Worker \"RefreshData()\" just started!");
             }
 
             else
@@ -73,7 +73,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     if (_thrWorker.IsAlive)
                     {
                         CThreadState = false;
-                        Debug.WriteLine("Worker \"RefreshData()\" was told to close!");
+                        Console.WriteLine("Worker \"RefreshData()\" was told to close!");
                     }
 
                 }
@@ -224,7 +224,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 
 
                 //_swmainwatch.Stop();
-                //Debug.WriteLine("Time to execute \"DoMassiveScan()\":" + 1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
+                //Console.WriteLine("Time to execute \"DoMassiveScan()\":" + (1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency).ToString("# ##0") + " µs");
 
 
                 Thread.Sleep(CSleepTime);
@@ -608,7 +608,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     catch (Exception ex)
                     {
-                        Messages.LogFile("Massive Scan", "Within 'Selection'", ex);
+                        Messages.LogFile("Within 'Selection'", ex);
                     }
 
 
@@ -661,7 +661,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                         catch (Exception ex)
                         {
-                            Messages.LogFile("Massive Scan", "Within 'Groups'", ex);
+                            Messages.LogFile("Within 'Groups'", ex);
                         }
                     }
 

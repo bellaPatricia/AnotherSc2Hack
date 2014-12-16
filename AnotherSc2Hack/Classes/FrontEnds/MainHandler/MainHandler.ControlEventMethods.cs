@@ -2199,66 +2199,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void MainHandler_FormClosing(object sender, FormClosingEventArgs e)
         {
-            PSettings.WritePreferences();
-
-            _lContainer.CloseNicely();
-
-            tmrGatherInformation.Enabled = false;
-            GInformation.HandleThread(false);
-
-            /* Close Plugins */
-            foreach (var i in _lPlugins)
-                i.StopPlugin();
-
-
-        }
-
-        private void MainHandler_FormClosed(object sender, FormClosedEventArgs e)
-        {
             try
             {
-                
+                PSettings.WritePreferences();
 
+                _lContainer.CloseNicely();
 
-                var strPath = Application.StartupPath + "\\";
-                var strComplete = Application.ExecutablePath;
-                var strFilename = Path.GetFileName(strComplete);
-                var strFilenameNoExt = Path.GetFileNameWithoutExtension(strFilename);
-                var strExtension = Path.GetExtension(strFilename);
+                tmrGatherInformation.Enabled = false;
+                GInformation.HandleThread(false);
 
-                //This is a folder for my projects...
-                if (strPath.Contains("Programmieren"))
-                    Environment.Exit(0);
-
-                if (!strFilename.Contains("AnotherSc2Hack"))
-                    Environment.Exit(0);
-
-                var strNewFilename = string.Empty;
-                if (CustGlobal.txtFilename.Text.Length <= 3 ||
-                    CustGlobal.txtFilename.Text.Contains("AnotherSc2Hack"))
-                {
-                    var rnd = new Random();
-                    var result = rnd.Next(50000, 90000);
-                    strNewFilename = result.ToString(CultureInfo.InvariantCulture);
-                }
-
-                else
-                {
-                    strNewFilename = CustGlobal.txtFilename.Text;
-                }
-
-                if (File.Exists(strPath + strNewFilename + strExtension))
-                    File.Delete(strPath + strNewFilename + strExtension);
-
-                File.Move(strComplete, strPath + strNewFilename + strExtension);
-
-
-                Environment.Exit(0);
+                /* Close Plugins */
+                foreach (var i in _lPlugins)
+                    i.StopPlugin();
             }
 
             catch (Exception ex)
             {
-                throw ex;
+                Messages.LogFile("Closing didn't work properly", ex);
             }
         }
 
@@ -2277,7 +2234,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             //ThrowInformationToPanels(_rMaphack);
             //ThrowInformationToPanels(_rUnit);
             //ThrowInformationToPanels(_rProduction);
-
 
             // lTimesRefreshed++;
 

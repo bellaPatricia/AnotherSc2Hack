@@ -251,7 +251,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             catch (Exception ex)
             {
-                Messages.LogFile("DrawArmy", "Over all", ex);
+                Messages.LogFile("Over all", ex);
             }
         }
 

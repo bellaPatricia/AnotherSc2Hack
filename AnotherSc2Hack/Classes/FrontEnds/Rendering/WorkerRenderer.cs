@@ -97,7 +97,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             catch (Exception ex)
             {
-                Messages.LogFile("DrawWorker", "Over all", ex);
+                Messages.LogFile("Over all", ex);
             }
         }
 

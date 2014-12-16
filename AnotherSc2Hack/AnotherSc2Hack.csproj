@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BackEnds\Alerts.cs" />
+    <Compile Include="Classes\BackEnds\ApplicationStartOptions.cs" />
     <Compile Include="Classes\BackEnds\Automation Helper.cs" />
     <Compile Include="Classes\BackEnds\Automation.cs">
       <SubType>Form</SubType>

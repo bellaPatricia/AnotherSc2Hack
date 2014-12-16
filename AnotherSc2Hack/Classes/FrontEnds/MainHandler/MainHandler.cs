@@ -63,18 +63,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         public Preferences PSettings { get; set; }
         public GameInfo GInformation { get; set; }
         public Process PSc2Process { get; set; }
+        public ApplicationStartOptions ApplicationOptions { get; private set; }
 
-        public MainHandler()
+
+        public MainHandler(ApplicationStartOptions app)
         {
             InitializeComponent();
 
             LoadPlugins();
 
+            ApplicationOptions = app;
+
             GInformation = new GameInfo();
 
-            //Clipboard.SetText((606665725 >> 5).ToString());
-            //Clipboard.SetText((606665725 & 0xFFFFFFFC).ToString());
-            //PSettings = HelpFunctions.GetPreferences();
             PSettings = new Preferences();
             PSettings.ReadPreferences();
             PSc2Process = GInformation.CStarcraft2;
@@ -141,7 +142,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             CustGlobal.cmBxLanguage.Visible = false;
             CustGlobal.lblGlobalLanguage.Visible = false;
 #endif
-
 
         }
 

@@ -53,8 +53,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
         }
         /* Just a logfile... */
-        public static void LogFile(String method, String title, Exception exc )
+        public static void LogFile(String title, Exception exc )
         {
+            var stackTrace = new StackTrace();
+            var method = stackTrace.GetFrame(1).GetMethod().Name;
+
             Debug.WriteLine("Logfile written/ extended!");
 
             StreamWriter sw;
@@ -76,17 +79,25 @@ namespace AnotherSc2Hack.Classes.BackEnds
             sw.WriteLine("##############################");
             sw.WriteLine("Method: " + method);
             sw.WriteLine("Title: " + title);
-            sw.WriteLine("Exception:");
-            sw.WriteLine("          ----------          ");
-            sw.WriteLine("Data: " + exc.Data);
-            //sw.WriteLine("HResult: " + exc.HResult);
-            sw.WriteLine("HelpLink: " + exc.HelpLink);
-            sw.WriteLine("Inner Exception: " + exc.InnerException);
-            sw.WriteLine("Message: " + exc.Message);
-            sw.WriteLine("Source: " + exc.Source);
-            sw.WriteLine("Stack Trace: " + exc.StackTrace);
-            sw.WriteLine("Target Site: " + exc.TargetSite);
-            sw.WriteLine("          ----------          ");
+            
+            
+
+
+            if (exc != null)
+            {
+                sw.WriteLine("Exception:");
+                sw.WriteLine("          ----------          ");
+                sw.WriteLine("Data: " + exc.Data);
+                //sw.WriteLine("HResult: " + exc.HResult);
+                sw.WriteLine("HelpLink: " + exc.HelpLink);
+                sw.WriteLine("Inner Exception: " + exc.InnerException);
+                sw.WriteLine("Message: " + exc.Message);
+                sw.WriteLine("Source: " + exc.Source);
+                sw.WriteLine("Stack Trace: " + exc.StackTrace);
+                sw.WriteLine("Target Site: " + exc.TargetSite);
+                sw.WriteLine("          ----------          ");
+            }
+            
 
             sw.Close();
 
