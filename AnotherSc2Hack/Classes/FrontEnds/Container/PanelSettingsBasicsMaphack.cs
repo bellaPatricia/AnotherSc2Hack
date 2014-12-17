@@ -2,9 +2,9 @@
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
-    public partial class PanelSettingsBasics : UserControl
+    public partial class PanelSettingsBasicsMaphack : UserControl
     {
-        public PanelSettingsBasics()
+        public PanelSettingsBasicsMaphack()
         {
             InitializeComponent();
         }

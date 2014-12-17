@@ -2586,11 +2586,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 SetMapListboxInformation();
         }
 
-        private void MainHandler_Load(object sender, EventArgs e)
-        {
-            CustGlobal.txtFilename.Text = Path.GetFileNameWithoutExtension(Application.ExecutablePath);
-        }
-
         #endregion
 
         #region Various

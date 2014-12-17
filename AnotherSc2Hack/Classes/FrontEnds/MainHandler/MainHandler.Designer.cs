@@ -1111,7 +1111,6 @@
             this.Name = "MainHandler";
             this.Text = "MainHandler";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainHandler_FormClosing);
-            this.Load += new System.EventHandler(this.MainHandler_Load);
             this.tcMainTab.ResumeLayout(false);
             this.tcGlobal.ResumeLayout(false);
             this.tcResources.ResumeLayout(false);

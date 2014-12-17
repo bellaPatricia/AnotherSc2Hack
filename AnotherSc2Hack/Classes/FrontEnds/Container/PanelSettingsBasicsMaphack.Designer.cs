@@ -1,6 +1,6 @@
 ﻿namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
-    partial class PanelSettingsBasics
+    partial class PanelSettingsBasicsMaphack
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -32,11 +32,13 @@
             this.aChBxRemoveAllie = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.aChBxRemoveNeutral = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.aChBxRemoveYourself = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveClantags = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.OpacityControl = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
             this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.aChBxDrawBackground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.btnSetFont = new System.Windows.Forms.Button();
+            this.aChBxRemoveDestinationLine = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
+            this.aChBxDefensiveStructures = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
+            this.btnColorDestinationline = new System.Windows.Forms.Button();
+            this.aChBxRemoveCamera = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
+            this.aChBxRemoveVisionArea = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.SuspendLayout();
             // 
             // aChBxRemoveAi
@@ -91,23 +93,10 @@
             this.aChBxRemoveYourself.TabIndex = 2;
             this.aChBxRemoveYourself.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
             // 
-            // aChBxRemoveClantags
-            // 
-            this.aChBxRemoveClantags.Checked = false;
-            this.aChBxRemoveClantags.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aChBxRemoveClantags.DisplayText = "Remove Clantags";
-            this.aChBxRemoveClantags.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxRemoveClantags.Location = new System.Drawing.Point(7, 158);
-            this.aChBxRemoveClantags.Name = "aChBxRemoveClantags";
-            this.aChBxRemoveClantags.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxRemoveClantags.Size = new System.Drawing.Size(154, 30);
-            this.aChBxRemoveClantags.TabIndex = 3;
-            this.aChBxRemoveClantags.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
-            // 
             // OpacityControl
             // 
             this.OpacityControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpacityControl.Location = new System.Drawing.Point(7, 260);
+            this.OpacityControl.Location = new System.Drawing.Point(7, 164);
             this.OpacityControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OpacityControl.Name = "OpacityControl";
             this.OpacityControl.Size = new System.Drawing.Size(153, 91);
@@ -125,45 +114,86 @@
             this.languageLabel1.TabIndex = 13;
             this.languageLabel1.Text = "Basics";
             // 
-            // aChBxDrawBackground
+            // aChBxRemoveDestinationLine
             // 
-            this.aChBxDrawBackground.Checked = false;
-            this.aChBxDrawBackground.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aChBxDrawBackground.DisplayText = "Draw Background";
-            this.aChBxDrawBackground.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxDrawBackground.Location = new System.Drawing.Point(7, 190);
-            this.aChBxDrawBackground.Name = "aChBxDrawBackground";
-            this.aChBxDrawBackground.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxDrawBackground.Size = new System.Drawing.Size(157, 30);
-            this.aChBxDrawBackground.TabIndex = 4;
-            this.aChBxDrawBackground.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveDestinationLine.Checked = false;
+            this.aChBxRemoveDestinationLine.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxRemoveDestinationLine.DisplayText = "Remove Destinationline";
+            this.aChBxRemoveDestinationLine.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxRemoveDestinationLine.Location = new System.Drawing.Point(167, 94);
+            this.aChBxRemoveDestinationLine.Name = "aChBxRemoveDestinationLine";
+            this.aChBxRemoveDestinationLine.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.aChBxRemoveDestinationLine.Size = new System.Drawing.Size(197, 30);
+            this.aChBxRemoveDestinationLine.TabIndex = 1;
+            this.aChBxRemoveDestinationLine.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
             // 
-            // btnSetFont
+            // aChBxDefensiveStructures
             // 
-            this.btnSetFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetFont.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetFont.Location = new System.Drawing.Point(7, 223);
-            this.btnSetFont.Name = "btnSetFont";
-            this.btnSetFont.Size = new System.Drawing.Size(157, 29);
-            this.btnSetFont.TabIndex = 14;
-            this.btnSetFont.Text = "Set Font";
-            this.btnSetFont.UseVisualStyleBackColor = true;
+            this.aChBxDefensiveStructures.Checked = false;
+            this.aChBxDefensiveStructures.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxDefensiveStructures.DisplayText = "Color Defensives";
+            this.aChBxDefensiveStructures.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxDefensiveStructures.Location = new System.Drawing.Point(167, 126);
+            this.aChBxDefensiveStructures.Name = "aChBxDefensiveStructures";
+            this.aChBxDefensiveStructures.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.aChBxDefensiveStructures.Size = new System.Drawing.Size(150, 30);
+            this.aChBxDefensiveStructures.TabIndex = 2;
+            this.aChBxDefensiveStructures.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
             // 
-            // PanelSettingsBasics
+            // btnColorDestinationline
+            // 
+            this.btnColorDestinationline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnColorDestinationline.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnColorDestinationline.Location = new System.Drawing.Point(370, 94);
+            this.btnColorDestinationline.Name = "btnColorDestinationline";
+            this.btnColorDestinationline.Size = new System.Drawing.Size(29, 30);
+            this.btnColorDestinationline.TabIndex = 15;
+            this.btnColorDestinationline.Text = "...";
+            this.btnColorDestinationline.UseVisualStyleBackColor = true;
+            // 
+            // aChBxRemoveCamera
+            // 
+            this.aChBxRemoveCamera.Checked = false;
+            this.aChBxRemoveCamera.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxRemoveCamera.DisplayText = "Remove Camera";
+            this.aChBxRemoveCamera.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxRemoveCamera.Location = new System.Drawing.Point(167, 30);
+            this.aChBxRemoveCamera.Name = "aChBxRemoveCamera";
+            this.aChBxRemoveCamera.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.aChBxRemoveCamera.Size = new System.Drawing.Size(148, 30);
+            this.aChBxRemoveCamera.TabIndex = 3;
+            this.aChBxRemoveCamera.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            // 
+            // aChBxRemoveVisionArea
+            // 
+            this.aChBxRemoveVisionArea.Checked = false;
+            this.aChBxRemoveVisionArea.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxRemoveVisionArea.DisplayText = "Remove Vision-Area";
+            this.aChBxRemoveVisionArea.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxRemoveVisionArea.Location = new System.Drawing.Point(167, 62);
+            this.aChBxRemoveVisionArea.Name = "aChBxRemoveVisionArea";
+            this.aChBxRemoveVisionArea.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.aChBxRemoveVisionArea.Size = new System.Drawing.Size(174, 30);
+            this.aChBxRemoveVisionArea.TabIndex = 4;
+            this.aChBxRemoveVisionArea.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            // 
+            // PanelSettingsBasicsMaphack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnSetFont);
-            this.Controls.Add(this.aChBxDrawBackground);
+            this.Controls.Add(this.aChBxRemoveVisionArea);
+            this.Controls.Add(this.aChBxRemoveCamera);
+            this.Controls.Add(this.btnColorDestinationline);
+            this.Controls.Add(this.aChBxDefensiveStructures);
+            this.Controls.Add(this.aChBxRemoveDestinationLine);
             this.Controls.Add(this.languageLabel1);
             this.Controls.Add(this.OpacityControl);
-            this.Controls.Add(this.aChBxRemoveClantags);
             this.Controls.Add(this.aChBxRemoveYourself);
             this.Controls.Add(this.aChBxRemoveNeutral);
             this.Controls.Add(this.aChBxRemoveAllie);
             this.Controls.Add(this.aChBxRemoveAi);
-            this.Name = "PanelSettingsBasics";
-            this.Size = new System.Drawing.Size(173, 346);
+            this.Name = "PanelSettingsBasicsMaphack";
+            this.Size = new System.Drawing.Size(409, 262);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,11 +205,13 @@
         public AnotherCheckbox aChBxRemoveAllie;
         public AnotherCheckbox aChBxRemoveNeutral;
         public AnotherCheckbox aChBxRemoveYourself;
-        public AnotherCheckbox aChBxRemoveClantags;
         private LanguageLabel languageLabel1;
-        public AnotherCheckbox aChBxDrawBackground;
-        public System.Windows.Forms.Button btnSetFont;
         public UiOpacityControl OpacityControl;
+        public AnotherCheckbox aChBxRemoveDestinationLine;
+        public AnotherCheckbox aChBxDefensiveStructures;
+        public System.Windows.Forms.Button btnColorDestinationline;
+        public AnotherCheckbox aChBxRemoveCamera;
+        public AnotherCheckbox aChBxRemoveVisionArea;
 
     }
 }

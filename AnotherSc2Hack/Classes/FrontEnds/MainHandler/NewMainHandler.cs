@@ -17,14 +17,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         
 
         private Preferences _pSettings = new Preferences();
+        public ApplicationStartOptions ApplicationOptions { get; private set; }
 
-        public NewMainHandler()
+        public NewMainHandler(ApplicationStartOptions app)
         {
             InitializeComponent();
 
             ControlsFill();
             Init();
 
+            ApplicationOptions = app;
         }
 
         private void Init()
@@ -32,7 +34,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             cpnlApplication.IsClicked = true;
             cpnlOverlaysResources.IsClicked = true;
 
-            InitializeResources();
+            
         }
 
         private void ControlsFill()
@@ -42,6 +44,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ntxtGraphicsRefresh.Number = _pSettings.GlobalDrawingRefresh;
             ktxtReposition.Text = _pSettings.GlobalChangeSizeAndPosition.ToString();
             chBxOnlyDrawInForeground.Checked = _pSettings.GlobalDrawOnlyInForeground;
+
+            InitializeResources();
+            InitializeIncome();
+            InitializeApm();
+            InitializeArmy();
+            InitializeWorker();
+            InitializeMaphack();
         }
 
 
@@ -65,6 +74,106 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayResource.pnlLauncher.txtResize.Text = _pSettings.ResourceChangeSizePanel;
             pnlOverlayResource.pnlLauncher.txtToggle.Text = _pSettings.ResourceTogglePanel;
         }
+
+        private void InitializeIncome()
+        {
+            pnlOverlayIncome.pnlBasics.aChBxDrawBackground.Checked = _pSettings.IncomeDrawBackground;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveAi.Checked = _pSettings.IncomeRemoveAi;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.IncomeRemoveAllie;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.IncomeRemoveClanTag;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.IncomeRemoveNeutral;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.IncomeRemoveLocalplayer;
+            pnlOverlayIncome.pnlBasics.btnSetFont.Text = _pSettings.IncomeFontName;
+            pnlOverlayIncome.pnlBasics.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.IncomeOpacity);
+
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey1.Text = _pSettings.IncomeHotkey1.ToString();
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey2.Text = _pSettings.IncomeHotkey2.ToString();
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey3.Text = _pSettings.IncomeHotkey3.ToString();
+
+            pnlOverlayIncome.pnlLauncher.txtReposition.Text = _pSettings.IncomeChangePositionPanel;
+            pnlOverlayIncome.pnlLauncher.txtResize.Text = _pSettings.IncomeChangeSizePanel;
+            pnlOverlayIncome.pnlLauncher.txtToggle.Text = _pSettings.IncomeTogglePanel;
+        }
+
+        private void InitializeApm()
+        {
+            pnlOverlayApm.pnlBasics.aChBxDrawBackground.Checked = _pSettings.ApmDrawBackground;
+            pnlOverlayApm.pnlBasics.aChBxRemoveAi.Checked = _pSettings.ApmRemoveAi;
+            pnlOverlayApm.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.ApmRemoveAllie;
+            pnlOverlayApm.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.ApmRemoveClanTag;
+            pnlOverlayApm.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ApmRemoveNeutral;
+            pnlOverlayApm.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ApmRemoveLocalplayer;
+            pnlOverlayApm.pnlBasics.btnSetFont.Text = _pSettings.ApmFontName;
+            pnlOverlayApm.pnlBasics.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.ApmOpacity);
+
+            pnlOverlayApm.pnlLauncher.ktxtHotkey1.Text = _pSettings.ApmHotkey1.ToString();
+            pnlOverlayApm.pnlLauncher.ktxtHotkey2.Text = _pSettings.ApmHotkey2.ToString();
+            pnlOverlayApm.pnlLauncher.ktxtHotkey3.Text = _pSettings.ApmHotkey3.ToString();
+
+            pnlOverlayApm.pnlLauncher.txtReposition.Text = _pSettings.ApmChangePositionPanel;
+            pnlOverlayApm.pnlLauncher.txtResize.Text = _pSettings.ApmChangeSizePanel;
+            pnlOverlayApm.pnlLauncher.txtToggle.Text = _pSettings.ApmTogglePanel;
+        }
+
+        private void InitializeArmy()
+        {
+            pnlOverlayArmy.pnlBasics.aChBxDrawBackground.Checked = _pSettings.ArmyDrawBackground;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveAi.Checked = _pSettings.ArmyRemoveAi;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.ArmyRemoveAllie;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.ArmyRemoveClanTag;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ArmyRemoveNeutral;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ArmyRemoveLocalplayer;
+            pnlOverlayArmy.pnlBasics.btnSetFont.Text = _pSettings.ArmyFontName;
+            pnlOverlayArmy.pnlBasics.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.ArmyOpacity);
+
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey1.Text = _pSettings.ArmyHotkey1.ToString();
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey2.Text = _pSettings.ArmyHotkey2.ToString();
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey3.Text = _pSettings.ArmyHotkey3.ToString();
+
+            pnlOverlayArmy.pnlLauncher.txtReposition.Text = _pSettings.ArmyChangePositionPanel;
+            pnlOverlayArmy.pnlLauncher.txtResize.Text = _pSettings.ArmyChangeSizePanel;
+            pnlOverlayArmy.pnlLauncher.txtToggle.Text = _pSettings.ArmyTogglePanel;
+        }
+
+        private void InitializeMaphack()
+        {
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveAi.Checked = _pSettings.MaphackRemoveAi;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.MaphackRemoveAllie;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.MaphackRemoveNeutral;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.MaphackRemoveLocalplayer;
+            pnlOverlayMaphack.pnlBasics.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.MaphackOpacity);
+            pnlOverlayMaphack.pnlBasics.aChBxDefensiveStructures.Checked =
+                _pSettings.MaphackColorDefensivestructuresYellow;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveCamera.Checked = _pSettings.MaphackRemoveCamera;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveVisionArea.Checked = _pSettings.MaphackRemoveVisionArea;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveDestinationLine.Checked = _pSettings.MaphackDisableDestinationLine;
+            pnlOverlayMaphack.pnlBasics.btnColorDestinationline.BackColor = _pSettings.MaphackDestinationColor;
+
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey1.Text = _pSettings.MaphackHotkey1.ToString();
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey2.Text = _pSettings.MaphackHotkey2.ToString();
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey3.Text = _pSettings.MaphackHotkey3.ToString();
+
+            pnlOverlayMaphack.pnlLauncher.txtReposition.Text = _pSettings.MaphackChangePositionPanel;
+            pnlOverlayMaphack.pnlLauncher.txtResize.Text = _pSettings.MaphackChangeSizePanel;
+            pnlOverlayMaphack.pnlLauncher.txtToggle.Text = _pSettings.MaphackTogglePanel;
+        }
+
+        private void InitializeWorker()
+        {
+            pnlOverlayWorker.aChBxDrawBackground.Checked = _pSettings.WorkerDrawBackground;
+            pnlOverlayWorker.btnSetFont.Text = _pSettings.WorkerFontName;
+            pnlOverlayWorker.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.WorkerOpacity);
+
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey1.Text = _pSettings.WorkerHotkey1.ToString();
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey2.Text = _pSettings.WorkerHotkey2.ToString();
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey3.Text = _pSettings.WorkerHotkey3.ToString();
+
+            pnlOverlayWorker.pnlLauncher.txtReposition.Text = _pSettings.WorkerChangePositionPanel;
+            pnlOverlayWorker.pnlLauncher.txtResize.Text = _pSettings.WorkerChangeSizePanel;
+            pnlOverlayWorker.pnlLauncher.txtToggle.Text = _pSettings.WorkerTogglePanel;
+        }
+
+
 
         private void NewMainHandler_Load(object sender, EventArgs e)
         {
@@ -151,6 +260,143 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         private void chBxOnlyDrawInForeground_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+
+        }
+
+        private void cpnlOverlaysResources_Click(object sender, EventArgs e)
+        {
+            pnlOverlayResource.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayResource)
+                    continue;
+
+                if (pnl.GetType() == typeof(PanelOverlayBasics))
+                    ((PanelOverlayBasics)pnl).Visible = false;
+
+                    
+                else if (pnl.GetType() == typeof(PanelOverlayWorker))
+                    ((PanelOverlayWorker)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof (PanelOverlayMaphack))
+                    ((PanelOverlayMaphack) pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysIncome_Click(object sender, EventArgs e)
+        {
+            pnlOverlayIncome.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayIncome)
+                    continue;
+
+                if (pnl.GetType() == typeof(PanelOverlayBasics))
+                    ((PanelOverlayBasics)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof(PanelOverlayWorker))
+                    ((PanelOverlayWorker)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof(PanelOverlayMaphack))
+                    ((PanelOverlayMaphack)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysWorker_Click(object sender, EventArgs e)
+        {
+            pnlOverlayWorker.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayWorker)
+                    continue;
+
+                if (pnl.GetType() == typeof(PanelOverlayBasics))
+                    ((PanelOverlayBasics)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof(PanelOverlayWorker))
+                    ((PanelOverlayWorker)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof(PanelOverlayMaphack))
+                    ((PanelOverlayMaphack)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysArmy_Click(object sender, EventArgs e)
+        {
+            pnlOverlayArmy.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayArmy)
+                    continue;
+
+                if (pnl.GetType() == typeof(PanelOverlayBasics))
+                    ((PanelOverlayBasics)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof(PanelOverlayWorker))
+                    ((PanelOverlayWorker)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof(PanelOverlayMaphack))
+                    ((PanelOverlayMaphack)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysApm_Click(object sender, EventArgs e)
+        {
+            pnlOverlayApm.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayApm)
+                    continue;
+
+                if (pnl.GetType() == typeof(PanelOverlayBasics))
+                    ((PanelOverlayBasics)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof(PanelOverlayWorker))
+                    ((PanelOverlayWorker)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof(PanelOverlayMaphack))
+                    ((PanelOverlayMaphack)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysMaphack_Click(object sender, EventArgs e)
+        {
+            pnlOverlayMaphack.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayMaphack)
+                    continue;
+
+                if (pnl.GetType() == typeof(PanelOverlayBasics))
+                    ((PanelOverlayBasics)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof(PanelOverlayWorker))
+                    ((PanelOverlayWorker)pnl).Visible = false;
+
+                else if (pnl.GetType() == typeof(PanelOverlayMaphack))
+                    ((PanelOverlayMaphack)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysUnits_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cpnlOverlaysProduction_Click(object sender, EventArgs e)
         {
 
         }

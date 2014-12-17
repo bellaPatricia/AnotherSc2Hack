@@ -41,6 +41,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pnlOverlayWorker = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayWorker();
+            this.pnlOverlayArmy = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
+            this.pnlOverlayApm = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
+            this.pnlOverlayIncome = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
             this.pnlOverlayResource = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
             this.cpnlOverlaysProduction = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysUnits = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
@@ -59,6 +63,7 @@
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlAutomation = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.pnlOverlayMaphack = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayMaphack();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
             this.pnlOverlays.SuspendLayout();
@@ -102,6 +107,11 @@
             this.pnlOverlays.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlOverlays.Controls.Add(this.pnlOverlayMaphack);
+            this.pnlOverlays.Controls.Add(this.pnlOverlayWorker);
+            this.pnlOverlays.Controls.Add(this.pnlOverlayArmy);
+            this.pnlOverlays.Controls.Add(this.pnlOverlayApm);
+            this.pnlOverlays.Controls.Add(this.pnlOverlayIncome);
             this.pnlOverlays.Controls.Add(this.pnlOverlayResource);
             this.pnlOverlays.Controls.Add(this.pnlPanelContainer);
             this.pnlOverlays.Location = new System.Drawing.Point(0, 80);
@@ -219,6 +229,34 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Memory Reading (ms):";
             // 
+            // pnlOverlayWorker
+            // 
+            this.pnlOverlayWorker.Location = new System.Drawing.Point(19, 75);
+            this.pnlOverlayWorker.Name = "pnlOverlayWorker";
+            this.pnlOverlayWorker.Size = new System.Drawing.Size(451, 262);
+            this.pnlOverlayWorker.TabIndex = 5;
+            // 
+            // pnlOverlayArmy
+            // 
+            this.pnlOverlayArmy.Location = new System.Drawing.Point(19, 75);
+            this.pnlOverlayArmy.Name = "pnlOverlayArmy";
+            this.pnlOverlayArmy.Size = new System.Drawing.Size(456, 346);
+            this.pnlOverlayArmy.TabIndex = 4;
+            // 
+            // pnlOverlayApm
+            // 
+            this.pnlOverlayApm.Location = new System.Drawing.Point(19, 75);
+            this.pnlOverlayApm.Name = "pnlOverlayApm";
+            this.pnlOverlayApm.Size = new System.Drawing.Size(456, 346);
+            this.pnlOverlayApm.TabIndex = 3;
+            // 
+            // pnlOverlayIncome
+            // 
+            this.pnlOverlayIncome.Location = new System.Drawing.Point(19, 75);
+            this.pnlOverlayIncome.Name = "pnlOverlayIncome";
+            this.pnlOverlayIncome.Size = new System.Drawing.Size(456, 346);
+            this.pnlOverlayIncome.TabIndex = 2;
+            // 
             // pnlOverlayResource
             // 
             this.pnlOverlayResource.Location = new System.Drawing.Point(19, 75);
@@ -246,6 +284,7 @@
             this.cpnlOverlaysProduction.Size = new System.Drawing.Size(103, 50);
             this.cpnlOverlaysProduction.TabIndex = 4;
             this.cpnlOverlaysProduction.TextSize = 11F;
+            this.cpnlOverlaysProduction.Click += new System.EventHandler(this.cpnlOverlaysProduction_Click);
             // 
             // cpnlOverlaysUnits
             // 
@@ -267,6 +306,7 @@
             this.cpnlOverlaysUnits.Size = new System.Drawing.Size(103, 50);
             this.cpnlOverlaysUnits.TabIndex = 4;
             this.cpnlOverlaysUnits.TextSize = 11F;
+            this.cpnlOverlaysUnits.Click += new System.EventHandler(this.cpnlOverlaysUnits_Click);
             // 
             // cpnlOverlaysMaphack
             // 
@@ -288,6 +328,7 @@
             this.cpnlOverlaysMaphack.Size = new System.Drawing.Size(103, 50);
             this.cpnlOverlaysMaphack.TabIndex = 4;
             this.cpnlOverlaysMaphack.TextSize = 11F;
+            this.cpnlOverlaysMaphack.Click += new System.EventHandler(this.cpnlOverlaysMaphack_Click);
             // 
             // cpnlOverlaysApm
             // 
@@ -309,6 +350,7 @@
             this.cpnlOverlaysApm.Size = new System.Drawing.Size(103, 50);
             this.cpnlOverlaysApm.TabIndex = 3;
             this.cpnlOverlaysApm.TextSize = 11F;
+            this.cpnlOverlaysApm.Click += new System.EventHandler(this.cpnlOverlaysApm_Click);
             // 
             // cpnlOverlaysArmy
             // 
@@ -330,6 +372,7 @@
             this.cpnlOverlaysArmy.Size = new System.Drawing.Size(103, 50);
             this.cpnlOverlaysArmy.TabIndex = 3;
             this.cpnlOverlaysArmy.TextSize = 11F;
+            this.cpnlOverlaysArmy.Click += new System.EventHandler(this.cpnlOverlaysArmy_Click);
             // 
             // cpnlOverlaysWorker
             // 
@@ -351,6 +394,7 @@
             this.cpnlOverlaysWorker.Size = new System.Drawing.Size(103, 50);
             this.cpnlOverlaysWorker.TabIndex = 3;
             this.cpnlOverlaysWorker.TextSize = 11F;
+            this.cpnlOverlaysWorker.Click += new System.EventHandler(this.cpnlOverlaysWorker_Click);
             // 
             // cpnlOverlaysIncome
             // 
@@ -372,6 +416,7 @@
             this.cpnlOverlaysIncome.Size = new System.Drawing.Size(103, 50);
             this.cpnlOverlaysIncome.TabIndex = 2;
             this.cpnlOverlaysIncome.TextSize = 11F;
+            this.cpnlOverlaysIncome.Click += new System.EventHandler(this.cpnlOverlaysIncome_Click);
             // 
             // cpnlOverlaysResources
             // 
@@ -393,6 +438,7 @@
             this.cpnlOverlaysResources.Size = new System.Drawing.Size(103, 50);
             this.cpnlOverlaysResources.TabIndex = 1;
             this.cpnlOverlaysResources.TextSize = 11F;
+            this.cpnlOverlaysResources.Click += new System.EventHandler(this.cpnlOverlaysResources_Click);
             // 
             // chBxOnlyDrawInForeground
             // 
@@ -547,6 +593,13 @@
             this.cpnlAutomation.TextSize = 11F;
             this.cpnlAutomation.Click += new System.EventHandler(this.cpnlAutomation_Click);
             // 
+            // pnlOverlayMaphack
+            // 
+            this.pnlOverlayMaphack.Location = new System.Drawing.Point(19, 75);
+            this.pnlOverlayMaphack.Name = "pnlOverlayMaphack";
+            this.pnlOverlayMaphack.Size = new System.Drawing.Size(691, 297);
+            this.pnlOverlayMaphack.TabIndex = 6;
+            // 
             // NewMainHandler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,6 +656,11 @@
         private Custom_Controls.ClickablePanel cpnlOverlaysArmy;
         private Custom_Controls.ClickablePanel cpnlOverlaysWorker;
         private Container.PanelOverlayBasics pnlOverlayResource;
+        private Container.PanelOverlayBasics pnlOverlayIncome;
+        private Container.PanelOverlayBasics pnlOverlayApm;
+        private Container.PanelOverlayBasics pnlOverlayArmy;
+        private Container.PanelOverlayWorker pnlOverlayWorker;
+        private Container.PanelOverlayMaphack pnlOverlayMaphack;
 
     }
 }

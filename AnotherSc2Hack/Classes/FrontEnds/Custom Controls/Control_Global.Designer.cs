@@ -42,13 +42,11 @@
             this.txtDrawingInterval = new System.Windows.Forms.TextBox();
             this.txtDataInterval = new System.Windows.Forms.TextBox();
             this.btnGlobalDonations = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.txtFilename = new System.Windows.Forms.TextBox();
             this.gbGlobalPlugins = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
             this.lstBxPlugins = new System.Windows.Forms.CheckedListBox();
             this.lblGlobalPluginDescription = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.cmBxLanguage = new System.Windows.Forms.ComboBox();
             this.lblGlobalLanguage = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblGlobalFileName = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.lblGlobalChangePosKey = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.lblGlobalDrawingMiliseconds = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.lblGlobalDataMiliseconds = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
@@ -208,13 +206,6 @@
             this.btnGlobalDonations.UseVisualStyleBackColor = true;
             this.btnGlobalDonations.Paint += new System.Windows.Forms.PaintEventHandler(this.btnGlobalDonations_Paint);
             // 
-            // txtFilename
-            // 
-            this.txtFilename.Location = new System.Drawing.Point(114, 69);
-            this.txtFilename.Name = "txtFilename";
-            this.txtFilename.Size = new System.Drawing.Size(154, 20);
-            this.txtFilename.TabIndex = 28;
-            // 
             // gbGlobalPlugins
             // 
             this.gbGlobalPlugins.Controls.Add(this.lstBxPlugins);
@@ -252,7 +243,7 @@
             this.cmBxLanguage.Items.AddRange(new object[] {
             "English",
             "Deutsch"});
-            this.cmBxLanguage.Location = new System.Drawing.Point(114, 97);
+            this.cmBxLanguage.Location = new System.Drawing.Point(114, 69);
             this.cmBxLanguage.Name = "cmBxLanguage";
             this.cmBxLanguage.Size = new System.Drawing.Size(154, 21);
             this.cmBxLanguage.TabIndex = 31;
@@ -261,21 +252,11 @@
             // 
             this.lblGlobalLanguage.AutoSize = true;
             this.lblGlobalLanguage.LanguageFile = null;
-            this.lblGlobalLanguage.Location = new System.Drawing.Point(35, 100);
+            this.lblGlobalLanguage.Location = new System.Drawing.Point(35, 72);
             this.lblGlobalLanguage.Name = "lblGlobalLanguage";
             this.lblGlobalLanguage.Size = new System.Drawing.Size(58, 13);
             this.lblGlobalLanguage.TabIndex = 30;
             this.lblGlobalLanguage.Text = "Language:";
-            // 
-            // lblGlobalFileName
-            // 
-            this.lblGlobalFileName.AutoSize = true;
-            this.lblGlobalFileName.LanguageFile = null;
-            this.lblGlobalFileName.Location = new System.Drawing.Point(35, 72);
-            this.lblGlobalFileName.Name = "lblGlobalFileName";
-            this.lblGlobalFileName.Size = new System.Drawing.Size(52, 13);
-            this.lblGlobalFileName.TabIndex = 27;
-            this.lblGlobalFileName.Text = "Filename:";
             // 
             // lblGlobalChangePosKey
             // 
@@ -336,8 +317,6 @@
             this.Controls.Add(this.cmBxLanguage);
             this.Controls.Add(this.lblGlobalLanguage);
             this.Controls.Add(this.gbGlobalPlugins);
-            this.Controls.Add(this.txtFilename);
-            this.Controls.Add(this.lblGlobalFileName);
             this.Controls.Add(this.btnGlobalDonations);
             this.Controls.Add(this.btnGlobalSetPosition);
             this.Controls.Add(this.gbGlobalPublicInformation);
@@ -379,8 +358,7 @@
         public System.Windows.Forms.Button btnGetUpdate;
         public System.Windows.Forms.TextBox txtDrawingInterval;
         public System.Windows.Forms.TextBox txtDataInterval;
-        public LanguageButton btnGlobalDonations;
-        public System.Windows.Forms.TextBox txtFilename;        
+        public LanguageButton btnGlobalDonations;        
         public System.Windows.Forms.CheckedListBox lstBxPlugins;
         public System.Windows.Forms.ComboBox cmBxLanguage;
         public LanguageGroupbox gbGlobalPublicInformation;
@@ -389,7 +367,6 @@
         public LanguageGroupbox gbGlobalPlugins;
         private LanguageLabel lblGlobalDrawingRefresh;
         private LanguageLabel lblGlobalDataRefresh;
-        private LanguageLabel lblGlobalFileName;
         private LanguageLabel lblGlobalChangePosKey;
         private LanguageLabel lblGlobalDrawingMiliseconds;
         private LanguageLabel lblGlobalDataMiliseconds;

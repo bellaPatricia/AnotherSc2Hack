@@ -98,11 +98,29 @@
     <Compile Include="Classes\BackEnds\Renderer_Helper.cs" />
     <Compile Include="Classes\BackEnds\Simulation.cs" />
     <Compile Include="Classes\BackEnds\UpdateCheck.cs" />
-    <Compile Include="Classes\FrontEnds\Container\PanelOverlayResource.cs">
+    <Compile Include="Classes\FrontEnds\Container\PanelOverlayBasics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Container\PanelOverlayResource.Designer.cs">
-      <DependentUpon>PanelOverlayResource.cs</DependentUpon>
+    <Compile Include="Classes\FrontEnds\Container\PanelOverlayBasics.Designer.cs">
+      <DependentUpon>PanelOverlayBasics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Container\PanelOverlayMaphack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Container\PanelOverlayMaphack.Designer.cs">
+      <DependentUpon>PanelOverlayMaphack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Container\PanelOverlayWorker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Container\PanelOverlayWorker.Designer.cs">
+      <DependentUpon>PanelOverlayWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Container\PanelSettingsBasicsMaphack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Container\PanelSettingsBasicsMaphack.Designer.cs">
+      <DependentUpon>PanelSettingsBasicsMaphack.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FrontEnds\Container\PanelSettingsBasics.cs">
       <SubType>UserControl</SubType>
@@ -344,8 +362,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Classes\FrontEnds\Container\PanelOverlayResource.resx">
-      <DependentUpon>PanelOverlayResource.cs</DependentUpon>
+    <EmbeddedResource Include="Classes\FrontEnds\Container\PanelOverlayBasics.resx">
+      <DependentUpon>PanelOverlayBasics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Container\PanelOverlayMaphack.resx">
+      <DependentUpon>PanelOverlayMaphack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Container\PanelOverlayWorker.resx">
+      <DependentUpon>PanelOverlayWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Container\PanelSettingsBasicsMaphack.resx">
+      <DependentUpon>PanelSettingsBasicsMaphack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Container\PanelSettingsBasics.resx">
       <DependentUpon>PanelSettingsBasics.cs</DependentUpon>

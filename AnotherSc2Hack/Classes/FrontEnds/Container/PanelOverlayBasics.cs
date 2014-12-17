@@ -2,11 +2,11 @@
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
-    public partial class PanelSettingsBasics : UserControl
+    public partial class PanelOverlayBasics : UserControl
     {
-        public PanelSettingsBasics()
+        public PanelOverlayBasics()
         {
             InitializeComponent();
-        }
+        }        
     }
 }
