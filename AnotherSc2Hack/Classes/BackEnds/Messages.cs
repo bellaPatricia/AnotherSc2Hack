@@ -56,7 +56,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static void LogFile(String title, Exception exc )
         {
             var stackTrace = new StackTrace();
-            var method = stackTrace.GetFrame(1).GetMethod().Name;
+            var methodName = stackTrace.GetFrame(1).GetMethod().Name;
+            var className = stackTrace.GetFrame(1).GetMethod().DeclaringType.ToString();
 
             Debug.WriteLine("Logfile written/ extended!");
 
@@ -76,8 +77,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
             sw.WriteLine();
 
             sw.WriteLine(DateTime.Now.ToString(CultureInfo.InvariantCulture));
+            sw.WriteLine("Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
             sw.WriteLine("##############################");
-            sw.WriteLine("Method: " + method);
+            sw.WriteLine("Class: " + className);
+            sw.WriteLine("Method: " + methodName);
             sw.WriteLine("Title: " + title);
             
             

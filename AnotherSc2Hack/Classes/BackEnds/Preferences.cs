@@ -6,6 +6,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using PredefinedTypes = Predefined.PredefinedData;
+using System.Diagnostics;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -601,8 +602,19 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (!File.Exists(Constants.StrDummyPref))
             {
                 GetStandardPreferences();
+                
                 return;
             }
+
+            var fileInformation = new FileInfo(Constants.StrDummyPref);
+            if (fileInformation.Length > 1024 * 1024)
+            {
+                Messages.LogFile("Preferencefile too big! [" + fileInformation.Length + " Bytes]", null);
+                GetStandardPreferences();
+
+                return;
+            }
+            
 
             var sr = new StreamReader(Constants.StrDummyPref);
             var strSource = sr.ReadToEnd();
@@ -3547,9 +3559,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                         else
                         {
-
-
-
                             var id =
                                 (PredefinedTypes.UnitId) Enum.Parse(typeof (PredefinedTypes.UnitId), strInnerValue);
 

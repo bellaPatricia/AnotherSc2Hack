@@ -77,7 +77,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             GInformation = new GameInfo();
 
             PSettings = new Preferences();
-            PSettings.ReadPreferences();
             PSc2Process = GInformation.CStarcraft2;
             GInformation.CSleepTime = PSettings.GlobalDataRefresh;
             GInformation.CAccessUnitCommands = true;
@@ -955,61 +954,61 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 return;
             }
 
-            else
-            {
-                if (UpdateCheck.CheckPlugins())
-                {
-                    var result = MessageBox.Show("There are updates available!\n\nDo you wish to update?", "New Updates",
-                    MessageBoxButtons.YesNo);
+            //else
+            //{
+            //    if (UpdateCheck.CheckPlugins())
+            //    {
+            //        var result = MessageBox.Show("There are updates available!\n\nDo you wish to update?", "New Updates",
+            //        MessageBoxButtons.YesNo);
 
 
-                    if (result == DialogResult.Yes)
-                    {
-                    NastyCodeIsNasty:
+            //        if (result == DialogResult.Yes)
+            //        {
+            //        NastyCodeIsNasty:
 
-                        //This is where we close the application and call the updater!
-                        if (File.Exists(Constants.StrUpdateManager))
-                        {
-                            Process.Start(Constants.StrUpdateManager);
+            //            //This is where we close the application and call the updater!
+            //            if (File.Exists(Constants.StrUpdateManager))
+            //            {
+            //                Process.Start(Constants.StrUpdateManager);
 
 
-                            MethodInvoker inv =
-                    delegate
-                    {
+            //                MethodInvoker inv =
+            //        delegate
+            //        {
                         
-                        Close();
-                    };
+            //            Close();
+            //        };
 
-                            byte bCounter = 0;
-                        InvokeAgain:
-                            try
-                            {
-                                Invoke(inv);
-                                return;
-                            }
+            //                byte bCounter = 0;
+            //            InvokeAgain:
+            //                try
+            //                {
+            //                    Invoke(inv);
+            //                    return;
+            //                }
 
-                            catch
-                            {
-                                bCounter++;
-                                if (bCounter >= 5)
-                                {
-                                    Application.Exit();
-                                    MessageBox.Show("Please close the application by hand!");
-                                    return;
-                                }
+            //                catch
+            //                {
+            //                    bCounter++;
+            //                    if (bCounter >= 5)
+            //                    {
+            //                        Application.Exit();
+            //                        MessageBox.Show("Please close the application by hand!");
+            //                        return;
+            //                    }
 
-                                goto InvokeAgain;
-                            }
-                        }
+            //                    goto InvokeAgain;
+            //                }
+            //            }
 
-                        else
-                        {
-                            if (UpdateCheck.DownloadUpdateManager())
-                                goto NastyCodeIsNasty;
-                        }
-                    }
-                }
-            }
+            //            else
+            //            {
+            //                if (UpdateCheck.DownloadUpdateManager())
+            //                    goto NastyCodeIsNasty;
+            //            }
+            //        }
+            //    }
+            //}
 
             MethodInvoker inv2;
             if (curVer > newVer)
