@@ -345,5 +345,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             if (!_bInitCalled)
                 Init();
         }
+
+        public void PerformClick()
+        {
+            OnClick(new EventArgs());
+        }
     }
 }

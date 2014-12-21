@@ -31,11 +31,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void Init()
         {
-            cpnlApplication.IsClicked = true;
-            cpnlOverlaysResources.IsClicked = true;
+            cpnlApplication.PerformClick();
+            cpnlOverlaysResources.PerformClick();
+            
 
             
         }
+
+        #region Load Settings Into Controls
 
         private void ControlsFill()
         {
@@ -51,10 +54,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             InitializeArmy();
             InitializeWorker();
             InitializeMaphack();
+            InitializeUnittab();
+            InitializeProductiontab();
         }
 
-
-        //Rethink this
         private void InitializeResources()
         {
             pnlOverlayResource.pnlBasics.aChBxDrawBackground.Checked = _pSettings.ResourceDrawBackground;
@@ -185,7 +188,68 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayWorker.pnlLauncher.txtToggle.Text = _pSettings.WorkerTogglePanel;
         }
 
+        private void InitializeUnittab()
+        {
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveAi.Checked = _pSettings.UnitTabRemoveAi;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.UnitTabRemoveAllie;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.UnitTabRemoveClanTag;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.UnitTabRemoveNeutral;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.UnitTabRemoveLocalplayer;
+            pnlOverlayUnittab.pnlBasics.btnSetFont.Text = _pSettings.UnitTabFontName;
+            pnlOverlayUnittab.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.UnitTabOpacity > 1.0
+                ? (Int32)_pSettings.UnitTabOpacity
+                : (Int32)(_pSettings.UnitTabOpacity * 100);
+            pnlOverlayUnittab.pnlBasics.aChBxDisplayBuildings.Checked = _pSettings.UnitTabShowBuildings;
+            pnlOverlayUnittab.pnlBasics.aChBxDisplayUnits.Checked = _pSettings.UnitTabShowUnits;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveChronoboost.Checked = _pSettings.UnitTabRemoveChronoboost;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveProductionstatus.Checked = _pSettings.UnitTabRemoveProdLine;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveSpellcounter.Checked = _pSettings.UnitTabRemoveSpellCounter;
+            pnlOverlayUnittab.pnlBasics.aChBxSplitUnitsBuildings.Checked = _pSettings.UnitTabSplitUnitsAndBuildings;
+            pnlOverlayUnittab.pnlBasics.aChBxTransparentImages.Checked = _pSettings.UnitTabUseTransparentImages;
+            
 
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey1.Text = _pSettings.UnitHotkey1.ToString();
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey2.Text = _pSettings.UnitHotkey2.ToString();
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey3.Text = _pSettings.UnitHotkey3.ToString();
+
+            pnlOverlayUnittab.pnlLauncher.txtReposition.Text = _pSettings.UnitChangePositionPanel;
+            pnlOverlayUnittab.pnlLauncher.txtResize.Text = _pSettings.UnitChangeSizePanel;
+            pnlOverlayUnittab.pnlLauncher.txtToggle.Text = _pSettings.UnitTogglePanel;
+
+            pnlOverlayUnittab.pnlSpecial.ntxtSize.Text = _pSettings.UnitPictureSize.ToString();
+        }
+
+        private void InitializeProductiontab()
+        {
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAi.Checked = _pSettings.ProdTabRemoveAi;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.ProdTabRemoveAllie;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.ProdTabRemoveClanTag;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ProdTabRemoveNeutral;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ProdTabRemoveLocalplayer;
+            pnlOverlayProductiontab.pnlBasics.btnSetFont.Text = _pSettings.ProdTabFontName;
+            pnlOverlayProductiontab.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.ProdTabOpacity > 1.0
+                ? (Int32)_pSettings.ProdTabOpacity
+                : (Int32)(_pSettings.ProdTabOpacity * 100);
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayBuildings.Checked = _pSettings.ProdTabShowBuildings;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUnits.Checked = _pSettings.ProdTabShowUnits;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUpgrades.Checked = _pSettings.ProdTabShowUpgrades;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveChronoboost.Checked = _pSettings.ProdTabRemoveChronoboost;
+            pnlOverlayProductiontab.pnlBasics.aChBxSplitUnitsBuildings.Checked = _pSettings.ProdTabSplitUnitsAndBuildings;
+            pnlOverlayProductiontab.pnlBasics.aChBxTransparentImages.Checked = _pSettings.ProdTabUseTransparentImages;
+
+
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey1.Text = _pSettings.ProdHotkey1.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey2.Text = _pSettings.ProdHotkey2.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey3.Text = _pSettings.ProdHotkey3.ToString();
+
+            pnlOverlayProductiontab.pnlLauncher.txtReposition.Text = _pSettings.ProdChangePositionPanel;
+            pnlOverlayProductiontab.pnlLauncher.txtResize.Text = _pSettings.ProdChangeSizePanel;
+            pnlOverlayProductiontab.pnlLauncher.txtToggle.Text = _pSettings.ProdTogglePanel;
+
+            pnlOverlayProductiontab.pnlSpecial.ntxtSize.Text = _pSettings.ProdPictureSize.ToString();
+        }
+
+        #endregion
 
         private void NewMainHandler_Load(object sender, EventArgs e)
         {
@@ -286,15 +350,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     pnl == pnlOverlayResource)
                     continue;
 
-                if (pnl.GetType() == typeof(PanelOverlayBasics))
-                    ((PanelOverlayBasics)pnl).Visible = false;
-
-                    
-                else if (pnl.GetType() == typeof(PanelOverlayWorker))
-                    ((PanelOverlayWorker)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof (PanelOverlayMaphack))
-                    ((PanelOverlayMaphack) pnl).Visible = false;
+                ((UserControl)pnl).Visible = false;
             }
         }
 
@@ -308,14 +364,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     pnl == pnlOverlayIncome)
                     continue;
 
-                if (pnl.GetType() == typeof(PanelOverlayBasics))
-                    ((PanelOverlayBasics)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof(PanelOverlayWorker))
-                    ((PanelOverlayWorker)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof(PanelOverlayMaphack))
-                    ((PanelOverlayMaphack)pnl).Visible = false;
+                ((UserControl)pnl).Visible = false;
             }
         }
 
@@ -329,14 +378,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     pnl == pnlOverlayWorker)
                     continue;
 
-                if (pnl.GetType() == typeof(PanelOverlayBasics))
-                    ((PanelOverlayBasics)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof(PanelOverlayWorker))
-                    ((PanelOverlayWorker)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof(PanelOverlayMaphack))
-                    ((PanelOverlayMaphack)pnl).Visible = false;
+                ((UserControl)pnl).Visible = false;
             }
         }
 
@@ -350,14 +392,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     pnl == pnlOverlayArmy)
                     continue;
 
-                if (pnl.GetType() == typeof(PanelOverlayBasics))
-                    ((PanelOverlayBasics)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof(PanelOverlayWorker))
-                    ((PanelOverlayWorker)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof(PanelOverlayMaphack))
-                    ((PanelOverlayMaphack)pnl).Visible = false;
+                ((UserControl)pnl).Visible = false;
             }
         }
 
@@ -371,14 +406,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     pnl == pnlOverlayApm)
                     continue;
 
-                if (pnl.GetType() == typeof(PanelOverlayBasics))
-                    ((PanelOverlayBasics)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof(PanelOverlayWorker))
-                    ((PanelOverlayWorker)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof(PanelOverlayMaphack))
-                    ((PanelOverlayMaphack)pnl).Visible = false;
+                ((UserControl)pnl).Visible = false;
             }
         }
 
@@ -392,25 +420,36 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     pnl == pnlOverlayMaphack)
                     continue;
 
-                if (pnl.GetType() == typeof(PanelOverlayBasics))
-                    ((PanelOverlayBasics)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof(PanelOverlayWorker))
-                    ((PanelOverlayWorker)pnl).Visible = false;
-
-                else if (pnl.GetType() == typeof(PanelOverlayMaphack))
-                    ((PanelOverlayMaphack)pnl).Visible = false;
+                ((UserControl)pnl).Visible = false;
             }
         }
 
         private void cpnlOverlaysUnits_Click(object sender, EventArgs e)
         {
+            pnlOverlayUnittab.Visible = true;
 
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayUnittab)
+                    continue;
+
+                ((UserControl)pnl).Visible = false;
+            }
         }
 
         private void cpnlOverlaysProduction_Click(object sender, EventArgs e)
         {
+            pnlOverlayProductiontab.Visible = true;
 
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayProductiontab)
+                    continue;
+
+                ((UserControl)pnl).Visible = false;
+            }
         }
     }
 
