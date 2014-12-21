@@ -1,4 +1,13 @@
-﻿using System;
+﻿/// I know this is nasty code and looks utterly ugly
+/// But for now, it's good enough.
+/// I might reqrite this in the future as any kind of improvement or bugfixing will be a gigantic
+/// "fuck you" for the dude that is supposed to change it.
+/// I am sorry
+/// 
+/// bellaPatricia, November 2014
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -127,11 +136,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
                 {
                     _lMainText.Font = new Font(Font.Name, _textSize);
 
-                    var fTextHeight = TextRenderer.MeasureText("dummy", _lMainText.Font).Height;
+                    var fTextSize = TextRenderer.MeasureText(DisplayText, _lMainText.Font);
                     var fHeight = (float)Size.Height / 2;
-                    var fY = fHeight - ((float)fTextHeight / 2);
+                    var fY = fHeight - ((float)fTextSize.Height / 2);
 
-                    _lMainText.Location = new Point(_iTextPosX, (int)fY);
+                    var posX = Width - fTextSize.Width;
+                    posX = posX / 2;
+
+                    if (_iTextPosX != 0)
+                        posX = 0;
+
+                    _lMainText.Location = new Point(_iTextPosX + posX, (int)fY);
                 }
             }
         }
@@ -182,7 +197,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         private Color _inactiveForegroundColor = Color.FromArgb(255, 193, 193, 193);
         private Color _activeForegroundColor = Color.FromArgb(255, 242, 242, 242);
         private Color _newBackgroundColor = Color.Wheat;
-        private Label _lMainText = new Label();
+        private Label _lMainText = new Label();     //This is only used as placeholder as directly drawing the text on the control is far more efficient (considering the events)
         private Int32 _iTextPosX = 45;
         
         private PictureBox _pcbImage = new PictureBox();
@@ -196,14 +211,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
              ControlStyles.UserPaint |
              ControlStyles.OptimizedDoubleBuffer |
              ControlStyles.AllPaintingInWmPaint, true);
-
         }
 
         private void Init()
         {
-            
-           // BackColor = _inactiveBackgroundColor;
-
             if (DisplayText.Length <= 0)
                 DisplayText = "[SampleText]";
 
@@ -216,9 +227,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
             var fYImage = ((float) Size.Height/2) - 12;
 
-            //_lMainText.Location = new Point(_iTextPosX, (int)fY);
-            _lMainText.MouseEnter += _lMainText_MouseEnter;
-            _lMainText.Click += _lMainText_Click;
+            _lMainText.Visible = false;
 
             _pcbImage.Location = new Point(10, (int)fYImage);
             _pcbImage.MouseEnter += _pcbImage_MouseEnter;
@@ -228,7 +237,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             _pcbImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
             Controls.Add(_pcbImage);
-            Controls.Add(_lMainText);
 
 
             _bInitCalled = true;
@@ -296,6 +304,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
+            e.Graphics.DrawString(_lMainText.Text, _lMainText.Font, new SolidBrush(_lMainText.ForeColor), _lMainText.Location);
 
 
             if (IsClicked)

@@ -64,7 +64,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayResource.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ResourceRemoveNeutral;
             pnlOverlayResource.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ResourceRemoveLocalplayer;
             pnlOverlayResource.pnlBasics.btnSetFont.Text = _pSettings.ResourceFontName;
-            pnlOverlayResource.pnlBasics.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.ResourceOpacity);
+            pnlOverlayResource.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.ResourceOpacity > 1.0
+                ? (Int32)_pSettings.ResourceOpacity
+                : (Int32)(_pSettings.ResourceOpacity * 100);
 
             pnlOverlayResource.pnlLauncher.ktxtHotkey1.Text = _pSettings.ResourceHotkey1.ToString();
             pnlOverlayResource.pnlLauncher.ktxtHotkey2.Text = _pSettings.ResourceHotkey2.ToString();
@@ -84,7 +86,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayIncome.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.IncomeRemoveNeutral;
             pnlOverlayIncome.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.IncomeRemoveLocalplayer;
             pnlOverlayIncome.pnlBasics.btnSetFont.Text = _pSettings.IncomeFontName;
-            pnlOverlayIncome.pnlBasics.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.IncomeOpacity);
+            pnlOverlayIncome.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.IncomeOpacity > 1.0
+                ? (Int32)_pSettings.IncomeOpacity
+                : (Int32)(_pSettings.IncomeOpacity * 100);
 
             pnlOverlayIncome.pnlLauncher.ktxtHotkey1.Text = _pSettings.IncomeHotkey1.ToString();
             pnlOverlayIncome.pnlLauncher.ktxtHotkey2.Text = _pSettings.IncomeHotkey2.ToString();
@@ -104,7 +108,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayApm.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ApmRemoveNeutral;
             pnlOverlayApm.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ApmRemoveLocalplayer;
             pnlOverlayApm.pnlBasics.btnSetFont.Text = _pSettings.ApmFontName;
-            pnlOverlayApm.pnlBasics.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.ApmOpacity);
+            pnlOverlayApm.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.ApmOpacity > 1.0
+                ? (Int32)_pSettings.ApmOpacity
+                : (Int32)(_pSettings.ApmOpacity * 100);
 
             pnlOverlayApm.pnlLauncher.ktxtHotkey1.Text = _pSettings.ApmHotkey1.ToString();
             pnlOverlayApm.pnlLauncher.ktxtHotkey2.Text = _pSettings.ApmHotkey2.ToString();
@@ -124,7 +130,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayArmy.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ArmyRemoveNeutral;
             pnlOverlayArmy.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ArmyRemoveLocalplayer;
             pnlOverlayArmy.pnlBasics.btnSetFont.Text = _pSettings.ArmyFontName;
-            pnlOverlayArmy.pnlBasics.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.ArmyOpacity);
+            pnlOverlayArmy.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.ArmyOpacity > 1.0
+                ? (Int32)_pSettings.ArmyOpacity
+                : (Int32)(_pSettings.ArmyOpacity * 100);
 
             pnlOverlayArmy.pnlLauncher.ktxtHotkey1.Text = _pSettings.ArmyHotkey1.ToString();
             pnlOverlayArmy.pnlLauncher.ktxtHotkey2.Text = _pSettings.ArmyHotkey2.ToString();
@@ -141,7 +149,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayMaphack.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.MaphackRemoveAllie;
             pnlOverlayMaphack.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.MaphackRemoveNeutral;
             pnlOverlayMaphack.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.MaphackRemoveLocalplayer;
-            pnlOverlayMaphack.pnlBasics.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.MaphackOpacity);
+            pnlOverlayMaphack.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.MaphackOpacity > 1.0
+                ? (Int32)_pSettings.MaphackOpacity
+                : (Int32)(_pSettings.MaphackOpacity * 100);
             pnlOverlayMaphack.pnlBasics.aChBxDefensiveStructures.Checked =
                 _pSettings.MaphackColorDefensivestructuresYellow;
             pnlOverlayMaphack.pnlBasics.aChBxRemoveCamera.Checked = _pSettings.MaphackRemoveCamera;
@@ -162,7 +172,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             pnlOverlayWorker.aChBxDrawBackground.Checked = _pSettings.WorkerDrawBackground;
             pnlOverlayWorker.btnSetFont.Text = _pSettings.WorkerFontName;
-            pnlOverlayWorker.OpacityControl.tbOpacity.Value = (int)(100 * _pSettings.WorkerOpacity);
+            pnlOverlayWorker.OpacityControl.tbOpacity.Value = _pSettings.WorkerOpacity > 1.0
+                ? (Int32)_pSettings.WorkerOpacity
+                : (Int32)(_pSettings.WorkerOpacity * 100);
 
             pnlOverlayWorker.pnlLauncher.ktxtHotkey1.Text = _pSettings.WorkerHotkey1.ToString();
             pnlOverlayWorker.pnlLauncher.ktxtHotkey2.Text = _pSettings.WorkerHotkey2.ToString();
