@@ -54,7 +54,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             }
         }
 
-        public TextAlignment TextAlign { get; set; }
+        private Cursor _cursor = Cursors.Hand;
+        public new Cursor Cursor
+        {
+            get { return _cursor; }
+            set { _cursor = value;
+            base.Cursor = value;
+            }
+        }
+
+        private TextAlignment _textAlign = TextAlignment.Left;
+        public TextAlignment TextAlign
+        {
+            get { return _textAlign; }
+            set { _textAlign = value; }
+        }
 
         private Boolean _checked = false;
 
@@ -63,11 +77,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             get { return _checked; }
             set
             {
-                _checked = value;
-                OnCheckedChanged(this, new EventChecked(_checked));
-                Invalidate();
-                
+                if (value != _checked)
+                {
+                    _checked = value;
+                    OnCheckedChanged(this, new EventChecked(_checked));
+                    Invalidate();
+                }
             }
+        }
+
+        private Boolean _clickable = true;
+        public Boolean Clickable
+        {
+            get { return _clickable; }
+            set { _clickable = value; }
         }
 
         private Boolean _bMouseOver = false;
@@ -75,13 +98,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
         private void Init()
         {
-            _lMainText.AutoSize = true;
-            _lMainText.MouseEnter += _lMainText_MouseEnter;
-            _lMainText.Click += _lMainText_Click;
+            base.Cursor = Cursor;
 
-            TextAlign = TextAlignment.Left;
-
-            Controls.Add(_lMainText);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+            ControlStyles.AllPaintingInWmPaint |
+            ControlStyles.UserPaint, true);
         }
 
         void _lMainText_Click(object sender, EventArgs e)
@@ -117,9 +138,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
         protected override void OnClick(EventArgs e)
         {
-            base.OnClick(e);
+            if (Clickable)
+            {
 
-            Checked ^= true;
+                base.OnClick(e);
+
+                Checked ^= true;
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -127,11 +152,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             base.OnPaint(e);
 
-            var fTextHeight = TextRenderer.MeasureText("dummy", _lMainText.Font).Height;
+            var fTextHeight = TextRenderer.MeasureText("dummy", Font).Height;
             var fHeight = (float)Size.Height / 2;
             var fY = fHeight - ((float)fTextHeight / 2);
 
-            
 
 
 
@@ -142,24 +166,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             if (TextAlign == TextAlignment.Right)
             {
-                _lMainText.Location = new Point(width + 5, (int)fY);
+                e.Graphics.DrawString(DisplayText, Font, new SolidBrush(_lMainText.ForeColor), new Point(width + 5, (int)fY));
                 posX = 0;
             }
 
-            else 
-                _lMainText.Location = new Point(0, (int)fY);
+            else
+                e.Graphics.DrawString(DisplayText, Font, new SolidBrush(_lMainText.ForeColor), new Point(0, (int)fY));
 
-            //e.Graphics.DrawRoundRect(new Pen(new SolidBrush(Color.Gray)), Width - 50, 10, 20, 20, 1f);
             e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(251, 251, 251)), posX, posY, width, height);
 
-            if (_bMouseOver)
+            if (_bMouseOver && Clickable)
                 e.Graphics.DrawRoundRect(_pActiveBpxBorder, posX, posY, width, height, 1);
 
             else
                 e.Graphics.DrawRoundRect(_pInactiveBpxBorder, posX, posY, width, height, 1);
 
             if (Checked)
-                e.Graphics.DrawImage(Properties.Resources.checkmark, posX + ((width - 12) / 2), posY + ((height - 12) / 2));
+                e.Graphics.DrawImage(Properties.Resources.checkmark, posX + ((width - 12) / 2), posY + ((height - 12) / 2), 12, 12);
 
             Height = height + 10;
             Width = TextRenderer.MeasureText(DisplayText, Font).Width + 5 + width + 5;

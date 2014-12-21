@@ -17,6 +17,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         
 
         private Preferences _pSettings = new Preferences();
+        private Timer _tmrMainTick = new Timer();
+
+        public GameInfo Gameinfo { get; private set; }
         public ApplicationStartOptions ApplicationOptions { get; private set; }
 
         public NewMainHandler(ApplicationStartOptions app)
@@ -27,14 +30,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Init();
 
             ApplicationOptions = app;
+
+            Gameinfo = new GameInfo(_pSettings.GlobalDataRefresh);
         }
 
         private void Init()
         {
             cpnlApplication.PerformClick();
             cpnlOverlaysResources.PerformClick();
-            
 
+            _tmrMainTick.Interval = _pSettings.GlobalDataRefresh;
+            _tmrMainTick.Tick += _tmrMainTick_Tick;
+            _tmrMainTick.Enabled = true;
+        }
+
+        void _tmrMainTick_Tick(object sender, EventArgs e)
+        {
+          /*  aChBxStarcraftFound.Checked = Gameinfo.CStarcraft2 != null ? true : false;
+            aChBxIngame.Checked = Gameinfo.Gameinfo.IsIngame;*/
             
         }
 
@@ -314,6 +327,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void cpnlDebug_Click(object sender, EventArgs e)
         {
             lblTabname.Text = "Debug";
+
+
+            pnlDebug.Visible = true;
+            foreach (var pnl in pnlMainArea.Controls)
+            {
+                if (pnl == pnlDebug)
+                    continue;
+
+                if (pnl.GetType() == typeof(Panel))
+                {
+                    ((Panel)pnl).Visible = false;
+                }
+            }
         }
 
         private void pnlLeftSelection_Paint(object sender, PaintEventArgs e)

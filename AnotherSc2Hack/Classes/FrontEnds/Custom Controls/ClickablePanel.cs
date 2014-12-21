@@ -346,6 +346,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
                 Init();
         }
 
+        /// <summary>
+        /// Performs an actual Click on the panel
+        /// </summary>
         public void PerformClick()
         {
             OnClick(new EventArgs());

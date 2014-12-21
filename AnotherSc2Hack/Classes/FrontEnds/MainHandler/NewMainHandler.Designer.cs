@@ -36,6 +36,9 @@
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlAutomation = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlMainArea = new System.Windows.Forms.Panel();
+            this.pnlDebug = new System.Windows.Forms.Panel();
+            this.aChBxStarcraftFound = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
+            this.label5 = new System.Windows.Forms.Label();
             this.pnlOverlays = new System.Windows.Forms.Panel();
             this.pnlOverlayProductiontab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayProductiontab();
             this.pnlOverlayUnittab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayUnittab();
@@ -66,8 +69,10 @@
             this.ntxtMemoryRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.aChBxIngame = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
+            this.pnlDebug.SuspendLayout();
             this.pnlOverlays.SuspendLayout();
             this.pnlPanelContainer.SuspendLayout();
             this.pnlApplication.SuspendLayout();
@@ -206,6 +211,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.pnlMainArea.Controls.Add(this.pnlDebug);
             this.pnlMainArea.Controls.Add(this.pnlOverlays);
             this.pnlMainArea.Controls.Add(this.lblTabname);
             this.pnlMainArea.Controls.Add(this.pnlApplication);
@@ -214,6 +220,45 @@
             this.pnlMainArea.Size = new System.Drawing.Size(1306, 555);
             this.pnlMainArea.TabIndex = 6;
             this.pnlMainArea.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMainArea_Paint);
+            // 
+            // pnlDebug
+            // 
+            this.pnlDebug.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlDebug.Controls.Add(this.aChBxIngame);
+            this.pnlDebug.Controls.Add(this.aChBxStarcraftFound);
+            this.pnlDebug.Controls.Add(this.label5);
+            this.pnlDebug.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlDebug.Location = new System.Drawing.Point(0, 80);
+            this.pnlDebug.Name = "pnlDebug";
+            this.pnlDebug.Size = new System.Drawing.Size(1306, 475);
+            this.pnlDebug.TabIndex = 12;
+            // 
+            // aChBxStarcraftFound
+            // 
+            this.aChBxStarcraftFound.AutoSize = true;
+            this.aChBxStarcraftFound.Checked = false;
+            this.aChBxStarcraftFound.Clickable = false;
+            this.aChBxStarcraftFound.Cursor = System.Windows.Forms.Cursors.Default;
+            this.aChBxStarcraftFound.DisplayText = "Starcraft Found";
+            this.aChBxStarcraftFound.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxStarcraftFound.Location = new System.Drawing.Point(19, 45);
+            this.aChBxStarcraftFound.Name = "aChBxStarcraftFound";
+            this.aChBxStarcraftFound.Size = new System.Drawing.Size(140, 30);
+            this.aChBxStarcraftFound.TabIndex = 2;
+            this.aChBxStarcraftFound.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label5.Location = new System.Drawing.Point(15, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Global";
             // 
             // pnlOverlays
             // 
@@ -536,6 +581,7 @@
             // chBxOnlyDrawInForeground
             // 
             this.chBxOnlyDrawInForeground.Checked = false;
+            this.chBxOnlyDrawInForeground.Clickable = true;
             this.chBxOnlyDrawInForeground.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chBxOnlyDrawInForeground.DisplayText = "Only draw when SCII is in foreground";
             this.chBxOnlyDrawInForeground.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -618,6 +664,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Memory Reading (ms):";
             // 
+            // aChBxIngame
+            // 
+            this.aChBxIngame.AutoSize = true;
+            this.aChBxIngame.Checked = false;
+            this.aChBxIngame.Clickable = false;
+            this.aChBxIngame.Cursor = System.Windows.Forms.Cursors.Default;
+            this.aChBxIngame.DisplayText = "Ingame";
+            this.aChBxIngame.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxIngame.Location = new System.Drawing.Point(19, 80);
+            this.aChBxIngame.Name = "aChBxIngame";
+            this.aChBxIngame.Size = new System.Drawing.Size(89, 30);
+            this.aChBxIngame.TabIndex = 3;
+            this.aChBxIngame.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            // 
             // NewMainHandler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -633,6 +693,8 @@
             this.pnlLeftSelection.ResumeLayout(false);
             this.pnlMainArea.ResumeLayout(false);
             this.pnlMainArea.PerformLayout();
+            this.pnlDebug.ResumeLayout(false);
+            this.pnlDebug.PerformLayout();
             this.pnlOverlays.ResumeLayout(false);
             this.pnlPanelContainer.ResumeLayout(false);
             this.pnlPanelContainer.PerformLayout();
@@ -681,6 +743,10 @@
         private Container.PanelOverlayMaphack pnlOverlayMaphack;
         private Container.PanelOverlayUnittab pnlOverlayUnittab;
         private Container.PanelOverlayProductiontab pnlOverlayProductiontab;
+        private System.Windows.Forms.Panel pnlDebug;
+        private System.Windows.Forms.Label label5;
+        private AnotherCheckbox aChBxStarcraftFound;
+        private AnotherCheckbox aChBxIngame;
 
     }
 }
