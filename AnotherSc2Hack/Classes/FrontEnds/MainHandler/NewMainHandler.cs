@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.BackEnds.Gameinfo;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Container;
+using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
@@ -18,6 +20,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private Preferences _pSettings = new Preferences();
         private Timer _tmrMainTick = new Timer();
+        private Int32 _iDebugPlayerIndex = 0;
+
+        private Int32 IDebugPlayerIndex
+        {
+            get {  return _iDebugPlayerIndex; }
+            set
+            {
+                _iDebugPlayerIndex = value;
+
+                if (Gameinfo != null && Gameinfo.Player != null)
+                    lblDebugPlayerLocation.Text = _iDebugPlayerIndex + "/" + (Gameinfo.Player.Count - 1);
+
+                DebugPlayerRefresh();
+            }
+        }
 
         public GameInfo Gameinfo { get; private set; }
         public ApplicationStartOptions ApplicationOptions { get; private set; }
@@ -48,7 +65,51 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
           /*  aChBxStarcraftFound.Checked = Gameinfo.CStarcraft2 != null ? true : false;
             aChBxIngame.Checked = Gameinfo.Gameinfo.IsIngame;*/
+
+
             
+        }
+
+        private void DebugPlayerRefresh()
+        {
+            if (Gameinfo == null || Gameinfo.Player == null)
+                return;
+
+            var player = Gameinfo.Player[IDebugPlayerIndex];
+            var properties = TypeDescriptor.GetProperties(player);
+
+            if (lstvDebugPlayderdata.Items.Count > 0)
+            {
+                //Actually refresh, not insert new ones!
+                for (var i = 0; i < properties.Count; i++)
+                {
+                    var property = properties[i];
+
+                    lstvDebugPlayderdata.Items[i].SubItems[1].Text = property.GetValue(player).ToString();
+                }
+
+                
+
+            }
+
+            else
+            {
+                //Insert new ones
+                foreach (PropertyDescriptor property in properties)
+                {
+                    var lwi = new ListViewItem();
+
+                    lwi.Text = property.Name;
+                    lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, property.GetValue(player).ToString()));
+
+                    lstvDebugPlayderdata.Items.Add(lwi);
+                }
+
+            }
+
+            
+
+
         }
 
         #region Load Settings Into Controls
@@ -476,6 +537,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 ((UserControl)pnl).Visible = false;
             }
+        }
+
+        private void btnDebugPlayerBack_Click(object sender, EventArgs e)
+        {
+            if (IDebugPlayerIndex > 0)
+                IDebugPlayerIndex -= 1;
+        }
+
+        private void btnDebugPlayerForward_Click(object sender, EventArgs e)
+        {
+            if (Gameinfo.Player != null &&
+                IDebugPlayerIndex < Gameinfo.Player.Count - 1)
+                IDebugPlayerIndex += 1;
         }
     }
 

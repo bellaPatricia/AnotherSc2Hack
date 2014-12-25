@@ -1392,7 +1392,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 4 Bytes */
         private Int32 GetGTimer()
         {
-            Console.WriteLine("Timer (RAW): " + Memory.ReadInt32(Of.TimerData));
+            //Console.WriteLine("Timer (RAW): " + Memory.ReadInt32(Of.TimerData));
             return Memory.ReadInt32(Of.TimerData) >> 12;
             //(BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.TimerData, sizeof (Int32)), 0) >> 12);
         }
