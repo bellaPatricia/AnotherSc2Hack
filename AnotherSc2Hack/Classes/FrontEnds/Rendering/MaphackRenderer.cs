@@ -43,6 +43,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 var tmpMap = HMainHandler.GInformation.Map;
 
+
                 #region Introduction
 
                 #region Variables

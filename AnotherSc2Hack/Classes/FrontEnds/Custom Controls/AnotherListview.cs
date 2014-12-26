@@ -1,8 +1,10 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    internal class AnotherListview : ListView
+    public class AnotherListview : ListView
     {
         public AnotherListview()
         {

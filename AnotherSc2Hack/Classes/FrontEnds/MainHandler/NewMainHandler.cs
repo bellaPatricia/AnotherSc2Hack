@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Windows.Forms;
@@ -92,6 +93,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             DebugPlayerRefresh();
             DebugUnitRefresh();
+            DebugMapRefresh();
+            DebugMatchinformationRefresh();
             
         }
 
@@ -127,6 +130,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 {
                     var lwi = new ListViewItem();
 
+                    lwi.BackColor = lstvDebugPlayderdata.Items.Count%2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
                     lwi.Text = property.Name;
                     lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, property.GetValue(player).ToString()));
 
@@ -170,6 +174,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 {
                     var lwi = new ListViewItem();
 
+                    lwi.BackColor = lstvDebugUnitdata.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
                     lwi.Text = property.Name;
                     lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, property.GetValue(player).ToString()));
 
@@ -179,6 +184,83 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
 
             txtDebugUnitMemory.Text = PredefinedData.Unit.ClassObjectCount.ToString();
+        }
+
+        private void DebugMapRefresh()
+        {
+            if (Gameinfo == null)
+                return;
+
+            var fields = typeof (PredefinedData.Map).GetFields(BindingFlags.Public | BindingFlags.Instance);
+
+            if (lstvDebugMapdata.Items.Count > 0)
+            {
+                //Actually refresh, not insert new ones!
+                for (var i = 0; i < fields.Length; i++)
+                {
+                    var field = fields[i];
+
+                    lstvDebugMapdata.Items[i].SubItems[1].Text = field.GetValue(Gameinfo.Map).ToString();
+                }
+
+
+
+            }
+
+            else
+            {
+                
+                //Insert new ones
+                foreach (var field in fields)
+                {
+                    var lwi = new ListViewItem();
+
+                    lwi.BackColor = lstvDebugMapdata.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
+                    lwi.Text = field.Name;
+                    lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, field.GetValue(Gameinfo.Map).ToString()));
+
+                    lstvDebugMapdata.Items.Add(lwi);
+                }
+
+            }
+        }
+
+        private void DebugMatchinformationRefresh()
+        {
+            if (Gameinfo == null || Gameinfo.Gameinfo == null)
+                return;
+
+            var properties = TypeDescriptor.GetProperties(Gameinfo.Gameinfo);
+
+            if (lstvDebugMatchdata.Items.Count > 0)
+            {
+                //Actually refresh, not insert new ones!
+                for (var i = 0; i < properties.Count; i++)
+                {
+                    var property = properties[i];
+
+                    lstvDebugMatchdata.Items[i].SubItems[1].Text = property.GetValue(Gameinfo.Gameinfo).ToString();
+                }
+
+
+
+            }
+
+            else
+            {
+                //Insert new ones
+                foreach (PropertyDescriptor property in properties)
+                {
+                    var lwi = new ListViewItem();
+
+                    lwi.BackColor = lstvDebugMatchdata.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
+                    lwi.Text = property.Name;
+                    lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, property.GetValue(Gameinfo.Gameinfo).ToString()));
+
+                    lstvDebugMatchdata.Items.Add(lwi);
+                }
+
+            }
         }
 
         #region Load Settings Into Controls
