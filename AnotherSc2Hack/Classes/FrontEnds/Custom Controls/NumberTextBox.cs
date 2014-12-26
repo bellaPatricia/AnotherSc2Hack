@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -16,6 +17,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         }
     }
 
+    [DefaultEvent("NumberChanged")]
     public class NumberTextBox : TextBox
     {
         public event NumberChangeHandler NumberChanged;

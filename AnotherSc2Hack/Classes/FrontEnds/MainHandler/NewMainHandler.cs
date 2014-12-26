@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
@@ -24,7 +25,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private Int32 IDebugPlayerIndex
         {
-            get {  return _iDebugPlayerIndex; }
+            get { return _iDebugPlayerIndex; }
             set
             {
                 _iDebugPlayerIndex = value;
@@ -33,6 +34,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     lblDebugPlayerLocation.Text = _iDebugPlayerIndex + "/" + (Gameinfo.Player.Count - 1);
 
                 DebugPlayerRefresh();
+            }
+        }
+
+        private Int32 _iDebugUnitIndex = 0;
+
+        private Int32 IDebugUnitIndex
+        {
+            get { return _iDebugUnitIndex; }
+            set
+            {
+                _iDebugUnitIndex = value;
+
+                if (Gameinfo != null && Gameinfo.Unit != null)
+                    lblDebugUnitLocation.Text = _iDebugUnitIndex + "/" + (Gameinfo.Unit.Count - 1);
+
+                DebugUnitRefresh();
             }
         }
 
@@ -59,6 +76,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _tmrMainTick.Interval = _pSettings.GlobalDataRefresh;
             _tmrMainTick.Tick += _tmrMainTick_Tick;
             _tmrMainTick.Enabled = true;
+
+            
+
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.UserPaint |
+                ControlStyles.DoubleBuffer, true);
         }
 
         void _tmrMainTick_Tick(object sender, EventArgs e)
@@ -66,7 +90,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
           /*  aChBxStarcraftFound.Checked = Gameinfo.CStarcraft2 != null ? true : false;
             aChBxIngame.Checked = Gameinfo.Gameinfo.IsIngame;*/
 
-
+            DebugPlayerRefresh();
+            DebugUnitRefresh();
             
         }
 
@@ -74,6 +99,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             if (Gameinfo == null || Gameinfo.Player == null)
                 return;
+
+            if (IDebugPlayerIndex > Gameinfo.Player.Count)
+                IDebugPlayerIndex = Gameinfo.Player.Count - 1;
 
             var player = Gameinfo.Player[IDebugPlayerIndex];
             var properties = TypeDescriptor.GetProperties(player);
@@ -107,9 +135,50 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             }
 
-            
+            txtDebugPlayerMemory.Text = PredefinedData.PlayerStruct.ClassObjectCount.ToString();
+        }
+
+        private void DebugUnitRefresh()
+        {
+            if (Gameinfo == null || Gameinfo.Unit == null)
+                return;
+
+            if (IDebugUnitIndex > Gameinfo.Unit.Count)
+                IDebugUnitIndex = Gameinfo.Unit.Count - 1;
+
+            var player = Gameinfo.Unit[IDebugUnitIndex];
+            var properties = TypeDescriptor.GetProperties(player);
+
+            if (lstvDebugUnitdata.Items.Count > 0)
+            {
+                //Actually refresh, not insert new ones!
+                for (var i = 0; i < properties.Count; i++)
+                {
+                    var property = properties[i];
+
+                    lstvDebugUnitdata.Items[i].SubItems[1].Text = property.GetValue(player).ToString();
+                }
 
 
+
+            }
+
+            else
+            {
+                //Insert new ones
+                foreach (PropertyDescriptor property in properties)
+                {
+                    var lwi = new ListViewItem();
+
+                    lwi.Text = property.Name;
+                    lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, property.GetValue(player).ToString()));
+
+                    lstvDebugUnitdata.Items.Add(lwi);
+                }
+
+            }
+
+            txtDebugUnitMemory.Text = PredefinedData.Unit.ClassObjectCount.ToString();
         }
 
         #region Load Settings Into Controls
@@ -547,9 +616,79 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnDebugPlayerForward_Click(object sender, EventArgs e)
         {
-            if (Gameinfo.Player != null &&
+            if (Gameinfo != null &&
+                Gameinfo.Player != null &&
                 IDebugPlayerIndex < Gameinfo.Player.Count - 1)
                 IDebugPlayerIndex += 1;
+        }
+
+        private void btnDebugUnitBack_Click(object sender, EventArgs e)
+        {
+            if (IDebugUnitIndex > 0)
+                IDebugUnitIndex -= 1;
+        }
+
+        private void btnDebugUnitForward_Click(object sender, EventArgs e)
+        {
+            if (Gameinfo != null && 
+                Gameinfo.Unit != null &&
+                IDebugUnitIndex < Gameinfo.Unit.Count - 1)
+                IDebugUnitIndex += 1;
+        }
+
+        private void ntxtDebugPlayerLocation_NumberChanged(NumberTextBox o, EventNumber e)
+        {
+            IDebugPlayerIndex = (Int32)e.TheNumber;
+        }
+
+        private void ntxtDebugUnitLocation_NumberChanged(NumberTextBox o, EventNumber e)
+        {
+            IDebugUnitIndex = (Int32)e.TheNumber;
+        }
+
+        private void txtDebugPlayername_TextChanged(object sender, EventArgs e)
+        {
+            if (Gameinfo == null || Gameinfo.Player == null)
+                return;
+
+            var tmpTextbox = (TextBox) sender;
+
+            if (tmpTextbox.Text.Length <= 0)
+                return;
+
+            var pew = Gameinfo.Player.FindIndex(x => x.Name.Contains(tmpTextbox.Text));
+
+            if (pew == -1)
+                tmpTextbox.ForeColor = Color.Red;
+
+            else
+            {
+                tmpTextbox.ForeColor = Color.Green;
+                IDebugPlayerIndex = pew;
+            }
+        }
+
+        private void txtDebugUnitname_TextChanged(object sender, EventArgs e)
+        {
+            if (Gameinfo == null || Gameinfo.Unit == null)
+                return;
+
+            var tmpTextbox = (TextBox)sender;
+
+            if (tmpTextbox.Text.Length <= 0)
+                return;
+
+
+            var pew = Gameinfo.Unit.FindIndex(x => x.Name.Contains(tmpTextbox.Text));
+
+            if (pew == -1)
+                tmpTextbox.ForeColor = Color.Red;
+
+            else
+            {
+                tmpTextbox.ForeColor = Color.Green;
+                IDebugUnitIndex = pew;
+            }
         }
     }
 

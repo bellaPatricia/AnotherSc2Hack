@@ -170,6 +170,9 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\AnotherCheckbox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\AnotherListview.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\Automation_Worker.cs">
       <SubType>UserControl</SubType>
     </Compile>
