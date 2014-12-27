@@ -1,4 +1,4 @@
-﻿<Window x:Class="PluginWorkerTrainer.MainWindow"
+﻿<Window x:Class="Plugin.Extensions.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="126" Width="250" Icon="StarCraft_Icon.ico" MouseDown="Window_MouseDown" MouseUp="Window_MouseUp" AllowsTransparency="True" WindowStyle="None" MaxWidth="250" MaxHeight="126" LocationChanged="Window_LocationChanged">

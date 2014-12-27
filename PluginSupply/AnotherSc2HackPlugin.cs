@@ -8,14 +8,16 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 using PredefinedTypes = Predefined.PredefinedData;
 using PluginInterface;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
+using PluginSupply;
 
-namespace PluginSupply
+namespace Plugin.Extensions
 {
     public class Renderer : Form
     {
@@ -540,7 +542,7 @@ namespace PluginSupply
     }
 
     /* Required shit - Interface and such.. */
-    public class AnotherSc2HackPlugin :  IPlugins
+    public class AnotherSc2HackPlugin : MarshalByRefObject, IPlugins
     {
 
         private Renderer _rndMainWindow = null;
@@ -638,6 +640,16 @@ namespace PluginSupply
                 _rndMainWindow.Created)
                 _rndMainWindow.Close();
 
+        }
+
+        public string GetFileLocation()
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().Location;
+        }
+
+        public Version GetPluginVersion()
+        {
+            return new Version(FileVersionInfo.GetVersionInfo(GetFileLocation()).FileVersion);
         }
     }
 }

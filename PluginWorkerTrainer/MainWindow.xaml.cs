@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,9 @@ using System.Windows.Threading;
 using System.Windows.Forms;         //I'm a nasty motherfucker, I know :/
 using PredefinedTypes = Predefined.PredefinedData;
 using PluginInterface;
+using PluginWorkerTrainer;
 
-namespace PluginWorkerTrainer
+namespace Plugin.Extensions
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
@@ -379,7 +381,7 @@ namespace PluginWorkerTrainer
         }
     }
 
-    public class AnotherSc2HackPlugin : IPlugins
+    public class AnotherSc2HackPlugin : MarshalByRefObject, IPlugins
     {
         private MainWindow _mainWindows = new MainWindow(); 
 
@@ -474,6 +476,16 @@ namespace PluginWorkerTrainer
         public void StopPlugin()
         {
             _mainWindows.Close();
+        }
+
+        public string GetFileLocation()
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().Location;
+        }
+
+        public Version GetPluginVersion()
+        {
+            return new Version(FileVersionInfo.GetVersionInfo(GetFileLocation()).FileVersion);
         }
     }
 }

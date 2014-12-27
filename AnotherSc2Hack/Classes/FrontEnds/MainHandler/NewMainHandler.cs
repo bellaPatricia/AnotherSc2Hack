@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -14,6 +16,7 @@ using AnotherSc2Hack.Classes.BackEnds.Gameinfo;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Container;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
+using PluginInterface;
 using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
@@ -26,6 +29,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly Timer _tmrMainTick = new Timer();
         private Int32 _iDebugPlayerIndex;
         private readonly RendererContainer _lContainer = new RendererContainer();
+        private readonly List<AppDomain> _lPluginContainer = new List<AppDomain>(); 
+        private readonly List<IPlugins> _lPlugins = new List<IPlugins>();
 
         private Int32 IDebugPlayerIndex
         {
@@ -68,6 +73,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Init();
             ControlsFill();
             EventMapping();
+            PluginsLoadPlugins();
 
             ApplicationOptions = app;
 
@@ -113,7 +119,37 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             DebugUnitRefresh();
             DebugMapRefresh();
             DebugMatchinformationRefresh();
-            
+
+            PluginDataRefresh();
+
+
+        }
+
+        private void PluginDataRefresh()
+        {
+            if (_lPlugins == null || _lPlugins.Count <= 0)
+                return;
+
+
+            foreach (var plugin in _lPlugins)
+            {
+                /* Refresh some Data */
+                plugin.SetMap(Gameinfo.Map);
+                plugin.SetPlayers(Gameinfo.Player);
+                plugin.SetUnits(Gameinfo.Unit);
+                plugin.SetSelection(Gameinfo.Selection);
+                plugin.SetGroups(Gameinfo.Group);
+                plugin.SetGameinfo(Gameinfo.Gameinfo);
+
+                /* Set Access values for Gameinfo */
+                Gameinfo.CAccessPlayers |= plugin.GetRequiresPlayer();
+                Gameinfo.CAccessSelection |= plugin.GetRequiresSelection();
+                Gameinfo.CAccessUnits |= plugin.GetRequiresUnit();
+                Gameinfo.CAccessUnitCommands |= plugin.GetRequiresUnit();
+                Gameinfo.CAccessGameinfo |= plugin.GetRequiresGameinfo();
+                Gameinfo.CAccessGroups |= plugin.GetRequiresGroups();
+                Gameinfo.CAccessMapInfo |= plugin.GetRequiresMap();
+            }
         }
 
         #region Application Panel Data
@@ -274,6 +310,103 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         #endregion
 
         #endregion
+
+        #endregion
+
+        #region Plugins Panel Data
+
+        #region Load Data into listviews
+
+        private void PluginsLoadPlugins()
+        {
+            var files = Directory.GetFiles(Constants.StrPluginFolder, "*.dll");
+
+            for (var i = 0; i < files.Length; i++)
+            {
+                var strTempAppdomainName = "TempAppDomainNo." + i;
+
+                var tmpAppDomain = AppDomain.CreateDomain(strTempAppdomainName);
+
+                try
+                {
+                    var foo =
+                        (IPlugins)
+                            tmpAppDomain.CreateInstanceFromAndUnwrap(files[i], "Plugin.Extensions.AnotherSc2HackPlugin");
+
+                    _lPlugins.Add(foo);
+                    _lPluginContainer.Add(tmpAppDomain);
+                }
+
+                catch (TypeLoadException typeEx)
+                {
+                    //If we are here, we couldn't load illegal .dll- files
+                    //It's all good here!
+
+                    AppDomain.Unload(tmpAppDomain);
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Couldn't load plugin '" + files[i] + "'");
+                }
+            }
+
+            PluginsLoadedPluginsRefresh();
+
+            //Launch Plugins
+            foreach (var plugin in _lPlugins)
+            {
+                plugin.StartPlugin();
+            }
+
+            //Mark Plugins "checked"
+            foreach (ListViewItem item in lstvPluginsLoadedPlugins.Items)
+            {
+                item.Checked = true;
+            }
+        }
+
+        private void PluginsLoadedPluginsRefresh()
+        {
+            lstvPluginsLoadedPlugins.Items.Clear();
+
+            foreach (var plugin in _lPlugins)
+            {
+                var lwi = new ListViewItem();
+
+                lwi.BackColor = lstvPluginsLoadedPlugins.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
+                lwi.Text = plugin.GetPluginName();
+
+                lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, plugin.GetPluginVersion().ToString()));
+
+                lstvPluginsLoadedPlugins.Items.Add(lwi);
+            }
+        }
+
+        #endregion
+
+        private void lstvPluginsLoadedPlugins_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (e.ItemIndex <= -1 || !e.IsSelected)
+                return;
+
+            e.Item.Checked ^= true;
+        }
+
+        private void lstvPluginsLoadedPlugins_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if (e.Item.Index <= -1)
+                return;
+
+            if (_lPlugins.Count <= 0)
+                return;
+
+            if (e.Item.Checked)
+                _lPlugins[e.Item.Index].StartPlugin();
+
+            else
+                _lPlugins[e.Item.Index].StopPlugin();
+        }
 
         #endregion
 
@@ -760,10 +893,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
-        private void NewMainHandler_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void cpnlApplication_Click(object sender, EventArgs e)
         {
@@ -807,6 +936,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void cpnlPlugins_Click(object sender, EventArgs e)
         {
             lblTabname.Text = "Plugins";
+
+            pnlPlugins.Visible = true;
+            foreach (var pnl in pnlMainArea.Controls)
+            {
+                if (pnl == pnlPlugins)
+                    continue;
+
+                if (pnl.GetType() == typeof(Panel))
+                {
+                    ((Panel)pnl).Visible = false;
+                }
+            }
         }
 
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)
@@ -972,11 +1113,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 ((UserControl)pnl).Visible = false;
             }
-        }
-
-        
-
-        
+        }        
     }
 
     

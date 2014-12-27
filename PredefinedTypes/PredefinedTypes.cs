@@ -294,6 +294,7 @@ namespace Predefined
 
         #region All about the Player
 
+        [Serializable]
         [DebuggerDisplay("{Name} - #{Team} - Localplayer?: {IsLocalplayer}")]
         public class PlayerStruct
         {
@@ -348,6 +349,7 @@ namespace Predefined
             }
         };
 
+        [Serializable]
         public class PList : List<PlayerStruct>
         {
             public PList()
@@ -457,6 +459,7 @@ namespace Predefined
             Ladder = 4
         };
 
+        [Serializable]
         [DebuggerDisplay("Name: {Name} ({Id}) - Owner: {Owner}")]
         public class Unit
         {
@@ -566,6 +569,7 @@ namespace Predefined
             public Boolean AttachingAddOn;
         }
 
+        [Serializable]
         public struct Map
         {
             public Int32 Left;
@@ -576,6 +580,7 @@ namespace Predefined
             public Int32 PlayableHeight;
         };
 
+        [Serializable]
         public class Selection
         {
             public Int32 AmountSelectedUnits { get; set; }
@@ -585,12 +590,14 @@ namespace Predefined
             public Unit Unit { get; set; }
         };
 
+        [Serializable]
         public class LSelection : List<Selection>
         {
             public Int16 HighlightedType { get; set; }
 
         }
 
+        [Serializable]
         public class Gameinformation
         {
             public Int32 Timer {get; set;}
@@ -930,6 +937,7 @@ namespace Predefined
             ZergBuild = 0xa9
         };
 
+        [Serializable]
         public struct Groups
         {
             public List<Unit> Units;

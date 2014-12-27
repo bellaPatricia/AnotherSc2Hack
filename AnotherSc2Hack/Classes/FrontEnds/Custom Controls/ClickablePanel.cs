@@ -26,6 +26,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         Bottom
     };
 
+    [DefaultEvent("Click")]
     public class ClickablePanel : Panel
     {
         

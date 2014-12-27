@@ -8,6 +8,8 @@ namespace PluginInterface
     {
         String GetPluginName();
         String GetPluginDescription();
+        Version GetPluginVersion();
+        String GetFileLocation();
         Boolean GetRequiresMap();
         Boolean GetRequiresPlayer();
         Boolean GetRequiresUnit();
