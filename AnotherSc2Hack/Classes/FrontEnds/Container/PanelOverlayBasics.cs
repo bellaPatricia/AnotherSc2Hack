@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
@@ -7,6 +8,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
         public PanelOverlayBasics()
         {
             InitializeComponent();
-        }        
+        }     
     }
 }

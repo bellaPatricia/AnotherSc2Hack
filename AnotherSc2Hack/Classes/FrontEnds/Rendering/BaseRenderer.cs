@@ -17,6 +17,7 @@ using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
@@ -37,6 +38,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         private const Int32 SizeOfRectangle = 10;                               //Size for the corner- rectangles (when changing position)
 
         protected readonly MainHandler.MainHandler HMainHandler;                //Mainhandler - handles access to the Engine
+        protected readonly GameInfo GInformation;                               //Handles access to the Engine
         protected Stopwatch SwMainWatch = new Stopwatch();                      //Stopwatch for Debugging and speed- tests
         protected DateTime DtBegin = DateTime.Now;                              //First Datetime to get the Delta between the begin and end [TopMost]
         protected DateTime DtSecond = DateTime.Now;                             //Second Datetime to get the Delta between the begin and end [TopMost]
@@ -564,7 +566,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             HMainHandler = hnd;
 
             PSettings = HMainHandler.PSettings;
-
 
             InitCode();
         }

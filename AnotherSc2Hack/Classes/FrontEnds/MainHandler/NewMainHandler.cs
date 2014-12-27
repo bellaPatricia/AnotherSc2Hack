@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Windows.Forms;
@@ -12,17 +13,19 @@ using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.BackEnds.Gameinfo;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Container;
+using AnotherSc2Hack.Classes.FrontEnds.Rendering;
 using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
     public partial class NewMainHandler : Form
     {
-        
 
-        private Preferences _pSettings = new Preferences();
-        private Timer _tmrMainTick = new Timer();
-        private Int32 _iDebugPlayerIndex = 0;
+
+        public Preferences PSettings { get; private set; }
+        private readonly Timer _tmrMainTick = new Timer();
+        private Int32 _iDebugPlayerIndex;
+        private readonly RendererContainer _lContainer = new RendererContainer();
 
         private Int32 IDebugPlayerIndex
         {
@@ -61,24 +64,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             InitializeComponent();
 
-            ControlsFill();
+            
             Init();
+            ControlsFill();
+            EventMapping();
 
             ApplicationOptions = app;
 
-            Gameinfo = new GameInfo(_pSettings.GlobalDataRefresh);
+            Gameinfo = new GameInfo(PSettings.GlobalDataRefresh);
         }
 
         private void Init()
         {
+            PSettings = new Preferences();
+
             cpnlApplication.PerformClick();
             cpnlOverlaysResources.PerformClick();
 
-            _tmrMainTick.Interval = _pSettings.GlobalDataRefresh;
+            _tmrMainTick.Interval = PSettings.GlobalDataRefresh;
             _tmrMainTick.Tick += _tmrMainTick_Tick;
             _tmrMainTick.Enabled = true;
-
             
+
+            /* Add all the panels to the container... */
+         /*   _lContainer.Add(new ResourcesRenderer(this));
+            _lContainer.Add(new IncomeRenderer(this));
+            _lContainer.Add(new WorkerRenderer(this));
+            _lContainer.Add(new ArmyRenderer(this));
+            _lContainer.Add(new ApmRenderer(this));
+            _lContainer.Add(new MaphackRenderer(this));
+            _lContainer.Add(new UnitRenderer(this));
+            _lContainer.Add(new ProductionRenderer(this));
+            _lContainer.Add(new PersonalApmRenderer(this));
+            _lContainer.Add(new PersonalClockRenderer(this));*/
 
             SetStyle(ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.OptimizedDoubleBuffer |
@@ -97,6 +115,171 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             DebugMatchinformationRefresh();
             
         }
+
+        #region Application Panel Data
+
+        #region Event- methods
+
+        private void ntxtMemoryRefresh_NumberChanged(NumberTextBox o, EventNumber e)
+        {
+            if (o.Number == 0)
+            {
+                o.Number = 1;
+                o.Select(1, 0);
+                return;
+            }
+
+            PSettings.GlobalDataRefresh = o.Number;
+        }
+
+        private void ntxtGraphicsRefresh_NumberChanged(NumberTextBox o, EventNumber e)
+        {
+            if (o.Number == 0)
+            {
+                o.Number = 1;
+                o.Select(1, 0);
+                return;
+            }
+
+            PSettings.GlobalDrawingRefresh = o.Number;
+        }
+
+        private void ktxtReposition_TextChanged(object sender, EventArgs e)
+        {
+            var senda =
+                (KeyTextBox) sender;
+
+            PSettings.GlobalChangeSizeAndPosition = senda.HotKeyValue;
+        }
+
+        private void chBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Nothing to do here");
+        }
+
+        private void btnReposition_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Nothing to do here");
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Overlays Panel Data
+
+        private void EventMapping()
+        {
+            #region Overlay Resource
+
+            pnlOverlayResource.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlayResourceDrawBackground_CheckedChanged;
+            pnlOverlayResource.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
+            pnlOverlayResource.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
+            pnlOverlayResource.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
+            pnlOverlayResource.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
+            pnlOverlayResource.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
+            pnlOverlayResource.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
+            pnlOverlayResource.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+
+            pnlOverlayResource.pnlLauncher.ktxtHotkey1.TextChanged += ktxtOverlayResourceHotkey1_TextChanged;
+            pnlOverlayResource.pnlLauncher.ktxtHotkey2.TextChanged += ktxtOverlayResourceHotkey2_TextChanged;
+            pnlOverlayResource.pnlLauncher.ktxtHotkey3.TextChanged += ktxtOverlayResourceHotkey3_TextChanged;
+            pnlOverlayResource.pnlLauncher.txtReposition.TextChanged += txtOverlayResourceReposition_TextChanged;
+            pnlOverlayResource.pnlLauncher.txtResize.TextChanged += txtOverlayResourceResize_TextChanged;
+            pnlOverlayResource.pnlLauncher.txtToggle.TextChanged += txtOverlayResourceToggle_TextChanged;
+
+            #endregion
+        }
+
+        #region Event- methods
+
+        #region Overlay Resource
+
+        void txtOverlayResourceToggle_TextChanged(object sender, EventArgs e)
+        {
+            var senda = (TextBox)sender;
+            PSettings.ResourceTogglePanel = senda.Text;
+        }
+
+        void txtOverlayResourceResize_TextChanged(object sender, EventArgs e)
+        {
+            var senda = (TextBox)sender;
+            PSettings.ResourceChangeSizePanel = senda.Text;
+        }
+
+        void txtOverlayResourceReposition_TextChanged(object sender, EventArgs e)
+        {
+            var senda = (TextBox)sender;
+            PSettings.ResourceChangePositionPanel = senda.Text;
+        }
+
+        void ktxtOverlayResourceHotkey3_TextChanged(object sender, EventArgs e)
+        {
+            var senda = (KeyTextBox)sender;
+            PSettings.ResourceHotkey3 = senda.HotKeyValue;
+        }
+
+        void ktxtOverlayResourceHotkey2_TextChanged(object sender, EventArgs e)
+        {
+            var senda = (KeyTextBox)sender;
+            PSettings.ResourceHotkey2 = senda.HotKeyValue;
+        }
+
+        private void ktxtOverlayResourceHotkey1_TextChanged(object sender, EventArgs eventArgs)
+        {
+            var senda = (KeyTextBox)sender;
+            PSettings.ResourceHotkey1 = senda.HotKeyValue;
+        }
+
+        private void OpacityControlOverlayResource_ValueChanged(UiOpacityControl uiOpacityControl, EventNumber eventNumber)
+        {
+            PSettings.ResourceOpacity = uiOpacityControl.Number;
+        }
+
+        void btnOverlayResourceSetFont_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Show some font");
+        }
+
+        void aChBxOverlayResourceRemoveYourself_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.ResourceRemoveLocalplayer = o.Checked;
+        }
+
+        void aChBxOverlayResourceRemoveNeutral_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.ResourceRemoveNeutral = o.Checked;
+        }
+
+        void aChBxOverlayResourceRemoveClantags_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.ResourceRemoveClanTag = o.Checked;
+        }
+
+        void aChBxOverlayResourceRemoveAllie_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.ResourceRemoveAllie = o.Checked;
+        }
+
+        void aChBxOverlayResourceRemoveAi_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.ResourceRemoveAi = o.Checked;
+        }
+
+        void aChBxOverlayResourceDrawBackground_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.ResourceDrawBackground = o.Checked;
+        }
+
+        #endregion
+
+        #endregion
+
+        #endregion
+
+        #region Debug Panel Data
+
+        #region Load Data into listviews
 
         private void DebugPlayerRefresh()
         {
@@ -119,19 +302,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     lstvDebugPlayderdata.Items[i].SubItems[1].Text = property.GetValue(player).ToString();
                 }
 
-                
+
 
             }
 
             else
             {
+                lstvDebugPlayderdata.Columns[lstvDebugPlayderdata.Columns.Count - 1].Width = -2;
+
                 //Insert new ones
                 foreach (PropertyDescriptor property in properties)
                 {
                     var lwi = new ListViewItem();
 
-                    lwi.BackColor = lstvDebugPlayderdata.Items.Count%2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
+                    lwi.BackColor = lstvDebugPlayderdata.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
                     lwi.Text = property.Name;
+
                     lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, property.GetValue(player).ToString()));
 
                     lstvDebugPlayderdata.Items.Add(lwi);
@@ -169,6 +355,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else
             {
+                lstvDebugUnitdata.Columns[lstvDebugUnitdata.Columns.Count - 1].Width = -2;
+
                 //Insert new ones
                 foreach (PropertyDescriptor property in properties)
                 {
@@ -191,7 +379,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (Gameinfo == null)
                 return;
 
-            var fields = typeof (PredefinedData.Map).GetFields(BindingFlags.Public | BindingFlags.Instance);
+            var fields = typeof(PredefinedData.Map).GetFields(BindingFlags.Public | BindingFlags.Instance);
 
             if (lstvDebugMapdata.Items.Count > 0)
             {
@@ -209,7 +397,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else
             {
-                
+                lstvDebugMapdata.Columns[lstvDebugMapdata.Columns.Count - 1].Width = -2;
+
                 //Insert new ones
                 foreach (var field in fields)
                 {
@@ -248,6 +437,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else
             {
+                lstvDebugMatchdata.Columns[lstvDebugMatchdata.Columns.Count - 1].Width = -2;
+
                 //Insert new ones
                 foreach (PropertyDescriptor property in properties)
                 {
@@ -263,15 +454,108 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
+        #endregion
+
+        #region Event- methods
+
+        private void btnDebugPlayerBack_Click(object sender, EventArgs e)
+        {
+            if (IDebugPlayerIndex > 0)
+                IDebugPlayerIndex -= 1;
+        }
+
+        private void btnDebugPlayerForward_Click(object sender, EventArgs e)
+        {
+            if (Gameinfo != null &&
+                Gameinfo.Player != null &&
+                IDebugPlayerIndex < Gameinfo.Player.Count - 1)
+                IDebugPlayerIndex += 1;
+        }
+
+        private void btnDebugUnitBack_Click(object sender, EventArgs e)
+        {
+            if (IDebugUnitIndex > 0)
+                IDebugUnitIndex -= 1;
+        }
+
+        private void btnDebugUnitForward_Click(object sender, EventArgs e)
+        {
+            if (Gameinfo != null &&
+                Gameinfo.Unit != null &&
+                IDebugUnitIndex < Gameinfo.Unit.Count - 1)
+                IDebugUnitIndex += 1;
+        }
+
+        private void ntxtDebugPlayerLocation_NumberChanged(NumberTextBox o, EventNumber e)
+        {
+            IDebugPlayerIndex = (Int32)e.TheNumber;
+        }
+
+        private void ntxtDebugUnitLocation_NumberChanged(NumberTextBox o, EventNumber e)
+        {
+            IDebugUnitIndex = (Int32)e.TheNumber;
+        }
+
+        private void txtDebugPlayername_TextChanged(object sender, EventArgs e)
+        {
+            if (Gameinfo == null || Gameinfo.Player == null)
+                return;
+
+            var tmpTextbox = (TextBox)sender;
+
+            if (tmpTextbox.Text.Length <= 0)
+                return;
+
+            var pew = Gameinfo.Player.FindIndex(x => x.Name.Contains(tmpTextbox.Text));
+
+            if (pew == -1)
+                tmpTextbox.ForeColor = Color.Red;
+
+            else
+            {
+                tmpTextbox.ForeColor = Color.Green;
+                IDebugPlayerIndex = pew;
+            }
+        }
+
+        private void txtDebugUnitname_TextChanged(object sender, EventArgs e)
+        {
+            if (Gameinfo == null || Gameinfo.Unit == null)
+                return;
+
+            var tmpTextbox = (TextBox)sender;
+
+            if (tmpTextbox.Text.Length <= 0)
+                return;
+
+
+            var pew = Gameinfo.Unit.FindIndex(x => x.Name.Contains(tmpTextbox.Text));
+
+            if (pew == -1)
+                tmpTextbox.ForeColor = Color.Red;
+
+            else
+            {
+                tmpTextbox.ForeColor = Color.Green;
+                IDebugUnitIndex = pew;
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+
+
         #region Load Settings Into Controls
 
         private void ControlsFill()
         {
             //Application / Global
-            ntxtMemoryRefresh.Number = _pSettings.GlobalDataRefresh;
-            ntxtGraphicsRefresh.Number = _pSettings.GlobalDrawingRefresh;
-            ktxtReposition.Text = _pSettings.GlobalChangeSizeAndPosition.ToString();
-            chBxOnlyDrawInForeground.Checked = _pSettings.GlobalDrawOnlyInForeground;
+            ntxtMemoryRefresh.Number = PSettings.GlobalDataRefresh;
+            ntxtGraphicsRefresh.Number = PSettings.GlobalDrawingRefresh;
+            ktxtReposition.Text = PSettings.GlobalChangeSizeAndPosition.ToString();
+            chBxOnlyDrawInForeground.Checked = PSettings.GlobalDrawOnlyInForeground;
 
             InitializeResources();
             InitializeIncome();
@@ -285,193 +569,193 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void InitializeResources()
         {
-            pnlOverlayResource.pnlBasics.aChBxDrawBackground.Checked = _pSettings.ResourceDrawBackground;
-            pnlOverlayResource.pnlBasics.aChBxRemoveAi.Checked = _pSettings.ResourceRemoveAi;
-            pnlOverlayResource.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.ResourceRemoveAllie;
-            pnlOverlayResource.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.ResourceRemoveClanTag;
-            pnlOverlayResource.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ResourceRemoveNeutral;
-            pnlOverlayResource.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ResourceRemoveLocalplayer;
-            pnlOverlayResource.pnlBasics.btnSetFont.Text = _pSettings.ResourceFontName;
-            pnlOverlayResource.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.ResourceOpacity > 1.0
-                ? (Int32)_pSettings.ResourceOpacity
-                : (Int32)(_pSettings.ResourceOpacity * 100);
+            pnlOverlayResource.pnlBasics.aChBxDrawBackground.Checked = PSettings.ResourceDrawBackground;
+            pnlOverlayResource.pnlBasics.aChBxRemoveAi.Checked = PSettings.ResourceRemoveAi;
+            pnlOverlayResource.pnlBasics.aChBxRemoveAllie.Checked = PSettings.ResourceRemoveAllie;
+            pnlOverlayResource.pnlBasics.aChBxRemoveClantags.Checked = PSettings.ResourceRemoveClanTag;
+            pnlOverlayResource.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.ResourceRemoveNeutral;
+            pnlOverlayResource.pnlBasics.aChBxRemoveYourself.Checked = PSettings.ResourceRemoveLocalplayer;
+            pnlOverlayResource.pnlBasics.btnSetFont.Text = PSettings.ResourceFontName;
+            pnlOverlayResource.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.ResourceOpacity > 1.0
+                ? (Int32)PSettings.ResourceOpacity
+                : (Int32)(PSettings.ResourceOpacity * 100);
 
-            pnlOverlayResource.pnlLauncher.ktxtHotkey1.Text = _pSettings.ResourceHotkey1.ToString();
-            pnlOverlayResource.pnlLauncher.ktxtHotkey2.Text = _pSettings.ResourceHotkey2.ToString();
-            pnlOverlayResource.pnlLauncher.ktxtHotkey3.Text = _pSettings.ResourceHotkey3.ToString();
+            pnlOverlayResource.pnlLauncher.ktxtHotkey1.Text = PSettings.ResourceHotkey1.ToString();
+            pnlOverlayResource.pnlLauncher.ktxtHotkey2.Text = PSettings.ResourceHotkey2.ToString();
+            pnlOverlayResource.pnlLauncher.ktxtHotkey3.Text = PSettings.ResourceHotkey3.ToString();
 
-            pnlOverlayResource.pnlLauncher.txtReposition.Text = _pSettings.ResourceChangePositionPanel;
-            pnlOverlayResource.pnlLauncher.txtResize.Text = _pSettings.ResourceChangeSizePanel;
-            pnlOverlayResource.pnlLauncher.txtToggle.Text = _pSettings.ResourceTogglePanel;
+            pnlOverlayResource.pnlLauncher.txtReposition.Text = PSettings.ResourceChangePositionPanel;
+            pnlOverlayResource.pnlLauncher.txtResize.Text = PSettings.ResourceChangeSizePanel;
+            pnlOverlayResource.pnlLauncher.txtToggle.Text = PSettings.ResourceTogglePanel;
         }
 
         private void InitializeIncome()
         {
-            pnlOverlayIncome.pnlBasics.aChBxDrawBackground.Checked = _pSettings.IncomeDrawBackground;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveAi.Checked = _pSettings.IncomeRemoveAi;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.IncomeRemoveAllie;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.IncomeRemoveClanTag;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.IncomeRemoveNeutral;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.IncomeRemoveLocalplayer;
-            pnlOverlayIncome.pnlBasics.btnSetFont.Text = _pSettings.IncomeFontName;
-            pnlOverlayIncome.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.IncomeOpacity > 1.0
-                ? (Int32)_pSettings.IncomeOpacity
-                : (Int32)(_pSettings.IncomeOpacity * 100);
+            pnlOverlayIncome.pnlBasics.aChBxDrawBackground.Checked = PSettings.IncomeDrawBackground;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveAi.Checked = PSettings.IncomeRemoveAi;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveAllie.Checked = PSettings.IncomeRemoveAllie;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveClantags.Checked = PSettings.IncomeRemoveClanTag;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.IncomeRemoveNeutral;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveYourself.Checked = PSettings.IncomeRemoveLocalplayer;
+            pnlOverlayIncome.pnlBasics.btnSetFont.Text = PSettings.IncomeFontName;
+            pnlOverlayIncome.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.IncomeOpacity > 1.0
+                ? (Int32)PSettings.IncomeOpacity
+                : (Int32)(PSettings.IncomeOpacity * 100);
 
-            pnlOverlayIncome.pnlLauncher.ktxtHotkey1.Text = _pSettings.IncomeHotkey1.ToString();
-            pnlOverlayIncome.pnlLauncher.ktxtHotkey2.Text = _pSettings.IncomeHotkey2.ToString();
-            pnlOverlayIncome.pnlLauncher.ktxtHotkey3.Text = _pSettings.IncomeHotkey3.ToString();
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey1.Text = PSettings.IncomeHotkey1.ToString();
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey2.Text = PSettings.IncomeHotkey2.ToString();
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey3.Text = PSettings.IncomeHotkey3.ToString();
 
-            pnlOverlayIncome.pnlLauncher.txtReposition.Text = _pSettings.IncomeChangePositionPanel;
-            pnlOverlayIncome.pnlLauncher.txtResize.Text = _pSettings.IncomeChangeSizePanel;
-            pnlOverlayIncome.pnlLauncher.txtToggle.Text = _pSettings.IncomeTogglePanel;
+            pnlOverlayIncome.pnlLauncher.txtReposition.Text = PSettings.IncomeChangePositionPanel;
+            pnlOverlayIncome.pnlLauncher.txtResize.Text = PSettings.IncomeChangeSizePanel;
+            pnlOverlayIncome.pnlLauncher.txtToggle.Text = PSettings.IncomeTogglePanel;
         }
 
         private void InitializeApm()
         {
-            pnlOverlayApm.pnlBasics.aChBxDrawBackground.Checked = _pSettings.ApmDrawBackground;
-            pnlOverlayApm.pnlBasics.aChBxRemoveAi.Checked = _pSettings.ApmRemoveAi;
-            pnlOverlayApm.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.ApmRemoveAllie;
-            pnlOverlayApm.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.ApmRemoveClanTag;
-            pnlOverlayApm.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ApmRemoveNeutral;
-            pnlOverlayApm.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ApmRemoveLocalplayer;
-            pnlOverlayApm.pnlBasics.btnSetFont.Text = _pSettings.ApmFontName;
-            pnlOverlayApm.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.ApmOpacity > 1.0
-                ? (Int32)_pSettings.ApmOpacity
-                : (Int32)(_pSettings.ApmOpacity * 100);
+            pnlOverlayApm.pnlBasics.aChBxDrawBackground.Checked = PSettings.ApmDrawBackground;
+            pnlOverlayApm.pnlBasics.aChBxRemoveAi.Checked = PSettings.ApmRemoveAi;
+            pnlOverlayApm.pnlBasics.aChBxRemoveAllie.Checked = PSettings.ApmRemoveAllie;
+            pnlOverlayApm.pnlBasics.aChBxRemoveClantags.Checked = PSettings.ApmRemoveClanTag;
+            pnlOverlayApm.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.ApmRemoveNeutral;
+            pnlOverlayApm.pnlBasics.aChBxRemoveYourself.Checked = PSettings.ApmRemoveLocalplayer;
+            pnlOverlayApm.pnlBasics.btnSetFont.Text = PSettings.ApmFontName;
+            pnlOverlayApm.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.ApmOpacity > 1.0
+                ? (Int32)PSettings.ApmOpacity
+                : (Int32)(PSettings.ApmOpacity * 100);
 
-            pnlOverlayApm.pnlLauncher.ktxtHotkey1.Text = _pSettings.ApmHotkey1.ToString();
-            pnlOverlayApm.pnlLauncher.ktxtHotkey2.Text = _pSettings.ApmHotkey2.ToString();
-            pnlOverlayApm.pnlLauncher.ktxtHotkey3.Text = _pSettings.ApmHotkey3.ToString();
+            pnlOverlayApm.pnlLauncher.ktxtHotkey1.Text = PSettings.ApmHotkey1.ToString();
+            pnlOverlayApm.pnlLauncher.ktxtHotkey2.Text = PSettings.ApmHotkey2.ToString();
+            pnlOverlayApm.pnlLauncher.ktxtHotkey3.Text = PSettings.ApmHotkey3.ToString();
 
-            pnlOverlayApm.pnlLauncher.txtReposition.Text = _pSettings.ApmChangePositionPanel;
-            pnlOverlayApm.pnlLauncher.txtResize.Text = _pSettings.ApmChangeSizePanel;
-            pnlOverlayApm.pnlLauncher.txtToggle.Text = _pSettings.ApmTogglePanel;
+            pnlOverlayApm.pnlLauncher.txtReposition.Text = PSettings.ApmChangePositionPanel;
+            pnlOverlayApm.pnlLauncher.txtResize.Text = PSettings.ApmChangeSizePanel;
+            pnlOverlayApm.pnlLauncher.txtToggle.Text = PSettings.ApmTogglePanel;
         }
 
         private void InitializeArmy()
         {
-            pnlOverlayArmy.pnlBasics.aChBxDrawBackground.Checked = _pSettings.ArmyDrawBackground;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveAi.Checked = _pSettings.ArmyRemoveAi;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.ArmyRemoveAllie;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.ArmyRemoveClanTag;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ArmyRemoveNeutral;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ArmyRemoveLocalplayer;
-            pnlOverlayArmy.pnlBasics.btnSetFont.Text = _pSettings.ArmyFontName;
-            pnlOverlayArmy.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.ArmyOpacity > 1.0
-                ? (Int32)_pSettings.ArmyOpacity
-                : (Int32)(_pSettings.ArmyOpacity * 100);
+            pnlOverlayArmy.pnlBasics.aChBxDrawBackground.Checked = PSettings.ArmyDrawBackground;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveAi.Checked = PSettings.ArmyRemoveAi;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveAllie.Checked = PSettings.ArmyRemoveAllie;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveClantags.Checked = PSettings.ArmyRemoveClanTag;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.ArmyRemoveNeutral;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveYourself.Checked = PSettings.ArmyRemoveLocalplayer;
+            pnlOverlayArmy.pnlBasics.btnSetFont.Text = PSettings.ArmyFontName;
+            pnlOverlayArmy.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.ArmyOpacity > 1.0
+                ? (Int32)PSettings.ArmyOpacity
+                : (Int32)(PSettings.ArmyOpacity * 100);
 
-            pnlOverlayArmy.pnlLauncher.ktxtHotkey1.Text = _pSettings.ArmyHotkey1.ToString();
-            pnlOverlayArmy.pnlLauncher.ktxtHotkey2.Text = _pSettings.ArmyHotkey2.ToString();
-            pnlOverlayArmy.pnlLauncher.ktxtHotkey3.Text = _pSettings.ArmyHotkey3.ToString();
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey1.Text = PSettings.ArmyHotkey1.ToString();
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey2.Text = PSettings.ArmyHotkey2.ToString();
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey3.Text = PSettings.ArmyHotkey3.ToString();
 
-            pnlOverlayArmy.pnlLauncher.txtReposition.Text = _pSettings.ArmyChangePositionPanel;
-            pnlOverlayArmy.pnlLauncher.txtResize.Text = _pSettings.ArmyChangeSizePanel;
-            pnlOverlayArmy.pnlLauncher.txtToggle.Text = _pSettings.ArmyTogglePanel;
+            pnlOverlayArmy.pnlLauncher.txtReposition.Text = PSettings.ArmyChangePositionPanel;
+            pnlOverlayArmy.pnlLauncher.txtResize.Text = PSettings.ArmyChangeSizePanel;
+            pnlOverlayArmy.pnlLauncher.txtToggle.Text = PSettings.ArmyTogglePanel;
         }
 
         private void InitializeMaphack()
         {
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveAi.Checked = _pSettings.MaphackRemoveAi;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.MaphackRemoveAllie;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.MaphackRemoveNeutral;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.MaphackRemoveLocalplayer;
-            pnlOverlayMaphack.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.MaphackOpacity > 1.0
-                ? (Int32)_pSettings.MaphackOpacity
-                : (Int32)(_pSettings.MaphackOpacity * 100);
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveAi.Checked = PSettings.MaphackRemoveAi;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveAllie.Checked = PSettings.MaphackRemoveAllie;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.MaphackRemoveNeutral;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveYourself.Checked = PSettings.MaphackRemoveLocalplayer;
+            pnlOverlayMaphack.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.MaphackOpacity > 1.0
+                ? (Int32)PSettings.MaphackOpacity
+                : (Int32)(PSettings.MaphackOpacity * 100);
             pnlOverlayMaphack.pnlBasics.aChBxDefensiveStructures.Checked =
-                _pSettings.MaphackColorDefensivestructuresYellow;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveCamera.Checked = _pSettings.MaphackRemoveCamera;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveVisionArea.Checked = _pSettings.MaphackRemoveVisionArea;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveDestinationLine.Checked = _pSettings.MaphackDisableDestinationLine;
-            pnlOverlayMaphack.pnlBasics.btnColorDestinationline.BackColor = _pSettings.MaphackDestinationColor;
+                PSettings.MaphackColorDefensivestructuresYellow;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveCamera.Checked = PSettings.MaphackRemoveCamera;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveVisionArea.Checked = PSettings.MaphackRemoveVisionArea;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveDestinationLine.Checked = PSettings.MaphackDisableDestinationLine;
+            pnlOverlayMaphack.pnlBasics.btnColorDestinationline.BackColor = PSettings.MaphackDestinationColor;
 
-            pnlOverlayMaphack.pnlLauncher.ktxtHotkey1.Text = _pSettings.MaphackHotkey1.ToString();
-            pnlOverlayMaphack.pnlLauncher.ktxtHotkey2.Text = _pSettings.MaphackHotkey2.ToString();
-            pnlOverlayMaphack.pnlLauncher.ktxtHotkey3.Text = _pSettings.MaphackHotkey3.ToString();
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey1.Text = PSettings.MaphackHotkey1.ToString();
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey2.Text = PSettings.MaphackHotkey2.ToString();
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey3.Text = PSettings.MaphackHotkey3.ToString();
 
-            pnlOverlayMaphack.pnlLauncher.txtReposition.Text = _pSettings.MaphackChangePositionPanel;
-            pnlOverlayMaphack.pnlLauncher.txtResize.Text = _pSettings.MaphackChangeSizePanel;
-            pnlOverlayMaphack.pnlLauncher.txtToggle.Text = _pSettings.MaphackTogglePanel;
+            pnlOverlayMaphack.pnlLauncher.txtReposition.Text = PSettings.MaphackChangePositionPanel;
+            pnlOverlayMaphack.pnlLauncher.txtResize.Text = PSettings.MaphackChangeSizePanel;
+            pnlOverlayMaphack.pnlLauncher.txtToggle.Text = PSettings.MaphackTogglePanel;
         }
 
         private void InitializeWorker()
         {
-            pnlOverlayWorker.aChBxDrawBackground.Checked = _pSettings.WorkerDrawBackground;
-            pnlOverlayWorker.btnSetFont.Text = _pSettings.WorkerFontName;
-            pnlOverlayWorker.OpacityControl.tbOpacity.Value = _pSettings.WorkerOpacity > 1.0
-                ? (Int32)_pSettings.WorkerOpacity
-                : (Int32)(_pSettings.WorkerOpacity * 100);
+            pnlOverlayWorker.aChBxDrawBackground.Checked = PSettings.WorkerDrawBackground;
+            pnlOverlayWorker.btnSetFont.Text = PSettings.WorkerFontName;
+            pnlOverlayWorker.OpacityControl.tbOpacity.Value = PSettings.WorkerOpacity > 1.0
+                ? (Int32)PSettings.WorkerOpacity
+                : (Int32)(PSettings.WorkerOpacity * 100);
 
-            pnlOverlayWorker.pnlLauncher.ktxtHotkey1.Text = _pSettings.WorkerHotkey1.ToString();
-            pnlOverlayWorker.pnlLauncher.ktxtHotkey2.Text = _pSettings.WorkerHotkey2.ToString();
-            pnlOverlayWorker.pnlLauncher.ktxtHotkey3.Text = _pSettings.WorkerHotkey3.ToString();
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey1.Text = PSettings.WorkerHotkey1.ToString();
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey2.Text = PSettings.WorkerHotkey2.ToString();
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey3.Text = PSettings.WorkerHotkey3.ToString();
 
-            pnlOverlayWorker.pnlLauncher.txtReposition.Text = _pSettings.WorkerChangePositionPanel;
-            pnlOverlayWorker.pnlLauncher.txtResize.Text = _pSettings.WorkerChangeSizePanel;
-            pnlOverlayWorker.pnlLauncher.txtToggle.Text = _pSettings.WorkerTogglePanel;
+            pnlOverlayWorker.pnlLauncher.txtReposition.Text = PSettings.WorkerChangePositionPanel;
+            pnlOverlayWorker.pnlLauncher.txtResize.Text = PSettings.WorkerChangeSizePanel;
+            pnlOverlayWorker.pnlLauncher.txtToggle.Text = PSettings.WorkerTogglePanel;
         }
 
         private void InitializeUnittab()
         {
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveAi.Checked = _pSettings.UnitTabRemoveAi;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.UnitTabRemoveAllie;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.UnitTabRemoveClanTag;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.UnitTabRemoveNeutral;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.UnitTabRemoveLocalplayer;
-            pnlOverlayUnittab.pnlBasics.btnSetFont.Text = _pSettings.UnitTabFontName;
-            pnlOverlayUnittab.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.UnitTabOpacity > 1.0
-                ? (Int32)_pSettings.UnitTabOpacity
-                : (Int32)(_pSettings.UnitTabOpacity * 100);
-            pnlOverlayUnittab.pnlBasics.aChBxDisplayBuildings.Checked = _pSettings.UnitTabShowBuildings;
-            pnlOverlayUnittab.pnlBasics.aChBxDisplayUnits.Checked = _pSettings.UnitTabShowUnits;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveChronoboost.Checked = _pSettings.UnitTabRemoveChronoboost;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveProductionstatus.Checked = _pSettings.UnitTabRemoveProdLine;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveSpellcounter.Checked = _pSettings.UnitTabRemoveSpellCounter;
-            pnlOverlayUnittab.pnlBasics.aChBxSplitUnitsBuildings.Checked = _pSettings.UnitTabSplitUnitsAndBuildings;
-            pnlOverlayUnittab.pnlBasics.aChBxTransparentImages.Checked = _pSettings.UnitTabUseTransparentImages;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveAi.Checked = PSettings.UnitTabRemoveAi;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveAllie.Checked = PSettings.UnitTabRemoveAllie;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveClantags.Checked = PSettings.UnitTabRemoveClanTag;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.UnitTabRemoveNeutral;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveYourself.Checked = PSettings.UnitTabRemoveLocalplayer;
+            pnlOverlayUnittab.pnlBasics.btnSetFont.Text = PSettings.UnitTabFontName;
+            pnlOverlayUnittab.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.UnitTabOpacity > 1.0
+                ? (Int32)PSettings.UnitTabOpacity
+                : (Int32)(PSettings.UnitTabOpacity * 100);
+            pnlOverlayUnittab.pnlBasics.aChBxDisplayBuildings.Checked = PSettings.UnitTabShowBuildings;
+            pnlOverlayUnittab.pnlBasics.aChBxDisplayUnits.Checked = PSettings.UnitTabShowUnits;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveChronoboost.Checked = PSettings.UnitTabRemoveChronoboost;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveProductionstatus.Checked = PSettings.UnitTabRemoveProdLine;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveSpellcounter.Checked = PSettings.UnitTabRemoveSpellCounter;
+            pnlOverlayUnittab.pnlBasics.aChBxSplitUnitsBuildings.Checked = PSettings.UnitTabSplitUnitsAndBuildings;
+            pnlOverlayUnittab.pnlBasics.aChBxTransparentImages.Checked = PSettings.UnitTabUseTransparentImages;
             
 
-            pnlOverlayUnittab.pnlLauncher.ktxtHotkey1.Text = _pSettings.UnitHotkey1.ToString();
-            pnlOverlayUnittab.pnlLauncher.ktxtHotkey2.Text = _pSettings.UnitHotkey2.ToString();
-            pnlOverlayUnittab.pnlLauncher.ktxtHotkey3.Text = _pSettings.UnitHotkey3.ToString();
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey1.Text = PSettings.UnitHotkey1.ToString();
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey2.Text = PSettings.UnitHotkey2.ToString();
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey3.Text = PSettings.UnitHotkey3.ToString();
 
-            pnlOverlayUnittab.pnlLauncher.txtReposition.Text = _pSettings.UnitChangePositionPanel;
-            pnlOverlayUnittab.pnlLauncher.txtResize.Text = _pSettings.UnitChangeSizePanel;
-            pnlOverlayUnittab.pnlLauncher.txtToggle.Text = _pSettings.UnitTogglePanel;
+            pnlOverlayUnittab.pnlLauncher.txtReposition.Text = PSettings.UnitChangePositionPanel;
+            pnlOverlayUnittab.pnlLauncher.txtResize.Text = PSettings.UnitChangeSizePanel;
+            pnlOverlayUnittab.pnlLauncher.txtToggle.Text = PSettings.UnitTogglePanel;
 
-            pnlOverlayUnittab.pnlSpecial.ntxtSize.Text = _pSettings.UnitPictureSize.ToString();
+            pnlOverlayUnittab.pnlSpecial.ntxtSize.Text = PSettings.UnitPictureSize.ToString();
         }
 
         private void InitializeProductiontab()
         {
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAi.Checked = _pSettings.ProdTabRemoveAi;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAllie.Checked = _pSettings.ProdTabRemoveAllie;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveClantags.Checked = _pSettings.ProdTabRemoveClanTag;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveNeutral.Checked = _pSettings.ProdTabRemoveNeutral;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveYourself.Checked = _pSettings.ProdTabRemoveLocalplayer;
-            pnlOverlayProductiontab.pnlBasics.btnSetFont.Text = _pSettings.ProdTabFontName;
-            pnlOverlayProductiontab.pnlBasics.OpacityControl.tbOpacity.Value = _pSettings.ProdTabOpacity > 1.0
-                ? (Int32)_pSettings.ProdTabOpacity
-                : (Int32)(_pSettings.ProdTabOpacity * 100);
-            pnlOverlayProductiontab.pnlBasics.aChBxDisplayBuildings.Checked = _pSettings.ProdTabShowBuildings;
-            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUnits.Checked = _pSettings.ProdTabShowUnits;
-            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUpgrades.Checked = _pSettings.ProdTabShowUpgrades;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveChronoboost.Checked = _pSettings.ProdTabRemoveChronoboost;
-            pnlOverlayProductiontab.pnlBasics.aChBxSplitUnitsBuildings.Checked = _pSettings.ProdTabSplitUnitsAndBuildings;
-            pnlOverlayProductiontab.pnlBasics.aChBxTransparentImages.Checked = _pSettings.ProdTabUseTransparentImages;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAi.Checked = PSettings.ProdTabRemoveAi;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAllie.Checked = PSettings.ProdTabRemoveAllie;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveClantags.Checked = PSettings.ProdTabRemoveClanTag;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.ProdTabRemoveNeutral;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveYourself.Checked = PSettings.ProdTabRemoveLocalplayer;
+            pnlOverlayProductiontab.pnlBasics.btnSetFont.Text = PSettings.ProdTabFontName;
+            pnlOverlayProductiontab.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.ProdTabOpacity > 1.0
+                ? (Int32)PSettings.ProdTabOpacity
+                : (Int32)(PSettings.ProdTabOpacity * 100);
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayBuildings.Checked = PSettings.ProdTabShowBuildings;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUnits.Checked = PSettings.ProdTabShowUnits;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUpgrades.Checked = PSettings.ProdTabShowUpgrades;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveChronoboost.Checked = PSettings.ProdTabRemoveChronoboost;
+            pnlOverlayProductiontab.pnlBasics.aChBxSplitUnitsBuildings.Checked = PSettings.ProdTabSplitUnitsAndBuildings;
+            pnlOverlayProductiontab.pnlBasics.aChBxTransparentImages.Checked = PSettings.ProdTabUseTransparentImages;
 
 
-            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey1.Text = _pSettings.ProdHotkey1.ToString();
-            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey2.Text = _pSettings.ProdHotkey2.ToString();
-            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey3.Text = _pSettings.ProdHotkey3.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey1.Text = PSettings.ProdHotkey1.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey2.Text = PSettings.ProdHotkey2.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey3.Text = PSettings.ProdHotkey3.ToString();
 
-            pnlOverlayProductiontab.pnlLauncher.txtReposition.Text = _pSettings.ProdChangePositionPanel;
-            pnlOverlayProductiontab.pnlLauncher.txtResize.Text = _pSettings.ProdChangeSizePanel;
-            pnlOverlayProductiontab.pnlLauncher.txtToggle.Text = _pSettings.ProdTogglePanel;
+            pnlOverlayProductiontab.pnlLauncher.txtReposition.Text = PSettings.ProdChangePositionPanel;
+            pnlOverlayProductiontab.pnlLauncher.txtResize.Text = PSettings.ProdChangeSizePanel;
+            pnlOverlayProductiontab.pnlLauncher.txtToggle.Text = PSettings.ProdTogglePanel;
 
-            pnlOverlayProductiontab.pnlSpecial.ntxtSize.Text = _pSettings.ProdPictureSize.ToString();
+            pnlOverlayProductiontab.pnlSpecial.ntxtSize.Text = PSettings.ProdPictureSize.ToString();
         }
 
         #endregion
@@ -690,88 +974,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private void btnDebugPlayerBack_Click(object sender, EventArgs e)
-        {
-            if (IDebugPlayerIndex > 0)
-                IDebugPlayerIndex -= 1;
-        }
+        
 
-        private void btnDebugPlayerForward_Click(object sender, EventArgs e)
-        {
-            if (Gameinfo != null &&
-                Gameinfo.Player != null &&
-                IDebugPlayerIndex < Gameinfo.Player.Count - 1)
-                IDebugPlayerIndex += 1;
-        }
-
-        private void btnDebugUnitBack_Click(object sender, EventArgs e)
-        {
-            if (IDebugUnitIndex > 0)
-                IDebugUnitIndex -= 1;
-        }
-
-        private void btnDebugUnitForward_Click(object sender, EventArgs e)
-        {
-            if (Gameinfo != null && 
-                Gameinfo.Unit != null &&
-                IDebugUnitIndex < Gameinfo.Unit.Count - 1)
-                IDebugUnitIndex += 1;
-        }
-
-        private void ntxtDebugPlayerLocation_NumberChanged(NumberTextBox o, EventNumber e)
-        {
-            IDebugPlayerIndex = (Int32)e.TheNumber;
-        }
-
-        private void ntxtDebugUnitLocation_NumberChanged(NumberTextBox o, EventNumber e)
-        {
-            IDebugUnitIndex = (Int32)e.TheNumber;
-        }
-
-        private void txtDebugPlayername_TextChanged(object sender, EventArgs e)
-        {
-            if (Gameinfo == null || Gameinfo.Player == null)
-                return;
-
-            var tmpTextbox = (TextBox) sender;
-
-            if (tmpTextbox.Text.Length <= 0)
-                return;
-
-            var pew = Gameinfo.Player.FindIndex(x => x.Name.Contains(tmpTextbox.Text));
-
-            if (pew == -1)
-                tmpTextbox.ForeColor = Color.Red;
-
-            else
-            {
-                tmpTextbox.ForeColor = Color.Green;
-                IDebugPlayerIndex = pew;
-            }
-        }
-
-        private void txtDebugUnitname_TextChanged(object sender, EventArgs e)
-        {
-            if (Gameinfo == null || Gameinfo.Unit == null)
-                return;
-
-            var tmpTextbox = (TextBox)sender;
-
-            if (tmpTextbox.Text.Length <= 0)
-                return;
-
-
-            var pew = Gameinfo.Unit.FindIndex(x => x.Name.Contains(tmpTextbox.Text));
-
-            if (pew == -1)
-                tmpTextbox.ForeColor = Color.Red;
-
-            else
-            {
-                tmpTextbox.ForeColor = Color.Green;
-                IDebugUnitIndex = pew;
-            }
-        }
+        
     }
 
     

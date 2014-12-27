@@ -9,9 +9,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
     public class EventNumber : EventArgs
     {
-        public Int64 TheNumber;
+        public Int32 TheNumber;
 
-        public EventNumber(Int64 number)
+        public EventNumber(Int32 number)
         {
             TheNumber = number;
         }
