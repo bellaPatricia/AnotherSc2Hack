@@ -6,10 +6,12 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.BackEnds.Gameinfo;
@@ -18,6 +20,7 @@ using AnotherSc2Hack.Classes.FrontEnds.Container;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
 using PluginInterface;
 using Predefined;
+using Timer = System.Windows.Forms.Timer;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
@@ -27,11 +30,37 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         public Preferences PSettings { get; private set; }
         private readonly Timer _tmrMainTick = new Timer();
-        private Int32 _iDebugPlayerIndex;
+        
         private readonly RendererContainer _lContainer = new RendererContainer();
         private readonly List<AppDomain> _lPluginContainer = new List<AppDomain>(); 
         private readonly List<IPlugins> _lPlugins = new List<IPlugins>();
+        private readonly List<OnlinePlugin> _lOnlinePlugins = new List<OnlinePlugin>();
 
+        private Int32 _iPluginsSelectedPluginIndex;
+
+        private Int32 IPluginsSelectedPluginIndex
+        {
+            get { return _iPluginsSelectedPluginIndex; }
+            set { _iPluginsSelectedPluginIndex = value; }
+        }
+
+        private Int32 _iPluginsImageIndex;
+        private Int32 IPluginsImageIndex
+        {
+            get { return _iPluginsImageIndex; }
+            set
+            {
+                _iPluginsImageIndex = value;
+
+                if (_lOnlinePlugins.Count > 0)
+                {
+                    lblPluginsImageposition.Text = (_iPluginsImageIndex + 1) + "/" + (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count);
+                    pcbPluginsImages.Image = _lOnlinePlugins[IPluginsSelectedPluginIndex].Images[_iPluginsImageIndex];
+                }
+            }
+        }
+
+        private Int32 _iDebugPlayerIndex;
         private Int32 IDebugPlayerIndex
         {
             get { return _iDebugPlayerIndex; }
@@ -46,7 +75,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private Int32 _iDebugUnitIndex = 0;
+        private Int32 _iDebugUnitIndex;
 
         private Int32 IDebugUnitIndex
         {
@@ -74,6 +103,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ControlsFill();
             EventMapping();
             PluginsLoadPlugins();
+            PluginLoadAvailablePlugins();
 
             ApplicationOptions = app;
 
@@ -121,8 +151,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             DebugMatchinformationRefresh();
 
             PluginDataRefresh();
-
-
         }
 
         private void PluginDataRefresh()
@@ -319,11 +347,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void PluginsLoadPlugins()
         {
+            
             var files = Directory.GetFiles(Constants.StrPluginFolder, "*.dll");
 
             for (var i = 0; i < files.Length; i++)
             {
                 var strTempAppdomainName = "TempAppDomainNo." + i;
+
 
                 var tmpAppDomain = AppDomain.CreateDomain(strTempAppdomainName);
 
@@ -341,7 +371,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 {
                     //If we are here, we couldn't load illegal .dll- files
                     //It's all good here!
-
                     AppDomain.Unload(tmpAppDomain);
                 }
 
@@ -380,6 +409,72 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, plugin.GetPluginVersion().ToString()));
 
                 lstvPluginsLoadedPlugins.Items.Add(lwi);
+            }
+        }
+
+        /// <summary>
+        /// This will fetch the plugins from a webserver.
+        /// That means you will be able to load plugins right away!
+        /// </summary>
+        private void PluginLoadAvailablePlugins()
+        {
+            var _strUrlPlugins = @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Plugins.txt";
+
+            var wc = new WebClient();
+
+            var strSource = wc.DownloadString(_strUrlPlugins);
+            // Info: Plugin- Names start with '#'
+            // Plugin- Descriptions start with '+'
+            // Plugin- Downloadlinks start with '*'
+            // Plugin- Pictures start with '-'
+            // Plugin- Versions start with 'V'
+
+            var strSpltted = strSource.Split('\n');
+            foreach (var str in strSpltted)
+            {
+
+                if (str.StartsWith("#"))
+                {
+                    _lOnlinePlugins.Add(new OnlinePlugin());
+                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].Name = str.Substring(1).Trim();
+                }
+
+                else if (str.StartsWith("+"))
+                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].Description = str.Substring(1).Trim();
+
+                else if (str.StartsWith("*"))
+                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].DownloadLink = str.Substring(1).Trim();
+
+                else if (str.StartsWith("-"))
+                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].ImageLinks.Add(str.Substring(1).Trim());
+
+                else if (str.StartsWith("V"))
+                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].Version = new Version(str.Substring(1).Trim());
+            }
+
+            MethodInvoker myInvoker = delegate
+            {
+                foreach (var plugin in _lOnlinePlugins)
+                {
+                    var lwi = new ListViewItem();
+
+                    lwi.BackColor = lstvPluginsAvailablePlugins.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
+                    lwi.Text = plugin.Name;
+
+                    lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, plugin.Version.ToString()));
+
+                    lstvPluginsAvailablePlugins.Items.Add(lwi);
+                }
+            };
+
+            try
+            {
+                myInvoker.Invoke();
+            }
+
+            finally
+            {
+                
             }
         }
 
@@ -928,11 +1023,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private void cpnlAutomation_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Automation";
-        }
-
         private void cpnlPlugins_Click(object sender, EventArgs e)
         {
             lblTabname.Text = "Plugins";
@@ -1113,7 +1203,131 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 ((UserControl)pnl).Visible = false;
             }
+        }
+
+        private void lstvPluginsAvailablePlugins_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var senda = ((ListView) sender);
+            if (senda.Items.Count <= 0)
+                return;
+
+            if (senda.SelectedItems.Count <= 0)
+                return;
+
+            if (senda.SelectedItems[0].Index >= senda.Items.Count)
+                return;
+
+            IPluginsSelectedPluginIndex = senda.SelectedItems[0].Index;
+
+            var wc = new WebClient();
+            var onlinePlugin = _lOnlinePlugins[IPluginsSelectedPluginIndex];
+
+            rtbPluginsDescription.Text = onlinePlugin.Description;
+
+
+
+            //Download images if available AND they were not downloaded already!
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count <= 0)
+            {
+                for (var i = 0; i < _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count; i++)
+                {
+                    var rawImg = wc.DownloadData(_lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks[i]);
+                    var img = ByteArrayToImage(rawImg);
+
+                    _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Add(img);
+                }
+            }
+
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count > 0)
+            {
+                pcbPluginsImages.Image = _lOnlinePlugins[IPluginsSelectedPluginIndex].Images[0];
+                IPluginsImageIndex = 0;
+            }
+        }
+
+        public Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            var ms = new MemoryStream(byteArrayIn);
+            var returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
+
+        private void PluginsInstallPlugin(object path)
+        {
+            var strOnlinePath = path.ToString().Split('#')[0];
+            var strLocalPath = path.ToString().Split('#')[1];
+            var wc = new WebClient();
+
+            try
+            {
+                wc.DownloadFile(strOnlinePath,
+                    Path.Combine(Application.StartupPath, Constants.StrPluginFolder, strLocalPath));
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't install Plugin!", "Something went wrong!");
+            }
+        }
+
+        private void btnPluginsInstallPlugin_Click(object sender, EventArgs e)
+        {
+            var strOnlinePath = _lOnlinePlugins[IDebugPlayerIndex].DownloadLink;
+            var strLocalPath =
+                _lOnlinePlugins[IDebugPlayerIndex].DownloadLink.Split('/')[
+                    _lOnlinePlugins[IDebugPlayerIndex].DownloadLink.Split('/').Length - 1];
+            new Thread(PluginsInstallPlugin).Start(strOnlinePath + "#" + strLocalPath);
+        }
+
+        private void btnPluginsImagesPrevious_Click(object sender, EventArgs e)
+        {
+            if (IPluginsImageIndex >= 1)
+                IPluginsImageIndex -= 1;
+        }
+
+        private void btnPluginsImagesNext_Click(object sender, EventArgs e)
+        {
+            if (_lOnlinePlugins.Count <= 0)
+                return;
+
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count <= 0)
+                return;
+
+            if (IPluginsImageIndex < _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count - 1)
+                IPluginsImageIndex += 1;
         }        
+    }
+
+    [DebuggerDisplay("Name: {Name}; Description: {Description}; Version: {Version}; Link: {DownloadLink}")]
+    public class OnlinePlugin
+    {
+
+        public OnlinePlugin()
+        {
+            InitCode();
+        }
+
+        private void InitCode()
+        {
+            ImageLinks = new List<String>();
+            Images = new List<Image>();
+            Name = String.Empty;
+            Description = String.Empty;
+            Version = new Version(0, 0, 0, 0);
+            RequiresUpdate = false;
+            LocalPath = String.Empty;
+        }
+
+        
+
+        public String Name { get; set; }
+        public String Description { get; set; }
+        public List<String> ImageLinks { get; set; }
+        public List<Image> Images { get; set; } 
+        public Version Version { get; set; }
+        public String DownloadLink { get; set; }
+        public Boolean RequiresUpdate { get; set; }
+        public String LocalPath { get; set; }
     }
 
     

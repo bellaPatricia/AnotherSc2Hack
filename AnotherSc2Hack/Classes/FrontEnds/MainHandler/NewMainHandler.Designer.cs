@@ -32,6 +32,8 @@
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
             this.pnlMainArea = new System.Windows.Forms.Panel();
             this.pnlPlugins = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pnlDebug = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -61,7 +63,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pcbPluginsImages = new System.Windows.Forms.PictureBox();
+            this.btnPluginsImagesPrevious = new System.Windows.Forms.Button();
+            this.btnPluginsImagesNext = new System.Windows.Forms.Button();
+            this.lblPluginsImageposition = new System.Windows.Forms.Label();
+            this.btnPluginsInstallPlugin = new System.Windows.Forms.Button();
+            this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstvPluginsLoadedPlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -103,7 +115,6 @@
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.cpnlAutomation = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
             this.pnlPlugins.SuspendLayout();
@@ -111,6 +122,7 @@
             this.pnlOverlays.SuspendLayout();
             this.pnlPanelContainer.SuspendLayout();
             this.pnlApplication.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlLeftSelection
@@ -122,7 +134,6 @@
             this.pnlLeftSelection.Controls.Add(this.cpnlApplication);
             this.pnlLeftSelection.Controls.Add(this.cpnlOverlays);
             this.pnlLeftSelection.Controls.Add(this.cpnlPlugins);
-            this.pnlLeftSelection.Controls.Add(this.cpnlAutomation);
             this.pnlLeftSelection.Location = new System.Drawing.Point(0, 0);
             this.pnlLeftSelection.Name = "pnlLeftSelection";
             this.pnlLeftSelection.Size = new System.Drawing.Size(152, 555);
@@ -151,6 +162,16 @@
             this.pnlPlugins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlPlugins.Controls.Add(this.btnPluginsInstallPlugin);
+            this.pnlPlugins.Controls.Add(this.lblPluginsImageposition);
+            this.pnlPlugins.Controls.Add(this.btnPluginsImagesNext);
+            this.pnlPlugins.Controls.Add(this.btnPluginsImagesPrevious);
+            this.pnlPlugins.Controls.Add(this.pcbPluginsImages);
+            this.pnlPlugins.Controls.Add(this.label16);
+            this.pnlPlugins.Controls.Add(this.label15);
+            this.pnlPlugins.Controls.Add(this.rtbPluginsDescription);
+            this.pnlPlugins.Controls.Add(this.lstvPluginsAvailablePlugins);
+            this.pnlPlugins.Controls.Add(this.label14);
             this.pnlPlugins.Controls.Add(this.lstvPluginsLoadedPlugins);
             this.pnlPlugins.Controls.Add(this.label5);
             this.pnlPlugins.Cursor = System.Windows.Forms.Cursors.Default;
@@ -158,6 +179,28 @@
             this.pnlPlugins.Name = "pnlPlugins";
             this.pnlPlugins.Size = new System.Drawing.Size(1127, 475);
             this.pnlPlugins.TabIndex = 13;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label14.Location = new System.Drawing.Point(277, 15);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(128, 20);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Available plugins";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label5.Location = new System.Drawing.Point(15, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 20);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Loaded plugins";
             // 
             // pnlDebug
             // 
@@ -525,16 +568,126 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Memory Reading (ms):";
             // 
-            // label5
+            // rtbPluginsDescription
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label5.Location = new System.Drawing.Point(15, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Loaded plugins";
+            this.rtbPluginsDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbPluginsDescription.Location = new System.Drawing.Point(534, 72);
+            this.rtbPluginsDescription.Name = "rtbPluginsDescription";
+            this.rtbPluginsDescription.Size = new System.Drawing.Size(161, 209);
+            this.rtbPluginsDescription.TabIndex = 26;
+            this.rtbPluginsDescription.Text = "";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label15.Location = new System.Drawing.Point(530, 42);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(89, 20);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Description";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label16.Location = new System.Drawing.Point(706, 45);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 20);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Images";
+            // 
+            // pcbPluginsImages
+            // 
+            this.pcbPluginsImages.BackColor = System.Drawing.Color.Black;
+            this.pcbPluginsImages.Location = new System.Drawing.Point(710, 72);
+            this.pcbPluginsImages.Name = "pcbPluginsImages";
+            this.pcbPluginsImages.Size = new System.Drawing.Size(214, 209);
+            this.pcbPluginsImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbPluginsImages.TabIndex = 29;
+            this.pcbPluginsImages.TabStop = false;
+            // 
+            // btnPluginsImagesPrevious
+            // 
+            this.btnPluginsImagesPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnPluginsImagesPrevious.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnPluginsImagesPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPluginsImagesPrevious.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsImagesPrevious.Location = new System.Drawing.Point(710, 292);
+            this.btnPluginsImagesPrevious.Name = "btnPluginsImagesPrevious";
+            this.btnPluginsImagesPrevious.Size = new System.Drawing.Size(27, 37);
+            this.btnPluginsImagesPrevious.TabIndex = 30;
+            this.btnPluginsImagesPrevious.Text = "<";
+            this.btnPluginsImagesPrevious.UseVisualStyleBackColor = false;
+            this.btnPluginsImagesPrevious.Click += new System.EventHandler(this.btnPluginsImagesPrevious_Click);
+            // 
+            // btnPluginsImagesNext
+            // 
+            this.btnPluginsImagesNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnPluginsImagesNext.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnPluginsImagesNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPluginsImagesNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsImagesNext.Location = new System.Drawing.Point(897, 292);
+            this.btnPluginsImagesNext.Name = "btnPluginsImagesNext";
+            this.btnPluginsImagesNext.Size = new System.Drawing.Size(27, 37);
+            this.btnPluginsImagesNext.TabIndex = 31;
+            this.btnPluginsImagesNext.Text = ">";
+            this.btnPluginsImagesNext.UseVisualStyleBackColor = false;
+            this.btnPluginsImagesNext.Click += new System.EventHandler(this.btnPluginsImagesNext_Click);
+            // 
+            // lblPluginsImageposition
+            // 
+            this.lblPluginsImageposition.AutoSize = true;
+            this.lblPluginsImageposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPluginsImageposition.Location = new System.Drawing.Point(801, 300);
+            this.lblPluginsImageposition.Name = "lblPluginsImageposition";
+            this.lblPluginsImageposition.Size = new System.Drawing.Size(39, 20);
+            this.lblPluginsImageposition.TabIndex = 32;
+            this.lblPluginsImageposition.Text = "7/15";
+            // 
+            // btnPluginsInstallPlugin
+            // 
+            this.btnPluginsInstallPlugin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnPluginsInstallPlugin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnPluginsInstallPlugin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPluginsInstallPlugin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsInstallPlugin.Location = new System.Drawing.Point(534, 292);
+            this.btnPluginsInstallPlugin.Name = "btnPluginsInstallPlugin";
+            this.btnPluginsInstallPlugin.Size = new System.Drawing.Size(161, 37);
+            this.btnPluginsInstallPlugin.TabIndex = 33;
+            this.btnPluginsInstallPlugin.Text = "Install";
+            this.btnPluginsInstallPlugin.UseVisualStyleBackColor = false;
+            this.btnPluginsInstallPlugin.Click += new System.EventHandler(this.btnPluginsInstallPlugin_Click);
+            // 
+            // lstvPluginsAvailablePlugins
+            // 
+            this.lstvPluginsAvailablePlugins.AutoArrange = false;
+            this.lstvPluginsAvailablePlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10});
+            this.lstvPluginsAvailablePlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstvPluginsAvailablePlugins.FullRowSelect = true;
+            this.lstvPluginsAvailablePlugins.GridLines = true;
+            this.lstvPluginsAvailablePlugins.Location = new System.Drawing.Point(281, 45);
+            this.lstvPluginsAvailablePlugins.MultiSelect = false;
+            this.lstvPluginsAvailablePlugins.Name = "lstvPluginsAvailablePlugins";
+            this.lstvPluginsAvailablePlugins.Size = new System.Drawing.Size(235, 284);
+            this.lstvPluginsAvailablePlugins.TabIndex = 25;
+            this.lstvPluginsAvailablePlugins.UseCompatibleStateImageBehavior = false;
+            this.lstvPluginsAvailablePlugins.View = System.Windows.Forms.View.Details;
+            this.lstvPluginsAvailablePlugins.SelectedIndexChanged += new System.EventHandler(this.lstvPluginsAvailablePlugins_SelectedIndexChanged);
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Plugin";
+            this.columnHeader9.Width = 133;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Version";
+            this.columnHeader10.Width = 98;
             // 
             // lstvPluginsLoadedPlugins
             // 
@@ -548,7 +701,7 @@
             this.lstvPluginsLoadedPlugins.GridLines = true;
             this.lstvPluginsLoadedPlugins.Location = new System.Drawing.Point(19, 45);
             this.lstvPluginsLoadedPlugins.Name = "lstvPluginsLoadedPlugins";
-            this.lstvPluginsLoadedPlugins.Size = new System.Drawing.Size(247, 284);
+            this.lstvPluginsLoadedPlugins.Size = new System.Drawing.Size(235, 284);
             this.lstvPluginsLoadedPlugins.TabIndex = 23;
             this.lstvPluginsLoadedPlugins.UseCompatibleStateImageBehavior = false;
             this.lstvPluginsLoadedPlugins.View = System.Windows.Forms.View.Details;
@@ -563,7 +716,7 @@
             // columnHeader8
             // 
             this.columnHeader8.Text = "Version";
-            this.columnHeader8.Width = 110;
+            this.columnHeader8.Width = 98;
             // 
             // lstvDebugMatchdata
             // 
@@ -986,7 +1139,7 @@
             this.cpnlDebug.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlDebug.IsClicked = false;
             this.cpnlDebug.IsHovering = false;
-            this.cpnlDebug.Location = new System.Drawing.Point(0, 200);
+            this.cpnlDebug.Location = new System.Drawing.Point(0, 160);
             this.cpnlDebug.Name = "cpnlDebug";
             this.cpnlDebug.Size = new System.Drawing.Size(152, 40);
             this.cpnlDebug.TabIndex = 4;
@@ -1053,34 +1206,12 @@
             this.cpnlPlugins.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlPlugins.IsClicked = false;
             this.cpnlPlugins.IsHovering = false;
-            this.cpnlPlugins.Location = new System.Drawing.Point(0, 160);
+            this.cpnlPlugins.Location = new System.Drawing.Point(0, 120);
             this.cpnlPlugins.Name = "cpnlPlugins";
             this.cpnlPlugins.Size = new System.Drawing.Size(152, 40);
             this.cpnlPlugins.TabIndex = 3;
             this.cpnlPlugins.TextSize = 11F;
             this.cpnlPlugins.Click += new System.EventHandler(this.cpnlPlugins_Click);
-            // 
-            // cpnlAutomation
-            // 
-            this.cpnlAutomation.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-            this.cpnlAutomation.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-            this.cpnlAutomation.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.cpnlAutomation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlAutomation.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlAutomation.DisplayText = "Automation";
-            this.cpnlAutomation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpnlAutomation.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlAutomation.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlAutomation.Icon")));
-            this.cpnlAutomation.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlAutomation.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlAutomation.IsClicked = false;
-            this.cpnlAutomation.IsHovering = false;
-            this.cpnlAutomation.Location = new System.Drawing.Point(0, 120);
-            this.cpnlAutomation.Name = "cpnlAutomation";
-            this.cpnlAutomation.Size = new System.Drawing.Size(152, 40);
-            this.cpnlAutomation.TabIndex = 2;
-            this.cpnlAutomation.TextSize = 11F;
-            this.cpnlAutomation.Click += new System.EventHandler(this.cpnlAutomation_Click);
             // 
             // NewMainHandler
             // 
@@ -1105,6 +1236,7 @@
             this.pnlPanelContainer.PerformLayout();
             this.pnlApplication.ResumeLayout(false);
             this.pnlApplication.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1113,7 +1245,6 @@
 
         private Custom_Controls.ClickablePanel cpnlApplication;
         private Custom_Controls.ClickablePanel cpnlOverlays;
-        private Custom_Controls.ClickablePanel cpnlAutomation;
         private Custom_Controls.ClickablePanel cpnlPlugins;
         private System.Windows.Forms.Panel pnlLeftSelection;
         private System.Windows.Forms.Panel pnlMainArea;
@@ -1186,6 +1317,18 @@
         private AnotherListview lstvPluginsLoadedPlugins;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private AnotherListview lstvPluginsAvailablePlugins;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnPluginsInstallPlugin;
+        private System.Windows.Forms.Label lblPluginsImageposition;
+        private System.Windows.Forms.Button btnPluginsImagesNext;
+        private System.Windows.Forms.Button btnPluginsImagesPrevious;
+        private System.Windows.Forms.PictureBox pcbPluginsImages;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RichTextBox rtbPluginsDescription;
 
     }
 }

@@ -589,6 +589,7 @@ namespace Plugin.Extensions
 
         public void SetGameinfo(PredefinedTypes.Gameinformation gameinfo)
         {
+            if (gameinfo != null)
             _rndMainWindow.GInfo = gameinfo;
         }
 
