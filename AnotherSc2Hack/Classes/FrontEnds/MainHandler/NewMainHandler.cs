@@ -26,8 +26,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
     public partial class NewMainHandler : Form
     {
-
-
         public Preferences PSettings { get; private set; }
         private readonly Timer _tmrMainTick = new Timer();
         
@@ -35,13 +33,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly List<AppDomain> _lPluginContainer = new List<AppDomain>(); 
         private readonly List<IPlugins> _lPlugins = new List<IPlugins>();
         private readonly List<OnlinePlugin> _lOnlinePlugins = new List<OnlinePlugin>();
+        private readonly WebClient _wcMainWebClient = new WebClient();
+
 
         private Int32 _iPluginsSelectedPluginIndex;
 
         private Int32 IPluginsSelectedPluginIndex
         {
             get { return _iPluginsSelectedPluginIndex; }
-            set { _iPluginsSelectedPluginIndex = value; }
+            set
+            {
+                _iPluginsSelectedPluginIndex = value;
+
+                rtbPluginsDescription.Enabled = true;
+                btnPluginsImagesPrevious.Enabled = false;
+                if (_lOnlinePlugins[_iPluginsSelectedPluginIndex].ImageLinks.Count <= 1)
+                    btnPluginsImagesNext.Enabled = false;
+                else
+                    btnPluginsImagesNext.Enabled = true;
+
+            }
         }
 
         private Int32 _iPluginsImageIndex;
@@ -56,6 +67,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 {
                     lblPluginsImageposition.Text = (_iPluginsImageIndex + 1) + "/" + (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count);
                     pcbPluginsImages.Image = _lOnlinePlugins[IPluginsSelectedPluginIndex].Images[_iPluginsImageIndex];
+
+                    btnPluginsImagesPrevious.Enabled = IPluginsImageIndex > 0;
+                    btnPluginsImagesNext.Enabled = IPluginsImageIndex < _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count - 1;
                 }
             }
         }
@@ -102,12 +116,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Init();
             ControlsFill();
             EventMapping();
-            PluginsLoadPlugins();
-            PluginLoadAvailablePlugins();
+            
+
+            
+            
 
             ApplicationOptions = app;
 
             Gameinfo = new GameInfo(PSettings.GlobalDataRefresh);
+
+            PluginsLocalLoadPlugins();
+            new Thread(PluginLoadAvailablePlugins).Start();
         }
 
         private void Init()
@@ -120,6 +139,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _tmrMainTick.Interval = PSettings.GlobalDataRefresh;
             _tmrMainTick.Tick += _tmrMainTick_Tick;
             _tmrMainTick.Enabled = true;
+
+            _wcMainWebClient.Proxy = null;
+            _wcMainWebClient.DownloadProgressChanged += _wcMainWebClient_DownloadProgressChanged;
+            _wcMainWebClient.DownloadFileCompleted += _wcMainWebClient_DownloadFileCompleted;
             
 
             /* Add all the panels to the container... */
@@ -138,6 +161,27 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer, true);
+
+
+        }
+
+        void _wcMainWebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            tsMainProgress.Value = 0;
+
+            if (e.UserState.Equals("Plugin"))
+            {
+                PluginsLocalLoadPlugins();
+            }
+
+            Console.WriteLine("Filedownload complete!");
+        }
+
+        void _wcMainWebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            tsMainProgress.Value = e.ProgressPercentage;
+            tsMainLabel.Text = e.ProgressPercentage + " %";
+            Console.WriteLine("We are at the ProgressChanged!");
         }
 
         void _tmrMainTick_Tick(object sender, EventArgs e)
@@ -345,9 +389,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Load Data into listviews
 
-        private void PluginsLoadPlugins()
+        private void PluginsLocalLoadPlugins()
         {
-            
+            if (!Directory.Exists(Constants.StrPluginFolder))
+                Directory.CreateDirectory(Constants.StrPluginFolder);
+
             var files = Directory.GetFiles(Constants.StrPluginFolder, "*.dll");
 
             for (var i = 0; i < files.Length; i++)
@@ -362,6 +408,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     var foo =
                         (IPlugins)
                             tmpAppDomain.CreateInstanceFromAndUnwrap(files[i], "Plugin.Extensions.AnotherSc2HackPlugin");
+
+                    if (_lPlugins.Exists(x => x.GetPluginName() == foo.GetPluginName()))
+                       throw new TypeLoadException("Fuck you");
+                    
 
                     _lPlugins.Add(foo);
                     _lPluginContainer.Add(tmpAppDomain);
@@ -380,7 +430,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 }
             }
 
-            PluginsLoadedPluginsRefresh();
+            PluginsLocalLoadedPluginsRefresh();
 
             //Launch Plugins
             foreach (var plugin in _lPlugins)
@@ -395,9 +445,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private void PluginsLoadedPluginsRefresh()
+        private void PluginsLocalLoadedPluginsRefresh()
         {
             lstvPluginsLoadedPlugins.Items.Clear();
+            lstvPluginsLoadedPlugins.Enabled = true;
 
             foreach (var plugin in _lPlugins)
             {
@@ -418,11 +469,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /// </summary>
         private void PluginLoadAvailablePlugins()
         {
-            var _strUrlPlugins = @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Plugins.txt";
+            Console.WriteLine("Worker \"PluginLoadAvailablePlugins()\" started!");
 
-            var wc = new WebClient();
+            const string strUrlPlugins = @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Plugins.txt";
 
-            var strSource = wc.DownloadString(_strUrlPlugins);
+            var strSource = _wcMainWebClient.DownloadString(strUrlPlugins);
             // Info: Plugin- Names start with '#'
             // Plugin- Descriptions start with '+'
             // Plugin- Downloadlinks start with '*'
@@ -432,7 +483,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var strSpltted = strSource.Split('\n');
             foreach (var str in strSpltted)
             {
-
                 if (str.StartsWith("#"))
                 {
                     _lOnlinePlugins.Add(new OnlinePlugin());
@@ -452,6 +502,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     _lOnlinePlugins[_lOnlinePlugins.Count - 1].Version = new Version(str.Substring(1).Trim());
             }
 
+            //We have to operate cross-thread wide. So we have to create an invoker...
             MethodInvoker myInvoker = delegate
             {
                 foreach (var plugin in _lOnlinePlugins)
@@ -465,17 +516,40 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                     lstvPluginsAvailablePlugins.Items.Add(lwi);
                 }
+
+                lstvPluginsAvailablePlugins.Enabled = true;
             };
 
-            try
+            
+            //...and invoke it here
+            var bFailed = true;
+
+            while (bFailed)
             {
-                myInvoker.Invoke();
+                try
+                {
+                    //Actual invoking
+                    Invoke(myInvoker);
+                    bFailed = false;
+                }
+
+                catch (InvalidOperationException)
+                {
+                    //If this gets called, the calling thread wasn't ready yet..
+                    //..and since this is a while loop, we wait a bit to not bloat everything..
+                    Thread.Sleep(100);
+                }
+
+                catch
+                {
+                    //If we reach this point, something horrible happened.
+                    Thread.Sleep(30);
+                }
             }
 
-            finally
-            {
-                
-            }
+            PluginDownloadImages();
+
+            Console.WriteLine("Worker \"PluginLoadAvailablePlugins()\" finished!");
         }
 
         #endregion
@@ -501,6 +575,89 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else
                 _lPlugins[e.Item.Index].StopPlugin();
+        }
+
+        private void lstvPluginsAvailablePlugins_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var senda = ((ListView)sender);
+            if (senda.Items.Count <= 0)
+                return;
+
+            if (senda.SelectedItems.Count <= 0)
+                return;
+
+            if (senda.SelectedItems[0].Index >= senda.Items.Count)
+                return;
+
+            IPluginsSelectedPluginIndex = senda.SelectedItems[0].Index;
+
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count > 0)
+            {
+                pcbPluginsImages.Image = _lOnlinePlugins[IPluginsSelectedPluginIndex].Images[0];
+                IPluginsImageIndex = 0;
+            }
+        }
+
+        private void btnPluginsImagesPrevious_Click(object sender, EventArgs e)
+        {
+            if (IPluginsImageIndex >= 1)
+                IPluginsImageIndex -= 1;
+        }
+
+        private void btnPluginsImagesNext_Click(object sender, EventArgs e)
+        {
+            if (_lOnlinePlugins.Count <= 0)
+                return;
+
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count <= 0)
+                return;
+
+            if (IPluginsImageIndex < _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count - 1)
+                IPluginsImageIndex += 1;
+        } 
+
+        private void PluginDownloadImages()
+        {
+            MethodInvoker myInvoker = delegate
+            {
+                var onlinePlugin = _lOnlinePlugins[IPluginsSelectedPluginIndex];
+
+                rtbPluginsDescription.Text = onlinePlugin.Description;
+
+
+                for (var i = 0; i < _lOnlinePlugins.Count; i++)
+                {
+                    //Download images if available AND they were not downloaded already!
+                    if (_lOnlinePlugins[i].Images.Count <= 0)
+                    {
+                        for (var j = 0; j < _lOnlinePlugins[i].ImageLinks.Count; j++)
+                        {
+                            var rawImg =
+                                _wcMainWebClient.DownloadData(_lOnlinePlugins[i].ImageLinks[j]);
+                            var img = ByteArrayToImage(rawImg);
+
+                            _lOnlinePlugins[i].Images.Add(img);
+                        }
+                    }
+                }
+            };
+
+            var bFailed = true;
+
+            while (bFailed)
+            {
+                try
+                {
+                    Invoke(myInvoker);
+                    bFailed = false;
+                }
+
+                catch
+                {
+                    //Nothing
+                    Thread.Sleep(30);
+                }
+            }
         }
 
         #endregion
@@ -625,7 +782,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else
             {
-                lstvDebugMapdata.Columns[lstvDebugMapdata.Columns.Count - 1].Width = -2;
+                if (lstvDebugMapdata.Columns.Count > 1)
+                    lstvDebugMapdata.Columns[lstvDebugMapdata.Columns.Count - 1].Width = -2;
 
                 //Insert new ones
                 foreach (var field in fields)
@@ -1205,45 +1363,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private void lstvPluginsAvailablePlugins_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var senda = ((ListView) sender);
-            if (senda.Items.Count <= 0)
-                return;
-
-            if (senda.SelectedItems.Count <= 0)
-                return;
-
-            if (senda.SelectedItems[0].Index >= senda.Items.Count)
-                return;
-
-            IPluginsSelectedPluginIndex = senda.SelectedItems[0].Index;
-
-            var wc = new WebClient();
-            var onlinePlugin = _lOnlinePlugins[IPluginsSelectedPluginIndex];
-
-            rtbPluginsDescription.Text = onlinePlugin.Description;
-
-
-
-            //Download images if available AND they were not downloaded already!
-            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count <= 0)
-            {
-                for (var i = 0; i < _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count; i++)
-                {
-                    var rawImg = wc.DownloadData(_lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks[i]);
-                    var img = ByteArrayToImage(rawImg);
-
-                    _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Add(img);
-                }
-            }
-
-            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count > 0)
-            {
-                pcbPluginsImages.Image = _lOnlinePlugins[IPluginsSelectedPluginIndex].Images[0];
-                IPluginsImageIndex = 0;
-            }
-        }
+        
 
         public Image ByteArrayToImage(byte[] byteArrayIn)
         {
@@ -1256,12 +1376,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             var strOnlinePath = path.ToString().Split('#')[0];
             var strLocalPath = path.ToString().Split('#')[1];
-            var wc = new WebClient();
+            strLocalPath = Path.Combine(Application.StartupPath, Constants.StrPluginFolder, strLocalPath);
 
             try
             {
-                wc.DownloadFile(strOnlinePath,
-                    Path.Combine(Application.StartupPath, Constants.StrPluginFolder, strLocalPath));
+                _wcMainWebClient.DownloadFileAsync(new Uri(strOnlinePath), strLocalPath, "Plugin");
+                /*_wcMainWebClient.DownloadFile(strOnlinePath,
+                    Path.Combine(Application.StartupPath, Constants.StrPluginFolder, strLocalPath));*/
             }
 
             catch (Exception ex)
@@ -1272,30 +1393,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnPluginsInstallPlugin_Click(object sender, EventArgs e)
         {
-            var strOnlinePath = _lOnlinePlugins[IDebugPlayerIndex].DownloadLink;
+            var strOnlinePath = _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink;
             var strLocalPath =
-                _lOnlinePlugins[IDebugPlayerIndex].DownloadLink.Split('/')[
-                    _lOnlinePlugins[IDebugPlayerIndex].DownloadLink.Split('/').Length - 1];
-            new Thread(PluginsInstallPlugin).Start(strOnlinePath + "#" + strLocalPath);
+                _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink.Split('/')[
+                    _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink.Split('/').Length - 1];
+
+            PluginsInstallPlugin(strOnlinePath + "#" + strLocalPath);
+
+            //new Thread(PluginsInstallPlugin).Start(strOnlinePath + "#" + strLocalPath);
         }
-
-        private void btnPluginsImagesPrevious_Click(object sender, EventArgs e)
-        {
-            if (IPluginsImageIndex >= 1)
-                IPluginsImageIndex -= 1;
-        }
-
-        private void btnPluginsImagesNext_Click(object sender, EventArgs e)
-        {
-            if (_lOnlinePlugins.Count <= 0)
-                return;
-
-            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count <= 0)
-                return;
-
-            if (IPluginsImageIndex < _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count - 1)
-                IPluginsImageIndex += 1;
-        }        
     }
 
     [DebuggerDisplay("Name: {Name}; Description: {Description}; Version: {Version}; Link: {DownloadLink}")]

@@ -32,6 +32,14 @@
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
             this.pnlMainArea = new System.Windows.Forms.Panel();
             this.pnlPlugins = new System.Windows.Forms.Panel();
+            this.btnPluginsInstallPlugin = new System.Windows.Forms.Button();
+            this.lblPluginsImageposition = new System.Windows.Forms.Label();
+            this.btnPluginsImagesNext = new System.Windows.Forms.Button();
+            this.btnPluginsImagesPrevious = new System.Windows.Forms.Button();
+            this.pcbPluginsImages = new System.Windows.Forms.PictureBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlDebug = new System.Windows.Forms.Panel();
@@ -63,14 +71,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.pcbPluginsImages = new System.Windows.Forms.PictureBox();
-            this.btnPluginsImagesPrevious = new System.Windows.Forms.Button();
-            this.btnPluginsImagesNext = new System.Windows.Forms.Button();
-            this.lblPluginsImageposition = new System.Windows.Forms.Label();
-            this.btnPluginsInstallPlugin = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.StatusStrip();
+            this.tsMainProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -115,14 +117,16 @@
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.tsMainLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
             this.pnlPlugins.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).BeginInit();
             this.pnlDebug.SuspendLayout();
             this.pnlOverlays.SuspendLayout();
             this.pnlPanelContainer.SuspendLayout();
             this.pnlApplication.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLeftSelection
@@ -130,6 +134,7 @@
             this.pnlLeftSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlLeftSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.pnlLeftSelection.Controls.Add(this.menuStrip);
             this.pnlLeftSelection.Controls.Add(this.cpnlDebug);
             this.pnlLeftSelection.Controls.Add(this.cpnlApplication);
             this.pnlLeftSelection.Controls.Add(this.cpnlOverlays);
@@ -179,6 +184,101 @@
             this.pnlPlugins.Name = "pnlPlugins";
             this.pnlPlugins.Size = new System.Drawing.Size(1127, 475);
             this.pnlPlugins.TabIndex = 13;
+            // 
+            // btnPluginsInstallPlugin
+            // 
+            this.btnPluginsInstallPlugin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnPluginsInstallPlugin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnPluginsInstallPlugin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPluginsInstallPlugin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsInstallPlugin.Location = new System.Drawing.Point(534, 292);
+            this.btnPluginsInstallPlugin.Name = "btnPluginsInstallPlugin";
+            this.btnPluginsInstallPlugin.Size = new System.Drawing.Size(161, 37);
+            this.btnPluginsInstallPlugin.TabIndex = 33;
+            this.btnPluginsInstallPlugin.Text = "Install";
+            this.btnPluginsInstallPlugin.UseVisualStyleBackColor = false;
+            this.btnPluginsInstallPlugin.Click += new System.EventHandler(this.btnPluginsInstallPlugin_Click);
+            // 
+            // lblPluginsImageposition
+            // 
+            this.lblPluginsImageposition.AutoSize = true;
+            this.lblPluginsImageposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPluginsImageposition.Location = new System.Drawing.Point(801, 300);
+            this.lblPluginsImageposition.Name = "lblPluginsImageposition";
+            this.lblPluginsImageposition.Size = new System.Drawing.Size(39, 20);
+            this.lblPluginsImageposition.TabIndex = 32;
+            this.lblPluginsImageposition.Text = "7/15";
+            // 
+            // btnPluginsImagesNext
+            // 
+            this.btnPluginsImagesNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnPluginsImagesNext.Enabled = false;
+            this.btnPluginsImagesNext.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnPluginsImagesNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPluginsImagesNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsImagesNext.Location = new System.Drawing.Point(897, 292);
+            this.btnPluginsImagesNext.Name = "btnPluginsImagesNext";
+            this.btnPluginsImagesNext.Size = new System.Drawing.Size(27, 37);
+            this.btnPluginsImagesNext.TabIndex = 31;
+            this.btnPluginsImagesNext.Text = ">";
+            this.btnPluginsImagesNext.UseVisualStyleBackColor = false;
+            this.btnPluginsImagesNext.Click += new System.EventHandler(this.btnPluginsImagesNext_Click);
+            // 
+            // btnPluginsImagesPrevious
+            // 
+            this.btnPluginsImagesPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnPluginsImagesPrevious.Enabled = false;
+            this.btnPluginsImagesPrevious.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnPluginsImagesPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPluginsImagesPrevious.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsImagesPrevious.Location = new System.Drawing.Point(710, 292);
+            this.btnPluginsImagesPrevious.Name = "btnPluginsImagesPrevious";
+            this.btnPluginsImagesPrevious.Size = new System.Drawing.Size(27, 37);
+            this.btnPluginsImagesPrevious.TabIndex = 30;
+            this.btnPluginsImagesPrevious.Text = "<";
+            this.btnPluginsImagesPrevious.UseVisualStyleBackColor = false;
+            this.btnPluginsImagesPrevious.Click += new System.EventHandler(this.btnPluginsImagesPrevious_Click);
+            // 
+            // pcbPluginsImages
+            // 
+            this.pcbPluginsImages.BackColor = System.Drawing.Color.Black;
+            this.pcbPluginsImages.Location = new System.Drawing.Point(710, 72);
+            this.pcbPluginsImages.Name = "pcbPluginsImages";
+            this.pcbPluginsImages.Size = new System.Drawing.Size(214, 209);
+            this.pcbPluginsImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbPluginsImages.TabIndex = 29;
+            this.pcbPluginsImages.TabStop = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label16.Location = new System.Drawing.Point(706, 45);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 20);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Images";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label15.Location = new System.Drawing.Point(530, 42);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(89, 20);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Description";
+            // 
+            // rtbPluginsDescription
+            // 
+            this.rtbPluginsDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbPluginsDescription.Location = new System.Drawing.Point(534, 72);
+            this.rtbPluginsDescription.Name = "rtbPluginsDescription";
+            this.rtbPluginsDescription.Size = new System.Drawing.Size(161, 209);
+            this.rtbPluginsDescription.TabIndex = 26;
+            this.rtbPluginsDescription.Text = "";
             // 
             // label14
             // 
@@ -568,98 +668,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Memory Reading (ms):";
             // 
-            // rtbPluginsDescription
+            // menuStrip
             // 
-            this.rtbPluginsDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbPluginsDescription.Location = new System.Drawing.Point(534, 72);
-            this.rtbPluginsDescription.Name = "rtbPluginsDescription";
-            this.rtbPluginsDescription.Size = new System.Drawing.Size(161, 209);
-            this.rtbPluginsDescription.TabIndex = 26;
-            this.rtbPluginsDescription.Text = "";
+            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsMainProgress,
+            this.tsMainLabel});
+            this.menuStrip.Location = new System.Drawing.Point(0, 533);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(152, 22);
+            this.menuStrip.SizingGrip = false;
+            this.menuStrip.Stretch = false;
+            this.menuStrip.TabIndex = 5;
+            this.menuStrip.Text = "statusStrip1";
             // 
-            // label15
+            // tsMainProgress
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label15.Location = new System.Drawing.Point(530, 42);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 20);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "Description";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label16.Location = new System.Drawing.Point(706, 45);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 20);
-            this.label16.TabIndex = 28;
-            this.label16.Text = "Images";
-            // 
-            // pcbPluginsImages
-            // 
-            this.pcbPluginsImages.BackColor = System.Drawing.Color.Black;
-            this.pcbPluginsImages.Location = new System.Drawing.Point(710, 72);
-            this.pcbPluginsImages.Name = "pcbPluginsImages";
-            this.pcbPluginsImages.Size = new System.Drawing.Size(214, 209);
-            this.pcbPluginsImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbPluginsImages.TabIndex = 29;
-            this.pcbPluginsImages.TabStop = false;
-            // 
-            // btnPluginsImagesPrevious
-            // 
-            this.btnPluginsImagesPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnPluginsImagesPrevious.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnPluginsImagesPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPluginsImagesPrevious.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPluginsImagesPrevious.Location = new System.Drawing.Point(710, 292);
-            this.btnPluginsImagesPrevious.Name = "btnPluginsImagesPrevious";
-            this.btnPluginsImagesPrevious.Size = new System.Drawing.Size(27, 37);
-            this.btnPluginsImagesPrevious.TabIndex = 30;
-            this.btnPluginsImagesPrevious.Text = "<";
-            this.btnPluginsImagesPrevious.UseVisualStyleBackColor = false;
-            this.btnPluginsImagesPrevious.Click += new System.EventHandler(this.btnPluginsImagesPrevious_Click);
-            // 
-            // btnPluginsImagesNext
-            // 
-            this.btnPluginsImagesNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnPluginsImagesNext.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnPluginsImagesNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPluginsImagesNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPluginsImagesNext.Location = new System.Drawing.Point(897, 292);
-            this.btnPluginsImagesNext.Name = "btnPluginsImagesNext";
-            this.btnPluginsImagesNext.Size = new System.Drawing.Size(27, 37);
-            this.btnPluginsImagesNext.TabIndex = 31;
-            this.btnPluginsImagesNext.Text = ">";
-            this.btnPluginsImagesNext.UseVisualStyleBackColor = false;
-            this.btnPluginsImagesNext.Click += new System.EventHandler(this.btnPluginsImagesNext_Click);
-            // 
-            // lblPluginsImageposition
-            // 
-            this.lblPluginsImageposition.AutoSize = true;
-            this.lblPluginsImageposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPluginsImageposition.Location = new System.Drawing.Point(801, 300);
-            this.lblPluginsImageposition.Name = "lblPluginsImageposition";
-            this.lblPluginsImageposition.Size = new System.Drawing.Size(39, 20);
-            this.lblPluginsImageposition.TabIndex = 32;
-            this.lblPluginsImageposition.Text = "7/15";
-            // 
-            // btnPluginsInstallPlugin
-            // 
-            this.btnPluginsInstallPlugin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnPluginsInstallPlugin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnPluginsInstallPlugin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPluginsInstallPlugin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPluginsInstallPlugin.Location = new System.Drawing.Point(534, 292);
-            this.btnPluginsInstallPlugin.Name = "btnPluginsInstallPlugin";
-            this.btnPluginsInstallPlugin.Size = new System.Drawing.Size(161, 37);
-            this.btnPluginsInstallPlugin.TabIndex = 33;
-            this.btnPluginsInstallPlugin.Text = "Install";
-            this.btnPluginsInstallPlugin.UseVisualStyleBackColor = false;
-            this.btnPluginsInstallPlugin.Click += new System.EventHandler(this.btnPluginsInstallPlugin_Click);
+            this.tsMainProgress.Name = "tsMainProgress";
+            this.tsMainProgress.Size = new System.Drawing.Size(100, 16);
             // 
             // lstvPluginsAvailablePlugins
             // 
@@ -667,6 +693,7 @@
             this.lstvPluginsAvailablePlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader9,
             this.columnHeader10});
+            this.lstvPluginsAvailablePlugins.Enabled = false;
             this.lstvPluginsAvailablePlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvPluginsAvailablePlugins.FullRowSelect = true;
             this.lstvPluginsAvailablePlugins.GridLines = true;
@@ -696,6 +723,7 @@
             this.lstvPluginsLoadedPlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7,
             this.columnHeader8});
+            this.lstvPluginsLoadedPlugins.Enabled = false;
             this.lstvPluginsLoadedPlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvPluginsLoadedPlugins.FullRowSelect = true;
             this.lstvPluginsLoadedPlugins.GridLines = true;
@@ -1213,6 +1241,13 @@
             this.cpnlPlugins.TextSize = 11F;
             this.cpnlPlugins.Click += new System.EventHandler(this.cpnlPlugins_Click);
             // 
+            // tsMainLabel
+            // 
+            this.tsMainLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.tsMainLabel.Name = "tsMainLabel";
+            this.tsMainLabel.Size = new System.Drawing.Size(22, 17);
+            this.tsMainLabel.Text = "-/-";
+            // 
             // NewMainHandler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1225,10 +1260,12 @@
             this.Text = "NewMainHandler";
             this.Resize += new System.EventHandler(this.NewMainHandler_Resize);
             this.pnlLeftSelection.ResumeLayout(false);
+            this.pnlLeftSelection.PerformLayout();
             this.pnlMainArea.ResumeLayout(false);
             this.pnlMainArea.PerformLayout();
             this.pnlPlugins.ResumeLayout(false);
             this.pnlPlugins.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).EndInit();
             this.pnlDebug.ResumeLayout(false);
             this.pnlDebug.PerformLayout();
             this.pnlOverlays.ResumeLayout(false);
@@ -1236,7 +1273,8 @@
             this.pnlPanelContainer.PerformLayout();
             this.pnlApplication.ResumeLayout(false);
             this.pnlApplication.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1329,6 +1367,9 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.RichTextBox rtbPluginsDescription;
+        private System.Windows.Forms.StatusStrip menuStrip;
+        private System.Windows.Forms.ToolStripProgressBar tsMainProgress;
+        private System.Windows.Forms.ToolStripStatusLabel tsMainLabel;
 
     }
 }
