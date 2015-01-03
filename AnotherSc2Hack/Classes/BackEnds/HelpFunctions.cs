@@ -1807,5 +1807,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             return iBuildingCount;
         }
+
+        public static Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            var ms = new MemoryStream(byteArrayIn);
+            var returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
     }
 }

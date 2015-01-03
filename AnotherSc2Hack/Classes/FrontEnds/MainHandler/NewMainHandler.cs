@@ -12,6 +12,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.BackEnds.Gameinfo;
@@ -127,6 +128,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             PluginsLocalLoadPlugins();
             new Thread(PluginLoadAvailablePlugins).Start();
+            
         }
 
         private void Init()
@@ -167,7 +169,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void _wcMainWebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            tsMainProgress.Value = 0;
+            pbMainProgress.Value = 0;
 
             if (e.UserState.Equals("Plugin"))
             {
@@ -179,8 +181,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void _wcMainWebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            tsMainProgress.Value = e.ProgressPercentage;
-            tsMainLabel.Text = e.ProgressPercentage + " %";
+            pbMainProgress.Value = e.ProgressPercentage;
             Console.WriteLine("We are at the ProgressChanged!");
         }
 
@@ -223,6 +224,83 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 Gameinfo.CAccessMapInfo |= plugin.GetRequiresMap();
             }
         }
+
+        #region Side - Clickable Panels
+
+        #region Event methods
+
+        private void cpnlApplication_Click(object sender, EventArgs e)
+        {
+            lblTabname.Text = "Application";
+
+            pnlApplication.Visible = true;
+            foreach (var pnl in pnlMainArea.Controls)
+            {
+                if (pnl == pnlApplication)
+                    continue;
+
+                if (pnl.GetType() == typeof(Panel))
+                {
+                    ((Panel)pnl).Visible = false;
+                }
+            }
+        }
+
+        private void cpnlOverlays_Click(object sender, EventArgs e)
+        {
+            lblTabname.Text = "Overlays";
+
+            pnlOverlays.Visible = true;
+            foreach (var pnl in pnlMainArea.Controls)
+            {
+                if (pnl == pnlOverlays)
+                    continue;
+
+                if (pnl.GetType() == typeof(Panel))
+                {
+                    ((Panel)pnl).Visible = false;
+                }
+            }
+        }
+
+        private void cpnlPlugins_Click(object sender, EventArgs e)
+        {
+            lblTabname.Text = "Plugins";
+
+            pnlPlugins.Visible = true;
+            foreach (var pnl in pnlMainArea.Controls)
+            {
+                if (pnl == pnlPlugins)
+                    continue;
+
+                if (pnl.GetType() == typeof(Panel))
+                {
+                    ((Panel)pnl).Visible = false;
+                }
+            }
+        }
+
+        private void cpnlDebug_Click(object sender, EventArgs e)
+        {
+            lblTabname.Text = "Debug";
+
+
+            pnlDebug.Visible = true;
+            foreach (var pnl in pnlMainArea.Controls)
+            {
+                if (pnl == pnlDebug)
+                    continue;
+
+                if (pnl.GetType() == typeof(Panel))
+                {
+                    ((Panel)pnl).Visible = false;
+                }
+            }
+        }
+
+        #endregion
+
+        #endregion
 
         #region Application Panel Data
 
@@ -298,6 +376,123 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             #endregion
         }
+
+        
+        #region Global Event methods
+
+        private void cpnlOverlaysResources_Click(object sender, EventArgs e)
+        {
+            pnlOverlayResource.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayResource)
+                    continue;
+
+                ((UserControl)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysIncome_Click(object sender, EventArgs e)
+        {
+            pnlOverlayIncome.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayIncome)
+                    continue;
+
+                ((UserControl)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysWorker_Click(object sender, EventArgs e)
+        {
+            pnlOverlayWorker.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayWorker)
+                    continue;
+
+                ((UserControl)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysArmy_Click(object sender, EventArgs e)
+        {
+            pnlOverlayArmy.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayArmy)
+                    continue;
+
+                ((UserControl)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysApm_Click(object sender, EventArgs e)
+        {
+            pnlOverlayApm.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayApm)
+                    continue;
+
+                ((UserControl)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysMaphack_Click(object sender, EventArgs e)
+        {
+            pnlOverlayMaphack.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayMaphack)
+                    continue;
+
+                ((UserControl)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysUnits_Click(object sender, EventArgs e)
+        {
+            pnlOverlayUnittab.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayUnittab)
+                    continue;
+
+                ((UserControl)pnl).Visible = false;
+            }
+        }
+
+        private void cpnlOverlaysProduction_Click(object sender, EventArgs e)
+        {
+            pnlOverlayProductiontab.Visible = true;
+
+            foreach (var pnl in pnlOverlays.Controls)
+            {
+                if (pnl == pnlPanelContainer ||
+                    pnl == pnlOverlayProductiontab)
+                    continue;
+
+                ((UserControl)pnl).Visible = false;
+            }
+        }
+
+        #endregion
 
         #region Event- methods
 
@@ -547,12 +742,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 }
             }
 
-            PluginDownloadImages();
+            
 
             Console.WriteLine("Worker \"PluginLoadAvailablePlugins()\" finished!");
         }
 
         #endregion
+
+        #region Event methods
 
         private void lstvPluginsLoadedPlugins_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -596,6 +793,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 pcbPluginsImages.Image = _lOnlinePlugins[IPluginsSelectedPluginIndex].Images[0];
                 IPluginsImageIndex = 0;
             }
+
+            var onlinePlugin = _lOnlinePlugins[IPluginsSelectedPluginIndex];
+
+            rtbPluginsDescription.Text = onlinePlugin.Description;
+
+
+            
+
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count <= 0)
+                new Thread(PluginDownloadSpecificImages).Start(IPluginsSelectedPluginIndex);
         }
 
         private void btnPluginsImagesPrevious_Click(object sender, EventArgs e)
@@ -614,32 +821,45 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             if (IPluginsImageIndex < _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count - 1)
                 IPluginsImageIndex += 1;
-        } 
+        }
 
-        private void PluginDownloadImages()
+        private void btnPluginsInstallPlugin_Click(object sender, EventArgs e)
         {
+            var strOnlinePath = _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink;
+            var strLocalPath =
+                _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink.Split('/')[
+                    _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink.Split('/').Length - 1];
+
+            PluginsInstallPlugin(strOnlinePath + "#" + strLocalPath);
+
+            //new Thread(PluginsInstallPlugin).Start(strOnlinePath + "#" + strLocalPath);
+        }
+
+        #endregion
+
+       
+
+        private void PluginDownloadSpecificImages(object index)
+        {
+            var i = (Int32)index;
+
             MethodInvoker myInvoker = delegate
             {
-                var onlinePlugin = _lOnlinePlugins[IPluginsSelectedPluginIndex];
-
-                rtbPluginsDescription.Text = onlinePlugin.Description;
-
-
-                for (var i = 0; i < _lOnlinePlugins.Count; i++)
+                //Download images if available AND they were not downloaded already!
+                if (_lOnlinePlugins[i].Images.Count <= 0)
                 {
-                    //Download images if available AND they were not downloaded already!
-                    if (_lOnlinePlugins[i].Images.Count <= 0)
+                    for (var j = 0; j < _lOnlinePlugins[i].ImageLinks.Count; j++)
                     {
-                        for (var j = 0; j < _lOnlinePlugins[i].ImageLinks.Count; j++)
-                        {
-                            var rawImg =
-                                _wcMainWebClient.DownloadData(_lOnlinePlugins[i].ImageLinks[j]);
-                            var img = ByteArrayToImage(rawImg);
+                        var rawImg =
+                            _wcMainWebClient.DownloadData(_lOnlinePlugins[i].ImageLinks[j]);
+                        var img = HelpFunctions.ByteArrayToImage(rawImg);
 
-                            _lOnlinePlugins[i].Images.Add(img);
-                        }
+                        _lOnlinePlugins[i].Images.Add(img);
                     }
                 }
+
+                lstvPluginsAvailablePlugins_SelectedIndexChanged(lstvPluginsAvailablePlugins, new EventArgs());
+                
             };
 
             var bFailed = true;
@@ -659,6 +879,27 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 }
             }
         }
+
+        private void PluginsInstallPlugin(object path)
+        {
+            var strOnlinePath = path.ToString().Split('#')[0];
+            var strLocalPath = path.ToString().Split('#')[1];
+            strLocalPath = Path.Combine(Application.StartupPath, Constants.StrPluginFolder, strLocalPath);
+
+            try
+            {
+                _wcMainWebClient.DownloadFileAsync(new Uri(strOnlinePath), strLocalPath, "Plugin");
+                /*_wcMainWebClient.DownloadFile(strOnlinePath,
+                    Path.Combine(Application.StartupPath, Constants.StrPluginFolder, strLocalPath));*/
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Couldn't install Plugin!", "Something went wrong!");
+            }
+        }
+
+        
 
         #endregion
 
@@ -931,8 +1172,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
-
-
         #region Load Settings Into Controls
 
         private void ControlsFill()
@@ -1147,56 +1386,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         #endregion
 
 
-        private void cpnlApplication_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Application";
-
-            pnlApplication.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlApplication)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
-
-        private void cpnlOverlays_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Overlays";
-
-            pnlOverlays.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlOverlays)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
-
-        private void cpnlPlugins_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Plugins";
-
-            pnlPlugins.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlPlugins)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
+        
 
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)
         {
@@ -1209,33 +1399,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlMainArea.Invalidate();
         }
 
-        private void cpnlDebug_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Debug";
-
-
-            pnlDebug.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlDebug)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
-
-        private void pnlLeftSelection_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void cpnlApplication_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
 
         //Draw a new border on the top and bottom of the panel
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -1251,157 +1414,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         }
 
-        private void cpnlOverlaysResources_Click(object sender, EventArgs e)
-        {
-            pnlOverlayResource.Visible = true;
-
-            foreach (var pnl in pnlOverlays.Controls)
-            {
-                if (pnl == pnlPanelContainer ||
-                    pnl == pnlOverlayResource)
-                    continue;
-
-                ((UserControl)pnl).Visible = false;
-            }
-        }
-
-        private void cpnlOverlaysIncome_Click(object sender, EventArgs e)
-        {
-            pnlOverlayIncome.Visible = true;
-
-            foreach (var pnl in pnlOverlays.Controls)
-            {
-                if (pnl == pnlPanelContainer ||
-                    pnl == pnlOverlayIncome)
-                    continue;
-
-                ((UserControl)pnl).Visible = false;
-            }
-        }
-
-        private void cpnlOverlaysWorker_Click(object sender, EventArgs e)
-        {
-            pnlOverlayWorker.Visible = true;
-
-            foreach (var pnl in pnlOverlays.Controls)
-            {
-                if (pnl == pnlPanelContainer ||
-                    pnl == pnlOverlayWorker)
-                    continue;
-
-                ((UserControl)pnl).Visible = false;
-            }
-        }
-
-        private void cpnlOverlaysArmy_Click(object sender, EventArgs e)
-        {
-            pnlOverlayArmy.Visible = true;
-
-            foreach (var pnl in pnlOverlays.Controls)
-            {
-                if (pnl == pnlPanelContainer ||
-                    pnl == pnlOverlayArmy)
-                    continue;
-
-                ((UserControl)pnl).Visible = false;
-            }
-        }
-
-        private void cpnlOverlaysApm_Click(object sender, EventArgs e)
-        {
-            pnlOverlayApm.Visible = true;
-
-            foreach (var pnl in pnlOverlays.Controls)
-            {
-                if (pnl == pnlPanelContainer ||
-                    pnl == pnlOverlayApm)
-                    continue;
-
-                ((UserControl)pnl).Visible = false;
-            }
-        }
-
-        private void cpnlOverlaysMaphack_Click(object sender, EventArgs e)
-        {
-            pnlOverlayMaphack.Visible = true;
-
-            foreach (var pnl in pnlOverlays.Controls)
-            {
-                if (pnl == pnlPanelContainer ||
-                    pnl == pnlOverlayMaphack)
-                    continue;
-
-                ((UserControl)pnl).Visible = false;
-            }
-        }
-
-        private void cpnlOverlaysUnits_Click(object sender, EventArgs e)
-        {
-            pnlOverlayUnittab.Visible = true;
-
-            foreach (var pnl in pnlOverlays.Controls)
-            {
-                if (pnl == pnlPanelContainer ||
-                    pnl == pnlOverlayUnittab)
-                    continue;
-
-                ((UserControl)pnl).Visible = false;
-            }
-        }
-
-        private void cpnlOverlaysProduction_Click(object sender, EventArgs e)
-        {
-            pnlOverlayProductiontab.Visible = true;
-
-            foreach (var pnl in pnlOverlays.Controls)
-            {
-                if (pnl == pnlPanelContainer ||
-                    pnl == pnlOverlayProductiontab)
-                    continue;
-
-                ((UserControl)pnl).Visible = false;
-            }
-        }
+        
 
         
 
-        public Image ByteArrayToImage(byte[] byteArrayIn)
-        {
-            var ms = new MemoryStream(byteArrayIn);
-            var returnImage = Image.FromStream(ms);
-            return returnImage;
-        }
+        
 
-        private void PluginsInstallPlugin(object path)
-        {
-            var strOnlinePath = path.ToString().Split('#')[0];
-            var strLocalPath = path.ToString().Split('#')[1];
-            strLocalPath = Path.Combine(Application.StartupPath, Constants.StrPluginFolder, strLocalPath);
-
-            try
-            {
-                _wcMainWebClient.DownloadFileAsync(new Uri(strOnlinePath), strLocalPath, "Plugin");
-                /*_wcMainWebClient.DownloadFile(strOnlinePath,
-                    Path.Combine(Application.StartupPath, Constants.StrPluginFolder, strLocalPath));*/
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Couldn't install Plugin!", "Something went wrong!");
-            }
-        }
-
-        private void btnPluginsInstallPlugin_Click(object sender, EventArgs e)
-        {
-            var strOnlinePath = _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink;
-            var strLocalPath =
-                _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink.Split('/')[
-                    _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink.Split('/').Length - 1];
-
-            PluginsInstallPlugin(strOnlinePath + "#" + strLocalPath);
-
-            //new Thread(PluginsInstallPlugin).Start(strOnlinePath + "#" + strLocalPath);
-        }
+       
     }
 
     [DebuggerDisplay("Name: {Name}; Description: {Description}; Version: {Version}; Link: {DownloadLink}")]
