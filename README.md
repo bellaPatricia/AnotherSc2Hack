@@ -37,6 +37,15 @@ Requirements to compile:
 3.) Visual Studio 2012/ 2013<br>
 
 
+Compile notice:
+---------------
+When inspecting the source- code for the first time, make sure you compile the Project <b>at least</b><br>
+three times in <i>Release</i> mode! This will make that the required libraries are compiled correctly.<br>
+The Libraries "PredefinedTypes.dll" and "Plugininterface.dll" are required to compile successfully!<br>
+<br>
+Those Libraries will get compiled into <i>AnotherSc2Hack\bin\Release</i> and are statically linked to that path!<br>
+When you change the binary output, make sure you change the project references as well!<br>
+
 
 Requirements to use:
 --------------------
