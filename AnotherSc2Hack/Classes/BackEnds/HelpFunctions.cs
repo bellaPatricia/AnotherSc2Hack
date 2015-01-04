@@ -1814,5 +1814,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var returnImage = Image.FromStream(ms);
             return returnImage;
         }
+
+        public static Control findParentByName(Control control, string name)
+        {
+            while (control.Parent.Name != name)
+                control = control.Parent;
+
+            return control;
+        }
     }
 }

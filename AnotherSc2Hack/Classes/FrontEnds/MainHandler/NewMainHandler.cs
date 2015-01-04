@@ -352,18 +352,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Overlays Panel Data
 
-        private void EventMapping()
+        private void EventMappingResource()
         {
-            #region Overlay Resource
-
-            pnlOverlayResource.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlayResourceDrawBackground_CheckedChanged;
-            pnlOverlayResource.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
-            pnlOverlayResource.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
-            pnlOverlayResource.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
-            pnlOverlayResource.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
-            pnlOverlayResource.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
-            pnlOverlayResource.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
-            pnlOverlayResource.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+            pnlOverlayResource.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlaysDrawBackground_CheckedChanged;
+            pnlOverlayResource.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
+            pnlOverlayResource.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
+            pnlOverlayResource.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlaysRemoveClantags_CheckedChanged;
+            pnlOverlayResource.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlaysRemoveNeutral_CheckedChanged;
+            pnlOverlayResource.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlaysRemoveYourself_CheckedChanged;
+            pnlOverlayResource.pnlBasics.btnSetFont.Click += btnOverlaysSetFont_Click;
+            pnlOverlayResource.pnlBasics.OpacityControl.ValueChanged += ocOverlaysOpacity_ValueChanged;
 
             pnlOverlayResource.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
             pnlOverlayResource.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
@@ -371,19 +369,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayResource.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
             pnlOverlayResource.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
             pnlOverlayResource.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+        }
 
-            #endregion
-
-            #region Overlay Income
-
-            pnlOverlayIncome.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlayResourceDrawBackground_CheckedChanged;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
-            pnlOverlayIncome.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
-            pnlOverlayIncome.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+        private void EventMappingIncome()
+        {
+            pnlOverlayIncome.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlaysDrawBackground_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlaysRemoveClantags_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlaysRemoveNeutral_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlaysRemoveYourself_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.btnSetFont.Click += btnOverlaysSetFont_Click;
+            pnlOverlayIncome.pnlBasics.OpacityControl.ValueChanged += ocOverlaysOpacity_ValueChanged;
 
             pnlOverlayIncome.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
             pnlOverlayIncome.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
@@ -391,14 +388,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayIncome.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
             pnlOverlayIncome.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
             pnlOverlayIncome.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+        }
 
-            #endregion
-
-            #region Overlay Worker
-
-            pnlOverlayWorker.aChBxDrawBackground.CheckedChanged += aChBxOverlayResourceDrawBackground_CheckedChanged;
-            pnlOverlayWorker.btnSetFont.Click += btnOverlayResourceSetFont_Click;
-            pnlOverlayWorker.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+        private void EventMappingWorker()
+        {
+            pnlOverlayWorker.aChBxDrawBackground.CheckedChanged += aChBxOverlaysDrawBackground_CheckedChanged;
+            pnlOverlayWorker.btnSetFont.Click += btnOverlaysSetFont_Click;
+            pnlOverlayWorker.OpacityControl.ValueChanged += ocOverlaysOpacity_ValueChanged;
 
             pnlOverlayWorker.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
             pnlOverlayWorker.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
@@ -406,19 +402,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayWorker.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
             pnlOverlayWorker.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
             pnlOverlayWorker.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+        }
 
-            #endregion
-
-            #region Overlay Apm
-
-            pnlOverlayApm.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlayResourceDrawBackground_CheckedChanged;
-            pnlOverlayApm.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
-            pnlOverlayApm.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
-            pnlOverlayApm.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
-            pnlOverlayApm.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
-            pnlOverlayApm.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
-            pnlOverlayApm.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
-            pnlOverlayApm.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+        private void EventMappingApm()
+        {
+            pnlOverlayApm.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlaysDrawBackground_CheckedChanged;
+            pnlOverlayApm.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
+            pnlOverlayApm.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
+            pnlOverlayApm.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlaysRemoveClantags_CheckedChanged;
+            pnlOverlayApm.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlaysRemoveNeutral_CheckedChanged;
+            pnlOverlayApm.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlaysRemoveYourself_CheckedChanged;
+            pnlOverlayApm.pnlBasics.btnSetFont.Click += btnOverlaysSetFont_Click;
+            pnlOverlayApm.pnlBasics.OpacityControl.ValueChanged += ocOverlaysOpacity_ValueChanged;
 
             pnlOverlayApm.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
             pnlOverlayApm.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
@@ -426,19 +421,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayApm.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
             pnlOverlayApm.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
             pnlOverlayApm.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+        }
 
-            #endregion
-
-            #region Overlay Army
-
-            pnlOverlayArmy.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlayResourceDrawBackground_CheckedChanged;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
-            pnlOverlayArmy.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
-            pnlOverlayArmy.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+        private void EventMappingArmy()
+        {
+            pnlOverlayArmy.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlaysDrawBackground_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlaysRemoveClantags_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlaysRemoveNeutral_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlaysRemoveYourself_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.btnSetFont.Click += btnOverlaysSetFont_Click;
+            pnlOverlayArmy.pnlBasics.OpacityControl.ValueChanged += ocOverlaysOpacity_ValueChanged;
 
             pnlOverlayArmy.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
             pnlOverlayArmy.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
@@ -446,21 +440,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayArmy.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
             pnlOverlayArmy.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
             pnlOverlayArmy.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+        }
 
-            #endregion
-
-            #region Overlay Maphack
-
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
-            pnlOverlayMaphack.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
-            pnlOverlayMaphack.pnlBasics.aChBxDefensiveStructures.CheckedChanged += aChBxDefensiveStructures_CheckedChanged;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveCamera.CheckedChanged += aChBxRemoveCamera_CheckedChanged;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveDestinationLine.CheckedChanged += aChBxRemoveDestinationLine_CheckedChanged;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveVisionArea.CheckedChanged += aChBxRemoveVisionArea_CheckedChanged;
-            pnlOverlayMaphack.pnlBasics.btnColorDestinationline.Click += btnColorDestinationline_Click;
+        private void EventMappingMaphack()
+        {
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlaysRemoveNeutral_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlaysRemoveYourself_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.OpacityControl.ValueChanged += ocOverlaysOpacity_ValueChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxDefensiveStructures.CheckedChanged += aChBxOverlaysDefensiveStructures_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveCamera.CheckedChanged += aChBxOverlaysRemoveCamera_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveDestinationLine.CheckedChanged += aChBxOverlaysRemoveDestinationLine_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveVisionArea.CheckedChanged += aChBxOverlaysRemoveVisionArea_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.btnColorDestinationline.Click += btnOverlaysColorDestinationline_Click;
 
             pnlOverlayMaphack.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
             pnlOverlayMaphack.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
@@ -468,27 +461,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayMaphack.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
             pnlOverlayMaphack.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
             pnlOverlayMaphack.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+        }
 
-
-
-            #endregion
-
-            #region Overlay Unit
-
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxDisplayUnits.CheckedChanged += aChBxDisplayUnits_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxDisplayBuildings.CheckedChanged += aChBxDisplayBuildings_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveChronoboost.CheckedChanged += aChBxRemoveChronoboost_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveProductionstatus.CheckedChanged += aChBxRemoveProductionstatus_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveSpellcounter.CheckedChanged += aChBxRemoveSpellcounter_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxSplitUnitsBuildings.CheckedChanged += aChBxSplitUnitsBuildings_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.aChBxTransparentImages.CheckedChanged += aChBxTransparentImages_CheckedChanged;
-            pnlOverlayUnittab.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
-            pnlOverlayUnittab.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+        private void EventMappingUnittab()
+        {
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlaysRemoveClantags_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlaysRemoveNeutral_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlaysRemoveYourself_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxDisplayUnits.CheckedChanged += aChBxOverlaysDisplayUnits_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxDisplayBuildings.CheckedChanged += aChBxOverlaysDisplayBuildings_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveChronoboost.CheckedChanged += aChBxOverlaysRemoveChronoboost_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveProductionstatus.CheckedChanged += aChBxOverlaysRemoveProductionstatus_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveSpellcounter.CheckedChanged += aChBxOverlaysRemoveSpellcounter_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxSplitUnitsBuildings.CheckedChanged += aChBxOverlaysSplitUnitsBuildings_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxTransparentImages.CheckedChanged += aChBxOverlaysTransparentImages_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.btnSetFont.Click += btnOverlaysSetFont_Click;
+            pnlOverlayUnittab.pnlBasics.OpacityControl.ValueChanged += ocOverlaysOpacity_ValueChanged;
 
             pnlOverlayUnittab.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
             pnlOverlayUnittab.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
@@ -497,25 +487,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayUnittab.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
             pnlOverlayUnittab.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
 
-            pnlOverlayUnittab.pnlSpecial.ntxtSize.NumberChanged += ntxtSize_NumberChanged;
+            pnlOverlayUnittab.pnlSpecial.ntxtSize.NumberChanged += ntxtOverlaysSize_NumberChanged;
+        }
 
-            #endregion
-
-            #region Overlay Production
-
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUnits.CheckedChanged += aChBxDisplayUnits_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.aChBxDisplayBuildings.CheckedChanged += aChBxDisplayBuildings_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUpgrades.CheckedChanged += aChBxDisplayUpgrades_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveChronoboost.CheckedChanged += aChBxRemoveChronoboost_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.aChBxSplitUnitsBuildings.CheckedChanged += aChBxSplitUnitsBuildings_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.aChBxTransparentImages.CheckedChanged += aChBxTransparentImages_CheckedChanged;
-            pnlOverlayProductiontab.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
-            pnlOverlayProductiontab.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+        private void EventMappingProductiontab()
+        {
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlaysRemoveClantags_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlaysRemoveNeutral_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlaysRemoveYourself_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUnits.CheckedChanged += aChBxOverlaysDisplayUnits_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayBuildings.CheckedChanged += aChBxOverlaysDisplayBuildings_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUpgrades.CheckedChanged += aChBxOverlaysDisplayUpgrades_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveChronoboost.CheckedChanged += aChBxOverlaysRemoveChronoboost_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxSplitUnitsBuildings.CheckedChanged += aChBxOverlaysSplitUnitsBuildings_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxTransparentImages.CheckedChanged += aChBxOverlaysTransparentImages_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.btnSetFont.Click += btnOverlaysSetFont_Click;
+            pnlOverlayProductiontab.pnlBasics.OpacityControl.ValueChanged += ocOverlaysOpacity_ValueChanged;
 
             pnlOverlayProductiontab.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
             pnlOverlayProductiontab.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
@@ -524,18 +513,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayProductiontab.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
             pnlOverlayProductiontab.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
 
-            pnlOverlayProductiontab.pnlSpecial.ntxtSize.NumberChanged += ntxtSize_NumberChanged;
-
-            #endregion
+            pnlOverlayProductiontab.pnlSpecial.ntxtSize.NumberChanged += ntxtOverlaysSize_NumberChanged;
         }
 
-        
+        private void EventMapping()
+        {
+            EventMappingApm();
+            EventMappingArmy();
+            EventMappingIncome();
+            EventMappingMaphack();
+            EventMappingProductiontab();
+            EventMappingResource();
+            EventMappingUnittab();
+            EventMappingWorker();
+        }
 
-        
-
-        
-
-        
         #region Global Event methods
 
         private void cpnlOverlaysResources_Click(object sender, EventArgs e)
@@ -654,13 +646,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Event- methods
 
-        #region Overlay Resource
+        #region Overlays
 
         void txtOverlaysToggle_TextChanged(object sender, EventArgs e)
         {
             var senda = (TextBox)sender;
 
-            var parent = senda.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(senda, "pnlOverlays");
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceTogglePanel = senda.Text;
 
@@ -684,13 +676,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitTogglePanel = senda.Text;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
         void txtOverlaysResize_TextChanged(object sender, EventArgs e)
         {
             var senda = (TextBox)sender;
 
-            var parent = senda.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(senda, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceChangeSizePanel = senda.Text;
 
@@ -714,13 +710,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitChangeSizePanel = senda.Text;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
         void txtOverlaysReposition_TextChanged(object sender, EventArgs e)
         {
             var senda = (TextBox)sender;
 
-            var parent = senda.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(senda, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceChangePositionPanel = senda.Text;
 
@@ -744,11 +744,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitChangePositionPanel = senda.Text;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
         void ktxtOverlaysHotkey3_KeyChanged(KeyTextBox o, EventKey e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceHotkey3 = o.HotKeyValue;
 
@@ -772,11 +776,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitHotkey3 = o.HotKeyValue;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
         void ktxtOverlaysHotkey2_KeyChanged(KeyTextBox o, EventKey e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceHotkey2 = o.HotKeyValue;
 
@@ -800,11 +808,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitHotkey2 = o.HotKeyValue;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
         void ktxtOverlaysHotkey1_KeyChanged(KeyTextBox o, EventKey e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceHotkey1 = o.HotKeyValue;
 
@@ -828,11 +840,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitHotkey1 = o.HotKeyValue;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
-        private void OpacityControlOverlayResource_ValueChanged(UiOpacityControl uiOpacityControl, EventNumber eventNumber)
+        void ocOverlaysOpacity_ValueChanged(UiOpacityControl uiOpacityControl, EventNumber eventNumber)
         {
-            var parent = uiOpacityControl.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(uiOpacityControl, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceOpacity = (float)uiOpacityControl.Number / 100;
 
@@ -856,15 +872,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitTabOpacity = (float)uiOpacityControl.Number / 100;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
-        void btnOverlayResourceSetFont_Click(object sender, EventArgs e)
+        void btnOverlaysSetFont_Click(object sender, EventArgs e)
         {
             var ftDialog = new FontDialog();
             ftDialog.ShowDialog();
 
-
-            var parent = ((Control) sender).Parent.Parent;
+            var senda = ((Control) sender);
+            var parent = HelpFunctions.findParentByName(senda, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceFontName = ftDialog.Font.Name;
@@ -886,11 +905,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitTabFontName = ftDialog.Font.Name;
+
+            else 
+                Messages.Show("Couldn't find parent!");
+
+            senda.Text = ftDialog.Font.Name;
         }
 
-        void aChBxOverlayResourceRemoveYourself_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveYourself_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceRemoveLocalplayer = o.Checked;
             
@@ -911,11 +936,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitTabRemoveLocalplayer = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
-        void aChBxOverlayResourceRemoveNeutral_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveNeutral_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceRemoveNeutral = o.Checked;
 
@@ -936,11 +965,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitTabRemoveNeutral = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
-        void aChBxOverlayResourceRemoveClantags_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveClantags_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceRemoveClanTag = o.Checked;
 
@@ -958,11 +991,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitTabRemoveClanTag = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
-        void aChBxOverlayResourceRemoveAllie_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveAllie_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceRemoveAllie = o.Checked;
 
@@ -983,11 +1020,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitTabRemoveAllie = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
-        void aChBxOverlayResourceRemoveAi_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveAi_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceRemoveAi = o.Checked;
 
@@ -1008,11 +1049,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitTabRemoveAi = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
-        void aChBxOverlayResourceDrawBackground_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysDrawBackground_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
+
             if (parent.Name.Contains("Resource"))
                 PSettings.ResourceDrawBackground = o.Checked;
 
@@ -1027,11 +1072,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else if (parent.Name.Contains("Worker"))
                 PSettings.WorkerDrawBackground = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
         }
 
-        void ntxtSize_NumberChanged(NumberTextBox o, EventNumber e)
+        void ntxtOverlaysSize_NumberChanged(NumberTextBox o, EventNumber e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
                 PSettings.ProdPictureSize = o.Number;
@@ -1043,14 +1091,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 Messages.Show("Couldn't find parent!");
         }
 
-        void aChBxDisplayUpgrades_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysDisplayUpgrades_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
             PSettings.ProdTabShowUpgrades = o.Checked;
         }
 
-        void aChBxTransparentImages_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysTransparentImages_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
                 PSettings.ProdTabUseTransparentImages = o.Checked;
@@ -1062,9 +1110,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 Messages.Show("Couldn't find parent!");
         }
 
-        void aChBxSplitUnitsBuildings_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysSplitUnitsBuildings_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
                 PSettings.ProdTabSplitUnitsAndBuildings = o.Checked;
@@ -1076,19 +1124,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 Messages.Show("Couldn't find parent!");
         }
 
-        void aChBxRemoveSpellcounter_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveSpellcounter_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
             PSettings.UnitTabRemoveSpellCounter = o.Checked;
         }
 
-        void aChBxRemoveProductionstatus_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveProductionstatus_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
             PSettings.UnitTabRemoveProdLine = o.Checked;
         }
 
-        void aChBxRemoveChronoboost_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveChronoboost_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
                 PSettings.ProdTabRemoveChronoboost = o.Checked;
@@ -1100,9 +1148,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 Messages.Show("Couldn't find parent!");
         }
 
-        void aChBxDisplayBuildings_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysDisplayBuildings_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
                 PSettings.ProdTabShowBuildings = o.Checked;
@@ -1114,9 +1162,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 Messages.Show("Couldn't find parent!");
         }
 
-        void aChBxDisplayUnits_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysDisplayUnits_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            var parent = o.Parent.Parent;
+            var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
                 PSettings.ProdTabShowUnits = o.Checked;
@@ -1128,7 +1176,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 Messages.Show("Couldn't find parent!");
         }
 
-        void btnColorDestinationline_Click(object sender, EventArgs e)
+        void btnOverlaysColorDestinationline_Click(object sender, EventArgs e)
         {
             var cl = new ColorDialog();
             cl.Color = Color.YellowGreen;
@@ -1139,22 +1187,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayMaphack.pnlBasics.btnColorDestinationline.BackColor = cl.Color;
         }
 
-        void aChBxRemoveVisionArea_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveVisionArea_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
             PSettings.MaphackRemoveVisionArea = o.Checked;
         }
 
-        void aChBxRemoveDestinationLine_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveDestinationLine_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
             PSettings.MaphackDisableDestinationLine = o.Checked;
         }
 
-        void aChBxRemoveCamera_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysRemoveCamera_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
             PSettings.MaphackRemoveCamera = o.Checked;
         }
 
-        void aChBxDefensiveStructures_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        void aChBxOverlaysDefensiveStructures_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
             PSettings.MaphackColorDefensivestructuresYellow = o.Checked;
         }
