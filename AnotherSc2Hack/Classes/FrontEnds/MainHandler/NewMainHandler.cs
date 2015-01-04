@@ -187,15 +187,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void _tmrMainTick_Tick(object sender, EventArgs e)
         {
-          /*  aChBxStarcraftFound.Checked = Gameinfo.CStarcraft2 != null ? true : false;
-            aChBxIngame.Checked = Gameinfo.Gameinfo.IsIngame;*/
-
-            DebugPlayerRefresh();
-            DebugUnitRefresh();
-            DebugMapRefresh();
-            DebugMatchinformationRefresh();
+            if (cpnlDebug.IsClicked)
+            {
+                DebugPlayerRefresh();
+                DebugUnitRefresh();
+                DebugMapRefresh();
+                DebugMatchinformationRefresh();
+            }
 
             PluginDataRefresh();
+            
         }
 
         private void PluginDataRefresh()
@@ -304,7 +305,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Application Panel Data
 
-        #region Event- methods
+        #region Event methods
 
         private void ntxtMemoryRefresh_NumberChanged(NumberTextBox o, EventNumber e)
         {
@@ -330,17 +331,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.GlobalDrawingRefresh = o.Number;
         }
 
-        private void ktxtReposition_TextChanged(object sender, EventArgs e)
+        void ktxtReposition_KeyChanged(KeyTextBox o, EventKey e)
         {
-            var senda =
-                (KeyTextBox) sender;
-
-            PSettings.GlobalChangeSizeAndPosition = senda.HotKeyValue;
+            PSettings.GlobalChangeSizeAndPosition = o.HotKeyValue;
         }
 
         private void chBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("Nothing to do here");
+            PSettings.GlobalLanguage = chBxLanguage.SelectedItem.ToString();
         }
 
         private void btnReposition_Click(object sender, EventArgs e)
@@ -1181,6 +1179,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ntxtGraphicsRefresh.Number = PSettings.GlobalDrawingRefresh;
             ktxtReposition.Text = PSettings.GlobalChangeSizeAndPosition.ToString();
             chBxOnlyDrawInForeground.Checked = PSettings.GlobalDrawOnlyInForeground;
+            chBxLanguage.SelectedIndex = chBxLanguage.Items.IndexOf(PSettings.GlobalLanguage) > -1
+                ? chBxLanguage.Items.IndexOf(PSettings.GlobalLanguage)
+                : 0;
 
             InitializeResources();
             InitializeIncome();
@@ -1411,7 +1412,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void chBxOnlyDrawInForeground_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
+            PSettings.GlobalDrawOnlyInForeground = o.Checked;
+        }
 
+        private void NewMainHandler_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            PSettings.WritePreferences();
+
+            foreach (var plugin in _lPlugins)
+            {
+                plugin.StopPlugin();
+            }
+
+            foreach (var appDomain in _lPluginContainer)
+            {
+                AppDomain.Unload(appDomain);
+            }
+
+            _tmrMainTick.Enabled = false;
+            Gameinfo.HandleThread(false);
         }
 
         

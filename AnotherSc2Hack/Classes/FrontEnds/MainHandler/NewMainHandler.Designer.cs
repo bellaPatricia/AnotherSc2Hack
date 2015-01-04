@@ -30,10 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMainHandler));
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
-            this.cpnlDebug = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.pbMainProgress = new System.Windows.Forms.ProgressBar();
             this.pnlMainArea = new System.Windows.Forms.Panel();
             this.pnlPlugins = new System.Windows.Forms.Panel();
             this.btnPluginsInstallPlugin = new System.Windows.Forms.Button();
@@ -44,31 +41,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
-            this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label14 = new System.Windows.Forms.Label();
-            this.lstvPluginsLoadedPlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label5 = new System.Windows.Forms.Label();
             this.pnlDebug = new System.Windows.Forms.Panel();
-            this.lstvDebugMatchdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label13 = new System.Windows.Forms.Label();
-            this.lstvDebugMapdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label10 = new System.Windows.Forms.Label();
-            this.ntxtDebugUnitLocation = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.ntxtDebugPlayerLocation = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lstvDebugUnitdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lstvDebugPlayderdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.colHAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtDebugUnitMemory = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblDebugUnitLocation = new System.Windows.Forms.Label();
@@ -86,6 +63,35 @@
             this.btnDebugPlayerBack = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlOverlays = new System.Windows.Forms.Panel();
+            this.pnlPanelContainer = new System.Windows.Forms.Panel();
+            this.lblTabname = new System.Windows.Forms.Label();
+            this.pnlApplication = new System.Windows.Forms.Panel();
+            this.chBxLanguage = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnReposition = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstvPluginsLoadedPlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstvDebugMatchdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstvDebugMapdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ntxtDebugUnitLocation = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtDebugPlayerLocation = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.lstvDebugUnitdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstvDebugPlayderdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.colHAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlOverlayProductiontab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayProductiontab();
             this.pnlOverlayUnittab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayUnittab();
             this.pnlOverlayMaphack = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayMaphack();
@@ -94,7 +100,6 @@
             this.pnlOverlayApm = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
             this.pnlOverlayIncome = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
             this.pnlOverlayResource = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
-            this.pnlPanelContainer = new System.Windows.Forms.Panel();
             this.cpnlOverlaysProduction = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysUnits = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysMaphack = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
@@ -103,19 +108,14 @@
             this.cpnlOverlaysWorker = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysIncome = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysResources = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.lblTabname = new System.Windows.Forms.Label();
-            this.pnlApplication = new System.Windows.Forms.Panel();
-            this.chBxLanguage = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.chBxOnlyDrawInForeground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.btnReposition = new System.Windows.Forms.Button();
             this.ktxtReposition = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.ntxtGraphicsRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.ntxtMemoryRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pbMainProgress = new System.Windows.Forms.ProgressBar();
+            this.cpnlDebug = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
             this.pnlPlugins.SuspendLayout();
@@ -141,93 +141,14 @@
             this.pnlLeftSelection.Size = new System.Drawing.Size(152, 555);
             this.pnlLeftSelection.TabIndex = 5;
             // 
-            // cpnlDebug
+            // pbMainProgress
             // 
-            this.cpnlDebug.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-            this.cpnlDebug.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-            this.cpnlDebug.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.cpnlDebug.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlDebug.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlDebug.DisplayText = "Debug";
-            this.cpnlDebug.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpnlDebug.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlDebug.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Bug;
-            this.cpnlDebug.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlDebug.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlDebug.IsClicked = false;
-            this.cpnlDebug.IsHovering = false;
-            this.cpnlDebug.Location = new System.Drawing.Point(0, 160);
-            this.cpnlDebug.Name = "cpnlDebug";
-            this.cpnlDebug.Size = new System.Drawing.Size(152, 40);
-            this.cpnlDebug.TabIndex = 4;
-            this.cpnlDebug.TextSize = 11F;
-            this.cpnlDebug.Click += new System.EventHandler(this.cpnlDebug_Click);
-            // 
-            // cpnlApplication
-            // 
-            this.cpnlApplication.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-            this.cpnlApplication.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-            this.cpnlApplication.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.cpnlApplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlApplication.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlApplication.DisplayText = "Application";
-            this.cpnlApplication.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpnlApplication.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlApplication.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlApplication.Icon")));
-            this.cpnlApplication.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlApplication.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlApplication.IsClicked = false;
-            this.cpnlApplication.IsHovering = false;
-            this.cpnlApplication.Location = new System.Drawing.Point(0, 40);
-            this.cpnlApplication.Name = "cpnlApplication";
-            this.cpnlApplication.Size = new System.Drawing.Size(152, 40);
-            this.cpnlApplication.TabIndex = 0;
-            this.cpnlApplication.TextSize = 11F;
-            this.cpnlApplication.Click += new System.EventHandler(this.cpnlApplication_Click);
-            // 
-            // cpnlOverlays
-            // 
-            this.cpnlOverlays.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-            this.cpnlOverlays.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-            this.cpnlOverlays.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.cpnlOverlays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlOverlays.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlOverlays.DisplayText = "Overlays";
-            this.cpnlOverlays.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpnlOverlays.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlOverlays.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlOverlays.Icon")));
-            this.cpnlOverlays.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlOverlays.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlOverlays.IsClicked = false;
-            this.cpnlOverlays.IsHovering = false;
-            this.cpnlOverlays.Location = new System.Drawing.Point(0, 80);
-            this.cpnlOverlays.Name = "cpnlOverlays";
-            this.cpnlOverlays.Size = new System.Drawing.Size(152, 40);
-            this.cpnlOverlays.TabIndex = 1;
-            this.cpnlOverlays.TextSize = 11F;
-            this.cpnlOverlays.Click += new System.EventHandler(this.cpnlOverlays_Click);
-            // 
-            // cpnlPlugins
-            // 
-            this.cpnlPlugins.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-            this.cpnlPlugins.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-            this.cpnlPlugins.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.cpnlPlugins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlPlugins.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlPlugins.DisplayText = "Plugins";
-            this.cpnlPlugins.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpnlPlugins.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlPlugins.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlPlugins.Icon")));
-            this.cpnlPlugins.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-            this.cpnlPlugins.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.cpnlPlugins.IsClicked = false;
-            this.cpnlPlugins.IsHovering = false;
-            this.cpnlPlugins.Location = new System.Drawing.Point(0, 120);
-            this.cpnlPlugins.Name = "cpnlPlugins";
-            this.cpnlPlugins.Size = new System.Drawing.Size(152, 40);
-            this.cpnlPlugins.TabIndex = 3;
-            this.cpnlPlugins.TextSize = 11F;
-            this.cpnlPlugins.Click += new System.EventHandler(this.cpnlPlugins_Click);
+            this.pbMainProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbMainProgress.Location = new System.Drawing.Point(0, 532);
+            this.pbMainProgress.Name = "pbMainProgress";
+            this.pbMainProgress.Size = new System.Drawing.Size(152, 23);
+            this.pbMainProgress.TabIndex = 5;
             // 
             // pnlMainArea
             // 
@@ -364,35 +285,6 @@
             this.rtbPluginsDescription.TabIndex = 26;
             this.rtbPluginsDescription.Text = "";
             // 
-            // lstvPluginsAvailablePlugins
-            // 
-            this.lstvPluginsAvailablePlugins.AutoArrange = false;
-            this.lstvPluginsAvailablePlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader9,
-            this.columnHeader10});
-            this.lstvPluginsAvailablePlugins.Enabled = false;
-            this.lstvPluginsAvailablePlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstvPluginsAvailablePlugins.FullRowSelect = true;
-            this.lstvPluginsAvailablePlugins.GridLines = true;
-            this.lstvPluginsAvailablePlugins.Location = new System.Drawing.Point(281, 45);
-            this.lstvPluginsAvailablePlugins.MultiSelect = false;
-            this.lstvPluginsAvailablePlugins.Name = "lstvPluginsAvailablePlugins";
-            this.lstvPluginsAvailablePlugins.Size = new System.Drawing.Size(235, 284);
-            this.lstvPluginsAvailablePlugins.TabIndex = 25;
-            this.lstvPluginsAvailablePlugins.UseCompatibleStateImageBehavior = false;
-            this.lstvPluginsAvailablePlugins.View = System.Windows.Forms.View.Details;
-            this.lstvPluginsAvailablePlugins.SelectedIndexChanged += new System.EventHandler(this.lstvPluginsAvailablePlugins_SelectedIndexChanged);
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Plugin";
-            this.columnHeader9.Width = 133;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Version";
-            this.columnHeader10.Width = 98;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -403,36 +295,6 @@
             this.label14.Size = new System.Drawing.Size(128, 20);
             this.label14.TabIndex = 24;
             this.label14.Text = "Available plugins";
-            // 
-            // lstvPluginsLoadedPlugins
-            // 
-            this.lstvPluginsLoadedPlugins.AutoArrange = false;
-            this.lstvPluginsLoadedPlugins.CheckBoxes = true;
-            this.lstvPluginsLoadedPlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader7,
-            this.columnHeader8});
-            this.lstvPluginsLoadedPlugins.Enabled = false;
-            this.lstvPluginsLoadedPlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstvPluginsLoadedPlugins.FullRowSelect = true;
-            this.lstvPluginsLoadedPlugins.GridLines = true;
-            this.lstvPluginsLoadedPlugins.Location = new System.Drawing.Point(19, 45);
-            this.lstvPluginsLoadedPlugins.Name = "lstvPluginsLoadedPlugins";
-            this.lstvPluginsLoadedPlugins.Size = new System.Drawing.Size(235, 284);
-            this.lstvPluginsLoadedPlugins.TabIndex = 23;
-            this.lstvPluginsLoadedPlugins.UseCompatibleStateImageBehavior = false;
-            this.lstvPluginsLoadedPlugins.View = System.Windows.Forms.View.Details;
-            this.lstvPluginsLoadedPlugins.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstvPluginsLoadedPlugins_ItemChecked);
-            this.lstvPluginsLoadedPlugins.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstvPluginsLoadedPlugins_ItemSelectionChanged);
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Plugin";
-            this.columnHeader7.Width = 133;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Version";
-            this.columnHeader8.Width = 98;
             // 
             // label5
             // 
@@ -480,32 +342,6 @@
             this.pnlDebug.Size = new System.Drawing.Size(1127, 475);
             this.pnlDebug.TabIndex = 12;
             // 
-            // lstvDebugMatchdata
-            // 
-            this.lstvDebugMatchdata.AutoArrange = false;
-            this.lstvDebugMatchdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6});
-            this.lstvDebugMatchdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstvDebugMatchdata.FullRowSelect = true;
-            this.lstvDebugMatchdata.GridLines = true;
-            this.lstvDebugMatchdata.Location = new System.Drawing.Point(855, 45);
-            this.lstvDebugMatchdata.Name = "lstvDebugMatchdata";
-            this.lstvDebugMatchdata.Size = new System.Drawing.Size(247, 284);
-            this.lstvDebugMatchdata.TabIndex = 29;
-            this.lstvDebugMatchdata.UseCompatibleStateImageBehavior = false;
-            this.lstvDebugMatchdata.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Attribute";
-            this.columnHeader5.Width = 133;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Value";
-            this.columnHeader6.Width = 110;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -517,32 +353,6 @@
             this.label13.TabIndex = 28;
             this.label13.Text = "Matchdata";
             // 
-            // lstvDebugMapdata
-            // 
-            this.lstvDebugMapdata.AutoArrange = false;
-            this.lstvDebugMapdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader4});
-            this.lstvDebugMapdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstvDebugMapdata.FullRowSelect = true;
-            this.lstvDebugMapdata.GridLines = true;
-            this.lstvDebugMapdata.Location = new System.Drawing.Point(593, 45);
-            this.lstvDebugMapdata.Name = "lstvDebugMapdata";
-            this.lstvDebugMapdata.Size = new System.Drawing.Size(247, 284);
-            this.lstvDebugMapdata.TabIndex = 27;
-            this.lstvDebugMapdata.UseCompatibleStateImageBehavior = false;
-            this.lstvDebugMapdata.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Attribute";
-            this.columnHeader3.Width = 133;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Value";
-            this.columnHeader4.Width = 110;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -553,82 +363,6 @@
             this.label10.Size = new System.Drawing.Size(71, 20);
             this.label10.TabIndex = 26;
             this.label10.Text = "Mapdata";
-            // 
-            // ntxtDebugUnitLocation
-            // 
-            this.ntxtDebugUnitLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ntxtDebugUnitLocation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ntxtDebugUnitLocation.Location = new System.Drawing.Point(314, 340);
-            this.ntxtDebugUnitLocation.Name = "ntxtDebugUnitLocation";
-            this.ntxtDebugUnitLocation.Number = 1;
-            this.ntxtDebugUnitLocation.Size = new System.Drawing.Size(50, 27);
-            this.ntxtDebugUnitLocation.TabIndex = 25;
-            this.ntxtDebugUnitLocation.Text = "1";
-            this.ntxtDebugUnitLocation.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtDebugUnitLocation_NumberChanged);
-            // 
-            // ntxtDebugPlayerLocation
-            // 
-            this.ntxtDebugPlayerLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ntxtDebugPlayerLocation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ntxtDebugPlayerLocation.Location = new System.Drawing.Point(52, 340);
-            this.ntxtDebugPlayerLocation.Name = "ntxtDebugPlayerLocation";
-            this.ntxtDebugPlayerLocation.Number = 1;
-            this.ntxtDebugPlayerLocation.Size = new System.Drawing.Size(50, 27);
-            this.ntxtDebugPlayerLocation.TabIndex = 24;
-            this.ntxtDebugPlayerLocation.Text = "1";
-            this.ntxtDebugPlayerLocation.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtDebugPlayerLocation_NumberChanged);
-            // 
-            // lstvDebugUnitdata
-            // 
-            this.lstvDebugUnitdata.AutoArrange = false;
-            this.lstvDebugUnitdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.lstvDebugUnitdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstvDebugUnitdata.FullRowSelect = true;
-            this.lstvDebugUnitdata.GridLines = true;
-            this.lstvDebugUnitdata.Location = new System.Drawing.Point(281, 45);
-            this.lstvDebugUnitdata.Name = "lstvDebugUnitdata";
-            this.lstvDebugUnitdata.Size = new System.Drawing.Size(297, 284);
-            this.lstvDebugUnitdata.TabIndex = 23;
-            this.lstvDebugUnitdata.UseCompatibleStateImageBehavior = false;
-            this.lstvDebugUnitdata.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Attribute";
-            this.columnHeader1.Width = 133;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Value";
-            this.columnHeader2.Width = 160;
-            // 
-            // lstvDebugPlayderdata
-            // 
-            this.lstvDebugPlayderdata.AutoArrange = false;
-            this.lstvDebugPlayderdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colHAttribute,
-            this.colHValue});
-            this.lstvDebugPlayderdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstvDebugPlayderdata.FullRowSelect = true;
-            this.lstvDebugPlayderdata.GridLines = true;
-            this.lstvDebugPlayderdata.Location = new System.Drawing.Point(19, 45);
-            this.lstvDebugPlayderdata.Name = "lstvDebugPlayderdata";
-            this.lstvDebugPlayderdata.Size = new System.Drawing.Size(247, 284);
-            this.lstvDebugPlayderdata.TabIndex = 22;
-            this.lstvDebugPlayderdata.UseCompatibleStateImageBehavior = false;
-            this.lstvDebugPlayderdata.View = System.Windows.Forms.View.Details;
-            // 
-            // colHAttribute
-            // 
-            this.colHAttribute.Text = "Attribute";
-            this.colHAttribute.Width = 133;
-            // 
-            // colHValue
-            // 
-            this.colHValue.Text = "Value";
-            this.colHValue.Width = 110;
             // 
             // txtDebugUnitMemory
             // 
@@ -827,6 +561,308 @@
             this.pnlOverlays.Size = new System.Drawing.Size(1127, 475);
             this.pnlOverlays.TabIndex = 11;
             // 
+            // pnlPanelContainer
+            // 
+            this.pnlPanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysProduction);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysUnits);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysMaphack);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysApm);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysArmy);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysWorker);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysIncome);
+            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysResources);
+            this.pnlPanelContainer.Location = new System.Drawing.Point(19, 15);
+            this.pnlPanelContainer.Name = "pnlPanelContainer";
+            this.pnlPanelContainer.Size = new System.Drawing.Size(824, 52);
+            this.pnlPanelContainer.TabIndex = 0;
+            this.pnlPanelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblTabname
+            // 
+            this.lblTabname.AutoSize = true;
+            this.lblTabname.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTabname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblTabname.Location = new System.Drawing.Point(15, 15);
+            this.lblTabname.Name = "lblTabname";
+            this.lblTabname.Size = new System.Drawing.Size(118, 30);
+            this.lblTabname.TabIndex = 1;
+            this.lblTabname.Text = "Application";
+            // 
+            // pnlApplication
+            // 
+            this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlApplication.Controls.Add(this.chBxLanguage);
+            this.pnlApplication.Controls.Add(this.label4);
+            this.pnlApplication.Controls.Add(this.chBxOnlyDrawInForeground);
+            this.pnlApplication.Controls.Add(this.btnReposition);
+            this.pnlApplication.Controls.Add(this.ktxtReposition);
+            this.pnlApplication.Controls.Add(this.label3);
+            this.pnlApplication.Controls.Add(this.ntxtGraphicsRefresh);
+            this.pnlApplication.Controls.Add(this.ntxtMemoryRefresh);
+            this.pnlApplication.Controls.Add(this.label2);
+            this.pnlApplication.Controls.Add(this.label1);
+            this.pnlApplication.Location = new System.Drawing.Point(0, 80);
+            this.pnlApplication.Name = "pnlApplication";
+            this.pnlApplication.Size = new System.Drawing.Size(1127, 475);
+            this.pnlApplication.TabIndex = 0;
+            // 
+            // chBxLanguage
+            // 
+            this.chBxLanguage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBxLanguage.FormattingEnabled = true;
+            this.chBxLanguage.Items.AddRange(new object[] {
+            "English",
+            "German"});
+            this.chBxLanguage.Location = new System.Drawing.Point(133, 102);
+            this.chBxLanguage.Name = "chBxLanguage";
+            this.chBxLanguage.Size = new System.Drawing.Size(170, 28);
+            this.chBxLanguage.TabIndex = 10;
+            this.chBxLanguage.SelectedIndexChanged += new System.EventHandler(this.chBxLanguage_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(16, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Language:";
+            // 
+            // btnReposition
+            // 
+            this.btnReposition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnReposition.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnReposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReposition.Location = new System.Drawing.Point(19, 172);
+            this.btnReposition.Name = "btnReposition";
+            this.btnReposition.Size = new System.Drawing.Size(284, 32);
+            this.btnReposition.TabIndex = 7;
+            this.btnReposition.Text = "Reset panelposition and -size";
+            this.btnReposition.UseVisualStyleBackColor = false;
+            this.btnReposition.Click += new System.EventHandler(this.btnReposition_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(15, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Reposition key:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Graphics Refresh (ms):";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Memory Reading (ms):";
+            // 
+            // lstvPluginsAvailablePlugins
+            // 
+            this.lstvPluginsAvailablePlugins.AutoArrange = false;
+            this.lstvPluginsAvailablePlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10});
+            this.lstvPluginsAvailablePlugins.Enabled = false;
+            this.lstvPluginsAvailablePlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstvPluginsAvailablePlugins.FullRowSelect = true;
+            this.lstvPluginsAvailablePlugins.GridLines = true;
+            this.lstvPluginsAvailablePlugins.Location = new System.Drawing.Point(281, 45);
+            this.lstvPluginsAvailablePlugins.MultiSelect = false;
+            this.lstvPluginsAvailablePlugins.Name = "lstvPluginsAvailablePlugins";
+            this.lstvPluginsAvailablePlugins.Size = new System.Drawing.Size(235, 284);
+            this.lstvPluginsAvailablePlugins.TabIndex = 25;
+            this.lstvPluginsAvailablePlugins.UseCompatibleStateImageBehavior = false;
+            this.lstvPluginsAvailablePlugins.View = System.Windows.Forms.View.Details;
+            this.lstvPluginsAvailablePlugins.SelectedIndexChanged += new System.EventHandler(this.lstvPluginsAvailablePlugins_SelectedIndexChanged);
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Plugin";
+            this.columnHeader9.Width = 133;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Version";
+            this.columnHeader10.Width = 98;
+            // 
+            // lstvPluginsLoadedPlugins
+            // 
+            this.lstvPluginsLoadedPlugins.AutoArrange = false;
+            this.lstvPluginsLoadedPlugins.CheckBoxes = true;
+            this.lstvPluginsLoadedPlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8});
+            this.lstvPluginsLoadedPlugins.Enabled = false;
+            this.lstvPluginsLoadedPlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstvPluginsLoadedPlugins.FullRowSelect = true;
+            this.lstvPluginsLoadedPlugins.GridLines = true;
+            this.lstvPluginsLoadedPlugins.Location = new System.Drawing.Point(19, 45);
+            this.lstvPluginsLoadedPlugins.Name = "lstvPluginsLoadedPlugins";
+            this.lstvPluginsLoadedPlugins.Size = new System.Drawing.Size(235, 284);
+            this.lstvPluginsLoadedPlugins.TabIndex = 23;
+            this.lstvPluginsLoadedPlugins.UseCompatibleStateImageBehavior = false;
+            this.lstvPluginsLoadedPlugins.View = System.Windows.Forms.View.Details;
+            this.lstvPluginsLoadedPlugins.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstvPluginsLoadedPlugins_ItemChecked);
+            this.lstvPluginsLoadedPlugins.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstvPluginsLoadedPlugins_ItemSelectionChanged);
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Plugin";
+            this.columnHeader7.Width = 133;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Version";
+            this.columnHeader8.Width = 98;
+            // 
+            // lstvDebugMatchdata
+            // 
+            this.lstvDebugMatchdata.AutoArrange = false;
+            this.lstvDebugMatchdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6});
+            this.lstvDebugMatchdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstvDebugMatchdata.FullRowSelect = true;
+            this.lstvDebugMatchdata.GridLines = true;
+            this.lstvDebugMatchdata.Location = new System.Drawing.Point(855, 45);
+            this.lstvDebugMatchdata.Name = "lstvDebugMatchdata";
+            this.lstvDebugMatchdata.Size = new System.Drawing.Size(247, 284);
+            this.lstvDebugMatchdata.TabIndex = 29;
+            this.lstvDebugMatchdata.UseCompatibleStateImageBehavior = false;
+            this.lstvDebugMatchdata.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Attribute";
+            this.columnHeader5.Width = 133;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Value";
+            this.columnHeader6.Width = 110;
+            // 
+            // lstvDebugMapdata
+            // 
+            this.lstvDebugMapdata.AutoArrange = false;
+            this.lstvDebugMapdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4});
+            this.lstvDebugMapdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstvDebugMapdata.FullRowSelect = true;
+            this.lstvDebugMapdata.GridLines = true;
+            this.lstvDebugMapdata.Location = new System.Drawing.Point(593, 45);
+            this.lstvDebugMapdata.Name = "lstvDebugMapdata";
+            this.lstvDebugMapdata.Size = new System.Drawing.Size(247, 284);
+            this.lstvDebugMapdata.TabIndex = 27;
+            this.lstvDebugMapdata.UseCompatibleStateImageBehavior = false;
+            this.lstvDebugMapdata.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Attribute";
+            this.columnHeader3.Width = 133;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Value";
+            this.columnHeader4.Width = 110;
+            // 
+            // ntxtDebugUnitLocation
+            // 
+            this.ntxtDebugUnitLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ntxtDebugUnitLocation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtDebugUnitLocation.Location = new System.Drawing.Point(314, 340);
+            this.ntxtDebugUnitLocation.Name = "ntxtDebugUnitLocation";
+            this.ntxtDebugUnitLocation.Number = 1;
+            this.ntxtDebugUnitLocation.Size = new System.Drawing.Size(50, 27);
+            this.ntxtDebugUnitLocation.TabIndex = 25;
+            this.ntxtDebugUnitLocation.Text = "1";
+            this.ntxtDebugUnitLocation.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtDebugUnitLocation_NumberChanged);
+            // 
+            // ntxtDebugPlayerLocation
+            // 
+            this.ntxtDebugPlayerLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ntxtDebugPlayerLocation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtDebugPlayerLocation.Location = new System.Drawing.Point(52, 340);
+            this.ntxtDebugPlayerLocation.Name = "ntxtDebugPlayerLocation";
+            this.ntxtDebugPlayerLocation.Number = 1;
+            this.ntxtDebugPlayerLocation.Size = new System.Drawing.Size(50, 27);
+            this.ntxtDebugPlayerLocation.TabIndex = 24;
+            this.ntxtDebugPlayerLocation.Text = "1";
+            this.ntxtDebugPlayerLocation.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtDebugPlayerLocation_NumberChanged);
+            // 
+            // lstvDebugUnitdata
+            // 
+            this.lstvDebugUnitdata.AutoArrange = false;
+            this.lstvDebugUnitdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.lstvDebugUnitdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstvDebugUnitdata.FullRowSelect = true;
+            this.lstvDebugUnitdata.GridLines = true;
+            this.lstvDebugUnitdata.Location = new System.Drawing.Point(281, 45);
+            this.lstvDebugUnitdata.Name = "lstvDebugUnitdata";
+            this.lstvDebugUnitdata.Size = new System.Drawing.Size(297, 284);
+            this.lstvDebugUnitdata.TabIndex = 23;
+            this.lstvDebugUnitdata.UseCompatibleStateImageBehavior = false;
+            this.lstvDebugUnitdata.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Attribute";
+            this.columnHeader1.Width = 133;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Value";
+            this.columnHeader2.Width = 160;
+            // 
+            // lstvDebugPlayderdata
+            // 
+            this.lstvDebugPlayderdata.AutoArrange = false;
+            this.lstvDebugPlayderdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colHAttribute,
+            this.colHValue});
+            this.lstvDebugPlayderdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstvDebugPlayderdata.FullRowSelect = true;
+            this.lstvDebugPlayderdata.GridLines = true;
+            this.lstvDebugPlayderdata.Location = new System.Drawing.Point(19, 45);
+            this.lstvDebugPlayderdata.Name = "lstvDebugPlayderdata";
+            this.lstvDebugPlayderdata.Size = new System.Drawing.Size(247, 284);
+            this.lstvDebugPlayderdata.TabIndex = 22;
+            this.lstvDebugPlayderdata.UseCompatibleStateImageBehavior = false;
+            this.lstvDebugPlayderdata.View = System.Windows.Forms.View.Details;
+            // 
+            // colHAttribute
+            // 
+            this.colHAttribute.Text = "Attribute";
+            this.colHAttribute.Width = 133;
+            // 
+            // colHValue
+            // 
+            this.colHValue.Text = "Value";
+            this.colHValue.Width = 110;
+            // 
             // pnlOverlayProductiontab
             // 
             this.pnlOverlayProductiontab.Location = new System.Drawing.Point(19, 75);
@@ -882,23 +918,6 @@
             this.pnlOverlayResource.Name = "pnlOverlayResource";
             this.pnlOverlayResource.Size = new System.Drawing.Size(456, 346);
             this.pnlOverlayResource.TabIndex = 1;
-            // 
-            // pnlPanelContainer
-            // 
-            this.pnlPanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysProduction);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysUnits);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysMaphack);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysApm);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysArmy);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysWorker);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysIncome);
-            this.pnlPanelContainer.Controls.Add(this.cpnlOverlaysResources);
-            this.pnlPanelContainer.Location = new System.Drawing.Point(19, 15);
-            this.pnlPanelContainer.Name = "pnlPanelContainer";
-            this.pnlPanelContainer.Size = new System.Drawing.Size(824, 52);
-            this.pnlPanelContainer.TabIndex = 0;
-            this.pnlPanelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // cpnlOverlaysProduction
             // 
@@ -1076,57 +1095,6 @@
             this.cpnlOverlaysResources.TextSize = 11F;
             this.cpnlOverlaysResources.Click += new System.EventHandler(this.cpnlOverlaysResources_Click);
             // 
-            // lblTabname
-            // 
-            this.lblTabname.AutoSize = true;
-            this.lblTabname.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.lblTabname.Location = new System.Drawing.Point(15, 15);
-            this.lblTabname.Name = "lblTabname";
-            this.lblTabname.Size = new System.Drawing.Size(118, 30);
-            this.lblTabname.TabIndex = 1;
-            this.lblTabname.Text = "Application";
-            // 
-            // pnlApplication
-            // 
-            this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlApplication.Controls.Add(this.chBxLanguage);
-            this.pnlApplication.Controls.Add(this.label4);
-            this.pnlApplication.Controls.Add(this.chBxOnlyDrawInForeground);
-            this.pnlApplication.Controls.Add(this.btnReposition);
-            this.pnlApplication.Controls.Add(this.ktxtReposition);
-            this.pnlApplication.Controls.Add(this.label3);
-            this.pnlApplication.Controls.Add(this.ntxtGraphicsRefresh);
-            this.pnlApplication.Controls.Add(this.ntxtMemoryRefresh);
-            this.pnlApplication.Controls.Add(this.label2);
-            this.pnlApplication.Controls.Add(this.label1);
-            this.pnlApplication.Location = new System.Drawing.Point(0, 80);
-            this.pnlApplication.Name = "pnlApplication";
-            this.pnlApplication.Size = new System.Drawing.Size(1127, 475);
-            this.pnlApplication.TabIndex = 0;
-            // 
-            // chBxLanguage
-            // 
-            this.chBxLanguage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBxLanguage.FormattingEnabled = true;
-            this.chBxLanguage.Location = new System.Drawing.Point(133, 102);
-            this.chBxLanguage.Name = "chBxLanguage";
-            this.chBxLanguage.Size = new System.Drawing.Size(170, 28);
-            this.chBxLanguage.TabIndex = 10;
-            this.chBxLanguage.SelectedIndexChanged += new System.EventHandler(this.chBxLanguage_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Language:";
-            // 
             // chBxOnlyDrawInForeground
             // 
             this.chBxOnlyDrawInForeground.Checked = false;
@@ -1141,20 +1109,6 @@
             this.chBxOnlyDrawInForeground.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Left;
             this.chBxOnlyDrawInForeground.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.CheckedChangeHandler(this.chBxOnlyDrawInForeground_CheckedChanged);
             // 
-            // btnReposition
-            // 
-            this.btnReposition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnReposition.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnReposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReposition.Location = new System.Drawing.Point(19, 172);
-            this.btnReposition.Name = "btnReposition";
-            this.btnReposition.Size = new System.Drawing.Size(284, 32);
-            this.btnReposition.TabIndex = 7;
-            this.btnReposition.Text = "Reset panelposition and -size";
-            this.btnReposition.UseVisualStyleBackColor = false;
-            this.btnReposition.Click += new System.EventHandler(this.btnReposition_Click);
-            // 
             // ktxtReposition
             // 
             this.ktxtReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1163,17 +1117,7 @@
             this.ktxtReposition.Name = "ktxtReposition";
             this.ktxtReposition.Size = new System.Drawing.Size(105, 27);
             this.ktxtReposition.TabIndex = 5;
-            this.ktxtReposition.TextChanged += new System.EventHandler(this.ktxtReposition_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(15, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Reposition key:";
+            this.ktxtReposition.KeyChanged += ktxtReposition_KeyChanged;
             // 
             // ntxtGraphicsRefresh
             // 
@@ -1197,34 +1141,93 @@
             this.ntxtMemoryRefresh.Text = "42";
             this.ntxtMemoryRefresh.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
             // 
-            // label2
+            // cpnlDebug
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Graphics Refresh (ms):";
+            this.cpnlDebug.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlDebug.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlDebug.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlDebug.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlDebug.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlDebug.DisplayText = "Debug";
+            this.cpnlDebug.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlDebug.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlDebug.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Bug;
+            this.cpnlDebug.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlDebug.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlDebug.IsClicked = false;
+            this.cpnlDebug.IsHovering = false;
+            this.cpnlDebug.Location = new System.Drawing.Point(0, 160);
+            this.cpnlDebug.Name = "cpnlDebug";
+            this.cpnlDebug.Size = new System.Drawing.Size(152, 40);
+            this.cpnlDebug.TabIndex = 4;
+            this.cpnlDebug.TextSize = 11F;
+            this.cpnlDebug.Click += new System.EventHandler(this.cpnlDebug_Click);
             // 
-            // label1
+            // cpnlApplication
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Memory Reading (ms):";
+            this.cpnlApplication.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlApplication.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlApplication.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlApplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlApplication.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlApplication.DisplayText = "Application";
+            this.cpnlApplication.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlApplication.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlApplication.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlApplication.Icon")));
+            this.cpnlApplication.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlApplication.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlApplication.IsClicked = false;
+            this.cpnlApplication.IsHovering = false;
+            this.cpnlApplication.Location = new System.Drawing.Point(0, 40);
+            this.cpnlApplication.Name = "cpnlApplication";
+            this.cpnlApplication.Size = new System.Drawing.Size(152, 40);
+            this.cpnlApplication.TabIndex = 0;
+            this.cpnlApplication.TextSize = 11F;
+            this.cpnlApplication.Click += new System.EventHandler(this.cpnlApplication_Click);
             // 
-            // pbMainProgress
+            // cpnlOverlays
             // 
-            this.pbMainProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbMainProgress.Location = new System.Drawing.Point(0, 532);
-            this.pbMainProgress.Name = "pbMainProgress";
-            this.pbMainProgress.Size = new System.Drawing.Size(152, 23);
-            this.pbMainProgress.TabIndex = 5;
+            this.cpnlOverlays.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlOverlays.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlOverlays.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlOverlays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlOverlays.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlOverlays.DisplayText = "Overlays";
+            this.cpnlOverlays.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlOverlays.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlOverlays.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlOverlays.Icon")));
+            this.cpnlOverlays.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlOverlays.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlOverlays.IsClicked = false;
+            this.cpnlOverlays.IsHovering = false;
+            this.cpnlOverlays.Location = new System.Drawing.Point(0, 80);
+            this.cpnlOverlays.Name = "cpnlOverlays";
+            this.cpnlOverlays.Size = new System.Drawing.Size(152, 40);
+            this.cpnlOverlays.TabIndex = 1;
+            this.cpnlOverlays.TextSize = 11F;
+            this.cpnlOverlays.Click += new System.EventHandler(this.cpnlOverlays_Click);
+            // 
+            // cpnlPlugins
+            // 
+            this.cpnlPlugins.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlPlugins.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlPlugins.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlPlugins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlPlugins.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlPlugins.DisplayText = "Plugins";
+            this.cpnlPlugins.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlPlugins.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlPlugins.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlPlugins.Icon")));
+            this.cpnlPlugins.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlPlugins.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlPlugins.IsClicked = false;
+            this.cpnlPlugins.IsHovering = false;
+            this.cpnlPlugins.Location = new System.Drawing.Point(0, 120);
+            this.cpnlPlugins.Name = "cpnlPlugins";
+            this.cpnlPlugins.Size = new System.Drawing.Size(152, 40);
+            this.cpnlPlugins.TabIndex = 3;
+            this.cpnlPlugins.TextSize = 11F;
+            this.cpnlPlugins.Click += new System.EventHandler(this.cpnlPlugins_Click);
             // 
             // NewMainHandler
             // 
@@ -1236,6 +1239,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "NewMainHandler";
             this.Text = "NewMainHandler";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewMainHandler_FormClosing);
             this.Resize += new System.EventHandler(this.NewMainHandler_Resize);
             this.pnlLeftSelection.ResumeLayout(false);
             this.pnlMainArea.ResumeLayout(false);
