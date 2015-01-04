@@ -499,7 +499,30 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         void txtOverlayResourceToggle_TextChanged(object sender, EventArgs e)
         {
             var senda = (TextBox)sender;
-            PSettings.ResourceTogglePanel = senda.Text;
+
+            var parent = senda.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceTogglePanel = senda.Text;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeTogglePanel = senda.Text;
+
+            else if (parent.Name.Contains("Worker"))
+                PSettings.WorkerTogglePanel = senda.Text;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmTogglePanel = senda.Text;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyTogglePanel = senda.Text;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdTogglePanel = senda.Text;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTogglePanel = senda.Text;
+
+            MessageBox.Show(parent.Name);
         }
 
         void txtOverlayResourceResize_TextChanged(object sender, EventArgs e)

@@ -1117,7 +1117,6 @@
             this.ktxtReposition.Name = "ktxtReposition";
             this.ktxtReposition.Size = new System.Drawing.Size(105, 27);
             this.ktxtReposition.TabIndex = 5;
-            this.ktxtReposition.KeyChanged += ktxtReposition_KeyChanged;
             // 
             // ntxtGraphicsRefresh
             // 
