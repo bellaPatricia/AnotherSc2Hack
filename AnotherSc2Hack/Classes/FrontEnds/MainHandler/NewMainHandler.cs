@@ -365,15 +365,175 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayResource.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
             pnlOverlayResource.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
 
-            pnlOverlayResource.pnlLauncher.ktxtHotkey1.TextChanged += ktxtOverlayResourceHotkey1_TextChanged;
-            pnlOverlayResource.pnlLauncher.ktxtHotkey2.TextChanged += ktxtOverlayResourceHotkey2_TextChanged;
-            pnlOverlayResource.pnlLauncher.ktxtHotkey3.TextChanged += ktxtOverlayResourceHotkey3_TextChanged;
-            pnlOverlayResource.pnlLauncher.txtReposition.TextChanged += txtOverlayResourceReposition_TextChanged;
-            pnlOverlayResource.pnlLauncher.txtResize.TextChanged += txtOverlayResourceResize_TextChanged;
-            pnlOverlayResource.pnlLauncher.txtToggle.TextChanged += txtOverlayResourceToggle_TextChanged;
+            pnlOverlayResource.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
+            pnlOverlayResource.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
+            pnlOverlayResource.pnlLauncher.ktxtHotkey3.KeyChanged += ktxtOverlaysHotkey3_KeyChanged;
+            pnlOverlayResource.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
+            pnlOverlayResource.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
+            pnlOverlayResource.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+
+            #endregion
+
+            #region Overlay Income
+
+            pnlOverlayIncome.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlayResourceDrawBackground_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
+            pnlOverlayIncome.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
+            pnlOverlayIncome.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey3.KeyChanged += ktxtOverlaysHotkey3_KeyChanged;
+            pnlOverlayIncome.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
+            pnlOverlayIncome.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
+            pnlOverlayIncome.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+
+            #endregion
+
+            #region Overlay Worker
+
+            pnlOverlayWorker.aChBxDrawBackground.CheckedChanged += aChBxOverlayResourceDrawBackground_CheckedChanged;
+            pnlOverlayWorker.btnSetFont.Click += btnOverlayResourceSetFont_Click;
+            pnlOverlayWorker.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey3.KeyChanged += ktxtOverlaysHotkey3_KeyChanged;
+            pnlOverlayWorker.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
+            pnlOverlayWorker.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
+            pnlOverlayWorker.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+
+            #endregion
+
+            #region Overlay Apm
+
+            pnlOverlayApm.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlayResourceDrawBackground_CheckedChanged;
+            pnlOverlayApm.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
+            pnlOverlayApm.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
+            pnlOverlayApm.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
+            pnlOverlayApm.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
+            pnlOverlayApm.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
+            pnlOverlayApm.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
+            pnlOverlayApm.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+
+            pnlOverlayApm.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
+            pnlOverlayApm.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
+            pnlOverlayApm.pnlLauncher.ktxtHotkey3.KeyChanged += ktxtOverlaysHotkey3_KeyChanged;
+            pnlOverlayApm.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
+            pnlOverlayApm.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
+            pnlOverlayApm.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+
+            #endregion
+
+            #region Overlay Army
+
+            pnlOverlayArmy.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlayResourceDrawBackground_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
+            pnlOverlayArmy.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
+            pnlOverlayArmy.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey3.KeyChanged += ktxtOverlaysHotkey3_KeyChanged;
+            pnlOverlayArmy.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
+            pnlOverlayArmy.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
+            pnlOverlayArmy.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+
+            #endregion
+
+            #region Overlay Maphack
+
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxDefensiveStructures.CheckedChanged += aChBxDefensiveStructures_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveCamera.CheckedChanged += aChBxRemoveCamera_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveDestinationLine.CheckedChanged += aChBxRemoveDestinationLine_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveVisionArea.CheckedChanged += aChBxRemoveVisionArea_CheckedChanged;
+            pnlOverlayMaphack.pnlBasics.btnColorDestinationline.Click += btnColorDestinationline_Click;
+
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey3.KeyChanged += ktxtOverlaysHotkey3_KeyChanged;
+            pnlOverlayMaphack.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
+            pnlOverlayMaphack.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
+            pnlOverlayMaphack.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+
+
+
+            #endregion
+
+            #region Overlay Unit
+
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxDisplayUnits.CheckedChanged += aChBxDisplayUnits_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxDisplayBuildings.CheckedChanged += aChBxDisplayBuildings_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveChronoboost.CheckedChanged += aChBxRemoveChronoboost_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveProductionstatus.CheckedChanged += aChBxRemoveProductionstatus_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveSpellcounter.CheckedChanged += aChBxRemoveSpellcounter_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxSplitUnitsBuildings.CheckedChanged += aChBxSplitUnitsBuildings_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.aChBxTransparentImages.CheckedChanged += aChBxTransparentImages_CheckedChanged;
+            pnlOverlayUnittab.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
+            pnlOverlayUnittab.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey3.KeyChanged += ktxtOverlaysHotkey3_KeyChanged;
+            pnlOverlayUnittab.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
+            pnlOverlayUnittab.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
+            pnlOverlayUnittab.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+
+            pnlOverlayUnittab.pnlSpecial.ntxtSize.NumberChanged += ntxtSize_NumberChanged;
+
+            #endregion
+
+            #region Overlay Production
+
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlayResourceRemoveAi_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlayResourceRemoveAllie_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlayResourceRemoveClantags_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlayResourceRemoveNeutral_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveYourself.CheckedChanged += aChBxOverlayResourceRemoveYourself_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUnits.CheckedChanged += aChBxDisplayUnits_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayBuildings.CheckedChanged += aChBxDisplayBuildings_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUpgrades.CheckedChanged += aChBxDisplayUpgrades_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveChronoboost.CheckedChanged += aChBxRemoveChronoboost_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxSplitUnitsBuildings.CheckedChanged += aChBxSplitUnitsBuildings_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.aChBxTransparentImages.CheckedChanged += aChBxTransparentImages_CheckedChanged;
+            pnlOverlayProductiontab.pnlBasics.btnSetFont.Click += btnOverlayResourceSetFont_Click;
+            pnlOverlayProductiontab.pnlBasics.OpacityControl.ValueChanged += OpacityControlOverlayResource_ValueChanged;
+
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey1.KeyChanged += ktxtOverlaysHotkey1_KeyChanged;
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey2.KeyChanged += ktxtOverlaysHotkey2_KeyChanged;
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey3.KeyChanged += ktxtOverlaysHotkey3_KeyChanged;
+            pnlOverlayProductiontab.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
+            pnlOverlayProductiontab.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
+            pnlOverlayProductiontab.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+
+            pnlOverlayProductiontab.pnlSpecial.ntxtSize.NumberChanged += ntxtSize_NumberChanged;
 
             #endregion
         }
+
+        
+
+        
+
+        
 
         
         #region Global Event methods
@@ -496,7 +656,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Overlay Resource
 
-        void txtOverlayResourceToggle_TextChanged(object sender, EventArgs e)
+        void txtOverlaysToggle_TextChanged(object sender, EventArgs e)
         {
             var senda = (TextBox)sender;
 
@@ -516,83 +676,487 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             else if (parent.Name.Contains("Army"))
                 PSettings.ArmyTogglePanel = senda.Text;
 
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackTogglePanel = senda.Text;
+
             else if (parent.Name.Contains("Production"))
                 PSettings.ProdTogglePanel = senda.Text;
 
             else if (parent.Name.Contains("Unit"))
                 PSettings.UnitTogglePanel = senda.Text;
-
-            MessageBox.Show(parent.Name);
         }
 
-        void txtOverlayResourceResize_TextChanged(object sender, EventArgs e)
+        void txtOverlaysResize_TextChanged(object sender, EventArgs e)
         {
             var senda = (TextBox)sender;
-            PSettings.ResourceChangeSizePanel = senda.Text;
+
+            var parent = senda.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceChangeSizePanel = senda.Text;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeChangeSizePanel = senda.Text;
+
+            else if (parent.Name.Contains("Worker"))
+                PSettings.WorkerChangeSizePanel = senda.Text;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmChangeSizePanel = senda.Text;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyChangeSizePanel = senda.Text;
+
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackChangeSizePanel = senda.Text;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdChangeSizePanel = senda.Text;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitChangeSizePanel = senda.Text;
         }
 
-        void txtOverlayResourceReposition_TextChanged(object sender, EventArgs e)
+        void txtOverlaysReposition_TextChanged(object sender, EventArgs e)
         {
             var senda = (TextBox)sender;
-            PSettings.ResourceChangePositionPanel = senda.Text;
+
+            var parent = senda.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceChangePositionPanel = senda.Text;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeChangePositionPanel = senda.Text;
+
+            else if (parent.Name.Contains("Worker"))
+                PSettings.WorkerChangePositionPanel = senda.Text;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmChangePositionPanel = senda.Text;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyChangePositionPanel = senda.Text;
+
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackChangePositionPanel = senda.Text;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdChangePositionPanel = senda.Text;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitChangePositionPanel = senda.Text;
         }
 
-        void ktxtOverlayResourceHotkey3_TextChanged(object sender, EventArgs e)
+        void ktxtOverlaysHotkey3_KeyChanged(KeyTextBox o, EventKey e)
         {
-            var senda = (KeyTextBox)sender;
-            PSettings.ResourceHotkey3 = senda.HotKeyValue;
+            var parent = o.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceHotkey3 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeHotkey3 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Worker"))
+                PSettings.WorkerHotkey3 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmHotkey3 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyHotkey3 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackHotkey3 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdHotkey3 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitHotkey3 = o.HotKeyValue;
         }
 
-        void ktxtOverlayResourceHotkey2_TextChanged(object sender, EventArgs e)
+        void ktxtOverlaysHotkey2_KeyChanged(KeyTextBox o, EventKey e)
         {
-            var senda = (KeyTextBox)sender;
-            PSettings.ResourceHotkey2 = senda.HotKeyValue;
+            var parent = o.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceHotkey2 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeHotkey2 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Worker"))
+                PSettings.WorkerHotkey2 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmHotkey2 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyHotkey2 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackHotkey2 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdHotkey2 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitHotkey2 = o.HotKeyValue;
         }
 
-        private void ktxtOverlayResourceHotkey1_TextChanged(object sender, EventArgs eventArgs)
+        void ktxtOverlaysHotkey1_KeyChanged(KeyTextBox o, EventKey e)
         {
-            var senda = (KeyTextBox)sender;
-            PSettings.ResourceHotkey1 = senda.HotKeyValue;
+            var parent = o.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceHotkey1 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeHotkey1 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Worker"))
+                PSettings.WorkerHotkey1 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmHotkey1 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyHotkey1 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackHotkey1 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdHotkey1 = o.HotKeyValue;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitHotkey1 = o.HotKeyValue;
         }
 
         private void OpacityControlOverlayResource_ValueChanged(UiOpacityControl uiOpacityControl, EventNumber eventNumber)
         {
-            PSettings.ResourceOpacity = uiOpacityControl.Number;
+            var parent = uiOpacityControl.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceOpacity = (float)uiOpacityControl.Number / 100;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeOpacity = (float)uiOpacityControl.Number / 100;
+
+            else if (parent.Name.Contains("Worker"))
+                PSettings.WorkerOpacity = (float)uiOpacityControl.Number / 100;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmOpacity = (float)uiOpacityControl.Number / 100;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyOpacity = (float)uiOpacityControl.Number / 100;
+
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackOpacity = (float)uiOpacityControl.Number / 100;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdTabOpacity = (float)uiOpacityControl.Number / 100;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabOpacity = (float)uiOpacityControl.Number / 100;
         }
 
         void btnOverlayResourceSetFont_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Show some font");
+            var ftDialog = new FontDialog();
+            ftDialog.ShowDialog();
+
+
+            var parent = ((Control) sender).Parent.Parent;
+
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceFontName = ftDialog.Font.Name;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeFontName = ftDialog.Font.Name;
+
+            else if (parent.Name.Contains("Worker"))
+                PSettings.WorkerFontName = ftDialog.Font.Name;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmFontName = ftDialog.Font.Name;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyFontName = ftDialog.Font.Name;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdTabFontName = ftDialog.Font.Name;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabFontName = ftDialog.Font.Name;
         }
 
         void aChBxOverlayResourceRemoveYourself_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.ResourceRemoveLocalplayer = o.Checked;
+            var parent = o.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceRemoveLocalplayer = o.Checked;
+            
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeRemoveLocalplayer = o.Checked;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmRemoveLocalplayer = o.Checked;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyRemoveLocalplayer = o.Checked;
+
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackRemoveLocalplayer = o.Checked;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdTabRemoveLocalplayer = o.Checked;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabRemoveLocalplayer = o.Checked;
         }
 
         void aChBxOverlayResourceRemoveNeutral_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.ResourceRemoveNeutral = o.Checked;
+            var parent = o.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceRemoveNeutral = o.Checked;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeRemoveNeutral = o.Checked;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmRemoveNeutral = o.Checked;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyRemoveNeutral = o.Checked;
+
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackRemoveNeutral = o.Checked;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdTabRemoveNeutral = o.Checked;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabRemoveNeutral = o.Checked;
         }
 
         void aChBxOverlayResourceRemoveClantags_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.ResourceRemoveClanTag = o.Checked;
+            var parent = o.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceRemoveClanTag = o.Checked;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeRemoveClanTag = o.Checked;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmRemoveClanTag = o.Checked;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyRemoveClanTag = o.Checked;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdTabRemoveClanTag = o.Checked;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabRemoveClanTag = o.Checked;
         }
 
         void aChBxOverlayResourceRemoveAllie_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.ResourceRemoveAllie = o.Checked;
+            var parent = o.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceRemoveAllie = o.Checked;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeRemoveAllie = o.Checked;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmRemoveAllie = o.Checked;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyRemoveAllie = o.Checked;
+
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackRemoveAllie = o.Checked;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdTabRemoveAllie = o.Checked;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabRemoveAllie = o.Checked;
         }
 
         void aChBxOverlayResourceRemoveAi_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.ResourceRemoveAi = o.Checked;
+            var parent = o.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceRemoveAi = o.Checked;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeRemoveAi = o.Checked;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmRemoveAi = o.Checked;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyRemoveAi = o.Checked;
+
+            else if (parent.Name.Contains("Maphack"))
+                PSettings.MaphackRemoveAi = o.Checked;
+
+            else if (parent.Name.Contains("Production"))
+                PSettings.ProdTabRemoveAi = o.Checked;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabRemoveAi = o.Checked;
         }
 
         void aChBxOverlayResourceDrawBackground_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.ResourceDrawBackground = o.Checked;
+            var parent = o.Parent.Parent;
+            if (parent.Name.Contains("Resource"))
+                PSettings.ResourceDrawBackground = o.Checked;
+
+            else if (parent.Name.Contains("Income"))
+                PSettings.IncomeDrawBackground = o.Checked;
+
+            else if (parent.Name.Contains("Apm"))
+                PSettings.ApmDrawBackground = o.Checked;
+
+            else if (parent.Name.Contains("Army"))
+                PSettings.ArmyDrawBackground = o.Checked;
+
+            else if (parent.Name.Contains("Worker"))
+                PSettings.WorkerDrawBackground = o.Checked;
+        }
+
+        void ntxtSize_NumberChanged(NumberTextBox o, EventNumber e)
+        {
+            var parent = o.Parent.Parent;
+
+            if (parent.Name.Contains("Production"))
+                PSettings.ProdPictureSize = o.Number;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitPictureSize = o.Number;
+
+            else
+                Messages.Show("Couldn't find parent!");
+        }
+
+        void aChBxDisplayUpgrades_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.ProdTabShowUpgrades = o.Checked;
+        }
+
+        void aChBxTransparentImages_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            var parent = o.Parent.Parent;
+
+            if (parent.Name.Contains("Production"))
+                PSettings.ProdTabUseTransparentImages = o.Checked;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabUseTransparentImages = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
+        }
+
+        void aChBxSplitUnitsBuildings_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            var parent = o.Parent.Parent;
+
+            if (parent.Name.Contains("Production"))
+                PSettings.ProdTabSplitUnitsAndBuildings = o.Checked;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabSplitUnitsAndBuildings = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
+        }
+
+        void aChBxRemoveSpellcounter_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.UnitTabRemoveSpellCounter = o.Checked;
+        }
+
+        void aChBxRemoveProductionstatus_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.UnitTabRemoveProdLine = o.Checked;
+        }
+
+        void aChBxRemoveChronoboost_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            var parent = o.Parent.Parent;
+
+            if (parent.Name.Contains("Production"))
+                PSettings.ProdTabRemoveChronoboost = o.Checked;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabRemoveChronoboost = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
+        }
+
+        void aChBxDisplayBuildings_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            var parent = o.Parent.Parent;
+
+            if (parent.Name.Contains("Production"))
+                PSettings.ProdTabShowBuildings = o.Checked;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabShowBuildings = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
+        }
+
+        void aChBxDisplayUnits_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            var parent = o.Parent.Parent;
+
+            if (parent.Name.Contains("Production"))
+                PSettings.ProdTabShowUnits = o.Checked;
+
+            else if (parent.Name.Contains("Unit"))
+                PSettings.UnitTabShowUnits = o.Checked;
+
+            else
+                Messages.Show("Couldn't find parent!");
+        }
+
+        void btnColorDestinationline_Click(object sender, EventArgs e)
+        {
+            var cl = new ColorDialog();
+            cl.Color = Color.YellowGreen;
+            cl.FullOpen = true;
+            cl.ShowDialog();
+
+            PSettings.MaphackDestinationColor = cl.Color;
+            pnlOverlayMaphack.pnlBasics.btnColorDestinationline.BackColor = cl.Color;
+        }
+
+        void aChBxRemoveVisionArea_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.MaphackRemoveVisionArea = o.Checked;
+        }
+
+        void aChBxRemoveDestinationLine_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.MaphackDisableDestinationLine = o.Checked;
+        }
+
+        void aChBxRemoveCamera_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.MaphackRemoveCamera = o.Checked;
+        }
+
+        void aChBxDefensiveStructures_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.MaphackColorDefensivestructuresYellow = o.Checked;
         }
 
         #endregion

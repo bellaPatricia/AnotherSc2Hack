@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.Security;
 using System.Net.Mail;
+using System.Text;
 using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.BackEnds
@@ -52,12 +53,52 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 }
             }
         }
-        /* Just a logfile... */
-        public static void LogFile(String title, Exception exc )
+
+        public static void Show(string title=null, Exception exc=null)
         {
             var stackTrace = new StackTrace();
             var methodName = stackTrace.GetFrame(1).GetMethod().Name;
             var className = stackTrace.GetFrame(1).GetMethod().DeclaringType.ToString();
+            title = title ?? "<EMPTY>";
+
+            var sbMakeString = new StringBuilder();
+            
+
+            sbMakeString.AppendLine(DateTime.Now.ToString(CultureInfo.InvariantCulture));
+            sbMakeString.AppendLine("Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            sbMakeString.AppendLine("##############################");
+            sbMakeString.AppendLine("Class: " + className);
+            sbMakeString.AppendLine("Method: " + methodName);
+            sbMakeString.AppendLine("Title: " + title);
+            
+            
+
+
+            if (exc != null)
+            {
+                sbMakeString.AppendLine("Exception:");
+                sbMakeString.AppendLine("          ----------          ");
+                sbMakeString.AppendLine("Data: " + exc.Data);
+                sbMakeString.AppendLine("HelpLink: " + exc.HelpLink);
+                sbMakeString.AppendLine("Inner Exception: " + exc.InnerException);
+                sbMakeString.AppendLine("Message: " + exc.Message);
+                sbMakeString.AppendLine("Source: " + exc.Source);
+                sbMakeString.AppendLine("Stack Trace: " + exc.StackTrace);
+                sbMakeString.AppendLine("Target Site: " + exc.TargetSite);
+                sbMakeString.AppendLine("          ----------          ");
+            }
+
+            MessageBox.Show(sbMakeString.ToString(), title);
+        }
+
+        /* Just a logfile... */
+        public static void LogFile(string title, Exception exc )
+        {
+            var stackTrace = new StackTrace();
+            var methodName = stackTrace.GetFrame(1).GetMethod().Name;
+            var className = stackTrace.GetFrame(1).GetMethod().DeclaringType.ToString();
+
+            
 
             Debug.WriteLine("Logfile written/ extended!");
 

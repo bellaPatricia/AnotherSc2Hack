@@ -46,7 +46,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
         private void tbOpacity_Scroll(object sender, EventArgs e)
         {
-            
+            Number = tbOpacity.Value;
         }
 
         public void SetLabelText(double opacityValue)
