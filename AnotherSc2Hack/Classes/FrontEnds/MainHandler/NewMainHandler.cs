@@ -36,6 +36,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly List<OnlinePlugin> _lOnlinePlugins = new List<OnlinePlugin>();
         private readonly WebClient _wcMainWebClient = new WebClient();
 
+        private Boolean _bProcessSet;
+
+        public Process PSc2Process { get; set; }
 
         private Int32 _iPluginsSelectedPluginIndex;
 
@@ -196,8 +199,61 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
 
             PluginDataRefresh();
+
+            #region Reset Process and gameinfo if Sc2 is not started
+
+            if (!Processing.GetProcess(Constants.StrStarcraft2ProcessName))
+            {
+                ChangeVisibleState(false);
+                _bProcessSet = false;
+                Gameinfo.HandleThread(false);
+
+                _tmrMainTick.Interval = 300;
+                Debug.WriteLine("Process not found - 300ms Delay!");
+            }
+
+
+            else
+            {
+                if (!_bProcessSet)
+                {
+                    _bProcessSet = true;
+
+                    Process proc;
+                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                        PSc2Process = proc;
+
+
+                    if (Gameinfo == null)
+                    {
+                        Gameinfo = new GameInfo(PSettings.GlobalDataRefresh)
+                        {
+                            Of = new Offsets()
+                        };
+                    }
+
+                    else if (Gameinfo != null &&
+                             !Gameinfo.CThreadState)
+                    {
+                        Gameinfo.Memory.Handle = IntPtr.Zero;
+                        Gameinfo.CStarcraft2 = PSc2Process;
+                        Gameinfo.Of = new Offsets();
+                        Gameinfo.HandleThread(true);
+                    }
+
+
+                    ChangeVisibleState(true);
+                    _tmrMainTick.Interval = PSettings.GlobalDataRefresh;
+
+                    Debug.WriteLine("Process found - " + PSettings.GlobalDataRefresh + "ms Delay!");
+                }
+            }
+
+            #endregion
             
         }
+
+
 
         private void PluginDataRefresh()
         {
@@ -1432,8 +1488,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             rtbPluginsDescription.Text = onlinePlugin.Description;
 
 
-            
-
             if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count <= 0)
                 new Thread(PluginDownloadSpecificImages).Start(IPluginsSelectedPluginIndex);
         }
@@ -1487,7 +1541,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                             _wcMainWebClient.DownloadData(_lOnlinePlugins[i].ImageLinks[j]);
                         var img = HelpFunctions.ByteArrayToImage(rawImg);
 
-                        _lOnlinePlugins[i].Images.Add(img);
+                        _lOnlinePlugins[i].Images.Add(img);  
                     }
                 }
 
@@ -2022,7 +2076,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         #endregion
 
 
-        
+        /* Make panels in/ visible */
+        private void ChangeVisibleState(Boolean state)
+        {
+            foreach (var renderer in _lContainer)
+            {
+                if (!renderer.IsHidden)
+                    renderer.Visible = state;
+            }
+        }
 
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)
         {

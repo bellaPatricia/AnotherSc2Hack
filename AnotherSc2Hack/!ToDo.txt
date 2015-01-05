@@ -1,2 +1,3 @@
 ﻿Some features that need to be implemented till next release
 -----------------------------------------------------------
+- Add Maphack filter
