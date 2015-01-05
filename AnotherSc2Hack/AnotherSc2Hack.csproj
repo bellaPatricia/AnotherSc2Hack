@@ -898,6 +898,7 @@
     <None Include="Resources\supplydepot.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="!ToDo.txt" />
     <Content Include="Research.txt" />
     <Content Include="Calculations.txt" />
     <None Include="Resources\StarCraft_Icon.ico" />
