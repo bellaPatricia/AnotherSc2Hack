@@ -399,7 +399,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnReposition_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Nothing to do here");
+            var tmpPreferences = PSettings;
+
+            HelpFunctions.InitResolution(ref tmpPreferences);
+            PSettings = tmpPreferences;
         }
 
         #endregion
@@ -2128,6 +2131,46 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             _tmrMainTick.Enabled = false;
             Gameinfo.HandleThread(false);
+        }
+
+        private void btnLaunchResource_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLaunchIncome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLaunchWorker_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLaunchMaphack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLaunchApm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLaunchArmy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLaunchUnit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLaunchProduction_Click(object sender, EventArgs e)
+        {
+
         }
 
         

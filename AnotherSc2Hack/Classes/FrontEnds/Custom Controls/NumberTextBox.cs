@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -48,6 +49,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             TextChanged += NumberTextBox_TextChanged;
         }
 
+
         public void OnNumberChange(NumberTextBox o, EventNumber e)
         {
             if (NumberChanged != null)
@@ -88,7 +90,5 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             #endregion
         }
-
-
     }
 }

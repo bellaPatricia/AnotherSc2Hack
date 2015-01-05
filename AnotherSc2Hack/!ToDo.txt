@@ -1,3 +1,4 @@
 ﻿Some features that need to be implemented till next release
 -----------------------------------------------------------
-- Add Maphack filter
+- Overlays -> Maphack -> Add Maphack Filter to include Units, Unitgroups and such to a color (maybe symbols)
+- Application -> Launcher -> Add implementation to launch Panels
