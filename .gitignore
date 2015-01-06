@@ -3,7 +3,8 @@
 
 
 ### Folders
-bin/
+*.config
+*.manifest
 obj/
 
 ### Binaries
@@ -20,5 +21,5 @@ obj/
 
 # Include #
 ###########
-\!PluginInterface.dll
-\!PredefinedTypes.dll
+!PluginInterface.dll
+!PredefinedTypes.dll
