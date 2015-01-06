@@ -9,5 +9,6 @@ obj/
 
 ### VS crap
 *.pdb
-*.suo
+
+### ReSharper settings
 *.DotSettings.user
