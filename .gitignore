@@ -1,3 +1,7 @@
+# Exclude #
+###########
+
+
 ### Folders
 bin/
 obj/
@@ -12,3 +16,9 @@ obj/
 
 ### ReSharper settings
 *.DotSettings.user
+
+
+# Include #
+###########
+\!PluginInterface.dll
+\!PredefinedTypes.dll
