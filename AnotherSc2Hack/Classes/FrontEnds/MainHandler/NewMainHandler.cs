@@ -31,8 +31,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly Timer _tmrMainTick = new Timer();
         
         private readonly RendererContainer _lContainer = new RendererContainer();
-        private readonly List<AppDomain> _lPluginContainer = new List<AppDomain>(); 
-        private readonly List<IPlugins> _lPlugins = new List<IPlugins>();
+        private readonly List<AppDomain> _lPluginContainer = new List<AppDomain>();
+        private readonly List<LocalPlugins> _lPlugins = new List<LocalPlugins>();
         private readonly List<OnlinePlugin> _lOnlinePlugins = new List<OnlinePlugin>();
         private readonly WebClient _wcMainWebClient = new WebClient();
 
@@ -40,8 +40,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         public Process PSc2Process { get; set; }
 
-        private Int32 _iPluginsSelectedPluginIndex;
+        #region Getter and setter with advanced codeexecution
 
+        private Int32 _iPluginsSelectedPluginIndex = -1;
         private Int32 IPluginsSelectedPluginIndex
         {
             get { return _iPluginsSelectedPluginIndex; }
@@ -94,7 +95,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         private Int32 _iDebugUnitIndex;
-
         private Int32 IDebugUnitIndex
         {
             get { return _iDebugUnitIndex; }
@@ -108,6 +108,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 DebugUnitRefresh();
             }
         }
+
+        #endregion
 
         public GameInfo Gameinfo { get; private set; }
         public ApplicationStartOptions ApplicationOptions { get; private set; }
@@ -264,21 +266,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             foreach (var plugin in _lPlugins)
             {
                 /* Refresh some Data */
-                plugin.SetMap(Gameinfo.Map);
-                plugin.SetPlayers(Gameinfo.Player);
-                plugin.SetUnits(Gameinfo.Unit);
-                plugin.SetSelection(Gameinfo.Selection);
-                plugin.SetGroups(Gameinfo.Group);
-                plugin.SetGameinfo(Gameinfo.Gameinfo);
+                plugin.Plugin.SetMap(Gameinfo.Map);
+                plugin.Plugin.SetPlayers(Gameinfo.Player);
+                plugin.Plugin.SetUnits(Gameinfo.Unit);
+                plugin.Plugin.SetSelection(Gameinfo.Selection);
+                plugin.Plugin.SetGroups(Gameinfo.Group);
+                plugin.Plugin.SetGameinfo(Gameinfo.Gameinfo);
 
                 /* Set Access values for Gameinfo */
-                Gameinfo.CAccessPlayers |= plugin.GetRequiresPlayer();
-                Gameinfo.CAccessSelection |= plugin.GetRequiresSelection();
-                Gameinfo.CAccessUnits |= plugin.GetRequiresUnit();
-                Gameinfo.CAccessUnitCommands |= plugin.GetRequiresUnit();
-                Gameinfo.CAccessGameinfo |= plugin.GetRequiresGameinfo();
-                Gameinfo.CAccessGroups |= plugin.GetRequiresGroups();
-                Gameinfo.CAccessMapInfo |= plugin.GetRequiresMap();
+                Gameinfo.CAccessPlayers |= plugin.Plugin.GetRequiresPlayer();
+                Gameinfo.CAccessSelection |= plugin.Plugin.GetRequiresSelection();
+                Gameinfo.CAccessUnits |= plugin.Plugin.GetRequiresUnit();
+                Gameinfo.CAccessUnitCommands |= plugin.Plugin.GetRequiresUnit();
+                Gameinfo.CAccessGameinfo |= plugin.Plugin.GetRequiresGameinfo();
+                Gameinfo.CAccessGroups |= plugin.Plugin.GetRequiresGroups();
+                Gameinfo.CAccessMapInfo |= plugin.Plugin.GetRequiresMap();
             }
         }
 
@@ -1296,11 +1298,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                         (IPlugins)
                             tmpAppDomain.CreateInstanceFromAndUnwrap(files[i], "Plugin.Extensions.AnotherSc2HackPlugin");
 
-                    if (_lPlugins.Exists(x => x.GetPluginName() == foo.GetPluginName()))
+                    if (_lPlugins.Exists(x => x.Plugin.GetPluginName() == foo.GetPluginName()))
                        throw new TypeLoadException("Fuck you");
                     
 
-                    _lPlugins.Add(foo);
+                    _lPlugins.Add(new LocalPlugins(foo, files[i]));
                     _lPluginContainer.Add(tmpAppDomain);
                 }
 
@@ -1322,7 +1324,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             //Launch Plugins
             foreach (var plugin in _lPlugins)
             {
-                plugin.StartPlugin();
+                plugin.Plugin.StartPlugin();
             }
 
             //Mark Plugins "checked"
@@ -1342,9 +1344,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 var lwi = new ListViewItem();
 
                 lwi.BackColor = lstvPluginsLoadedPlugins.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
-                lwi.Text = plugin.GetPluginName();
+                lwi.Text = plugin.Plugin.GetPluginName();
 
-                lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, plugin.GetPluginVersion().ToString()));
+                lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, plugin.Plugin.GetPluginVersion().ToString()));
 
                 lstvPluginsLoadedPlugins.Items.Add(lwi);
             }
@@ -1387,6 +1389,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 else if (str.StartsWith("V"))
                     _lOnlinePlugins[_lOnlinePlugins.Count - 1].Version = new Version(str.Substring(1).Trim());
+
+                else if (str.StartsWith("@"))
+                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].Md5Hash = str.Substring(1).Trim();
             }
 
             //We have to operate cross-thread wide. So we have to create an invoker...
@@ -1460,10 +1465,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 return;
 
             if (e.Item.Checked)
-                _lPlugins[e.Item.Index].StartPlugin();
+                _lPlugins[e.Item.Index].Plugin.StartPlugin();
 
             else
-                _lPlugins[e.Item.Index].StopPlugin();
+                _lPlugins[e.Item.Index].Plugin.StopPlugin();
         }
 
         private void lstvPluginsAvailablePlugins_SelectedIndexChanged(object sender, EventArgs e)
@@ -1515,6 +1520,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnPluginsInstallPlugin_Click(object sender, EventArgs e)
         {
+            if (IPluginsSelectedPluginIndex < 0 ||
+                _lOnlinePlugins.Count <= 0)
+                return;
+
+            if (_lPlugins.Find(x => x.Md5Hash == _lOnlinePlugins[IPluginsSelectedPluginIndex].Md5Hash) != null)
+            {
+                MessageBox.Show("Plugin already installed!\n\nPlease select another plugin!", "Plugin Error");
+                return;
+            }
+
             var strOnlinePath = _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink;
             var strLocalPath =
                 _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink.Split('/')[
@@ -2121,7 +2136,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             foreach (var plugin in _lPlugins)
             {
-                plugin.StopPlugin();
+                plugin.Plugin.StopPlugin();
             }
 
             foreach (var appDomain in _lPluginContainer)
@@ -2200,6 +2215,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Version = new Version(0, 0, 0, 0);
             RequiresUpdate = false;
             LocalPath = String.Empty;
+            Md5Hash = String.Empty;
         }
 
         
@@ -2212,7 +2228,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         public String DownloadLink { get; set; }
         public Boolean RequiresUpdate { get; set; }
         public String LocalPath { get; set; }
+        public String Md5Hash { get; set; }
     }
 
-    
+    /// <summary>
+    /// Localplugins that will hold information about a plugin's path and the plugindata itself.
+    /// See IPlugin interface for the plugin information.
+    /// </summary>
+    public class LocalPlugins
+    {
+        /// <summary>
+        /// The PluginPath (local)
+        /// </summary>
+        public String PluginPath { get; private set; }
+
+        /// <summary>
+        /// The Plugin itself
+        /// </summary>
+        public IPlugins Plugin { get; private set; }
+
+        /// <summary>
+        /// The hash which is created at construction
+        /// </summary>
+        public String Md5Hash { get; private set; }
+
+        public LocalPlugins(IPlugins plugin, string pluginPath)
+        {
+            PluginPath = pluginPath;
+            Plugin = plugin;
+            Md5Hash = Hashes.HashFromFile(PluginPath, Hashes.HashAlgorithm.Md5);
+        }
+    }
 }

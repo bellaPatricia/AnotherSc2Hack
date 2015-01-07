@@ -6,6 +6,7 @@
 *.config
 *.manifest
 obj/
+Plugins/
 
 ### Binaries
 *.dat
