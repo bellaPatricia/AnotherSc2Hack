@@ -38,6 +38,7 @@
             // aChBxDrawBackground
             // 
             this.aChBxDrawBackground.Checked = false;
+            this.aChBxDrawBackground.Clickable = true;
             this.aChBxDrawBackground.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxDrawBackground.DisplayText = "Draw Background";
             this.aChBxDrawBackground.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -62,6 +63,8 @@
             // 
             // btnSetFont
             // 
+            this.btnSetFont.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnSetFont.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnSetFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetFont.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetFont.Location = new System.Drawing.Point(7, 63);
@@ -69,7 +72,7 @@
             this.btnSetFont.Size = new System.Drawing.Size(157, 29);
             this.btnSetFont.TabIndex = 15;
             this.btnSetFont.Text = "Set Font";
-            this.btnSetFont.UseVisualStyleBackColor = true;
+            this.btnSetFont.UseVisualStyleBackColor = false;
             // 
             // OpacityControl
             // 
@@ -77,6 +80,7 @@
             this.OpacityControl.Location = new System.Drawing.Point(7, 100);
             this.OpacityControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OpacityControl.Name = "OpacityControl";
+            this.OpacityControl.Number = 0;
             this.OpacityControl.Size = new System.Drawing.Size(153, 91);
             this.OpacityControl.TabIndex = 16;
             // 

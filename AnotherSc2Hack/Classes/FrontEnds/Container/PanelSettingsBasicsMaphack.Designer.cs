@@ -44,6 +44,7 @@
             // aChBxRemoveAi
             // 
             this.aChBxRemoveAi.Checked = false;
+            this.aChBxRemoveAi.Clickable = true;
             this.aChBxRemoveAi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveAi.DisplayText = "Remove Ai";
             this.aChBxRemoveAi.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -57,6 +58,7 @@
             // aChBxRemoveAllie
             // 
             this.aChBxRemoveAllie.Checked = false;
+            this.aChBxRemoveAllie.Clickable = true;
             this.aChBxRemoveAllie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveAllie.DisplayText = "Remove Allie";
             this.aChBxRemoveAllie.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,6 +72,7 @@
             // aChBxRemoveNeutral
             // 
             this.aChBxRemoveNeutral.Checked = false;
+            this.aChBxRemoveNeutral.Clickable = true;
             this.aChBxRemoveNeutral.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveNeutral.DisplayText = "Remove Neutral";
             this.aChBxRemoveNeutral.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,6 +86,7 @@
             // aChBxRemoveYourself
             // 
             this.aChBxRemoveYourself.Checked = false;
+            this.aChBxRemoveYourself.Clickable = true;
             this.aChBxRemoveYourself.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveYourself.DisplayText = "Remove Yourself";
             this.aChBxRemoveYourself.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -99,6 +103,7 @@
             this.OpacityControl.Location = new System.Drawing.Point(7, 164);
             this.OpacityControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OpacityControl.Name = "OpacityControl";
+            this.OpacityControl.Number = 0;
             this.OpacityControl.Size = new System.Drawing.Size(153, 91);
             this.OpacityControl.TabIndex = 4;
             // 
@@ -117,6 +122,7 @@
             // aChBxRemoveDestinationLine
             // 
             this.aChBxRemoveDestinationLine.Checked = false;
+            this.aChBxRemoveDestinationLine.Clickable = true;
             this.aChBxRemoveDestinationLine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveDestinationLine.DisplayText = "Remove Destinationline";
             this.aChBxRemoveDestinationLine.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,6 +136,7 @@
             // aChBxDefensiveStructures
             // 
             this.aChBxDefensiveStructures.Checked = false;
+            this.aChBxDefensiveStructures.Clickable = true;
             this.aChBxDefensiveStructures.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxDefensiveStructures.DisplayText = "Color Defensives";
             this.aChBxDefensiveStructures.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -142,6 +149,8 @@
             // 
             // btnColorDestinationline
             // 
+            this.btnColorDestinationline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnColorDestinationline.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnColorDestinationline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnColorDestinationline.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnColorDestinationline.Location = new System.Drawing.Point(370, 94);
@@ -149,11 +158,12 @@
             this.btnColorDestinationline.Size = new System.Drawing.Size(29, 30);
             this.btnColorDestinationline.TabIndex = 15;
             this.btnColorDestinationline.Text = "...";
-            this.btnColorDestinationline.UseVisualStyleBackColor = true;
+            this.btnColorDestinationline.UseVisualStyleBackColor = false;
             // 
             // aChBxRemoveCamera
             // 
             this.aChBxRemoveCamera.Checked = false;
+            this.aChBxRemoveCamera.Clickable = true;
             this.aChBxRemoveCamera.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveCamera.DisplayText = "Remove Camera";
             this.aChBxRemoveCamera.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -167,6 +177,7 @@
             // aChBxRemoveVisionArea
             // 
             this.aChBxRemoveVisionArea.Checked = false;
+            this.aChBxRemoveVisionArea.Clickable = true;
             this.aChBxRemoveVisionArea.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveVisionArea.DisplayText = "Remove Vision-Area";
             this.aChBxRemoveVisionArea.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

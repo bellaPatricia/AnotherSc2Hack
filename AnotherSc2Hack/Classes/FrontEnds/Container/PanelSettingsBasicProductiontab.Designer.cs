@@ -46,6 +46,8 @@
             // 
             // btnSetFont
             // 
+            this.btnSetFont.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnSetFont.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnSetFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetFont.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetFont.Location = new System.Drawing.Point(7, 222);
@@ -53,7 +55,7 @@
             this.btnSetFont.Size = new System.Drawing.Size(183, 29);
             this.btnSetFont.TabIndex = 23;
             this.btnSetFont.Text = "Set Font";
-            this.btnSetFont.UseVisualStyleBackColor = true;
+            this.btnSetFont.UseVisualStyleBackColor = false;
             // 
             // languageLabel1
             // 
@@ -73,6 +75,7 @@
             this.OpacityControl.Location = new System.Drawing.Point(7, 259);
             this.OpacityControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OpacityControl.Name = "OpacityControl";
+            this.OpacityControl.Number = 0;
             this.OpacityControl.Size = new System.Drawing.Size(183, 91);
             this.OpacityControl.TabIndex = 21;
             // 
@@ -80,6 +83,7 @@
             // 
             this.aChBxRemoveClantags.AutoSize = true;
             this.aChBxRemoveClantags.Checked = false;
+            this.aChBxRemoveClantags.Clickable = true;
             this.aChBxRemoveClantags.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveClantags.DisplayText = "Remove Clantags";
             this.aChBxRemoveClantags.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,6 +98,7 @@
             // 
             this.aChBxRemoveYourself.AutoSize = true;
             this.aChBxRemoveYourself.Checked = false;
+            this.aChBxRemoveYourself.Clickable = true;
             this.aChBxRemoveYourself.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveYourself.DisplayText = "Remove Yourself";
             this.aChBxRemoveYourself.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -108,6 +113,7 @@
             // 
             this.aChBxRemoveNeutral.AutoSize = true;
             this.aChBxRemoveNeutral.Checked = false;
+            this.aChBxRemoveNeutral.Clickable = true;
             this.aChBxRemoveNeutral.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveNeutral.DisplayText = "Remove Neutral";
             this.aChBxRemoveNeutral.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -122,6 +128,7 @@
             // 
             this.aChBxRemoveAllie.AutoSize = true;
             this.aChBxRemoveAllie.Checked = false;
+            this.aChBxRemoveAllie.Clickable = true;
             this.aChBxRemoveAllie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveAllie.DisplayText = "Remove Allie";
             this.aChBxRemoveAllie.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,6 +143,7 @@
             // 
             this.aChBxRemoveAi.AutoSize = true;
             this.aChBxRemoveAi.Checked = false;
+            this.aChBxRemoveAi.Clickable = true;
             this.aChBxRemoveAi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveAi.DisplayText = "Remove Ai";
             this.aChBxRemoveAi.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -150,6 +158,7 @@
             // 
             this.aChBxRemoveChronoboost.AutoSize = true;
             this.aChBxRemoveChronoboost.Checked = false;
+            this.aChBxRemoveChronoboost.Clickable = true;
             this.aChBxRemoveChronoboost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxRemoveChronoboost.DisplayText = "Remove Chronoboost";
             this.aChBxRemoveChronoboost.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,6 +173,7 @@
             // 
             this.aChBxSplitUnitsBuildings.AutoSize = true;
             this.aChBxSplitUnitsBuildings.Checked = false;
+            this.aChBxSplitUnitsBuildings.Clickable = true;
             this.aChBxSplitUnitsBuildings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxSplitUnitsBuildings.DisplayText = "Split Units/ Buildings";
             this.aChBxSplitUnitsBuildings.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -178,6 +188,7 @@
             // 
             this.aChBxDisplayBuildings.AutoSize = true;
             this.aChBxDisplayBuildings.Checked = false;
+            this.aChBxDisplayBuildings.Clickable = true;
             this.aChBxDisplayBuildings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxDisplayBuildings.DisplayText = "Display Buildings";
             this.aChBxDisplayBuildings.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -192,6 +203,7 @@
             // 
             this.aChBxDisplayUnits.AutoSize = true;
             this.aChBxDisplayUnits.Checked = false;
+            this.aChBxDisplayUnits.Clickable = true;
             this.aChBxDisplayUnits.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxDisplayUnits.DisplayText = "Display Units";
             this.aChBxDisplayUnits.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -206,6 +218,7 @@
             // 
             this.aChBxTransparentImages.AutoSize = true;
             this.aChBxTransparentImages.Checked = false;
+            this.aChBxTransparentImages.Clickable = true;
             this.aChBxTransparentImages.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxTransparentImages.DisplayText = "Transparent Images";
             this.aChBxTransparentImages.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -220,6 +233,7 @@
             // 
             this.aChBxDisplayUpgrades.AutoSize = true;
             this.aChBxDisplayUpgrades.Checked = false;
+            this.aChBxDisplayUpgrades.Clickable = true;
             this.aChBxDisplayUpgrades.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aChBxDisplayUpgrades.DisplayText = "Display Upgrades";
             this.aChBxDisplayUpgrades.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
