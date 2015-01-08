@@ -131,7 +131,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             Gameinfo = new GameInfo(PSettings.GlobalDataRefresh);
 
-            PluginsLocalLoadPlugins();
+            //PluginsLocalLoadPlugins();
             new Thread(PluginLoadAvailablePlugins).Start();
             
         }
@@ -1474,6 +1474,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void lstvPluginsAvailablePlugins_SelectedIndexChanged(object sender, EventArgs e)
         {
             var senda = ((ListView)sender);
+
+            #region Exception handling
+
             if (senda.Items.Count <= 0)
                 return;
 
@@ -1482,6 +1485,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             if (senda.SelectedItems[0].Index >= senda.Items.Count)
                 return;
+
+            #endregion
 
             IPluginsSelectedPluginIndex = senda.SelectedItems[0].Index;
 
@@ -1495,9 +1500,50 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             rtbPluginsDescription.Text = onlinePlugin.Description;
 
+            pbMainProgress.Style = ProgressBarStyle.Marquee;
+            var context = TaskScheduler.FromCurrentSynchronizationContext();
 
-            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count <= 0)
-                new Thread(PluginDownloadSpecificImages).Start(IPluginsSelectedPluginIndex);
+
+            var task = Task.Factory.StartNew(() =>
+            {
+                var token = Task.Factory.CancellationToken;
+
+                //Download images if available AND they were not downloaded already!
+                if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count != _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count)
+                {
+                    _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Clear();
+
+                    for (var j = 0; j < _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count; j++)
+                    {
+                        var rawImg =
+                            new WebClient{Proxy = null}.DownloadData(_lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks[j]);
+                        var img = HelpFunctions.ByteArrayToImage(rawImg);
+
+                        _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Add(img);
+
+                        Task.Factory.StartNew(() =>
+                        {
+                            //Refresh Imageposition
+                            lblPluginsImageposition.Text = (IPluginsImageIndex + 1) + "/" +
+                                                       _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count;
+
+                            //Load the first image into the picture- box
+                            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count < 2)
+                                pcbPluginsImages.Image = img;
+
+                            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count ==
+                                _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count)
+                            {
+                                lstvPluginsAvailablePlugins_SelectedIndexChanged(senda, new EventArgs());
+
+                                pbMainProgress.Style = ProgressBarStyle.Blocks;
+                                senda.Enabled = true;
+                            }
+
+                        }, token, TaskCreationOptions.None, context);
+                    }
+                }
+            });
         }
 
         private void btnPluginsImagesPrevious_Click(object sender, EventArgs e)
@@ -1537,53 +1583,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             PluginsInstallPlugin(strOnlinePath + "#" + strLocalPath);
 
-            //new Thread(PluginsInstallPlugin).Start(strOnlinePath + "#" + strLocalPath);
         }
 
         #endregion
-
-       
-
-        private void PluginDownloadSpecificImages(object index)
-        {
-            var i = (Int32)index;
-
-            MethodInvoker myInvoker = delegate
-            {
-                //Download images if available AND they were not downloaded already!
-                if (_lOnlinePlugins[i].Images.Count <= 0)
-                {
-                    for (var j = 0; j < _lOnlinePlugins[i].ImageLinks.Count; j++)
-                    {
-                        var rawImg =
-                            _wcMainWebClient.DownloadData(_lOnlinePlugins[i].ImageLinks[j]);
-                        var img = HelpFunctions.ByteArrayToImage(rawImg);
-
-                        _lOnlinePlugins[i].Images.Add(img);  
-                    }
-                }
-
-                lstvPluginsAvailablePlugins_SelectedIndexChanged(lstvPluginsAvailablePlugins, new EventArgs());
-                
-            };
-
-            var bFailed = true;
-
-            while (bFailed)
-            {
-                try
-                {
-                    Invoke(myInvoker);
-                    bFailed = false;
-                }
-
-                catch
-                {
-                    //Nothing
-                    Thread.Sleep(30);
-                }
-            }
-        }
 
         private void PluginsInstallPlugin(object path)
         {
@@ -2187,14 +2189,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
 
         }
-
-        
-
-        
-
-        
-
-       
     }
 
     [DebuggerDisplay("Name: {Name}; Description: {Description}; Version: {Version}; Link: {DownloadLink}")]
