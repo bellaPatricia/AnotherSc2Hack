@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMainHandler));
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
             this.pbMainProgress = new System.Windows.Forms.ProgressBar();
@@ -42,6 +43,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.cmPluginRemove = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsPluginRemove = new System.Windows.Forms.ToolStripMenuItem();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlDebug = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
@@ -82,6 +85,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmPluginInstall = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsPluginInstallPlugin = new System.Windows.Forms.ToolStripMenuItem();
             this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -130,10 +135,12 @@
             this.pnlMainArea.SuspendLayout();
             this.pnlPlugins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).BeginInit();
+            this.cmPluginRemove.SuspendLayout();
             this.pnlDebug.SuspendLayout();
             this.pnlOverlays.SuspendLayout();
             this.pnlPanelContainer.SuspendLayout();
             this.pnlApplication.SuspendLayout();
+            this.cmPluginInstall.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLeftSelection
@@ -304,6 +311,20 @@
             this.label14.Size = new System.Drawing.Size(128, 20);
             this.label14.TabIndex = 24;
             this.label14.Text = "Available plugins";
+            // 
+            // cmPluginRemove
+            // 
+            this.cmPluginRemove.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsPluginRemove});
+            this.cmPluginRemove.Name = "cmPluginRemove";
+            this.cmPluginRemove.Size = new System.Drawing.Size(155, 26);
+            // 
+            // tsPluginRemove
+            // 
+            this.tsPluginRemove.Name = "tsPluginRemove";
+            this.tsPluginRemove.Size = new System.Drawing.Size(154, 22);
+            this.tsPluginRemove.Text = "Remove Plugin";
+            this.tsPluginRemove.Click += new System.EventHandler(this.tsPluginRemove_Click);
             // 
             // label5
             // 
@@ -829,12 +850,27 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Memory Reading (ms):";
             // 
+            // cmPluginInstall
+            // 
+            this.cmPluginInstall.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsPluginInstallPlugin});
+            this.cmPluginInstall.Name = "cmPluginRemove";
+            this.cmPluginInstall.Size = new System.Drawing.Size(143, 26);
+            // 
+            // tsPluginInstallPlugin
+            // 
+            this.tsPluginInstallPlugin.Name = "tsPluginInstallPlugin";
+            this.tsPluginInstallPlugin.Size = new System.Drawing.Size(142, 22);
+            this.tsPluginInstallPlugin.Text = "Install Plugin";
+            this.tsPluginInstallPlugin.Click += new System.EventHandler(this.tsPluginInstallPlugin_Click);
+            // 
             // lstvPluginsAvailablePlugins
             // 
             this.lstvPluginsAvailablePlugins.AutoArrange = false;
             this.lstvPluginsAvailablePlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader9,
             this.columnHeader10});
+            this.lstvPluginsAvailablePlugins.ContextMenuStrip = this.cmPluginInstall;
             this.lstvPluginsAvailablePlugins.Enabled = false;
             this.lstvPluginsAvailablePlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvPluginsAvailablePlugins.FullRowSelect = true;
@@ -865,6 +901,7 @@
             this.lstvPluginsLoadedPlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7,
             this.columnHeader8});
+            this.lstvPluginsLoadedPlugins.ContextMenuStrip = this.cmPluginRemove;
             this.lstvPluginsLoadedPlugins.Enabled = false;
             this.lstvPluginsLoadedPlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvPluginsLoadedPlugins.FullRowSelect = true;
@@ -876,7 +913,7 @@
             this.lstvPluginsLoadedPlugins.UseCompatibleStateImageBehavior = false;
             this.lstvPluginsLoadedPlugins.View = System.Windows.Forms.View.Details;
             this.lstvPluginsLoadedPlugins.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstvPluginsLoadedPlugins_ItemChecked);
-            this.lstvPluginsLoadedPlugins.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstvPluginsLoadedPlugins_ItemSelectionChanged);
+            this.lstvPluginsLoadedPlugins.SelectedIndexChanged += new System.EventHandler(this.lstvPluginsLoadedPlugins_SelectedIndexChanged);
             // 
             // columnHeader7
             // 
@@ -1401,6 +1438,7 @@
             this.pnlPlugins.ResumeLayout(false);
             this.pnlPlugins.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).EndInit();
+            this.cmPluginRemove.ResumeLayout(false);
             this.pnlDebug.ResumeLayout(false);
             this.pnlDebug.PerformLayout();
             this.pnlOverlays.ResumeLayout(false);
@@ -1408,6 +1446,7 @@
             this.pnlPanelContainer.PerformLayout();
             this.pnlApplication.ResumeLayout(false);
             this.pnlApplication.PerformLayout();
+            this.cmPluginInstall.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1511,6 +1550,10 @@
         private System.Windows.Forms.Button btnLaunchWorker;
         private System.Windows.Forms.Button btnLaunchIncome;
         private System.Windows.Forms.Button btnLaunchResource;
+        private System.Windows.Forms.ContextMenuStrip cmPluginRemove;
+        private System.Windows.Forms.ToolStripMenuItem tsPluginRemove;
+        private System.Windows.Forms.ContextMenuStrip cmPluginInstall;
+        private System.Windows.Forms.ToolStripMenuItem tsPluginInstallPlugin;
 
     }
 }

@@ -160,4 +160,10 @@
         4jGv+0Zz1GmtYZTHN80P7a6/rIXiDy4AAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="cmPluginInstall.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 17</value>
+  </metadata>
+  <metadata name="cmPluginRemove.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

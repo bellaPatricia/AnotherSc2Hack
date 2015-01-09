@@ -10,6 +10,7 @@ using System.Net;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ using AnotherSc2Hack.Classes.BackEnds.Gameinfo;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Container;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
+using Microsoft.Win32;
 using PluginInterface;
 using Predefined;
 using Timer = System.Windows.Forms.Timer;
@@ -131,7 +133,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             Gameinfo = new GameInfo(PSettings.GlobalDataRefresh);
 
-            //PluginsLocalLoadPlugins();
+            PluginsLocalLoadPlugins();
             new Thread(PluginLoadAvailablePlugins).Start();
             
         }
@@ -1287,10 +1289,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             for (var i = 0; i < files.Length; i++)
             {
-                var strTempAppdomainName = "TempAppDomainNo." + i;
-
-
-                var tmpAppDomain = AppDomain.CreateDomain(strTempAppdomainName);
+                var tmpAppDomain = AppDomain.CreateDomain(files[i].Substring(files[i].LastIndexOf("\\", StringComparison.Ordinal)));
 
                 try
                 {
@@ -1300,20 +1299,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                     if (_lPlugins.Exists(x => x.Plugin.GetPluginName() == foo.GetPluginName()))
                        throw new TypeLoadException("Fuck you");
-                    
+
+
 
                     _lPlugins.Add(new LocalPlugins(foo, files[i]));
                     _lPluginContainer.Add(tmpAppDomain);
                 }
 
-                catch (TypeLoadException typeEx)
+                catch (TypeLoadException)
                 {
                     //If we are here, we couldn't load illegal .dll- files
                     //It's all good here!
                     AppDomain.Unload(tmpAppDomain);
                 }
 
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Couldn't load plugin '" + files[i] + "'");
                 }
@@ -1340,14 +1340,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             lstvPluginsLoadedPlugins.Enabled = true;
 
             foreach (var plugin in _lPlugins)
-            {
+            {   
                 var lwi = new ListViewItem();
 
                 lwi.BackColor = lstvPluginsLoadedPlugins.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
                 lwi.Text = plugin.Plugin.GetPluginName();
 
                 lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, plugin.Plugin.GetPluginVersion().ToString()));
-
+                lwi.Checked = true;
                 lstvPluginsLoadedPlugins.Items.Add(lwi);
             }
         }
@@ -1448,14 +1448,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Event methods
 
-        private void lstvPluginsLoadedPlugins_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            if (e.ItemIndex <= -1 || !e.IsSelected)
-                return;
-
-            e.Item.Checked ^= true;
-        }
-
         private void lstvPluginsLoadedPlugins_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (e.Item.Index <= -1)
@@ -1530,6 +1522,37 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             PluginsInstallPlugin(strOnlinePath + "#" + strLocalPath);
 
+        }
+
+        private void lstvPluginsLoadedPlugins_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var senda = (ListView)sender;
+
+            if (senda.SelectedIndices.Count <= 0)
+                return;
+
+            if (senda.SelectedIndices[0] < 0 ||
+                senda.SelectedIndices[0] > _lPlugins.Count - 1)
+                return;
+
+            rtbPluginsDescription.Text = _lPlugins[senda.SelectedIndices[0]].Plugin.GetPluginDescription();
+        }
+
+        private void tsPluginRemove_Click(object sender, EventArgs e)
+        {
+            if (lstvPluginsLoadedPlugins.SelectedIndices.Count <= 0)
+                return;
+
+            if (lstvPluginsLoadedPlugins.SelectedIndices[0] < 0 ||
+                lstvPluginsLoadedPlugins.SelectedIndices[0] > _lPlugins.Count - 1)
+                return;
+
+            PluginRemovePlugin(lstvPluginsLoadedPlugins.SelectedIndices[0]);
+        }
+
+        private void tsPluginInstallPlugin_Click(object sender, EventArgs e)
+        {
+            btnPluginsInstallPlugin_Click(btnPluginsInstallPlugin, e);
         }
 
         #endregion
@@ -1615,7 +1638,48 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        
+        private void PluginRemovePlugin(int index)
+        {
+            var iDomainIndex =
+                _lPluginContainer.FindIndex(x => x.FriendlyName == _lPlugins[index].PluginPath.Substring(_lPlugins[index].PluginPath.LastIndexOf(("\\"))));
+
+            if (iDomainIndex < 0)
+                return;
+
+            Console.WriteLine("Removing Plugin {0} - Closing AppDomain {1}", _lPlugins[index].Plugin.GetPluginName(), _lPluginContainer[iDomainIndex].FriendlyName);
+            Console.WriteLine("This Domain: " + AppDomain.CurrentDomain.FriendlyName);
+
+            try
+            {
+                var strTempPluginPath = String.Empty;
+
+                //Stop plugin nicely 
+                _lPlugins[index].Plugin.StopPlugin();
+                strTempPluginPath = _lPlugins[index].PluginPath;
+                _lPlugins.RemoveAt(index);
+
+                //unload Appdomain
+                AppDomain.Unload(_lPluginContainer[iDomainIndex]);
+                _lPluginContainer.RemoveAt(iDomainIndex);
+
+                //Delete Files that sound like the plugin
+                var filename = Path.GetFileNameWithoutExtension(strTempPluginPath);
+                var pluginFiles = Directory.GetFiles(
+                    strTempPluginPath.Substring(0, strTempPluginPath.LastIndexOf("\\", StringComparison.Ordinal)), filename + "*");
+
+                foreach (var pluginFile in pluginFiles)
+                {
+                    File.Delete(pluginFile);
+                }
+            }
+
+            catch (AppDomainUnloadedException un)
+            {
+                MessageBox.Show("I am sorry you read this!\n\nCouldn't uninstall plugin.\nRemove by hand!");
+            }
+
+            PluginsLocalLoadedPluginsRefresh();
+        }
 
         #endregion
 
