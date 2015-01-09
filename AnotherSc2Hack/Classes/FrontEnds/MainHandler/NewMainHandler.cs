@@ -1490,60 +1490,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             IPluginsSelectedPluginIndex = senda.SelectedItems[0].Index;
 
-            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count > 0)
-            {
-                pcbPluginsImages.Image = _lOnlinePlugins[IPluginsSelectedPluginIndex].Images[0];
-                IPluginsImageIndex = 0;
-            }
-
-            var onlinePlugin = _lOnlinePlugins[IPluginsSelectedPluginIndex];
-
-            rtbPluginsDescription.Text = onlinePlugin.Description;
-
-            pbMainProgress.Style = ProgressBarStyle.Marquee;
-            var context = TaskScheduler.FromCurrentSynchronizationContext();
-
-
-            var task = Task.Factory.StartNew(() =>
-            {
-                var token = Task.Factory.CancellationToken;
-
-                //Download images if available AND they were not downloaded already!
-                if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count != _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count)
-                {
-                    _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Clear();
-
-                    for (var j = 0; j < _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count; j++)
-                    {
-                        var rawImg =
-                            new WebClient{Proxy = null}.DownloadData(_lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks[j]);
-                        var img = HelpFunctions.ByteArrayToImage(rawImg);
-
-                        _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Add(img);
-
-                        Task.Factory.StartNew(() =>
-                        {
-                            //Refresh Imageposition
-                            lblPluginsImageposition.Text = (IPluginsImageIndex + 1) + "/" +
-                                                       _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count;
-
-                            //Load the first image into the picture- box
-                            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count < 2)
-                                pcbPluginsImages.Image = img;
-
-                            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count ==
-                                _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count)
-                            {
-                                lstvPluginsAvailablePlugins_SelectedIndexChanged(senda, new EventArgs());
-
-                                pbMainProgress.Style = ProgressBarStyle.Blocks;
-                                senda.Enabled = true;
-                            }
-
-                        }, token, TaskCreationOptions.None, context);
-                    }
-                }
-            });
+            PluginsLoadImages(senda);
         }
 
         private void btnPluginsImagesPrevious_Click(object sender, EventArgs e)
@@ -1603,6 +1550,68 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             catch (Exception ex)
             {
                 MessageBox.Show("Couldn't install Plugin!", "Something went wrong!");
+            }
+        }
+
+        private void PluginsLoadImages(ListView senda)
+        {
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count > 0)
+            {
+                pcbPluginsImages.Image = _lOnlinePlugins[IPluginsSelectedPluginIndex].Images[0];
+                IPluginsImageIndex = 0;
+            }
+
+            var onlinePlugin = _lOnlinePlugins[IPluginsSelectedPluginIndex];
+
+            rtbPluginsDescription.Text = onlinePlugin.Description;
+
+            //Download images if available AND they were not downloaded already!
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count !=
+                _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count)
+            {
+                pbMainProgress.Style = ProgressBarStyle.Marquee;
+                var context = TaskScheduler.FromCurrentSynchronizationContext();
+
+
+                var task = Task.Factory.StartNew(() =>
+                {
+                    var token = Task.Factory.CancellationToken;
+
+
+                    _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Clear();
+
+                    for (var j = 0; j < _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count; j++)
+                    {
+                        var rawImg =
+                            new WebClient { Proxy = null }.DownloadData(
+                                _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks[j]);
+                        var img = HelpFunctions.ByteArrayToImage(rawImg);
+
+                        _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Add(img);
+
+                        Task.Factory.StartNew(() =>
+                        {
+                            //Refresh Imageposition
+                            lblPluginsImageposition.Text = (IPluginsImageIndex + 1) + "/" +
+                                                           _lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count;
+
+                            //Load the first image into the picture- box
+                            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count < 2)
+                                pcbPluginsImages.Image = img;
+
+                            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count ==
+                                _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count)
+                            {
+                                lstvPluginsAvailablePlugins_SelectedIndexChanged(senda, new EventArgs());
+
+                                pbMainProgress.Style = ProgressBarStyle.Blocks;
+                                senda.Enabled = true;
+                            }
+
+                        }, token, TaskCreationOptions.None, context);
+                    }
+
+                });
             }
         }
 
@@ -2191,66 +2200,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
     }
 
-    [DebuggerDisplay("Name: {Name}; Description: {Description}; Version: {Version}; Link: {DownloadLink}")]
-    public class OnlinePlugin
-    {
+   
 
-        public OnlinePlugin()
-        {
-            InitCode();
-        }
-
-        private void InitCode()
-        {
-            ImageLinks = new List<String>();
-            Images = new List<Image>();
-            Name = String.Empty;
-            Description = String.Empty;
-            Version = new Version(0, 0, 0, 0);
-            RequiresUpdate = false;
-            LocalPath = String.Empty;
-            Md5Hash = String.Empty;
-        }
-
-        
-
-        public String Name { get; set; }
-        public String Description { get; set; }
-        public List<String> ImageLinks { get; set; }
-        public List<Image> Images { get; set; } 
-        public Version Version { get; set; }
-        public String DownloadLink { get; set; }
-        public Boolean RequiresUpdate { get; set; }
-        public String LocalPath { get; set; }
-        public String Md5Hash { get; set; }
-    }
-
-    /// <summary>
-    /// Localplugins that will hold information about a plugin's path and the plugindata itself.
-    /// See IPlugin interface for the plugin information.
-    /// </summary>
-    public class LocalPlugins
-    {
-        /// <summary>
-        /// The PluginPath (local)
-        /// </summary>
-        public String PluginPath { get; private set; }
-
-        /// <summary>
-        /// The Plugin itself
-        /// </summary>
-        public IPlugins Plugin { get; private set; }
-
-        /// <summary>
-        /// The hash which is created at construction
-        /// </summary>
-        public String Md5Hash { get; private set; }
-
-        public LocalPlugins(IPlugins plugin, string pluginPath)
-        {
-            PluginPath = pluginPath;
-            Plugin = plugin;
-            Md5Hash = Hashes.HashFromFile(PluginPath, Hashes.HashAlgorithm.Md5);
-        }
-    }
+    
 }
