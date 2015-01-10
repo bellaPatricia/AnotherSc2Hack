@@ -2262,6 +2262,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UpdateChecker ch = new UpdateChecker();
+
+            if (ch.UpdatesAvailable)
+            {
+            }
+        }
     }
 
    

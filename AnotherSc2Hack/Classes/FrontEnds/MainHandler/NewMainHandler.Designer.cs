@@ -42,6 +42,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
+            this.cmPluginInstall = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsPluginInstallPlugin = new System.Windows.Forms.ToolStripMenuItem();
             this.label14 = new System.Windows.Forms.Label();
             this.cmPluginRemove = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsPluginRemove = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,8 +87,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmPluginInstall = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsPluginInstallPlugin = new System.Windows.Forms.ToolStripMenuItem();
+            this.chBxOnlyDrawInForeground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
+            this.ktxtReposition = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
+            this.ntxtGraphicsRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtMemoryRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -123,24 +127,21 @@
             this.cpnlOverlaysWorker = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysIncome = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlaysResources = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.chBxOnlyDrawInForeground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.ktxtReposition = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
-            this.ntxtGraphicsRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.ntxtMemoryRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.cpnlDebug = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
             this.pnlPlugins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).BeginInit();
+            this.cmPluginInstall.SuspendLayout();
             this.cmPluginRemove.SuspendLayout();
             this.pnlDebug.SuspendLayout();
             this.pnlOverlays.SuspendLayout();
             this.pnlPanelContainer.SuspendLayout();
             this.pnlApplication.SuspendLayout();
-            this.cmPluginInstall.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLeftSelection
@@ -172,11 +173,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.pnlMainArea.Controls.Add(this.lblTabname);
+            this.pnlMainArea.Controls.Add(this.pnlApplication);
             this.pnlMainArea.Controls.Add(this.pnlPlugins);
             this.pnlMainArea.Controls.Add(this.pnlDebug);
             this.pnlMainArea.Controls.Add(this.pnlOverlays);
-            this.pnlMainArea.Controls.Add(this.lblTabname);
-            this.pnlMainArea.Controls.Add(this.pnlApplication);
             this.pnlMainArea.Location = new System.Drawing.Point(152, 0);
             this.pnlMainArea.Name = "pnlMainArea";
             this.pnlMainArea.Size = new System.Drawing.Size(1127, 555);
@@ -301,6 +302,20 @@
             this.rtbPluginsDescription.TabIndex = 26;
             this.rtbPluginsDescription.Text = "";
             // 
+            // cmPluginInstall
+            // 
+            this.cmPluginInstall.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsPluginInstallPlugin});
+            this.cmPluginInstall.Name = "cmPluginRemove";
+            this.cmPluginInstall.Size = new System.Drawing.Size(143, 26);
+            // 
+            // tsPluginInstallPlugin
+            // 
+            this.tsPluginInstallPlugin.Name = "tsPluginInstallPlugin";
+            this.tsPluginInstallPlugin.Size = new System.Drawing.Size(142, 22);
+            this.tsPluginInstallPlugin.Text = "Install Plugin";
+            this.tsPluginInstallPlugin.Click += new System.EventHandler(this.tsPluginInstallPlugin_Click);
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -420,9 +435,9 @@
             this.lblDebugUnitLocation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDebugUnitLocation.Location = new System.Drawing.Point(418, 343);
             this.lblDebugUnitLocation.Name = "lblDebugUnitLocation";
-            this.lblDebugUnitLocation.Size = new System.Drawing.Size(39, 20);
+            this.lblDebugUnitLocation.Size = new System.Drawing.Size(31, 20);
             this.lblDebugUnitLocation.TabIndex = 19;
-            this.lblDebugUnitLocation.Text = "7/15";
+            this.lblDebugUnitLocation.Text = "0/0";
             // 
             // txtDebugUnitname
             // 
@@ -509,9 +524,9 @@
             this.lblDebugPlayerLocation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDebugPlayerLocation.Location = new System.Drawing.Point(128, 343);
             this.lblDebugPlayerLocation.Name = "lblDebugPlayerLocation";
-            this.lblDebugPlayerLocation.Size = new System.Drawing.Size(39, 20);
+            this.lblDebugPlayerLocation.Size = new System.Drawing.Size(31, 20);
             this.lblDebugPlayerLocation.TabIndex = 10;
-            this.lblDebugPlayerLocation.Text = "7/15";
+            this.lblDebugPlayerLocation.Text = "0/0";
             // 
             // txtDebugPlayername
             // 
@@ -624,6 +639,7 @@
             this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlApplication.Controls.Add(this.button1);
             this.pnlApplication.Controls.Add(this.btnLaunchProduction);
             this.pnlApplication.Controls.Add(this.btnLaunchUnit);
             this.pnlApplication.Controls.Add(this.btnLaunchMaphack);
@@ -850,19 +866,51 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Memory Reading (ms):";
             // 
-            // cmPluginInstall
+            // chBxOnlyDrawInForeground
             // 
-            this.cmPluginInstall.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPluginInstallPlugin});
-            this.cmPluginInstall.Name = "cmPluginRemove";
-            this.cmPluginInstall.Size = new System.Drawing.Size(143, 26);
+            this.chBxOnlyDrawInForeground.Checked = false;
+            this.chBxOnlyDrawInForeground.Clickable = true;
+            this.chBxOnlyDrawInForeground.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chBxOnlyDrawInForeground.DisplayText = "Only draw when SCII is in foreground";
+            this.chBxOnlyDrawInForeground.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBxOnlyDrawInForeground.Location = new System.Drawing.Point(20, 165);
+            this.chBxOnlyDrawInForeground.Name = "chBxOnlyDrawInForeground";
+            this.chBxOnlyDrawInForeground.Size = new System.Drawing.Size(283, 30);
+            this.chBxOnlyDrawInForeground.TabIndex = 8;
+            this.chBxOnlyDrawInForeground.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Left;
+            this.chBxOnlyDrawInForeground.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.CheckedChangeHandler(this.chBxOnlyDrawInForeground_CheckedChanged);
             // 
-            // tsPluginInstallPlugin
+            // ktxtReposition
             // 
-            this.tsPluginInstallPlugin.Name = "tsPluginInstallPlugin";
-            this.tsPluginInstallPlugin.Size = new System.Drawing.Size(142, 22);
-            this.tsPluginInstallPlugin.Text = "Install Plugin";
-            this.tsPluginInstallPlugin.Click += new System.EventHandler(this.tsPluginInstallPlugin_Click);
+            this.ktxtReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ktxtReposition.HotKeyValue = System.Windows.Forms.Keys.None;
+            this.ktxtReposition.Location = new System.Drawing.Point(198, 102);
+            this.ktxtReposition.Name = "ktxtReposition";
+            this.ktxtReposition.Size = new System.Drawing.Size(105, 27);
+            this.ktxtReposition.TabIndex = 5;
+            this.ktxtReposition.KeyChanged += new AnotherSc2Hack.Classes.FrontEnds.KeyValueChangeHandler(this.ktxtReposition_KeyChanged);
+            // 
+            // ntxtGraphicsRefresh
+            // 
+            this.ntxtGraphicsRefresh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtGraphicsRefresh.Location = new System.Drawing.Point(198, 72);
+            this.ntxtGraphicsRefresh.Name = "ntxtGraphicsRefresh";
+            this.ntxtGraphicsRefresh.Number = 42;
+            this.ntxtGraphicsRefresh.Size = new System.Drawing.Size(104, 27);
+            this.ntxtGraphicsRefresh.TabIndex = 3;
+            this.ntxtGraphicsRefresh.Text = "42";
+            this.ntxtGraphicsRefresh.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtGraphicsRefresh_NumberChanged);
+            // 
+            // ntxtMemoryRefresh
+            // 
+            this.ntxtMemoryRefresh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtMemoryRefresh.Location = new System.Drawing.Point(198, 42);
+            this.ntxtMemoryRefresh.Name = "ntxtMemoryRefresh";
+            this.ntxtMemoryRefresh.Number = 42;
+            this.ntxtMemoryRefresh.Size = new System.Drawing.Size(104, 27);
+            this.ntxtMemoryRefresh.TabIndex = 2;
+            this.ntxtMemoryRefresh.Text = "42";
+            this.ntxtMemoryRefresh.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
             // 
             // lstvPluginsAvailablePlugins
             // 
@@ -1285,52 +1333,6 @@
             this.cpnlOverlaysResources.TextSize = 11F;
             this.cpnlOverlaysResources.Click += new System.EventHandler(this.cpnlOverlaysResources_Click);
             // 
-            // chBxOnlyDrawInForeground
-            // 
-            this.chBxOnlyDrawInForeground.Checked = false;
-            this.chBxOnlyDrawInForeground.Clickable = true;
-            this.chBxOnlyDrawInForeground.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chBxOnlyDrawInForeground.DisplayText = "Only draw when SCII is in foreground";
-            this.chBxOnlyDrawInForeground.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBxOnlyDrawInForeground.Location = new System.Drawing.Point(20, 165);
-            this.chBxOnlyDrawInForeground.Name = "chBxOnlyDrawInForeground";
-            this.chBxOnlyDrawInForeground.Size = new System.Drawing.Size(283, 30);
-            this.chBxOnlyDrawInForeground.TabIndex = 8;
-            this.chBxOnlyDrawInForeground.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Left;
-            this.chBxOnlyDrawInForeground.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.CheckedChangeHandler(this.chBxOnlyDrawInForeground_CheckedChanged);
-            // 
-            // ktxtReposition
-            // 
-            this.ktxtReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ktxtReposition.HotKeyValue = System.Windows.Forms.Keys.None;
-            this.ktxtReposition.Location = new System.Drawing.Point(198, 102);
-            this.ktxtReposition.Name = "ktxtReposition";
-            this.ktxtReposition.Size = new System.Drawing.Size(105, 27);
-            this.ktxtReposition.TabIndex = 5;
-            this.ktxtReposition.KeyChanged += new AnotherSc2Hack.Classes.FrontEnds.KeyValueChangeHandler(this.ktxtReposition_KeyChanged);
-            // 
-            // ntxtGraphicsRefresh
-            // 
-            this.ntxtGraphicsRefresh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ntxtGraphicsRefresh.Location = new System.Drawing.Point(198, 72);
-            this.ntxtGraphicsRefresh.Name = "ntxtGraphicsRefresh";
-            this.ntxtGraphicsRefresh.Number = 42;
-            this.ntxtGraphicsRefresh.Size = new System.Drawing.Size(104, 27);
-            this.ntxtGraphicsRefresh.TabIndex = 3;
-            this.ntxtGraphicsRefresh.Text = "42";
-            this.ntxtGraphicsRefresh.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtGraphicsRefresh_NumberChanged);
-            // 
-            // ntxtMemoryRefresh
-            // 
-            this.ntxtMemoryRefresh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ntxtMemoryRefresh.Location = new System.Drawing.Point(198, 42);
-            this.ntxtMemoryRefresh.Name = "ntxtMemoryRefresh";
-            this.ntxtMemoryRefresh.Number = 42;
-            this.ntxtMemoryRefresh.Size = new System.Drawing.Size(104, 27);
-            this.ntxtMemoryRefresh.TabIndex = 2;
-            this.ntxtMemoryRefresh.Text = "42";
-            this.ntxtMemoryRefresh.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
-            // 
             // cpnlDebug
             // 
             this.cpnlDebug.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
@@ -1420,6 +1422,16 @@
             this.cpnlPlugins.TextSize = 11F;
             this.cpnlPlugins.Click += new System.EventHandler(this.cpnlPlugins_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(469, 175);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // NewMainHandler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1438,6 +1450,7 @@
             this.pnlPlugins.ResumeLayout(false);
             this.pnlPlugins.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).EndInit();
+            this.cmPluginInstall.ResumeLayout(false);
             this.cmPluginRemove.ResumeLayout(false);
             this.pnlDebug.ResumeLayout(false);
             this.pnlDebug.PerformLayout();
@@ -1446,7 +1459,6 @@
             this.pnlPanelContainer.PerformLayout();
             this.pnlApplication.ResumeLayout(false);
             this.pnlApplication.PerformLayout();
-            this.cmPluginInstall.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1554,6 +1566,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsPluginRemove;
         private System.Windows.Forms.ContextMenuStrip cmPluginInstall;
         private System.Windows.Forms.ToolStripMenuItem tsPluginInstallPlugin;
+        private System.Windows.Forms.Button button1;
 
     }
 }

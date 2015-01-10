@@ -84,7 +84,7 @@
     <Compile Include="Classes\BackEnds\Constants.cs" />
     <Compile Include="Classes\BackEnds\Crypting.cs" />
     <Compile Include="Classes\BackEnds\Drawing.cs" />
-    <Compile Include="Classes\BackEnds\ExternsionMethods.cs" />
+    <Compile Include="Classes\BackEnds\ExtensionMethods.cs" />
     <Compile Include="Classes\BackEnds\GameInfo.cs" />
     <Compile Include="Classes\BackEnds\Gameinfo\Player.cs" />
     <Compile Include="Classes\BackEnds\Hashes.cs" />
@@ -101,6 +101,7 @@
     <Compile Include="Classes\BackEnds\Renderer_Helper.cs" />
     <Compile Include="Classes\BackEnds\Simulation.cs" />
     <Compile Include="Classes\BackEnds\UpdateCheck.cs" />
+    <Compile Include="Classes\BackEnds\UpdateChecker.cs" />
     <Compile Include="Classes\FrontEnds\Container\PanelOverlayBasics.cs">
       <SubType>UserControl</SubType>
     </Compile>
