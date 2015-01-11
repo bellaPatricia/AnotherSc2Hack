@@ -177,6 +177,12 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\AnotherListview.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\AnotherMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\AnotherMessageBox.Designer.cs">
+      <DependentUpon>AnotherMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\Automation_Worker.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -431,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Container\PanelSettingsSpecialUnittab.resx">
       <DependentUpon>PanelSettingsSpecialUnittab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\AnotherMessageBox.resx">
+      <DependentUpon>AnotherMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Automation_Worker.resx">
       <DependentUpon>Automation_Worker.cs</DependentUpon>

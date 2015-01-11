@@ -45,6 +45,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static String StrPreferenceKeywordVarious = "Various";
         public static String StrPreferenceKeywordWorkerAutomation = "Worker Automation";
         public static String StrUpdaterPath = Application.StartupPath + "\\Sc2Hack UpdateManager.exe";
+        public static String StrFontFamilyNameMonospace = "DejaVu Sans Mono";
 
         public static String StrPreferenceRemoveAi = "Remove Ai";
         public static String StrPreferenceRemoveLocalplayer = "Remove Localplayer";
