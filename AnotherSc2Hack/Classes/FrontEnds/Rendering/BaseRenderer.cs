@@ -559,7 +559,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseRenderer"/> class.
         /// </summary>
-        /// <param name="hnd">The handle to the MainHandle (to get data like GameInfo or Preferences and direct Form- control).</param>
+        /// <param name="gInformation">The GameInfo reference to access the gamedata</param>
+        /// <param name="pSettings">The Preference reference to get the information which data will be drawn</param>
+        /// <param name="sc2Process">The Process- handle to check whenever a process is available or not</param>
         protected BaseRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
         {
             GInformation = gInformation;
@@ -5899,9 +5901,5 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }
 #endif
         }
-
-        
-
-        
     }
 }
