@@ -29,7 +29,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
     public partial class NewMainHandler : Form
     {
-        public Preferences PSettings { get; private set; }
         private readonly Timer _tmrMainTick = new Timer();
         
         private readonly RendererContainer _lContainer = new RendererContainer();
@@ -40,9 +39,63 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private Boolean _bProcessSet;
 
-        public Process PSc2Process { get; set; }
 
         #region Getter and setter with advanced codeexecution
+
+        private Preferences _pSettings = new Preferences();
+
+        public Preferences PSettings
+        {
+            get { return _pSettings; }
+            set
+            {
+                _pSettings = value;
+                foreach (var renderer in _lContainer)
+                {
+                    renderer.PSettings = _pSettings;
+                }
+            }
+        }
+
+        private GameInfo _gameinfo = new GameInfo();
+
+        public GameInfo Gameinfo
+        {
+            get
+            {
+                return _gameinfo;
+            }
+
+            set
+            {
+                _gameinfo = value;
+
+                foreach (var renderer in _lContainer)
+                {
+                    renderer.GInformation = _gameinfo;
+                }
+            }
+        }
+
+        private Process _pSc2Process = null;
+
+        public Process PSc2Process
+        {
+            get
+            {
+                return _pSc2Process;
+            }
+            set
+            {
+                _pSc2Process = value;
+                foreach (var renderer in _lContainer)
+                {
+                    renderer.PSc2Process = _pSc2Process;
+                }
+            }
+        }
+
+        #region GUI getter and setter
 
         private Int32 _iPluginsSelectedPluginIndex = -1;
         private Int32 IPluginsSelectedPluginIndex
@@ -113,7 +166,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
-        public GameInfo Gameinfo { get; private set; }
+        #endregion
+
         public ApplicationStartOptions ApplicationOptions { get; private set; }
 
         public NewMainHandler(ApplicationStartOptions app)
@@ -131,7 +185,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             ApplicationOptions = app;
 
-            Gameinfo = new GameInfo(PSettings.GlobalDataRefresh);
+            Gameinfo.CSleepTime = PSettings.GlobalDataRefresh;
 
             PluginsLocalLoadPlugins();
             new Thread(PluginLoadAvailablePlugins).Start();
@@ -152,19 +206,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _wcMainWebClient.Proxy = null;
             _wcMainWebClient.DownloadProgressChanged += _wcMainWebClient_DownloadProgressChanged;
             _wcMainWebClient.DownloadFileCompleted += _wcMainWebClient_DownloadFileCompleted;
-            
+
 
             /* Add all the panels to the container... */
-         /*   _lContainer.Add(new ResourcesRenderer(this));
-            _lContainer.Add(new IncomeRenderer(this));
-            _lContainer.Add(new WorkerRenderer(this));
-            _lContainer.Add(new ArmyRenderer(this));
-            _lContainer.Add(new ApmRenderer(this));
-            _lContainer.Add(new MaphackRenderer(this));
-            _lContainer.Add(new UnitRenderer(this));
-            _lContainer.Add(new ProductionRenderer(this));
-            _lContainer.Add(new PersonalApmRenderer(this));
-            _lContainer.Add(new PersonalClockRenderer(this));*/
+            _lContainer.Add(new ResourcesRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new IncomeRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new WorkerRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new ArmyRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new ApmRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new MaphackRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new UnitRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new ProductionRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new PersonalApmRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new PersonalClockRenderer(Gameinfo, PSettings, PSc2Process));
 
             SetStyle(ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.OptimizedDoubleBuffer |
@@ -2223,44 +2277,64 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Gameinfo.HandleThread(false);
         }
 
+        private void LaunchRendererWithButton(object clickButton, Type targetType)
+        {
+            var button = clickButton as Button;
+            if (button != null)
+            {
+                var btn = button;
+                foreach (var renderer in _lContainer)
+                {
+                    if (renderer.GetType() == targetType)
+                    {
+                        renderer.ToggleShowHide();
+                        btn.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
+                    }
+                }
+            }
+
+            else 
+                throw new Exception("You passed something that isn't a button!");
+        }
+
         private void btnLaunchResource_Click(object sender, EventArgs e)
         {
-
+            LaunchRendererWithButton(sender, typeof(ResourcesRenderer));
         }
 
         private void btnLaunchIncome_Click(object sender, EventArgs e)
         {
-
+            LaunchRendererWithButton(sender, typeof(IncomeRenderer));
         }
 
         private void btnLaunchWorker_Click(object sender, EventArgs e)
         {
-
+            LaunchRendererWithButton(sender, typeof(WorkerRenderer));
         }
 
         private void btnLaunchMaphack_Click(object sender, EventArgs e)
         {
-
+            LaunchRendererWithButton(sender, typeof(MaphackRenderer));
         }
 
         private void btnLaunchApm_Click(object sender, EventArgs e)
         {
-
+            LaunchRendererWithButton(sender, typeof(ApmRenderer));
         }
 
         private void btnLaunchArmy_Click(object sender, EventArgs e)
         {
-
+            LaunchRendererWithButton(sender, typeof(ArmyRenderer));
         }
 
         private void btnLaunchUnit_Click(object sender, EventArgs e)
         {
-
+            LaunchRendererWithButton(sender, typeof(UnitRenderer));
         }
 
         private void btnLaunchProduction_Click(object sender, EventArgs e)
         {
-
+            LaunchRendererWithButton(sender, typeof(ProductionRenderer));
         }
 
         private void button1_Click(object sender, EventArgs e)
