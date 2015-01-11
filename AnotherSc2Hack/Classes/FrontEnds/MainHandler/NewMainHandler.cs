@@ -419,6 +419,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Application Panel Data
 
+        private void LaunchRendererWithButton(object clickButton, Type targetType)
+        {
+            var button = clickButton as Button;
+            if (button != null)
+            {
+                var btn = button;
+                foreach (var renderer in _lContainer)
+                {
+                    if (renderer.GetType() == targetType)
+                    {
+                        renderer.ToggleShowHide();
+                        btn.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
+                    }
+                }
+            }
+
+            else
+                throw new Exception("You passed something that isn't a button!");
+        }
+
         #region Event methods
 
         private void ntxtMemoryRefresh_NumberChanged(NumberTextBox o, EventNumber e)
@@ -443,6 +463,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
 
             PSettings.GlobalDrawingRefresh = o.Number;
+
+            _lContainer.SetDrawingInterval(PSettings.GlobalDrawingRefresh);
         }
 
         void ktxtReposition_KeyChanged(KeyTextBox o, EventKey e)
@@ -462,6 +484,51 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             HelpFunctions.InitResolution(ref tmpPreferences);
             PSettings = tmpPreferences;
         }
+
+        #region Launch Panels
+
+        private void btnLaunchResource_Click(object sender, EventArgs e)
+        {
+            LaunchRendererWithButton(sender, typeof(ResourcesRenderer));
+        }
+
+        private void btnLaunchIncome_Click(object sender, EventArgs e)
+        {
+            LaunchRendererWithButton(sender, typeof(IncomeRenderer));
+        }
+
+        private void btnLaunchWorker_Click(object sender, EventArgs e)
+        {
+            LaunchRendererWithButton(sender, typeof(WorkerRenderer));
+        }
+
+        private void btnLaunchMaphack_Click(object sender, EventArgs e)
+        {
+            LaunchRendererWithButton(sender, typeof(MaphackRenderer));
+        }
+
+        private void btnLaunchApm_Click(object sender, EventArgs e)
+        {
+            LaunchRendererWithButton(sender, typeof(ApmRenderer));
+        }
+
+        private void btnLaunchArmy_Click(object sender, EventArgs e)
+        {
+            LaunchRendererWithButton(sender, typeof(ArmyRenderer));
+        }
+
+        private void btnLaunchUnit_Click(object sender, EventArgs e)
+        {
+            LaunchRendererWithButton(sender, typeof(UnitRenderer));
+        }
+
+        private void btnLaunchProduction_Click(object sender, EventArgs e)
+        {
+            LaunchRendererWithButton(sender, typeof(ProductionRenderer));
+        }
+
+        #endregion
+
 
         #endregion
 
@@ -2277,65 +2344,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Gameinfo.HandleThread(false);
         }
 
-        private void LaunchRendererWithButton(object clickButton, Type targetType)
-        {
-            var button = clickButton as Button;
-            if (button != null)
-            {
-                var btn = button;
-                foreach (var renderer in _lContainer)
-                {
-                    if (renderer.GetType() == targetType)
-                    {
-                        renderer.ToggleShowHide();
-                        btn.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
-                    }
-                }
-            }
-
-            else 
-                throw new Exception("You passed something that isn't a button!");
-        }
-
-        private void btnLaunchResource_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(ResourcesRenderer));
-        }
-
-        private void btnLaunchIncome_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(IncomeRenderer));
-        }
-
-        private void btnLaunchWorker_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(WorkerRenderer));
-        }
-
-        private void btnLaunchMaphack_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(MaphackRenderer));
-        }
-
-        private void btnLaunchApm_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(ApmRenderer));
-        }
-
-        private void btnLaunchArmy_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(ArmyRenderer));
-        }
-
-        private void btnLaunchUnit_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(UnitRenderer));
-        }
-
-        private void btnLaunchProduction_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(ProductionRenderer));
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -2350,9 +2359,5 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
 
         }
-    }
-
-   
-
-    
+    } 
 }

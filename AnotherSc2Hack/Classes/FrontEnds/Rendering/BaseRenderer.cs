@@ -781,9 +781,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             AdjustPanelPosition();
             AdjustPanelSize();
 
-            /* Reset settings */
-            PSettings = PSettings;
-
             /* Refresh Top- Most */
             if (
                 PSc2Process != null && PSc2Process.ProcessName.Length > 0 &&
