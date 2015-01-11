@@ -176,11 +176,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             
             Init();
-            ControlsFill();
             EventMapping();
-            
-
-            
+            ControlsFill();
             
 
             ApplicationOptions = app;
@@ -224,8 +221,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer, true);
-
-
         }
 
         void _wcMainWebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
@@ -1285,10 +1280,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
+            {
                 PSettings.ProdTabUseTransparentImages = o.Checked;
+                _lContainer.Find(x => x is ProductionRenderer).ChangeImageResources(o.Checked);
+            }
 
             else if (parent.Name.Contains("Unit"))
+            {
                 PSettings.UnitTabUseTransparentImages = o.Checked;
+                _lContainer.Find(x => x is UnitRenderer).ChangeImageResources(o.Checked);
+            }
 
             else
                 Messages.Show("Couldn't find parent!");
