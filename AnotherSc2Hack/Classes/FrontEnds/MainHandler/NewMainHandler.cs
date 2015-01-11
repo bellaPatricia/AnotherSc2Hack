@@ -2348,7 +2348,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            /*
 
             UpdateChecker ch = new UpdateChecker();
 
@@ -2356,7 +2356,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             {
                 new AnotherMessageBox().Show(ch.ShowApplicationUpdates(), "Updates Available", new Font(Constants.StrFontFamilyNameMonospace, Font.Size));
             }
-
+            */
 
         }
     } 

@@ -987,12 +987,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="e"></param>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            Hide();
-
             if (!IsAllowedToClose)
                 e.Cancel = true;
 
-
+            
             base.OnFormClosing(e);
         }
 
