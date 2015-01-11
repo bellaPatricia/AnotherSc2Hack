@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     public class ApmRenderer : BaseRenderer
     {
-        public ApmRenderer(MainHandler.MainHandler hnd) : base(hnd)
+        public ApmRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+            : base(gInformation, pSettings, sc2Process)
         {
             
         }
@@ -23,10 +25,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         {
             try
             {
-                if (!HMainHandler.GInformation.Gameinfo.IsIngame)
+                if (!GInformation.Gameinfo.IsIngame)
                     return;
 
-                var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+                var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
                 if (iValidPlayerCount == 0)
                     return;
@@ -44,32 +46,32 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 }
 
                 var iCounter = 0;
-                for (var i = 0; i < HMainHandler.GInformation.Player.Count; i++)
+                for (var i = 0; i < GInformation.Player.Count; i++)
                 {
-                    var clPlayercolor = HMainHandler.GInformation.Player[i].Color;
+                    var clPlayercolor = GInformation.Player[i].Color;
 
                     #region Teamcolor
 
-                    RendererHelper.TeamColor(HMainHandler.GInformation.Player, i,
-                                              HMainHandler.GInformation.Gameinfo.IsTeamcolor, ref clPlayercolor);
+                    RendererHelper.TeamColor(GInformation.Player, i,
+                                              GInformation.Gameinfo.IsTeamcolor, ref clPlayercolor);
 
                     #endregion
 
                     #region Escape sequences
 
-                    if (HMainHandler.GInformation.Player[i].Name.StartsWith("\0") || HMainHandler.GInformation.Player[i].NameLength <= 0)
+                    if (GInformation.Player[i].Name.StartsWith("\0") || GInformation.Player[i].NameLength <= 0)
                         continue;
 
-                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
+                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
                         continue;
 
-                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
+                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
                         continue;
 
-                    if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
+                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
                         continue;
 
-                    if (CheckIfGameheart(HMainHandler.GInformation.Player[i]))
+                    if (CheckIfGameheart(GInformation.Player[i]))
                         continue;
 
 
@@ -77,35 +79,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (PSettings.ApmRemoveAi)
                     {
-                        if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
+                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue;
                     }
 
                     if (PSettings.ApmRemoveNeutral)
                     {
-                        if (HMainHandler.GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
+                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue;
                     }
 
                     if (PSettings.ApmRemoveAllie)
                     {
-                        if (HMainHandler.GInformation.Player[0].Localplayer == 16)
+                        if (GInformation.Player[0].Localplayer == 16)
                         {
                             //Do nothing
                         }
 
                         else
                         {
-                            if (HMainHandler.GInformation.Player[i].Team ==
-                                HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[i].Localplayer].Team &&
-                                !HMainHandler.GInformation.Player[i].IsLocalplayer)
+                            if (GInformation.Player[i].Team ==
+                                GInformation.Player[GInformation.Player[i].Localplayer].Team &&
+                                !GInformation.Player[i].IsLocalplayer)
                                 continue;
                         }
                     }
 
                     if (PSettings.ApmRemoveLocalplayer)
                     {
-                        if (HMainHandler.GInformation.Player[i].IsLocalplayer)
+                        if (GInformation.Player[i].IsLocalplayer)
                             continue;
                     }
 
@@ -133,9 +135,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Name
 
-                    var strName = (HMainHandler.GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ApmRemoveClanTag)
-                                         ? HMainHandler.GInformation.Player[i].Name
-                                         : "[" + HMainHandler.GInformation.Player[i].ClanTag + "] " + HMainHandler.GInformation.Player[i].Name;
+                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ApmRemoveClanTag)
+                                         ? GInformation.Player[i].Name
+                                         : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
                     Drawing.DrawString(g.Graphics,
                         strName,
@@ -150,7 +152,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Team
 
                     Drawing.DrawString(g.Graphics,
-                        "#" + HMainHandler.GInformation.Player[i].Team, fInternalFontNormal,
+                        "#" + GInformation.Player[i].Team, fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((29.67 / 100) * Width),
                         (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -161,8 +163,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Apm
 
                     Drawing.DrawString(g.Graphics,
-                        "APM: " + HMainHandler.GInformation.Player[i].ApmAverage +
-                        " [" + HMainHandler.GInformation.Player[i].Apm + "]", fInternalFontNormal,
+                        "APM: " + GInformation.Player[i].ApmAverage +
+                        " [" + GInformation.Player[i].Apm + "]", fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((37.0 / 100) * Width),
                         (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -174,8 +176,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Epm
 
                     Drawing.DrawString(g.Graphics,
-                       "EPM: " + HMainHandler.GInformation.Player[i].EpmAverage +
-                        " [" + HMainHandler.GInformation.Player[i].Epm + "]", fInternalFontNormal,
+                       "EPM: " + GInformation.Player[i].EpmAverage +
+                        " [" + GInformation.Player[i].Epm + "]", fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((63.67 / 100) * Width),
                                           (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -204,19 +206,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected override void MouseUpTransferData()
         {
             /* Has to be calculated manually because each panels has it's own Neutral handling.. */
-            var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+            var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
-            HMainHandler.PSettings.ApmPositionX = Location.X;
-            HMainHandler.PSettings.ApmPositionY = Location.Y;
-            HMainHandler.PSettings.ApmWidth = Width;
-            HMainHandler.PSettings.ApmHeight = Height / iValidPlayerCount;
-            HMainHandler.PSettings.ApmOpacity = Opacity;
-
-            /* Transfer to Mainform */
-            HMainHandler.ApmUiInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ApmUiInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ApmUiInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ApmUiInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+            PSettings.ApmPositionX = Location.X;
+            PSettings.ApmPositionY = Location.Y;
+            PSettings.ApmWidth = Width;
+            PSettings.ApmHeight = Height / iValidPlayerCount;
+            PSettings.ApmOpacity = Opacity;
         }
 
         /// <summary>
@@ -238,14 +234,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data (color) into the Form's controls and settings
-        /// </summary>
-        protected override void ChangeForecolorOfButton(Color cl)
-        {
-            HMainHandler.btnApm.ForeColor = cl;
-        }
-
-        /// <summary>
         /// Sends the panel specific data into the Form's controls and settings
         /// Also changes the Size directly!
         /// </summary>
@@ -255,20 +243,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                HMainHandler.PSettings.ApmWidth = Cursor.Position.X - Left;
+                PSettings.ApmWidth = Cursor.Position.X - Left;
 
-                var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
-                if (HMainHandler.PSettings.ApmRemoveNeutral)
+                var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
+                if (PSettings.ApmRemoveNeutral)
                     iValidPlayerCount -= 1;
 
                 if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
                 {
-                    HMainHandler.PSettings.ApmHeight = (Cursor.Position.Y - Top) /
+                    PSettings.ApmHeight = (Cursor.Position.Y - Top) /
                                                         iValidPlayerCount;
                 }
 
                 else
-                    HMainHandler.PSettings.ApmHeight = 5;
+                    PSettings.ApmHeight = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -280,7 +268,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(HMainHandler.PSettings.ApmChangeSizePanel))
+            if (strInput.Equals(PSettings.ApmChangeSizePanel))
             {
                 if (BToggleSize)
                 {
@@ -293,14 +281,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             if (HelpFunctions.HotkeysPressed(Keys.Enter))
             {
-                tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
 
                 BSetSize = false;
                 StrBackupSizeChatbox = string.Empty;
-
-                /* Transfer to Mainform */
-                HMainHandler.ApmUiInformation.txtWidth.Text = HMainHandler.PSettings.ApmWidth.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ApmUiInformation.txtHeight.Text = HMainHandler.PSettings.ApmHeight.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -326,8 +310,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                HMainHandler.PSettings.ApmPositionX = Cursor.Position.X;
-                HMainHandler.PSettings.ApmPositionY = Cursor.Position.Y;
+                PSettings.ApmPositionX = Cursor.Position.X;
+                PSettings.ApmPositionY = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -338,7 +322,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(HMainHandler.PSettings.ApmChangePositionPanel))
+            if (strInput.Equals(PSettings.ApmChangePositionPanel))
             {
                 if (BTogglePosition)
                 {
@@ -353,11 +337,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 BSetPosition = false;
                 StrBackupChatbox = string.Empty;
-                tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
-
-                /* Transfer to Mainform */
-                HMainHandler.ApmUiInformation.txtPosX.Text = HMainHandler.PSettings.ApmPositionX.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ApmUiInformation.txtPosY.Text = HMainHandler.PSettings.ApmPositionY.ToString(CultureInfo.InvariantCulture);
+                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
             }
         }
 
@@ -377,24 +357,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
         {
             /* If the Valid Player count is zero, change it.. */
-            var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+            var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
             var iRealPlayerCount = iValidPlayerCount == 0 ? 1 : iValidPlayerCount;
 
-            HMainHandler.PSettings.ApmHeight = (Height / iRealPlayerCount);
-            HMainHandler.PSettings.ApmWidth = Width;
-            HMainHandler.PSettings.ApmPositionX = Location.X;
-            HMainHandler.PSettings.ApmPositionY = Location.Y;
-        }
-
-        protected override void RefreshPanelPosition(Point location)
-        {
-            HMainHandler.ApmUiInformation.SetPosition(location);
-        }
-
-        protected override void RefreshPanelSize(Size size)
-        {
-            HMainHandler.ApmUiInformation.SetSize(size);
+            PSettings.ApmHeight = (Height / iRealPlayerCount);
+            PSettings.ApmWidth = Width;
+            PSettings.ApmPositionX = Location.X;
+            PSettings.ApmPositionY = Location.Y;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -16,8 +17,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                       _imgWorker = Properties.Resources.P_Probe;
 
 
-        public WorkerRenderer(MainHandler.MainHandler hnd)
-            : base(hnd)
+        public WorkerRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+            : base(gInformation, pSettings, sc2Process)
         {
             
         }
@@ -31,14 +32,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             try
             {
 
-                if (!HMainHandler.GInformation.Gameinfo.IsIngame)
+                if (!GInformation.Gameinfo.IsIngame)
                 {
                     g.Graphics.Clear(BackColor);
                     return;
                 }
 
-                if (HMainHandler.GInformation.Player == null ||
-                    HMainHandler.GInformation.Player.Count <= 0)
+                if (GInformation.Player == null ||
+                    GInformation.Player.Count <= 0)
                     return;
 
                 Opacity = PSettings.WorkerOpacity;
@@ -48,8 +49,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 Color clPlayercolor;
 
-                if (HMainHandler.GInformation.Player[0].Localplayer < HMainHandler.GInformation.Player.Count)
-                    clPlayercolor = HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[0].Localplayer].Color;
+                if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
+                    clPlayercolor = GInformation.Player[GInformation.Player[0].Localplayer].Color;
 
                 else
                     return;
@@ -62,7 +63,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Teamcolor
 
-                if (HMainHandler.GInformation.Gameinfo.IsTeamcolor)
+                if (GInformation.Gameinfo.IsTeamcolor)
                     clPlayercolor = Color.Green;
 
                 #endregion
@@ -84,7 +85,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 #region Worker
 
                 Drawing.DrawString(g.Graphics,
-                        HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[0].Localplayer].Worker + "   Workers",
+                        GInformation.Player[GInformation.Player[0].Localplayer].Worker + "   Workers",
                         fInternalFont,
                         new SolidBrush(clPlayercolor),
                         Brushes.Black, (float)((16.67 / 100) * Width),
@@ -106,17 +107,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void MouseUpTransferData()
         {
-            HMainHandler.PSettings.WorkerPositionX = Location.X;
-            HMainHandler.PSettings.WorkerPositionY = Location.Y;
-            HMainHandler.PSettings.WorkerWidth = Width;
-            HMainHandler.PSettings.WorkerHeight = Height;
-            HMainHandler.PSettings.WorkerOpacity = Opacity;
-
-            /* Transfer to Mainform */
-            HMainHandler.WorkerUiInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.WorkerUiInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.WorkerUiInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.WorkerUiInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+            PSettings.WorkerPositionX = Location.X;
+            PSettings.WorkerPositionY = Location.Y;
+            PSettings.WorkerWidth = Width;
+            PSettings.WorkerHeight = Height;
+            PSettings.WorkerOpacity = Opacity;
         }
 
         /// <summary>
@@ -138,14 +133,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data (color) into the Form's controls and settings
-        /// </summary>
-        protected override void ChangeForecolorOfButton(Color cl)
-        {
-            HMainHandler.btnWorker.ForeColor = cl;
-        }
-
-        /// <summary>
         /// Sends the panel specific data into the Form's controls and settings
         /// Also changes the Size directly!
         /// </summary>
@@ -155,18 +142,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                HMainHandler.PSettings.WorkerWidth = Cursor.Position.X - Left;
+                PSettings.WorkerWidth = Cursor.Position.X - Left;
 
-                var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+                var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
                 if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
                 {
-                    HMainHandler.PSettings.WorkerHeight = (Cursor.Position.Y - Top) /
+                    PSettings.WorkerHeight = (Cursor.Position.Y - Top) /
                                                         iValidPlayerCount;
                 }
 
                 else
-                    HMainHandler.PSettings.WorkerHeight = 5;
+                    PSettings.WorkerHeight = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -178,7 +165,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(HMainHandler.PSettings.WorkerChangeSizePanel))
+            if (strInput.Equals(PSettings.WorkerChangeSizePanel))
             {
                 if (BToggleSize)
                 {
@@ -191,14 +178,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             if (HelpFunctions.HotkeysPressed(Keys.Enter))
             {
-                tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
 
                 BSetSize = false;
                 StrBackupSizeChatbox = string.Empty;
-
-                /* Transfer to Mainform */
-                HMainHandler.WorkerUiInformation.txtWidth.Text = HMainHandler.PSettings.WorkerWidth.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.WorkerUiInformation.txtHeight.Text = HMainHandler.PSettings.WorkerHeight.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -224,8 +207,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                HMainHandler.PSettings.WorkerPositionX = Cursor.Position.X;
-                HMainHandler.PSettings.WorkerPositionY = Cursor.Position.Y;
+                PSettings.WorkerPositionX = Cursor.Position.X;
+                PSettings.WorkerPositionY = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -236,7 +219,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(HMainHandler.PSettings.WorkerChangePositionPanel))
+            if (strInput.Equals(PSettings.WorkerChangePositionPanel))
             {
                 if (BTogglePosition)
                 {
@@ -251,11 +234,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 BSetPosition = false;
                 StrBackupChatbox = string.Empty;
-                tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
-
-                /* Transfer to Mainform */
-                HMainHandler.WorkerUiInformation.txtPosX.Text = HMainHandler.PSettings.WorkerPositionX.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.WorkerUiInformation.txtPosY.Text = HMainHandler.PSettings.WorkerPositionY.ToString(CultureInfo.InvariantCulture);
+                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
             }
         }
 
@@ -274,20 +253,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="e"></param>
         protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
         {
-            HMainHandler.PSettings.WorkerHeight = Height;
-            HMainHandler.PSettings.WorkerWidth = Width;
-            HMainHandler.PSettings.WorkerPositionX = Location.X;
-            HMainHandler.PSettings.WorkerPositionY = Location.Y;
-        }
-
-        protected override void RefreshPanelPosition(Point location)
-        {
-            HMainHandler.WorkerUiInformation.SetPosition(location);
-        }
-
-        protected override void RefreshPanelSize(Size size)
-        {
-            HMainHandler.WorkerUiInformation.SetSize(size);
+            PSettings.WorkerHeight = Height;
+            PSettings.WorkerWidth = Width;
+            PSettings.WorkerPositionX = Location.X;
+            PSettings.WorkerPositionY = Location.Y;
         }
     }
 }

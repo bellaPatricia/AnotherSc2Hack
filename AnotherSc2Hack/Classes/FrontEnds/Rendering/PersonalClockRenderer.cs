@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -10,23 +11,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     class PersonalClockRenderer : BaseRenderer
     {
-        public PersonalClockRenderer(MainHandler.MainHandler hnd)
-            : base(hnd)
+        public PersonalClockRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+            : base(gInformation, pSettings, sc2Process)
         {
 
         }
 
         protected override void Draw(BufferedGraphics g)
         {
-            if (!HMainHandler.GInformation.Gameinfo.IsIngame)
+            if (!GInformation.Gameinfo.IsIngame)
                 return;
 
-            var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+            var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
             if (iValidPlayerCount == 0)
                 return;
 
-            if (HMainHandler.GInformation.Player.Count <= 0)
+            if (GInformation.Player.Count <= 0)
                 return;
 
 
@@ -50,21 +51,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             /* Nothing */
         }
 
-        protected override void ChangeForecolorOfButton(Color cl)
-        {
-            if (cl.Equals(Color.Green))
-                HMainHandler.Custom_Various.chBxClock.Checked = true;
-
-            else if (cl.Equals(Color.Red))
-                HMainHandler.Custom_Various.chBxClock.Checked = false;
-        }
-
         protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
         {
-            HMainHandler.PSettings.PersonalClockHeight = (Height);
-            HMainHandler.PSettings.PersonalClockWidth = Width;
-            HMainHandler.PSettings.PersonalClockPositionX = Location.X;
-            HMainHandler.PSettings.PersonalClockPositionY = Location.Y;
+            PSettings.PersonalClockHeight = (Height);
+            PSettings.PersonalClockWidth = Width;
+            PSettings.PersonalClockPositionX = Location.X;
+            PSettings.PersonalClockPositionY = Location.Y;
         }
 
         protected override void AdjustPanelSize()
@@ -87,10 +79,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         protected override void MouseUpTransferData()
         {
-            HMainHandler.PSettings.PersonalClockPositionX = Location.X;
-            HMainHandler.PSettings.PersonalClockPositionY = Location.Y;
-            HMainHandler.PSettings.PersonalClockWidth = Width;
-            HMainHandler.PSettings.PersonalClockHeight = Height; 
+            PSettings.PersonalClockPositionX = Location.X;
+            PSettings.PersonalClockPositionY = Location.Y;
+            PSettings.PersonalClockWidth = Width;
+            PSettings.PersonalClockHeight = Height; 
         }
 
         protected override void MouseWheelTransferData(System.Windows.Forms.MouseEventArgs e)
@@ -106,16 +98,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 Width -= 3;
                 Height -= 1;
             }
-        }
-
-        protected override void RefreshPanelPosition(Point location)
-        {
-            /* Nothing */
-        }
-
-        protected override void RefreshPanelSize(Size size)
-        {
-            /* Nothing */
         }
     }
 }

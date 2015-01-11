@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -10,25 +11,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     class PersonalApmRenderer : BaseRenderer
     {
-        public PersonalApmRenderer(MainHandler.MainHandler hnd) : base(hnd)
+        public PersonalApmRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+            : base(gInformation, pSettings, sc2Process)
         {
 
         }
 
         protected override void Draw(System.Drawing.BufferedGraphics g)
         {
-            if (!HMainHandler.GInformation.Gameinfo.IsIngame)
+            if (!GInformation.Gameinfo.IsIngame)
                 return;
 
-            var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+            var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
             if (iValidPlayerCount == 0)
                 return;
 
-            if (HMainHandler.GInformation.Player.Count <= 0)
+            if (GInformation.Player.Count <= 0)
                 return;
 
-            if (HMainHandler.GInformation.Player[0].Localplayer == 16)
+            if (GInformation.Player[0].Localplayer == 16)
                 return;
 
             var iSingleHeight = Height;
@@ -38,16 +40,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             var clApmColor = Brushes.Green;
             if (PSettings.PersonalApmAlert)
             {
-                if (HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[0].Localplayer].Apm <
+                if (GInformation.Player[GInformation.Player[0].Localplayer].Apm <
                     PSettings.PersonalApmAlertLimit)
                     clApmColor = Brushes.Red;
             }
 
             Drawing.DrawString(g.Graphics,
                 "APM: " +
-                HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[0].Localplayer].ApmAverage.ToString(
+                GInformation.Player[GInformation.Player[0].Localplayer].ApmAverage.ToString(
                     CultureInfo.InvariantCulture) + " [" +
-                HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[0].Localplayer].Apm.ToString(
+                GInformation.Player[GInformation.Player[0].Localplayer].Apm.ToString(
                     CultureInfo.InvariantCulture) + "]",
                 new Font("Century Gothic", fNewFontSize, FontStyle.Regular),
                 clApmColor,
@@ -61,21 +63,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             /* Nothing */
         }
 
-        protected override void ChangeForecolorOfButton(Color cl)
-        {
-            if (cl.Equals(Color.Green))
-                HMainHandler.Custom_Various.chBxApm.Checked = true;
-
-            else if (cl.Equals(Color.Red))
-                HMainHandler.Custom_Various.chBxApm.Checked = false;
-        }
-
         protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
         {
-            HMainHandler.PSettings.PersonalApmHeight = (Height);
-            HMainHandler.PSettings.PersonalApmWidth = Width;
-            HMainHandler.PSettings.PersonalApmPositionX = Location.X;
-            HMainHandler.PSettings.PersonalApmPositionY = Location.Y;
+            PSettings.PersonalApmHeight = (Height);
+            PSettings.PersonalApmWidth = Width;
+            PSettings.PersonalApmPositionX = Location.X;
+            PSettings.PersonalApmPositionY = Location.Y;
         }
 
         protected override void AdjustPanelSize()
@@ -98,10 +91,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         protected override void MouseUpTransferData()
         {
-            HMainHandler.PSettings.PersonalApmPositionX = Location.X;
-            HMainHandler.PSettings.PersonalApmPositionY = Location.Y;
-            HMainHandler.PSettings.PersonalApmWidth = Width;
-            HMainHandler.PSettings.PersonalApmHeight = Height; 
+            PSettings.PersonalApmPositionX = Location.X;
+            PSettings.PersonalApmPositionY = Location.Y;
+            PSettings.PersonalApmWidth = Width;
+            PSettings.PersonalApmHeight = Height; 
         }
 
         protected override void MouseWheelTransferData(System.Windows.Forms.MouseEventArgs e)
@@ -117,16 +110,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 Width -= 3;
                 Height -= 1;
             }
-        }
-
-        protected override void RefreshPanelPosition(Point location)
-        {
-            /* Nothing */
-        }
-
-        protected override void RefreshPanelSize(Size size)
-        {
-            /* Nothing */
         }
     }
 }

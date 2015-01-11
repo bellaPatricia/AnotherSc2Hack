@@ -47,7 +47,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaseRenderer_FormClosing);
             this.Load += new System.EventHandler(this.BaseRenderer_Load);
             this.ResizeEnd += new System.EventHandler(this.BaseRenderer_ResizeEnd);
-            this.SizeChanged += new System.EventHandler(this.BaseRenderer_SizeChanged);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BaseRenderer_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BaseRenderer_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BaseRenderer_MouseUp);

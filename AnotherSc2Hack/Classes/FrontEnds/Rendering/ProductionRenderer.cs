@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -23,8 +24,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         private Int32 _iProdPosAfterName;
 
 
-        public ProductionRenderer(MainHandler.MainHandler hnd)
-            : base(hnd)
+        public ProductionRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+            : base(gInformation, pSettings, sc2Process)
         {
             
         }
@@ -38,7 +39,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             try
             {
 
-                if (!HMainHandler.GInformation.Gameinfo.IsIngame)
+                if (!GInformation.Gameinfo.IsIngame)
                     return;
 
                 Opacity = PSettings.ProdTabOpacity;
@@ -74,11 +75,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 /* Define the startposition of the picture drawing
                  * using the longest name as reference */
                 var strPlayerName = String.Empty;
-                for (var i = 0; i < HMainHandler.GInformation.Player.Count; i++)
+                for (var i = 0; i < GInformation.Player.Count; i++)
                 {
-                    var strTemp = (HMainHandler.GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ProdTabRemoveClanTag)
-                                             ? HMainHandler.GInformation.Player[i].Name
-                                             : "[" + HMainHandler.GInformation.Player[i].ClanTag + "] " + HMainHandler.GInformation.Player[i].Name;
+                    var strTemp = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ProdTabRemoveClanTag)
+                                             ? GInformation.Player[i].Name
+                                             : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
                     if (strTemp.Length >= strPlayerName.Length)
                         strPlayerName = strTemp;
@@ -88,24 +89,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                 /* Fix the size of the icons to 25x25 */
-                for (var i = 0; i < HMainHandler.GInformation.Player.Count; i++)
+                for (var i = 0; i < GInformation.Player.Count; i++)
                 {
-                    var clPlayercolor = HMainHandler.GInformation.Player[i].Color;
+                    var clPlayercolor = GInformation.Player[i].Color;
 
-                    var tmpPlayer = HMainHandler.GInformation.Player[i];
+                    var tmpPlayer = GInformation.Player[i];
 
                     #region Teamcolor
 
-                    if (HMainHandler.GInformation.Gameinfo.IsTeamcolor)
+                    if (GInformation.Gameinfo.IsTeamcolor)
                     {
-                        if (HMainHandler.GInformation.Player[i].Localplayer < HMainHandler.GInformation.Player.Count)
+                        if (GInformation.Player[i].Localplayer < GInformation.Player.Count)
                         {
-                            if (HMainHandler.GInformation.Player[i].IsLocalplayer)
+                            if (GInformation.Player[i].IsLocalplayer)
                                 clPlayercolor = Color.Green;
 
-                            else if (HMainHandler.GInformation.Player[i].Team ==
-                                     HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[0].Localplayer].Team &&
-                                     !HMainHandler.GInformation.Player[i].IsLocalplayer)
+                            else if (GInformation.Player[i].Team ==
+                                     GInformation.Player[GInformation.Player[0].Localplayer].Team &&
+                                     !GInformation.Player[i].IsLocalplayer)
                                 clPlayercolor = Color.Yellow;
 
                             else
@@ -120,7 +121,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Ai - Works */
                     if (PSettings.ProdTabRemoveAi)
                     {
-                        if (HMainHandler.GInformation.Player[i].Type == PredefinedData.PlayerType.Ai)
+                        if (GInformation.Player[i].Type == PredefinedData.PlayerType.Ai)
                         {
                             continue;
                         }
@@ -165,7 +166,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Allie - Works */
                     if (PSettings.ProdTabRemoveAllie)
                     {
-                        if (tmpPlayer.Team == HMainHandler.GInformation.Player[HMainHandler.GInformation.Player[i].Localplayer].Team &&
+                        if (tmpPlayer.Team == GInformation.Player[GInformation.Player[i].Localplayer].Team &&
                             !tmpPlayer.IsLocalplayer)
                         {
                             continue;
@@ -179,20 +180,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #endregion
 
-                    if (HMainHandler.GInformation.Player[i].Name.Length <= 0 ||
-                        HMainHandler.GInformation.Player[i].Name.StartsWith("\0"))
+                    if (GInformation.Player[i].Name.Length <= 0 ||
+                        GInformation.Player[i].Name.StartsWith("\0"))
                         continue;
 
-                    if (CheckIfGameheart(HMainHandler.GInformation.Player[i]))
+                    if (CheckIfGameheart(GInformation.Player[i]))
                         continue;
 
 
                     iPosX = 0;
 
                     /* Draw Name in front of Icons */
-                    var strName = (HMainHandler.GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ProdTabRemoveClanTag)
-                                         ? HMainHandler.GInformation.Player[i].Name
-                                         : "[" + HMainHandler.GInformation.Player[i].ClanTag + "] " + HMainHandler.GInformation.Player[i].Name;
+                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ProdTabRemoveClanTag)
+                                         ? GInformation.Player[i].Name
+                                         : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
                     //Name gets drawn after the icon- drawing is done!
 
@@ -201,7 +202,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Units
 
-                    if (HMainHandler.PSettings.ProdTabShowUnits)
+                    if (PSettings.ProdTabShowUnits)
                     {
 
                         /* Terran */
@@ -341,7 +342,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         iHavetoadd = 0;
 
 
-                        if (HMainHandler.GInformation.Player[0].Type == PredefinedData.PlayerType.Neutral)
+                        if (GInformation.Player[0].Type == PredefinedData.PlayerType.Neutral)
                             iHavetoadd += 1;
 
                         if (i == iHavetoadd)
@@ -370,7 +371,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Buildings
 
-                    if (HMainHandler.PSettings.ProdTabShowBuildings)
+                    if (PSettings.ProdTabShowBuildings)
                     {
 
                         /* Terran */
@@ -505,7 +506,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         iHavetoadd = 0;
 
 
-                        if (HMainHandler.GInformation.Player[0].Type == PredefinedData.PlayerType.Neutral)
+                        if (GInformation.Player[0].Type == PredefinedData.PlayerType.Neutral)
                             iHavetoadd += 1;
 
                         if (i == iHavetoadd)
@@ -534,7 +535,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Upgrades
 
-                    if (HMainHandler.PSettings.ProdTabShowUpgrades)
+                    if (PSettings.ProdTabShowUpgrades)
                     {
 
                         #region Terran
@@ -874,19 +875,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected override void MouseUpTransferData()
         {
             /* Has to be calculated manually because each panels has it's own Neutral handling.. */
-            var iValidPlayerCount = HMainHandler.GInformation.Gameinfo.ValidPlayerCount;
+            var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
-            HMainHandler.PSettings.ProdTabPositionX = Location.X;
-            HMainHandler.PSettings.ProdTabPositionY = Location.Y;
-            HMainHandler.PSettings.ProdTabWidth = Width;
-            HMainHandler.PSettings.ProdTabHeight = Height / iValidPlayerCount;
-            HMainHandler.PSettings.ProdTabOpacity = Opacity;
-
-            /* Transfer to Mainform */
-            HMainHandler.ProductionTabUiInformation.txtPosX.Text = Location.X.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ProductionTabUiInformation.txtPosY.Text = Location.Y.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ProductionTabUiInformation.txtWidth.Text = Width.ToString(CultureInfo.InvariantCulture);
-            HMainHandler.ProductionTabUiInformation.txtHeight.Text = Height.ToString(CultureInfo.InvariantCulture);
+            PSettings.ProdTabPositionX = Location.X;
+            PSettings.ProdTabPositionY = Location.Y;
+            PSettings.ProdTabWidth = Width;
+            PSettings.ProdTabHeight = Height / iValidPlayerCount;
+            PSettings.ProdTabOpacity = Opacity;
         }
 
         /// <summary>
@@ -896,23 +891,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         {
             if (e.Delta.Equals(120))
             {
-                HMainHandler.PSettings.ProdPictureSize += 1;
-                HMainHandler.txtProductionTabPictureSize.Text = PSettings.ProdPictureSize.ToString(CultureInfo.InvariantCulture);
+                PSettings.ProdPictureSize += 1;
             }
 
             else if (e.Delta.Equals(-120))
             {
-                HMainHandler.PSettings.ProdPictureSize -= 1;
-                HMainHandler.txtProductionTabPictureSize.Text = PSettings.ProdPictureSize.ToString(CultureInfo.InvariantCulture);
+                PSettings.ProdPictureSize -= 1;
             }
-        }
-
-        /// <summary>
-        /// Sends the panel specific data (color) into the Form's controls and settings
-        /// </summary>
-        protected override void ChangeForecolorOfButton(Color cl)
-        {
-            HMainHandler.btnProduction.ForeColor = cl;
         }
 
         /// <summary>
@@ -925,13 +910,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                HMainHandler.PSettings.ProdTabWidth = Cursor.Position.X - Left;
+                PSettings.ProdTabWidth = Cursor.Position.X - Left;
 
                 if ((Cursor.Position.Y - Top) >= 5)
-                    HMainHandler.PSettings.ProdTabHeight = (Cursor.Position.Y - Top);
+                    PSettings.ProdTabHeight = (Cursor.Position.Y - Top);
 
                 else
-                    HMainHandler.PSettings.ProdTabHeight = 5;
+                    PSettings.ProdTabHeight = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -943,7 +928,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(HMainHandler.PSettings.ProdChangeSizePanel))
+            if (strInput.Equals(PSettings.ProdChangeSizePanel))
             {
                 if (BToggleSize)
                 {
@@ -956,14 +941,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             if (HelpFunctions.HotkeysPressed(Keys.Enter))
             {
-                tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
 
                 BSetSize = false;
                 StrBackupSizeChatbox = string.Empty;
-
-                /* Transfer to Mainform */
-                HMainHandler.ProductionTabUiInformation.txtWidth.Text = HMainHandler.PSettings.ProdTabWidth.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ProductionTabUiInformation.txtHeight.Text = HMainHandler.PSettings.ProdTabHeight.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -988,8 +969,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                HMainHandler.PSettings.ProdTabPositionX = Cursor.Position.X;
-                HMainHandler.PSettings.ProdTabPositionY = Cursor.Position.Y;
+                PSettings.ProdTabPositionX = Cursor.Position.X;
+                PSettings.ProdTabPositionY = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -1000,7 +981,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(HMainHandler.PSettings.ProdChangePositionPanel))
+            if (strInput.Equals(PSettings.ProdChangePositionPanel))
             {
                 if (BTogglePosition)
                 {
@@ -1015,11 +996,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 BSetPosition = false;
                 StrBackupChatbox = string.Empty;
-                tmrRefreshGraphic.Interval = HMainHandler.PSettings.GlobalDrawingRefresh;
-
-                /* Transfer to Mainform */
-                HMainHandler.ProductionTabUiInformation.txtPosX.Text = HMainHandler.PSettings.ProdTabPositionX.ToString(CultureInfo.InvariantCulture);
-                HMainHandler.ProductionTabUiInformation.txtPosY.Text = HMainHandler.PSettings.ProdTabPositionY.ToString(CultureInfo.InvariantCulture);
+                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
             }
         }
 
@@ -1044,10 +1021,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             /* Calculate amount of unitpictures - width */
             Int32 iAmount = _iProdPanelWidthWithoutName / PSettings.ProdPictureSize;
-            HMainHandler.PSettings.ProdPictureSize = (Width - (_iProdPosAfterName + 1)) /
+            PSettings.ProdPictureSize = (Width - (_iProdPosAfterName + 1)) /
                                                       iAmount;
-            HMainHandler.txtProductionTabPictureSize.Text = HMainHandler.PSettings.ProdPictureSize.ToString(CultureInfo.InvariantCulture);
-
 
 
             FormBorderStyle = tmpOld;
@@ -1056,25 +1031,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             var oldInterval = tmrRefreshGraphic.Interval;
             tmrRefreshGraphic.Interval = 1;
 
-            new Thread(() =>
-            {
-                Thread.Sleep(1);
-
-                MethodInvoker littleInvoker = () => HMainHandler.btnChangeBorderstyle.PerformClick();
-
-                Invoke(littleInvoker);
-
-                Thread.Sleep(100);
-
-                littleInvoker = () => HMainHandler.btnChangeBorderstyle.PerformClick();
-
-                Invoke(littleInvoker);
-            }).Start();
 
             tmrRefreshGraphic.Interval = oldInterval;
 
-            HMainHandler.PSettings.ProdTabPositionX = Location.X;
-            HMainHandler.PSettings.ProdTabPositionY = Location.Y;
+            PSettings.ProdTabPositionX = Location.X;
+            PSettings.ProdTabPositionY = Location.Y;
         }
 
         /* Draw the units */
@@ -1171,16 +1132,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
 
             posX += size;
-        }
-
-        protected override void RefreshPanelPosition(Point location)
-        {
-            HMainHandler.ProductionTabUiInformation.SetPosition(location);
-        }
-
-        protected override void RefreshPanelSize(Size size)
-        {
-            HMainHandler.ProductionTabUiInformation.SetSize(size);
         }
     }
 }

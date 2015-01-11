@@ -37,12 +37,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         private Boolean _bDraw = true;
         private const Int32 SizeOfRectangle = 10;                               //Size for the corner- rectangles (when changing position)
 
-        protected readonly MainHandler.MainHandler HMainHandler;                //Mainhandler - handles access to the Engine
-        protected readonly GameInfo GInformation;                               //Handles access to the Engine
         protected Stopwatch SwMainWatch = new Stopwatch();                      //Stopwatch for Debugging and speed- tests
         protected DateTime DtBegin = DateTime.Now;                              //First Datetime to get the Delta between the begin and end [TopMost]
         protected DateTime DtSecond = DateTime.Now;                             //Second Datetime to get the Delta between the begin and end [TopMost]
-        protected Preferences PSettings;                                        //Preferences directly..
         protected Boolean BSurpressForeground;
         protected Boolean BChangingPosition;
         protected Boolean BMouseDown;
@@ -551,7 +548,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public PredefinedData.CustomWindowStyles SetWindowStyle { get; set; }
         public Boolean IsHidden { get; private set; }
         public Boolean IsAllowedToClose { get; set; }
-        
+        public GameInfo GInformation { get; set; }
+        public Preferences PSettings { get; set; }
+        public Process PSc2Process { get; set; }
 
         #endregion
 
@@ -561,11 +560,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// Initializes a new instance of the <see cref="BaseRenderer"/> class.
         /// </summary>
         /// <param name="hnd">The handle to the MainHandle (to get data like GameInfo or Preferences and direct Form- control).</param>
-        protected BaseRenderer(MainHandler.MainHandler hnd)
+        protected BaseRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
         {
-            HMainHandler = hnd;
-
-            PSettings = HMainHandler.PSettings;
+            GInformation = gInformation;
+            PSettings = pSettings;
+            PSc2Process = sc2Process;
 
             InitCode();
         }
@@ -608,7 +607,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 var mousePos = MousePosition;
                 mousePos.Offset(-_ptMousePosition.X, -_ptMousePosition.Y);
                 Location = mousePos;
-                RefreshPanelPosition(Location);
             }
         }
 
@@ -620,7 +618,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="e"></param>
         private void BaseRenderer_MouseUp(object sender, MouseEventArgs e)
         {
-            InteropCalls.SetForegroundWindow(HMainHandler.PSc2Process.MainWindowHandle);
+            InteropCalls.SetForegroundWindow(PSc2Process.MainWindowHandle);
 
             MouseUpTransferData();
 
@@ -664,8 +662,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         private void BaseRenderer_FormClosing(object sender, FormClosingEventArgs e)
         {
             IsDestroyed = true;
-
-            ChangeForecolorOfButton(Color.Red);
         }
 
         /// <summary>
@@ -684,8 +680,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             BackColor = Color.FromArgb(255, 50, 50, 50);
             TransparencyKey = Color.FromArgb(255, 50, 50, 50);
-
-            ChangeForecolorOfButton(Color.Green);
 
 
             tmrRefreshGraphic.Enabled = true;
@@ -716,10 +710,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         private void GetKeyboardInput()
         {
-            if (HMainHandler.GInformation.Gameinfo == null)
+            if (GInformation.Gameinfo == null)
                 return;
 
-            var sInput = HMainHandler.GInformation.Gameinfo.ChatInput;
+            var sInput = GInformation.Gameinfo.ChatInput;
 
             if (sInput != StrBackupChatbox)
                 BTogglePosition = true;
@@ -730,16 +724,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             StrBackupChatbox = sInput;
             StrBackupSizeChatbox = sInput;
-        }
-
-        /// <summary>
-        /// Set data (Size) to the panels (Information)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BaseRenderer_SizeChanged(object sender, EventArgs e)
-        {
-            RefreshPanelSize(Size);
         }
 
         /// <summary>
@@ -798,12 +782,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             AdjustPanelSize();
 
             /* Reset settings */
-            PSettings = HMainHandler.PSettings;
+            PSettings = PSettings;
 
             /* Refresh Top- Most */
             if (
-                HMainHandler.PSc2Process != null && HMainHandler.PSc2Process.ProcessName.Length > 0 &&
-                InteropCalls.GetForegroundWindow().Equals(HMainHandler.PSc2Process.MainWindowHandle))
+                PSc2Process != null && PSc2Process.ProcessName.Length > 0 &&
+                InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
             {
                 if ((DateTime.Now - DtBegin).Seconds > 1)
                 {
@@ -832,12 +816,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// This gets called within the Form_Load!
         /// </summary>
         protected abstract void LoadSpecificData();
-
-        /// <summary>
-        /// Changes the color of a button on a specific Form.
-        /// </summary>
-        /// <param name="cl"></param>
-        protected abstract void ChangeForecolorOfButton(Color cl);
 
         /// <summary>
         /// Defines what happens after the resizing.
@@ -872,9 +850,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         /// <param name="e"></param>
         protected abstract void MouseWheelTransferData(MouseEventArgs e);
-
-        protected abstract void RefreshPanelPosition(Point location);
-        protected abstract void RefreshPanelSize(Size size);
 
 
 
@@ -935,19 +910,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 buffer.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
                 buffer.Graphics.SmoothingMode = SmoothingMode.HighSpeed;
 
-                if (HMainHandler.GInformation.Gameinfo != null &&
-                    HMainHandler.GInformation.Gameinfo.IsIngame)
+                if (GInformation.Gameinfo != null &&
+                    GInformation.Gameinfo.IsIngame)
                 {
                     if (PSettings.GlobalDrawOnlyInForeground && !BSurpressForeground)
                     {
-                        _bDraw = InteropCalls.GetForegroundWindow().Equals(HMainHandler.PSc2Process.MainWindowHandle);
+                        _bDraw = InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle);
                     }
 
                     else
                     {
                         _bDraw = true;
 
-                        if (InteropCalls.GetForegroundWindow().Equals(HMainHandler.PSc2Process.MainWindowHandle))
+                        if (InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
                         {
                             InteropCalls.SetActiveWindow(Handle);
                         }
@@ -1061,8 +1036,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             tmrRefreshGraphic.Enabled = false;
 
-            ChangeForecolorOfButton(Color.Red);
-
             base.Hide();
 
             Thread.Sleep(100);
@@ -1076,8 +1049,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             IsHidden = false;
 
             tmrRefreshGraphic.Enabled = true;
-
-            ChangeForecolorOfButton(Color.Green);
 
             base.Show();
 
@@ -1386,10 +1357,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             try
             {
 #endif
-                if (HMainHandler.GInformation.Gameinfo == null ||
-                    !HMainHandler.GInformation.Gameinfo.IsIngame ||
-                    HMainHandler.GInformation.Player.Count <= 0 ||
-                    HMainHandler.GInformation.Unit.Count <= 0)
+                if (GInformation.Gameinfo == null ||
+                    !GInformation.Gameinfo.IsIngame ||
+                    GInformation.Player.Count <= 0 ||
+                    GInformation.Unit.Count <= 0)
                     return;
             
 
@@ -2003,7 +1974,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Setup for the dummy- values
 
-                for (var i = 0; i < HMainHandler.GInformation.Player.Count; i++)
+                for (var i = 0; i < GInformation.Player.Count; i++)
                 {
                     #region Terran
 
@@ -2263,9 +2234,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #endregion
 
-                for (var j = 0; j < HMainHandler.GInformation.Unit.Count; j++)
+                for (var j = 0; j < GInformation.Unit.Count; j++)
                 {
-                    var tmpUnit = HMainHandler.GInformation.Unit[j];
+                    var tmpUnit = GInformation.Unit[j];
 
                     if (tmpUnit.IsHallucination)
                         continue;
@@ -3081,10 +3052,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  PredefinedData.UnitId.PuForceField)
                         {
-                            _lPuForcefield[HMainHandler.GInformation.Player.Count].UnitAmount += 1;
-                            _lPuForcefield[HMainHandler.GInformation.Player.Count].Id =
+                            _lPuForcefield[GInformation.Player.Count].UnitAmount += 1;
+                            _lPuForcefield[GInformation.Player.Count].Id =
                                 PredefinedData.UnitId.PuForceField;
-                            _lPuForcefield[HMainHandler.GInformation.Player.Count].AliveSince.Add(1 -
+                            _lPuForcefield[GInformation.Player.Count].AliveSince.Add(1 -
                                                                                                   (tmpUnit.AliveSince/
                                                                                                    62208.0f));
                         }

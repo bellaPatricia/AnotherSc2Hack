@@ -2242,7 +2242,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             SetBenchmarkData();
             CheckIfDeveloper();
-
+            ChangeTextboxInformation();
 
 
             //            GInformation.CAccessUnitCommands = true;
@@ -2254,6 +2254,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             RefreshPluginData();
 
             LaunchPanels();
+
+            if ((DateTime.Now - _dtSecond).Seconds >= 1) 
+                _dtSecond = DateTime.Now;
 
             #region Reset Process and gameinfo if Sc2 is not started
 
@@ -2422,7 +2425,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             //Debug.WriteLine("The tmrGatherInformation Timer- loop was refreshed " + lTimesRefreshed + " times in a second!");
             //lTimesRefreshed = 0;
-            _dtSecond = DateTime.Now;
         }
 
         private void ChBxGlobalForegroundDrawCheckedChanged(object sender, EventArgs e)

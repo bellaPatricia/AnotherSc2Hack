@@ -58,11 +58,61 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private readonly RendererContainer _lContainer = new RendererContainer();
 
-        private readonly List<IPlugins> _lPlugins = new List<IPlugins>(); 
+        private readonly List<IPlugins> _lPlugins = new List<IPlugins>();
 
-        public Preferences PSettings { get; set; }
-        public GameInfo GInformation { get; set; }
-        public Process PSc2Process { get; set; }
+        private Preferences _pSettings = new Preferences();
+
+        public Preferences PSettings
+        {
+            get {return _pSettings;}
+            set
+            {
+                _pSettings = value;
+                foreach (var renderer in _lContainer)
+                {
+                    renderer.PSettings = _pSettings;
+                }
+            }
+        }
+
+        private GameInfo _gInformation = new GameInfo();
+
+        public GameInfo GInformation
+        {
+            get
+            {
+                return _gInformation;
+            }
+
+            set
+            {
+                _gInformation = value;
+
+                foreach (var renderer in _lContainer)
+                {
+                    renderer.GInformation = _gInformation;
+                }
+            }
+        }
+
+        private Process _pSc2Process = null;
+
+        public Process PSc2Process
+        {
+            get
+            {
+                return _pSc2Process;
+            }
+            set
+            {
+                _pSc2Process = value;
+                foreach (var renderer in _lContainer)
+                {
+                    renderer.PSc2Process = _pSc2Process;
+                }
+            }
+        }
+
         public ApplicationStartOptions ApplicationOptions { get; private set; }
 
 
@@ -74,28 +124,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             ApplicationOptions = app;
 
-            GInformation = new GameInfo();
-
-            PSettings = new Preferences();
             PSc2Process = GInformation.CStarcraft2;
             GInformation.CSleepTime = PSettings.GlobalDataRefresh;
             GInformation.CAccessUnitCommands = true;
 
             /* Add all the panels to the container... */
-            _lContainer.Add(new ResourcesRenderer(this));
-            _lContainer.Add(new IncomeRenderer(this));
-            _lContainer.Add(new WorkerRenderer(this));
-            _lContainer.Add(new ArmyRenderer(this));
-            _lContainer.Add(new ApmRenderer(this));
-            _lContainer.Add(new MaphackRenderer(this));
-            _lContainer.Add(new UnitRenderer(this));
-            _lContainer.Add(new ProductionRenderer(this));
-            _lContainer.Add(new PersonalApmRenderer(this));
-            _lContainer.Add(new PersonalClockRenderer(this));
-
-
-           
-            
+            _lContainer.Add(new ResourcesRenderer(GInformation, PSettings, PSc2Process));
+            _lContainer.Add(new IncomeRenderer(GInformation, PSettings, PSc2Process));
+            _lContainer.Add(new WorkerRenderer(GInformation, PSettings, PSc2Process));
+            _lContainer.Add(new ArmyRenderer(GInformation, PSettings, PSc2Process));
+            _lContainer.Add(new ApmRenderer(GInformation, PSettings, PSc2Process));
+            _lContainer.Add(new MaphackRenderer(GInformation, PSettings, PSc2Process));
+            _lContainer.Add(new UnitRenderer(GInformation, PSettings, PSc2Process));
+            _lContainer.Add(new ProductionRenderer(GInformation, PSettings, PSc2Process));
+            _lContainer.Add(new PersonalApmRenderer(GInformation, PSettings, PSc2Process));
+            _lContainer.Add(new PersonalClockRenderer(GInformation, PSettings, PSc2Process));
             
             //_rTrainer = new Renderer(PredefinedTypes.RenderForm.Trainer, this);
             //_rTrainer.Show();
@@ -161,6 +204,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (renderer is MaphackRenderer)
                 {
                     renderer.ToggleShowHide();
+                    btnMaphack.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
             }
         }
@@ -172,6 +216,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (renderer is UnitRenderer)
                 {
                     renderer.ToggleShowHide();
+                    btnUnit.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
             }
         }
@@ -183,8 +228,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (renderer is ResourcesRenderer)
                 {
                     renderer.ToggleShowHide();
+                    btnResources.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
             }
+
+            
         }
 
         private void btnIncome_Click(object sender, EventArgs e)
@@ -194,6 +242,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (renderer is IncomeRenderer)
                 {
                     renderer.ToggleShowHide();
+                    btnIncome.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
             }
         }
@@ -205,6 +254,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (renderer is ArmyRenderer)
                 {
                     renderer.ToggleShowHide();
+                    btnArmy.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
             }
         }
@@ -216,6 +266,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (renderer is ApmRenderer)
                 {
                     renderer.ToggleShowHide();
+                    btnApm.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
             }
         }
@@ -227,6 +278,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (renderer is WorkerRenderer)
                 {
                     renderer.ToggleShowHide();
+                    btnWorker.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
             }
         }
@@ -238,6 +290,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (renderer is ProductionRenderer)
                 {
                     renderer.ToggleShowHide();
+                    btnProduction.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
             }
         }
@@ -276,6 +329,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                         Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
                     }
+
+                    btnResources.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
 
                 if (renderer is IncomeRenderer)
@@ -292,6 +347,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                         Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
                     }
+
+                    btnIncome.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
 
                 if (renderer is WorkerRenderer)
@@ -308,6 +365,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                         Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
                     }
+
+                    btnWorker.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
 
                 if (renderer is ApmRenderer)
@@ -324,6 +383,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                         Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
                     }
+
+                    btnApm.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
 
                 if (renderer is ArmyRenderer)
@@ -340,6 +401,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                         Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
                     }
+
+                    btnArmy.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
 
                 if (renderer is MaphackRenderer)
@@ -356,6 +419,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                         Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
                     }
+
+                    btnMaphack.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
 
                 if (renderer is UnitRenderer)
@@ -372,6 +437,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                         Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
                     }
+
+                    btnUnit.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
 
                 if (renderer is ProductionRenderer)
@@ -388,6 +455,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                         Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 3);
                     }
+
+                    btnProduction.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
                 }
             }
         }
@@ -413,6 +482,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /* Change Textbox Content (Width, Height, PosX, PosY) */
         private void ChangeTextboxInformation()
         {
+            if ((DateTime.Now - _dtSecond).Seconds < 1) return;
+
             /* Resource */
             ResourceUiInformation.txtPosX.Text = PSettings.ResourcePositionX.ToString(CultureInfo.InvariantCulture);
             ResourceUiInformation.txtPosY.Text = PSettings.ResourcePositionY.ToString(CultureInfo.InvariantCulture);
@@ -481,8 +552,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 else
                     _bDevSet = true;
-
-
             }
         }
 
