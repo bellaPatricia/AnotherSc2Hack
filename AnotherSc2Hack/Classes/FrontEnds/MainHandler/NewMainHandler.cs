@@ -36,6 +36,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly List<LocalPlugins> _lPlugins = new List<LocalPlugins>();
         private readonly List<OnlinePlugin> _lOnlinePlugins = new List<OnlinePlugin>();
         private readonly WebClient _wcMainWebClient = new WebClient();
+        private DateTime _dtSecond = DateTime.Now;
 
         private Boolean _bProcessSet;
 
@@ -176,7 +177,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             
             Init();
-            EventMapping();
+            OverlaysEventMapping();
             ControlsFill();
             
 
@@ -243,14 +244,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void _tmrMainTick_Tick(object sender, EventArgs e)
         {
-            if (cpnlDebug.IsClicked)
+            if ((DateTime.Now - _dtSecond).Seconds >= 1)
             {
-                DebugPlayerRefresh();
-                DebugUnitRefresh();
-                DebugMapRefresh();
-                DebugMatchinformationRefresh();
+                _dtSecond = DateTime.Now;
+
+                if (cpnlDebug.IsClicked)
+                {
+                    DebugPlayerRefresh();
+                    DebugUnitRefresh();
+                    DebugMapRefresh();
+                    DebugMatchinformationRefresh();
+                }
             }
 
+            InputManager();
             PluginDataRefresh();
 
             #region Reset Process and gameinfo if Sc2 is not started
@@ -306,7 +313,213 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             
         }
 
+        /// <summary>
+        /// This method will handle the input for the overlays and other callable things.
+        /// This supports button_click events, Keypresses (GetAsyncKeyState) and chat-input
+        /// <param name="senderButton">The Button- object you want to pass. Leave this to null if you don't have a button!</param>
+        /// <param name="e">The standard EventArgs object. Leave this to null</param>
+        /// </summary>
+        private void InputManager(object clickButton = null, EventArgs e = null)
+        {
+            //Button
+            if (clickButton != null)
+            {
+                if (clickButton.Equals(btnLaunchResource))
+                    LaunchRendererWithButton(clickButton, typeof (ResourcesRenderer));
 
+                else if (clickButton.Equals(btnLaunchIncome))
+                    LaunchRendererWithButton(clickButton, typeof (IncomeRenderer));
+
+                else if (clickButton.Equals(btnLaunchArmy))
+                    LaunchRendererWithButton(clickButton, typeof (ArmyRenderer));
+
+                else if (clickButton.Equals(btnLaunchApm))
+                    LaunchRendererWithButton(clickButton, typeof (ApmRenderer));
+
+                else if (clickButton.Equals(btnLaunchWorker))
+                    LaunchRendererWithButton(clickButton, typeof (WorkerRenderer));
+
+                else if (clickButton.Equals(btnLaunchMaphack))
+                    LaunchRendererWithButton(clickButton, typeof (MaphackRenderer));
+
+                else if (clickButton.Equals(btnLaunchUnit))
+                    LaunchRendererWithButton(clickButton, typeof (UnitRenderer));
+
+                else if (clickButton.Equals(btnLaunchProduction))
+                    LaunchRendererWithButton(clickButton, typeof (ProductionRenderer));
+            }
+
+            else
+            {
+                LaunchPanels();
+            }
+        }
+
+        /// <summary>
+        /// Launches the panel(s) if they are calles
+        /// Supports the hotkey combination and the chatbox in the game
+        /// </summary>
+        private void LaunchPanels()
+        {
+            if (Gameinfo.Gameinfo == null)
+                return;
+
+            var strInput = Gameinfo.Gameinfo.ChatInput;
+
+            if (String.IsNullOrEmpty(strInput))
+                return;
+
+            if (strInput.Contains('\0'))
+                strInput = strInput.Substring(0, strInput.IndexOf('\0'));
+
+
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer is ResourcesRenderer)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.ResourceHotkey1,
+                        PSettings.ResourceHotkey2,
+                        PSettings.ResourceHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    else if (strInput.Equals(PSettings.ResourceTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 1);
+                    }
+
+                    btnLaunchResource.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
+                }
+
+                else if (renderer is IncomeRenderer)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.IncomeHotkey1,
+                        PSettings.IncomeHotkey2,
+                        PSettings.IncomeHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    else if (strInput.Equals(PSettings.IncomeTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 1);
+                    }
+
+                    btnLaunchIncome.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
+                }
+
+                else if (renderer is WorkerRenderer)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.WorkerHotkey1,
+                        PSettings.WorkerHotkey2,
+                        PSettings.WorkerHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    else if (strInput.Equals(PSettings.WorkerTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 1);
+                    }
+
+                    btnLaunchWorker.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
+                }
+
+                else if (renderer is ApmRenderer)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.ApmHotkey1,
+                        PSettings.ApmHotkey2,
+                        PSettings.ApmHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    else if (strInput.Equals(PSettings.ApmTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 1);
+                    }
+
+                    btnLaunchApm.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
+                }
+
+                else if (renderer is ArmyRenderer)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.ArmyHotkey1,
+                        PSettings.ArmyHotkey2,
+                        PSettings.ArmyHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    else if (strInput.Equals(PSettings.ArmyTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 1);
+                    }
+
+                    btnLaunchArmy.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
+                }
+
+                else if (renderer is MaphackRenderer)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.MaphackHotkey1,
+                        PSettings.MaphackHotkey2,
+                        PSettings.MaphackHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    else if (strInput.Equals(PSettings.MaphackTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 1);
+                    }
+
+                    btnLaunchMaphack.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
+                }
+
+                else if (renderer is UnitRenderer)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.UnitHotkey1,
+                        PSettings.UnitHotkey2,
+                        PSettings.UnitHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    else if (strInput.Equals(PSettings.UnitTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 1);
+                    }
+
+                    btnLaunchUnit.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
+                }
+
+                else if (renderer is ProductionRenderer)
+                {
+                    if (HelpFunctions.HotkeysPressed(PSettings.ProdHotkey1,
+                        PSettings.ProdHotkey2,
+                        PSettings.ProdHotkey3))
+                        renderer.ToggleShowHide();
+
+
+                    else if (strInput.Equals(PSettings.ProdTogglePanel))
+                    {
+                        renderer.ToggleShowHide();
+
+                        Simulation.Keyboard.Keyboard_SimulateKey(PSc2Process.MainWindowHandle, Keys.Enter, 1);
+                    }
+
+                    btnLaunchProduction.ForeColor = renderer.IsHidden ? Color.Red : Color.Green;
+                }
+            }
+        }
 
         private void PluginDataRefresh()
         {
@@ -480,50 +693,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings = tmpPreferences;
         }
 
-        #region Launch Panels
-
-        private void btnLaunchResource_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(ResourcesRenderer));
-        }
-
-        private void btnLaunchIncome_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(IncomeRenderer));
-        }
-
-        private void btnLaunchWorker_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(WorkerRenderer));
-        }
-
-        private void btnLaunchMaphack_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(MaphackRenderer));
-        }
-
-        private void btnLaunchApm_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(ApmRenderer));
-        }
-
-        private void btnLaunchArmy_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(ArmyRenderer));
-        }
-
-        private void btnLaunchUnit_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(UnitRenderer));
-        }
-
-        private void btnLaunchProduction_Click(object sender, EventArgs e)
-        {
-            LaunchRendererWithButton(sender, typeof(ProductionRenderer));
-        }
-
-        #endregion
-
 
         #endregion
 
@@ -695,7 +864,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayProductiontab.pnlSpecial.ntxtSize.NumberChanged += ntxtOverlaysSize_NumberChanged;
         }
 
-        private void EventMapping()
+        private void OverlaysEventMapping()
         {
             EventMappingApm();
             EventMappingArmy();
@@ -1817,6 +1986,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (IDebugPlayerIndex > Gameinfo.Player.Count)
                 IDebugPlayerIndex = Gameinfo.Player.Count - 1;
 
+            lblDebugPlayerLocation.Text = (IDebugPlayerIndex + 1) + "/" +
+                                          (Gameinfo.Player.Count); 
+
             var player = Gameinfo.Player[IDebugPlayerIndex];
             var properties = TypeDescriptor.GetProperties(player);
 
@@ -1829,9 +2001,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                     lstvDebugPlayderdata.Items[i].SubItems[1].Text = property.GetValue(player).ToString();
                 }
-
-
-
             }
 
             else
@@ -1866,6 +2035,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             var player = Gameinfo.Unit[IDebugUnitIndex];
             var properties = TypeDescriptor.GetProperties(player);
+
+            lblDebugUnitLocation.Text = (IDebugUnitIndex + 1) + "/" + (Gameinfo.Unit.Count + 1);
 
             if (lstvDebugUnitdata.Items.Count > 0)
             {
@@ -2300,6 +2471,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     renderer.Visible = state;
             }
         }
+
 
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)
         {
