@@ -89,7 +89,6 @@
     <Compile Include="Classes\BackEnds\Gameinfo\Player.cs" />
     <Compile Include="Classes\BackEnds\Hashes.cs" />
     <Compile Include="Classes\BackEnds\HelpFunctions.cs" />
-    <Compile Include="Classes\BackEnds\ImageComboItem.cs" />
     <Compile Include="Classes\BackEnds\InteropCalls.cs" />
     <Compile Include="Classes\BackEnds\LanguageString.cs" />
     <Compile Include="Classes\BackEnds\Memory.cs" />

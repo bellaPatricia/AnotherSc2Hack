@@ -484,7 +484,8 @@
             this.icbMapUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.icbMapUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.icbMapUnit.FormattingEnabled = true;
-            this.icbMapUnit.InitializeUnits = false;
+            this.icbMapUnit.ImageSize = new System.Drawing.Size(30, 30);
+            this.icbMapUnit.InitializeUnits = true;
             this.icbMapUnit.ItemHeight = 30;
             this.icbMapUnit.Location = new System.Drawing.Point(158, 53);
             this.icbMapUnit.Name = "icbMapUnit";

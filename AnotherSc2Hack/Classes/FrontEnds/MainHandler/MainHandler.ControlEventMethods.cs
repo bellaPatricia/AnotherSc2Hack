@@ -893,8 +893,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     var iOldIndex = lstMapUnits.SelectedIndex;
 
                     var item = lstMapUnits.Items[lstMapUnits.SelectedIndex];
-                    PSettings.MaphackUnitIds.Remove(
-                        (PredefinedData.UnitId)Enum.Parse(typeof(PredefinedData.UnitId), item.ToString()));
+
+
+                    PSettings.MaphackUnitIds.RemoveAt(iOldIndex);
                     lstMapUnits.Items.Remove(item);
 
                     if (lstMapUnits.Items.Count > iOldIndex)
@@ -923,12 +924,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             /* Add a random entry */
             var rnd = new Random();
-            var iNewItemToAdd = rnd.Next(0, icbMapUnit.Items.Count);
+            var iNewItemToAdd = 0;
 
-            foreach (var item in lstMapUnits.Items)
+            var bStayHere = true;
+            while (bStayHere &&
+                lstMapUnits.Items.Count != icbMapUnit.Items.Count)
             {
-                if (item.ToString().Equals(icbMapUnit.Items[iNewItemToAdd].ToString()))
-                    MessageBox.Show("The item \"" + item + "\" already exists!", "Double items found!");
+                bStayHere = false;
+                iNewItemToAdd = rnd.Next(0, icbMapUnit.Items.Count);
+
+                foreach (var item in lstMapUnits.Items)
+                {
+                    if (item.ToString().Equals(icbMapUnit.Items[iNewItemToAdd].ToString()))
+                    {
+                        bStayHere = true;
+                        break;
+                    }
+                }
             }
 
             lstMapUnits.Items.Add(icbMapUnit.Items[iNewItemToAdd]);
@@ -948,7 +960,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             PSettings.MaphackUnitIds.Add(id);
             PSettings.MaphackUnitColors.Add(Color.FromArgb(255, iRed, iGreen, iBlue));
-
+            
 
             lstMapUnits.SelectedIndex = lstMapUnits.Items.Count - 1;
         }
@@ -967,7 +979,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 {
                     if (lstMapUnits.Items[i].Equals(lstMapUnits.SelectedItems[j]))
                     {
-                        PSettings.MaphackUnitIds[i] = (PredefinedData.UnitId)Enum.Parse(typeof(PredefinedData.UnitId), icbMapUnit.Text);
+                        var itm = ((ImageComboItem) icbMapUnit.SelectedItem);
+
+                        PSettings.MaphackUnitIds[i] = itm.UnitId;
                         //PSettings.MaphackUnitColors[i] = btnMapUnitColor.BackColor;
 
                         foreach (var item in lstMapUnits.Items)
