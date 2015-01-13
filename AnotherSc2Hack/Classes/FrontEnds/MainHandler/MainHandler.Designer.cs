@@ -62,11 +62,9 @@
             this.MaphackUiHotkeys = new AnotherSc2Hack.Classes.FrontEnds.UiHotkeys();
             this.MaphackUiInformation = new AnotherSc2Hack.Classes.FrontEnds.UiInformation();
             this.gbMaphackColorUnits = new AnotherSc2Hack.Classes.FrontEnds.LanguageGroupbox();
-            this.btnMaphackDefineaMarking = new System.Windows.Forms.Button();
             this.btnMapUnitColor = new System.Windows.Forms.Button();
             this.btnMapAddUnit = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
             this.icbMapUnit = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
-            this.imgUnits = new System.Windows.Forms.ImageList(this.components);
             this.lstMapUnits = new System.Windows.Forms.ListBox();
             this.cmsListboxContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addAUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -288,7 +286,7 @@
             this.tcResources.Controls.Add(this.ResourceUiInformation);
             this.tcResources.Location = new System.Drawing.Point(4, 22);
             this.tcResources.Name = "tcResources";
-            this.tcResources.Size = new System.Drawing.Size(940, 405);
+            this.tcResources.Size = new System.Drawing.Size(940, 427);
             this.tcResources.TabIndex = 2;
             this.tcResources.Text = "Resources";
             // 
@@ -329,7 +327,7 @@
             this.tcIncome.Controls.Add(this.IncomeUiInformation);
             this.tcIncome.Location = new System.Drawing.Point(4, 22);
             this.tcIncome.Name = "tcIncome";
-            this.tcIncome.Size = new System.Drawing.Size(940, 405);
+            this.tcIncome.Size = new System.Drawing.Size(940, 427);
             this.tcIncome.TabIndex = 3;
             this.tcIncome.Text = "Income";
             // 
@@ -370,7 +368,7 @@
             this.tcWorker.Controls.Add(this.WorkerUiInformation);
             this.tcWorker.Location = new System.Drawing.Point(4, 22);
             this.tcWorker.Name = "tcWorker";
-            this.tcWorker.Size = new System.Drawing.Size(940, 405);
+            this.tcWorker.Size = new System.Drawing.Size(940, 427);
             this.tcWorker.TabIndex = 6;
             this.tcWorker.Text = "Worker";
             // 
@@ -413,7 +411,7 @@
             this.tcMaphack.Location = new System.Drawing.Point(4, 22);
             this.tcMaphack.Name = "tcMaphack";
             this.tcMaphack.Padding = new System.Windows.Forms.Padding(3);
-            this.tcMaphack.Size = new System.Drawing.Size(940, 405);
+            this.tcMaphack.Size = new System.Drawing.Size(940, 427);
             this.tcMaphack.TabIndex = 0;
             this.tcMaphack.Text = "Maphack";
             // 
@@ -447,7 +445,6 @@
             // 
             // gbMaphackColorUnits
             // 
-            this.gbMaphackColorUnits.Controls.Add(this.btnMaphackDefineaMarking);
             this.gbMaphackColorUnits.Controls.Add(this.btnMapUnitColor);
             this.gbMaphackColorUnits.Controls.Add(this.btnMapAddUnit);
             this.gbMaphackColorUnits.Controls.Add(this.icbMapUnit);
@@ -459,18 +456,6 @@
             this.gbMaphackColorUnits.TabIndex = 69;
             this.gbMaphackColorUnits.TabStop = false;
             this.gbMaphackColorUnits.Text = "Mark Units";
-            // 
-            // btnMaphackDefineaMarking
-            // 
-            this.btnMaphackDefineaMarking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaphackDefineaMarking.Location = new System.Drawing.Point(158, 136);
-            this.btnMaphackDefineaMarking.Name = "btnMaphackDefineaMarking";
-            this.btnMaphackDefineaMarking.Size = new System.Drawing.Size(175, 23);
-            this.btnMaphackDefineaMarking.TabIndex = 6;
-            this.btnMaphackDefineaMarking.Text = "Define Marking";
-            this.btnMaphackDefineaMarking.UseVisualStyleBackColor = true;
-            this.btnMaphackDefineaMarking.Visible = false;
-            this.btnMaphackDefineaMarking.Click += new System.EventHandler(this.btnMaphackDefineaMarking_Click);
             // 
             // btnMapUnitColor
             // 
@@ -499,121 +484,13 @@
             this.icbMapUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.icbMapUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.icbMapUnit.FormattingEnabled = true;
-            this.icbMapUnit.ImageList = this.imgUnits;
+            this.icbMapUnit.InitializeUnits = false;
             this.icbMapUnit.ItemHeight = 30;
             this.icbMapUnit.Location = new System.Drawing.Point(158, 53);
             this.icbMapUnit.Name = "icbMapUnit";
             this.icbMapUnit.Size = new System.Drawing.Size(175, 36);
             this.icbMapUnit.TabIndex = 3;
             this.icbMapUnit.SelectedIndexChanged += new System.EventHandler(this.icbMapUnit_SelectedIndexChanged);
-            // 
-            // imgUnits
-            // 
-            this.imgUnits.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgUnits.ImageStream")));
-            this.imgUnits.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgUnits.Images.SetKeyName(0, "tu_scv.jpg");
-            this.imgUnits.Images.SetKeyName(1, "tu_Mule.jpg");
-            this.imgUnits.Images.SetKeyName(2, "tu_marine.jpg");
-            this.imgUnits.Images.SetKeyName(3, "tu_marauder.jpg");
-            this.imgUnits.Images.SetKeyName(4, "tu_ghost.jpg");
-            this.imgUnits.Images.SetKeyName(5, "tu_reaper.jpg");
-            this.imgUnits.Images.SetKeyName(6, "tu_hellion.jpg");
-            this.imgUnits.Images.SetKeyName(7, "tu_battlehellion.jpg");
-            this.imgUnits.Images.SetKeyName(8, "tu_widowmine.jpg");
-            this.imgUnits.Images.SetKeyName(9, "tu_tank.jpg");
-            this.imgUnits.Images.SetKeyName(10, "tu_thor.jpg");
-            this.imgUnits.Images.SetKeyName(11, "tu_medivac.jpg");
-            this.imgUnits.Images.SetKeyName(12, "tu_banshee.jpg");
-            this.imgUnits.Images.SetKeyName(13, "tu_vikingAir.jpg");
-            this.imgUnits.Images.SetKeyName(14, "tu_raven.jpg");
-            this.imgUnits.Images.SetKeyName(15, "tu_battlecruiser.jpg");
-            this.imgUnits.Images.SetKeyName(16, "pu_probe.jpg");
-            this.imgUnits.Images.SetKeyName(17, "pu_mothershipcore.jpg");
-            this.imgUnits.Images.SetKeyName(18, "pu_Zealot.jpg");
-            this.imgUnits.Images.SetKeyName(19, "pu_Stalker.jpg");
-            this.imgUnits.Images.SetKeyName(20, "pu_sentry.jpg");
-            this.imgUnits.Images.SetKeyName(21, "pu_ht.jpg");
-            this.imgUnits.Images.SetKeyName(22, "pu_DarkTemplar.jpg");
-            this.imgUnits.Images.SetKeyName(23, "pu_Archon.jpg");
-            this.imgUnits.Images.SetKeyName(24, "pu_immortal.jpg");
-            this.imgUnits.Images.SetKeyName(25, "pu_Observer.jpg");
-            this.imgUnits.Images.SetKeyName(26, "pu_warpprism.jpg");
-            this.imgUnits.Images.SetKeyName(27, "pu_Colossus.jpg");
-            this.imgUnits.Images.SetKeyName(28, "pu_pheonix.jpg");
-            this.imgUnits.Images.SetKeyName(29, "pu_oracle.jpg");
-            this.imgUnits.Images.SetKeyName(30, "pu_Voidray.jpg");
-            this.imgUnits.Images.SetKeyName(31, "pu_carrier.jpg");
-            this.imgUnits.Images.SetKeyName(32, "pu_tempest.jpg");
-            this.imgUnits.Images.SetKeyName(33, "pu_Mothership.jpg");
-            this.imgUnits.Images.SetKeyName(34, "zu_larva.jpg");
-            this.imgUnits.Images.SetKeyName(35, "zu_drone.jpg");
-            this.imgUnits.Images.SetKeyName(36, "zu_overlord.jpg");
-            this.imgUnits.Images.SetKeyName(37, "zu_queen.jpg");
-            this.imgUnits.Images.SetKeyName(38, "zu_zergling.jpg");
-            this.imgUnits.Images.SetKeyName(39, "zu_baneling.jpg");
-            this.imgUnits.Images.SetKeyName(40, "zu_roach.jpg");
-            this.imgUnits.Images.SetKeyName(41, "zu_hydra.jpg");
-            this.imgUnits.Images.SetKeyName(42, "zu_overseer.jpg");
-            this.imgUnits.Images.SetKeyName(43, "zu_mutalisk.jpg");
-            this.imgUnits.Images.SetKeyName(44, "zu_corruptor.jpg");
-            this.imgUnits.Images.SetKeyName(45, "zu_infestor.jpg");
-            this.imgUnits.Images.SetKeyName(46, "zu_broodlord.jpg");
-            this.imgUnits.Images.SetKeyName(47, "zu_ultra.jpg");
-            this.imgUnits.Images.SetKeyName(48, "zu_viper.jpg");
-            this.imgUnits.Images.SetKeyName(49, "zu_swarmhost.jpg");
-            this.imgUnits.Images.SetKeyName(50, "tb_cc.jpg");
-            this.imgUnits.Images.SetKeyName(51, "tb_oc.jpg");
-            this.imgUnits.Images.SetKeyName(52, "tb_pf.jpg");
-            this.imgUnits.Images.SetKeyName(53, "tb_supply.jpg");
-            this.imgUnits.Images.SetKeyName(54, "tb_rax.jpg");
-            this.imgUnits.Images.SetKeyName(55, "tb_refinery.jpg");
-            this.imgUnits.Images.SetKeyName(56, "tb_ebay.jpg");
-            this.imgUnits.Images.SetKeyName(57, "tb_bunker.jpg");
-            this.imgUnits.Images.SetKeyName(58, "tb_turret.jpg");
-            this.imgUnits.Images.SetKeyName(59, "tb_sensor.jpg");
-            this.imgUnits.Images.SetKeyName(60, "tb_ghostacademy.jpg");
-            this.imgUnits.Images.SetKeyName(61, "tb_fax.jpg");
-            this.imgUnits.Images.SetKeyName(62, "tb_starport.jpg");
-            this.imgUnits.Images.SetKeyName(63, "tb_Armory.jpg");
-            this.imgUnits.Images.SetKeyName(64, "tb_fusioncore.jpg");
-            this.imgUnits.Images.SetKeyName(65, "pb_Nexus.jpg");
-            this.imgUnits.Images.SetKeyName(66, "pb_Pylon.jpg");
-            this.imgUnits.Images.SetKeyName(67, "pb_Assimilator.jpg");
-            this.imgUnits.Images.SetKeyName(68, "pb_gateway.jpg");
-            this.imgUnits.Images.SetKeyName(69, "pb_warpgate.jpg");
-            this.imgUnits.Images.SetKeyName(70, "pb_forge.jpg");
-            this.imgUnits.Images.SetKeyName(71, "pb_cybercore.jpg");
-            this.imgUnits.Images.SetKeyName(72, "pb_Cannon.jpg");
-            this.imgUnits.Images.SetKeyName(73, "pb_robotics.jpg");
-            this.imgUnits.Images.SetKeyName(74, "pb_roboticssupport.jpg");
-            this.imgUnits.Images.SetKeyName(75, "pb_stargate.jpg");
-            this.imgUnits.Images.SetKeyName(76, "pb_FleetBeacon.jpg");
-            this.imgUnits.Images.SetKeyName(77, "pb_twillightCouncil.jpg");
-            this.imgUnits.Images.SetKeyName(78, "pb_DarkShrine.jpg");
-            this.imgUnits.Images.SetKeyName(79, "pb_templararchives.jpg");
-            this.imgUnits.Images.SetKeyName(80, "zb_hatchery.jpg");
-            this.imgUnits.Images.SetKeyName(81, "zb_lair.jpg");
-            this.imgUnits.Images.SetKeyName(82, "zb_hive.jpg");
-            this.imgUnits.Images.SetKeyName(83, "zb_spawningpool.jpg");
-            this.imgUnits.Images.SetKeyName(84, "zb_banelingnest.jpg");
-            this.imgUnits.Images.SetKeyName(85, "zb_extactor.jpg");
-            this.imgUnits.Images.SetKeyName(86, "zb_evochamber.jpg");
-            this.imgUnits.Images.SetKeyName(87, "zb_spore.jpg");
-            this.imgUnits.Images.SetKeyName(88, "zb_spine.jpg");
-            this.imgUnits.Images.SetKeyName(89, "zb_roachwarren.jpg");
-            this.imgUnits.Images.SetKeyName(90, "zb_spire.jpg");
-            this.imgUnits.Images.SetKeyName(91, "zb_hydraden.jpg");
-            this.imgUnits.Images.SetKeyName(92, "zb_infestationpit.jpg");
-            this.imgUnits.Images.SetKeyName(93, "zb_nydusworm.jpg");
-            this.imgUnits.Images.SetKeyName(94, "zb_nydusnetwork.jpg");
-            this.imgUnits.Images.SetKeyName(95, "zb_ultracavery.jpg");
-            this.imgUnits.Images.SetKeyName(96, "zb_greaterspire.jpg");
-            this.imgUnits.Images.SetKeyName(97, "zb_creeptumor.jpg");
-            this.imgUnits.Images.SetKeyName(98, "zu_banelingcocoon.png");
-            this.imgUnits.Images.SetKeyName(99, "zu_broodlordcocoon.png");
-            this.imgUnits.Images.SetKeyName(100, "zu_overseercocoon.png");
-            this.imgUnits.Images.SetKeyName(101, "zu_locust.png");
-            this.imgUnits.Images.SetKeyName(102, "zu_changeling.jpg");
             // 
             // lstMapUnits
             // 
@@ -661,7 +538,7 @@
             this.tcApm.Controls.Add(this.ApmUiInformation);
             this.tcApm.Location = new System.Drawing.Point(4, 22);
             this.tcApm.Name = "tcApm";
-            this.tcApm.Size = new System.Drawing.Size(940, 405);
+            this.tcApm.Size = new System.Drawing.Size(940, 427);
             this.tcApm.TabIndex = 5;
             this.tcApm.Text = "Apm";
             // 
@@ -702,7 +579,7 @@
             this.tcArmy.Controls.Add(this.ArmyUiInformation);
             this.tcArmy.Location = new System.Drawing.Point(4, 22);
             this.tcArmy.Name = "tcArmy";
-            this.tcArmy.Size = new System.Drawing.Size(940, 405);
+            this.tcArmy.Size = new System.Drawing.Size(940, 427);
             this.tcArmy.TabIndex = 4;
             this.tcArmy.Text = "Army";
             // 
@@ -937,7 +814,7 @@
             this.tcWorkerAutomation.Controls.Add(this.WorkerProductionUiHotkeys);
             this.tcWorkerAutomation.Location = new System.Drawing.Point(4, 22);
             this.tcWorkerAutomation.Name = "tcWorkerAutomation";
-            this.tcWorkerAutomation.Size = new System.Drawing.Size(940, 405);
+            this.tcWorkerAutomation.Size = new System.Drawing.Size(940, 427);
             this.tcWorkerAutomation.TabIndex = 15;
             this.tcWorkerAutomation.Text = "Worker Production";
             // 
@@ -961,7 +838,7 @@
             this.tcVarious.Controls.Add(this.Custom_Various);
             this.tcVarious.Location = new System.Drawing.Point(4, 22);
             this.tcVarious.Name = "tcVarious";
-            this.tcVarious.Size = new System.Drawing.Size(940, 405);
+            this.tcVarious.Size = new System.Drawing.Size(940, 427);
             this.tcVarious.TabIndex = 14;
             this.tcVarious.Text = "Various";
             // 
@@ -978,7 +855,7 @@
             this.tcBugs.Controls.Add(this.CustBugs);
             this.tcBugs.Location = new System.Drawing.Point(4, 22);
             this.tcBugs.Name = "tcBugs";
-            this.tcBugs.Size = new System.Drawing.Size(940, 405);
+            this.tcBugs.Size = new System.Drawing.Size(940, 427);
             this.tcBugs.TabIndex = 9;
             this.tcBugs.Text = "Bugs";
             // 
@@ -995,7 +872,7 @@
             this.tcCredits.Controls.Add(this.label92);
             this.tcCredits.Location = new System.Drawing.Point(4, 22);
             this.tcCredits.Name = "tcCredits";
-            this.tcCredits.Size = new System.Drawing.Size(940, 405);
+            this.tcCredits.Size = new System.Drawing.Size(940, 427);
             this.tcCredits.TabIndex = 8;
             this.tcCredits.Text = "Credits";
             this.tcCredits.Paint += new System.Windows.Forms.PaintEventHandler(this.tcCredits_Paint);
@@ -1016,7 +893,7 @@
             this.tcBenchmark.Controls.Add(this.GlobalBenchmark);
             this.tcBenchmark.Location = new System.Drawing.Point(4, 22);
             this.tcBenchmark.Name = "tcBenchmark";
-            this.tcBenchmark.Size = new System.Drawing.Size(940, 405);
+            this.tcBenchmark.Size = new System.Drawing.Size(940, 427);
             this.tcBenchmark.TabIndex = 12;
             this.tcBenchmark.Text = "Benchmark";
             // 
@@ -1033,7 +910,7 @@
             this.tcDebug.Controls.Add(this.CustDebug);
             this.tcDebug.Location = new System.Drawing.Point(4, 22);
             this.tcDebug.Name = "tcDebug";
-            this.tcDebug.Size = new System.Drawing.Size(940, 405);
+            this.tcDebug.Size = new System.Drawing.Size(940, 427);
             this.tcDebug.TabIndex = 11;
             this.tcDebug.Text = "Debug";
             // 
@@ -1152,7 +1029,6 @@
         private System.Windows.Forms.TabPage tcApm;
         private System.Windows.Forms.TabPage tcArmy;
         private System.Windows.Forms.TabPage tcUnitTab;
-        private System.Windows.Forms.ImageList imgUnits;
         private System.Windows.Forms.TabPage tcCredits;
         private System.Windows.Forms.Label label92;
         private System.Windows.Forms.TabPage tcBugs;
@@ -1230,7 +1106,6 @@
         private AutomationWorker workerProductionBasics;
         public UiHotkeys WorkerProductionUiHotkeys;
         private System.Windows.Forms.TabPage tcWorkerAutomation;
-        private System.Windows.Forms.Button btnMaphackDefineaMarking;
         private System.Windows.Forms.ToolTip ttInformation;
     }
 }

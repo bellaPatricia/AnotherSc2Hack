@@ -15,6 +15,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 		    Text = null;
 		    Tag = null;
 		    Mark = false;
+            Image = null;
 		}
 
 	    public ImageComboItem(string text)
@@ -24,6 +25,17 @@ namespace AnotherSc2Hack.Classes.BackEnds
 	        Tag = null;
 	        Mark = false;
 	        Text = text;
+            Image = null;
+	    }
+
+	    public ImageComboItem(string text, Image image)
+	    {
+	        Text = text;
+	        Image = image;
+	        ImageIndex = -1;
+	        Tag = null;
+	        Mark = false;
+	        ForeColor = Color.FromKnownColor(KnownColor.Transparent);
 	    }
 
 	    public ImageComboItem(string text, int imageIndex)
@@ -33,6 +45,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 	        Mark = false;
 	        Text = text;
 			ImageIndex = imageIndex;
+            Image = null;
 		}
 
 		public ImageComboItem(string text, int imageIndex, bool mark)
@@ -42,6 +55,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 		    Text = text;
 			ImageIndex = imageIndex;
 			Mark = mark;
+            Image = null;
 		}
 
 		public ImageComboItem(string text, int imageIndex, bool mark, Color foreColor)
@@ -51,6 +65,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 			ImageIndex = imageIndex;
 			Mark = mark;
 			ForeColor = foreColor;
+            Image = null;
 		}
 
 		public ImageComboItem(string text, int imageIndex, bool mark, Color foreColor, object tag)
@@ -60,6 +75,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 			Mark = mark;
 			ForeColor = foreColor;
 			Tag = tag;
+            Image = null;
 		}
 
 		// forecolor
@@ -77,11 +93,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
 	    // item text
 	    public string Text { get; set; }
 
+	    public Image Image { get; set; }
+
 	    // ToString() should return item text
 		public override string ToString() 
 		{
 			return Text;
 		}
+
+
 
 	}
 

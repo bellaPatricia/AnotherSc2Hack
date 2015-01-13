@@ -34,23 +34,6 @@
             this.pbMainProgress = new System.Windows.Forms.ProgressBar();
             this.pnlMainArea = new System.Windows.Forms.Panel();
             this.lblTabname = new System.Windows.Forms.Label();
-            this.pnlApplication = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnLaunchProduction = new System.Windows.Forms.Button();
-            this.btnLaunchUnit = new System.Windows.Forms.Button();
-            this.btnLaunchMaphack = new System.Windows.Forms.Button();
-            this.btnLaunchArmy = new System.Windows.Forms.Button();
-            this.btnLaunchApm = new System.Windows.Forms.Button();
-            this.btnLaunchWorker = new System.Windows.Forms.Button();
-            this.btnLaunchIncome = new System.Windows.Forms.Button();
-            this.btnLaunchResource = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.chBxLanguage = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnReposition = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlPlugins = new System.Windows.Forms.Panel();
             this.btnPluginsInstallPlugin = new System.Windows.Forms.Button();
             this.lblPluginsImageposition = new System.Windows.Forms.Label();
@@ -87,7 +70,30 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pnlOverlays = new System.Windows.Forms.Panel();
             this.pnlPanelContainer = new System.Windows.Forms.Panel();
+            this.pnlApplication = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.chBxLanguage = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnReposition = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnLaunchProduction = new System.Windows.Forms.Button();
+            this.btnLaunchUnit = new System.Windows.Forms.Button();
+            this.btnLaunchMaphack = new System.Windows.Forms.Button();
+            this.btnLaunchArmy = new System.Windows.Forms.Button();
+            this.btnLaunchApm = new System.Windows.Forms.Button();
+            this.btnLaunchWorker = new System.Windows.Forms.Button();
+            this.btnLaunchIncome = new System.Windows.Forms.Button();
+            this.btnLaunchResource = new System.Windows.Forms.Button();
             this.pnlBottomStrip = new System.Windows.Forms.Panel();
+            this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstvPluginsLoadedPlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstvDebugMatchdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -122,19 +128,12 @@
             this.ktxtReposition = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
             this.ntxtGraphicsRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.ntxtMemoryRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lstvPluginsLoadedPlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cpnlDebug = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
-            this.pnlApplication.SuspendLayout();
             this.pnlPlugins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).BeginInit();
             this.cmPluginInstall.SuspendLayout();
@@ -142,6 +141,7 @@
             this.pnlDebug.SuspendLayout();
             this.pnlOverlays.SuspendLayout();
             this.pnlPanelContainer.SuspendLayout();
+            this.pnlApplication.SuspendLayout();
             this.pnlBottomStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,10 +177,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.pnlMainArea.Controls.Add(this.lblTabname);
+            this.pnlMainArea.Controls.Add(this.pnlApplication);
             this.pnlMainArea.Controls.Add(this.pnlPlugins);
             this.pnlMainArea.Controls.Add(this.pnlDebug);
             this.pnlMainArea.Controls.Add(this.pnlOverlays);
-            this.pnlMainArea.Controls.Add(this.pnlApplication);
             this.pnlMainArea.Location = new System.Drawing.Point(152, 0);
             this.pnlMainArea.Name = "pnlMainArea";
             this.pnlMainArea.Size = new System.Drawing.Size(1029, 531);
@@ -197,228 +197,6 @@
             this.lblTabname.Size = new System.Drawing.Size(118, 30);
             this.lblTabname.TabIndex = 1;
             this.lblTabname.Text = "Application";
-            // 
-            // pnlApplication
-            // 
-            this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlApplication.Controls.Add(this.button1);
-            this.pnlApplication.Controls.Add(this.label17);
-            this.pnlApplication.Controls.Add(this.chBxLanguage);
-            this.pnlApplication.Controls.Add(this.label4);
-            this.pnlApplication.Controls.Add(this.chBxOnlyDrawInForeground);
-            this.pnlApplication.Controls.Add(this.btnReposition);
-            this.pnlApplication.Controls.Add(this.ktxtReposition);
-            this.pnlApplication.Controls.Add(this.label3);
-            this.pnlApplication.Controls.Add(this.ntxtGraphicsRefresh);
-            this.pnlApplication.Controls.Add(this.ntxtMemoryRefresh);
-            this.pnlApplication.Controls.Add(this.label2);
-            this.pnlApplication.Controls.Add(this.label1);
-            this.pnlApplication.Location = new System.Drawing.Point(0, 80);
-            this.pnlApplication.Name = "pnlApplication";
-            this.pnlApplication.Size = new System.Drawing.Size(1029, 450);
-            this.pnlApplication.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(469, 175);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnLaunchProduction
-            // 
-            this.btnLaunchProduction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnLaunchProduction.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnLaunchProduction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaunchProduction.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaunchProduction.Location = new System.Drawing.Point(757, 15);
-            this.btnLaunchProduction.Name = "btnLaunchProduction";
-            this.btnLaunchProduction.Size = new System.Drawing.Size(100, 32);
-            this.btnLaunchProduction.TabIndex = 20;
-            this.btnLaunchProduction.Text = "Production";
-            this.btnLaunchProduction.UseVisualStyleBackColor = false;
-            this.btnLaunchProduction.Click += new System.EventHandler(this.InputManager);
-            // 
-            // btnLaunchUnit
-            // 
-            this.btnLaunchUnit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnLaunchUnit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnLaunchUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaunchUnit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaunchUnit.Location = new System.Drawing.Point(651, 15);
-            this.btnLaunchUnit.Name = "btnLaunchUnit";
-            this.btnLaunchUnit.Size = new System.Drawing.Size(100, 32);
-            this.btnLaunchUnit.TabIndex = 19;
-            this.btnLaunchUnit.Text = "Units";
-            this.btnLaunchUnit.UseVisualStyleBackColor = false;
-            this.btnLaunchUnit.Click += new System.EventHandler(this.InputManager);
-            // 
-            // btnLaunchMaphack
-            // 
-            this.btnLaunchMaphack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnLaunchMaphack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnLaunchMaphack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaunchMaphack.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaunchMaphack.Location = new System.Drawing.Point(333, 15);
-            this.btnLaunchMaphack.Name = "btnLaunchMaphack";
-            this.btnLaunchMaphack.Size = new System.Drawing.Size(100, 32);
-            this.btnLaunchMaphack.TabIndex = 18;
-            this.btnLaunchMaphack.Text = "Maphack";
-            this.btnLaunchMaphack.UseVisualStyleBackColor = false;
-            this.btnLaunchMaphack.Click += new System.EventHandler(this.InputManager);
-            // 
-            // btnLaunchArmy
-            // 
-            this.btnLaunchArmy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnLaunchArmy.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnLaunchArmy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaunchArmy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaunchArmy.Location = new System.Drawing.Point(545, 15);
-            this.btnLaunchArmy.Name = "btnLaunchArmy";
-            this.btnLaunchArmy.Size = new System.Drawing.Size(100, 32);
-            this.btnLaunchArmy.TabIndex = 17;
-            this.btnLaunchArmy.Text = "Army";
-            this.btnLaunchArmy.UseVisualStyleBackColor = false;
-            this.btnLaunchArmy.Click += new System.EventHandler(this.InputManager);
-            // 
-            // btnLaunchApm
-            // 
-            this.btnLaunchApm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnLaunchApm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnLaunchApm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaunchApm.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaunchApm.Location = new System.Drawing.Point(439, 15);
-            this.btnLaunchApm.Name = "btnLaunchApm";
-            this.btnLaunchApm.Size = new System.Drawing.Size(100, 32);
-            this.btnLaunchApm.TabIndex = 16;
-            this.btnLaunchApm.Text = "Apm";
-            this.btnLaunchApm.UseVisualStyleBackColor = false;
-            this.btnLaunchApm.Click += new System.EventHandler(this.InputManager);
-            // 
-            // btnLaunchWorker
-            // 
-            this.btnLaunchWorker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnLaunchWorker.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnLaunchWorker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaunchWorker.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaunchWorker.Location = new System.Drawing.Point(227, 15);
-            this.btnLaunchWorker.Name = "btnLaunchWorker";
-            this.btnLaunchWorker.Size = new System.Drawing.Size(100, 32);
-            this.btnLaunchWorker.TabIndex = 15;
-            this.btnLaunchWorker.Text = "Worker";
-            this.btnLaunchWorker.UseVisualStyleBackColor = false;
-            this.btnLaunchWorker.Click += new System.EventHandler(this.InputManager);
-            // 
-            // btnLaunchIncome
-            // 
-            this.btnLaunchIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnLaunchIncome.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnLaunchIncome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaunchIncome.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaunchIncome.Location = new System.Drawing.Point(121, 15);
-            this.btnLaunchIncome.Name = "btnLaunchIncome";
-            this.btnLaunchIncome.Size = new System.Drawing.Size(100, 32);
-            this.btnLaunchIncome.TabIndex = 14;
-            this.btnLaunchIncome.Text = "Income";
-            this.btnLaunchIncome.UseVisualStyleBackColor = false;
-            this.btnLaunchIncome.Click += new System.EventHandler(this.InputManager);
-            // 
-            // btnLaunchResource
-            // 
-            this.btnLaunchResource.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnLaunchResource.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnLaunchResource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLaunchResource.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaunchResource.Location = new System.Drawing.Point(15, 15);
-            this.btnLaunchResource.Name = "btnLaunchResource";
-            this.btnLaunchResource.Size = new System.Drawing.Size(100, 32);
-            this.btnLaunchResource.TabIndex = 13;
-            this.btnLaunchResource.Text = "Resource";
-            this.btnLaunchResource.UseVisualStyleBackColor = false;
-            this.btnLaunchResource.Click += new System.EventHandler(this.InputManager);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label17.Location = new System.Drawing.Point(15, 15);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(115, 20);
-            this.label17.TabIndex = 11;
-            this.label17.Text = "Global Settings";
-            // 
-            // chBxLanguage
-            // 
-            this.chBxLanguage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBxLanguage.FormattingEnabled = true;
-            this.chBxLanguage.Items.AddRange(new object[] {
-            "English",
-            "German"});
-            this.chBxLanguage.Location = new System.Drawing.Point(133, 132);
-            this.chBxLanguage.Name = "chBxLanguage";
-            this.chBxLanguage.Size = new System.Drawing.Size(170, 28);
-            this.chBxLanguage.TabIndex = 10;
-            this.chBxLanguage.SelectedIndexChanged += new System.EventHandler(this.chBxLanguage_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Language:";
-            // 
-            // btnReposition
-            // 
-            this.btnReposition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnReposition.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnReposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReposition.Location = new System.Drawing.Point(20, 200);
-            this.btnReposition.Name = "btnReposition";
-            this.btnReposition.Size = new System.Drawing.Size(284, 32);
-            this.btnReposition.TabIndex = 7;
-            this.btnReposition.Text = "Reset panelposition and -size";
-            this.btnReposition.UseVisualStyleBackColor = false;
-            this.btnReposition.Click += new System.EventHandler(this.btnReposition_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Reposition key:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Graphics Refresh (ms):";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Memory Reading (ms):";
             // 
             // pnlPlugins
             // 
@@ -857,7 +635,229 @@
             this.pnlPanelContainer.Name = "pnlPanelContainer";
             this.pnlPanelContainer.Size = new System.Drawing.Size(824, 52);
             this.pnlPanelContainer.TabIndex = 0;
-            this.pnlPanelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pnlPanelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
+            // 
+            // pnlApplication
+            // 
+            this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlApplication.Controls.Add(this.button1);
+            this.pnlApplication.Controls.Add(this.label17);
+            this.pnlApplication.Controls.Add(this.chBxLanguage);
+            this.pnlApplication.Controls.Add(this.label4);
+            this.pnlApplication.Controls.Add(this.chBxOnlyDrawInForeground);
+            this.pnlApplication.Controls.Add(this.btnReposition);
+            this.pnlApplication.Controls.Add(this.ktxtReposition);
+            this.pnlApplication.Controls.Add(this.label3);
+            this.pnlApplication.Controls.Add(this.ntxtGraphicsRefresh);
+            this.pnlApplication.Controls.Add(this.ntxtMemoryRefresh);
+            this.pnlApplication.Controls.Add(this.label2);
+            this.pnlApplication.Controls.Add(this.label1);
+            this.pnlApplication.Location = new System.Drawing.Point(0, 80);
+            this.pnlApplication.Name = "pnlApplication";
+            this.pnlApplication.Size = new System.Drawing.Size(1029, 450);
+            this.pnlApplication.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(469, 175);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label17.Location = new System.Drawing.Point(15, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(115, 20);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "Global Settings";
+            // 
+            // chBxLanguage
+            // 
+            this.chBxLanguage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBxLanguage.FormattingEnabled = true;
+            this.chBxLanguage.Items.AddRange(new object[] {
+            "English",
+            "German"});
+            this.chBxLanguage.Location = new System.Drawing.Point(133, 132);
+            this.chBxLanguage.Name = "chBxLanguage";
+            this.chBxLanguage.Size = new System.Drawing.Size(170, 28);
+            this.chBxLanguage.TabIndex = 10;
+            this.chBxLanguage.SelectedIndexChanged += new System.EventHandler(this.chBxLanguage_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(16, 135);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Language:";
+            // 
+            // btnReposition
+            // 
+            this.btnReposition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnReposition.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnReposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReposition.Location = new System.Drawing.Point(20, 200);
+            this.btnReposition.Name = "btnReposition";
+            this.btnReposition.Size = new System.Drawing.Size(284, 32);
+            this.btnReposition.TabIndex = 7;
+            this.btnReposition.Text = "Reset panelposition and -size";
+            this.btnReposition.UseVisualStyleBackColor = false;
+            this.btnReposition.Click += new System.EventHandler(this.btnReposition_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Reposition key:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Graphics Refresh (ms):";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Memory Reading (ms):";
+            // 
+            // btnLaunchProduction
+            // 
+            this.btnLaunchProduction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnLaunchProduction.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnLaunchProduction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLaunchProduction.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchProduction.Location = new System.Drawing.Point(757, 15);
+            this.btnLaunchProduction.Name = "btnLaunchProduction";
+            this.btnLaunchProduction.Size = new System.Drawing.Size(100, 32);
+            this.btnLaunchProduction.TabIndex = 20;
+            this.btnLaunchProduction.Text = "Production";
+            this.btnLaunchProduction.UseVisualStyleBackColor = false;
+            this.btnLaunchProduction.Click += new System.EventHandler(this.InputManager);
+            // 
+            // btnLaunchUnit
+            // 
+            this.btnLaunchUnit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnLaunchUnit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnLaunchUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLaunchUnit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchUnit.Location = new System.Drawing.Point(651, 15);
+            this.btnLaunchUnit.Name = "btnLaunchUnit";
+            this.btnLaunchUnit.Size = new System.Drawing.Size(100, 32);
+            this.btnLaunchUnit.TabIndex = 19;
+            this.btnLaunchUnit.Text = "Units";
+            this.btnLaunchUnit.UseVisualStyleBackColor = false;
+            this.btnLaunchUnit.Click += new System.EventHandler(this.InputManager);
+            // 
+            // btnLaunchMaphack
+            // 
+            this.btnLaunchMaphack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnLaunchMaphack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnLaunchMaphack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLaunchMaphack.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchMaphack.Location = new System.Drawing.Point(333, 15);
+            this.btnLaunchMaphack.Name = "btnLaunchMaphack";
+            this.btnLaunchMaphack.Size = new System.Drawing.Size(100, 32);
+            this.btnLaunchMaphack.TabIndex = 18;
+            this.btnLaunchMaphack.Text = "Maphack";
+            this.btnLaunchMaphack.UseVisualStyleBackColor = false;
+            this.btnLaunchMaphack.Click += new System.EventHandler(this.InputManager);
+            // 
+            // btnLaunchArmy
+            // 
+            this.btnLaunchArmy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnLaunchArmy.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnLaunchArmy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLaunchArmy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchArmy.Location = new System.Drawing.Point(545, 15);
+            this.btnLaunchArmy.Name = "btnLaunchArmy";
+            this.btnLaunchArmy.Size = new System.Drawing.Size(100, 32);
+            this.btnLaunchArmy.TabIndex = 17;
+            this.btnLaunchArmy.Text = "Army";
+            this.btnLaunchArmy.UseVisualStyleBackColor = false;
+            this.btnLaunchArmy.Click += new System.EventHandler(this.InputManager);
+            // 
+            // btnLaunchApm
+            // 
+            this.btnLaunchApm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnLaunchApm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnLaunchApm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLaunchApm.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchApm.Location = new System.Drawing.Point(439, 15);
+            this.btnLaunchApm.Name = "btnLaunchApm";
+            this.btnLaunchApm.Size = new System.Drawing.Size(100, 32);
+            this.btnLaunchApm.TabIndex = 16;
+            this.btnLaunchApm.Text = "Apm";
+            this.btnLaunchApm.UseVisualStyleBackColor = false;
+            this.btnLaunchApm.Click += new System.EventHandler(this.InputManager);
+            // 
+            // btnLaunchWorker
+            // 
+            this.btnLaunchWorker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnLaunchWorker.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnLaunchWorker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLaunchWorker.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchWorker.Location = new System.Drawing.Point(227, 15);
+            this.btnLaunchWorker.Name = "btnLaunchWorker";
+            this.btnLaunchWorker.Size = new System.Drawing.Size(100, 32);
+            this.btnLaunchWorker.TabIndex = 15;
+            this.btnLaunchWorker.Text = "Worker";
+            this.btnLaunchWorker.UseVisualStyleBackColor = false;
+            this.btnLaunchWorker.Click += new System.EventHandler(this.InputManager);
+            // 
+            // btnLaunchIncome
+            // 
+            this.btnLaunchIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnLaunchIncome.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnLaunchIncome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLaunchIncome.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchIncome.Location = new System.Drawing.Point(121, 15);
+            this.btnLaunchIncome.Name = "btnLaunchIncome";
+            this.btnLaunchIncome.Size = new System.Drawing.Size(100, 32);
+            this.btnLaunchIncome.TabIndex = 14;
+            this.btnLaunchIncome.Text = "Income";
+            this.btnLaunchIncome.UseVisualStyleBackColor = false;
+            this.btnLaunchIncome.Click += new System.EventHandler(this.InputManager);
+            // 
+            // btnLaunchResource
+            // 
+            this.btnLaunchResource.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnLaunchResource.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnLaunchResource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLaunchResource.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchResource.Location = new System.Drawing.Point(15, 15);
+            this.btnLaunchResource.Name = "btnLaunchResource";
+            this.btnLaunchResource.Size = new System.Drawing.Size(100, 32);
+            this.btnLaunchResource.TabIndex = 13;
+            this.btnLaunchResource.Text = "Resource";
+            this.btnLaunchResource.UseVisualStyleBackColor = false;
+            this.btnLaunchResource.Click += new System.EventHandler(this.InputManager);
             // 
             // pnlBottomStrip
             // 
@@ -875,7 +875,68 @@
             this.pnlBottomStrip.Name = "pnlBottomStrip";
             this.pnlBottomStrip.Size = new System.Drawing.Size(1028, 62);
             this.pnlBottomStrip.TabIndex = 22;
-            this.pnlBottomStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pnlBottomStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
+            // 
+            // lstvPluginsAvailablePlugins
+            // 
+            this.lstvPluginsAvailablePlugins.AutoArrange = false;
+            this.lstvPluginsAvailablePlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10});
+            this.lstvPluginsAvailablePlugins.ContextMenuStrip = this.cmPluginInstall;
+            this.lstvPluginsAvailablePlugins.Enabled = false;
+            this.lstvPluginsAvailablePlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstvPluginsAvailablePlugins.FullRowSelect = true;
+            this.lstvPluginsAvailablePlugins.GridLines = true;
+            this.lstvPluginsAvailablePlugins.Location = new System.Drawing.Point(281, 45);
+            this.lstvPluginsAvailablePlugins.MultiSelect = false;
+            this.lstvPluginsAvailablePlugins.Name = "lstvPluginsAvailablePlugins";
+            this.lstvPluginsAvailablePlugins.Size = new System.Drawing.Size(235, 284);
+            this.lstvPluginsAvailablePlugins.TabIndex = 25;
+            this.lstvPluginsAvailablePlugins.UseCompatibleStateImageBehavior = false;
+            this.lstvPluginsAvailablePlugins.View = System.Windows.Forms.View.Details;
+            this.lstvPluginsAvailablePlugins.SelectedIndexChanged += new System.EventHandler(this.lstvPluginsAvailablePlugins_SelectedIndexChanged);
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Plugin";
+            this.columnHeader9.Width = 133;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Version";
+            this.columnHeader10.Width = 98;
+            // 
+            // lstvPluginsLoadedPlugins
+            // 
+            this.lstvPluginsLoadedPlugins.AutoArrange = false;
+            this.lstvPluginsLoadedPlugins.CheckBoxes = true;
+            this.lstvPluginsLoadedPlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8});
+            this.lstvPluginsLoadedPlugins.ContextMenuStrip = this.cmPluginRemove;
+            this.lstvPluginsLoadedPlugins.Enabled = false;
+            this.lstvPluginsLoadedPlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstvPluginsLoadedPlugins.FullRowSelect = true;
+            this.lstvPluginsLoadedPlugins.GridLines = true;
+            this.lstvPluginsLoadedPlugins.Location = new System.Drawing.Point(19, 45);
+            this.lstvPluginsLoadedPlugins.Name = "lstvPluginsLoadedPlugins";
+            this.lstvPluginsLoadedPlugins.Size = new System.Drawing.Size(235, 284);
+            this.lstvPluginsLoadedPlugins.TabIndex = 23;
+            this.lstvPluginsLoadedPlugins.UseCompatibleStateImageBehavior = false;
+            this.lstvPluginsLoadedPlugins.View = System.Windows.Forms.View.Details;
+            this.lstvPluginsLoadedPlugins.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstvPluginsLoadedPlugins_ItemChecked);
+            this.lstvPluginsLoadedPlugins.SelectedIndexChanged += new System.EventHandler(this.lstvPluginsLoadedPlugins_SelectedIndexChanged);
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Plugin";
+            this.columnHeader7.Width = 133;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Version";
+            this.columnHeader8.Width = 98;
             // 
             // lstvDebugMatchdata
             // 
@@ -1283,67 +1344,6 @@
             this.ntxtMemoryRefresh.Text = "42";
             this.ntxtMemoryRefresh.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
             // 
-            // lstvPluginsAvailablePlugins
-            // 
-            this.lstvPluginsAvailablePlugins.AutoArrange = false;
-            this.lstvPluginsAvailablePlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader9,
-            this.columnHeader10});
-            this.lstvPluginsAvailablePlugins.ContextMenuStrip = this.cmPluginInstall;
-            this.lstvPluginsAvailablePlugins.Enabled = false;
-            this.lstvPluginsAvailablePlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstvPluginsAvailablePlugins.FullRowSelect = true;
-            this.lstvPluginsAvailablePlugins.GridLines = true;
-            this.lstvPluginsAvailablePlugins.Location = new System.Drawing.Point(281, 45);
-            this.lstvPluginsAvailablePlugins.MultiSelect = false;
-            this.lstvPluginsAvailablePlugins.Name = "lstvPluginsAvailablePlugins";
-            this.lstvPluginsAvailablePlugins.Size = new System.Drawing.Size(235, 284);
-            this.lstvPluginsAvailablePlugins.TabIndex = 25;
-            this.lstvPluginsAvailablePlugins.UseCompatibleStateImageBehavior = false;
-            this.lstvPluginsAvailablePlugins.View = System.Windows.Forms.View.Details;
-            this.lstvPluginsAvailablePlugins.SelectedIndexChanged += new System.EventHandler(this.lstvPluginsAvailablePlugins_SelectedIndexChanged);
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Plugin";
-            this.columnHeader9.Width = 133;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Version";
-            this.columnHeader10.Width = 98;
-            // 
-            // lstvPluginsLoadedPlugins
-            // 
-            this.lstvPluginsLoadedPlugins.AutoArrange = false;
-            this.lstvPluginsLoadedPlugins.CheckBoxes = true;
-            this.lstvPluginsLoadedPlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader7,
-            this.columnHeader8});
-            this.lstvPluginsLoadedPlugins.ContextMenuStrip = this.cmPluginRemove;
-            this.lstvPluginsLoadedPlugins.Enabled = false;
-            this.lstvPluginsLoadedPlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstvPluginsLoadedPlugins.FullRowSelect = true;
-            this.lstvPluginsLoadedPlugins.GridLines = true;
-            this.lstvPluginsLoadedPlugins.Location = new System.Drawing.Point(19, 45);
-            this.lstvPluginsLoadedPlugins.Name = "lstvPluginsLoadedPlugins";
-            this.lstvPluginsLoadedPlugins.Size = new System.Drawing.Size(235, 284);
-            this.lstvPluginsLoadedPlugins.TabIndex = 23;
-            this.lstvPluginsLoadedPlugins.UseCompatibleStateImageBehavior = false;
-            this.lstvPluginsLoadedPlugins.View = System.Windows.Forms.View.Details;
-            this.lstvPluginsLoadedPlugins.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstvPluginsLoadedPlugins_ItemChecked);
-            this.lstvPluginsLoadedPlugins.SelectedIndexChanged += new System.EventHandler(this.lstvPluginsLoadedPlugins_SelectedIndexChanged);
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Plugin";
-            this.columnHeader7.Width = 133;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Version";
-            this.columnHeader8.Width = 98;
-            // 
             // cpnlDebug
             // 
             this.cpnlDebug.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
@@ -1355,7 +1355,7 @@
             this.cpnlDebug.DisplayText = "Debug";
             this.cpnlDebug.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlDebug.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlDebug.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Bug;
+            this.cpnlDebug.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Debug;
             this.cpnlDebug.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlDebug.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlDebug.IsClicked = false;
@@ -1449,8 +1449,6 @@
             this.pnlLeftSelection.ResumeLayout(false);
             this.pnlMainArea.ResumeLayout(false);
             this.pnlMainArea.PerformLayout();
-            this.pnlApplication.ResumeLayout(false);
-            this.pnlApplication.PerformLayout();
             this.pnlPlugins.ResumeLayout(false);
             this.pnlPlugins.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).EndInit();
@@ -1461,6 +1459,8 @@
             this.pnlOverlays.ResumeLayout(false);
             this.pnlPanelContainer.ResumeLayout(false);
             this.pnlPanelContainer.PerformLayout();
+            this.pnlApplication.ResumeLayout(false);
+            this.pnlApplication.PerformLayout();
             this.pnlBottomStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 

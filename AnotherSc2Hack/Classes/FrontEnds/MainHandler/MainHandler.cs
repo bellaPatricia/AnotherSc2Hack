@@ -166,7 +166,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             //Automation am = new Automation(this, PredefinedTypes.Automation.Inject);
             //Automation am = new Automation(this, PredefinedTypes.Automation.Production);
 
-            SetImageCombolist();
             AssignMethodsToEvents();
             LoadSettingsIntoControls();
 
@@ -1354,19 +1353,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 CustGlobal.lstBxPlugins.Items.Add("- No Items found -");
                 CustGlobal.lstBxPlugins.Enabled = false;
             }
-        }
-
-        private void btnMaphackDefineaMarking_Click(object sender, EventArgs e)
-        {
-            var iSelectedIndex = lstMapUnits.SelectedIndex;
-            /*
-            if (iSelectedIndex <= -1)
-                return;
-
-            */
-            var dm = new DefineMarks();
-            dm.Show();
-            
         }
 
         private readonly List<PredefinedTypes.Unit> _lUnitForUniqueness = new List<PredefinedTypes.Unit>();

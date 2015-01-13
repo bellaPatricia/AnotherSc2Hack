@@ -2486,7 +2486,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
 
         //Draw a new border on the top and bottom of the panel
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void DrawVerticalBorders(object sender, PaintEventArgs e)
         {
             var send = (Panel)sender;
 
