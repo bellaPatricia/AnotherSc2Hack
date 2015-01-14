@@ -60,6 +60,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 			e.DrawBackground();
 			e.DrawFocusRectangle();
 
+            
+
 			// check if it is an item from the Items collection
 			if (e.Index < 0)
 
@@ -76,9 +78,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 					// get item to draw
 					var item = (ImageComboItem) Items[e.Index];
 
+                    
+
 					// get forecolor & font
 					Color forecolor = (item.ForeColor != Color.FromKnownColor(KnownColor.Transparent)) ? item.ForeColor : e.ForeColor;
 					Font font = item.Mark ? new Font(Font, FontStyle.Bold) : Font;
+
+                    var fHeightXPoint = ItemHeight - TextRenderer.MeasureText(item.Text, font).Height;
+                    fHeightXPoint /= 2;
 
 					// -1: no image
 				    if (item.ImageIndex != -1)
@@ -95,8 +102,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 				        //Image
 				        e.Graphics.DrawImage(item.Image, e.Bounds.Left, e.Bounds.Top, ImageSize.Width, ImageSize.Height);
 
-				        var fHeightXPoint = ItemHeight - TextRenderer.MeasureText(item.Text, font).Height;
-				        fHeightXPoint /= 2;
+				        
 
                         //Text
                         e.Graphics.DrawString(item.Text, font, new SolidBrush(forecolor), e.Bounds.Left + ImageSize.Width,
@@ -106,8 +112,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 				    else
 				    {
                         // draw text (indented)
-                        e.Graphics.DrawString(item.Text, font, new SolidBrush(forecolor), e.Bounds.Left + _imgs.ImageSize.Width,
-                            e.Bounds.Top);
+                        e.Graphics.DrawString(item.Text, font, new SolidBrush(forecolor), e.Bounds.Left,
+                            e.Bounds.Top + fHeightXPoint);
 				    }
 				}
 				else

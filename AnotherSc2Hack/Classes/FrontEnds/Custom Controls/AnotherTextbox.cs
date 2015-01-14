@@ -34,6 +34,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         {
             Enter += AnotherTextbox_Enter;
             Leave += AnotherTextbox_Leave;
+            TextChanged += AnotherTextbox_TextChanged;
+
+            _clOldForeColor = ForeColor;
+        }
+
+        void AnotherTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (Text.Equals(String.Empty) &&
+                !Focused)
+                SetupWatermarkText();
         }
 
         public override sealed Color ForeColor
@@ -50,16 +60,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         void AnotherTextbox_Enter(object sender, EventArgs e)
         {
-            if (ForeColor == _clOldForeColor)
-                return;
-
-            Text = "";
             ForeColor = _clOldForeColor;
+
+            if (Text.Equals(Watermark))
+                Text = String.Empty;
         }
 
         private void SetupWatermarkText()
         {
-            _clOldForeColor = ForeColor;
             Text = Watermark;
             ForeColor = Color.Gray;
         }

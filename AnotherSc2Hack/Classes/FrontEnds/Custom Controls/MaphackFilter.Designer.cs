@@ -42,8 +42,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaphackFilterAttributes = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.icbMapUnit = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
+            this.icbMaphackFilterUnits = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.icbMaphackFilterUnitProperties = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
+            this.btnMaphackFilterLogicalAnd = new System.Windows.Forms.Button();
+            this.btnMaphackFilterLogicalOr = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnMaphackFilterConfirmRule = new System.Windows.Forms.Button();
+            this.pnlMaphackFilterRuleContainer = new System.Windows.Forms.Panel();
             this.pnlFooter.SuspendLayout();
+            this.pnlMaphackFilterRuleContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFooter
@@ -54,7 +63,7 @@
             this.pnlFooter.Controls.Add(this.btnMaphackFilterSaveAndClose);
             this.pnlFooter.Location = new System.Drawing.Point(0, 508);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(853, 62);
+            this.pnlFooter.Size = new System.Drawing.Size(1256, 62);
             this.pnlFooter.TabIndex = 0;
             this.pnlFooter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlFooter_Paint);
             // 
@@ -66,7 +75,7 @@
             this.btnMaphackFilterDiscardAndClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnMaphackFilterDiscardAndClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaphackFilterDiscardAndClose.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaphackFilterDiscardAndClose.Location = new System.Drawing.Point(692, 14);
+            this.btnMaphackFilterDiscardAndClose.Location = new System.Drawing.Point(1095, 14);
             this.btnMaphackFilterDiscardAndClose.Name = "btnMaphackFilterDiscardAndClose";
             this.btnMaphackFilterDiscardAndClose.Size = new System.Drawing.Size(149, 32);
             this.btnMaphackFilterDiscardAndClose.TabIndex = 15;
@@ -141,13 +150,14 @@
             this.btnMaphackFiltersNewRule.TabIndex = 16;
             this.btnMaphackFiltersNewRule.Text = "New Rule";
             this.btnMaphackFiltersNewRule.UseVisualStyleBackColor = false;
+            this.btnMaphackFiltersNewRule.Click += new System.EventHandler(this.btnMaphackFiltersNewRule_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label1.Location = new System.Drawing.Point(292, 15);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 20);
             this.label1.TabIndex = 26;
@@ -156,7 +166,7 @@
             // txtMaphackFilterRuleName
             // 
             this.txtMaphackFilterRuleName.ForeColor = System.Drawing.Color.Gray;
-            this.txtMaphackFilterRuleName.Location = new System.Drawing.Point(296, 48);
+            this.txtMaphackFilterRuleName.Location = new System.Drawing.Point(7, 33);
             this.txtMaphackFilterRuleName.Name = "txtMaphackFilterRuleName";
             this.txtMaphackFilterRuleName.Size = new System.Drawing.Size(342, 27);
             this.txtMaphackFilterRuleName.TabIndex = 28;
@@ -168,7 +178,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label2.Location = new System.Drawing.Point(292, 99);
+            this.label2.Location = new System.Drawing.Point(3, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(183, 20);
             this.label2.TabIndex = 29;
@@ -176,45 +186,159 @@
             // 
             // txtMaphackFilterAttributes
             // 
-            this.txtMaphackFilterAttributes.Location = new System.Drawing.Point(296, 295);
+            this.txtMaphackFilterAttributes.Location = new System.Drawing.Point(7, 261);
             this.txtMaphackFilterAttributes.Multiline = true;
             this.txtMaphackFilterAttributes.Name = "txtMaphackFilterAttributes";
-            this.txtMaphackFilterAttributes.Size = new System.Drawing.Size(342, 172);
+            this.txtMaphackFilterAttributes.Size = new System.Drawing.Size(342, 153);
             this.txtMaphackFilterAttributes.TabIndex = 30;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(292, 132);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label3.Location = new System.Drawing.Point(3, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 20);
+            this.label3.Size = new System.Drawing.Size(44, 20);
             this.label3.TabIndex = 31;
             this.label3.Text = "Units";
             // 
-            // icbMapUnit
+            // icbMaphackFilterUnits
             // 
-            this.icbMapUnit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.icbMapUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.icbMapUnit.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icbMapUnit.ImageSize = new System.Drawing.Size(30, 30);
-            this.icbMapUnit.InitializeUnits = true;
-            this.icbMapUnit.ItemHeight = 30;
-            this.icbMapUnit.Location = new System.Drawing.Point(296, 155);
-            this.icbMapUnit.Name = "icbMapUnit";
-            this.icbMapUnit.Size = new System.Drawing.Size(342, 36);
-            this.icbMapUnit.TabIndex = 5;
+            this.icbMaphackFilterUnits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.icbMaphackFilterUnits.DropDownHeight = 500;
+            this.icbMaphackFilterUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.icbMaphackFilterUnits.DropDownWidth = 179;
+            this.icbMaphackFilterUnits.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icbMaphackFilterUnits.ImageSize = new System.Drawing.Size(30, 30);
+            this.icbMaphackFilterUnits.InitializeUnits = true;
+            this.icbMaphackFilterUnits.IntegralHeight = false;
+            this.icbMaphackFilterUnits.ItemHeight = 30;
+            this.icbMaphackFilterUnits.Location = new System.Drawing.Point(7, 123);
+            this.icbMaphackFilterUnits.Name = "icbMaphackFilterUnits";
+            this.icbMaphackFilterUnits.Size = new System.Drawing.Size(179, 36);
+            this.icbMaphackFilterUnits.TabIndex = 5;
+            this.icbMaphackFilterUnits.SelectedIndexChanged += new System.EventHandler(this.icbMaphackFilterUnits_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label6.Location = new System.Drawing.Point(188, 100);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 20);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Unit Properties";
+            // 
+            // icbMaphackFilterUnitProperties
+            // 
+            this.icbMaphackFilterUnitProperties.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.icbMaphackFilterUnitProperties.DropDownHeight = 500;
+            this.icbMaphackFilterUnitProperties.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.icbMaphackFilterUnitProperties.DropDownWidth = 179;
+            this.icbMaphackFilterUnitProperties.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icbMaphackFilterUnitProperties.ImageSize = new System.Drawing.Size(0, 0);
+            this.icbMaphackFilterUnitProperties.InitializeUnits = false;
+            this.icbMaphackFilterUnitProperties.IntegralHeight = false;
+            this.icbMaphackFilterUnitProperties.ItemHeight = 30;
+            this.icbMaphackFilterUnitProperties.Location = new System.Drawing.Point(192, 123);
+            this.icbMaphackFilterUnitProperties.Name = "icbMaphackFilterUnitProperties";
+            this.icbMaphackFilterUnitProperties.Size = new System.Drawing.Size(157, 36);
+            this.icbMaphackFilterUnitProperties.TabIndex = 35;
+            this.icbMaphackFilterUnitProperties.SelectedIndexChanged += new System.EventHandler(this.icbMaphackFilterUnitProperties_SelectedIndexChanged);
+            // 
+            // btnMaphackFilterLogicalAnd
+            // 
+            this.btnMaphackFilterLogicalAnd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnMaphackFilterLogicalAnd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnMaphackFilterLogicalAnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaphackFilterLogicalAnd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaphackFilterLogicalAnd.Location = new System.Drawing.Point(7, 192);
+            this.btnMaphackFilterLogicalAnd.Name = "btnMaphackFilterLogicalAnd";
+            this.btnMaphackFilterLogicalAnd.Size = new System.Drawing.Size(55, 32);
+            this.btnMaphackFilterLogicalAnd.TabIndex = 16;
+            this.btnMaphackFilterLogicalAnd.Text = "And";
+            this.btnMaphackFilterLogicalAnd.UseVisualStyleBackColor = false;
+            this.btnMaphackFilterLogicalAnd.Click += new System.EventHandler(this.btnMaphackFilterLogicalAnd_Click);
+            // 
+            // btnMaphackFilterLogicalOr
+            // 
+            this.btnMaphackFilterLogicalOr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnMaphackFilterLogicalOr.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnMaphackFilterLogicalOr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaphackFilterLogicalOr.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaphackFilterLogicalOr.Location = new System.Drawing.Point(68, 192);
+            this.btnMaphackFilterLogicalOr.Name = "btnMaphackFilterLogicalOr";
+            this.btnMaphackFilterLogicalOr.Size = new System.Drawing.Size(55, 32);
+            this.btnMaphackFilterLogicalOr.TabIndex = 36;
+            this.btnMaphackFilterLogicalOr.Text = "Or";
+            this.btnMaphackFilterLogicalOr.UseVisualStyleBackColor = false;
+            this.btnMaphackFilterLogicalOr.Click += new System.EventHandler(this.btnMaphackFilterLogicalOr_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label4.Location = new System.Drawing.Point(3, 169);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 20);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Operators";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label7.Location = new System.Drawing.Point(3, 238);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 20);
+            this.label7.TabIndex = 38;
+            this.label7.Text = "Result";
+            // 
+            // btnMaphackFilterConfirmRule
+            // 
+            this.btnMaphackFilterConfirmRule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnMaphackFilterConfirmRule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnMaphackFilterConfirmRule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaphackFilterConfirmRule.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaphackFilterConfirmRule.Location = new System.Drawing.Point(7, 420);
+            this.btnMaphackFilterConfirmRule.Name = "btnMaphackFilterConfirmRule";
+            this.btnMaphackFilterConfirmRule.Size = new System.Drawing.Size(342, 32);
+            this.btnMaphackFilterConfirmRule.TabIndex = 39;
+            this.btnMaphackFilterConfirmRule.Text = "Confirm";
+            this.btnMaphackFilterConfirmRule.UseVisualStyleBackColor = false;
+            this.btnMaphackFilterConfirmRule.Click += new System.EventHandler(this.btnMaphackFilterConfirmRule_Click);
+            // 
+            // pnlMaphackFilterRuleContainer
+            // 
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.label1);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.btnMaphackFilterConfirmRule);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.txtMaphackFilterRuleName);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.label7);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.label2);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.label4);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.txtMaphackFilterAttributes);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.btnMaphackFilterLogicalOr);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.label3);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.btnMaphackFilterLogicalAnd);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.icbMaphackFilterUnits);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.icbMaphackFilterUnitProperties);
+            this.pnlMaphackFilterRuleContainer.Controls.Add(this.label6);
+            this.pnlMaphackFilterRuleContainer.Location = new System.Drawing.Point(280, 15);
+            this.pnlMaphackFilterRuleContainer.Name = "pnlMaphackFilterRuleContainer";
+            this.pnlMaphackFilterRuleContainer.Size = new System.Drawing.Size(363, 452);
+            this.pnlMaphackFilterRuleContainer.TabIndex = 40;
+            this.pnlMaphackFilterRuleContainer.Visible = false;
             // 
             // MaphackFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 570);
-            this.Controls.Add(this.icbMapUnit);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtMaphackFilterAttributes);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtMaphackFilterRuleName);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1256, 570);
+            this.Controls.Add(this.pnlMaphackFilterRuleContainer);
             this.Controls.Add(this.btnMaphackFiltersNewRule);
             this.Controls.Add(this.lstvMaphackFilterCurrentFilters);
             this.Controls.Add(this.label5);
@@ -224,6 +348,8 @@
             this.Name = "MaphackFilter";
             this.Text = "MaphackFilter";
             this.pnlFooter.ResumeLayout(false);
+            this.pnlMaphackFilterRuleContainer.ResumeLayout(false);
+            this.pnlMaphackFilterRuleContainer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,6 +370,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMaphackFilterAttributes;
         private System.Windows.Forms.Label label3;
-        private ImageCombobox icbMapUnit;
+        private ImageCombobox icbMaphackFilterUnits;
+        private System.Windows.Forms.Label label6;
+        private ImageCombobox icbMaphackFilterUnitProperties;
+        private System.Windows.Forms.Button btnMaphackFilterLogicalAnd;
+        private System.Windows.Forms.Button btnMaphackFilterLogicalOr;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnMaphackFilterConfirmRule;
+        private System.Windows.Forms.Panel pnlMaphackFilterRuleContainer;
     }
 }
