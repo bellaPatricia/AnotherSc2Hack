@@ -1,4 +1,6 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
+﻿using System.Windows.Forms;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     partial class MaphackFilter
     {
@@ -32,25 +34,25 @@
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.btnMaphackFilterDiscardAndClose = new System.Windows.Forms.Button();
             this.btnMaphackFilterSaveAndClose = new System.Windows.Forms.Button();
-            this.lstvMaphackFilterCurrentFilters = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label5 = new System.Windows.Forms.Label();
             this.btnMaphackFiltersNewRule = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtMaphackFilterRuleName = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherTextbox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaphackFilterAttributes = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.icbMaphackFilterUnits = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
             this.label6 = new System.Windows.Forms.Label();
-            this.icbMaphackFilterUnitProperties = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
             this.btnMaphackFilterLogicalAnd = new System.Windows.Forms.Button();
             this.btnMaphackFilterLogicalOr = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnMaphackFilterConfirmRule = new System.Windows.Forms.Button();
             this.pnlMaphackFilterRuleContainer = new System.Windows.Forms.Panel();
+            this.txtMaphackFilterRuleName = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherTextbox();
+            this.icbMaphackFilterUnits = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
+            this.icbMaphackFilterUnitProperties = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
+            this.lstvMaphackFilterCurrentFilters = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlFooter.SuspendLayout();
             this.pnlMaphackFilterRuleContainer.SuspendLayout();
             this.SuspendLayout();
@@ -97,34 +99,6 @@
             this.btnMaphackFilterSaveAndClose.Text = "Save and Close";
             this.btnMaphackFilterSaveAndClose.UseVisualStyleBackColor = false;
             // 
-            // lstvMaphackFilterCurrentFilters
-            // 
-            this.lstvMaphackFilterCurrentFilters.AutoArrange = false;
-            this.lstvMaphackFilterCurrentFilters.CheckBoxes = true;
-            this.lstvMaphackFilterCurrentFilters.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader7,
-            this.columnHeader8});
-            this.lstvMaphackFilterCurrentFilters.Enabled = false;
-            this.lstvMaphackFilterCurrentFilters.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstvMaphackFilterCurrentFilters.FullRowSelect = true;
-            this.lstvMaphackFilterCurrentFilters.GridLines = true;
-            this.lstvMaphackFilterCurrentFilters.Location = new System.Drawing.Point(19, 48);
-            this.lstvMaphackFilterCurrentFilters.Name = "lstvMaphackFilterCurrentFilters";
-            this.lstvMaphackFilterCurrentFilters.Size = new System.Drawing.Size(235, 381);
-            this.lstvMaphackFilterCurrentFilters.TabIndex = 25;
-            this.lstvMaphackFilterCurrentFilters.UseCompatibleStateImageBehavior = false;
-            this.lstvMaphackFilterCurrentFilters.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Rule Name";
-            this.columnHeader7.Width = 133;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Applies to";
-            this.columnHeader8.Width = 98;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -163,16 +137,6 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "New Rule";
             // 
-            // txtMaphackFilterRuleName
-            // 
-            this.txtMaphackFilterRuleName.ForeColor = System.Drawing.Color.Gray;
-            this.txtMaphackFilterRuleName.Location = new System.Drawing.Point(7, 33);
-            this.txtMaphackFilterRuleName.Name = "txtMaphackFilterRuleName";
-            this.txtMaphackFilterRuleName.Size = new System.Drawing.Size(342, 27);
-            this.txtMaphackFilterRuleName.TabIndex = 28;
-            this.txtMaphackFilterRuleName.Text = "Rule Name";
-            this.txtMaphackFilterRuleName.Watermark = "Rule Name";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -186,11 +150,13 @@
             // 
             // txtMaphackFilterAttributes
             // 
+            this.txtMaphackFilterAttributes.ForeColor = System.Drawing.Color.Black;
             this.txtMaphackFilterAttributes.Location = new System.Drawing.Point(7, 261);
             this.txtMaphackFilterAttributes.Multiline = true;
             this.txtMaphackFilterAttributes.Name = "txtMaphackFilterAttributes";
             this.txtMaphackFilterAttributes.Size = new System.Drawing.Size(342, 153);
             this.txtMaphackFilterAttributes.TabIndex = 30;
+            this.txtMaphackFilterAttributes.TextChanged += new System.EventHandler(this.txtMaphackFilterAttributes_TextChanged);
             // 
             // label3
             // 
@@ -203,23 +169,6 @@
             this.label3.TabIndex = 31;
             this.label3.Text = "Units";
             // 
-            // icbMaphackFilterUnits
-            // 
-            this.icbMaphackFilterUnits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.icbMaphackFilterUnits.DropDownHeight = 500;
-            this.icbMaphackFilterUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.icbMaphackFilterUnits.DropDownWidth = 179;
-            this.icbMaphackFilterUnits.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icbMaphackFilterUnits.ImageSize = new System.Drawing.Size(30, 30);
-            this.icbMaphackFilterUnits.InitializeUnits = true;
-            this.icbMaphackFilterUnits.IntegralHeight = false;
-            this.icbMaphackFilterUnits.ItemHeight = 30;
-            this.icbMaphackFilterUnits.Location = new System.Drawing.Point(7, 123);
-            this.icbMaphackFilterUnits.Name = "icbMaphackFilterUnits";
-            this.icbMaphackFilterUnits.Size = new System.Drawing.Size(179, 36);
-            this.icbMaphackFilterUnits.TabIndex = 5;
-            this.icbMaphackFilterUnits.SelectedIndexChanged += new System.EventHandler(this.icbMaphackFilterUnits_SelectedIndexChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -230,23 +179,6 @@
             this.label6.Size = new System.Drawing.Size(112, 20);
             this.label6.TabIndex = 34;
             this.label6.Text = "Unit Properties";
-            // 
-            // icbMaphackFilterUnitProperties
-            // 
-            this.icbMaphackFilterUnitProperties.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.icbMaphackFilterUnitProperties.DropDownHeight = 500;
-            this.icbMaphackFilterUnitProperties.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.icbMaphackFilterUnitProperties.DropDownWidth = 179;
-            this.icbMaphackFilterUnitProperties.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icbMaphackFilterUnitProperties.ImageSize = new System.Drawing.Size(0, 0);
-            this.icbMaphackFilterUnitProperties.InitializeUnits = false;
-            this.icbMaphackFilterUnitProperties.IntegralHeight = false;
-            this.icbMaphackFilterUnitProperties.ItemHeight = 30;
-            this.icbMaphackFilterUnitProperties.Location = new System.Drawing.Point(192, 123);
-            this.icbMaphackFilterUnitProperties.Name = "icbMaphackFilterUnitProperties";
-            this.icbMaphackFilterUnitProperties.Size = new System.Drawing.Size(157, 36);
-            this.icbMaphackFilterUnitProperties.TabIndex = 35;
-            this.icbMaphackFilterUnitProperties.SelectedIndexChanged += new System.EventHandler(this.icbMaphackFilterUnitProperties_SelectedIndexChanged);
             // 
             // btnMaphackFilterLogicalAnd
             // 
@@ -333,6 +265,78 @@
             this.pnlMaphackFilterRuleContainer.TabIndex = 40;
             this.pnlMaphackFilterRuleContainer.Visible = false;
             // 
+            // txtMaphackFilterRuleName
+            // 
+            this.txtMaphackFilterRuleName.ForeColor = System.Drawing.Color.Gray;
+            this.txtMaphackFilterRuleName.Location = new System.Drawing.Point(7, 33);
+            this.txtMaphackFilterRuleName.Name = "txtMaphackFilterRuleName";
+            this.txtMaphackFilterRuleName.Size = new System.Drawing.Size(342, 27);
+            this.txtMaphackFilterRuleName.TabIndex = 28;
+            this.txtMaphackFilterRuleName.Text = "Rule Name";
+            this.txtMaphackFilterRuleName.Watermark = "Rule Name";
+            // 
+            // icbMaphackFilterUnits
+            // 
+            this.icbMaphackFilterUnits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.icbMaphackFilterUnits.DropDownHeight = 500;
+            this.icbMaphackFilterUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.icbMaphackFilterUnits.DropDownWidth = 179;
+            this.icbMaphackFilterUnits.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icbMaphackFilterUnits.ImageSize = new System.Drawing.Size(30, 30);
+            this.icbMaphackFilterUnits.InitializeUnits = true;
+            this.icbMaphackFilterUnits.IntegralHeight = false;
+            this.icbMaphackFilterUnits.ItemHeight = 30;
+            this.icbMaphackFilterUnits.Location = new System.Drawing.Point(7, 123);
+            this.icbMaphackFilterUnits.Name = "icbMaphackFilterUnits";
+            this.icbMaphackFilterUnits.Size = new System.Drawing.Size(179, 36);
+            this.icbMaphackFilterUnits.TabIndex = 5;
+            this.icbMaphackFilterUnits.SelectedIndexChanged += new System.EventHandler(this.icbMaphackFilterUnits_SelectedIndexChanged);
+            // 
+            // icbMaphackFilterUnitProperties
+            // 
+            this.icbMaphackFilterUnitProperties.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.icbMaphackFilterUnitProperties.DropDownHeight = 500;
+            this.icbMaphackFilterUnitProperties.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.icbMaphackFilterUnitProperties.DropDownWidth = 179;
+            this.icbMaphackFilterUnitProperties.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icbMaphackFilterUnitProperties.ImageSize = new System.Drawing.Size(0, 0);
+            this.icbMaphackFilterUnitProperties.InitializeUnits = false;
+            this.icbMaphackFilterUnitProperties.IntegralHeight = false;
+            this.icbMaphackFilterUnitProperties.ItemHeight = 30;
+            this.icbMaphackFilterUnitProperties.Location = new System.Drawing.Point(192, 123);
+            this.icbMaphackFilterUnitProperties.Name = "icbMaphackFilterUnitProperties";
+            this.icbMaphackFilterUnitProperties.Size = new System.Drawing.Size(157, 36);
+            this.icbMaphackFilterUnitProperties.TabIndex = 35;
+            this.icbMaphackFilterUnitProperties.SelectedIndexChanged += new System.EventHandler(this.icbMaphackFilterUnitProperties_SelectedIndexChanged);
+            // 
+            // lstvMaphackFilterCurrentFilters
+            // 
+            this.lstvMaphackFilterCurrentFilters.AutoArrange = false;
+            this.lstvMaphackFilterCurrentFilters.CheckBoxes = true;
+            this.lstvMaphackFilterCurrentFilters.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8});
+            this.lstvMaphackFilterCurrentFilters.Enabled = false;
+            this.lstvMaphackFilterCurrentFilters.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstvMaphackFilterCurrentFilters.FullRowSelect = true;
+            this.lstvMaphackFilterCurrentFilters.GridLines = true;
+            this.lstvMaphackFilterCurrentFilters.Location = new System.Drawing.Point(19, 48);
+            this.lstvMaphackFilterCurrentFilters.Name = "lstvMaphackFilterCurrentFilters";
+            this.lstvMaphackFilterCurrentFilters.Size = new System.Drawing.Size(235, 381);
+            this.lstvMaphackFilterCurrentFilters.TabIndex = 25;
+            this.lstvMaphackFilterCurrentFilters.UseCompatibleStateImageBehavior = false;
+            this.lstvMaphackFilterCurrentFilters.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Rule Name";
+            this.columnHeader7.Width = 133;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Applies to";
+            this.columnHeader8.Width = 98;
+            // 
             // MaphackFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -368,7 +372,7 @@
         private System.Windows.Forms.Label label1;
         private AnotherTextbox txtMaphackFilterRuleName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMaphackFilterAttributes;
+        private TextBox txtMaphackFilterAttributes;
         private System.Windows.Forms.Label label3;
         private ImageCombobox icbMaphackFilterUnits;
         private System.Windows.Forms.Label label6;
