@@ -16,7 +16,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
-using AnotherSc2Hack.Classes.BackEnds.Gameinfo;
+using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Container;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;

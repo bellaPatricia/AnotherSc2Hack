@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Text;
+using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -48,12 +50,52 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         #endregion
 
-        /// The following is from Arun Reginald Zaheeruddin
-        /// The article about rounded rectangles can be found here:
-        /// http://www.codeproject.com/Articles/5649/Extended-Graphics-An-implementation-of-Rounded-Rec
-        /// 
-        /// All credits go to him and/ or his article!
-        public static void FillRoundRectangle(this Graphics g, Brush brush,
+        #region Image
+
+        public static Image SetImageOpacity(this Image image, float opacity)
+        {
+            try
+            {
+                //create a Bitmap the size of the image provided  
+                Bitmap bmp = new Bitmap(image.Width, image.Height);
+
+                //create a graphics object from the image  
+                using (Graphics gfx = Graphics.FromImage(bmp))
+                {
+
+                    //create a color matrix object  
+                    ColorMatrix matrix = new ColorMatrix();
+
+                    //set the opacity  
+                    matrix.Matrix33 = opacity;
+
+                    //create image attributes  
+                    ImageAttributes attributes = new ImageAttributes();
+
+                    //set the color(opacity) of the image  
+                    attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+
+                    //now draw the image  
+                    gfx.DrawImage(image, new Rectangle(0, 0, bmp.Width, bmp.Height), 0, 0, image.Width, image.Height,
+                        GraphicsUnit.Pixel, attributes);
+                }
+                return bmp;
+            }
+            catch (Exception)
+            {
+                return null;
+            }  
+        }
+
+        #endregion
+
+                /// The following is from Arun Reginald Zaheeruddin
+                /// The article about rounded rectangles can be found here:
+                /// http://www.codeproject.com/Articles/5649/Extended-Graphics-An-implementation-of-Rounded-Rec
+                /// 
+                /// All credits go to him and/ or his article!
+            public static
+            void FillRoundRectangle(this Graphics g, Brush brush,
             float x, float y,
             float width, float height, float radius)
         {

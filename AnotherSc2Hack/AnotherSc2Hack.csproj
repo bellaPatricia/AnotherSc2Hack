@@ -86,7 +86,6 @@
     <Compile Include="Classes\BackEnds\Drawing.cs" />
     <Compile Include="Classes\BackEnds\ExtensionMethods.cs" />
     <Compile Include="Classes\BackEnds\GameInfo.cs" />
-    <Compile Include="Classes\BackEnds\Gameinfo\Player.cs" />
     <Compile Include="Classes\BackEnds\Hashes.cs" />
     <Compile Include="Classes\BackEnds\HelpFunctions.cs" />
     <Compile Include="Classes\BackEnds\InteropCalls.cs" />
@@ -1063,6 +1062,9 @@
     <None Include="Resources\checkmark.png" />
     <None Include="Resources\Icon_Bug.png" />
     <None Include="Resources\Icon_Debug.png" />
+    <None Include="Resources\Race_Terran64.png" />
+    <None Include="Resources\Race_Zerg64.png" />
+    <None Include="Resources\Race_Protoss64.png" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />

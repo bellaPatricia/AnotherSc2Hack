@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using AnotherSc2Hack.Classes.BackEnds;
 using System.Windows.Forms;
-using AnotherSc2Hack.Classes.BackEnds.Gameinfo;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Trainer
 {
@@ -47,6 +46,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Trainer
 
         private void FillListView()
         {
+            /*
             var properties = TypeDescriptor.GetProperties(typeof(Player));
 
             for (int index = 0; index < properties.Count; index++)
@@ -59,7 +59,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Trainer
 
                 lvPlayerdata.Items.Add(lwi);
 
-            }
+            }*/
         }
 
         private void btnNext_Click(object sender, EventArgs e)

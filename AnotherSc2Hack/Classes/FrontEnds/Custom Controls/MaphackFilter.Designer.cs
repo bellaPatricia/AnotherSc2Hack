@@ -288,7 +288,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             this.icbMaphackFilterUnits.ItemHeight = 30;
             this.icbMaphackFilterUnits.Location = new System.Drawing.Point(7, 123);
             this.icbMaphackFilterUnits.Name = "icbMaphackFilterUnits";
-            this.icbMaphackFilterUnits.Size = new System.Drawing.Size(179, 36);
+            this.icbMaphackFilterUnits.Size = new System.Drawing.Size(226, 36);
             this.icbMaphackFilterUnits.TabIndex = 5;
             this.icbMaphackFilterUnits.SelectedIndexChanged += new System.EventHandler(this.icbMaphackFilterUnits_SelectedIndexChanged);
             // 
@@ -303,7 +303,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             this.icbMaphackFilterUnitProperties.InitializeUnits = false;
             this.icbMaphackFilterUnitProperties.IntegralHeight = false;
             this.icbMaphackFilterUnitProperties.ItemHeight = 30;
-            this.icbMaphackFilterUnitProperties.Location = new System.Drawing.Point(192, 123);
+            this.icbMaphackFilterUnitProperties.Location = new System.Drawing.Point(176, 195);
             this.icbMaphackFilterUnitProperties.Name = "icbMaphackFilterUnitProperties";
             this.icbMaphackFilterUnitProperties.Size = new System.Drawing.Size(157, 36);
             this.icbMaphackFilterUnitProperties.TabIndex = 35;

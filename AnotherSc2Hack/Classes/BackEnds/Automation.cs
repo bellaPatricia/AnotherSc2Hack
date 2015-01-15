@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using AnotherSc2Hack.Classes.BackEnds.Gameinfo;
+using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using PredefinedTypes = Predefined.PredefinedData;
 
@@ -140,10 +140,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
         }
 
-        private void AutoWorkerProductionProtoss(ref Process sc2, ref GameInfo gInfo, ref Player localplayer)
-        {
-            
-        }
 
         private Int32 GetGroupNumber(Keys group)
         {
