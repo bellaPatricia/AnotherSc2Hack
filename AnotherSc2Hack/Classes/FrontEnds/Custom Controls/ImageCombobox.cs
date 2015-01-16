@@ -41,7 +41,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 			// set draw mode to owner draw
 			DrawMode = DrawMode.OwnerDrawFixed;
 
-		    SetStyle(ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer |
+		    SetStyle(ControlStyles.OptimizedDoubleBuffer |
 		             ControlStyles.DoubleBuffer |
 		             ControlStyles.AllPaintingInWmPaint, true);
 		}
@@ -85,7 +85,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
                     
 
 					// get forecolor & font
-					var forecolor = (item.ForeColor != Color.FromKnownColor(KnownColor.Transparent)) ? item.ForeColor : e.ForeColor;
+					var forecolor = (item.ForeColor != Color.FromKnownColor(KnownColor.Transparent)) ? item.ForeColor : Color.Black;
 				    var clBackground = e.Index%2 == 0 ? new SolidBrush(BackColor) : Brushes.WhiteSmoke;
 					Font font = item.Mark ? new Font(Font, FontStyle.Bold) : Font;
 
@@ -95,11 +95,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 				    
                     //Draw the correct background
 				    if (e.State == DrawItemState.Selected ||
-                        e.State == (DrawItemState.Focus | DrawItemState.Selected))
-				    {
-                        e.DrawFocusRectangle();
-                        e.DrawBackground();  
-				    }
+				        e.State == (DrawItemState.Focus | DrawItemState.Selected))
+				        e.Graphics.FillRectangle(new SolidBrush(Color.RoyalBlue), e.Bounds);
 
 				    else
 				        e.Graphics.FillRectangle(clBackground, e.Bounds);

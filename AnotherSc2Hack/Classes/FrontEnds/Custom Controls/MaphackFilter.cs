@@ -26,7 +26,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
             FillProperties();
             LoadRules();
-            SetupValidStringArray();
+           // SetupValidStringArray();
         }
 
         private void pnlFooter_Paint(object sender, PaintEventArgs e)
@@ -78,13 +78,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             }
         }
 
+        
+
         private void icbMaphackFilterUnits_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (icbMaphackFilterUnits.SelectedIndex > -1 &&
                 icbMaphackFilterUnits.SelectedIndex < icbMaphackFilterUnits.Items.Count)
             {
-                txtMaphackFilterAttributes.AppendText(icbMaphackFilterUnits.SelectedItem.ToString());
-                ChangeEnabledStatus(false);
+                
             }
         }
 
