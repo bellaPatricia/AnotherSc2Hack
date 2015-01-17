@@ -4,5 +4,5 @@
 
 Gameinfo improving
 ------------------
-Cache races per match
+Cache unitdata (data percentage) per unit
 

@@ -1035,7 +1035,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         {
             IsHidden = true;
 
-            GInformation.CAccessGameinfo = false;
             GInformation.CAccessGroups = false;
             GInformation.CAccessMapInfo = false;
             GInformation.CAccessPlayers = false;

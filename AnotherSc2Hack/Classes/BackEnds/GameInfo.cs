@@ -29,7 +29,9 @@ using System.Drawing;
 using System.Net;
 using System.Text;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using PredefinedTypes = Predefined.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.BackEnds
@@ -48,7 +50,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         private Random _rnd = new Random();
         public readonly Memory Memory = new Memory();
         public event NewMatchHandler NewMatch;
-        private readonly List<PredefinedTypes.PlayerRace> _lRace = new List<PredefinedTypes.PlayerRace>(); 
+        private readonly List<PredefinedTypes.PlayerRace> _lRace = new List<PredefinedTypes.PlayerRace>();
+        private ApplicationStartOptions _startOptions;
         
 
         private long _lTimesRefreshed;
@@ -92,6 +95,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         void GameInfo_NewMatch(object sender, EventArgs e)
         {
+            #region Gather Race-data
+
             _lRace.Clear();
 
             // Race Buffer 
@@ -101,6 +106,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
             // Create little race- array and catch all races 
             for (var i = 0; i < _maxPlayerAmount; i++)
                 _lRace.Add((PredefinedTypes.PlayerRace)raceChunk[i * Of.RaceSize]);
+
+            #endregion
+
+
         }
 
 
@@ -116,11 +125,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
             HandleThread(true);
         }
 
-        public GameInfo(Int32 cSleepTime)
+        public GameInfo(Int32 cSleepTime, ApplicationStartOptions startOptions)
         {
             Init();
 
             CSleepTime = cSleepTime;
+            _startOptions = startOptions;
 
             HandleThread(true);
         }
@@ -281,6 +291,29 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 NewMatch(sender, e);
         }
 
+        private DateTime _dtProduction = DateTime.Now;
+
+        /// <summary>
+        /// Reads the memory (complete chunks for each area) and maps
+        /// them correctly and puts themm into the global scope.
+        /// </summary>
+        public void DoMassiveScan()
+        {
+            //_swmainwatch.Reset();
+            //_swmainwatch.Start();
+
+            GatherAndMapPlayerData();
+            GatherAndMapUnitData();
+            GatherAndMapMapData();
+            GatherAndMapSelectionData();
+            GatherAndMapGroupData();
+            GatherAndMapGameData();
+
+           // _swmainwatch.Stop();
+           // Console.WriteLine("Time: " + 1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
+
+        }
+
         private void GatherAndMapPlayerData()
         {
             if (!CAccessPlayers)
@@ -291,10 +324,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var playerChunk = Memory.ReadMemory(Of.PlayerStruct, playerLenght);
 
             
-
             // Counts the valid race- holders (Ai, Human) 
             var iRaceCounter = 0;
-            var lPlayer = new PredefinedTypes.PList();
+            var lPlayer = new PredefinedTypes.PList(_maxPlayerAmount);
 
             if (playerChunk.Length > 0)
             {
@@ -438,7 +470,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     u.IsVisible = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Visible) > 0;
 
                     /* Reset owner */
-                    if (u.Owner >= Player.Count)
+                    if (Player != null &&
+                        u.Owner >= Player.Count)
                         u.Owner = 0;
 
 
@@ -481,8 +514,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
                     //Add the specific units to each player
+                    if (Player != null &&
+                        Player.Count > u.Owner)
                     Player[u.Owner].Units.Add(u);
-
+                    
 
                     //_swmainwatch.Stop();
                     //Debug.WriteLine("Unitstruct - Unitassigner: " + 1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
@@ -686,21 +721,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             Gameinfo = gInfo;
         }
 
-        private DateTime _dtProduction = DateTime.Now;
-        
-        /// <summary>
-        /// Reads the memory (complete chunks for each area) and maps
-        /// them correctly and puts themm into the global scope.
-        /// </summary>
-        public void DoMassiveScan()
-        {
-            GatherAndMapPlayerData();
-            GatherAndMapUnitData();
-            GatherAndMapMapData();
-            GatherAndMapSelectionData();
-            GatherAndMapGroupData();
-            GatherAndMapGameData();
-        }
+
+
 
         /* Method to assign the unitcommands (how many units are in queue, how is the 
          * completion percentage of that unit) */

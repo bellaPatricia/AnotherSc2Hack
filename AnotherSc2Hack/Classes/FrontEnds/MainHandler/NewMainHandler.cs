@@ -313,7 +313,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                     if (Gameinfo == null)
                     {
-                        Gameinfo = new GameInfo(PSettings.GlobalDataRefresh)
+                        Gameinfo = new GameInfo(PSettings.GlobalDataRefresh, ApplicationOptions)
                         {
                             Of = new Offsets()
                         };
@@ -686,6 +686,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
 
             PSettings.GlobalDataRefresh = o.Number;
+
+            Gameinfo.CSleepTime = o.Number;
         }
 
         private void ntxtGraphicsRefresh_NumberChanged(NumberTextBox o, EventNumber e)

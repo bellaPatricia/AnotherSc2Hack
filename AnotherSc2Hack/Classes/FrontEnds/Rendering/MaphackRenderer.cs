@@ -33,6 +33,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     GInformation.Unit.Count <= 0)
                     return;
 
+                if (GInformation.Player == null)
+                    return;
+
                 if (!GInformation.Gameinfo.IsIngame)
                 {
                     g.Graphics.Clear(Color.White);
