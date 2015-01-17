@@ -281,6 +281,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Units
 
+
         protected Image _imgTuScv = Properties.Resources.tu_scv,
                                _imgTuMule = Properties.Resources.tu_Mule,
                                _imgTuMarine = Properties.Resources.tu_marine,
@@ -415,7 +416,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Upgrades
 
-        protected readonly Image _imgPupGroundWeapon1 = Properties.Resources.Pup_GroundW1,
+        protected Image _imgPupGroundWeapon1 = Properties.Resources.Pup_GroundW1,
                                _imgPupGroundWeapon2 = Properties.Resources.Pup_GroundW2,
                                _imgPupGroundWeapon3 = Properties.Resources.Pup_GroundW3,
                                _imgPupGroundArmor1 = Properties.Resources.Pup_GroundA1,
@@ -1309,6 +1310,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgPbDarkShrine = Properties.Resources.trans_pb_darkshrine;
                 _imgPbTemplarArchives = Properties.Resources.trans_pb_templararchive;
                 _imgPbFleetBeacon = Properties.Resources.trans_pb_fleetbeacon;
+
+                _imgPupCharge = Properties.Resources.trans_pup_charge;
 
                 #endregion
 
