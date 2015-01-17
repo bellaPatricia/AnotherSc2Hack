@@ -262,13 +262,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     DebugMatchinformationRefresh();
                 }
 
-                Console.WriteLine("CAccessGameinfo: " + Gameinfo.CAccessGameinfo);
-                Console.WriteLine("CAccessGroups: " + Gameinfo.CAccessGroups);
-                Console.WriteLine("CAccessMapInfo: " + Gameinfo.CAccessMapInfo);
-                Console.WriteLine("CAccessPlayers: " + Gameinfo.CAccessPlayers);
-                Console.WriteLine("CAccessSelection: " + Gameinfo.CAccessSelection);
-                Console.WriteLine("CAccessUnitCommands: " + Gameinfo.CAccessUnitCommands);
-                Console.WriteLine("CAccessUnits: " + Gameinfo.CAccessUnits);
+                //Console.WriteLine("CAccessGameinfo: " + Gameinfo.CAccessGameinfo);
+                //Console.WriteLine("CAccessGroups: " + Gameinfo.CAccessGroups);
+                //Console.WriteLine("CAccessMapInfo: " + Gameinfo.CAccessMapInfo);
+                //Console.WriteLine("CAccessPlayers: " + Gameinfo.CAccessPlayers);
+                //Console.WriteLine("CAccessSelection: " + Gameinfo.CAccessSelection);
+                //Console.WriteLine("CAccessUnitCommands: " + Gameinfo.CAccessUnitCommands);
+                //Console.WriteLine("CAccessUnits: " + Gameinfo.CAccessUnits);
             }
 
             for (var i = 0; i < _lContainer.Count; i++)
@@ -2054,7 +2054,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void DebugUnitRefresh()
         {
-            if (Gameinfo == null || Gameinfo.Unit == null)
+            if (Gameinfo == null || Gameinfo.Unit == null || Gameinfo.Unit.Count <= 0)
                 return;
 
             if (IDebugUnitIndex > Gameinfo.Unit.Count)
@@ -2155,11 +2155,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 {
                     var property = properties[i];
 
-                    lstvDebugMatchdata.Items[i].SubItems[1].Text = property.GetValue(Gameinfo.Gameinfo).ToString();
+                    var value = property.GetValue(Gameinfo.Gameinfo);
+                    if (value != null)
+                        lstvDebugMatchdata.Items[i].SubItems[lstvDebugMatchdata.Items[i].SubItems.Count - 1].Text = value.ToString();
                 }
-
-
-
             }
 
             else
@@ -2173,7 +2172,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                     lwi.BackColor = lstvDebugMatchdata.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
                     lwi.Text = property.Name;
-                    lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, property.GetValue(Gameinfo.Gameinfo).ToString()));
+                    var value = property.GetValue(Gameinfo.Gameinfo);
+                    if (value != null)
+                        lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, value.ToString()));
 
                     lstvDebugMatchdata.Items.Add(lwi);
                 }

@@ -34,6 +34,10 @@ using PredefinedTypes = Predefined.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
+    public delegate void NewMatchHandler(object sender, EventArgs e);
+
+    
+
     public class GameInfo
     {
         private Thread _thrWorker;
@@ -43,7 +47,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
         private bool _bSkip;
         private Random _rnd = new Random();
         public readonly Memory Memory = new Memory();
-
+        public event NewMatchHandler NewMatch;
+        private readonly List<PredefinedTypes.PlayerRace> _lRace = new List<PredefinedTypes.PlayerRace>(); 
+        
 
         private long _lTimesRefreshed;
 
@@ -79,10 +85,32 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
         }
 
+        private void Init()
+        {
+            NewMatch += GameInfo_NewMatch;
+        }
+
+        void GameInfo_NewMatch(object sender, EventArgs e)
+        {
+            _lRace.Clear();
+
+            // Race Buffer 
+            var racelenght = _maxPlayerAmount * Of.RaceSize;
+            var raceChunk = Memory.ReadMemory(Of.RaceStruct, racelenght);
+
+            // Create little race- array and catch all races 
+            for (var i = 0; i < _maxPlayerAmount; i++)
+                _lRace.Add((PredefinedTypes.PlayerRace)raceChunk[i * Of.RaceSize]);
+        }
+
+
         #region Constructor
 
+       
         public GameInfo()
         {
+            Init();
+
             CSleepTime = 33;
 
             HandleThread(true);
@@ -90,6 +118,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public GameInfo(Int32 cSleepTime)
         {
+            Init();
+
             CSleepTime = cSleepTime;
 
             HandleThread(true);
@@ -97,6 +127,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public GameInfo(Boolean useThreadedGameInfo)
         {
+            Init();
+
             if (useThreadedGameInfo)
             {
                 CSleepTime = 33;
@@ -154,6 +186,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         /* Main- worker that refreshes data */
         private DateTime _dtSecond = DateTime.Now;
+        private bool bIngame;
         private void RefreshData()
         {
             while (CThreadState)
@@ -219,17 +252,33 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 }
                 _lTimesRefreshed++;
 
+                if (Gameinfo != null)
+                    bIngame = Gameinfo.IsIngame;
+
                 DoMassiveScan();
 
+
+                if (Gameinfo != null && (!bIngame &&
+                    Gameinfo.IsIngame))
+                {
+                    OnNewMatch(this, new EventArgs());
+                }
 
                 //_swmainwatch.Stop();
                 //Console.WriteLine("Time to execute \"DoMassiveScan()\":" + (1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency).ToString("# ##0") + " µs");
 
+                
 
                 Thread.Sleep(CSleepTime);
             }
 
             Debug.WriteLine("Worker \"RefreshData()\" finished!");
+        }
+
+        public void OnNewMatch(object sender, EventArgs e)
+        {
+            if (NewMatch != null)
+                NewMatch(sender, e);
         }
 
         private void GatherAndMapPlayerData()
@@ -241,15 +290,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var playerLenght = _maxPlayerAmount * Of.PlayerStructSize;
             var playerChunk = Memory.ReadMemory(Of.PlayerStruct, playerLenght);
 
-            // Race Buffer 
-            var racelenght = _maxPlayerAmount * Of.RaceSize;
-            var raceChunk = Memory.ReadMemory(Of.RaceStruct, racelenght);
-
-
-            // Create little race- array and catch all races 
-            var lRace = new List<PredefinedTypes.PlayerRace>();
-            for (var i = 0; i < _maxPlayerAmount; i++)
-                lRace.Add((PredefinedTypes.PlayerRace)raceChunk[i * Of.RaceSize]);
+            
 
             // Counts the valid race- holders (Ai, Human) 
             var iRaceCounter = 0;
@@ -300,7 +341,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     if (p.Type == PredefinedTypes.PlayerType.Human ||
                         p.Type == PredefinedTypes.PlayerType.Ai)
                     {
-                        p.PlayerRace = lRace[iRaceCounter];
+                        p.PlayerRace = _lRace[iRaceCounter];
                         iRaceCounter++;
                     }
 
