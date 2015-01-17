@@ -17,8 +17,8 @@ namespace AnotherSc2Hack
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MaphackFilter());
-            //Application.Run(new NewMainHandler(new ApplicationStartOptions(args)));
+            //Application.Run(new MaphackFilter());
+            Application.Run(new NewMainHandler(new ApplicationStartOptions(args)));
         }
     }
 }
