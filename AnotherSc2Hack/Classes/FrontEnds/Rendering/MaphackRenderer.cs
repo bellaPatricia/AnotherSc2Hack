@@ -15,7 +15,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public MaphackRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-            
         }
 
         /// <summary>
@@ -24,8 +23,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
         {
+            GInformation.CAccessPlayers = true;
+            GInformation.CAccessMapInfo = true;
+            GInformation.CAccessUnits = true;
+
             try
             {
+                if (GInformation.Unit == null ||
+                    GInformation.Unit.Count <= 0)
+                    return;
 
                 if (!GInformation.Gameinfo.IsIngame)
                 {

@@ -250,12 +250,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 if (cpnlDebug.IsClicked)
                 {
+                    Gameinfo.CAccessGameinfo = true;
+                    Gameinfo.CAccessMapInfo = true;
+                    Gameinfo.CAccessPlayers = true;
+                    Gameinfo.CAccessUnits = true;
+                    Gameinfo.CAccessUnitCommands = true;
+
                     DebugPlayerRefresh();
                     DebugUnitRefresh();
                     DebugMapRefresh();
                     DebugMatchinformationRefresh();
                 }
+
+                Console.WriteLine("CAccessGameinfo: " + Gameinfo.CAccessGameinfo);
+                Console.WriteLine("CAccessGroups: " + Gameinfo.CAccessGroups);
+                Console.WriteLine("CAccessMapInfo: " + Gameinfo.CAccessMapInfo);
+                Console.WriteLine("CAccessPlayers: " + Gameinfo.CAccessPlayers);
+                Console.WriteLine("CAccessSelection: " + Gameinfo.CAccessSelection);
+                Console.WriteLine("CAccessUnitCommands: " + Gameinfo.CAccessUnitCommands);
+                Console.WriteLine("CAccessUnits: " + Gameinfo.CAccessUnits);
             }
+
+            for (var i = 0; i < _lContainer.Count; i++)
+            {
+                Gameinfo.CAccessGameinfo |= _lContainer[i].GInformation.CAccessGameinfo;
+                Gameinfo.CAccessGroups |= _lContainer[i].GInformation.CAccessGroups;
+                Gameinfo.CAccessMapInfo |= _lContainer[i].GInformation.CAccessMapInfo;
+                Gameinfo.CAccessPlayers |= _lContainer[i].GInformation.CAccessPlayers;
+                Gameinfo.CAccessSelection |= _lContainer[i].GInformation.CAccessSelection;
+                Gameinfo.CAccessUnitCommands |= _lContainer[i].GInformation.CAccessUnitCommands;
+                Gameinfo.CAccessUnits |= _lContainer[i].GInformation.CAccessUnits;
+            }
+
+            
 
             InputManager();
             PluginDataRefresh();
