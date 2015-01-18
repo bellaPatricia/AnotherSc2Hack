@@ -328,7 +328,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Upgrades
 
-        protected readonly Image _imgTupStim = Properties.Resources.Tup_Stim,
+        protected Image _imgTupStim = Properties.Resources.Tup_Stim,
                                _imgTupConcussiveShells = Properties.Resources.Tup_ConcussiveShells,
                                _imgTupCombatShields = Properties.Resources.Tup_CombatShields,
                                _imgTupPersonalCloak = Properties.Resources.Tup_PersonalCloak,
@@ -497,7 +497,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Upgrades
 
-        protected readonly Image _imgZupAirWeapon1 = Properties.Resources.Zup_AirW1,
+        protected Image _imgZupAirWeapon1 = Properties.Resources.Zup_AirW1,
                                _imgZupAirWeapon2 = Properties.Resources.Zup_AirW2,
                                _imgZupAirWeapon3 = Properties.Resources.Zup_AirW3,
                                _imgZupAirArmor1 = Properties.Resources.Zup_AirA1,
@@ -1142,6 +1142,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgTbReactor = Properties.Resources.tb_reactor;
                 _imgTbAutoTurret = Properties.Resources.tb_autoturret;
 
+                _imgTupStim = Properties.Resources.Tup_Stim;
+                _imgTupConcussiveShells = Properties.Resources.Tup_ConcussiveShells;
+                _imgTupCombatShields = Properties.Resources.Tup_CombatShields;
+                _imgTupPersonalCloak = Properties.Resources.Tup_PersonalCloak;
+                _imgTupMoebiusReactor = Properties.Resources.Tup_MoebiusReactor;
+                _imgTupBlueFlame = Properties.Resources.Tup_BlueFlame;
+                _imgTupTransformatorServos = Properties.Resources.Tup_TransformationServos;
+                _imgTupDrillingClaws = Properties.Resources.Tup_DrillingClaws;
+                _imgTupCloakingField = Properties.Resources.Tup_CloakingField;
+                _imgTupDurableMaterials = Properties.Resources.Tup_DurableMaterials;
+                _imgTupCaduceusReactor = Properties.Resources.Tup_CaduceusReactor;
+                _imgTupCorvidReactor = Properties.Resources.Tup_CorvidReactor;
+                _imgTupBehemothReacot = Properties.Resources.Tup_BehemothReactor;
+                _imgTupWeaponRefit = Properties.Resources.Tup_WeaponRefit;
+                _imgTupInfantryWeapon1 = Properties.Resources.Tup_InfantyWeapon1;
+                _imgTupInfantryWeapon2 = Properties.Resources.Tup_InfantyWeapon2;
+                _imgTupInfantryWeapon3 = Properties.Resources.Tup_InfantyWeapon3;
+                _imgTupInfantryArmor1 = Properties.Resources.Tup_InfantyArmor1;
+                _imgTupInfantryArmor2 = Properties.Resources.Tup_InfantyArmor2;
+                _imgTupInfantryArmor3 = Properties.Resources.Tup_InfantyArmor3;
+                _imgTupVehicleWeapon1 = Properties.Resources.Tup_VehicleWeapon1;
+                _imgTupVehicleWeapon2 = Properties.Resources.Tup_VehicleWeapon2;
+                _imgTupVehicleWeapon3 = Properties.Resources.Tup_VehicleWeapon3;
+                _imgTupShipWeapon1 = Properties.Resources.Tup_ShipWeapon1;
+                _imgTupShipWeapon2 = Properties.Resources.Tup_ShipWeapon2;
+                _imgTupShipWeapon3 = Properties.Resources.Tup_ShipWeapon3;
+                _imgTupVehicleShipPlanting1 = Properties.Resources.Tup_VehicleShipPlanting1;
+                _imgTupVehicleShipPlanting2 = Properties.Resources.Tup_VehicleShipPlanting2;
+                _imgTupVehicleShipPlanting3 = Properties.Resources.Tup_VehicleShipPlanting3;
+                _imgTupHighSecAutoTracking = Properties.Resources.Tup_HighSecAutotracking;
+                _imgTupStructureArmor = Properties.Resources.Tup_StructureArmor;
+                _imgTupNeosteelFrame = Properties.Resources.Tup_NeosteelFrame;
+
                 #endregion
 
                 #region Protoss
@@ -1181,6 +1214,31 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgPbDarkShrine = Properties.Resources.pb_DarkShrine;
                 _imgPbTemplarArchives = Properties.Resources.pb_templararchives;
                 _imgPbFleetBeacon = Properties.Resources.pb_FleetBeacon;
+
+                _imgPupGroundWeapon1 = Properties.Resources.Pup_GroundW1;
+                _imgPupGroundWeapon2 = Properties.Resources.Pup_GroundW2;
+                _imgPupGroundWeapon3 = Properties.Resources.Pup_GroundW3;
+                _imgPupGroundArmor1 = Properties.Resources.Pup_GroundA1;
+                _imgPupGroundArmor2 = Properties.Resources.Pup_GroundA2;
+                _imgPupGroundArmor3 = Properties.Resources.Pup_GroundA3;
+                _imgPupShield1 = Properties.Resources.Pup_S1;
+                _imgPupShield2 = Properties.Resources.Pup_S2;
+                _imgPupShield3 = Properties.Resources.Pup_S3;
+                _imgPupAirWeapon1 = Properties.Resources.Pup_AirW1;
+                _imgPupAirWeapon2 = Properties.Resources.Pup_AirW2;
+                _imgPupAirWeapon3 = Properties.Resources.Pup_AirW3;
+                _imgPupAirArmor1 = Properties.Resources.Pup_AirA1;
+                _imgPupAirArmor2 = Properties.Resources.Pup_AirA2;
+                _imgPupAirArmor3 = Properties.Resources.Pup_AirA3;
+                _imgPupBlink = Properties.Resources.Pup_Blink;
+                _imgPupCharge = Properties.Resources.Pup_Charge;
+                _imgPupGraviticBooster = Properties.Resources.Pup_GraviticBoosters;
+                _imgPupGraviticDrive = Properties.Resources.Pup_GraviticDrive;
+                _imgPupExtendedThermalLance = Properties.Resources.Pup_ExtendedThermalLance;
+                _imgPupAnionPulseCrystals = Properties.Resources.Pup_AnionPulseCrystals;
+                _imgPupGravitonCatapult = Properties.Resources.Pup_GravitonCatapult;
+                _imgPupWarpGate = Properties.Resources.Pup_Warpgate;
+                _imgPupStorm = Properties.Resources.Pup_Storm;
 
                 #endregion
 
@@ -1225,6 +1283,36 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgZbInfestationpit = Properties.Resources.zb_infestationpit;
                 _imgZbUltracavern = Properties.Resources.zb_ultracavery;
                 _imgZbBanelingnest = Properties.Resources.zb_banelingnest;
+
+                _imgZupAirWeapon1 = Properties.Resources.Zup_AirW1;
+                _imgZupAirWeapon2 = Properties.Resources.Zup_AirW2;
+                _imgZupAirWeapon3 = Properties.Resources.Zup_AirW3;
+                _imgZupAirArmor1 = Properties.Resources.Zup_AirA1;
+                _imgZupAirArmor2 = Properties.Resources.Zup_AirA2;
+                _imgZupAirArmor3 = Properties.Resources.Zup_AirA3;
+                _imgZupGroundWeapon1 = Properties.Resources.Zup_GroundW1;
+                _imgZupGroundWeapon2 = Properties.Resources.Zup_GroundW2;
+                _imgZupGroundWeapon3 = Properties.Resources.Zup_GroundW3;
+                _imgZupGroundArmor1 = Properties.Resources.Zup_GroundA1;
+                _imgZupGroundArmor2 = Properties.Resources.Zup_GroundA2;
+                _imgZupGroundArmor3 = Properties.Resources.Zup_GroundA3;
+                _imgZupGroundMelee1 = Properties.Resources.Zup_GroundM1;
+                _imgZupGroundMelee2 = Properties.Resources.Zup_GroundM2;
+                _imgZupGroundMelee3 = Properties.Resources.Zup_GroundM3;
+                _imgZupBurrow = Properties.Resources.Zup_Burrow;
+                _imgZupAdrenalGlands = Properties.Resources.Zup_AdrenalGlands;
+                _imgZupCentrifugalHooks = Properties.Resources.Zup_CentrifugalHooks;
+                _imgZupChitinousPlating = Properties.Resources.Zup_ChitinousPlating;
+                _imgZupEnduringLocusts = Properties.Resources.Zup_EnduringLocusts;
+                _imgZupGlialReconstruction = Properties.Resources.Zup_GlialReconstruction;
+                _imgZupGroovedSpines = Properties.Resources.Zup_GroovedSpines;
+                _imgZupMetabolicBoost = Properties.Resources.Zup_MetabolicBoost;
+                _imgZupMuscularAugments = Properties.Resources.Zup_MuscularAugments;
+                _imgZupNeutralParasite = Properties.Resources.Zup_NeutralParasite;
+                _imgZupPathoglenGlands = Properties.Resources.Zup_PathogenGlands;
+                _imgZupPneumatizedCarapace = Properties.Resources.Zup_PneumatizedCarapace;
+                _imgZupTunnelingClaws = Properties.Resources.Zup_TunnelingClaws;
+                _imgZupVentrallSacs = Properties.Resources.Zup_VentralSacs;
 
                 #endregion
             }
@@ -1271,6 +1359,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgTbReactor = Properties.Resources.trans_tb_reactor;
                 _imgTbAutoTurret = Properties.Resources.trans_tb_autoturret;
 
+                _imgTupStim = Properties.Resources.trans_Tup_Stim;
+                _imgTupConcussiveShells = Properties.Resources.trans_Tup_ConcussiveShells;
+                _imgTupCombatShields = Properties.Resources.trans_Tup_CombatShields;
+                _imgTupPersonalCloak = Properties.Resources.trans_Tup_PersonalCloak;
+                _imgTupMoebiusReactor = Properties.Resources.trans_Tup_MoebiusReactor;
+                _imgTupBlueFlame = Properties.Resources.trans_Tup_BlueFlame;
+                _imgTupTransformatorServos = Properties.Resources.trans_Tup_TransformationServos;
+                _imgTupDrillingClaws = Properties.Resources.trans_Tup_DrillingClaws;
+                _imgTupCloakingField = Properties.Resources.trans_Tup_CloakingField;
+                _imgTupDurableMaterials = Properties.Resources.trans_Tup_DurableMaterials;
+                _imgTupCaduceusReactor = Properties.Resources.trans_Tup_CaduceusReactor;
+                _imgTupCorvidReactor = Properties.Resources.trans_Tup_CorvidReactor;
+                _imgTupBehemothReacot = Properties.Resources.trans_BehemothReactor;
+                _imgTupWeaponRefit = Properties.Resources.trans_Tup_WeaponRefit;
+                _imgTupInfantryWeapon1 = Properties.Resources.trans_Tup_InfantyWeapon1;
+                _imgTupInfantryWeapon2 = Properties.Resources.trans_Tup_InfantyWeapon2;
+                _imgTupInfantryWeapon3 = Properties.Resources.trans_Tup_InfantyWeapon3;
+                _imgTupInfantryArmor1 = Properties.Resources.trans_Tup_InfantyArmor1;
+                _imgTupInfantryArmor2 = Properties.Resources.trans_Tup_InfantyArmor2;
+                _imgTupInfantryArmor3 = Properties.Resources.trans_Tup_InfantyArmor3;
+                _imgTupVehicleWeapon1 = Properties.Resources.trans_Tup_VehicleWeapon1;
+                _imgTupVehicleWeapon2 = Properties.Resources.trans_Tup_VehicleWeapon2;
+                _imgTupVehicleWeapon3 = Properties.Resources.trans_Tup_VehicleWeapon3;
+                _imgTupShipWeapon1 = Properties.Resources.trans_Tup_ShipWeapon1;
+                _imgTupShipWeapon2 = Properties.Resources.trans_Tup_ShipWeapon2;
+                _imgTupShipWeapon3 = Properties.Resources.trans_Tup_ShipWeapon3;
+                _imgTupVehicleShipPlanting1 = Properties.Resources.trans_Tup_VehicleShipPlanting1;
+                _imgTupVehicleShipPlanting2 = Properties.Resources.trans_Tup_VehicleShipPlanting2;
+                _imgTupVehicleShipPlanting3 = Properties.Resources.trans_Tup_VehicleShipPlanting3;
+                _imgTupHighSecAutoTracking = Properties.Resources.trans_Tup_HighSecAutotracking;
+                _imgTupStructureArmor = Properties.Resources.trans_Tup_StructureArmor;
+                _imgTupNeosteelFrame = Properties.Resources.trans_Tup_NeosteelFrame;
+
                 #endregion
 
                 #region Protoss
@@ -1311,7 +1432,30 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgPbTemplarArchives = Properties.Resources.trans_pb_templararchive;
                 _imgPbFleetBeacon = Properties.Resources.trans_pb_fleetbeacon;
 
-                _imgPupCharge = Properties.Resources.trans_pup_charge;
+                _imgPupGroundWeapon1 = Properties.Resources.trans_Pup_GroundW1;
+                _imgPupGroundWeapon2 = Properties.Resources.trans_Pup_GroundW2;
+                _imgPupGroundWeapon3 = Properties.Resources.trans_Pup_GroundW3;
+                _imgPupGroundArmor1 = Properties.Resources.trans_Pup_GroundA1;
+                _imgPupGroundArmor2 = Properties.Resources.trans_Pup_GroundA2;
+                _imgPupGroundArmor3 = Properties.Resources.trans_Pup_GroundA3;
+                _imgPupShield1 = Properties.Resources.trans_Pup_S1;
+                _imgPupShield2 = Properties.Resources.trans_Pup_S2;
+                _imgPupShield3 = Properties.Resources.trans_Pup_S3;
+                _imgPupAirWeapon1 = Properties.Resources.trans_Pup_AirW1;
+                _imgPupAirWeapon2 = Properties.Resources.trans_Pup_AirW2;
+                _imgPupAirWeapon3 = Properties.Resources.trans_Pup_AirW3;
+                _imgPupAirArmor1 = Properties.Resources.trans_Pup_AirA1;
+                _imgPupAirArmor2 = Properties.Resources.trans_Pup_AirA2;
+                _imgPupAirArmor3 = Properties.Resources.trans_Pup_AirA3;
+                _imgPupBlink = Properties.Resources.trans_Pup_Blink;
+                _imgPupCharge = Properties.Resources.trans_Pup_Charge;
+                _imgPupGraviticBooster = Properties.Resources.trans_Pup_GraviticBoosters;
+                _imgPupGraviticDrive = Properties.Resources.trans_Pup_GraviticDrive;
+                _imgPupExtendedThermalLance = Properties.Resources.trans_Pup_ExtendedThermalLance;
+                _imgPupAnionPulseCrystals = Properties.Resources.trans_Pup_AnionPulseCrystals;
+                _imgPupGravitonCatapult = Properties.Resources.trans_Pup_GravitonCatapult;
+                _imgPupWarpGate = Properties.Resources.trans_Pup_Warpgate;
+                _imgPupStorm = Properties.Resources.trans_Pup_Storm;
 
                 #endregion
 
@@ -1356,6 +1500,36 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgZbInfestationpit = Properties.Resources.trans_zb_infestationpit;
                 _imgZbUltracavern = Properties.Resources.trans_zb_ultraliskcavern;
                 _imgZbBanelingnest = Properties.Resources.trans_zb_banelingnest;
+
+                _imgZupAirWeapon1 = Properties.Resources.trans_Zup_AirW1;
+                _imgZupAirWeapon2 = Properties.Resources.trans_Zup_AirW2;
+                _imgZupAirWeapon3 = Properties.Resources.trans_Zup_AirW3;
+                _imgZupAirArmor1 = Properties.Resources.trans_Zup_AirA1;
+                _imgZupAirArmor2 = Properties.Resources.trans_Zup_AirA2;
+                _imgZupAirArmor3 = Properties.Resources.trans_Zup_AirA3;
+                _imgZupGroundWeapon1 = Properties.Resources.trans_Zup_GroundW1;
+                _imgZupGroundWeapon2 = Properties.Resources.trans_Zup_GroundW2;
+                _imgZupGroundWeapon3 = Properties.Resources.trans_Zup_GroundW3;
+                _imgZupGroundArmor1 = Properties.Resources.trans_Zup_GroundA1;
+                _imgZupGroundArmor2 = Properties.Resources.trans_Zup_GroundA2;
+                _imgZupGroundArmor3 = Properties.Resources.trans_Zup_GroundA3;
+                _imgZupGroundMelee1 = Properties.Resources.trans_Zup_GroundM1;
+                _imgZupGroundMelee2 = Properties.Resources.trans_Zup_GroundM2;
+                _imgZupGroundMelee3 = Properties.Resources.trans_Zup_GroundM3;
+                _imgZupBurrow = Properties.Resources.trans_Zup_Burrow;
+                _imgZupAdrenalGlands = Properties.Resources.trans_Zup_AdrenalGlands;
+                _imgZupCentrifugalHooks = Properties.Resources.trans_Zup_CentrifugalHooks;
+                _imgZupChitinousPlating = Properties.Resources.trans_Zup_ChitinousPlating;
+                _imgZupEnduringLocusts = Properties.Resources.trans_Zup_EnduringLocusts;
+                _imgZupGlialReconstruction = Properties.Resources.trans_Zup_GlialReconstruction;
+                _imgZupGroovedSpines = Properties.Resources.trans_Zup_GroovedSpines;
+                _imgZupMetabolicBoost = Properties.Resources.trans_Zup_MetabolicBoost;
+                _imgZupMuscularAugments = Properties.Resources.trans_Zup_MuscularAugments;
+                _imgZupNeutralParasite = Properties.Resources.trans_Zup_NeutralParasite;
+                _imgZupPathoglenGlands = Properties.Resources.trans_Zup_PathogenGlands;
+                _imgZupPneumatizedCarapace = Properties.Resources.trans_Zup_PneumatizedCarapace;
+                _imgZupTunnelingClaws = Properties.Resources.trans_Zup_TunnelingClaws;
+                _imgZupVentrallSacs = Properties.Resources.trans_Zup_VentralSacs;
 
                 #endregion
             }
