@@ -29,6 +29,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
         {
+            GInformation.CAccessPlayers = true;
+
             try
             {
 

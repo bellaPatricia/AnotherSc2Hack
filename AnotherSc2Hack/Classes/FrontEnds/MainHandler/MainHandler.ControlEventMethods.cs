@@ -2177,7 +2177,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                     if (GInformation == null)
                     {
-                        GInformation = new GameInfo(PSettings.GlobalDataRefresh)
+                        GInformation = new GameInfo(PSettings.GlobalDataRefresh, ApplicationOptions)
                         {
                             Of = new Offsets()
                         };

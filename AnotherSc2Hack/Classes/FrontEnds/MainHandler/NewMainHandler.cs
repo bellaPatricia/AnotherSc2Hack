@@ -250,12 +250,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 if (cpnlDebug.IsClicked)
                 {
+                    Gameinfo.CAccessGameinfo = true;
+                    Gameinfo.CAccessMapInfo = true;
+                    Gameinfo.CAccessPlayers = true;
+                    Gameinfo.CAccessUnits = true;
+                    Gameinfo.CAccessUnitCommands = true;
+
                     DebugPlayerRefresh();
                     DebugUnitRefresh();
                     DebugMapRefresh();
                     DebugMatchinformationRefresh();
                 }
+
+                //Console.WriteLine("CAccessGameinfo: " + Gameinfo.CAccessGameinfo);
+                //Console.WriteLine("CAccessGroups: " + Gameinfo.CAccessGroups);
+                //Console.WriteLine("CAccessMapInfo: " + Gameinfo.CAccessMapInfo);
+                //Console.WriteLine("CAccessPlayers: " + Gameinfo.CAccessPlayers);
+                //Console.WriteLine("CAccessSelection: " + Gameinfo.CAccessSelection);
+                //Console.WriteLine("CAccessUnitCommands: " + Gameinfo.CAccessUnitCommands);
+                //Console.WriteLine("CAccessUnits: " + Gameinfo.CAccessUnits);
             }
+
+            for (var i = 0; i < _lContainer.Count; i++)
+            {
+                Gameinfo.CAccessGameinfo |= _lContainer[i].GInformation.CAccessGameinfo;
+                Gameinfo.CAccessGroups |= _lContainer[i].GInformation.CAccessGroups;
+                Gameinfo.CAccessMapInfo |= _lContainer[i].GInformation.CAccessMapInfo;
+                Gameinfo.CAccessPlayers |= _lContainer[i].GInformation.CAccessPlayers;
+                Gameinfo.CAccessSelection |= _lContainer[i].GInformation.CAccessSelection;
+                Gameinfo.CAccessUnitCommands |= _lContainer[i].GInformation.CAccessUnitCommands;
+                Gameinfo.CAccessUnits |= _lContainer[i].GInformation.CAccessUnits;
+            }
+
+            
 
             InputManager();
             PluginDataRefresh();
@@ -286,7 +313,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                     if (Gameinfo == null)
                     {
-                        Gameinfo = new GameInfo(PSettings.GlobalDataRefresh)
+                        Gameinfo = new GameInfo(PSettings.GlobalDataRefresh, ApplicationOptions)
                         {
                             Of = new Offsets()
                         };
@@ -659,6 +686,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
 
             PSettings.GlobalDataRefresh = o.Number;
+
+            Gameinfo.CSleepTime = o.Number;
         }
 
         private void ntxtGraphicsRefresh_NumberChanged(NumberTextBox o, EventNumber e)
@@ -2027,7 +2056,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void DebugUnitRefresh()
         {
-            if (Gameinfo == null || Gameinfo.Unit == null)
+            if (Gameinfo == null || Gameinfo.Unit == null || Gameinfo.Unit.Count <= 0)
                 return;
 
             if (IDebugUnitIndex > Gameinfo.Unit.Count)
@@ -2128,11 +2157,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 {
                     var property = properties[i];
 
-                    lstvDebugMatchdata.Items[i].SubItems[1].Text = property.GetValue(Gameinfo.Gameinfo).ToString();
+                    var value = property.GetValue(Gameinfo.Gameinfo);
+                    if (value != null)
+                        lstvDebugMatchdata.Items[i].SubItems[lstvDebugMatchdata.Items[i].SubItems.Count - 1].Text = value.ToString();
                 }
-
-
-
             }
 
             else
@@ -2146,7 +2174,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                     lwi.BackColor = lstvDebugMatchdata.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
                     lwi.Text = property.Name;
-                    lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, property.GetValue(Gameinfo.Gameinfo).ToString()));
+                    var value = property.GetValue(Gameinfo.Gameinfo);
+                    if (value != null)
+                        lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, value.ToString()));
 
                     lstvDebugMatchdata.Items.Add(lwi);
                 }

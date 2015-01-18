@@ -58,6 +58,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static Int32 GetValidPlayerCount(List<PredefinedTypes.PlayerStruct> lPlayer)
         {
             var iValidSize = 0;
+
+            if (lPlayer == null ||
+                lPlayer.Count <= 0)
+                return 0;
+
             for (var i = 0; i < lPlayer.Count; i++)
             {
                 if (!lPlayer[i].Name.StartsWith("\0") && !(lPlayer[i].NameLength <= 0) && !lPlayer[i].Type.Equals(PredefinedTypes.PlayerType.Hostile))

@@ -354,13 +354,27 @@ namespace Predefined
         {
             public PList()
             {
-                
-                LocalplayerIndex = -1;
-                HasLocalplayer = false;
+                Init();
+            }
+
+            public PList(Int32 capaticity) : base(capaticity) 
+            {
+                Init();
+            }
+
+            public PList(IEnumerable<PlayerStruct> collection) : base(collection)
+            {
+                Init();
             }
 
             public Boolean HasLocalplayer { get; set; }
             public Int32 LocalplayerIndex { get; set; }
+
+            private void Init()
+            {
+                LocalplayerIndex = -1;
+                HasLocalplayer = false;
+            }
         }
 
         public enum PlayerStatus
