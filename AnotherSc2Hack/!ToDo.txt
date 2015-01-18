@@ -1,3 +1,8 @@
 ﻿Some features that need to be implemented till next release
 -----------------------------------------------------------
 - Overlays -> Maphack -> Add Maphack Filter to include Units, Unitgroups and such to a color (maybe symbols)
+
+Gameinfo improving
+------------------
+Cache unitdata (data percentage) per unit
+

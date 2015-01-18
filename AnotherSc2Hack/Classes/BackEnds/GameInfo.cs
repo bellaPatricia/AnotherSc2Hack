@@ -29,14 +29,19 @@ using System.Drawing;
 using System.Net;
 using System.Text;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using PredefinedTypes = Predefined.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
+    public delegate void NewMatchHandler(object sender, EventArgs e);
+
+    
+
     public class GameInfo
     {
-        private const string StrProcessName = "SC2";
         private Thread _thrWorker;
         private Int32 _maxPlayerAmount = 16;
         private Stopwatch _swmainwatch = new Stopwatch();
@@ -44,7 +49,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
         private bool _bSkip;
         private Random _rnd = new Random();
         public readonly Memory Memory = new Memory();
-
+        public event NewMatchHandler NewMatch;
+        private readonly List<PredefinedTypes.PlayerRace> _lRace = new List<PredefinedTypes.PlayerRace>();
+        private ApplicationStartOptions _startOptions;
+        
 
         private long _lTimesRefreshed;
 
@@ -80,24 +88,57 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
         }
 
+        private void Init()
+        {
+            NewMatch += GameInfo_NewMatch;
+        }
+
+        void GameInfo_NewMatch(object sender, EventArgs e)
+        {
+            #region Gather Race-data
+
+            _lRace.Clear();
+
+            // Race Buffer 
+            var racelenght = _maxPlayerAmount * Of.RaceSize;
+            var raceChunk = Memory.ReadMemory(Of.RaceStruct, racelenght);
+
+            // Create little race- array and catch all races 
+            for (var i = 0; i < _maxPlayerAmount; i++)
+                _lRace.Add((PredefinedTypes.PlayerRace)raceChunk[i * Of.RaceSize]);
+
+            #endregion
+
+
+        }
+
+
         #region Constructor
 
+       
         public GameInfo()
         {
+            Init();
+
             CSleepTime = 33;
 
             HandleThread(true);
         }
 
-        public GameInfo(Int32 cSleepTime)
+        public GameInfo(Int32 cSleepTime, ApplicationStartOptions startOptions)
         {
+            Init();
+
             CSleepTime = cSleepTime;
+            _startOptions = startOptions;
 
             HandleThread(true);
         }
 
         public GameInfo(Boolean useThreadedGameInfo)
         {
+            Init();
+
             if (useThreadedGameInfo)
             {
                 CSleepTime = 33;
@@ -155,6 +196,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         /* Main- worker that refreshes data */
         private DateTime _dtSecond = DateTime.Now;
+        private bool bIngame;
         private void RefreshData()
         {
             while (CThreadState)
@@ -220,12 +262,22 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 }
                 _lTimesRefreshed++;
 
+                if (Gameinfo != null)
+                    bIngame = Gameinfo.IsIngame;
+
                 DoMassiveScan();
 
+
+                if (Gameinfo != null && (!bIngame &&
+                    Gameinfo.IsIngame))
+                {
+                    OnNewMatch(this, new EventArgs());
+                }
 
                 //_swmainwatch.Stop();
                 //Console.WriteLine("Time to execute \"DoMassiveScan()\":" + (1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency).ToString("# ##0") + " µs");
 
+                
 
                 Thread.Sleep(CSleepTime);
             }
@@ -233,84 +285,48 @@ namespace AnotherSc2Hack.Classes.BackEnds
             Debug.WriteLine("Worker \"RefreshData()\" finished!");
         }
 
+        public void OnNewMatch(object sender, EventArgs e)
+        {
+            if (NewMatch != null)
+                NewMatch(sender, e);
+        }
+
         private DateTime _dtProduction = DateTime.Now;
-        /* Check if a gigantic search is better */
+
+        /// <summary>
+        /// Reads the memory (complete chunks for each area) and maps
+        /// them correctly and puts themm into the global scope.
+        /// </summary>
         public void DoMassiveScan()
         {
-            /* Setpoints for debugging - to test different calls */
-#if DEBUG
-            RandomNumber = _rnd.Next(1000000);
-            LastCallTime = DateTime.Now;
-#endif
-
             //_swmainwatch.Reset();
             //_swmainwatch.Start();
 
-            #region Read all byteBuffers and store them
+            GatherAndMapPlayerData();
+            GatherAndMapUnitData();
+            GatherAndMapMapData();
+            GatherAndMapSelectionData();
+            GatherAndMapGroupData();
+            GatherAndMapGameData();
 
+           // _swmainwatch.Stop();
+           // Console.WriteLine("Time: " + 1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
 
-            /* Player Buffer */
+        }
+
+        private void GatherAndMapPlayerData()
+        {
+            if (!CAccessPlayers)
+                return;
+
+            // Player Buffer 
             var playerLenght = _maxPlayerAmount * Of.PlayerStructSize;
-
             var playerChunk = Memory.ReadMemory(Of.PlayerStruct, playerLenght);
 
-
-            /* Unit Buffer */
-
-            int pew = GetGUnitReadUnitCount();
-            var unitLength = pew * Of.UnitStructSize;
-
-            var unitChunk = Memory.ReadMemory(Of.UnitStruct, unitLength);
-
-
-            /* Group Buffer */
-            var groupLenght = 11 * Of.RawGroupSize;
-
-            var groupChunk = Memory.ReadMemory(Of.RawGroupBase, groupLenght);
-
-
-            /* Selection Buffer */
-            var selectionlength = GetGSelectionCount() * 4 + Of.UiRawSelectedIndex;
-
-            var selectionChunk = Memory.ReadMemory(Of.UiRawSelectionStruct, selectionlength);
-
-
-            /* Map Buffer */
-            var mapLength = Of.RawMapTop + 4;
-
-            var mapChunk = Memory.ReadMemory(Of.MapStruct, mapLength);
-
-
-            /* Race Buffer */
-            var racelenght = _maxPlayerAmount * Of.RaceSize;
-
-            var raceChunk = Memory.ReadMemory(Of.RaceStruct, racelenght);
-
-
-            /* Structure Buffer */
-            //var structurelenght = GetStructureStructCount()*_of.StructureSize;
-
-            //var structureChunk = InteropCalls.Help_ReadProcessMemory(_hStarcraft, _of.StructureStruct, structurelenght);
-
-            #endregion
-
-
-            //_swmainwatch.Stop();
-            //Debug.WriteLine("Time to read the entire buffer: " + 1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
-
-            //_swmainwatch.Reset();
-            //_swmainwatch.Start();
-
-            #region Playerinformation
-
-            /* Create little race- array and catch all races */
-            var lRace = new List<PredefinedTypes.PlayerRace>();
-            for (var i = 0; i < _maxPlayerAmount; i++)
-                lRace.Add((PredefinedTypes.PlayerRace)raceChunk[i * Of.RaceSize]);
-
-            /* Counts the valid race- holders (Ai, Human) */
+            
+            // Counts the valid race- holders (Ai, Human) 
             var iRaceCounter = 0;
-            var lPlayer = new PredefinedTypes.PList();
+            var lPlayer = new PredefinedTypes.PList(_maxPlayerAmount);
 
             if (playerChunk.Length > 0)
             {
@@ -357,7 +373,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     if (p.Type == PredefinedTypes.PlayerType.Human ||
                         p.Type == PredefinedTypes.PlayerType.Ai)
                     {
-                        p.PlayerRace = lRace[iRaceCounter];
+                        p.PlayerRace = _lRace[iRaceCounter];
                         iRaceCounter++;
                     }
 
@@ -385,18 +401,19 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 if (Player.Count > 0)
                     Player.Clear();
             }
+        }
 
-            #endregion
+        private void GatherAndMapUnitData()
+        {
+            if (!CAccessUnits)
+                return;
 
-            //_swmainwatch.Stop();
-            //Debug.WriteLine("Time to map the Playerstruct: " + 1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
+            // Unit Buffer 
+            var pew = GetGUnitReadUnitCount();
+            var unitLength = pew * Of.UnitStructSize;
 
+            var unitChunk = Memory.ReadMemory(Of.UnitStruct, unitLength);
 
-
-            //_swmainwatch.Reset();
-            //_swmainwatch.Start();
-
-            #region UnitInformation
 
             if (unitChunk.Length > 0)
             {
@@ -453,7 +470,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     u.IsVisible = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Visible) > 0;
 
                     /* Reset owner */
-                    if (u.Owner >= Player.Count)
+                    if (Player != null &&
+                        u.Owner >= Player.Count)
                         u.Owner = 0;
 
 
@@ -496,8 +514,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
                     //Add the specific units to each player
+                    if (Player != null &&
+                        Player.Count > u.Owner)
                     Player[u.Owner].Units.Add(u);
-
+                    
 
                     //_swmainwatch.Stop();
                     //Debug.WriteLine("Unitstruct - Unitassigner: " + 1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
@@ -547,16 +567,19 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 if (Unit != null && Unit.Count > 0)
                     Unit.Clear();
             }
+        }
 
-            #endregion
+        private void GatherAndMapMapData()
+        {
+            if (!CAccessMapInfo)
+                return;
 
-            //_swmainwatch.Stop();
-            //Debug.WriteLine("Time to map the Unitstruct: " + 1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
+            // Map Buffer 
+            var mapLength = Of.RawMapTop + 4;
 
-            //_swmainwatch.Reset();
-            //_swmainwatch.Start();
+            var mapChunk = Memory.ReadMemory(Of.MapStruct, mapLength);
 
-            #region MapInformation
+
 
             var map = new PredefinedTypes.Map
             {
@@ -570,16 +593,17 @@ namespace AnotherSc2Hack.Classes.BackEnds
             map.PlayableHeight = map.Top - map.Bottom;
 
             Map = map;
+        }
 
-            #endregion
+        private void GatherAndMapSelectionData()
+        {
+            if (!CAccessSelection)
+                return;
 
-            //_swmainwatch.Stop();
-            //Debug.WriteLine("Time to map the Mapstruct: " +  1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
+            // Selection Buffer 
+            var selectionlength = GetGSelectionCount() * 4 + Of.UiRawSelectedIndex;
 
-            //_swmainwatch.Reset();
-            //_swmainwatch.Start();
-
-            #region Selection - NOT NEEDED
+            var selectionChunk = Memory.ReadMemory(Of.UiRawSelectionStruct, selectionlength);
 
 
             var realSelectionCount = selectionChunk.Length / 4 - 2;
@@ -617,16 +641,18 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
 
             Selection = lSelection;
+        }
 
-            #endregion
+        private void GatherAndMapGroupData()
+        {
+            if (!CAccessGroups)
+                return;
 
-            //_swmainwatch.Stop();
-            //Debug.WriteLine("Time to map the Selection: " +  1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
+            // Group Buffer 
+            var groupLenght = 11 * Of.RawGroupSize;
 
-            //_swmainwatch.Reset();
-            //_swmainwatch.Start();
+            var groupChunk = Memory.ReadMemory(Of.RawGroupBase, groupLenght);
 
-            #region Groups - NOT NEEDED
 
             var lGroups = new List<PredefinedTypes.Groups>();
 
@@ -671,16 +697,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
 
             Group = lGroups;
+        }
 
-            #endregion
-
-            //_swmainwatch.Stop();
-            //Debug.WriteLine("Time to map the Groups: " +  1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
-
-            //_swmainwatch.Reset();
-            //_swmainwatch.Start();
-
-            #region Gameinformation
+        private void GatherAndMapGameData()
+        {
+            if (!CAccessGameinfo)
+                return;
 
             var gInfo = new PredefinedTypes.Gameinformation
             {
@@ -692,17 +714,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 IsTeamcolor = GetGTeamcolor(),
                 ChatIsOpen = GetGChatIsOpen(),
                 //Style = GetGWindowStyle(),
-                ValidPlayerCount = HelpFunctions.GetValidPlayerCount(lPlayer),
+                ValidPlayerCount = HelpFunctions.GetValidPlayerCount(Player),
                 Pause = GetGPause()
             };
 
             Gameinfo = gInfo;
-
-            #endregion
-
-            //_swmainwatch.Stop();
-            //Debug.WriteLine("Time to map the Gameinfo struct: " + 1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
         }
+
+
+
 
         /* Method to assign the unitcommands (how many units are in queue, how is the 
          * completion percentage of that unit) */
