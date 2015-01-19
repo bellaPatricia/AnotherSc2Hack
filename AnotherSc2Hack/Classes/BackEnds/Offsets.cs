@@ -1692,6 +1692,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             //Unitinfo
             UnitStruct = (int)starcraft.MainModule.BaseAddress + 0x0369f580; //ok
 
+            UnitStructSize = 0x1C0;
+
             /* 4 Bytes */
             UnitTotal = (int)starcraft.MainModule.BaseAddress + 0x0369F540;
 
@@ -1727,7 +1729,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             /* 4 Bytes  */
             UnitMaxShield = 0x88C;
 
-            UnitStructSize = 0x1C0;
+            
 
             //Raw Unitdata
 
