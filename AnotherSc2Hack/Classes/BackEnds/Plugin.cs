@@ -15,7 +15,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <summary>
         /// The PluginPath (local)
         /// </summary>
-        public String PluginPath { get; private set; }
+        public string PluginPath { get; private set; }
 
         /// <summary>
         /// The Plugin itself
@@ -25,7 +25,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <summary>
         /// The hash which is created at construction
         /// </summary>
-        public String Md5Hash { get; private set; }
+        public string Md5Hash { get; private set; }
 
         /// <summary>
         /// Constructor
@@ -62,7 +62,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         private void InitCode()
         {
-            ImageLinks = new List<String>();
+            ImageLinks = new List<string>();
             Images = new List<Image>();
             Name = String.Empty;
             Description = String.Empty;
@@ -76,16 +76,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <summary>
         /// Name of plugin
         /// </summary>
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Destcription of plugin
         /// </summary>
-        public String Description { get; set; }
+        public string Description { get; set; }
         /// <summary>
         /// List of urls to Images
         /// </summary>
-        public List<String> ImageLinks { get; set; }
+        public List<string> ImageLinks { get; set; }
         /// <summary>
         /// List of images that need to be downloaded separately
         /// </summary>
@@ -97,7 +97,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <summary>
         /// Downloadlink of plugin
         /// </summary>
-        public String DownloadLink { get; set; }
+        public string DownloadLink { get; set; }
         /// <summary>
         /// Tells you if this update is really needed - unused
         /// </summary>
@@ -105,10 +105,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <summary>
         /// Path to the localplugin (if available) - unused
         /// </summary>
-        public String LocalPath { get; set; }
+        public string LocalPath { get; set; }
         /// <summary>
         /// Md5 checksum to compare plugins
         /// </summary>
-        public String Md5Hash { get; set; }
+        public string Md5Hash { get; set; }
     }
 }

@@ -6,10 +6,10 @@ namespace PluginInterface
 {
     public interface IPlugins
     {
-        String GetPluginName();
-        String GetPluginDescription();
+        string GetPluginName();
+        string GetPluginDescription();
         Version GetPluginVersion();
-        String GetFileLocation();
+        string GetFileLocation();
         Boolean GetRequiresMap();
         Boolean GetRequiresPlayer();
         Boolean GetRequiresUnit();

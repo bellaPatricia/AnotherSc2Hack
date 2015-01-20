@@ -51,7 +51,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return UpdatesAvailable;
         }
 
-        public String ShowApplicationUpdates()
+        public string ShowApplicationUpdates()
         {
             var sb = new StringBuilder();
 
@@ -68,7 +68,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return sb.ToString();
         }
 
-        private String DownloadApplicationVersioning(string url)
+        private string DownloadApplicationVersioning(string url)
         {
             var wc = new WebClient{Proxy = null};
             var strContent = wc.DownloadString(new Uri(url));
@@ -137,12 +137,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
     struct ApplicationVersioning
     {
         public Version ApplicationVersion { get; set; }
-        public String ApplicationUrl { get; set; }
-        public String ApplicationChanges { get; set; }
-        public String ApplicationCounter { get; set; }
+        public string ApplicationUrl { get; set; }
+        public string ApplicationChanges { get; set; }
+        public string ApplicationCounter { get; set; }
         public Version PluginInterfaceVersion { get; set; }
-        public String PluginInterfaceUrl { get; set; }
+        public string PluginInterfaceUrl { get; set; }
         public Version PredefinedTypesVersion { get; set; }
-        public String PredefinedTypesUrl { get; set; }
+        public string PredefinedTypesUrl { get; set; }
     }
 }

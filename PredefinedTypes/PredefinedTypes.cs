@@ -309,9 +309,9 @@ namespace Predefined
             public PlayerType Type { get; set; }
             public PlayerDifficulty Difficulty { get; set; }
             public Int32 NameLength { get; set; }
-            public String Name { get; set; }
+            public string Name { get; set; }
             public Color Color { get; set; }
-            public String ClanTag { get; set; }
+            public string ClanTag { get; set; }
             public Int32 Apm { get; set; }
             public Int32 Epm { get; set; }
             public Int32 ApmAverage { get; set; }
@@ -322,7 +322,7 @@ namespace Predefined
             public Int32 SupplyMin { get; set; }
             public Int32 SupplyMax { get; set; }
             public Int32 CurrentBuildings { get; set; }
-            public String AccountId { get; set; }
+            public string AccountId { get; set; }
             public Int32 ArmySupply { get; set; }
             public Int32 Minerals { get; set; }
             public Int32 Gas { get; set; }
@@ -496,8 +496,8 @@ namespace Predefined
             }
 
             public static Int32 ClassObjectCount { get; private set; }
-            public String Name { get; set; }
-            public String RawName { get; set; }
+            public string Name { get; set; }
+            public string RawName { get; set; }
             public Int32 NameLength { get; set; }
             public UnitId Id { get; set; }
             public float Size { get; set; }
@@ -565,8 +565,8 @@ namespace Predefined
             public Int32 MaximumEnergy;
             public UnitId Id;
             public Int32 NameLenght;
-            public String RawName;
-            public String Name;
+            public string RawName;
+            public string Name;
         };
 
         public struct UnitProduction
@@ -620,7 +620,7 @@ namespace Predefined
             public Gametype Type { get; set; }
             public Gamespeed Speed { get; set; }
             public WindowStyle Style { get; set; }
-            public String ChatInput { get; set; }
+            public string ChatInput { get; set; }
             public Boolean ChatIsOpen { get; set; }
             public Boolean IsTeamcolor { get; set; }
             public Int32 ValidPlayerCount { get; set; }
@@ -629,8 +629,8 @@ namespace Predefined
 
         public struct LeagueInfo
         {
-            public String LeagueName;
-            public String LeaguePlacement;
+            public string LeagueName;
+            public string LeaguePlacement;
             public Int32 Points;
             public Int32 RankInDivision;
         };

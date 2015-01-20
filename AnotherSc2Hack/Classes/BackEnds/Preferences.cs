@@ -4046,7 +4046,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         }
 
-        private static void WriteSubSetting(StreamWriter sw, object variable, String definition)
+        private static void WriteSubSetting(StreamWriter sw, object variable, string definition)
         {
             sw.WriteLine(";Type = " + variable.GetType());
             sw.WriteLine(definition + " = " + variable);
@@ -4054,7 +4054,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             //var Vars = (type.GetType())Convert.ChangeType(variable, variable.GetType());
         }
 
-        private static T ReadSubSetting<T>(T variable, String definition, String innerString)
+        private static T ReadSubSetting<T>(T variable, string definition, string innerString)
         {
             if (variable is bool)
             {
@@ -4151,10 +4151,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Int32 ProdTabHeight { get; set; }
         public Double ProdTabOpacity { get; set; }
         public Int32 ProdPictureSize { get; set; }
-        public String ProdTabFontName { get; set; }
-        public String ProdTogglePanel { get; set; }
-        public String ProdChangePositionPanel { get; set; }
-        public String ProdChangeSizePanel { get; set; }
+        public string ProdTabFontName { get; set; }
+        public string ProdTogglePanel { get; set; }
+        public string ProdChangePositionPanel { get; set; }
+        public string ProdChangeSizePanel { get; set; }
         public Boolean ProdTabShowUnits { get; set; }
         public Boolean ProdTabShowBuildings { get; set; }
         public Boolean ProdTabShowUpgrades { get; set; }
@@ -4181,7 +4181,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Int32 UnitPictureSize { get; set; }
         public Boolean UnitTabShowUnits { get; set; }
         public Boolean UnitTabShowBuildings { get; set; }
-        public String UnitTabFontName { get; set; }
+        public string UnitTabFontName { get; set; }
         public Boolean MaphackRemoveAi { get; set; }
         public Boolean MaphackRemoveAllie { get; set; }
         public Boolean MaphackRemoveReferee { get; set; }
@@ -4215,7 +4215,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Boolean ResourceRemoveAllie { get; set; }
         public Boolean ResourceRemoveLocalplayer { get; set; }
         public Boolean ResourceRemoveClanTag { get; set; }
-        public String ResourceFontName { get; set; }
+        public string ResourceFontName { get; set; }
         public Double ResourceOpacity { get; set; }
         public Int32 IncomePositionX { get; set; }
         public Int32 IncomePositionY { get; set; }
@@ -4226,7 +4226,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Boolean IncomeRemoveAllie { get; set; }
         public Boolean IncomeRemoveLocalplayer { get; set; }
         public Boolean IncomeRemoveClanTag { get; set; }
-        public String IncomeFontName { get; set; }
+        public string IncomeFontName { get; set; }
         public Double IncomeOpacity { get; set; }
         public Int32 ArmyPositionX { get; set; }
         public Int32 ArmyPositionY { get; set; }
@@ -4237,7 +4237,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Boolean ArmyRemoveAllie { get; set; }
         public Boolean ArmyRemoveLocalplayer { get; set; }
         public Boolean ArmyRemoveClanTag { get; set; }
-        public String ArmyFontName { get; set; }
+        public string ArmyFontName { get; set; }
         public Double ArmyOpacity { get; set; }
         public Int32 ApmPositionX { get; set; }
         public Int32 ApmPositionY { get; set; }
@@ -4248,56 +4248,56 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Boolean ApmRemoveAllie { get; set; }
         public Boolean ApmRemoveLocalplayer { get; set; }
         public Boolean ApmRemoveClanTag { get; set; }
-        public String ApmFontName { get; set; }
+        public string ApmFontName { get; set; }
         public Double ApmOpacity { get; set; }
         public Int32 WorkerPositionX { get; set; }
         public Int32 WorkerPositionY { get; set; }
         public Int32 WorkerWidth { get; set; }
         public Int32 WorkerHeight { get; set; }
-        public String WorkerFontName { get; set; }
+        public string WorkerFontName { get; set; }
         public Double WorkerOpacity { get; set; }
         public Int32 GlobalDataRefresh { get; set; }
         public Int32 GlobalDrawingRefresh { get; set; }
         public Boolean GlobalDrawOnlyInForeground { get; set; }
-        public String ResourceTogglePanel { get; set; }
-        public String ResourceChangePositionPanel { get; set; }
-        public String ResourceChangeSizePanel { get; set; }
+        public string ResourceTogglePanel { get; set; }
+        public string ResourceChangePositionPanel { get; set; }
+        public string ResourceChangeSizePanel { get; set; }
         public Keys ResourceHotkey1 { get; set; }
         public Keys ResourceHotkey2 { get; set; }
         public Keys ResourceHotkey3 { get; set; }
-        public String IncomeTogglePanel { get; set; }
-        public String IncomeChangePositionPanel { get; set; }
-        public String IncomeChangeSizePanel { get; set; }
+        public string IncomeTogglePanel { get; set; }
+        public string IncomeChangePositionPanel { get; set; }
+        public string IncomeChangeSizePanel { get; set; }
         public Keys IncomeHotkey1 { get; set; }
         public Keys IncomeHotkey2 { get; set; }
         public Keys IncomeHotkey3 { get; set; }
-        public String WorkerTogglePanel { get; set; }
-        public String WorkerChangePositionPanel { get; set; }
-        public String WorkerChangeSizePanel { get; set; }
+        public string WorkerTogglePanel { get; set; }
+        public string WorkerChangePositionPanel { get; set; }
+        public string WorkerChangeSizePanel { get; set; }
         public Keys WorkerHotkey1 { get; set; }
         public Keys WorkerHotkey2 { get; set; }
         public Keys WorkerHotkey3 { get; set; }
-        public String MaphackTogglePanel { get; set; }
-        public String MaphackChangePositionPanel { get; set; }
-        public String MaphackChangeSizePanel { get; set; }
+        public string MaphackTogglePanel { get; set; }
+        public string MaphackChangePositionPanel { get; set; }
+        public string MaphackChangeSizePanel { get; set; }
         public Keys MaphackHotkey1 { get; set; }
         public Keys MaphackHotkey2 { get; set; }
         public Keys MaphackHotkey3 { get; set; }
-        public String ApmTogglePanel { get; set; }
-        public String ApmChangePositionPanel { get; set; }
-        public String ApmChangeSizePanel { get; set; }
+        public string ApmTogglePanel { get; set; }
+        public string ApmChangePositionPanel { get; set; }
+        public string ApmChangeSizePanel { get; set; }
         public Keys ApmHotkey1 { get; set; }
         public Keys ApmHotkey2 { get; set; }
         public Keys ApmHotkey3 { get; set; }
-        public String ArmyTogglePanel { get; set; }
-        public String ArmyChangePositionPanel { get; set; }
-        public String ArmyChangeSizePanel { get; set; }
+        public string ArmyTogglePanel { get; set; }
+        public string ArmyChangePositionPanel { get; set; }
+        public string ArmyChangeSizePanel { get; set; }
         public Keys ArmyHotkey1 { get; set; }
         public Keys ArmyHotkey2 { get; set; }
         public Keys ArmyHotkey3 { get; set; }
-        public String UnitTogglePanel { get; set; }
-        public String UnitChangePositionPanel { get; set; }
-        public String UnitChangeSizePanel { get; set; }
+        public string UnitTogglePanel { get; set; }
+        public string UnitChangePositionPanel { get; set; }
+        public string UnitChangeSizePanel { get; set; }
         public Keys UnitHotkey1 { get; set; }
         public Keys UnitHotkey2 { get; set; }
         public Keys UnitHotkey3 { get; set; }
@@ -4349,6 +4349,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Keys WorkerAutomationHotkey1 { get; set; }
         public Keys WorkerAutomationHotkey2 { get; set; }
         public Keys WorkerAutomationHotkey3 { get; set; }
-        public String GlobalLanguage { get; set; }
+        public string GlobalLanguage { get; set; }
     };
 }

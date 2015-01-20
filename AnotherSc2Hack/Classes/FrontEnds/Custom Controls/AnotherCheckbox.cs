@@ -31,7 +31,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             Right
         };
 
-        private String _displayText = string.Empty;
+        private string _displayText = String.Empty;
 
         private readonly Pen _pInactiveBpxBorder = new Pen(new SolidBrush(Color.FromArgb(193, 193, 193)));
         private readonly Pen _pActiveBpxBorder = new Pen(new SolidBrush(Color.FromArgb(0, 149, 221)));
@@ -44,7 +44,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
                 CheckedChanged(o, e);
         }
 
-        public String DisplayText
+        public string DisplayText
         {
             get { return _displayText;  }
             set

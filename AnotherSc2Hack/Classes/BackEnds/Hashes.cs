@@ -31,7 +31,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             Sha256,
         };
 
-        public static String HashFromFile(String file, HashAlgorithm algorithm)
+        public static string HashFromFile(string file, HashAlgorithm algorithm)
         {
             switch (algorithm)
             {
@@ -51,7 +51,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
         }
 
-        private static String Md5FromFile(String file)
+        private static string Md5FromFile(string file)
         {
             MD5 md5 = new MD5CryptoServiceProvider();
             FileStream fs = File.OpenRead(file);
@@ -63,7 +63,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return BitConverter.ToString(buffer).Replace("-", "").ToUpper();
         }
 
-        private static String Sha1FromFile(String file)
+        private static string Sha1FromFile(string file)
         {
             SHA1 md5 = new SHA1CryptoServiceProvider();
             FileStream fs = File.OpenRead(file);
@@ -75,7 +75,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return BitConverter.ToString(buffer).Replace("-", "").ToUpper();
         }
 
-        private static String Sha256FromFile(String file)
+        private static string Sha256FromFile(string file)
         {
             SHA256 md5 = new SHA256CryptoServiceProvider();
             FileStream fs = File.OpenRead(file);

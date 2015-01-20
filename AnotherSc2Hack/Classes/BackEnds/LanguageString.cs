@@ -9,26 +9,26 @@ namespace AnotherSc2Hack.Classes.BackEnds
     
     public class LanguageString
     {
-        public String Text { get; set; }
-        public String Name { get; set; }
+        public string Text { get; set; }
+        public string Name { get; set; }
 
         public LanguageString()
         {
             
         }
 
-        public LanguageString(String text)
+        public LanguageString(string text)
         {
             Text = text;
         }
 
-        public LanguageString(String text, String name)
+        public LanguageString(string text, string name)
         {
             Text = text;
             Name = name;
         }
 
-        public String LanguageFile
+        public string LanguageFile
         {
             get { return _languageFile; }
             set

@@ -16,16 +16,16 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
 {
     public partial class MainWindow : Form
     {
-        public static String StrPluginFolder = Application.StartupPath + "\\Plugins\\";
-        public String StrOnlinePath =
+        public static string StrPluginFolder = Application.StartupPath + "\\Plugins\\";
+        public string StrOnlinePath =
             "https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Sc2Hack_Version";
 
         private Font _fBold = new Font("Arial", 12, FontStyle.Bold);
         private Font _fRegular = new Font("Arial", 10, FontStyle.Regular);
         private string _strCurrentFile = @"AnotherSc2Hack.exe";
-        private String _strPathToChanges = String.Empty;
-        private String _strPathToCounter = String.Empty;
-        private String _strPathToExecutable = String.Empty;
+        private string _strPathToChanges = String.Empty;
+        private string _strPathToCounter = String.Empty;
+        private string _strPathToExecutable = String.Empty;
         private Version _vCurrentVersion;
         private Version _vOnlineVersion;
 
@@ -36,7 +36,7 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
 
         private class VersionFile
         {
-            public String File { get; set; }
+            public string File { get; set; }
             public Version Version { get; set; }
         };
 
@@ -458,7 +458,7 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             /* List all Plugins */
             var strPlugins = Directory.GetFiles(StrPluginFolder, "*.exe");
             var strTmpPlugins = Directory.GetFiles(StrPluginFolder, "*.dll");
-            var lTmpPlugins = new List<String>();
+            var lTmpPlugins = new List<string>();
             foreach (var s in strPlugins)
                 lTmpPlugins.Add(s);
 
@@ -642,7 +642,7 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             /* List all Plugins */
             var strPlugins = Directory.GetFiles(StrPluginFolder, "*.exe");
             var strTmpPlugins = Directory.GetFiles(StrPluginFolder, "*.dll");
-            var lTmpPlugins = new List<String>();
+            var lTmpPlugins = new List<string>();
             foreach (var s in strPlugins)
                 lTmpPlugins.Add(s);
 
@@ -736,12 +736,12 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
 
         }
 
-        public void Logger(String message)
+        public void Logger(string message)
         {
             rtbLog.Text += message + "\n";
         }
 
-        public void Logger(String message, params Object[] obs)
+        public void Logger(string message, params Object[] obs)
         {
             var strResult = message;
 
@@ -759,7 +759,7 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
 
     public static class FileGhosting
     {
-        public static List<String> Initialize(List<String> files)
+        public static List<string> Initialize(List<string> files)
         {
             var lFiles = new List<string>();
 
@@ -779,7 +779,7 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             return lFiles;
         }
 
-        public static void Finalize(List<String> files)
+        public static void Finalize(List<string> files)
         {
             foreach (var file in files)
                 File.Delete(file);
@@ -788,9 +788,9 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
 
     public class DataCompare
     {
-        public String StrLocalFilePath { get; set; }
+        public string StrLocalFilePath { get; set; }
         public Version VerLocalFileVersion { get; set; }
-        public String StrOnlineFilePath { get; set; }
+        public string StrOnlineFilePath { get; set; }
         public Version VerOnlineFileVersion { get; set; }
     }
 
@@ -803,7 +803,7 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             InitCode();
         }
 
-        public Plugin(string name, string desc, List<String> images, Version version, bool reqUpdate, string localpath)
+        public Plugin(string name, string desc, List<string> images, Version version, bool reqUpdate, string localpath)
         {
             Name = name;
             Description = desc;
@@ -815,7 +815,7 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
 
         private void InitCode()
         {
-            ImageLinks = new List<String>();
+            ImageLinks = new List<string>();
             Name = String.Empty;
             Description = String.Empty;
             Version = new Version(0, 0, 0, 0);
@@ -823,13 +823,13 @@ namespace Sc2Hack_UpdateManager.Classes.Fontend
             LocalPath = string.Empty;
         }
 
-        public String Name { get; set; }
-        public String Description { get; set; }
-        public List<String> ImageLinks { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public List<string> ImageLinks { get; set; }
         public Version Version { get; set; }
-        public String DownloadLink { get; set; }
+        public string DownloadLink { get; set; }
         public Boolean RequiresUpdate { get; set; }
-        public String LocalPath { get; set; }
+        public string LocalPath { get; set; }
     }
 
     public class RemoteLoader : MarshalByRefObject

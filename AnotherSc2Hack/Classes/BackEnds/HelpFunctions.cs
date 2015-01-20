@@ -89,7 +89,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
         }
 
-        public static String SetWindowTitle()
+        public static string SetWindowTitle()
         {
             var rnd = new Random();
 
