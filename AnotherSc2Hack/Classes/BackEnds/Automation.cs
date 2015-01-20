@@ -12,9 +12,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 {
     class DrawPanel : Form
     {
-        public String DrawText { get; set; }
+        public string DrawText { get; set; }
 
-        private String _strDefaultString = "Active";
+        private string _strDefaultString = "Active";
         private readonly System.Windows.Forms.Timer _tmrMainTick = new System.Windows.Forms.Timer();
 
         public DrawPanel()

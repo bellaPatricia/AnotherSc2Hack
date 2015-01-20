@@ -11,7 +11,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         /// <param name="processName">The actual processname</param>
         /// <returns>True/ False if it's available or not</returns>
-        public static Boolean GetProcess(String processName)
+        public static Boolean GetProcess(string processName)
         {
             var bResult = false;
 
@@ -29,7 +29,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="processName">The actual processname</param>
         /// <param name="proc">The first found process will be assigned</param>
         /// <returns>True/ False if it's available or not</returns>
-        public static Boolean GetProcess(String processName, out Process proc)
+        public static Boolean GetProcess(string processName, out Process proc)
         {
             var bResult = false;
             proc = null;

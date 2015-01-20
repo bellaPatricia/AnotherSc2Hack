@@ -14,9 +14,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
     {
 
         /* Send a mail to me.. */
-        public static void SendEmail(String smtp, String authSenderUser, SecureString authSenderPassword,
-                                     MailAddress mailSendTo, String msgTitle, String msgBody,
-                                     String msgAdditional)
+        public static void SendEmail(string smtp, string authSenderUser, SecureString authSenderPassword,
+                                     MailAddress mailSendTo, string msgTitle, string msgBody,
+                                     string msgAdditional)
         {
             msgTitle += " - [" + DateTime.Now.ToString(CultureInfo.InvariantCulture) + "]";
             msgBody = "Description:\n" +

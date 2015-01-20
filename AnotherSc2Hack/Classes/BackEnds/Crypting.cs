@@ -18,7 +18,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 {
     class Crypting
     {
-        public static String CreateXor(String strLine)
+        public static string CreateXor(string strLine)
         {
             var strResult = String.Empty;
 
@@ -35,7 +35,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return strResult;
         }
 
-        public static String CreateXor(String strLine, Int32 iSign)
+        public static string CreateXor(string strLine, Int32 iSign)
         {
             var strResult = String.Empty;
 
@@ -52,9 +52,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return strResult;
         }
 
-        public static String CreateSha1(String strLine)
+        public static string CreateSha1(string strLine)
         {
-            String strResult = String.Empty;
+            var strResult = String.Empty;
 
             SHA1 sha = new SHA1CryptoServiceProvider();
 
@@ -71,7 +71,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return strResult;
         }
 
-        public static String CreateMd5(FileStream fsSourcefile)
+        public static string CreateMd5(FileStream fsSourcefile)
         {
             MD5 md5 = new MD5CryptoServiceProvider();
 

@@ -288,7 +288,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="length">The amount of bytes to read</param>
         /// <param name="enc">The Encoding (like UTF8 or ASCII)</param>
         /// <returns>Your wanted String</returns>
-        public String ReadString<T>(T address, int length, Encoding enc)
+        public string ReadString<T>(T address, int length, Encoding enc)
         {
             var result = String.Empty;
 
@@ -437,7 +437,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="input">The data you want to put into memory</param>
         /// <param name="enc">The kind of encoding used to convert the string into a bytebuffer</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteString<T>(T address, String input, Encoding enc)
+        public Boolean WriteString<T>(T address, string input, Encoding enc)
         {
             var adr = CastToIntPtr(address);
 
