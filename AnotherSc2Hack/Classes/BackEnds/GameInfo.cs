@@ -299,18 +299,24 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         public void DoMassiveScan()
         {
-            //_swmainwatch.Reset();
-            //_swmainwatch.Start();
+            
 
             GatherAndMapPlayerData();
+
+            _swmainwatch.Reset();
+            _swmainwatch.Start();
+
             GatherAndMapUnitData();
+
+            _swmainwatch.Stop();
+            Console.WriteLine(1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency);
+            
             GatherAndMapMapData();
             GatherAndMapSelectionData();
             GatherAndMapGroupData();
             GatherAndMapGameData();
 
-           // _swmainwatch.Stop();
-           // Console.WriteLine("Time: " + 1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency + " µs");
+            
 
         }
 
@@ -409,22 +415,20 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 return;
 
             // Unit Buffer 
-            var pew = GetGUnitReadUnitCount();
-            var unitLength = pew * Of.UnitStructSize;
+            var iAmountOfUnits = GetGUnitReadUnitCount();
+            var unitLength = iAmountOfUnits * Of.UnitStructSize;
 
             var unitChunk = Memory.ReadMemory(Of.UnitStruct, unitLength);
 
 
             if (unitChunk.Length > 0)
             {
-                var realUnitCount = unitChunk.Length / Of.UnitStructSize;
-
-                if (realUnitCount <= 0)
+                if (iAmountOfUnits <= 0)
                     _lUnitAssigner.Clear();
 
 
-                var lUnit = new List<PredefinedTypes.Unit>();
-                for (var i = 0; i < realUnitCount; i++)
+                var lUnit = new List<PredefinedTypes.Unit>(iAmountOfUnits);
+                for (var i = 0; i < iAmountOfUnits; i++)
                 {
                     //_swmainwatch.Reset();
                     //_swmainwatch.Start();
