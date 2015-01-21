@@ -15,12 +15,7 @@ Plugins/
 
 ### VS crap
 *.pdb
+*.suo
 
 ### ReSharper settings
 *.DotSettings.user
-
-
-# Include #
-###########
-!PluginInterface.dll
-!PredefinedTypes.dll
