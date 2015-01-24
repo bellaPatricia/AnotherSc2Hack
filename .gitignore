@@ -12,6 +12,7 @@ Plugins/
 *.dat
 *.exe
 *.dll
+*.xml
 
 ### VS crap
 *.pdb
