@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using PredefinedTypes = Predefined.PredefinedData;
 using System.Diagnostics;
+using System.Xml;
+using AnotherSc2Hack.Classes.BackEnds.Preference;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -20,8 +22,59 @@ namespace AnotherSc2Hack.Classes.BackEnds
             ReadPreferences();
         }
 
+        private void WriteXmlFile()
+        {
+            var xmlSettings = new XmlWriterSettings();
+            xmlSettings.Indent = true;
+
+            using (var xmlWriter = XmlWriter.Create(Constants.StrXmlPreferences, xmlSettings))
+            {
+                xmlWriter.WriteComment("AnotherSc2 Hack - Settings file");
+                xmlWriter.WriteComment("This file contains various settings for the software");
+                xmlWriter.WriteComment("Please don't mess it up!");
+
+                xmlWriter.WriteStartElement("AnotherSc2Hack");
+
+                xmlWriter.WriteStartElement("GuiSettings");
+                xmlWriter.WriteElementString("GlobalDataRefresh", GlobalDataRefresh.ToString());
+                xmlWriter.WriteElementString("GlobalDrawingRefresh", GlobalDrawingRefresh.ToString());
+                xmlWriter.WriteElementString("GlobalLanguage", GlobalLanguage);
+                xmlWriter.WriteElementString("GlobalChangeSizeAndPosition", GlobalChangeSizeAndPosition.ToString());
+                xmlWriter.WriteElementString("GlobalOnlyDrawWhenUnpaused", GlobalOnlyDrawWhenUnpaused.ToString());
+                xmlWriter.WriteElementString("GlobalDrawOnlyInForeground", GlobalDrawOnlyInForeground.ToString());
+                xmlWriter.WriteEndElement();
+
+                xmlWriter.WriteStartElement("OverlayResource");
+                xmlWriter.WriteElementString("ResourceTogglePanel", ResourceTogglePanel);
+                xmlWriter.WriteElementString("ResourceChangePositionPanel", ResourceChangePositionPanel);
+                xmlWriter.WriteElementString("ResourceChangeSizePanel", ResourceChangeSizePanel);
+                xmlWriter.WriteElementString("ResourceFontName", ResourceFontName);
+                xmlWriter.WriteElementString("ResourceDrawBackground", ResourceDrawBackground.ToString());
+                xmlWriter.WriteElementString("ResourceHeight", ResourceHeight.ToString());
+                xmlWriter.WriteElementString("ResourceHotkey1", ResourceHotkey1.ToString());
+                xmlWriter.WriteElementString("ResourceHotkey2", ResourceHotkey2.ToString());
+                xmlWriter.WriteElementString("ResourceHotkey3", ResourceHotkey3.ToString());
+                xmlWriter.WriteElementString("ResourceOpacity", ResourceOpacity.ToString(CultureInfo.InvariantCulture));
+                xmlWriter.WriteElementString("ResourcePositionX", ResourcePositionX.ToString());
+                xmlWriter.WriteElementString("ResourcePositionY", ResourcePositionY.ToString());
+                xmlWriter.WriteElementString("ResourceRemoveAi", ResourceRemoveAi.ToString());
+                xmlWriter.WriteElementString("ResourceRemoveAllie", ResourceRemoveAllie.ToString());
+                xmlWriter.WriteElementString("ResourceRemoveClanTag", ResourceRemoveClanTag.ToString());
+                xmlWriter.WriteElementString("ResourceRemoveLocalplayer", ResourceRemoveLocalplayer.ToString());
+                xmlWriter.WriteElementString("ResourceRemoveNeutral", ResourceRemoveNeutral.ToString());
+                xmlWriter.WriteElementString("ResourceWidth", ResourceWidth.ToString());
+                xmlWriter.WriteEndElement();
+
+
+                xmlWriter.WriteEndDocument();
+                xmlWriter.Flush();
+
+            }
+        }
+
         public void WritePreferences()
         {
+            new PreferenceManager().Write();
 
             if (File.Exists(Constants.StrDummyPref))
                 File.Delete(Constants.StrDummyPref);
