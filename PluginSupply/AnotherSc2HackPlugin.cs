@@ -656,12 +656,26 @@ namespace Plugin.Extensions
 
         public Control GetPanelSettingsData()
         {
-            Panel pnl = new Panel();
-            pnl.BackColor = Color.DeepSkyBlue;
-            pnl.Size = new Size(200,200);
-            pnl.Location = new Point(0, 0);
+            var btn = new Button();
 
-            return pnl;
+            btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btn.Location = new System.Drawing.Point(20, 200);
+            btn.Name = "btnReposition";
+            btn.Size = new System.Drawing.Size(284, 32);
+            btn.TabIndex = 7;
+            btn.Text = "Reset panelposition and -size";
+            btn.UseVisualStyleBackColor = false;
+            btn.Click += delegate(object sender, EventArgs e)
+            {
+                MessageBox.Show("Lalala");
+            };
+            btn.Parent = null;
+
+
+            return btn;
         }
 
         public string GetPluginEntryName()
@@ -672,6 +686,11 @@ namespace Plugin.Extensions
         public void SetStarcraftProcess(Process sc2Process)
         {
             //
+        }
+
+        public Image GetPluginIcon()
+        {
+            return null;
         }
     }
 }

@@ -579,71 +579,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Event methods
 
-        private void cpnlApplication_Click(object sender, EventArgs e)
+        private void cpnl_Click(object sender, EventArgs e)
         {
-            lblTabname.Text = "Application";
-
-            pnlApplication.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
+            var panel = sender as ClickablePanel;
+            if (panel != null)
             {
-                if (pnl == pnlApplication)
-                    continue;
+                lblTabname.Text = panel.DisplayText;
 
-                if (pnl.GetType() == typeof(Panel))
+                if (panel.SettingsPanel != null)
+                    panel.SettingsPanel.Visible = true;
+
+
+                foreach (var pnl in pnlMainArea.Controls)
                 {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
+                    if (pnl == panel.SettingsPanel)
+                        continue;
 
-        private void cpnlOverlays_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Overlays";
-
-            pnlOverlays.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlOverlays)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
-
-        private void cpnlPlugins_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Plugins";
-
-            pnlPlugins.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlPlugins)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
-
-        private void cpnlDebug_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Debug";
-
-
-            pnlDebug.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlDebug)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
+                    if (pnl.GetType() == typeof(Panel))
+                    {
+                        ((Panel)pnl).Visible = false;
+                    }
                 }
             }
         }
@@ -1659,15 +1614,36 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (localPlugins.Plugin.GetPluginEntryName() != null && localPlugins.Plugin.GetPluginEntryName().Length > 0)
                 {
                     var cntrls = pnlLeftSelection.Controls;
-                    var iHeight = 0;
+                    var iHeight = cpnlApplication.Top;
 
                     foreach (Control cntrl in cntrls)
                     {
                         iHeight += cntrl.Height;
                     }
 
+                    #region Create Panel
 
-                    var click = new ClickablePanel();                   
+                    var panel = new Panel();
+
+                    panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+                    panel.Location = new System.Drawing.Point(0, 80);
+                    panel.Name = "";
+                    panel.Size = new System.Drawing.Size(1029, 450);
+                    panel.TabIndex = 0;
+
+
+                    //panel.Controls.Add(control);
+
+                    pnlMainArea.Controls.Add(panel);
+
+                    #endregion
+
+                    #region Clickable Panel
+
+                    var click = new ClickablePanel();
+                    click.Parent = pnlLeftSelection;
 
                     click.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
                     click.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
@@ -1682,14 +1658,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     click.IsClicked = false;
                     click.IsHovering = false;
                     click.Location = new System.Drawing.Point(0, iHeight);
-                    click.Name = localPlugins.GetHashCode().ToString();
+                    click.Name = null;
                     click.Size = new System.Drawing.Size(152, 40);
+
+                    click.Icon = localPlugins.Plugin.GetPluginIcon() ?? Properties.Resources.Icon_DefaultPluginIcon;
+
                     click.TabIndex = 0;
                     click.TextSize = 11F;
-                    
-                    click.Click += new System.EventHandler(this.cpnlApplication_Click);
+                    click.SettingsPanel = panel;
 
-                    pnlLeftSelection.Controls.Add(click);
+                    click.Click += new System.EventHandler(this.cpnl_Click);
+
+                    #endregion
+
+
                 }
             }
         }
@@ -2029,7 +2011,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 foreach (var pluginFile in pluginFiles)
                 {
+                    try
+                    {
+
+                    
                     File.Delete(pluginFile);
+                    }
+
+                    catch
+                    {
+                        MessageBox.Show("Can't delete the plugin!\n" +
+                                        "Please remove it manually from here:\n" +
+                                        pluginFile);
+                    }
                 }
             }
 
