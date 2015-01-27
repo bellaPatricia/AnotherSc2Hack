@@ -652,5 +652,26 @@ namespace Plugin.Extensions
         {
             return new Version(FileVersionInfo.GetVersionInfo(GetFileLocation()).FileVersion);
         }
+
+
+        public Control GetPanelSettingsData()
+        {
+            Panel pnl = new Panel();
+            pnl.BackColor = Color.DeepSkyBlue;
+            pnl.Size = new Size(200,200);
+            pnl.Location = new Point(0, 0);
+
+            return pnl;
+        }
+
+        public string GetPluginEntryName()
+        {
+            return "Plugin Supply";
+        }
+
+        public void SetStarcraftProcess(Process sc2Process)
+        {
+            //
+        }
     }
 }

@@ -1652,6 +1652,46 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             {
                 item.Checked = true;
             }
+
+            //Init the clickable panels for the plugins (if needed)
+            foreach (var localPlugins in _lPlugins)
+            {
+                if (localPlugins.Plugin.GetPluginEntryName() != null && localPlugins.Plugin.GetPluginEntryName().Length > 0)
+                {
+                    var cntrls = pnlLeftSelection.Controls;
+                    var iHeight = 0;
+
+                    foreach (Control cntrl in cntrls)
+                    {
+                        iHeight += cntrl.Height;
+                    }
+
+
+                    var click = new ClickablePanel();                   
+
+                    click.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+                    click.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+                    click.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+                    click.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+                    click.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+                    click.DisplayText = localPlugins.Plugin.GetPluginEntryName();
+                    click.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    click.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+                    click.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+                    click.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+                    click.IsClicked = false;
+                    click.IsHovering = false;
+                    click.Location = new System.Drawing.Point(0, iHeight);
+                    click.Name = localPlugins.GetHashCode().ToString();
+                    click.Size = new System.Drawing.Size(152, 40);
+                    click.TabIndex = 0;
+                    click.TextSize = 11F;
+                    
+                    click.Click += new System.EventHandler(this.cpnlApplication_Click);
+
+                    pnlLeftSelection.Controls.Add(click);
+                }
+            }
         }
 
         private void PluginsLocalLoadedPluginsRefresh()

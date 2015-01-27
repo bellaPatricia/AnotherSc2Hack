@@ -36,6 +36,7 @@
       <HintPath>..\Sc2Hack\bin\Release\PredefinedTypes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PluginInterface.cs" />
