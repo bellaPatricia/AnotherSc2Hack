@@ -76,7 +76,7 @@ namespace PluginInterface
         /// Shows the plugin-icon before the pluginname (if you want to to show off in the host)
         /// </summary>
         /// <returns></returns>
-        Image GetPluginIcon();
+        byte[] GetPluginIcon();
 
         /// <summary>
         /// Returns the pluginversion to the host application

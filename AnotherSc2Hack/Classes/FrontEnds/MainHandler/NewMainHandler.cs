@@ -1614,11 +1614,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (localPlugins.Plugin.GetPluginEntryName() != null && localPlugins.Plugin.GetPluginEntryName().Length > 0)
                 {
                     var cntrls = pnlLeftSelection.Controls;
-                    var iHeight = cpnlApplication.Top;
+                    var iHeight = cpnlApplication.Height;
 
-                    foreach (Control cntrl in cntrls)
+                    foreach (var cntrl in cntrls)
                     {
-                        iHeight += cntrl.Height;
+                        var cont = cntrl as ClickablePanel;
+
+                        if (cont != null)
+                            iHeight += cont.Height;
                     }
 
                     #region Create Panel
@@ -1645,29 +1648,29 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     var click = new ClickablePanel();
                     click.Parent = pnlLeftSelection;
 
-                    click.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
-                    click.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
-                    click.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-                    click.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-                    click.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+                    click.ActiveBackgroundColor = Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+                    click.ActiveBorderPosition = ActiveBorderPosition.Left;
+                    click.ActiveForegroundColor = Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+                    click.BackColor = Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+                    click.DisplayColor = Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
                     click.DisplayText = localPlugins.Plugin.GetPluginEntryName();
-                    click.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    click.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-                    click.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
-                    click.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+                    click.Font = new Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    click.HoverBackgroundColor = Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+                    click.InactiveBackgroundColor = Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+                    click.InactiveForegroundColor = Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
                     click.IsClicked = false;
                     click.IsHovering = false;
-                    click.Location = new System.Drawing.Point(0, iHeight);
+                    click.Location = new Point(0, iHeight);
                     click.Name = null;
-                    click.Size = new System.Drawing.Size(152, 40);
+                    click.Size = new Size(152, 40);
 
-                    click.Icon = localPlugins.Plugin.GetPluginIcon() ?? Properties.Resources.Icon_DefaultPluginIcon;
+                    click.Icon = HelpFunctions.ByteArrayToImage(localPlugins.Plugin.GetPluginIcon()) ?? Properties.Resources.Icon_DefaultPluginIcon;
 
                     click.TabIndex = 0;
                     click.TextSize = 11F;
                     click.SettingsPanel = panel;
 
-                    click.Click += new System.EventHandler(this.cpnl_Click);
+                    click.Click += cpnl_Click;
 
                     #endregion
 
