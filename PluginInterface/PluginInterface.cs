@@ -70,7 +70,7 @@ namespace PluginInterface
         /// The container (and all it's controls) you want to send to the host
         /// </summary>
         /// <returns>The container which holds various controls</returns>
-        Control GetPanelSettingsData();
+        System.Windows.Controls.UserControl GetPanelSettingsData();
 
         /// <summary>
         /// Shows the plugin-icon before the pluginname (if you want to to show off in the host)

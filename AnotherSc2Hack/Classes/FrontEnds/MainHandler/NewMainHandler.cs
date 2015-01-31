@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
@@ -1573,7 +1574,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                             tmpAppDomain.CreateInstanceFromAndUnwrap(files[i], "Plugin.Extensions.AnotherSc2HackPlugin");
 
                     if (_lPlugins.Exists(x => x.Plugin.GetPluginName() == foo.GetPluginName()))
-                       throw new TypeLoadException("Fuck you");
+                       throw new TypeLoadException("Fuck you"); //:D
 
 
 
@@ -1635,9 +1636,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     panel.Name = "";
                     panel.Size = new System.Drawing.Size(1029, 450);
                     panel.TabIndex = 0;
-
-
-                    //panel.Controls.Add(control);
 
                     pnlMainArea.Controls.Add(panel);
 

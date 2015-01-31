@@ -32,31 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMainHandler));
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
             this.pbMainProgress = new System.Windows.Forms.ProgressBar();
-            this.pnlMainArea = new System.Windows.Forms.Panel();
-            this.lblTabname = new System.Windows.Forms.Label();
-            this.pnlApplication = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.chBxLanguage = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnReposition = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pnlPlugins = new System.Windows.Forms.Panel();
-            this.btnPluginsInstallPlugin = new System.Windows.Forms.Button();
-            this.lblPluginsImageposition = new System.Windows.Forms.Label();
-            this.btnPluginsImagesNext = new System.Windows.Forms.Button();
-            this.btnPluginsImagesPrevious = new System.Windows.Forms.Button();
-            this.pcbPluginsImages = new System.Windows.Forms.PictureBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
-            this.cmPluginInstall = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsPluginInstallPlugin = new System.Windows.Forms.ToolStripMenuItem();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cmPluginRemove = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsPluginRemove = new System.Windows.Forms.ToolStripMenuItem();
-            this.label5 = new System.Windows.Forms.Label();
             this.pnlDebug = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -76,8 +51,33 @@
             this.btnDebugPlayerForward = new System.Windows.Forms.Button();
             this.btnDebugPlayerBack = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.pnlApplication = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.chBxLanguage = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnReposition = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlOverlays = new System.Windows.Forms.Panel();
             this.pnlPanelContainer = new System.Windows.Forms.Panel();
+            this.pnlPlugins = new System.Windows.Forms.Panel();
+            this.btnPluginsInstallPlugin = new System.Windows.Forms.Button();
+            this.lblPluginsImageposition = new System.Windows.Forms.Label();
+            this.btnPluginsImagesNext = new System.Windows.Forms.Button();
+            this.btnPluginsImagesPrevious = new System.Windows.Forms.Button();
+            this.pcbPluginsImages = new System.Windows.Forms.PictureBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
+            this.cmPluginInstall = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsPluginInstallPlugin = new System.Windows.Forms.ToolStripMenuItem();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cmPluginRemove = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsPluginRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pnlMainArea = new System.Windows.Forms.Panel();
+            this.lblTabname = new System.Windows.Forms.Label();
             this.btnLaunchProduction = new System.Windows.Forms.Button();
             this.btnLaunchUnit = new System.Windows.Forms.Button();
             this.btnLaunchMaphack = new System.Windows.Forms.Button();
@@ -132,15 +132,15 @@
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlLeftSelection.SuspendLayout();
-            this.pnlMainArea.SuspendLayout();
+            this.pnlDebug.SuspendLayout();
             this.pnlApplication.SuspendLayout();
+            this.pnlOverlays.SuspendLayout();
+            this.pnlPanelContainer.SuspendLayout();
             this.pnlPlugins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).BeginInit();
             this.cmPluginInstall.SuspendLayout();
             this.cmPluginRemove.SuspendLayout();
-            this.pnlDebug.SuspendLayout();
-            this.pnlOverlays.SuspendLayout();
-            this.pnlPanelContainer.SuspendLayout();
+            this.pnlMainArea.SuspendLayout();
             this.pnlBottomStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,301 +168,6 @@
             this.pbMainProgress.Name = "pbMainProgress";
             this.pbMainProgress.Size = new System.Drawing.Size(152, 10);
             this.pbMainProgress.TabIndex = 5;
-            // 
-            // pnlMainArea
-            // 
-            this.pnlMainArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.pnlMainArea.Controls.Add(this.lblTabname);
-            this.pnlMainArea.Controls.Add(this.pnlApplication);
-            this.pnlMainArea.Controls.Add(this.pnlPlugins);
-            this.pnlMainArea.Controls.Add(this.pnlDebug);
-            this.pnlMainArea.Controls.Add(this.pnlOverlays);
-            this.pnlMainArea.Location = new System.Drawing.Point(152, 0);
-            this.pnlMainArea.Name = "pnlMainArea";
-            this.pnlMainArea.Size = new System.Drawing.Size(1029, 531);
-            this.pnlMainArea.TabIndex = 6;
-            this.pnlMainArea.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMainArea_Paint);
-            // 
-            // lblTabname
-            // 
-            this.lblTabname.AutoSize = true;
-            this.lblTabname.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.lblTabname.Location = new System.Drawing.Point(15, 15);
-            this.lblTabname.Name = "lblTabname";
-            this.lblTabname.Size = new System.Drawing.Size(118, 30);
-            this.lblTabname.TabIndex = 1;
-            this.lblTabname.Text = "Application";
-            // 
-            // pnlApplication
-            // 
-            this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlApplication.Controls.Add(this.label17);
-            this.pnlApplication.Controls.Add(this.chBxLanguage);
-            this.pnlApplication.Controls.Add(this.label4);
-            this.pnlApplication.Controls.Add(this.chBxOnlyDrawInForeground);
-            this.pnlApplication.Controls.Add(this.btnReposition);
-            this.pnlApplication.Controls.Add(this.ktxtReposition);
-            this.pnlApplication.Controls.Add(this.label3);
-            this.pnlApplication.Controls.Add(this.ntxtGraphicsRefresh);
-            this.pnlApplication.Controls.Add(this.ntxtMemoryRefresh);
-            this.pnlApplication.Controls.Add(this.label2);
-            this.pnlApplication.Controls.Add(this.label1);
-            this.pnlApplication.Location = new System.Drawing.Point(0, 80);
-            this.pnlApplication.Name = "pnlApplication";
-            this.pnlApplication.Size = new System.Drawing.Size(1029, 450);
-            this.pnlApplication.TabIndex = 0;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label17.Location = new System.Drawing.Point(15, 15);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(115, 20);
-            this.label17.TabIndex = 11;
-            this.label17.Text = "Global Settings";
-            // 
-            // chBxLanguage
-            // 
-            this.chBxLanguage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBxLanguage.FormattingEnabled = true;
-            this.chBxLanguage.Items.AddRange(new object[] {
-            "English",
-            "German"});
-            this.chBxLanguage.Location = new System.Drawing.Point(133, 132);
-            this.chBxLanguage.Name = "chBxLanguage";
-            this.chBxLanguage.Size = new System.Drawing.Size(170, 28);
-            this.chBxLanguage.TabIndex = 10;
-            this.chBxLanguage.SelectedIndexChanged += new System.EventHandler(this.chBxLanguage_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Language:";
-            // 
-            // btnReposition
-            // 
-            this.btnReposition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnReposition.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnReposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReposition.Location = new System.Drawing.Point(20, 200);
-            this.btnReposition.Name = "btnReposition";
-            this.btnReposition.Size = new System.Drawing.Size(284, 32);
-            this.btnReposition.TabIndex = 7;
-            this.btnReposition.Text = "Reset panelposition and -size";
-            this.btnReposition.UseVisualStyleBackColor = false;
-            this.btnReposition.Click += new System.EventHandler(this.btnReposition_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Reposition key:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Graphics Refresh (ms):";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Memory Reading (ms):";
-            // 
-            // pnlPlugins
-            // 
-            this.pnlPlugins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlPlugins.Controls.Add(this.btnPluginsInstallPlugin);
-            this.pnlPlugins.Controls.Add(this.lblPluginsImageposition);
-            this.pnlPlugins.Controls.Add(this.btnPluginsImagesNext);
-            this.pnlPlugins.Controls.Add(this.btnPluginsImagesPrevious);
-            this.pnlPlugins.Controls.Add(this.pcbPluginsImages);
-            this.pnlPlugins.Controls.Add(this.label16);
-            this.pnlPlugins.Controls.Add(this.label15);
-            this.pnlPlugins.Controls.Add(this.rtbPluginsDescription);
-            this.pnlPlugins.Controls.Add(this.lstvPluginsAvailablePlugins);
-            this.pnlPlugins.Controls.Add(this.label14);
-            this.pnlPlugins.Controls.Add(this.lstvPluginsLoadedPlugins);
-            this.pnlPlugins.Controls.Add(this.label5);
-            this.pnlPlugins.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlPlugins.Location = new System.Drawing.Point(0, 80);
-            this.pnlPlugins.Name = "pnlPlugins";
-            this.pnlPlugins.Size = new System.Drawing.Size(1029, 450);
-            this.pnlPlugins.TabIndex = 13;
-            // 
-            // btnPluginsInstallPlugin
-            // 
-            this.btnPluginsInstallPlugin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnPluginsInstallPlugin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnPluginsInstallPlugin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPluginsInstallPlugin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPluginsInstallPlugin.Location = new System.Drawing.Point(534, 292);
-            this.btnPluginsInstallPlugin.Name = "btnPluginsInstallPlugin";
-            this.btnPluginsInstallPlugin.Size = new System.Drawing.Size(161, 37);
-            this.btnPluginsInstallPlugin.TabIndex = 33;
-            this.btnPluginsInstallPlugin.Text = "Install";
-            this.btnPluginsInstallPlugin.UseVisualStyleBackColor = false;
-            this.btnPluginsInstallPlugin.Click += new System.EventHandler(this.btnPluginsInstallPlugin_Click);
-            // 
-            // lblPluginsImageposition
-            // 
-            this.lblPluginsImageposition.AutoSize = true;
-            this.lblPluginsImageposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPluginsImageposition.Location = new System.Drawing.Point(801, 300);
-            this.lblPluginsImageposition.Name = "lblPluginsImageposition";
-            this.lblPluginsImageposition.Size = new System.Drawing.Size(31, 20);
-            this.lblPluginsImageposition.TabIndex = 32;
-            this.lblPluginsImageposition.Text = "0/0";
-            // 
-            // btnPluginsImagesNext
-            // 
-            this.btnPluginsImagesNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnPluginsImagesNext.Enabled = false;
-            this.btnPluginsImagesNext.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnPluginsImagesNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPluginsImagesNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPluginsImagesNext.Location = new System.Drawing.Point(897, 292);
-            this.btnPluginsImagesNext.Name = "btnPluginsImagesNext";
-            this.btnPluginsImagesNext.Size = new System.Drawing.Size(27, 37);
-            this.btnPluginsImagesNext.TabIndex = 31;
-            this.btnPluginsImagesNext.Text = ">";
-            this.btnPluginsImagesNext.UseVisualStyleBackColor = false;
-            this.btnPluginsImagesNext.Click += new System.EventHandler(this.btnPluginsImagesNext_Click);
-            // 
-            // btnPluginsImagesPrevious
-            // 
-            this.btnPluginsImagesPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnPluginsImagesPrevious.Enabled = false;
-            this.btnPluginsImagesPrevious.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnPluginsImagesPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPluginsImagesPrevious.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPluginsImagesPrevious.Location = new System.Drawing.Point(710, 292);
-            this.btnPluginsImagesPrevious.Name = "btnPluginsImagesPrevious";
-            this.btnPluginsImagesPrevious.Size = new System.Drawing.Size(27, 37);
-            this.btnPluginsImagesPrevious.TabIndex = 30;
-            this.btnPluginsImagesPrevious.Text = "<";
-            this.btnPluginsImagesPrevious.UseVisualStyleBackColor = false;
-            this.btnPluginsImagesPrevious.Click += new System.EventHandler(this.btnPluginsImagesPrevious_Click);
-            // 
-            // pcbPluginsImages
-            // 
-            this.pcbPluginsImages.BackColor = System.Drawing.Color.Black;
-            this.pcbPluginsImages.Location = new System.Drawing.Point(710, 72);
-            this.pcbPluginsImages.Name = "pcbPluginsImages";
-            this.pcbPluginsImages.Size = new System.Drawing.Size(214, 209);
-            this.pcbPluginsImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbPluginsImages.TabIndex = 29;
-            this.pcbPluginsImages.TabStop = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label16.Location = new System.Drawing.Point(706, 45);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 20);
-            this.label16.TabIndex = 28;
-            this.label16.Text = "Images";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label15.Location = new System.Drawing.Point(530, 42);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 20);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "Description";
-            // 
-            // rtbPluginsDescription
-            // 
-            this.rtbPluginsDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbPluginsDescription.Location = new System.Drawing.Point(534, 72);
-            this.rtbPluginsDescription.Name = "rtbPluginsDescription";
-            this.rtbPluginsDescription.Size = new System.Drawing.Size(161, 209);
-            this.rtbPluginsDescription.TabIndex = 26;
-            this.rtbPluginsDescription.Text = "";
-            // 
-            // cmPluginInstall
-            // 
-            this.cmPluginInstall.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPluginInstallPlugin});
-            this.cmPluginInstall.Name = "cmPluginRemove";
-            this.cmPluginInstall.Size = new System.Drawing.Size(143, 26);
-            // 
-            // tsPluginInstallPlugin
-            // 
-            this.tsPluginInstallPlugin.Name = "tsPluginInstallPlugin";
-            this.tsPluginInstallPlugin.Size = new System.Drawing.Size(142, 22);
-            this.tsPluginInstallPlugin.Text = "Install Plugin";
-            this.tsPluginInstallPlugin.Click += new System.EventHandler(this.tsPluginInstallPlugin_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label14.Location = new System.Drawing.Point(277, 15);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(128, 20);
-            this.label14.TabIndex = 24;
-            this.label14.Text = "Available plugins";
-            // 
-            // cmPluginRemove
-            // 
-            this.cmPluginRemove.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPluginRemove});
-            this.cmPluginRemove.Name = "cmPluginRemove";
-            this.cmPluginRemove.Size = new System.Drawing.Size(155, 26);
-            // 
-            // tsPluginRemove
-            // 
-            this.tsPluginRemove.Name = "tsPluginRemove";
-            this.tsPluginRemove.Size = new System.Drawing.Size(154, 22);
-            this.tsPluginRemove.Text = "Remove Plugin";
-            this.tsPluginRemove.Click += new System.EventHandler(this.tsPluginRemove_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label5.Location = new System.Drawing.Point(15, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Loaded plugins";
             // 
             // pnlDebug
             // 
@@ -699,6 +404,105 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Playerdata";
             // 
+            // pnlApplication
+            // 
+            this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlApplication.Controls.Add(this.label17);
+            this.pnlApplication.Controls.Add(this.chBxLanguage);
+            this.pnlApplication.Controls.Add(this.label4);
+            this.pnlApplication.Controls.Add(this.chBxOnlyDrawInForeground);
+            this.pnlApplication.Controls.Add(this.btnReposition);
+            this.pnlApplication.Controls.Add(this.ktxtReposition);
+            this.pnlApplication.Controls.Add(this.label3);
+            this.pnlApplication.Controls.Add(this.ntxtGraphicsRefresh);
+            this.pnlApplication.Controls.Add(this.ntxtMemoryRefresh);
+            this.pnlApplication.Controls.Add(this.label2);
+            this.pnlApplication.Controls.Add(this.label1);
+            this.pnlApplication.Location = new System.Drawing.Point(0, 80);
+            this.pnlApplication.Name = "pnlApplication";
+            this.pnlApplication.Size = new System.Drawing.Size(1029, 450);
+            this.pnlApplication.TabIndex = 0;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label17.Location = new System.Drawing.Point(15, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(115, 20);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "Global Settings";
+            // 
+            // chBxLanguage
+            // 
+            this.chBxLanguage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBxLanguage.FormattingEnabled = true;
+            this.chBxLanguage.Items.AddRange(new object[] {
+            "English",
+            "German"});
+            this.chBxLanguage.Location = new System.Drawing.Point(133, 132);
+            this.chBxLanguage.Name = "chBxLanguage";
+            this.chBxLanguage.Size = new System.Drawing.Size(170, 28);
+            this.chBxLanguage.TabIndex = 10;
+            this.chBxLanguage.SelectedIndexChanged += new System.EventHandler(this.chBxLanguage_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(16, 135);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Language:";
+            // 
+            // btnReposition
+            // 
+            this.btnReposition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnReposition.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnReposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReposition.Location = new System.Drawing.Point(20, 200);
+            this.btnReposition.Name = "btnReposition";
+            this.btnReposition.Size = new System.Drawing.Size(284, 32);
+            this.btnReposition.TabIndex = 7;
+            this.btnReposition.Text = "Reset panelposition and -size";
+            this.btnReposition.UseVisualStyleBackColor = false;
+            this.btnReposition.Click += new System.EventHandler(this.btnReposition_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Reposition key:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Graphics Refresh (ms):";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Memory Reading (ms):";
+            // 
             // pnlOverlays
             // 
             this.pnlOverlays.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -734,6 +538,202 @@
             this.pnlPanelContainer.Size = new System.Drawing.Size(824, 52);
             this.pnlPanelContainer.TabIndex = 0;
             this.pnlPanelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
+            // 
+            // pnlPlugins
+            // 
+            this.pnlPlugins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlPlugins.Controls.Add(this.btnPluginsInstallPlugin);
+            this.pnlPlugins.Controls.Add(this.lblPluginsImageposition);
+            this.pnlPlugins.Controls.Add(this.btnPluginsImagesNext);
+            this.pnlPlugins.Controls.Add(this.btnPluginsImagesPrevious);
+            this.pnlPlugins.Controls.Add(this.pcbPluginsImages);
+            this.pnlPlugins.Controls.Add(this.label16);
+            this.pnlPlugins.Controls.Add(this.label15);
+            this.pnlPlugins.Controls.Add(this.rtbPluginsDescription);
+            this.pnlPlugins.Controls.Add(this.lstvPluginsAvailablePlugins);
+            this.pnlPlugins.Controls.Add(this.label14);
+            this.pnlPlugins.Controls.Add(this.lstvPluginsLoadedPlugins);
+            this.pnlPlugins.Controls.Add(this.label5);
+            this.pnlPlugins.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlPlugins.Location = new System.Drawing.Point(0, 80);
+            this.pnlPlugins.Name = "pnlPlugins";
+            this.pnlPlugins.Size = new System.Drawing.Size(1029, 450);
+            this.pnlPlugins.TabIndex = 13;
+            // 
+            // btnPluginsInstallPlugin
+            // 
+            this.btnPluginsInstallPlugin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnPluginsInstallPlugin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnPluginsInstallPlugin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPluginsInstallPlugin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsInstallPlugin.Location = new System.Drawing.Point(534, 292);
+            this.btnPluginsInstallPlugin.Name = "btnPluginsInstallPlugin";
+            this.btnPluginsInstallPlugin.Size = new System.Drawing.Size(161, 37);
+            this.btnPluginsInstallPlugin.TabIndex = 33;
+            this.btnPluginsInstallPlugin.Text = "Install";
+            this.btnPluginsInstallPlugin.UseVisualStyleBackColor = false;
+            this.btnPluginsInstallPlugin.Click += new System.EventHandler(this.btnPluginsInstallPlugin_Click);
+            // 
+            // lblPluginsImageposition
+            // 
+            this.lblPluginsImageposition.AutoSize = true;
+            this.lblPluginsImageposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPluginsImageposition.Location = new System.Drawing.Point(801, 300);
+            this.lblPluginsImageposition.Name = "lblPluginsImageposition";
+            this.lblPluginsImageposition.Size = new System.Drawing.Size(31, 20);
+            this.lblPluginsImageposition.TabIndex = 32;
+            this.lblPluginsImageposition.Text = "0/0";
+            // 
+            // btnPluginsImagesNext
+            // 
+            this.btnPluginsImagesNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnPluginsImagesNext.Enabled = false;
+            this.btnPluginsImagesNext.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnPluginsImagesNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPluginsImagesNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsImagesNext.Location = new System.Drawing.Point(897, 292);
+            this.btnPluginsImagesNext.Name = "btnPluginsImagesNext";
+            this.btnPluginsImagesNext.Size = new System.Drawing.Size(27, 37);
+            this.btnPluginsImagesNext.TabIndex = 31;
+            this.btnPluginsImagesNext.Text = ">";
+            this.btnPluginsImagesNext.UseVisualStyleBackColor = false;
+            this.btnPluginsImagesNext.Click += new System.EventHandler(this.btnPluginsImagesNext_Click);
+            // 
+            // btnPluginsImagesPrevious
+            // 
+            this.btnPluginsImagesPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnPluginsImagesPrevious.Enabled = false;
+            this.btnPluginsImagesPrevious.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnPluginsImagesPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPluginsImagesPrevious.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsImagesPrevious.Location = new System.Drawing.Point(710, 292);
+            this.btnPluginsImagesPrevious.Name = "btnPluginsImagesPrevious";
+            this.btnPluginsImagesPrevious.Size = new System.Drawing.Size(27, 37);
+            this.btnPluginsImagesPrevious.TabIndex = 30;
+            this.btnPluginsImagesPrevious.Text = "<";
+            this.btnPluginsImagesPrevious.UseVisualStyleBackColor = false;
+            this.btnPluginsImagesPrevious.Click += new System.EventHandler(this.btnPluginsImagesPrevious_Click);
+            // 
+            // pcbPluginsImages
+            // 
+            this.pcbPluginsImages.BackColor = System.Drawing.Color.Black;
+            this.pcbPluginsImages.Location = new System.Drawing.Point(710, 72);
+            this.pcbPluginsImages.Name = "pcbPluginsImages";
+            this.pcbPluginsImages.Size = new System.Drawing.Size(214, 209);
+            this.pcbPluginsImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbPluginsImages.TabIndex = 29;
+            this.pcbPluginsImages.TabStop = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label16.Location = new System.Drawing.Point(706, 45);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 20);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Images";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label15.Location = new System.Drawing.Point(530, 42);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(89, 20);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Description";
+            // 
+            // rtbPluginsDescription
+            // 
+            this.rtbPluginsDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbPluginsDescription.Location = new System.Drawing.Point(534, 72);
+            this.rtbPluginsDescription.Name = "rtbPluginsDescription";
+            this.rtbPluginsDescription.Size = new System.Drawing.Size(161, 209);
+            this.rtbPluginsDescription.TabIndex = 26;
+            this.rtbPluginsDescription.Text = "";
+            // 
+            // cmPluginInstall
+            // 
+            this.cmPluginInstall.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsPluginInstallPlugin});
+            this.cmPluginInstall.Name = "cmPluginRemove";
+            this.cmPluginInstall.Size = new System.Drawing.Size(143, 26);
+            // 
+            // tsPluginInstallPlugin
+            // 
+            this.tsPluginInstallPlugin.Name = "tsPluginInstallPlugin";
+            this.tsPluginInstallPlugin.Size = new System.Drawing.Size(142, 22);
+            this.tsPluginInstallPlugin.Text = "Install Plugin";
+            this.tsPluginInstallPlugin.Click += new System.EventHandler(this.tsPluginInstallPlugin_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label14.Location = new System.Drawing.Point(277, 15);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(128, 20);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Available plugins";
+            // 
+            // cmPluginRemove
+            // 
+            this.cmPluginRemove.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsPluginRemove});
+            this.cmPluginRemove.Name = "cmPluginRemove";
+            this.cmPluginRemove.Size = new System.Drawing.Size(155, 26);
+            // 
+            // tsPluginRemove
+            // 
+            this.tsPluginRemove.Name = "tsPluginRemove";
+            this.tsPluginRemove.Size = new System.Drawing.Size(154, 22);
+            this.tsPluginRemove.Text = "Remove Plugin";
+            this.tsPluginRemove.Click += new System.EventHandler(this.tsPluginRemove_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label5.Location = new System.Drawing.Point(15, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 20);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Loaded plugins";
+            // 
+            // pnlMainArea
+            // 
+            this.pnlMainArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.pnlMainArea.Controls.Add(this.lblTabname);
+            this.pnlMainArea.Controls.Add(this.pnlApplication);
+            this.pnlMainArea.Controls.Add(this.pnlPlugins);
+            this.pnlMainArea.Controls.Add(this.pnlDebug);
+            this.pnlMainArea.Controls.Add(this.pnlOverlays);
+            this.pnlMainArea.Location = new System.Drawing.Point(152, 0);
+            this.pnlMainArea.Name = "pnlMainArea";
+            this.pnlMainArea.Size = new System.Drawing.Size(1029, 531);
+            this.pnlMainArea.TabIndex = 6;
+            this.pnlMainArea.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMainArea_Paint);
+            // 
+            // lblTabname
+            // 
+            this.lblTabname.AutoSize = true;
+            this.lblTabname.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTabname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblTabname.Location = new System.Drawing.Point(15, 15);
+            this.lblTabname.Name = "lblTabname";
+            this.lblTabname.Size = new System.Drawing.Size(118, 30);
+            this.lblTabname.TabIndex = 1;
+            this.lblTabname.Text = "Application";
             // 
             // btnLaunchProduction
             // 
@@ -1447,20 +1447,20 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewMainHandler_FormClosing);
             this.Resize += new System.EventHandler(this.NewMainHandler_Resize);
             this.pnlLeftSelection.ResumeLayout(false);
-            this.pnlMainArea.ResumeLayout(false);
-            this.pnlMainArea.PerformLayout();
+            this.pnlDebug.ResumeLayout(false);
+            this.pnlDebug.PerformLayout();
             this.pnlApplication.ResumeLayout(false);
             this.pnlApplication.PerformLayout();
+            this.pnlOverlays.ResumeLayout(false);
+            this.pnlPanelContainer.ResumeLayout(false);
+            this.pnlPanelContainer.PerformLayout();
             this.pnlPlugins.ResumeLayout(false);
             this.pnlPlugins.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPluginsImages)).EndInit();
             this.cmPluginInstall.ResumeLayout(false);
             this.cmPluginRemove.ResumeLayout(false);
-            this.pnlDebug.ResumeLayout(false);
-            this.pnlDebug.PerformLayout();
-            this.pnlOverlays.ResumeLayout(false);
-            this.pnlPanelContainer.ResumeLayout(false);
-            this.pnlPanelContainer.PerformLayout();
+            this.pnlMainArea.ResumeLayout(false);
+            this.pnlMainArea.PerformLayout();
             this.pnlBottomStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
