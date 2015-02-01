@@ -1,4 +1,4 @@
-﻿/**
+﻿ /**
  * Plugin interface
  * This allows you to transfer data to a plugin and work with it
  * 
@@ -23,6 +23,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows.Forms;
+using System.Drawing;
 using PredefinedTypes = Predefined.PredefinedData;
 
 namespace PluginInterface
@@ -56,6 +58,25 @@ namespace PluginInterface
         /// </summary>
         /// <returns>A basic description</returns>
         string GetPluginDescription();
+
+        /// <summary>
+        /// Sets the pluginname into the list of clickable panels. 
+        /// Makes it possible to write big settings panels into the host application
+        /// </summary>
+        /// <returns>The name you want in the list of plugins</returns>
+        string GetPluginEntryName();
+
+        /// <summary>
+        /// The container (and all it's controls) you want to send to the host
+        /// </summary>
+        /// <returns>The container which holds various controls</returns>
+        System.Windows.Controls.UserControl GetPanelSettingsData();
+
+        /// <summary>
+        /// Shows the plugin-icon before the pluginname (if you want to to show off in the host)
+        /// </summary>
+        /// <returns></returns>
+        byte[] GetPluginIcon();
 
         /// <summary>
         /// Returns the pluginversion to the host application

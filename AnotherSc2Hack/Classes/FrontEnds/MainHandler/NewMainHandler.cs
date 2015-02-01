@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
@@ -579,71 +580,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Event methods
 
-        private void cpnlApplication_Click(object sender, EventArgs e)
+        private void cpnl_Click(object sender, EventArgs e)
         {
-            lblTabname.Text = "Application";
-
-            pnlApplication.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
+            var panel = sender as ClickablePanel;
+            if (panel != null)
             {
-                if (pnl == pnlApplication)
-                    continue;
+                lblTabname.Text = panel.DisplayText;
 
-                if (pnl.GetType() == typeof(Panel))
+                if (panel.SettingsPanel != null)
+                    panel.SettingsPanel.Visible = true;
+
+
+                foreach (var pnl in pnlMainArea.Controls)
                 {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
+                    if (pnl == panel.SettingsPanel)
+                        continue;
 
-        private void cpnlOverlays_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Overlays";
-
-            pnlOverlays.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlOverlays)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
-
-        private void cpnlPlugins_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Plugins";
-
-            pnlPlugins.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlPlugins)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
-
-        private void cpnlDebug_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Debug";
-
-
-            pnlDebug.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlDebug)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
+                    if (pnl.GetType() == typeof(Panel))
+                    {
+                        ((Panel)pnl).Visible = false;
+                    }
                 }
             }
         }
@@ -1618,7 +1574,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                             tmpAppDomain.CreateInstanceFromAndUnwrap(files[i], "Plugin.Extensions.AnotherSc2HackPlugin");
 
                     if (_lPlugins.Exists(x => x.Plugin.GetPluginName() == foo.GetPluginName()))
-                       throw new TypeLoadException("Fuck you");
+                       throw new TypeLoadException("Fuck you"); //:D
 
 
 
@@ -1651,6 +1607,73 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             foreach (ListViewItem item in lstvPluginsLoadedPlugins.Items)
             {
                 item.Checked = true;
+            }
+
+            //Init the clickable panels for the plugins (if needed)
+            foreach (var localPlugins in _lPlugins)
+            {
+                if (localPlugins.Plugin.GetPluginEntryName() != null && localPlugins.Plugin.GetPluginEntryName().Length > 0)
+                {
+                    var cntrls = pnlLeftSelection.Controls;
+                    var iHeight = cpnlApplication.Height;
+
+                    foreach (var cntrl in cntrls)
+                    {
+                        var cont = cntrl as ClickablePanel;
+
+                        if (cont != null)
+                            iHeight += cont.Height;
+                    }
+
+                    #region Create Panel
+
+                    var panel = new Panel();
+
+                    panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+                    panel.Location = new System.Drawing.Point(0, 80);
+                    panel.Name = "";
+                    panel.Size = new System.Drawing.Size(1029, 450);
+                    panel.TabIndex = 0;
+
+                    pnlMainArea.Controls.Add(panel);
+
+                    #endregion
+
+                    #region Clickable Panel
+
+                    var click = new ClickablePanel();
+                    click.Parent = pnlLeftSelection;
+
+                    click.ActiveBackgroundColor = Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+                    click.ActiveBorderPosition = ActiveBorderPosition.Left;
+                    click.ActiveForegroundColor = Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+                    click.BackColor = Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+                    click.DisplayColor = Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+                    click.DisplayText = localPlugins.Plugin.GetPluginEntryName();
+                    click.Font = new Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    click.HoverBackgroundColor = Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+                    click.InactiveBackgroundColor = Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+                    click.InactiveForegroundColor = Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+                    click.IsClicked = false;
+                    click.IsHovering = false;
+                    click.Location = new Point(0, iHeight);
+                    click.Name = null;
+                    click.Size = new Size(152, 40);
+
+                    click.Icon = HelpFunctions.ByteArrayToImage(localPlugins.Plugin.GetPluginIcon()) ?? Properties.Resources.Icon_DefaultPluginIcon;
+
+                    click.TabIndex = 0;
+                    click.TextSize = 11F;
+                    click.SettingsPanel = panel;
+
+                    click.Click += cpnl_Click;
+
+                    #endregion
+
+
+                }
             }
         }
 
@@ -1989,7 +2012,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 foreach (var pluginFile in pluginFiles)
                 {
+                    try
+                    {
+
+                    
                     File.Delete(pluginFile);
+                    }
+
+                    catch
+                    {
+                        MessageBox.Show("Can't delete the plugin!\n" +
+                                        "Please remove it manually from here:\n" +
+                                        pluginFile);
+                    }
                 }
             }
 

@@ -67,6 +67,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Release\PredefinedTypes.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -75,7 +77,11 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BackEnds\Alerts.cs" />
@@ -1155,6 +1161,7 @@
     <None Include="Resources\trans_Tup_VehicleWeapon2.png" />
     <None Include="Resources\trans_Tup_VehicleWeapon3.png" />
     <None Include="Resources\trans_Tup_WeaponRefit.png" />
+    <None Include="Resources\Icon_DefaultPluginIcon.png" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />
@@ -1272,6 +1279,12 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PluginSupply\PluginSupply.csproj">
+      <Project>{51549DDB-F342-4346-82EF-BF62B9B754A1}</Project>
+      <Name>PluginSupply</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

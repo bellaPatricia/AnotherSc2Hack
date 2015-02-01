@@ -29,7 +29,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
     [DefaultEvent("Click")]
     public class ClickablePanel : Panel
     {
-        
+        public Panel SettingsPanel { get; set; }
 
         public ActiveBorderPosition ActiveBorderPosition { get; set; }
 
@@ -249,16 +249,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         }
 
         void _pcbImage_MouseEnter(object sender, EventArgs e)
-        {
-            OnMouseEnter(e);
-        }
-
-        void _lMainText_Click(object sender, EventArgs e)
-        {
-            OnClick(e);
-        }
-
-        void _lMainText_MouseEnter(object sender, EventArgs e)
         {
             OnMouseEnter(e);
         }
