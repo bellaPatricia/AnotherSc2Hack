@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.BackEnds.Preference
 {
-    public class PreferenceBaseOverlay
+    public class PreferenceBaseOverlay : PreferenceBase
     {
         public PreferenceBaseOverlay()
         {
@@ -16,6 +16,7 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
             FontName = "Century Gothic";
             DrawBackground = true;
             Opacity = 100;
+            ElementName = "Overlays";
         }
 
         public Keys Hotkey1 { get; set; }

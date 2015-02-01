@@ -12,6 +12,7 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
             ChangeSize = "/ics";
             Width = 600;
             Height = 50;
+            ElementName = "OverlayIncome";
         }
     }
 }

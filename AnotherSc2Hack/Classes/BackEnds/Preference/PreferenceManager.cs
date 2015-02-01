@@ -37,22 +37,62 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
 
         public void Read()
         {
-            
+            var xmlReader = XmlReader.Create(Constants.StrXmlPreferences);
+
+            while (xmlReader.Read())
+            {
+                ReaderHelper(xmlReader, Global);
+                /*ReaderHelper(xmlReader, pOverlayResource, OverlayResources);
+                ReaderHelper(xmlReader, pOverlayIncome, OverlayIncome);
+                ReaderHelper(xmlReader, pOverlayWorker, OverlayWorker);
+                ReaderHelper(xmlReader, pOverlayArmy, OverlayArmy);
+                ReaderHelper(xmlReader, pOverlayApm, OverlayApm);
+                ReaderHelper(xmlReader, pOverlayProduction, OverlayProduction);
+                ReaderHelper(xmlReader, pOverlayUnits, OverlayUnits);
+                ReaderHelper(xmlReader, pOverlayMaphack, OverlayMaphack);*/
+            }
+
+
+        }
+
+        private void ReaderHelper(XmlReader reader, PreferenceBase preferenceStructure)
+        {
+            if ((reader.NodeType == XmlNodeType.Element) && reader.Name == preferenceStructure.ElementName)
+            {
+                var infos = preferenceStructure.GetType().GetProperties();
+
+                Console.WriteLine("Type => " + preferenceStructure.GetType());
+                foreach (var propertyInfo in infos)
+                {
+                    var strItem = reader.GetAttribute(propertyInfo.Name);
+
+                    Console.WriteLine(propertyInfo.Name + " => " + strItem);
+                    Console.WriteLine(propertyInfo.Name.GetType());
+                    //propertyInfo.SetValue(preferenceStructure, strItem);
+                    //Console.WriteLine(propertyInfo.Name + " => " + reader.GetAttribute(propertyInfo.Name));
+
+                }
+
+
+            }
+        }
+
+        private void WriteHelper(XmlWriter writer, PreferenceBase preferenceStructure)
+        {
+            var infos = preferenceStructure.GetType().GetProperties();
+
+            writer.WriteStartElement(preferenceStructure.ElementName);
+
+            foreach (var propertyInfo in infos)
+            {
+                writer.WriteAttributeString(propertyInfo.Name, propertyInfo.GetValue(preferenceStructure).ToString());
+            }
+
+            writer.WriteEndElement();
         }
 
         public void Write()
         {
-            var pGlobal = typeof(PreferenceGlobal).GetProperties();
-            var pOverlayResource = typeof(PreferenceOverlayResources).GetProperties();
-            var pOverlayIncome = typeof(PreferenceOverlayIncome).GetProperties();
-            var pOverlayWorker = typeof(PreferenceOverlayWorker).GetProperties();
-            var pOverlayArmy = typeof(PreferenceOverlayArmy).GetProperties();
-            var pOverlayApm = typeof(PreferenceOverlayApm).GetProperties();
-            var pOverlayProduction = typeof(PreferenceOverlayProduction).GetProperties();
-            var pOverlayUnits = typeof(PreferenceOverlayUnits).GetProperties();
-            var pOverlayMaphack = typeof(PreferenceOverlayMaphack).GetProperties();
-
-
             var xmlSettings = new XmlWriterSettings();
             xmlSettings.Indent = true;
 
@@ -67,120 +107,22 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
 
                     xmlWriter.WriteStartElement("AnotherSc2Hack");
 
-                    #region Global
-
                     xmlWriter.WriteComment("Changes that affect the whole application and in the global scope");
-                    xmlWriter.WriteStartElement("Global");
-                    foreach (var propertyInfo in pGlobal)
-                    {
-                        xmlWriter.WriteElementString(propertyInfo.Name, propertyInfo.GetValue(Global).ToString());
-                    }
-                    xmlWriter.WriteEndElement();
-
-                    #endregion
-
-                    #region Overlays
+                    WriteHelper(xmlWriter, Global);
 
                     xmlWriter.WriteComment("Overlay specific settings. Seperated for each overlay");
                     xmlWriter.WriteStartElement("Overlays");
-
-                    #region Resource
-
-                    xmlWriter.WriteStartElement("OverlayResources");
-                    foreach (var propertyInfo in pOverlayResource)
-                    {
-                        xmlWriter.WriteElementString(propertyInfo.Name,
-                            propertyInfo.GetValue(OverlayResources).ToString());
-                    }
+                    WriteHelper(xmlWriter, OverlayResources);
+                    WriteHelper(xmlWriter, OverlayIncome);
+                    WriteHelper(xmlWriter, OverlayWorker);
+                    WriteHelper(xmlWriter, OverlayApm);
+                    WriteHelper(xmlWriter, OverlayArmy);
+                    WriteHelper(xmlWriter, OverlayUnits);
+                    WriteHelper(xmlWriter, OverlayProduction);
+                    WriteHelper(xmlWriter, OverlayMaphack);
                     xmlWriter.WriteEndElement();
 
-                    #endregion
-
-                    #region Income
-
-                    xmlWriter.WriteStartElement("OverlayIncome");
-                    foreach (var propertyInfo in pOverlayIncome)
-                    {
-                        Console.WriteLine("Name: " + propertyInfo.Name);
-                        Console.WriteLine("Value: " + propertyInfo.GetValue(OverlayIncome));
-
-                        xmlWriter.WriteElementString(propertyInfo.Name, propertyInfo.GetValue(OverlayIncome).ToString());
-                    }
-                    xmlWriter.WriteEndElement();
-
-                    #endregion
-
-                    #region Worker
-
-                    xmlWriter.WriteStartElement("OverlayWorker");
-                    foreach (var propertyInfo in pOverlayWorker)
-                    {
-                        xmlWriter.WriteElementString(propertyInfo.Name, propertyInfo.GetValue(OverlayWorker).ToString());
-                    }
-                    xmlWriter.WriteEndElement();
-
-                    #endregion
-
-                    #region Apm
-
-                    xmlWriter.WriteStartElement("OverlayApm");
-                    foreach (var propertyInfo in pOverlayApm)
-                    {
-                        xmlWriter.WriteElementString(propertyInfo.Name, propertyInfo.GetValue(OverlayApm).ToString());
-                    }
-                    xmlWriter.WriteEndElement();
-
-                    #endregion
-
-                    #region Army
-
-                    xmlWriter.WriteStartElement("OverlayArmy");
-                    foreach (var propertyInfo in pOverlayArmy)
-                    {
-                        xmlWriter.WriteElementString(propertyInfo.Name, propertyInfo.GetValue(OverlayArmy).ToString());
-                    }
-                    xmlWriter.WriteEndElement();
-
-                    #endregion
-
-                    #region Units
-
-                    xmlWriter.WriteStartElement("OverlayUnits");
-                    foreach (var propertyInfo in pOverlayUnits)
-                    {
-                        xmlWriter.WriteElementString(propertyInfo.Name, propertyInfo.GetValue(OverlayUnits).ToString());
-                    }
-                    xmlWriter.WriteEndElement();
-
-                    #endregion
-
-                    #region Production
-
-                    xmlWriter.WriteStartElement("OverlayProduction");
-                    foreach (var propertyInfo in pOverlayProduction)
-                    {
-                        xmlWriter.WriteElementString(propertyInfo.Name,
-                            propertyInfo.GetValue(OverlayProduction).ToString());
-                    }
-                    xmlWriter.WriteEndElement();
-
-                    #endregion
-
-                    #region Maphack
-
-                    xmlWriter.WriteStartElement("OverlayMaphack");
-                    foreach (var propertyInfo in pOverlayMaphack)
-                    {
-                        xmlWriter.WriteElementString(propertyInfo.Name,
-                            propertyInfo.GetValue(OverlayMaphack).ToString());
-                    }
-                    xmlWriter.WriteEndElement();
-
-                    #endregion
-
-                    xmlWriter.WriteEndElement();
-
-                    #endregion
+                    
 
 
 

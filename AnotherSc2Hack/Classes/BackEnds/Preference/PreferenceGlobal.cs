@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.BackEnds.Preference
 {
-    public class PreferenceGlobal
+    public class PreferenceGlobal : PreferenceBase
     {
         public int DataRefresh { get; set; }
         public int DrawingRefresh { get; set; }
@@ -22,6 +22,7 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
             DrawingRefresh = 100;
             Language = "English";
             ChangeSizeAndPosition = Keys.NumPad0;
+            ElementName = "Global";
         }
     }
 }

@@ -574,6 +574,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public void ReadPreferences()
         {
+
+            new PreferenceManager().Read();
+
             #region Initialize variables for settings which are not called
 
             var bLanguage = false;

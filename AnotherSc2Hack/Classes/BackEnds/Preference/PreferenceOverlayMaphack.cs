@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.BackEnds.Preference
 {
-    public class PreferenceOverlayMaphack
+    public class PreferenceOverlayMaphack : PreferenceBase
     {
         public Keys Hotkey1 { get; set; }
         public Keys Hotkey2 { get; set; }
@@ -39,6 +39,7 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
             Height = 255;
             ColorDefensifeStructures = true;
             DestinationLine = Color.Yellow;
+            ElementName = "OverlayIncome";
         }
     }
 }

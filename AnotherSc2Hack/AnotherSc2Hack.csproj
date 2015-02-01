@@ -98,6 +98,7 @@
     <Compile Include="Classes\BackEnds\Offsets.cs" />
     <Compile Include="Classes\BackEnds\Plugin.cs" />
     <Compile Include="Classes\BackEnds\Preferences.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceBase.cs" />
     <Compile Include="Classes\BackEnds\Preference\PreferenceBaseOverlay.cs" />
     <Compile Include="Classes\BackEnds\Preference\PreferenceGlobal.cs" />
     <Compile Include="Classes\BackEnds\Preference\PreferenceManager.cs" />

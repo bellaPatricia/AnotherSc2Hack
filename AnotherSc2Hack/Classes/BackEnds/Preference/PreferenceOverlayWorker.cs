@@ -2,7 +2,7 @@
 
 namespace AnotherSc2Hack.Classes.BackEnds.Preference
 {
-    public class PreferenceOverlayWorker
+    public class PreferenceOverlayWorker : PreferenceBase
     {
         public Keys Hotkey1 { get; set; }
         public Keys Hotkey2 { get; set; }
@@ -29,6 +29,7 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
             FontName = "Century Gothic";
             Width = 200;
             Height = 50;
+            ElementName = "OverlayWorker";
         }
     }
 }

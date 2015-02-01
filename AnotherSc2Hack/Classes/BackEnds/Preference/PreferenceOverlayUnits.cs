@@ -26,6 +26,7 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
             ShowUnits = true;
             UseTransparentImages = true;
             PictureSize = 45;
+            ElementName = "OverlayUnits";
         }
     }
 }
