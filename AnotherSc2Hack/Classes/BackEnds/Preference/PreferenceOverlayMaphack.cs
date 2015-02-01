@@ -39,7 +39,7 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
             Height = 255;
             ColorDefensifeStructures = true;
             DestinationLine = Color.Yellow;
-            ElementName = "OverlayIncome";
+            ElementName = "OverlayMaphack";
         }
     }
 }

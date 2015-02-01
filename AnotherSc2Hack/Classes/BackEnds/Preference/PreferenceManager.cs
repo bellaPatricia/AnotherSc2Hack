@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Serialization;
 using AnotherSc2Hack.Classes.FrontEnds.Container;
 
 namespace AnotherSc2Hack.Classes.BackEnds.Preference
@@ -60,32 +61,46 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
             if ((reader.NodeType == XmlNodeType.Element) && reader.Name == preferenceStructure.ElementName)
             {
                 var infos = preferenceStructure.GetType().GetProperties();
-
-                Console.WriteLine("Type => " + preferenceStructure.GetType());
-                foreach (var propertyInfo in infos)
+                while (reader.Read())
                 {
-                    var strItem = reader.GetAttribute(propertyInfo.Name);
+                    foreach (var propertyInfo in infos)
+                    {
+                        if ((reader.NodeType == XmlNodeType.Element) && reader.Name == propertyInfo.Name)
+                        {
 
-                    Console.WriteLine(propertyInfo.Name + " => " + strItem);
-                    Console.WriteLine(propertyInfo.Name.GetType());
-                    //propertyInfo.SetValue(preferenceStructure, strItem);
-                    //Console.WriteLine(propertyInfo.Name + " => " + reader.GetAttribute(propertyInfo.Name));
+                            var strItemType = reader.GetAttribute("Type");
+
+                            if (strItemType != null)
+                            {
+                                var type = Type.GetType(strItemType);
+
+                                
+                            }
+
+                            Console.WriteLine(reader.Name + "[" + strItemType + "] => " + reader.ReadElementString());
+                            //propertyInfo.SetValue(preferenceStructure, strItem);
+                            //Console.WriteLine(propertyInfo.Name + " => " + reader.GetAttribute(propertyInfo.Name));
+
+                        }
+                    }
 
                 }
-
-
             }
         }
 
         private void WriteHelper(XmlWriter writer, PreferenceBase preferenceStructure)
         {
             var infos = preferenceStructure.GetType().GetProperties();
+            
 
             writer.WriteStartElement(preferenceStructure.ElementName);
 
             foreach (var propertyInfo in infos)
             {
-                writer.WriteAttributeString(propertyInfo.Name, propertyInfo.GetValue(preferenceStructure).ToString());
+                writer.WriteStartElement(propertyInfo.Name);
+                writer.WriteAttributeString("Type", propertyInfo.PropertyType.ToString());
+                writer.WriteString(propertyInfo.GetValue(preferenceStructure).ToString());
+                writer.WriteEndElement();
             }
 
             writer.WriteEndElement();
@@ -93,6 +108,11 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
 
         public void Write()
         {
+
+            XmlSerializer s = new XmlSerializer(Global.GetType());
+            s.Serialize(Console.Out, Global);
+
+            return;
             var xmlSettings = new XmlWriterSettings();
             xmlSettings.Indent = true;
 
