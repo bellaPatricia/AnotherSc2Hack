@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -13,47 +14,38 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
     //TODO: Add global filters
     class PreferenceManager
     {
-        public PreferenceGlobal Global { get; set; }
-        public PreferenceOverlayResources OverlayResources { get; set; }
-        public PreferenceOverlayWorker OverlayWorker { get; set; }
-        public PreferenceOverlayUnits OverlayUnits { get; set; }
-        public PreferenceOverlayProduction OverlayProduction { get; set; }
-        public PreferenceOverlayIncome OverlayIncome { get; set; }
-        public PreferenceOverlayArmy OverlayArmy { get; set; }
-        public PreferenceOverlayApm OverlayApm { get; set; }
-        public PreferenceOverlayMaphack OverlayMaphack { get; set; }
+        private PreferenceAll _preferenceAll;
+        private XmlSerializer _xmlSerializer;
 
         public PreferenceManager()
         {
-            Global = new PreferenceGlobal();
-            OverlayResources = new PreferenceOverlayResources();
-            OverlayIncome = new PreferenceOverlayIncome();
-            OverlayWorker = new PreferenceOverlayWorker();
-            OverlayApm = new PreferenceOverlayApm();
-            OverlayArmy = new PreferenceOverlayArmy();
-            OverlayProduction = new PreferenceOverlayProduction();
-            OverlayUnits = new PreferenceOverlayUnits();
-            OverlayMaphack = new PreferenceOverlayMaphack();
+            _preferenceAll = new PreferenceAll();
+            _xmlSerializer = new XmlSerializer(_preferenceAll.GetType());
         }
 
         public void Read()
         {
+            _preferenceAll = (PreferenceAll)_xmlSerializer.Deserialize(new StreamReader(Constants.StrXmlPreferences));
+
+            /*
             var xmlReader = XmlReader.Create(Constants.StrXmlPreferences);
 
             while (xmlReader.Read())
             {
-                ReaderHelper(xmlReader, Global);
-                /*ReaderHelper(xmlReader, pOverlayResource, OverlayResources);
+                //ReaderHelper(xmlReader, Global);
+                ReaderHelper(xmlReader, pOverlayResource, OverlayResources);
                 ReaderHelper(xmlReader, pOverlayIncome, OverlayIncome);
                 ReaderHelper(xmlReader, pOverlayWorker, OverlayWorker);
                 ReaderHelper(xmlReader, pOverlayArmy, OverlayArmy);
                 ReaderHelper(xmlReader, pOverlayApm, OverlayApm);
                 ReaderHelper(xmlReader, pOverlayProduction, OverlayProduction);
                 ReaderHelper(xmlReader, pOverlayUnits, OverlayUnits);
-                ReaderHelper(xmlReader, pOverlayMaphack, OverlayMaphack);*/
+                ReaderHelper(xmlReader, pOverlayMaphack, OverlayMaphack);
             }
 
+            */
 
+            
         }
 
         private void ReaderHelper(XmlReader reader, PreferenceBase preferenceStructure)
@@ -108,11 +100,9 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
 
         public void Write()
         {
+            _xmlSerializer.Serialize(new StreamWriter(Constants.StrXmlPreferences), _preferenceAll);
 
-            XmlSerializer s = new XmlSerializer(Global.GetType());
-            s.Serialize(Console.Out, Global);
-
-            return;
+           /**
             var xmlSettings = new XmlWriterSettings();
             xmlSettings.Indent = true;
 
@@ -155,7 +145,7 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
             catch (TargetException ex)
             {
                 Messages.Show("Whatever", ex);
-            }
+            }*/
         }
     }
 }

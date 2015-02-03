@@ -74,8 +74,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public void WritePreferences()
         {
-            new PreferenceManager().Write();
-
             if (File.Exists(Constants.StrDummyPref))
                 File.Delete(Constants.StrDummyPref);
 
@@ -574,8 +572,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public void ReadPreferences()
         {
-
-            new PreferenceManager().Read();
 
             #region Initialize variables for settings which are not called
 
