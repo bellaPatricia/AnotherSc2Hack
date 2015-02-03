@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.BackEnds.Preference;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Container;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
@@ -55,6 +56,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 {
                     renderer.PSettings = _pSettings;
                 }
+            }
+        }
+
+        private PreferenceManager _preferenceManager = new PreferenceManager();
+
+        public PreferenceManager PreferenceManager
+        {
+            get { return _preferenceManager; }
+            set
+            {
+                _preferenceManager = value;
+
             }
         }
 
@@ -2531,6 +2544,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void NewMainHandler_FormClosing(object sender, FormClosingEventArgs e)
         {
+            PreferenceManager.Write();
             PSettings.WritePreferences();
 
             foreach (var plugin in _lPlugins)

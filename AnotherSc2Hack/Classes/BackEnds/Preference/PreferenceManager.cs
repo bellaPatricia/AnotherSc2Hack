@@ -11,21 +11,25 @@ using AnotherSc2Hack.Classes.FrontEnds.Container;
 
 namespace AnotherSc2Hack.Classes.BackEnds.Preference
 {
-    //TODO: Add global filters
-    class PreferenceManager
+    public class PreferenceManager
     {
-        private PreferenceAll _preferenceAll;
-        private XmlSerializer _xmlSerializer;
+        public PreferenceAll PreferenceAll { get; private set; }
+        private readonly XmlSerializer _xmlSerializer;
 
         public PreferenceManager()
         {
-            _preferenceAll = new PreferenceAll();
-            _xmlSerializer = new XmlSerializer(_preferenceAll.GetType());
+            PreferenceAll = new PreferenceAll();
+            _xmlSerializer = new XmlSerializer(PreferenceAll.GetType());
+
+            Read();
         }
 
         public void Read()
         {
-            _preferenceAll = (PreferenceAll)_xmlSerializer.Deserialize(new StreamReader(Constants.StrXmlPreferences));
+            if (!File.Exists(Constants.StrXmlPreferences))
+                return;
+
+            PreferenceAll = (PreferenceAll)_xmlSerializer.Deserialize(new StreamReader(Constants.StrXmlPreferences));
 
             /*
             var xmlReader = XmlReader.Create(Constants.StrXmlPreferences);
@@ -100,7 +104,7 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
 
         public void Write()
         {
-            _xmlSerializer.Serialize(new StreamWriter(Constants.StrXmlPreferences), _preferenceAll);
+            _xmlSerializer.Serialize(new StreamWriter(Constants.StrXmlPreferences), PreferenceAll);
 
            /**
             var xmlSettings = new XmlWriterSettings();

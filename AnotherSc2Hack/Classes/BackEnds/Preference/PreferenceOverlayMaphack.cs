@@ -1,5 +1,9 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using AnotherSc2Hack.Classes.Data_Structures.Xml;
+using Predefined;
 
 namespace AnotherSc2Hack.Classes.BackEnds.Preference
 {
@@ -24,6 +28,8 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
         public bool ColorDefensifeStructures { get; set; }
         public bool RemoveVisionArea { get; set; }
         public bool RemoveCamera { get; set; }
+        public List<XmlColor> UnitColors { get; set; }
+        public List<PredefinedData.UnitId> UnitIds { get; set; }
 
 
 
@@ -40,6 +46,8 @@ namespace AnotherSc2Hack.Classes.BackEnds.Preference
             ColorDefensifeStructures = true;
             DestinationLine = Color.Yellow;
             ElementName = "OverlayMaphack";
+            UnitColors = new List<XmlColor>();
+            UnitIds = new List<PredefinedData.UnitId>();
         }
     }
 }

@@ -116,6 +116,7 @@
     <Compile Include="Classes\BackEnds\Simulation.cs" />
     <Compile Include="Classes\BackEnds\UpdateCheck.cs" />
     <Compile Include="Classes\BackEnds\UpdateChecker.cs" />
+    <Compile Include="Classes\Data Structures\Xml\XmlColor.cs" />
     <Compile Include="Classes\FrontEnds\Container\PanelOverlayBasics.cs">
       <SubType>UserControl</SubType>
     </Compile>
