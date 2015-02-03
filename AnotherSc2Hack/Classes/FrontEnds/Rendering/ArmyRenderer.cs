@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using Predefined;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -172,7 +173,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                          ? GInformation.Player[i].Name
                                          : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         strName,
                         fInternalFont,
                         new SolidBrush(clPlayercolor),
@@ -184,7 +185,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Team
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         "#" + GInformation.Player[i].Team, fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((29.67 / 100) * Width),
@@ -201,7 +202,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                          (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
 
                     /* Mineral Count */
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         GInformation.Player[i].MineralsArmy.ToString(CultureInfo.InvariantCulture), fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((43.67 / 100) * Width),
@@ -218,7 +219,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                          (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
 
                     /* Gas Count */
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         GInformation.Player[i].GasArmy.ToString(CultureInfo.InvariantCulture), fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((63.67 / 100) * Width),
@@ -235,7 +236,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                          (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
 
                     /* Mineral Count */
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         (GInformation.Player[i].ArmySupply).ToString(CultureInfo.InvariantCulture) + " / " +
                         GInformation.Player[i].SupplyMax, fInternalFontNormal,
                         Brushes.White,

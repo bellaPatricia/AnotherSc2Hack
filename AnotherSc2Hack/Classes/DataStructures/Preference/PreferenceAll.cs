@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AnotherSc2Hack.Classes.BackEnds.Preference
+﻿namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
     public class PreferenceAll
     {

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using Predefined;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -177,7 +178,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                          ? GInformation.Player[i].Name
                                          : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
-                    Drawing.DrawString(g.Graphics, strName, fInternalFont,
+                    g.Graphics.DrawString(strName, fInternalFont,
                         new SolidBrush(clPlayercolor),
                         Brushes.Black, (float)((1.67 / 100) * Width),
                         (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -187,7 +188,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Team
 
-                    Drawing.DrawString(g.Graphics, "#" + GInformation.Player[i].Team, fInternalFontNormal,
+                    g.Graphics.DrawString("#" + GInformation.Player[i].Team, fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((29.67 / 100) * Width),
                         (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
@@ -198,12 +199,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Minerals
 
                     /* Icon */
-                    Drawing.DrawImage(g.Graphics, _imgMinerals, (float)((37.0 / 100) * Width),
+                    g.Graphics.DrawImage(_imgMinerals, (float)((37.0 / 100) * Width),
                         (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
                         (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight), Brushes.Black, 1f, 1f,
                         false);
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         GInformation.Player[i].Minerals.ToString(CultureInfo.InvariantCulture),
                         fInternalFontNormal,
                         Brushes.White,
@@ -216,12 +217,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Gas
 
                     /* Icon */
-                    Drawing.DrawImage(g.Graphics, _imgGas, (float)((57.0 / 100) * Width),
+                    g.Graphics.DrawImage(_imgGas, (float)((57.0 / 100) * Width),
                         (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
                         (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight), Brushes.Black, 1f, 1f,
                         false);
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         GInformation.Player[i].Gas.ToString(CultureInfo.InvariantCulture),
                         fInternalFontNormal,
                         Brushes.White,
@@ -234,12 +235,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Supply
 
                     /* Icon */
-                    Drawing.DrawImage(g.Graphics, _imgSupply, (float)((75.0 / 100) * Width),
+                    g.Graphics.DrawImage(_imgSupply, (float)((75.0 / 100) * Width),
                         (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
                         (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight), Brushes.Black, 1f, 1f,
                         false);
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         GInformation.Player[i].SupplyMin.ToString(CultureInfo.InvariantCulture) + "/" +
                         GInformation.Player[i].SupplyMax,
                         fInternalFontNormal,

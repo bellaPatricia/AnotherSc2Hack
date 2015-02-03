@@ -94,9 +94,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var rnd = new Random();
 
             var iNum = rnd.Next(0xFFF, 0xFFFFFFF);
-            var strCompleteText = Crypting.CreateSha1(iNum.ToString(CultureInfo.InvariantCulture));
+            
 
-            return strCompleteText;
+            return iNum.ToString();
         }
 
         public static long SizeOf(object obj)
@@ -115,19 +115,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
 
             return size;
-        }
-        public static void EncryptEntireFile()
-        {
-            using (var sr = new StreamReader(Constants.StrPreferencesFile))
-            using (var sw = new StreamWriter(Constants.StrPreferencesFile + "-"))
-            {
-                while (!sr.EndOfStream)
-                {
-                    sw.WriteLine(Crypting.CreateXor(sr.ReadLine()));
-                }
-            }
-
-            File.Replace(Constants.StrPreferencesFile +"-", Constants.StrPreferencesFile, Constants.StrPreferencesFile + "backup");
         }
 
         public static void InitResolution(ref Preferences pSettings)

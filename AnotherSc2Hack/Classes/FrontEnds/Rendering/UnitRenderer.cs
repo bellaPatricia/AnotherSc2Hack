@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
@@ -213,7 +214,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         : "[" + GInformation.Player[i].ClanTag + "] " +
                           GInformation.Player[i].Name;
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         strName,
                         fStringFont,
                         new SolidBrush(clPlayercolor),

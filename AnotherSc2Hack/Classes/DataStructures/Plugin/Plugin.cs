@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using AnotherSc2Hack.Classes.BackEnds;
 using PluginInterface;
 
-namespace AnotherSc2Hack.Classes.BackEnds
+namespace AnotherSc2Hack.Classes.DataStructures.Plugin
 {
     /// <summary>
     /// Localplugins that will hold information about a plugin's path and the plugindata itself.

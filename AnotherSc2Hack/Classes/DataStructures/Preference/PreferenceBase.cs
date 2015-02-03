@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace AnotherSc2Hack.Classes.BackEnds.Preference
+namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
     public class PreferenceBase
     {

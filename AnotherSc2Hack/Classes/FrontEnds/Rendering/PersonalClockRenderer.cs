@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -37,7 +38,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             var dtTimeStamp = DateTime.Now;
             var strTime = dtTimeStamp.TimeOfDay.ToString().Substring(0, 8);
 
-            Drawing.DrawString(g.Graphics,
+            g.Graphics.DrawString(
                "Time: " + strTime,
                new Font("Century Gothic", fNewFontSize, FontStyle.Regular),
                Brushes.White,

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using AnotherSc2Hack;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {

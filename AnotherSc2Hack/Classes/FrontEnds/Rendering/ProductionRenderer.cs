@@ -7,6 +7,7 @@ using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using Predefined;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -840,7 +841,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     
                     if (iWidthMax > iPosXAfterName)
                     {
-                        Drawing.DrawString(g.Graphics,
+                        g.Graphics.DrawString(
                             strName,
                             fStringFont,
                             new SolidBrush(clPlayercolor),

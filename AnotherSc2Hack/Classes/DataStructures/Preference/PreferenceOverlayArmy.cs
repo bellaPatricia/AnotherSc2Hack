@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace AnotherSc2Hack.Classes.BackEnds.Preference
+namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
     public class PreferenceOverlayArmy : PreferenceBaseOverlay
     {

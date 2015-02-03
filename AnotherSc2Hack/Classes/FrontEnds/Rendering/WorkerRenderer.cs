@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
-using Predefined;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -86,7 +85,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Worker
 
-                Drawing.DrawString(g.Graphics,
+                g.Graphics.DrawString(
                         GInformation.Player[GInformation.Player[0].Localplayer].Worker + "   Workers",
                         fInternalFont,
                         new SolidBrush(clPlayercolor),

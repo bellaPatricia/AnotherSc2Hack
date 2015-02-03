@@ -6,9 +6,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using PredefinedTypes = Predefined.PredefinedData;
-using System.Diagnostics;
 using System.Xml;
-using AnotherSc2Hack.Classes.BackEnds.Preference;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {

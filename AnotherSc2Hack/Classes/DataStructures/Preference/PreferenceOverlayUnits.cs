@@ -1,32 +1,32 @@
 ﻿using System.Windows.Forms;
 
-namespace AnotherSc2Hack.Classes.BackEnds.Preference
+namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
-    public class PreferenceOverlayProduction : PreferenceBaseOverlay
+    public class PreferenceOverlayUnits : PreferenceBaseOverlay
     {
+        public bool RemoveProductionLine { get; set; }
         public bool RemoveChronoboost { get; set; }
+        public bool RemoveSpellCounter { get; set; }
         public bool SplitBuildingsAndUnits { get; set; }
         public bool ShowBuildings { get; set; }
         public bool ShowUnits { get; set; }
-        public bool ShowUpgrades { get; set; }
         public bool UseTransparentImages { get; set; }
         public int PictureSize { get; set; }
 
-        public PreferenceOverlayProduction()
+        public PreferenceOverlayUnits()
         {
-            Hotkey3 = Keys.NumPad4;
-            TogglePanel = "/pro";
-            ChangePosition = "/pcp";
-            ChangeSize = "/pcs";
+            Hotkey3 = Keys.NumPad9;
+            TogglePanel = "/uni";
+            ChangePosition = "/ucp";
+            ChangeSize = "/ucs";
             Width = 300;
             Height = 50;
             SplitBuildingsAndUnits = true;
             ShowBuildings = true;
             ShowUnits = true;
-            ShowUpgrades = true;
             UseTransparentImages = true;
             PictureSize = 45;
-            ElementName = "OverlayProduction";
+            ElementName = "OverlayUnits";
         }
     }
 }

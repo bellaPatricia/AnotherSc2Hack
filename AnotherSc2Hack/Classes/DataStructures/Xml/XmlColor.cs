@@ -7,7 +7,7 @@ using System;
 using System.Drawing;
 using System.Xml.Serialization;
 
-namespace AnotherSc2Hack.Classes.Data_Structures.Xml
+namespace AnotherSc2Hack.Classes.DataStructures.Xml
 {
     public class XmlColor
     {

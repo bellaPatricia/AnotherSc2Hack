@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using Predefined;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -141,7 +141,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                          ? GInformation.Player[i].Name
                                          : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         strName,
                         fInternalFont,
                         new SolidBrush(clPlayercolor),
@@ -153,7 +153,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Team
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         "#" + GInformation.Player[i].Team, fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((29.67 / 100) * Width),
@@ -164,7 +164,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Apm
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         "APM: " + GInformation.Player[i].ApmAverage +
                         " [" + GInformation.Player[i].Apm + "]", fInternalFontNormal,
                         Brushes.White,
@@ -177,7 +177,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Epm
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                        "EPM: " + GInformation.Player[i].EpmAverage +
                         " [" + GInformation.Player[i].Epm + "]", fInternalFontNormal,
                         Brushes.White,

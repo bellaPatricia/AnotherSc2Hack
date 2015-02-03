@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Xml.Serialization;
-using AnotherSc2Hack.Classes.Data_Structures.Xml;
+using AnotherSc2Hack.Classes.DataStructures.Xml;
 using Predefined;
 
-namespace AnotherSc2Hack.Classes.BackEnds.Preference
+namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
     public class PreferenceOverlayMaphack : PreferenceBase
     {

@@ -18,7 +18,8 @@ using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.BackEnds;
-using AnotherSc2Hack.Classes.BackEnds.Preference;
+using AnotherSc2Hack.Classes.DataStructures.Plugin;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Container;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
@@ -2594,22 +2595,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             _tmrMainTick.Enabled = false;
             Gameinfo.HandleThread(false);
-        }
-
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            /*
-
-            UpdateChecker ch = new UpdateChecker();
-
-            if (ch.UpdatesAvailable)
-            {
-                new AnotherMessageBox().Show(ch.ShowApplicationUpdates(), "Updates Available", new Font(Constants.StrFontFamilyNameMonospace, Font.Size));
-            }
-            */
-
         }
     } 
 }

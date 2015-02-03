@@ -1,103 +1,44 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Text;
-using System.Windows.Forms;
 
-namespace AnotherSc2Hack.Classes.BackEnds
+namespace AnotherSc2Hack.Classes.ExtensionMethods
 {
-    public static class ExtensionMethods
+    public static class ExtentGraphics
     {
-        #region String
-
-        public static Boolean IsNullOrEmpty(this string text)
+        public static void DrawString(this Graphics g, string text, Font font, Brush textBrush, Brush shadowBrush, float x, float y, float shadowXOffset, float shadowYOffset, bool addShadow)
         {
-            return String.IsNullOrEmpty(text);
-        }
-
-        public static Boolean IsNullOrWhitespace(this string text)
-        {
-            return String.IsNullOrWhiteSpace(text);
-        }
-
-        public static String RemoveAll(this string sourceText, string findText)
-        {
-            while (sourceText.Contains(findText))
-                sourceText = sourceText.Remove(sourceText.IndexOf(findText, StringComparison.Ordinal), findText.Length);
-
-            return sourceText;
-        }
-
-        public static String Fill(this string sourceText, string filler, int maxLength)
-        {
-            var sb = new StringBuilder(sourceText);
-
-            if (sourceText.Length >= maxLength)
-                return sb.ToString();
-
-            var iCurrentLength = sourceText.Length;
-            while ((iCurrentLength) < maxLength)
+            if (addShadow)
             {
-                iCurrentLength += filler.Length;
-                sb.Append(filler);
+                /* Shadow */
+                g.DrawString(text, font, shadowBrush, x + shadowXOffset, y + shadowYOffset);
             }
 
-            sb.Remove(maxLength, iCurrentLength - maxLength);
 
-            return sb.ToString();
+            /* Text */
+            g.DrawString(text, font, textBrush, x, y);
         }
 
-        #endregion
-
-        #region Image
-
-        public static Image SetImageOpacity(this Image image, float opacity)
+        public static void DrawImage(this Graphics g, Image img, float x, float y, float width, float height,
+            Brush shadowBrush, float shadowXOffset, float shadowYOffset, bool addShadow)
         {
-            try
+            if (addShadow)
             {
-                //create a Bitmap the size of the image provided  
-                Bitmap bmp = new Bitmap(image.Width, image.Height);
-
-                //create a graphics object from the image  
-                using (Graphics gfx = Graphics.FromImage(bmp))
-                {
-
-                    //create a color matrix object  
-                    ColorMatrix matrix = new ColorMatrix();
-
-                    //set the opacity  
-                    matrix.Matrix33 = opacity;
-
-                    //create image attributes  
-                    ImageAttributes attributes = new ImageAttributes();
-
-                    //set the color(opacity) of the image  
-                    attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
-
-                    //now draw the image  
-                    gfx.DrawImage(image, new Rectangle(0, 0, bmp.Width, bmp.Height), 0, 0, image.Width, image.Height,
-                        GraphicsUnit.Pixel, attributes);
-                }
-                return bmp;
+                g.FillRectangle(shadowBrush, x + shadowXOffset, y + shadowYOffset, width, height);
             }
-            catch (Exception)
-            {
-                return null;
-            }  
+
+            g.DrawImage(img, x, y, width, height);
         }
 
-        #endregion
-
-                /// The following is from Arun Reginald Zaheeruddin
-                /// The article about rounded rectangles can be found here:
-                /// http://www.codeproject.com/Articles/5649/Extended-Graphics-An-implementation-of-Rounded-Rec
-                /// 
-                /// All credits go to him and/ or his article!
-            public static
-            void FillRoundRectangle(this Graphics g, Brush brush,
-            float x, float y,
-            float width, float height, float radius)
+        /// The following is from Arun Reginald Zaheeruddin
+        /// The article about rounded rectangles can be found here:
+        /// http://www.codeproject.com/Articles/5649/Extended-Graphics-An-implementation-of-Rounded-Rec
+        /// 
+        /// All credits go to him and/ or his article!
+        public static
+        void FillRoundRectangle(this Graphics g, Brush brush,
+        float x, float y,
+        float width, float height, float radius)
         {
             var oldQuality = g.SmoothingMode;
 
@@ -115,14 +56,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;*/
             var gp = new GraphicsPath();
 
-            gp.AddLine(x + radius, y, x + width - (radius*2), y); // Line
-            gp.AddArc(x + width - (radius*2), y, radius*2, radius*2, 270, 90); // Corner
-            gp.AddLine(x + width, y + radius, x + width, y + height - (radius*2)); // Line
-            gp.AddArc(x + width - (radius*2), y + height - (radius*2), radius*2, radius*2, 0, 90); // Corner
-            gp.AddLine(x + width - (radius*2), y + height, x + radius, y + height); // Line
-            gp.AddArc(x, y + height - (radius*2), radius*2, radius*2, 90, 90); // Corner
-            gp.AddLine(x, y + height - (radius*2), x, y + radius); // Line
-            gp.AddArc(x, y, radius*2, radius*2, 180, 90); // Corner
+            gp.AddLine(x + radius, y, x + width - (radius * 2), y); // Line
+            gp.AddArc(x + width - (radius * 2), y, radius * 2, radius * 2, 270, 90); // Corner
+            gp.AddLine(x + width, y + radius, x + width, y + height - (radius * 2)); // Line
+            gp.AddArc(x + width - (radius * 2), y + height - (radius * 2), radius * 2, radius * 2, 0, 90); // Corner
+            gp.AddLine(x + width - (radius * 2), y + height, x + radius, y + height); // Line
+            gp.AddArc(x, y + height - (radius * 2), radius * 2, radius * 2, 90, 90); // Corner
+            gp.AddLine(x, y + height - (radius * 2), x, y + radius); // Line
+            gp.AddArc(x, y, radius * 2, radius * 2, 180, 90); // Corner
             gp.CloseFigure();
 
             g.DrawPath(p, gp);
@@ -152,12 +93,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
             // if the corner radius is greater than or equal to 
             // half the width, or height (whichever is shorter) 
             // then return a capsule instead of a lozenge 
-            if (radius >= (Math.Min(baseRect.Width, baseRect.Height))/2.0)
+            if (radius >= (Math.Min(baseRect.Width, baseRect.Height)) / 2.0)
                 return GetCapsule(baseRect);
 
             // create the arc for the rectangle sides and declare 
             // a graphics path object for the drawing 
-            var diameter = radius*2.0F;
+            var diameter = radius * 2.0F;
             var sizeF = new SizeF(diameter, diameter);
             var arc = new RectangleF(baseRect.Location, sizeF);
             var path = new GraphicsPath();
@@ -227,8 +168,5 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             return path;
         }
-
-
     }
 }
-
