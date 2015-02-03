@@ -104,11 +104,25 @@
     <Compile Include="Classes\BackEnds\Offsets.cs" />
     <Compile Include="Classes\BackEnds\Plugin.cs" />
     <Compile Include="Classes\BackEnds\Preferences.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceAll.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceBase.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceBaseOverlay.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceGlobal.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceManager.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceOverlayProduction.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceOverlayUnits.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceOverlayMaphack.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceOverlayWorker.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceOverlayArmy.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceOverlayApm.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceOverlayIncome.cs" />
+    <Compile Include="Classes\BackEnds\Preference\PreferenceOverlayResources.cs" />
     <Compile Include="Classes\BackEnds\Processing.cs" />
     <Compile Include="Classes\BackEnds\Renderer_Helper.cs" />
     <Compile Include="Classes\BackEnds\Simulation.cs" />
     <Compile Include="Classes\BackEnds\UpdateCheck.cs" />
     <Compile Include="Classes\BackEnds\UpdateChecker.cs" />
+    <Compile Include="Classes\Data Structures\Xml\XmlColor.cs" />
     <Compile Include="Classes\FrontEnds\Container\PanelOverlayBasics.cs">
       <SubType>UserControl</SubType>
     </Compile>

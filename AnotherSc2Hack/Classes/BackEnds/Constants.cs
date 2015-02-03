@@ -13,6 +13,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static string StrUpdateManager = Application.StartupPath + "\\Sc2Hack UpdateManager.exe";
         public static string StrPluginInterface = Application.StartupPath + "\\PluginInterface.dll";
         public static string StrPredefinedTypes = Application.StartupPath + "\\PredefinedTypes.dll";
+        public static string StrXmlPreferences = Application.StartupPath + "\\Settings.xml";
         public static Pen PBlack1 = new Pen(Brushes.Black, 1);
         public static Pen PBlack2 = new Pen(Brushes.Black, 2);
         public static Pen PBlack3 = new Pen(Brushes.Black, 3);
