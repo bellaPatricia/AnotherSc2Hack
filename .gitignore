@@ -21,3 +21,4 @@ bin/
 
 ### ReSharper settings
 *.DotSettings.user
+/AnotherSc2Hack/bin
