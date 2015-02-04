@@ -2596,5 +2596,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _tmrMainTick.Enabled = false;
             Gameinfo.HandleThread(false);
         }
+
+        private void pcbPluginsImages_Click(object sender, EventArgs e)
+        {
+            if (pcbPluginsImages.Image == null)
+                return;
+
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count == _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count)
+                new BigPreviewPicture(_lOnlinePlugins[IPluginsSelectedPluginIndex].Images).ShowDialog();
+
+            else 
+                new BigPreviewPicture(pcbPluginsImages.Image).ShowDialog();
+        }
     } 
 }
