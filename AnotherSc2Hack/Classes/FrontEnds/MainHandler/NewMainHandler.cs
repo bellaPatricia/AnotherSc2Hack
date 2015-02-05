@@ -1647,7 +1647,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
                     panel.Location = new System.Drawing.Point(0, 80);
-                    panel.Name = "";
+                    panel.Name = localPlugins.Md5Hash;
                     panel.Size = new System.Drawing.Size(1029, 450);
                     panel.TabIndex = 0;
 
@@ -1673,7 +1673,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     click.IsClicked = false;
                     click.IsHovering = false;
                     click.Location = new Point(0, iHeight);
-                    click.Name = null;
+                    click.Name = localPlugins.Md5Hash;
                     click.Size = new Size(152, 40);
 
                     click.Icon = HelpFunctions.ByteArrayToImage(localPlugins.Plugin.GetPluginIcon()) ?? Properties.Resources.Icon_DefaultPluginIcon;
@@ -1866,6 +1866,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 _lOnlinePlugins.Count <= 0)
                 return;
 
+
+
             if (_lPlugins.Find(x => x.Md5Hash == _lOnlinePlugins[IPluginsSelectedPluginIndex].Md5Hash) != null)
             {
                 MessageBox.Show("Plugin already installed!\n\nPlease select another plugin!", "Plugin Error");
@@ -1998,7 +2000,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void PluginRemovePlugin(int index)
         {
             var iDomainIndex =
-                _lPluginContainer.FindIndex(x => x.FriendlyName == _lPlugins[index].PluginPath.Substring(_lPlugins[index].PluginPath.LastIndexOf(("\\"))));
+                _lPluginContainer.FindIndex(x => x.FriendlyName == _lPlugins[index].PluginPath.Substring(_lPlugins[index].PluginPath.LastIndexOf(("\\"), StringComparison.Ordinal)));
 
             if (iDomainIndex < 0)
                 return;
@@ -2009,6 +2011,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             try
             {
                 var strTempPluginPath = String.Empty;
+                var strPuginHash = _lPlugins[index].Md5Hash;
 
                 //Stop plugin nicely 
                 _lPlugins[index].Plugin.StopPlugin();
@@ -2023,6 +2026,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 var filename = Path.GetFileNameWithoutExtension(strTempPluginPath);
                 var pluginFiles = Directory.GetFiles(
                     strTempPluginPath.Substring(0, strTempPluginPath.LastIndexOf("\\", StringComparison.Ordinal)), filename + "*");
+
+                //Remove plugin from cliclable container
+                var clickControls = pnlLeftSelection.Controls.Find(strPuginHash, false);
+                var clickPanels = pnlMainArea.Controls.Find(strPuginHash, false);
+
+                foreach (var clickControl in clickControls)
+                {
+                    pnlLeftSelection.Controls.Remove(clickControl);
+                }
+
+                foreach (var clickPanel in clickPanels)
+                {
+                    pnlMainArea.Controls.Remove(clickPanel);
+                }
 
                 foreach (var pluginFile in pluginFiles)
                 {
