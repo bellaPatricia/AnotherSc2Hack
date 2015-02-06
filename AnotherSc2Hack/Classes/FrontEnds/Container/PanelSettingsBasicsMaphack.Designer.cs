@@ -204,7 +204,7 @@
             this.Controls.Add(this.aChBxRemoveAllie);
             this.Controls.Add(this.aChBxRemoveAi);
             this.Name = "PanelSettingsBasicsMaphack";
-            this.Size = new System.Drawing.Size(409, 262);
+            this.Size = new System.Drawing.Size(455, 246);
             this.ResumeLayout(false);
             this.PerformLayout();
 

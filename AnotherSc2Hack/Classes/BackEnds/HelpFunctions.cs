@@ -549,8 +549,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 txtBox.Text = txtBox.Text.Remove(i, 1);
                 txtBox.Select(i, 0);
             }
-
-            
         }
 
         /* As the actual max- health of units is lost, I map them manually.. */

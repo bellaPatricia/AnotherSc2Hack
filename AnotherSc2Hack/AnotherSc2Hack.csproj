@@ -120,6 +120,7 @@
     <Compile Include="Classes\BackEnds\UpdateCheck.cs" />
     <Compile Include="Classes\BackEnds\UpdateChecker.cs" />
     <Compile Include="Classes\DataStructures\Xml\XmlColor.cs" />
+    <Compile Include="Classes\ExtensionMethods\ExtentColor.cs" />
     <Compile Include="Classes\ExtensionMethods\ExtentGraphics.cs" />
     <Compile Include="Classes\ExtensionMethods\ExtentImage.cs" />
     <Compile Include="Classes\ExtensionMethods\ExtentString.cs" />
