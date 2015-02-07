@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using AnotherSc2Hack.Classes.BackEnds;
 
 namespace AnotherSc2Hack.Classes.ExtensionMethods
 {
@@ -12,7 +13,7 @@ namespace AnotherSc2Hack.Classes.ExtensionMethods
         /// <returns>A completely random color!</returns>
         public static Color GetRandomColor(this Color cl)
         {
-            var rnd = new Random(Environment.TickCount);
+            var rnd = Constants.RndRandom;
 
             var myColor = Color.FromArgb(rnd.Next(0, 256), rnd.Next(0, 256), rnd.Next(0, 256));
 

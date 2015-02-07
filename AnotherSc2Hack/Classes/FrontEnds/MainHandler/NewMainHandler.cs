@@ -2475,6 +2475,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayMaphack.pnlLauncher.txtReposition.Text = PSettings.MaphackChangePositionPanel;
             pnlOverlayMaphack.pnlLauncher.txtResize.Text = PSettings.MaphackChangeSizePanel;
             pnlOverlayMaphack.pnlLauncher.txtToggle.Text = PSettings.MaphackTogglePanel;
+
+            for (var i = 0; i < PSettings.MaphackUnitIds.Count; i++)
+            {
+                var id =
+               (PredefinedData.UnitId)
+                   Enum.Parse(typeof(PredefinedData.UnitId), PSettings.MaphackUnitIds[i].ToString());
+
+                pnlOverlayMaphack.LUnitFilter.Add(id, PSettings.MaphackUnitColors[i]);
+            }
+
+            pnlOverlayMaphack.AddUnitsToListview();
+
         }
 
         private void InitializeWorker()

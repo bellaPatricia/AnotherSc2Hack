@@ -29,30 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pnlLauncher = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsLauncher();
-            this.pnlBasics = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsBasicsMaphack();
             this.btnMaphackBasicsUnitColor = new System.Windows.Forms.Button();
+            this.cmsListviewContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmRemoveItems = new System.Windows.Forms.ToolStripMenuItem();
+            this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.icbMaphackBasicsUnitSelection = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
             this.lstvMaphackBasicsUnitFilter = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.pnlLauncher = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsLauncher();
+            this.pnlBasics = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsBasicsMaphack();
+            this.cmsListviewContext.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlLauncher
-            // 
-            this.pnlLauncher.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlLauncher.Location = new System.Drawing.Point(416, 0);
-            this.pnlLauncher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnlLauncher.Name = "pnlLauncher";
-            this.pnlLauncher.Size = new System.Drawing.Size(268, 261);
-            this.pnlLauncher.TabIndex = 1;
-            // 
-            // pnlBasics
-            // 
-            this.pnlBasics.Location = new System.Drawing.Point(0, 0);
-            this.pnlBasics.Name = "pnlBasics";
-            this.pnlBasics.Size = new System.Drawing.Size(409, 402);
-            this.pnlBasics.TabIndex = 0;
             // 
             // btnMaphackBasicsUnitColor
             // 
@@ -66,6 +53,32 @@
             this.btnMaphackBasicsUnitColor.TabIndex = 29;
             this.btnMaphackBasicsUnitColor.UseVisualStyleBackColor = false;
             this.btnMaphackBasicsUnitColor.Click += new System.EventHandler(this.btnMaphackBasicsUnitColor_Click);
+            // 
+            // cmsListviewContext
+            // 
+            this.cmsListviewContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmRemoveItems});
+            this.cmsListviewContext.Name = "cmsListviewContext";
+            this.cmsListviewContext.Size = new System.Drawing.Size(158, 26);
+            this.cmsListviewContext.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmsListviewContext_ItemClicked);
+            // 
+            // tsmRemoveItems
+            // 
+            this.tsmRemoveItems.Name = "tsmRemoveItems";
+            this.tsmRemoveItems.Size = new System.Drawing.Size(157, 22);
+            this.tsmRemoveItems.Text = "Remove item(s)";
+            // 
+            // languageLabel1
+            // 
+            this.languageLabel1.AutoSize = true;
+            this.languageLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.languageLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.languageLabel1.LanguageFile = "";
+            this.languageLabel1.Location = new System.Drawing.Point(708, 3);
+            this.languageLabel1.Name = "languageLabel1";
+            this.languageLabel1.Size = new System.Drawing.Size(112, 20);
+            this.languageLabel1.TabIndex = 30;
+            this.languageLabel1.Text = "Maphack Filter";
             // 
             // icbMaphackBasicsUnitSelection
             // 
@@ -90,6 +103,7 @@
             this.lstvMaphackBasicsUnitFilter.AutoArrange = false;
             this.lstvMaphackBasicsUnitFilter.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7});
+            this.lstvMaphackBasicsUnitFilter.ContextMenuStrip = this.cmsListviewContext;
             this.lstvMaphackBasicsUnitFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvMaphackBasicsUnitFilter.FullRowSelect = true;
             this.lstvMaphackBasicsUnitFilter.GridLines = true;
@@ -99,23 +113,29 @@
             this.lstvMaphackBasicsUnitFilter.TabIndex = 27;
             this.lstvMaphackBasicsUnitFilter.UseCompatibleStateImageBehavior = false;
             this.lstvMaphackBasicsUnitFilter.View = System.Windows.Forms.View.Details;
+            this.lstvMaphackBasicsUnitFilter.SelectedIndexChanged += new System.EventHandler(this.lstvMaphackBasicsUnitFilter_SelectedIndexChanged);
+            this.lstvMaphackBasicsUnitFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstvMaphackBasicsUnitFilter_KeyDown);
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Unit";
             this.columnHeader7.Width = 202;
             // 
-            // languageLabel1
+            // pnlLauncher
             // 
-            this.languageLabel1.AutoSize = true;
-            this.languageLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.languageLabel1.LanguageFile = "";
-            this.languageLabel1.Location = new System.Drawing.Point(708, 3);
-            this.languageLabel1.Name = "languageLabel1";
-            this.languageLabel1.Size = new System.Drawing.Size(112, 20);
-            this.languageLabel1.TabIndex = 30;
-            this.languageLabel1.Text = "Maphack Filter";
+            this.pnlLauncher.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlLauncher.Location = new System.Drawing.Point(416, 0);
+            this.pnlLauncher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlLauncher.Name = "pnlLauncher";
+            this.pnlLauncher.Size = new System.Drawing.Size(268, 261);
+            this.pnlLauncher.TabIndex = 1;
+            // 
+            // pnlBasics
+            // 
+            this.pnlBasics.Location = new System.Drawing.Point(0, 0);
+            this.pnlBasics.Name = "pnlBasics";
+            this.pnlBasics.Size = new System.Drawing.Size(409, 402);
+            this.pnlBasics.TabIndex = 0;
             // 
             // PanelOverlayMaphack
             // 
@@ -128,7 +148,8 @@
             this.Controls.Add(this.pnlLauncher);
             this.Controls.Add(this.pnlBasics);
             this.Name = "PanelOverlayMaphack";
-            this.Size = new System.Drawing.Size(1006, 405);
+            this.Size = new System.Drawing.Size(1006, 274);
+            this.cmsListviewContext.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +164,8 @@
         private AnotherListview lstvMaphackBasicsUnitFilter;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private LanguageLabel languageLabel1;
+        private System.Windows.Forms.ContextMenuStrip cmsListviewContext;
+        private System.Windows.Forms.ToolStripMenuItem tsmRemoveItems;
 
     }
 }
