@@ -203,6 +203,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PluginsLocalLoadPlugins();
             new Thread(PluginLoadAvailablePlugins).Start();
             
+            LoadContributers();
         }
 
         private void Init()
@@ -2636,6 +2637,49 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             else 
                 new BigPreviewPicture(pcbPluginsImages.Image).ShowDialog();
+        }
+
+        /// <summary>
+        /// Load some contibuters into the listview
+        /// </summary>
+        private void LoadContributers()
+        {
+            var dict = new Dictionary<string, string>();
+
+            dict.Add("RHCP (D3Scene)", "Open Source MH, Gameinteraction, Minimap drawing and extremely helpful");
+            dict.Add("Beaving (D3Scene)", "Various hacking information, Concepts, Suggestions and good chats");
+            dict.Add("Mr Nukealizer (D3Scene)", "Open Source MH, Ideas and concepts");
+            dict.Add("MyTeeWun (D3Scene)", "Production-Tag (Unit and Upgrades) and good research in SC2 memory");
+            dict.Add("mischa (D3Scene)", "Great SC2 memory research with Upgrades, production and unitlists");
+            dict.Add("mr_ice (D3Scene)", "Graphical help");
+            dict.Add("Tracky (D3Scene)", "Suggestions and ideas");
+            dict.Add("D3Scene", "Good environment with a lot helpful people");
+            dict.Add("Various people", "...that gave ideas, suggestions and critism - thank you!");
+            dict.Add("Donators", "Because you people make me buy some candy :3");
+
+
+            foreach (KeyValuePair<string, string> keyValuePair in dict)
+            {
+                var item = new ListViewItem(keyValuePair.Key);
+                item.SubItems.Add(keyValuePair.Value);
+
+                if (lstvCredits.Items.Count%2 == 0)
+                    item.BackColor = Color.WhiteSmoke;
+
+                lstvCredits.Items.Add(item);
+                lstvCredits.Columns[lstvCredits.Columns.Count - 1].Width = -2;
+            }
+
+        }
+
+        /// <summary>
+        /// Simple resize
+        /// </summary>
+        /// <param name="sender">The sender (source)</param>
+        /// <param name="e">Standard event args</param>
+        private void lstvCredits_SizeChanged(object sender, EventArgs e)
+        {
+            lstvCredits.Columns[lstvCredits.Columns.Count - 1].Width = -2;
         }
     } 
 }
