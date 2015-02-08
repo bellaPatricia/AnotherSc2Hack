@@ -1188,6 +1188,7 @@
     <None Include="Resources\trans_Tup_WeaponRefit.png" />
     <None Include="Resources\Icon_DefaultPluginIcon.png" />
     <None Include="Resources\icon_credits.png" />
+    <None Include="Resources\Icon_HelpMe.png" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />

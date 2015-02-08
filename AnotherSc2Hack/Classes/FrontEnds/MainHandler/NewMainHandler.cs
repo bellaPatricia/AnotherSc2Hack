@@ -2681,5 +2681,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             lstvCredits.Columns[lstvCredits.Columns.Count - 1].Width = -2;
         }
+
+        private void btnHelpMePostOnD3scene_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://www.d3scene.com/forum/newreply.php?p=717534&noquote=1");
+        }
+
+        private void btnHelpMeEmailMe_Click(object sender, EventArgs e)
+        {
+            Process.Start("mailto:bpatriciaella@yahoo.com");
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+            var label = sender as Label;
+
+            if (label != null)
+                Clipboard.SetText(label.Text);
+        }
     } 
 }

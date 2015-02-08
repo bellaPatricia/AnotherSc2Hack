@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMainHandler));
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
+            this.pnlHelpMe = new System.Windows.Forms.Panel();
+            this.btnHelpMeEmailMe = new System.Windows.Forms.Button();
+            this.btnHelpMePostOnD3scene = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
             this.pnlCredits = new System.Windows.Forms.Panel();
             this.pbMainProgress = new System.Windows.Forms.ProgressBar();
             this.pnlDebug = new System.Windows.Forms.Panel();
@@ -88,6 +92,7 @@
             this.btnLaunchIncome = new System.Windows.Forms.Button();
             this.btnLaunchResource = new System.Windows.Forms.Button();
             this.pnlBottomStrip = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
             this.lstvCredits = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -131,12 +136,14 @@
             this.cpnlOverlaysResources = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlOverlayProductiontab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayProductiontab();
             this.pnlOverlayUnittab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayUnittab();
+            this.cpnlHelpMe = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlCredits = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlDebug = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlLeftSelection.SuspendLayout();
+            this.pnlHelpMe.SuspendLayout();
             this.pnlCredits.SuspendLayout();
             this.pnlDebug.SuspendLayout();
             this.pnlApplication.SuspendLayout();
@@ -155,6 +162,7 @@
             this.pnlLeftSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlLeftSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.pnlLeftSelection.Controls.Add(this.cpnlHelpMe);
             this.pnlLeftSelection.Controls.Add(this.cpnlCredits);
             this.pnlLeftSelection.Controls.Add(this.pbMainProgress);
             this.pnlLeftSelection.Controls.Add(this.cpnlDebug);
@@ -165,6 +173,59 @@
             this.pnlLeftSelection.Name = "pnlLeftSelection";
             this.pnlLeftSelection.Size = new System.Drawing.Size(152, 593);
             this.pnlLeftSelection.TabIndex = 5;
+            // 
+            // pnlHelpMe
+            // 
+            this.pnlHelpMe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlHelpMe.Controls.Add(this.label19);
+            this.pnlHelpMe.Controls.Add(this.btnHelpMeEmailMe);
+            this.pnlHelpMe.Controls.Add(this.btnHelpMePostOnD3scene);
+            this.pnlHelpMe.Controls.Add(this.label18);
+            this.pnlHelpMe.Location = new System.Drawing.Point(0, 80);
+            this.pnlHelpMe.Name = "pnlHelpMe";
+            this.pnlHelpMe.Size = new System.Drawing.Size(1029, 450);
+            this.pnlHelpMe.TabIndex = 14;
+            // 
+            // btnHelpMeEmailMe
+            // 
+            this.btnHelpMeEmailMe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnHelpMeEmailMe.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnHelpMeEmailMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelpMeEmailMe.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMeEmailMe.Location = new System.Drawing.Point(20, 86);
+            this.btnHelpMeEmailMe.Name = "btnHelpMeEmailMe";
+            this.btnHelpMeEmailMe.Size = new System.Drawing.Size(206, 32);
+            this.btnHelpMeEmailMe.TabIndex = 22;
+            this.btnHelpMeEmailMe.Text = "E-Mail me";
+            this.btnHelpMeEmailMe.UseVisualStyleBackColor = false;
+            this.btnHelpMeEmailMe.Click += new System.EventHandler(this.btnHelpMeEmailMe_Click);
+            // 
+            // btnHelpMePostOnD3scene
+            // 
+            this.btnHelpMePostOnD3scene.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnHelpMePostOnD3scene.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnHelpMePostOnD3scene.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelpMePostOnD3scene.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMePostOnD3scene.Location = new System.Drawing.Point(20, 48);
+            this.btnHelpMePostOnD3scene.Name = "btnHelpMePostOnD3scene";
+            this.btnHelpMePostOnD3scene.Size = new System.Drawing.Size(206, 32);
+            this.btnHelpMePostOnD3scene.TabIndex = 21;
+            this.btnHelpMePostOnD3scene.Text = "Post on D3Scene";
+            this.btnHelpMePostOnD3scene.UseVisualStyleBackColor = false;
+            this.btnHelpMePostOnD3scene.Click += new System.EventHandler(this.btnHelpMePostOnD3scene_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label18.Location = new System.Drawing.Point(15, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(150, 20);
+            this.label18.TabIndex = 12;
+            this.label18.Text = "Provide suggestions";
             // 
             // pnlCredits
             // 
@@ -734,6 +795,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.pnlMainArea.Controls.Add(this.lblTabname);
+            this.pnlMainArea.Controls.Add(this.pnlHelpMe);
             this.pnlMainArea.Controls.Add(this.pnlCredits);
             this.pnlMainArea.Controls.Add(this.pnlApplication);
             this.pnlMainArea.Controls.Add(this.pnlPlugins);
@@ -886,6 +948,19 @@
             this.pnlBottomStrip.TabIndex = 22;
             this.pnlBottomStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label19.Location = new System.Drawing.Point(235, 92);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(179, 20);
+            this.label19.TabIndex = 23;
+            this.label19.Text = "bpatriciaella@yahoo.com";
+            this.label19.Click += new System.EventHandler(this.label19_Click);
+            // 
             // lstvCredits
             // 
             this.lstvCredits.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -898,9 +973,9 @@
             this.lstvCredits.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvCredits.FullRowSelect = true;
             this.lstvCredits.GridLines = true;
-            this.lstvCredits.Location = new System.Drawing.Point(3, 3);
+            this.lstvCredits.Location = new System.Drawing.Point(15, 15);
             this.lstvCredits.Name = "lstvCredits";
-            this.lstvCredits.Size = new System.Drawing.Size(1023, 445);
+            this.lstvCredits.Size = new System.Drawing.Size(1001, 425);
             this.lstvCredits.TabIndex = 24;
             this.lstvCredits.UseCompatibleStateImageBehavior = false;
             this.lstvCredits.View = System.Windows.Forms.View.Details;
@@ -1391,6 +1466,30 @@
             this.pnlOverlayUnittab.Size = new System.Drawing.Size(905, 348);
             this.pnlOverlayUnittab.TabIndex = 7;
             // 
+            // cpnlHelpMe
+            // 
+            this.cpnlHelpMe.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlHelpMe.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlHelpMe.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlHelpMe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlHelpMe.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cpnlHelpMe.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlHelpMe.DisplayText = "Help Me";
+            this.cpnlHelpMe.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlHelpMe.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlHelpMe.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_HelpMe;
+            this.cpnlHelpMe.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlHelpMe.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlHelpMe.IsClicked = false;
+            this.cpnlHelpMe.IsHovering = false;
+            this.cpnlHelpMe.Location = new System.Drawing.Point(0, 240);
+            this.cpnlHelpMe.Name = "cpnlHelpMe";
+            this.cpnlHelpMe.SettingsPanel = this.pnlHelpMe;
+            this.cpnlHelpMe.Size = new System.Drawing.Size(152, 40);
+            this.cpnlHelpMe.TabIndex = 6;
+            this.cpnlHelpMe.TextSize = 11F;
+            this.cpnlHelpMe.Click += new System.EventHandler(this.cpnl_Click);
+            // 
             // cpnlCredits
             // 
             this.cpnlCredits.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
@@ -1522,6 +1621,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewMainHandler_FormClosing);
             this.Resize += new System.EventHandler(this.NewMainHandler_Resize);
             this.pnlLeftSelection.ResumeLayout(false);
+            this.pnlHelpMe.ResumeLayout(false);
+            this.pnlHelpMe.PerformLayout();
             this.pnlCredits.ResumeLayout(false);
             this.pnlDebug.ResumeLayout(false);
             this.pnlDebug.PerformLayout();
@@ -1650,6 +1751,12 @@
         private AnotherListview lstvCredits;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
+        private Custom_Controls.ClickablePanel cpnlHelpMe;
+        private System.Windows.Forms.Panel pnlHelpMe;
+        private System.Windows.Forms.Button btnHelpMePostOnD3scene;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnHelpMeEmailMe;
+        private System.Windows.Forms.Label label19;
 
     }
 }
