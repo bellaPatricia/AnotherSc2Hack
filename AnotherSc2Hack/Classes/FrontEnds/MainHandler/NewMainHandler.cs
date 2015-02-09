@@ -2692,12 +2692,29 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Process.Start("mailto:bpatriciaella@yahoo.com");
         }
 
-        private void label19_Click(object sender, EventArgs e)
+        private void btnHelpMeGithubIssues_Click(object sender, EventArgs e)
         {
-            var label = sender as Label;
+            Process.Start("https://github.com/bellaPatricia/AnotherSc2Hack/issues/new");
+        }
 
-            if (label != null)
-                Clipboard.SetText(label.Text);
+        private void btnHelpMeLocalize_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Some cool file HERE");
+        }
+
+        private void btnHelpMeCopyBitcoin_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblHelpMeBitcoin.Text.Substring(lblHelpMeBitcoin.Text.IndexOf(":") + 2));
+        }
+
+        private void btnHelpMeCopyEmail_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblHelpMeEmail.Text);
+        }
+
+        private void btnHelpMePaypal_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3ZAZS7HNX6DPW");
         }
     } 
 }

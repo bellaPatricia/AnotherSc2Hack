@@ -32,6 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMainHandler));
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
             this.pnlHelpMe = new System.Windows.Forms.Panel();
+            this.btnHelpMeCopyEmail = new System.Windows.Forms.Button();
+            this.btnHelpMeCopyBitcoin = new System.Windows.Forms.Button();
+            this.lblHelpMeBitcoin = new System.Windows.Forms.Label();
+            this.btnHelpMePaypal = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnHelpMeLocalize = new System.Windows.Forms.Button();
+            this.btnHelpMeGithubIssues = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lblHelpMeEmail = new System.Windows.Forms.Label();
             this.btnHelpMeEmailMe = new System.Windows.Forms.Button();
             this.btnHelpMePostOnD3scene = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
@@ -92,7 +101,6 @@
             this.btnLaunchIncome = new System.Windows.Forms.Button();
             this.btnLaunchResource = new System.Windows.Forms.Button();
             this.pnlBottomStrip = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
             this.lstvCredits = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -179,7 +187,15 @@
             this.pnlHelpMe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlHelpMe.Controls.Add(this.label19);
+            this.pnlHelpMe.Controls.Add(this.btnHelpMeCopyEmail);
+            this.pnlHelpMe.Controls.Add(this.btnHelpMeCopyBitcoin);
+            this.pnlHelpMe.Controls.Add(this.lblHelpMeBitcoin);
+            this.pnlHelpMe.Controls.Add(this.btnHelpMePaypal);
+            this.pnlHelpMe.Controls.Add(this.label21);
+            this.pnlHelpMe.Controls.Add(this.btnHelpMeLocalize);
+            this.pnlHelpMe.Controls.Add(this.btnHelpMeGithubIssues);
+            this.pnlHelpMe.Controls.Add(this.label20);
+            this.pnlHelpMe.Controls.Add(this.lblHelpMeEmail);
             this.pnlHelpMe.Controls.Add(this.btnHelpMeEmailMe);
             this.pnlHelpMe.Controls.Add(this.btnHelpMePostOnD3scene);
             this.pnlHelpMe.Controls.Add(this.label18);
@@ -187,6 +203,122 @@
             this.pnlHelpMe.Name = "pnlHelpMe";
             this.pnlHelpMe.Size = new System.Drawing.Size(1029, 450);
             this.pnlHelpMe.TabIndex = 14;
+            // 
+            // btnHelpMeCopyEmail
+            // 
+            this.btnHelpMeCopyEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnHelpMeCopyEmail.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnHelpMeCopyEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelpMeCopyEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMeCopyEmail.Image = global::AnotherSc2Hack.Properties.Resources.Icon_Copy;
+            this.btnHelpMeCopyEmail.Location = new System.Drawing.Point(420, 86);
+            this.btnHelpMeCopyEmail.Name = "btnHelpMeCopyEmail";
+            this.btnHelpMeCopyEmail.Size = new System.Drawing.Size(29, 32);
+            this.btnHelpMeCopyEmail.TabIndex = 31;
+            this.btnHelpMeCopyEmail.UseVisualStyleBackColor = false;
+            this.btnHelpMeCopyEmail.Click += new System.EventHandler(this.btnHelpMeCopyEmail_Click);
+            // 
+            // btnHelpMeCopyBitcoin
+            // 
+            this.btnHelpMeCopyBitcoin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnHelpMeCopyBitcoin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnHelpMeCopyBitcoin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelpMeCopyBitcoin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMeCopyBitcoin.Image = global::AnotherSc2Hack.Properties.Resources.Icon_Copy;
+            this.btnHelpMeCopyBitcoin.Location = new System.Drawing.Point(376, 369);
+            this.btnHelpMeCopyBitcoin.Name = "btnHelpMeCopyBitcoin";
+            this.btnHelpMeCopyBitcoin.Size = new System.Drawing.Size(29, 32);
+            this.btnHelpMeCopyBitcoin.TabIndex = 30;
+            this.btnHelpMeCopyBitcoin.UseVisualStyleBackColor = false;
+            this.btnHelpMeCopyBitcoin.Click += new System.EventHandler(this.btnHelpMeCopyBitcoin_Click);
+            // 
+            // lblHelpMeBitcoin
+            // 
+            this.lblHelpMeBitcoin.AutoSize = true;
+            this.lblHelpMeBitcoin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblHelpMeBitcoin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelpMeBitcoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblHelpMeBitcoin.Location = new System.Drawing.Point(16, 375);
+            this.lblHelpMeBitcoin.Name = "lblHelpMeBitcoin";
+            this.lblHelpMeBitcoin.Size = new System.Drawing.Size(354, 20);
+            this.lblHelpMeBitcoin.TabIndex = 29;
+            this.lblHelpMeBitcoin.Text = "Bitcoins: 14H1z2mT8yCQV7h3ZnBF4EBCPV7k8Udsnv";
+            // 
+            // btnHelpMePaypal
+            // 
+            this.btnHelpMePaypal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnHelpMePaypal.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnHelpMePaypal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelpMePaypal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMePaypal.Location = new System.Drawing.Point(19, 331);
+            this.btnHelpMePaypal.Name = "btnHelpMePaypal";
+            this.btnHelpMePaypal.Size = new System.Drawing.Size(206, 32);
+            this.btnHelpMePaypal.TabIndex = 28;
+            this.btnHelpMePaypal.Text = "Paypal";
+            this.btnHelpMePaypal.UseVisualStyleBackColor = false;
+            this.btnHelpMePaypal.Click += new System.EventHandler(this.btnHelpMePaypal_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label21.Location = new System.Drawing.Point(15, 300);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(105, 20);
+            this.label21.TabIndex = 27;
+            this.label21.Text = "Good \'ol Cash";
+            // 
+            // btnHelpMeLocalize
+            // 
+            this.btnHelpMeLocalize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnHelpMeLocalize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnHelpMeLocalize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelpMeLocalize.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMeLocalize.Location = new System.Drawing.Point(20, 230);
+            this.btnHelpMeLocalize.Name = "btnHelpMeLocalize";
+            this.btnHelpMeLocalize.Size = new System.Drawing.Size(206, 32);
+            this.btnHelpMeLocalize.TabIndex = 26;
+            this.btnHelpMeLocalize.Text = "Get the file and Translate!";
+            this.btnHelpMeLocalize.UseVisualStyleBackColor = false;
+            this.btnHelpMeLocalize.Click += new System.EventHandler(this.btnHelpMeLocalize_Click);
+            // 
+            // btnHelpMeGithubIssues
+            // 
+            this.btnHelpMeGithubIssues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnHelpMeGithubIssues.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnHelpMeGithubIssues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelpMeGithubIssues.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMeGithubIssues.Location = new System.Drawing.Point(20, 124);
+            this.btnHelpMeGithubIssues.Name = "btnHelpMeGithubIssues";
+            this.btnHelpMeGithubIssues.Size = new System.Drawing.Size(206, 32);
+            this.btnHelpMeGithubIssues.TabIndex = 25;
+            this.btnHelpMeGithubIssues.Text = "Github Issues";
+            this.btnHelpMeGithubIssues.UseVisualStyleBackColor = false;
+            this.btnHelpMeGithubIssues.Click += new System.EventHandler(this.btnHelpMeGithubIssues_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label20.Location = new System.Drawing.Point(16, 198);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(152, 20);
+            this.label20.TabIndex = 24;
+            this.label20.Text = "Help me localize this";
+            // 
+            // lblHelpMeEmail
+            // 
+            this.lblHelpMeEmail.AutoSize = true;
+            this.lblHelpMeEmail.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblHelpMeEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelpMeEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblHelpMeEmail.Location = new System.Drawing.Point(235, 92);
+            this.lblHelpMeEmail.Name = "lblHelpMeEmail";
+            this.lblHelpMeEmail.Size = new System.Drawing.Size(179, 20);
+            this.lblHelpMeEmail.TabIndex = 23;
+            this.lblHelpMeEmail.Text = "bpatriciaella@yahoo.com";
             // 
             // btnHelpMeEmailMe
             // 
@@ -223,9 +355,9 @@
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.label18.Location = new System.Drawing.Point(15, 15);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(150, 20);
+            this.label18.Size = new System.Drawing.Size(260, 20);
             this.label18.TabIndex = 12;
-            this.label18.Text = "Provide suggestions";
+            this.label18.Text = "Provide suggestions or report a bug";
             // 
             // pnlCredits
             // 
@@ -947,19 +1079,6 @@
             this.pnlBottomStrip.Size = new System.Drawing.Size(1028, 62);
             this.pnlBottomStrip.TabIndex = 22;
             this.pnlBottomStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label19.Location = new System.Drawing.Point(235, 92);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(179, 20);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "bpatriciaella@yahoo.com";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // lstvCredits
             // 
@@ -1756,7 +1875,15 @@
         private System.Windows.Forms.Button btnHelpMePostOnD3scene;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnHelpMeEmailMe;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblHelpMeEmail;
+        private System.Windows.Forms.Button btnHelpMeGithubIssues;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button btnHelpMeLocalize;
+        private System.Windows.Forms.Label lblHelpMeBitcoin;
+        private System.Windows.Forms.Button btnHelpMePaypal;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnHelpMeCopyEmail;
+        private System.Windows.Forms.Button btnHelpMeCopyBitcoin;
 
     }
 }

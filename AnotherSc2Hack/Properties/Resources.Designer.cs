@@ -133,6 +133,16 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Icon_Copy {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icon_credits {
             get {
                 object obj = ResourceManager.GetObject("icon_credits", resourceCulture);
