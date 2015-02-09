@@ -235,7 +235,7 @@
             // lblHelpMeBitcoin
             // 
             this.lblHelpMeBitcoin.AutoSize = true;
-            this.lblHelpMeBitcoin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblHelpMeBitcoin.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblHelpMeBitcoin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHelpMeBitcoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.lblHelpMeBitcoin.Location = new System.Drawing.Point(16, 375);
