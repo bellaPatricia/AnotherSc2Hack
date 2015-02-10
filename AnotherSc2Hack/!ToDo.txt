@@ -6,3 +6,7 @@ Gameinfo improving
 ------------------
 Cache unitdata (data percentage) per unit
 
+Settings
+--------
+- Option to restore settings back to default
+- Use xml completely
