@@ -303,13 +303,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             GatherAndMapPlayerData();
 
-            _swmainwatch.Reset();
-            _swmainwatch.Start();
+            //_swmainwatch.Reset();
+            //_swmainwatch.Start();
 
             GatherAndMapUnitData();
 
-            _swmainwatch.Stop();
-            Console.WriteLine(1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency);
+            //_swmainwatch.Stop();
+            //Console.WriteLine(1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency);
             
             GatherAndMapMapData();
             GatherAndMapSelectionData();
