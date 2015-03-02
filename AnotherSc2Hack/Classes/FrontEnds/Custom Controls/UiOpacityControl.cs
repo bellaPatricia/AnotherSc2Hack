@@ -2,10 +2,11 @@
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.Events;
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    public delegate void ValueChangeHandler(UiOpacityControl o, EventNumber e);
+    public delegate void ValueChangeHandler(UiOpacityControl o, NumberArgs e);
 
     [DefaultEvent("ValueChanged")]
     public partial class UiOpacityControl : UserControl
@@ -24,7 +25,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
                     return;
 
                 _number = value;
-                var en = new EventNumber(_number);
+                var en = new NumberArgs(_number);
 
                 //Call the Event
                 OnValueChange(this, en);
@@ -33,7 +34,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             }
         }
 
-        public void OnValueChange(UiOpacityControl o, EventNumber e)
+        public void OnValueChange(UiOpacityControl o, NumberArgs e)
         {
             if (ValueChanged != null)
                 ValueChanged(o, e);

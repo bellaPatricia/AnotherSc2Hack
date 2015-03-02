@@ -20,6 +20,7 @@ using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Plugin;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
+using AnotherSc2Hack.Classes.Events;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Container;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
@@ -199,11 +200,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ApplicationOptions = app;
 
             Gameinfo.CSleepTime = PSettings.GlobalDataRefresh;
+            Gameinfo.IterationPerSecondChanged += Gameinfo_IterationPerSecondChanged;
 
             PluginsLocalLoadPlugins();
             new Thread(PluginLoadAvailablePlugins).Start();
             
             LoadContributers();
+        }
+
+        void Gameinfo_IterationPerSecondChanged(object sender, Events.NumberArgs e)
+        {
+            ntxtBenchmarkDataIterations.Number = e.Number;
         }
 
         private void Init()
@@ -233,6 +240,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _lContainer.Add(new ProductionRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new PersonalApmRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new PersonalClockRenderer(Gameinfo, PSettings, PSc2Process));
+
+            BaseRendererEventMapping();
 
             SetStyle(ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.OptimizedDoubleBuffer |
@@ -564,6 +573,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
+        /// <summary>
+        /// Refresh the list of plugins
+        /// </summary>
         private void PluginDataRefresh()
         {
             if (_lPlugins == null || _lPlugins.Count <= 0)
@@ -647,8 +659,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Event methods
 
-        private void ntxtMemoryRefresh_NumberChanged(NumberTextBox o, EventNumber e)
+        private void ntxtMemoryRefresh_NumberChanged(object sender, NumberArgs e)
         {
+            var o = sender as NumberTextBox;
+            if (o == null)
+                return;
+
             if (o.Number == 0)
             {
                 o.Number = 1;
@@ -659,10 +675,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.GlobalDataRefresh = o.Number;
 
             Gameinfo.CSleepTime = o.Number;
+            ntxtBenchmarkDataInterval.Number = o.Number;
         }
 
-        private void ntxtGraphicsRefresh_NumberChanged(NumberTextBox o, EventNumber e)
+        private void ntxtGraphicsRefresh_NumberChanged(object sender, NumberArgs e)
         {
+            var o = sender as NumberTextBox;
+            if (o == null)
+                return;
+
             if (o.Number == 0)
             {
                 o.Number = 1;
@@ -671,6 +692,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
 
             PSettings.GlobalDrawingRefresh = o.Number;
+            ntxtBenchmarkDrawingInterval.Number = o.Number;
 
             _lContainer.SetDrawingInterval(PSettings.GlobalDrawingRefresh);
         }
@@ -750,6 +772,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayWorker.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
             pnlOverlayWorker.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
             pnlOverlayWorker.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+
         }
 
         private void EventMappingApm()
@@ -1193,7 +1216,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 Messages.Show("Couldn't find parent!");
         }
 
-        void ocOverlaysOpacity_ValueChanged(UiOpacityControl uiOpacityControl, EventNumber eventNumber)
+        void ocOverlaysOpacity_ValueChanged(UiOpacityControl uiOpacityControl, NumberArgs eventNumber)
         {
             var parent = HelpFunctions.findParentByName(uiOpacityControl, "pnlOverlays");
 
@@ -1425,8 +1448,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 Messages.Show("Couldn't find parent!");
         }
 
-        void ntxtOverlaysSize_NumberChanged(NumberTextBox o, EventNumber e)
+        void ntxtOverlaysSize_NumberChanged(object sender, NumberArgs e)
         {
+            var o = sender as NumberTextBox;
+
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
@@ -2283,14 +2308,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 IDebugUnitIndex += 1;
         }
 
-        private void ntxtDebugPlayerLocation_NumberChanged(NumberTextBox o, EventNumber e)
+        private void ntxtDebugPlayerLocation_NumberChanged(object sender, NumberArgs e)
         {
-            IDebugPlayerIndex = (Int32)e.TheNumber;
+            var o = sender as NumberTextBox;
+            if (o == null)
+                return;
+
+            IDebugPlayerIndex = e.Number;
         }
 
-        private void ntxtDebugUnitLocation_NumberChanged(NumberTextBox o, EventNumber e)
+        private void ntxtDebugUnitLocation_NumberChanged(object sender, NumberArgs e)
         {
-            IDebugUnitIndex = (Int32)e.TheNumber;
+            var o = sender as NumberTextBox;
+            if (o == null)
+                return;
+
+            IDebugUnitIndex = e.Number;
         }
 
         private void txtDebugPlayername_TextChanged(object sender, EventArgs e)
@@ -2341,6 +2374,88 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         #endregion
 
         #endregion
+
+        #region Renderer Eventmappings
+
+        /// <summary>
+        /// Init Eventmapping for the Baserenderer
+        /// </summary>
+        private void BaseRendererEventMapping()
+        {
+            foreach (var renderer in _lContainer)
+            {
+                renderer.IterationPerSecondChanged += renderer_IterationPerSecondChanged;
+            }
+        }
+
+        /// <summary>
+        /// Implement the required action (set the number)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void renderer_IterationPerSecondChanged(object sender, Events.NumberArgs e)
+        {
+            var resourcesRenderer = sender as ResourcesRenderer;
+            if (resourcesRenderer != null)
+            {
+                ntxtBenchmarkResourceIterations.Number = e.Number;
+                return;
+            }
+
+            var incomeRenderer = sender as IncomeRenderer;
+            if (incomeRenderer != null)
+            {
+                ntxtBenchmarkIncomeIterations.Number = e.Number;
+                return;
+            }
+
+            var workerRenderer = sender as WorkerRenderer;
+            if (workerRenderer != null)
+            {
+                ntxtBenchmarkWorkerIterations.Number = e.Number;
+                return;
+            }
+
+            var armyRenderer = sender as ArmyRenderer;
+            if (armyRenderer != null)
+            {
+                ntxtBenchmarkArmyIterations.Number = e.Number;
+                return;
+            }
+
+            var apmRenderer = sender as ApmRenderer;
+            if (apmRenderer != null)
+            {
+                ntxtBenchmarkApmIterations.Number = e.Number;
+                return;
+            }
+
+            var unitRenderer = sender as UnitRenderer;
+            if (unitRenderer != null)
+            {
+                ntxtBenchmarkUnitTabIterations.Number = e.Number;
+                return;
+            }
+
+            var productionRenderer = sender as ProductionRenderer;
+            if (productionRenderer != null)
+            {
+                ntxtBenchmarkProductionTabIterations.Number = e.Number;
+                return;
+            }
+
+            var maphackRenderer = sender as MaphackRenderer;
+            if (maphackRenderer != null)
+            {
+                ntxtBenchmarkMaphackIterations.Number = e.Number;
+                return;
+            }
+
+
+        }
+
+        #endregion
+
 
         #region Load Settings Into Controls
 

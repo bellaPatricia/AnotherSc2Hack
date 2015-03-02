@@ -99,6 +99,7 @@
     <Compile Include="Classes\BackEnds\Memory.cs" />
     <Compile Include="Classes\BackEnds\Messages.cs" />
     <Compile Include="Classes\BackEnds\Offsets.cs" />
+    <Compile Include="Classes\Events\NumberArgs.cs" />
     <Compile Include="Classes\DataStructures\Plugin\Plugin.cs" />
     <Compile Include="Classes\BackEnds\Preferences.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceAll.cs" />
@@ -1190,6 +1191,7 @@
     <None Include="Resources\icon_credits.png" />
     <None Include="Resources\Icon_HelpMe.png" />
     <None Include="Resources\Icon_Copy.png" />
+    <None Include="Resources\Icon_Benchmark.png" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />

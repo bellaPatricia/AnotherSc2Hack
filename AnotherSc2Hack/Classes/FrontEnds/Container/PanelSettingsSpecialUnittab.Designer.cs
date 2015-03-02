@@ -65,7 +65,7 @@
             this.ntxtSize.Size = new System.Drawing.Size(100, 27);
             this.ntxtSize.TabIndex = 25;
             this.ntxtSize.Text = "45";
-            this.ntxtSize.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtSize_NumberChanged);
+            this.ntxtSize.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtSize_NumberChanged);
             // 
             // languageLabel2
             // 

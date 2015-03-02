@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.Events;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
@@ -16,11 +17,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             InitializeComponent();
         }
 
-        private void ntxtSize_NumberChanged(NumberTextBox o, EventNumber e)
+        private void ntxtSize_NumberChanged(object o, NumberArgs e)
         {
             pnlPreview.Invalidate();
-            pnlPreview.Width = (int)e.TheNumber;
-            pnlPreview.Height = (int)e.TheNumber;
+            pnlPreview.Width = e.Number;
+            pnlPreview.Height = e.Number;
         }
 
         private void pnlPreview_Paint(object sender, PaintEventArgs e)

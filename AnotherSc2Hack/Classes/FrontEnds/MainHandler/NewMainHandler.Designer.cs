@@ -44,6 +44,20 @@
             this.btnHelpMeEmailMe = new System.Windows.Forms.Button();
             this.btnHelpMePostOnD3scene = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
+            this.pnlBenchmark = new System.Windows.Forms.Panel();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.pnlCredits = new System.Windows.Forms.Panel();
             this.pbMainProgress = new System.Windows.Forms.ProgressBar();
             this.pnlDebug = new System.Windows.Forms.Panel();
@@ -101,6 +115,17 @@
             this.btnLaunchIncome = new System.Windows.Forms.Button();
             this.btnLaunchResource = new System.Windows.Forms.Button();
             this.pnlBottomStrip = new System.Windows.Forms.Panel();
+            this.ntxtBenchmarkMaphackIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtBenchmarkProductionTabIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtBenchmarkUnitTabIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtBenchmarkApmIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtBenchmarkArmyIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtBenchmarkWorkerIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtBenchmarkIncomeIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtBenchmarkResourceIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtBenchmarkDrawingInterval = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtBenchmarkDataIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.ntxtBenchmarkDataInterval = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.lstvCredits = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -145,6 +170,7 @@
             this.pnlOverlayProductiontab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayProductiontab();
             this.pnlOverlayUnittab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayUnittab();
             this.cpnlHelpMe = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
+            this.cpnlBenchmark = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlCredits = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlDebug = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
@@ -152,6 +178,7 @@
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlHelpMe.SuspendLayout();
+            this.pnlBenchmark.SuspendLayout();
             this.pnlCredits.SuspendLayout();
             this.pnlDebug.SuspendLayout();
             this.pnlApplication.SuspendLayout();
@@ -171,6 +198,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlLeftSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.pnlLeftSelection.Controls.Add(this.cpnlHelpMe);
+            this.pnlLeftSelection.Controls.Add(this.cpnlBenchmark);
             this.pnlLeftSelection.Controls.Add(this.cpnlCredits);
             this.pnlLeftSelection.Controls.Add(this.pbMainProgress);
             this.pnlLeftSelection.Controls.Add(this.cpnlDebug);
@@ -358,6 +386,183 @@
             this.label18.Size = new System.Drawing.Size(260, 20);
             this.label18.TabIndex = 12;
             this.label18.Text = "Provide suggestions or report a bug";
+            // 
+            // pnlBenchmark
+            // 
+            this.pnlBenchmark.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkMaphackIterations);
+            this.pnlBenchmark.Controls.Add(this.label33);
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkProductionTabIterations);
+            this.pnlBenchmark.Controls.Add(this.label32);
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkUnitTabIterations);
+            this.pnlBenchmark.Controls.Add(this.label31);
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkApmIterations);
+            this.pnlBenchmark.Controls.Add(this.label30);
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkArmyIterations);
+            this.pnlBenchmark.Controls.Add(this.label29);
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkWorkerIterations);
+            this.pnlBenchmark.Controls.Add(this.label28);
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkIncomeIterations);
+            this.pnlBenchmark.Controls.Add(this.label27);
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkResourceIterations);
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkDrawingInterval);
+            this.pnlBenchmark.Controls.Add(this.label24);
+            this.pnlBenchmark.Controls.Add(this.label25);
+            this.pnlBenchmark.Controls.Add(this.label26);
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkDataIterations);
+            this.pnlBenchmark.Controls.Add(this.ntxtBenchmarkDataInterval);
+            this.pnlBenchmark.Controls.Add(this.label23);
+            this.pnlBenchmark.Controls.Add(this.label22);
+            this.pnlBenchmark.Controls.Add(this.label19);
+            this.pnlBenchmark.Location = new System.Drawing.Point(0, 80);
+            this.pnlBenchmark.Name = "pnlBenchmark";
+            this.pnlBenchmark.Size = new System.Drawing.Size(1029, 450);
+            this.pnlBenchmark.TabIndex = 25;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label33.Location = new System.Drawing.Point(207, 285);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(173, 20);
+            this.label33.TabIndex = 34;
+            this.label33.Text = "Maphack Iterations / sec.";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label32.Location = new System.Drawing.Point(207, 255);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(210, 20);
+            this.label32.TabIndex = 32;
+            this.label32.Text = "ProductionTab Iterations / sec.";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label31.Location = new System.Drawing.Point(207, 225);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(165, 20);
+            this.label31.TabIndex = 30;
+            this.label31.Text = "UnitTab Iterations / sec.";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label30.Location = new System.Drawing.Point(207, 195);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(145, 20);
+            this.label30.TabIndex = 28;
+            this.label30.Text = "Apm Iterations / sec.";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label29.Location = new System.Drawing.Point(207, 165);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(148, 20);
+            this.label29.TabIndex = 26;
+            this.label29.Text = "Army Iterations / sec.";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label28.Location = new System.Drawing.Point(207, 135);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(161, 20);
+            this.label28.TabIndex = 24;
+            this.label28.Text = "Worker Iterations / sec.";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label27.Location = new System.Drawing.Point(207, 105);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(162, 20);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "Income Iterations / sec.";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label24.Location = new System.Drawing.Point(207, 75);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(173, 20);
+            this.label24.TabIndex = 19;
+            this.label24.Text = "Resource Iterations / sec.";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label25.Location = new System.Drawing.Point(207, 45);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(91, 20);
+            this.label25.TabIndex = 18;
+            this.label25.Text = "Interval (ms)";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label26.Location = new System.Drawing.Point(207, 15);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(68, 20);
+            this.label26.TabIndex = 17;
+            this.label26.Text = "Drawing";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label23.Location = new System.Drawing.Point(15, 75);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(109, 20);
+            this.label23.TabIndex = 14;
+            this.label23.Text = "Iterations / sec.";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label22.Location = new System.Drawing.Point(15, 45);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(91, 20);
+            this.label22.TabIndex = 13;
+            this.label22.Text = "Interval (ms)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label19.Location = new System.Drawing.Point(15, 15);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(106, 20);
+            this.label19.TabIndex = 12;
+            this.label19.Text = "Data Fetching";
             // 
             // pnlCredits
             // 
@@ -927,12 +1132,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.pnlMainArea.Controls.Add(this.lblTabname);
-            this.pnlMainArea.Controls.Add(this.pnlHelpMe);
+            this.pnlMainArea.Controls.Add(this.pnlBenchmark);
             this.pnlMainArea.Controls.Add(this.pnlCredits);
             this.pnlMainArea.Controls.Add(this.pnlApplication);
             this.pnlMainArea.Controls.Add(this.pnlPlugins);
             this.pnlMainArea.Controls.Add(this.pnlDebug);
             this.pnlMainArea.Controls.Add(this.pnlOverlays);
+            this.pnlMainArea.Controls.Add(this.pnlHelpMe);
             this.pnlMainArea.Location = new System.Drawing.Point(152, 0);
             this.pnlMainArea.Name = "pnlMainArea";
             this.pnlMainArea.Size = new System.Drawing.Size(1029, 531);
@@ -1080,6 +1286,127 @@
             this.pnlBottomStrip.TabIndex = 22;
             this.pnlBottomStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
             // 
+            // ntxtBenchmarkMaphackIterations
+            // 
+            this.ntxtBenchmarkMaphackIterations.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkMaphackIterations.Location = new System.Drawing.Point(439, 282);
+            this.ntxtBenchmarkMaphackIterations.Name = "ntxtBenchmarkMaphackIterations";
+            this.ntxtBenchmarkMaphackIterations.Number = 99999;
+            this.ntxtBenchmarkMaphackIterations.ReadOnly = true;
+            this.ntxtBenchmarkMaphackIterations.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkMaphackIterations.TabIndex = 35;
+            this.ntxtBenchmarkMaphackIterations.Text = "99999";
+            // 
+            // ntxtBenchmarkProductionTabIterations
+            // 
+            this.ntxtBenchmarkProductionTabIterations.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkProductionTabIterations.Location = new System.Drawing.Point(439, 252);
+            this.ntxtBenchmarkProductionTabIterations.Name = "ntxtBenchmarkProductionTabIterations";
+            this.ntxtBenchmarkProductionTabIterations.Number = 99999;
+            this.ntxtBenchmarkProductionTabIterations.ReadOnly = true;
+            this.ntxtBenchmarkProductionTabIterations.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkProductionTabIterations.TabIndex = 33;
+            this.ntxtBenchmarkProductionTabIterations.Text = "99999";
+            // 
+            // ntxtBenchmarkUnitTabIterations
+            // 
+            this.ntxtBenchmarkUnitTabIterations.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkUnitTabIterations.Location = new System.Drawing.Point(439, 222);
+            this.ntxtBenchmarkUnitTabIterations.Name = "ntxtBenchmarkUnitTabIterations";
+            this.ntxtBenchmarkUnitTabIterations.Number = 99999;
+            this.ntxtBenchmarkUnitTabIterations.ReadOnly = true;
+            this.ntxtBenchmarkUnitTabIterations.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkUnitTabIterations.TabIndex = 31;
+            this.ntxtBenchmarkUnitTabIterations.Text = "99999";
+            // 
+            // ntxtBenchmarkApmIterations
+            // 
+            this.ntxtBenchmarkApmIterations.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkApmIterations.Location = new System.Drawing.Point(439, 192);
+            this.ntxtBenchmarkApmIterations.Name = "ntxtBenchmarkApmIterations";
+            this.ntxtBenchmarkApmIterations.Number = 99999;
+            this.ntxtBenchmarkApmIterations.ReadOnly = true;
+            this.ntxtBenchmarkApmIterations.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkApmIterations.TabIndex = 29;
+            this.ntxtBenchmarkApmIterations.Text = "99999";
+            // 
+            // ntxtBenchmarkArmyIterations
+            // 
+            this.ntxtBenchmarkArmyIterations.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkArmyIterations.Location = new System.Drawing.Point(439, 162);
+            this.ntxtBenchmarkArmyIterations.Name = "ntxtBenchmarkArmyIterations";
+            this.ntxtBenchmarkArmyIterations.Number = 99999;
+            this.ntxtBenchmarkArmyIterations.ReadOnly = true;
+            this.ntxtBenchmarkArmyIterations.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkArmyIterations.TabIndex = 27;
+            this.ntxtBenchmarkArmyIterations.Text = "99999";
+            // 
+            // ntxtBenchmarkWorkerIterations
+            // 
+            this.ntxtBenchmarkWorkerIterations.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkWorkerIterations.Location = new System.Drawing.Point(439, 132);
+            this.ntxtBenchmarkWorkerIterations.Name = "ntxtBenchmarkWorkerIterations";
+            this.ntxtBenchmarkWorkerIterations.Number = 99999;
+            this.ntxtBenchmarkWorkerIterations.ReadOnly = true;
+            this.ntxtBenchmarkWorkerIterations.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkWorkerIterations.TabIndex = 25;
+            this.ntxtBenchmarkWorkerIterations.Text = "99999";
+            // 
+            // ntxtBenchmarkIncomeIterations
+            // 
+            this.ntxtBenchmarkIncomeIterations.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkIncomeIterations.Location = new System.Drawing.Point(439, 102);
+            this.ntxtBenchmarkIncomeIterations.Name = "ntxtBenchmarkIncomeIterations";
+            this.ntxtBenchmarkIncomeIterations.Number = 99999;
+            this.ntxtBenchmarkIncomeIterations.ReadOnly = true;
+            this.ntxtBenchmarkIncomeIterations.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkIncomeIterations.TabIndex = 23;
+            this.ntxtBenchmarkIncomeIterations.Text = "99999";
+            // 
+            // ntxtBenchmarkResourceIterations
+            // 
+            this.ntxtBenchmarkResourceIterations.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkResourceIterations.Location = new System.Drawing.Point(439, 72);
+            this.ntxtBenchmarkResourceIterations.Name = "ntxtBenchmarkResourceIterations";
+            this.ntxtBenchmarkResourceIterations.Number = 99999;
+            this.ntxtBenchmarkResourceIterations.ReadOnly = true;
+            this.ntxtBenchmarkResourceIterations.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkResourceIterations.TabIndex = 21;
+            this.ntxtBenchmarkResourceIterations.Text = "99999";
+            // 
+            // ntxtBenchmarkDrawingInterval
+            // 
+            this.ntxtBenchmarkDrawingInterval.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkDrawingInterval.Location = new System.Drawing.Point(439, 42);
+            this.ntxtBenchmarkDrawingInterval.Name = "ntxtBenchmarkDrawingInterval";
+            this.ntxtBenchmarkDrawingInterval.Number = 99999;
+            this.ntxtBenchmarkDrawingInterval.ReadOnly = true;
+            this.ntxtBenchmarkDrawingInterval.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkDrawingInterval.TabIndex = 20;
+            this.ntxtBenchmarkDrawingInterval.Text = "99999";
+            // 
+            // ntxtBenchmarkDataIterations
+            // 
+            this.ntxtBenchmarkDataIterations.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkDataIterations.Location = new System.Drawing.Point(126, 72);
+            this.ntxtBenchmarkDataIterations.Name = "ntxtBenchmarkDataIterations";
+            this.ntxtBenchmarkDataIterations.Number = 99999;
+            this.ntxtBenchmarkDataIterations.ReadOnly = true;
+            this.ntxtBenchmarkDataIterations.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkDataIterations.TabIndex = 16;
+            this.ntxtBenchmarkDataIterations.Text = "99999";
+            // 
+            // ntxtBenchmarkDataInterval
+            // 
+            this.ntxtBenchmarkDataInterval.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ntxtBenchmarkDataInterval.Location = new System.Drawing.Point(126, 42);
+            this.ntxtBenchmarkDataInterval.Name = "ntxtBenchmarkDataInterval";
+            this.ntxtBenchmarkDataInterval.Number = 99999;
+            this.ntxtBenchmarkDataInterval.ReadOnly = true;
+            this.ntxtBenchmarkDataInterval.Size = new System.Drawing.Size(55, 27);
+            this.ntxtBenchmarkDataInterval.TabIndex = 15;
+            this.ntxtBenchmarkDataInterval.Text = "99999";
+            // 
             // lstvCredits
             // 
             this.lstvCredits.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1143,7 +1470,7 @@
             this.ntxtGraphicsRefresh.Size = new System.Drawing.Size(104, 27);
             this.ntxtGraphicsRefresh.TabIndex = 3;
             this.ntxtGraphicsRefresh.Text = "42";
-            this.ntxtGraphicsRefresh.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtGraphicsRefresh_NumberChanged);
+            this.ntxtGraphicsRefresh.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtGraphicsRefresh_NumberChanged);
             // 
             // ntxtMemoryRefresh
             // 
@@ -1154,7 +1481,7 @@
             this.ntxtMemoryRefresh.Size = new System.Drawing.Size(104, 27);
             this.ntxtMemoryRefresh.TabIndex = 2;
             this.ntxtMemoryRefresh.Text = "42";
-            this.ntxtMemoryRefresh.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
+            this.ntxtMemoryRefresh.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
             // 
             // lstvPluginsAvailablePlugins
             // 
@@ -1279,7 +1606,7 @@
             this.ntxtDebugUnitLocation.Size = new System.Drawing.Size(50, 27);
             this.ntxtDebugUnitLocation.TabIndex = 25;
             this.ntxtDebugUnitLocation.Text = "1";
-            this.ntxtDebugUnitLocation.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtDebugUnitLocation_NumberChanged);
+            this.ntxtDebugUnitLocation.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtDebugUnitLocation_NumberChanged);
             // 
             // ntxtDebugPlayerLocation
             // 
@@ -1291,7 +1618,7 @@
             this.ntxtDebugPlayerLocation.Size = new System.Drawing.Size(50, 27);
             this.ntxtDebugPlayerLocation.TabIndex = 24;
             this.ntxtDebugPlayerLocation.Text = "1";
-            this.ntxtDebugPlayerLocation.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtDebugPlayerLocation_NumberChanged);
+            this.ntxtDebugPlayerLocation.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtDebugPlayerLocation_NumberChanged);
             // 
             // lstvDebugUnitdata
             // 
@@ -1601,13 +1928,37 @@
             this.cpnlHelpMe.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlHelpMe.IsClicked = false;
             this.cpnlHelpMe.IsHovering = false;
-            this.cpnlHelpMe.Location = new System.Drawing.Point(0, 240);
+            this.cpnlHelpMe.Location = new System.Drawing.Point(0, 280);
             this.cpnlHelpMe.Name = "cpnlHelpMe";
             this.cpnlHelpMe.SettingsPanel = this.pnlHelpMe;
             this.cpnlHelpMe.Size = new System.Drawing.Size(152, 40);
-            this.cpnlHelpMe.TabIndex = 6;
+            this.cpnlHelpMe.TabIndex = 7;
             this.cpnlHelpMe.TextSize = 11F;
             this.cpnlHelpMe.Click += new System.EventHandler(this.cpnl_Click);
+            // 
+            // cpnlBenchmark
+            // 
+            this.cpnlBenchmark.ActiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+            this.cpnlBenchmark.ActiveBorderPosition = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ActiveBorderPosition.Left;
+            this.cpnlBenchmark.ActiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.cpnlBenchmark.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlBenchmark.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cpnlBenchmark.DisplayColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlBenchmark.DisplayText = "Benchmark";
+            this.cpnlBenchmark.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpnlBenchmark.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+            this.cpnlBenchmark.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Benchmark;
+            this.cpnlBenchmark.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+            this.cpnlBenchmark.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.cpnlBenchmark.IsClicked = false;
+            this.cpnlBenchmark.IsHovering = false;
+            this.cpnlBenchmark.Location = new System.Drawing.Point(0, 240);
+            this.cpnlBenchmark.Name = "cpnlBenchmark";
+            this.cpnlBenchmark.SettingsPanel = this.pnlBenchmark;
+            this.cpnlBenchmark.Size = new System.Drawing.Size(152, 40);
+            this.cpnlBenchmark.TabIndex = 6;
+            this.cpnlBenchmark.TextSize = 11F;
+            this.cpnlBenchmark.Click += new System.EventHandler(this.cpnl_Click);
             // 
             // cpnlCredits
             // 
@@ -1742,6 +2093,8 @@
             this.pnlLeftSelection.ResumeLayout(false);
             this.pnlHelpMe.ResumeLayout(false);
             this.pnlHelpMe.PerformLayout();
+            this.pnlBenchmark.ResumeLayout(false);
+            this.pnlBenchmark.PerformLayout();
             this.pnlCredits.ResumeLayout(false);
             this.pnlDebug.ResumeLayout(false);
             this.pnlDebug.PerformLayout();
@@ -1870,7 +2223,7 @@
         private AnotherListview lstvCredits;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
-        private Custom_Controls.ClickablePanel cpnlHelpMe;
+        private Custom_Controls.ClickablePanel cpnlBenchmark;
         private System.Windows.Forms.Panel pnlHelpMe;
         private System.Windows.Forms.Button btnHelpMePostOnD3scene;
         private System.Windows.Forms.Label label18;
@@ -1884,6 +2237,32 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnHelpMeCopyEmail;
         private System.Windows.Forms.Button btnHelpMeCopyBitcoin;
+        private Custom_Controls.ClickablePanel cpnlHelpMe;
+        private System.Windows.Forms.Panel pnlBenchmark;
+        private NumberTextBox ntxtBenchmarkDataIterations;
+        private NumberTextBox ntxtBenchmarkDataInterval;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label19;
+        private NumberTextBox ntxtBenchmarkProductionTabIterations;
+        private System.Windows.Forms.Label label32;
+        private NumberTextBox ntxtBenchmarkUnitTabIterations;
+        private System.Windows.Forms.Label label31;
+        private NumberTextBox ntxtBenchmarkApmIterations;
+        private System.Windows.Forms.Label label30;
+        private NumberTextBox ntxtBenchmarkArmyIterations;
+        private System.Windows.Forms.Label label29;
+        private NumberTextBox ntxtBenchmarkWorkerIterations;
+        private System.Windows.Forms.Label label28;
+        private NumberTextBox ntxtBenchmarkIncomeIterations;
+        private System.Windows.Forms.Label label27;
+        private NumberTextBox ntxtBenchmarkResourceIterations;
+        private NumberTextBox ntxtBenchmarkDrawingInterval;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private NumberTextBox ntxtBenchmarkMaphackIterations;
+        private System.Windows.Forms.Label label33;
 
     }
 }

@@ -1574,29 +1574,43 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.WorkerAutomationModeDirect = workerProductionBasics.rdbDirectWorkerProduction.Checked;
         }
 
-        void ntxtMaynardWorkerCount_NumberChanged(NumberTextBox sender, EventArgs e)
+        void ntxtMaynardWorkerCount_NumberChanged(object sender, EventArgs e)
         {
-            PSettings.WorkerAutomationPufferWorker = sender.Number;
+            var o = sender as NumberTextBox;
+
+            if (o != null)
+                PSettings.WorkerAutomationPufferWorker = o.Number;
         }
 
-        void ntxtMaximumWorkersPerBase_NumberChanged(NumberTextBox sender, EventArgs e)
+        void ntxtMaximumWorkersPerBase_NumberChanged(object  sender, EventArgs e)
         {
-            PSettings.WorkerAutomationMaximumWorkersPerBase = sender.Number;
+            var o = sender as NumberTextBox;
+
+            if (o != null)
+                PSettings.WorkerAutomationMaximumWorkersPerBase = o.Number;
         }
 
-        void ntxtMaximumWorkersInGame_NumberChanged(NumberTextBox sender, EventArgs e)
+        void ntxtMaximumWorkersInGame_NumberChanged(object sender, EventArgs e)
         {
-            PSettings.WorkerAutomationMaximumWorkers = sender.Number;
+            var o = sender as NumberTextBox;
+
+            if (o != null)
+                PSettings.WorkerAutomationMaximumWorkers = o.Number;
         }
 
-        void ntxtStartNextWorkerAt_NumberChanged(NumberTextBox sender, EventArgs e)
+        void ntxtStartNextWorkerAt_NumberChanged(object sender, EventArgs e)
         {
-            PSettings.WorkerAutomationStartNextWorkerAt = sender.Number;
+            var o = sender as NumberTextBox;
+
+            PSettings.WorkerAutomationStartNextWorkerAt = o.Number;
         }
 
-        void ntxtDisableWhenApmIsOver_NumberChanged(NumberTextBox sender, EventArgs e)
+        void ntxtDisableWhenApmIsOver_NumberChanged(object sender, EventArgs e)
         {
-            PSettings.WorkerAutomationApmProtection = sender.Number;
+            var o = sender as NumberTextBox;
+
+            if (o != null)
+                PSettings.WorkerAutomationApmProtection = o.Number;
         }
 
         void chBxDisableWhenWorkerIsSelected_CheckedChanged(object sender, EventArgs e)

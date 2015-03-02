@@ -32,11 +32,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+
+using AnotherSc2Hack.Classes.Events;
 using PredefinedTypes = Predefined.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
     public delegate void NewMatchHandler(object sender, EventArgs e);
+
 
     
 
@@ -52,13 +55,36 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public event NewMatchHandler NewMatch;
         private readonly List<PredefinedTypes.PlayerRace> _lRace = new List<PredefinedTypes.PlayerRace>();
         private ApplicationStartOptions _startOptions;
-        
 
-        private long _lTimesRefreshed;
 
-        public long IterationsPerSeconds { get; set; }
+        public event NumberChangeHandler IterationPerSecondChanged;
+
+        private int _lTimesRefreshed;
+
+        private int _iterationsPerSecond = 0;
+
+        public int IterationsPerSeconds
+        {
+            get { return _iterationsPerSecond;}
+            set
+            {
+                if (_iterationsPerSecond == value)
+                    return;
+
+                _iterationsPerSecond = value;
+                var nArgs = new NumberArgs(value);
+
+                OnNumberChanged(this, nArgs);
+            }
+        }
 
         public Offsets Of = new Offsets();
+
+        private void OnNumberChanged(object sender, NumberArgs e)
+        {
+            if (IterationPerSecondChanged != null)
+                IterationPerSecondChanged(sender, e);
+        }
 
         /* Is able to shut the Worker- thread down */
         public void HandleThread(bool threadState)
@@ -87,6 +113,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 }
             }
         }
+
+       
 
         private void Init()
         {

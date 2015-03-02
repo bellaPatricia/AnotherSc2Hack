@@ -17,6 +17,7 @@ using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.Events;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using Predefined;
 
@@ -30,9 +31,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
     {
         #region Variables
 
-        public long IterationsPerSeconds { get; set; }                          //Counts the iterations within a second
+        
+        public event NumberChangeHandler IterationPerSecondChanged;
 
-        private long _lTimesRefreshed;                                          //Dunno.. :D
+        private int _iTimesRefreshed;                                           //Dunno.. :D
         private Point _ptMousePosition = new Point(0, 0);                       //Position for the Moving of the Panel
         private Boolean _bDraw = true;
         private const Int32 SizeOfRectangle = 10;                               //Size for the corner- rectangles (when changing position)
@@ -545,6 +547,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Getter/ Setter
 
+        //Counts the iterations within a second
+        private int _iterationsPerSecond = 0;
+
+        public int IterationsPerSeconds
+        {
+            get { return _iterationsPerSecond; }
+            set
+            {
+                if (_iterationsPerSecond == value)
+                    return;
+
+                _iterationsPerSecond = value;
+
+                var nArgs = new NumberArgs(value);
+
+                OnNumberChanged(this, nArgs);
+            }
+        }                          
+
         public Boolean IsDestroyed { get; set; }
         public PredefinedData.CustomWindowStyles SetWindowStyle { get; set; }
         public Boolean IsHidden { get; private set; }
@@ -598,6 +619,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             LoadPreferencesIntoControls();
 
             Text = HelpFunctions.SetWindowTitle();
+        }
+
+        /// <summary>
+        /// Simple Event we call when it's time to...
+        /// </summary>
+        /// <param name="sender">The reference we use</param>
+        /// <param name="e">The Numberargs with the information about the number we pass by</param>
+        private void OnNumberChanged(object sender, NumberArgs e)
+        {
+            if (IterationPerSecondChanged != null)
+                IterationPerSecondChanged(sender, e);
         }
 
         /// <summary>
@@ -888,11 +920,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if ((DateTime.Now - DtSecond).Seconds >= 1)
             {
                 //Debug.WriteLine("The OnPaint- loop was refreshed " + lTimesRefreshed + " times in a second!");
-                IterationsPerSeconds = _lTimesRefreshed;
-                _lTimesRefreshed = 0;
+                IterationsPerSeconds = _iTimesRefreshed;
+                _iTimesRefreshed = 0;
                 DtSecond = DateTime.Now;
             }
-            _lTimesRefreshed++;
+            _iTimesRefreshed++;
 
             base.OnPaint(e);
 
@@ -1043,6 +1075,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             GInformation.CAccessUnitCommands = false;
             GInformation.CAccessUnits = false;
 
+            IterationsPerSeconds = 99999;
 
             tmrRefreshGraphic.Enabled = false;
 
