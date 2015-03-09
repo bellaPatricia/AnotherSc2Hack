@@ -10,3 +10,11 @@ Settings
 --------
 - Option to restore settings back to default
 - Use xml completely
+
+GUI
+---
+- Debug => Add nodes in the listview for all the collections
+
+Test
+----
+- Plugins => make one appdomain and try to load a plugin's control
