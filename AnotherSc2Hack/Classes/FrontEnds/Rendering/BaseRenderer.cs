@@ -17,6 +17,7 @@ using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.Events;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using Predefined;
@@ -571,7 +572,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public Boolean IsHidden { get; private set; }
         public Boolean IsAllowedToClose { get; set; }
         public GameInfo GInformation { get; set; }
-        public Preferences PSettings { get; set; }
+        public PreferenceManager PSettings { get; set; }
         public Process PSc2Process { get; set; }
 
         #endregion
@@ -584,7 +585,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="gInformation">The GameInfo reference to access the gamedata</param>
         /// <param name="pSettings">The Preference reference to get the information which data will be drawn</param>
         /// <param name="sc2Process">The Process- handle to check whenever a process is available or not</param>
-        protected BaseRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+        protected BaseRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
         {
             GInformation = gInformation;
             PSettings = pSettings;
@@ -801,7 +802,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             //Debug.WriteLine("Time to Invalidate:" + 1000000 * _swMainWatch.ElapsedTicks / Stopwatch.Frequency + " µs");
 
 
-            if (HelpFunctions.HotkeysPressed(PSettings.GlobalChangeSizeAndPosition))
+            if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.Global.ChangeSizeAndPosition))
                 SetWindowStyle = PredefinedData.CustomWindowStyles.Clickable;
 
             else if (FormBorderStyle != FormBorderStyle.None)

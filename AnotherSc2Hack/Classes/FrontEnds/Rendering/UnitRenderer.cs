@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.ExtensionMethods;
 using Predefined;
 
@@ -25,7 +26,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         private Int32 _iUnitPosAfterName;
 
 
-        public UnitRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+        public UnitRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
             

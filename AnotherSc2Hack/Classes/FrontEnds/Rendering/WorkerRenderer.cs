@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
@@ -16,7 +17,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                       _imgWorker = Properties.Resources.P_Probe;
 
 
-        public WorkerRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+        public WorkerRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
             
@@ -43,10 +44,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     GInformation.Player.Count <= 0)
                     return;
 
-                Opacity = PSettings.WorkerOpacity;
+                Opacity = PSettings.PreferenceAll.OverlayWorker.Opacity;
                 var iSingleHeight = Height;
                 var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
-                var fInternalFont = new Font(PSettings.WorkerFontName, fNewFontSize, FontStyle.Bold);
+                var fInternalFont = new Font(PSettings.PreferenceAll.OverlayWorker.FontName, fNewFontSize, FontStyle.Bold);
 
                 Color clPlayercolor;
 
@@ -58,8 +59,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 if (!BChangingPosition)
                 {
-                    Height = PSettings.WorkerHeight;
-                    Width = PSettings.WorkerWidth;
+                    Height = PSettings.PreferenceAll.OverlayWorker.Height;
+                    Width = PSettings.PreferenceAll.OverlayWorker.Width;
                 }
 
                 #region Teamcolor
@@ -71,7 +72,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Draw Bounds and Background
 
-                if (PSettings.WorkerDrawBackground)
+                if (PSettings.PreferenceAll.OverlayWorker.DrawBackground)
                 {
                     /* Background */
                     g.Graphics.FillRectangle(Brushes.Gray, 1, 1, Width - 2, iSingleHeight - 2);
@@ -108,11 +109,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void MouseUpTransferData()
         {
-            PSettings.WorkerPositionX = Location.X;
-            PSettings.WorkerPositionY = Location.Y;
-            PSettings.WorkerWidth = Width;
-            PSettings.WorkerHeight = Height;
-            PSettings.WorkerOpacity = Opacity;
+            PSettings.PreferenceAll.OverlayWorker.X = Location.X;
+            PSettings.PreferenceAll.OverlayWorker.Y = Location.Y;
+            PSettings.PreferenceAll.OverlayWorker.Width = Width;
+            PSettings.PreferenceAll.OverlayWorker.Height = Height;
+            PSettings.PreferenceAll.OverlayWorker.Opacity = Opacity;
         }
 
         /// <summary>
@@ -143,18 +144,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                PSettings.WorkerWidth = Cursor.Position.X - Left;
+                PSettings.PreferenceAll.OverlayWorker.Width = Cursor.Position.X - Left;
 
                 var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
                 if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
                 {
-                    PSettings.WorkerHeight = (Cursor.Position.Y - Top) /
+                    PSettings.PreferenceAll.OverlayWorker.Height = (Cursor.Position.Y - Top) /
                                                         iValidPlayerCount;
                 }
 
                 else
-                    PSettings.WorkerHeight = 5;
+                    PSettings.PreferenceAll.OverlayWorker.Height = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -166,7 +167,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(PSettings.WorkerChangeSizePanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayWorker.ChangeSize))
             {
                 if (BToggleSize)
                 {
@@ -179,7 +180,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             if (HelpFunctions.HotkeysPressed(Keys.Enter))
             {
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
 
                 BSetSize = false;
                 StrBackupSizeChatbox = string.Empty;
@@ -191,10 +192,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.WorkerPositionX,
-                                     PSettings.WorkerPositionY);
-            Size = new Size(PSettings.WorkerWidth, PSettings.WorkerHeight);
-            Opacity = PSettings.WorkerOpacity;
+            Location = new Point(PSettings.PreferenceAll.OverlayWorker.X,
+                                     PSettings.PreferenceAll.OverlayWorker.Y);
+            Size = new Size(PSettings.PreferenceAll.OverlayWorker.Width, PSettings.PreferenceAll.OverlayWorker.Height);
+            Opacity = PSettings.PreferenceAll.OverlayWorker.Opacity;
         }
 
         /// <summary>
@@ -208,8 +209,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                PSettings.WorkerPositionX = Cursor.Position.X;
-                PSettings.WorkerPositionY = Cursor.Position.Y;
+                PSettings.PreferenceAll.OverlayWorker.X = Cursor.Position.X;
+                PSettings.PreferenceAll.OverlayWorker.Y = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -220,7 +221,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(PSettings.WorkerChangePositionPanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayWorker.ChangePosition))
             {
                 if (BTogglePosition)
                 {
@@ -235,7 +236,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 BSetPosition = false;
                 StrBackupChatbox = string.Empty;
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
             }
         }
 
@@ -254,10 +255,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="e"></param>
         protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
         {
-            PSettings.WorkerHeight = Height;
-            PSettings.WorkerWidth = Width;
-            PSettings.WorkerPositionX = Location.X;
-            PSettings.WorkerPositionY = Location.Y;
+            PSettings.PreferenceAll.OverlayWorker.Height = Height;
+            PSettings.PreferenceAll.OverlayWorker.Width = Width;
+            PSettings.PreferenceAll.OverlayWorker.X = Location.X;
+            PSettings.PreferenceAll.OverlayWorker.Y = Location.Y;
         }
     }
 }

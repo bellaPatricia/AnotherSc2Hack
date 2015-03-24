@@ -15,6 +15,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public int Width { get; set; }
         public int Height { get; set; }
         public string FontName { get; set; }
+        public double Opacity { get; set; }
+        public bool DrawBackground { get; set; }
 
 
 
@@ -30,6 +32,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             Width = 200;
             Height = 50;
             ElementName = "OverlayWorker";
+            Opacity = 0.7;
+            DrawBackground = true;
         }
     }
 }

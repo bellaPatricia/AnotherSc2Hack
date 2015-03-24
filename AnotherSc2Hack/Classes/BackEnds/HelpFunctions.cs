@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.FrontEnds;
 using PredefinedTypes = Predefined.PredefinedData;
 
@@ -117,7 +118,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return size;
         }
 
-        public static void InitResolution(ref Preferences pSettings)
+        public static void InitResolution(ref PreferenceManager pSettings)
         {
             Int32 iWidth = Screen.PrimaryScreen.Bounds.Width,
                   iHeidth = Screen.PrimaryScreen.Bounds.Height;
@@ -127,41 +128,41 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (iWidth >= 1920 - 10 && iWidth < 1920 + 10 &&
                 iHeidth >= 1080 - 10 && iHeidth < 1080 + 10)
             {
-                pSettings.ResourcePositionX = 1312;
-                pSettings.ResourcePositionY = 44;
-                pSettings.ResourceWidth = 550;
-                pSettings.ResourceHeight = 40;
+                pSettings.PreferenceAll.OverlayResources.X = 1312;
+                pSettings.PreferenceAll.OverlayResources.Y = 44;
+                pSettings.PreferenceAll.OverlayResources.Width = 550;
+                pSettings.PreferenceAll.OverlayResources.Height = 40;
 
-                pSettings.IncomePositionX = 1312;
-                pSettings.IncomePositionY = 328;
-                pSettings.IncomeWidth = 550;
-                pSettings.IncomeHeight = 40;
+                pSettings.PreferenceAll.OverlayIncome.X = 1312;
+                pSettings.PreferenceAll.OverlayIncome.Y = 328;
+                pSettings.PreferenceAll.OverlayIncome.Width = 550;
+                pSettings.PreferenceAll.OverlayIncome.Height = 40;
 
-                pSettings.ApmPositionX = 5;
-                pSettings.ApmPositionY = 64;
-                pSettings.ApmWidth = 550;
-                pSettings.ApmHeight = 40;
+                pSettings.PreferenceAll.OverlayApm.X = 5;
+                pSettings.PreferenceAll.OverlayApm.Y = 64;
+                pSettings.PreferenceAll.OverlayApm.Width = 550;
+                pSettings.PreferenceAll.OverlayApm.Height = 40;
 
-                pSettings.ArmyPositionX = 1312;
-                pSettings.ArmyPositionY = 629;
-                pSettings.ArmyWidth = 550;
-                pSettings.ArmyHeight = 40;
+                pSettings.PreferenceAll.OverlayArmy.X = 1312;
+                pSettings.PreferenceAll.OverlayArmy.Y = 629;
+                pSettings.PreferenceAll.OverlayArmy.Width = 550;
+                pSettings.PreferenceAll.OverlayArmy.Height = 40;
 
-                pSettings.WorkerPositionX = 1319;
-                pSettings.WorkerPositionY = 826;
-                pSettings.WorkerWidth = 150;
-                pSettings.WorkerHeight = 40;
+                pSettings.PreferenceAll.OverlayWorker.X = 1319;
+                pSettings.PreferenceAll.OverlayWorker.Y = 826;
+                pSettings.PreferenceAll.OverlayWorker.Width = 150;
+                pSettings.PreferenceAll.OverlayWorker.Height = 40;
 
-                pSettings.MaphackPositionX = 28;
-                pSettings.MaphackPositionY = 808;
-                pSettings.MaphackWidth = 262;
-                pSettings.MaphackHeight = 258;
+                pSettings.PreferenceAll.OverlayMaphack.X = 28;
+                pSettings.PreferenceAll.OverlayMaphack.Y = 808;
+                pSettings.PreferenceAll.OverlayMaphack.Width = 262;
+                pSettings.PreferenceAll.OverlayMaphack.Height = 258;
 
-                pSettings.UnitTabPositionX = 5;
-                pSettings.UnitTabPositionY = 364;
+                pSettings.PreferenceAll.OverlayUnits.X = 5;
+                pSettings.PreferenceAll.OverlayUnits.Y = 364;
 
-                pSettings.ProdTabPositionX = 5;
-                pSettings.ProdTabPositionY = 200;
+                pSettings.PreferenceAll.OverlayProduction.X = 5;
+                pSettings.PreferenceAll.OverlayProduction.Y = 200;
             }
 
             #endregion
@@ -171,42 +172,41 @@ namespace AnotherSc2Hack.Classes.BackEnds
             else if (iWidth >= 1680 - 10 && iWidth < 1680 + 10 &&
                      iHeidth >= 1050 - 10 && iHeidth < 1050 + 10)
             {
+                pSettings.PreferenceAll.OverlayResources.X = 1144;
+                pSettings.PreferenceAll.OverlayResources.Y = 72;
+                pSettings.PreferenceAll.OverlayResources.Width = 501;
+                pSettings.PreferenceAll.OverlayResources.Height = 36;
 
-                pSettings.ResourcePositionX = 1144;
-                pSettings.ResourcePositionY = 72;
-                pSettings.ResourceWidth = 501;
-                pSettings.ResourceHeight = 36;
+                pSettings.PreferenceAll.OverlayIncome.X = 1144;
+                pSettings.PreferenceAll.OverlayIncome.Y = 279;
+                pSettings.PreferenceAll.OverlayIncome.Width = 501;
+                pSettings.PreferenceAll.OverlayIncome.Height = 36;
 
-                pSettings.IncomePositionX = 1144;
-                pSettings.IncomePositionY = 279;
-                pSettings.IncomeWidth = 501;
-                pSettings.IncomeHeight = 36;
+                pSettings.PreferenceAll.OverlayApm.X = 7;
+                pSettings.PreferenceAll.OverlayApm.Y = 70;
+                pSettings.PreferenceAll.OverlayApm.Width = 515;
+                pSettings.PreferenceAll.OverlayApm.Height = 36;
 
-                pSettings.ApmPositionX = 7;
-                pSettings.ApmPositionY = 70;
-                pSettings.ApmWidth = 515;
-                pSettings.ApmHeight = 36;
+                pSettings.PreferenceAll.OverlayArmy.X = 1144;
+                pSettings.PreferenceAll.OverlayArmy.Y = 288;
+                pSettings.PreferenceAll.OverlayArmy.Width = 501;
+                pSettings.PreferenceAll.OverlayArmy.Height = 36;
 
-                pSettings.ArmyPositionX = 1144;
-                pSettings.ArmyPositionY = 288;
-                pSettings.ArmyWidth = 501;
-                pSettings.ArmyHeight = 36;
+                pSettings.PreferenceAll.OverlayWorker.X = 1031;
+                pSettings.PreferenceAll.OverlayWorker.Y = 859;
+                pSettings.PreferenceAll.OverlayWorker.Width = 103;
+                pSettings.PreferenceAll.OverlayWorker.Height = 30;
 
-                pSettings.WorkerPositionX = 1031;
-                pSettings.WorkerPositionY = 859;
-                pSettings.WorkerWidth = 103;
-                pSettings.WorkerHeight = 30;
+                pSettings.PreferenceAll.OverlayMaphack.X = 26;
+                pSettings.PreferenceAll.OverlayMaphack.Y = 787;
+                pSettings.PreferenceAll.OverlayMaphack.Width = 254;
+                pSettings.PreferenceAll.OverlayMaphack.Height = 250;
 
-                pSettings.MaphackPositionX = 26;
-                pSettings.MaphackPositionY = 787;
-                pSettings.MaphackWidth = 254;
-                pSettings.MaphackHeight = 250;
+                pSettings.PreferenceAll.OverlayUnits.X = 5;
+                pSettings.PreferenceAll.OverlayUnits.Y = 364;
 
-                pSettings.UnitTabPositionX = 5;
-                pSettings.UnitTabPositionY = 364;
-
-                pSettings.ProdTabPositionX = 5;
-                pSettings.ProdTabPositionY = 200;
+                pSettings.PreferenceAll.OverlayProduction.X = 5;
+                pSettings.PreferenceAll.OverlayProduction.Y = 200;
             }
 
             #endregion
@@ -216,42 +216,41 @@ namespace AnotherSc2Hack.Classes.BackEnds
             else if (iWidth >= 1600 - 10 && iWidth < 1600 + 10 &&
                      iHeidth >= 900 - 10 && iHeidth < 900 + 10)
             {
+                pSettings.PreferenceAll.OverlayResources.X = 1146;
+                pSettings.PreferenceAll.OverlayResources.Y = 61;
+                pSettings.PreferenceAll.OverlayResources.Width = 419;
+                pSettings.PreferenceAll.OverlayResources.Height = 30;
 
-                pSettings.ResourcePositionX = 1146;
-                pSettings.ResourcePositionY = 61;
-                pSettings.ResourceWidth = 419;
-                pSettings.ResourceHeight = 30;
+                pSettings.PreferenceAll.OverlayIncome.X = 1146;
+                pSettings.PreferenceAll.OverlayIncome.Y = 171;
+                pSettings.PreferenceAll.OverlayIncome.Width = 419;
+                pSettings.PreferenceAll.OverlayIncome.Height = 30;
 
-                pSettings.IncomePositionX = 1146;
-                pSettings.IncomePositionY = 171;
-                pSettings.IncomeWidth = 419;
-                pSettings.IncomeHeight = 30;
+                pSettings.PreferenceAll.OverlayApm.X = 3;
+                pSettings.PreferenceAll.OverlayApm.Y = 67;
+                pSettings.PreferenceAll.OverlayApm.Width = 405;
+                pSettings.PreferenceAll.OverlayApm.Height = 29;
 
-                pSettings.ApmPositionX = 3;
-                pSettings.ApmPositionY = 67;
-                pSettings.ApmWidth = 405;
-                pSettings.ApmHeight = 29;
+                pSettings.PreferenceAll.OverlayArmy.X = 1146;
+                pSettings.PreferenceAll.OverlayArmy.Y = 288;
+                pSettings.PreferenceAll.OverlayArmy.Width = 419;
+                pSettings.PreferenceAll.OverlayArmy.Height = 30;
 
-                pSettings.ArmyPositionX = 1146;
-                pSettings.ArmyPositionY = 288;
-                pSettings.ArmyWidth = 419;
-                pSettings.ArmyHeight = 30;
+                pSettings.PreferenceAll.OverlayWorker.X = 1033;
+                pSettings.PreferenceAll.OverlayWorker.Y = 732;
+                pSettings.PreferenceAll.OverlayWorker.Width = 103;
+                pSettings.PreferenceAll.OverlayWorker.Height = 30;
 
-                pSettings.WorkerPositionX = 1033;
-                pSettings.WorkerPositionY = 732;
-                pSettings.WorkerWidth = 103;
-                pSettings.WorkerHeight = 30;
+                pSettings.PreferenceAll.OverlayMaphack.X = 24;
+                pSettings.PreferenceAll.OverlayMaphack.Y = 674;
+                pSettings.PreferenceAll.OverlayMaphack.Width = 218;
+                pSettings.PreferenceAll.OverlayMaphack.Height = 214;
 
-                pSettings.MaphackPositionX = 24;
-                pSettings.MaphackPositionY = 674;
-                pSettings.MaphackWidth = 218;
-                pSettings.MaphackHeight = 214;
+                pSettings.PreferenceAll.OverlayUnits.X = 5;
+                pSettings.PreferenceAll.OverlayUnits.Y = 364;
 
-                pSettings.UnitTabPositionX = 5;
-                pSettings.UnitTabPositionY = 364;
-
-                pSettings.ProdTabPositionX = 5;
-                pSettings.ProdTabPositionY = 200;
+                pSettings.PreferenceAll.OverlayProduction.X = 5;
+                pSettings.PreferenceAll.OverlayProduction.Y = 200;
             }
 
             #endregion
@@ -261,41 +260,41 @@ namespace AnotherSc2Hack.Classes.BackEnds
             else if (iWidth >= 1440 - 10 && iWidth < 1440 + 10 &&
                      iHeidth >= 900 - 10 && iHeidth < 900 + 10)
             {
-                pSettings.ResourcePositionX = 985;
-                pSettings.ResourcePositionY =62;
-                pSettings.ResourceWidth = 419;
-                pSettings.ResourceHeight = 30;
+                pSettings.PreferenceAll.OverlayResources.X = 985;
+                pSettings.PreferenceAll.OverlayResources.Y = 62;
+                pSettings.PreferenceAll.OverlayResources.Width = 419;
+                pSettings.PreferenceAll.OverlayResources.Height = 30;
 
-                pSettings.IncomePositionX = 985;
-                pSettings.IncomePositionY = 128;
-                pSettings.IncomeWidth = 419;
-                pSettings.IncomeHeight = 30;
+                pSettings.PreferenceAll.OverlayIncome.X = 985;
+                pSettings.PreferenceAll.OverlayIncome.Y = 128;
+                pSettings.PreferenceAll.OverlayIncome.Width = 419;
+                pSettings.PreferenceAll.OverlayIncome.Height = 30;
 
-                pSettings.ApmPositionX = 3;
-                pSettings.ApmPositionY = 80;
-                pSettings.ApmWidth = 419;
-                pSettings.ApmHeight = 30;
+                pSettings.PreferenceAll.OverlayApm.X = 3;
+                pSettings.PreferenceAll.OverlayApm.Y = 80;
+                pSettings.PreferenceAll.OverlayApm.Width = 419;
+                pSettings.PreferenceAll.OverlayApm.Height = 30;
 
-                pSettings.ArmyPositionX = 985;
-                pSettings.ArmyPositionY = 198;
-                pSettings.ArmyWidth = 419;
-                pSettings.ArmyHeight = 30;
+                pSettings.PreferenceAll.OverlayArmy.X = 985;
+                pSettings.PreferenceAll.OverlayArmy.Y = 198;
+                pSettings.PreferenceAll.OverlayArmy.Width = 419;
+                pSettings.PreferenceAll.OverlayArmy.Height = 30;
 
-                pSettings.WorkerPositionX = 874;
-                pSettings.WorkerPositionY = 732;
-                pSettings.WorkerWidth = 103;
-                pSettings.WorkerHeight = 30;
+                pSettings.PreferenceAll.OverlayWorker.X = 874;
+                pSettings.PreferenceAll.OverlayWorker.Y = 732;
+                pSettings.PreferenceAll.OverlayWorker.Width = 103;
+                pSettings.PreferenceAll.OverlayWorker.Height = 30;
 
-                pSettings.MaphackPositionX = 24;
-                pSettings.MaphackPositionY = 674;
-                pSettings.MaphackWidth = 218;
-                pSettings.MaphackHeight = 214;
+                pSettings.PreferenceAll.OverlayMaphack.X = 24;
+                pSettings.PreferenceAll.OverlayMaphack.Y = 674;
+                pSettings.PreferenceAll.OverlayMaphack.Width = 218;
+                pSettings.PreferenceAll.OverlayMaphack.Height = 214;
 
-                pSettings.UnitTabPositionX = 5;
-                pSettings.UnitTabPositionY = 364;
+                pSettings.PreferenceAll.OverlayUnits.X = 5;
+                pSettings.PreferenceAll.OverlayUnits.Y = 364;
 
-                pSettings.ProdTabPositionX = 5;
-                pSettings.ProdTabPositionY = 200;
+                pSettings.PreferenceAll.OverlayProduction.X = 5;
+                pSettings.PreferenceAll.OverlayProduction.Y = 200;
             }
 
             #endregion
@@ -305,38 +304,41 @@ namespace AnotherSc2Hack.Classes.BackEnds
             else if (iWidth >= 1400 - 10 && iWidth < 1400 + 10 &&
                      iHeidth >= 1050 - 10 && iHeidth < 1050 + 10)
             {
-                pSettings.ResourcePositionX = 878;
-                pSettings.ResourcePositionY = 73;
-                pSettings.ResourceWidth = 474;
-                pSettings.ResourceHeight = 34;
+                pSettings.PreferenceAll.OverlayResources.X = 878;
+                pSettings.PreferenceAll.OverlayResources.Y = 73;
+                pSettings.PreferenceAll.OverlayResources.Width = 474;
+                pSettings.PreferenceAll.OverlayResources.Height = 34;
 
-                pSettings.IncomePositionX = 878;
-                pSettings.IncomePositionY = 162;
-                pSettings.IncomeWidth = 474;
-                pSettings.IncomeHeight = 34;
+                pSettings.PreferenceAll.OverlayIncome.X = 878;
+                pSettings.PreferenceAll.OverlayIncome.Y = 162;
+                pSettings.PreferenceAll.OverlayIncome.Width = 474;
+                pSettings.PreferenceAll.OverlayIncome.Height = 34;
 
-                pSettings.ApmPositionX = 12;
-                pSettings.ApmPositionY = 77;
-                pSettings.ApmWidth = 474;
-                pSettings.ApmHeight = 34;
+                pSettings.PreferenceAll.OverlayApm.X = 12;
+                pSettings.PreferenceAll.OverlayApm.Y = 77;
+                pSettings.PreferenceAll.OverlayApm.Width = 474;
+                pSettings.PreferenceAll.OverlayApm.Height = 34;
 
-                pSettings.ArmyPositionX = 878;
-                pSettings.ArmyPositionY = 261;
-                pSettings.ArmyWidth = 474;
-                pSettings.ArmyHeight = 34;
+                pSettings.PreferenceAll.OverlayArmy.X = 878;
+                pSettings.PreferenceAll.OverlayArmy.Y = 261;
+                pSettings.PreferenceAll.OverlayArmy.Width = 474;
+                pSettings.PreferenceAll.OverlayArmy.Height = 34;
 
-                pSettings.WorkerPositionX = 722;
-                pSettings.WorkerPositionY = 858;
-                pSettings.WorkerWidth = 137;
-                pSettings.WorkerHeight = 40;
+                pSettings.PreferenceAll.OverlayWorker.X = 722;
+                pSettings.PreferenceAll.OverlayWorker.Y = 858;
+                pSettings.PreferenceAll.OverlayWorker.Width = 137;
+                pSettings.PreferenceAll.OverlayWorker.Height = 40;
 
-                pSettings.MaphackPositionX = 27;
-                pSettings.MaphackPositionY = 787;
-                pSettings.MaphackWidth = 252;
-                pSettings.MaphackHeight = 248;
+                pSettings.PreferenceAll.OverlayMaphack.X = 27;
+                pSettings.PreferenceAll.OverlayMaphack.Y = 787;
+                pSettings.PreferenceAll.OverlayMaphack.Width = 252;
+                pSettings.PreferenceAll.OverlayMaphack.Height = 248;
 
-                pSettings.ProdTabPositionX = 5;
-                pSettings.ProdTabPositionY = 200;
+                pSettings.PreferenceAll.OverlayUnits.X = 5;
+                pSettings.PreferenceAll.OverlayUnits.Y = 364;
+
+                pSettings.PreferenceAll.OverlayProduction.X = 5;
+                pSettings.PreferenceAll.OverlayProduction.Y = 200;
             }
 
             #endregion
@@ -346,41 +348,41 @@ namespace AnotherSc2Hack.Classes.BackEnds
             else if (iWidth >= 1366 - 10 && iWidth < 1366 + 10 &&
                      iHeidth >= 768 - 10 && iHeidth < 768 + 10)
             {
-                pSettings.ResourcePositionX = 970;
-                pSettings.ResourcePositionY = 52;
-                pSettings.ResourceWidth = 378;
-                pSettings.ResourceHeight = 27;
+                pSettings.PreferenceAll.OverlayResources.X = 970;
+                pSettings.PreferenceAll.OverlayResources.Y = 52;
+                pSettings.PreferenceAll.OverlayResources.Width = 378;
+                pSettings.PreferenceAll.OverlayResources.Height = 27;
 
-                pSettings.IncomePositionX = 970;
-                pSettings.IncomePositionY = 52;
-                pSettings.IncomeWidth = 378;
-                pSettings.IncomeHeight = 27;
+                pSettings.PreferenceAll.OverlayIncome.X = 970;
+                pSettings.PreferenceAll.OverlayIncome.Y = 52;
+                pSettings.PreferenceAll.OverlayIncome.Width = 378;
+                pSettings.PreferenceAll.OverlayIncome.Height = 27;
 
-                pSettings.ApmPositionX = 2;
-                pSettings.ApmPositionY = 73;
-                pSettings.ApmWidth = 378;
-                pSettings.ApmHeight = 27;
+                pSettings.PreferenceAll.OverlayApm.X = 2;
+                pSettings.PreferenceAll.OverlayApm.Y = 73;
+                pSettings.PreferenceAll.OverlayApm.Width = 378;
+                pSettings.PreferenceAll.OverlayApm.Height = 27;
 
-                pSettings.ArmyPositionX = 970;
-                pSettings.ArmyPositionY = 163;
-                pSettings.ArmyWidth = 378;
-                pSettings.ArmyHeight = 277;
+                pSettings.PreferenceAll.OverlayArmy.X = 970;
+                pSettings.PreferenceAll.OverlayArmy.Y = 163;
+                pSettings.PreferenceAll.OverlayArmy.Width = 378;
+                pSettings.PreferenceAll.OverlayArmy.Height = 277;
 
-                pSettings.WorkerPositionX = 868;
-                pSettings.WorkerPositionY = 627;
-                pSettings.WorkerWidth = 103;
-                pSettings.WorkerHeight = 30;
+                pSettings.PreferenceAll.OverlayWorker.X = 868;
+                pSettings.PreferenceAll.OverlayWorker.Y = 627;
+                pSettings.PreferenceAll.OverlayWorker.Width = 103;
+                pSettings.PreferenceAll.OverlayWorker.Height = 30;
 
-                pSettings.MaphackPositionX = 26;
-                pSettings.MaphackPositionY = 574;
-                pSettings.MaphackWidth = 187;
-                pSettings.MaphackHeight = 183;
+                pSettings.PreferenceAll.OverlayMaphack.X = 26;
+                pSettings.PreferenceAll.OverlayMaphack.Y = 574;
+                pSettings.PreferenceAll.OverlayMaphack.Width = 187;
+                pSettings.PreferenceAll.OverlayMaphack.Height = 183;
 
-                pSettings.UnitTabPositionX = 5;
-                pSettings.UnitTabPositionY = 364;
+                pSettings.PreferenceAll.OverlayUnits.X = 5;
+                pSettings.PreferenceAll.OverlayUnits.Y = 364;
 
-                pSettings.ProdTabPositionX = 5;
-                pSettings.ProdTabPositionY = 200;
+                pSettings.PreferenceAll.OverlayProduction.X = 5;
+                pSettings.PreferenceAll.OverlayProduction.Y = 200;
             }
 
             #endregion
@@ -390,42 +392,41 @@ namespace AnotherSc2Hack.Classes.BackEnds
             else if (iWidth >= 1360 - 10 && iWidth < 1360 + 10 &&
                      iHeidth >= 1024 - 10 && iHeidth < 1024 + 10)
             {
+                pSettings.PreferenceAll.OverlayResources.X = 848;
+                pSettings.PreferenceAll.OverlayResources.Y = 70;
+                pSettings.PreferenceAll.OverlayResources.Width = 474;
+                pSettings.PreferenceAll.OverlayResources.Height = 35;
 
-                pSettings.ResourcePositionX = 848;
-                pSettings.ResourcePositionY = 70;
-                pSettings.ResourceWidth = 474;
-                pSettings.ResourceHeight = 35;
+                pSettings.PreferenceAll.OverlayIncome.X = 848;
+                pSettings.PreferenceAll.OverlayIncome.Y = 160;
+                pSettings.PreferenceAll.OverlayIncome.Width = 474;
+                pSettings.PreferenceAll.OverlayIncome.Height = 35;
 
-                pSettings.IncomePositionX = 848;
-                pSettings.IncomePositionY = 160;
-                pSettings.IncomeWidth = 474;
-                pSettings.IncomeHeight = 35;
+                pSettings.PreferenceAll.OverlayApm.X = 1;
+                pSettings.PreferenceAll.OverlayApm.Y = 85;
+                pSettings.PreferenceAll.OverlayApm.Width = 474;
+                pSettings.PreferenceAll.OverlayApm.Height = 35;
 
-                pSettings.ApmPositionX = 1;
-                pSettings.ApmPositionY = 85;
-                pSettings.ApmWidth = 474;
-                pSettings.ApmHeight = 35;
+                pSettings.PreferenceAll.OverlayArmy.X = 848;
+                pSettings.PreferenceAll.OverlayArmy.Y = 247;
+                pSettings.PreferenceAll.OverlayArmy.Width = 474;
+                pSettings.PreferenceAll.OverlayArmy.Height = 35;
 
-                pSettings.ArmyPositionX = 848;
-                pSettings.ArmyPositionY = 247;
-                pSettings.ArmyWidth = 474;
-                pSettings.ArmyHeight = 35;
+                pSettings.PreferenceAll.OverlayWorker.X = 701;
+                pSettings.PreferenceAll.OverlayWorker.Y = 835;
+                pSettings.PreferenceAll.OverlayWorker.Width = 137;
+                pSettings.PreferenceAll.OverlayWorker.Height = 40;
 
-                pSettings.WorkerPositionX = 701;
-                pSettings.WorkerPositionY = 835;
-                pSettings.WorkerWidth = 137;
-                pSettings.WorkerHeight = 40;
+                pSettings.PreferenceAll.OverlayMaphack.X = 25;
+                pSettings.PreferenceAll.OverlayMaphack.Y = 766;
+                pSettings.PreferenceAll.OverlayMaphack.Width = 249;
+                pSettings.PreferenceAll.OverlayMaphack.Height = 244;
 
-                pSettings.MaphackPositionX = 25;
-                pSettings.MaphackPositionY = 766;
-                pSettings.MaphackWidth = 249;
-                pSettings.MaphackHeight = 244;
+                pSettings.PreferenceAll.OverlayUnits.X = 5;
+                pSettings.PreferenceAll.OverlayUnits.Y = 364;
 
-                pSettings.UnitTabPositionX = 5;
-                pSettings.UnitTabPositionY = 364;
-
-                pSettings.ProdTabPositionX = 5;
-                pSettings.ProdTabPositionY = 200;
+                pSettings.PreferenceAll.OverlayProduction.X = 5;
+                pSettings.PreferenceAll.OverlayProduction.Y = 200;
             }
 
             #endregion
@@ -435,42 +436,41 @@ namespace AnotherSc2Hack.Classes.BackEnds
             else if (iWidth >= 1280 - 10 && iWidth < 1280 + 10 &&
                      iHeidth >= 720 - 10 && iHeidth < 720 + 10)
             {
+                pSettings.PreferenceAll.OverlayResources.X = 906;
+                pSettings.PreferenceAll.OverlayResources.Y = 46;
+                pSettings.PreferenceAll.OverlayResources.Width = 364;
+                pSettings.PreferenceAll.OverlayResources.Height = 26;
 
-                pSettings.ResourcePositionX = 906;
-                pSettings.ResourcePositionY = 49;
-                pSettings.ResourceWidth = 364;
-                pSettings.ResourceHeight = 26;
+                pSettings.PreferenceAll.OverlayIncome.X = 906;
+                pSettings.PreferenceAll.OverlayIncome.Y = 107;
+                pSettings.PreferenceAll.OverlayIncome.Width = 364;
+                pSettings.PreferenceAll.OverlayIncome.Height = 26;
 
-                pSettings.IncomePositionX = 906;
-                pSettings.IncomePositionY = 107;
-                pSettings.IncomeWidth = 364;
-                pSettings.IncomeHeight = 26;
+                pSettings.PreferenceAll.OverlayApm.X = 9;
+                pSettings.PreferenceAll.OverlayApm.Y = 127;
+                pSettings.PreferenceAll.OverlayApm.Width = 364;
+                pSettings.PreferenceAll.OverlayApm.Height = 26;
 
-                pSettings.ApmPositionX = 9;
-                pSettings.ApmPositionY = 127;
-                pSettings.ApmWidth = 364;
-                pSettings.ApmHeight = 26;
+                pSettings.PreferenceAll.OverlayArmy.X = 906;
+                pSettings.PreferenceAll.OverlayArmy.Y = 170;
+                pSettings.PreferenceAll.OverlayArmy.Width = 364;
+                pSettings.PreferenceAll.OverlayArmy.Height = 26;
 
-                pSettings.ArmyPositionX = 906;
-                pSettings.ArmyPositionY = 170;
-                pSettings.ArmyWidth = 364;
-                pSettings.ArmyHeight = 26;
+                pSettings.PreferenceAll.OverlayWorker.X = 806;
+                pSettings.PreferenceAll.OverlayWorker.Y = 586;
+                pSettings.PreferenceAll.OverlayWorker.Width = 103;
+                pSettings.PreferenceAll.OverlayWorker.Height = 30;
 
-                pSettings.WorkerPositionX = 806;
-                pSettings.WorkerPositionY = 586;
-                pSettings.WorkerWidth = 103;
-                pSettings.WorkerHeight = 30;
+                pSettings.PreferenceAll.OverlayMaphack.X = 17;
+                pSettings.PreferenceAll.OverlayMaphack.Y = 540;
+                pSettings.PreferenceAll.OverlayMaphack.Width = 178;
+                pSettings.PreferenceAll.OverlayMaphack.Height = 177;
 
-                pSettings.MaphackPositionX = 17;
-                pSettings.MaphackPositionY = 540;
-                pSettings.MaphackWidth = 178;
-                pSettings.MaphackHeight = 171;
+                pSettings.PreferenceAll.OverlayUnits.X = 5;
+                pSettings.PreferenceAll.OverlayUnits.Y = 364;
 
-                pSettings.UnitTabPositionX = 5;
-                pSettings.UnitTabPositionY = 364;
-
-                pSettings.ProdTabPositionX = 5;
-                pSettings.ProdTabPositionY = 200;
+                pSettings.PreferenceAll.OverlayProduction.X = 5;
+                pSettings.PreferenceAll.OverlayProduction.Y = 200;
             }
 
             #endregion
@@ -483,29 +483,29 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                 if (result.Equals(DialogResult.Yes))
                 {
-                    pSettings.ResourcePositionX = 0;
-                    pSettings.ResourcePositionY = 0;
+                    pSettings.PreferenceAll.OverlayResources.X = 0;
+                    pSettings.PreferenceAll.OverlayResources.Y = 0;
 
-                    pSettings.IncomePositionX = 0;
-                    pSettings.IncomePositionY = 0;
+                    pSettings.PreferenceAll.OverlayIncome.X = 0;
+                    pSettings.PreferenceAll.OverlayIncome.Y = 0;
 
-                    pSettings.ApmPositionX = 0;
-                    pSettings.ApmPositionY = 0;
+                    pSettings.PreferenceAll.OverlayApm.X = 0;
+                    pSettings.PreferenceAll.OverlayApm.Y = 0;
 
-                    pSettings.ArmyPositionX = 0;
-                    pSettings.ArmyPositionY = 0;
+                    pSettings.PreferenceAll.OverlayArmy.X = 0;
+                    pSettings.PreferenceAll.OverlayArmy.Y = 0;
 
-                    pSettings.WorkerPositionX = 0;
-                    pSettings.WorkerPositionY = 0;
+                    pSettings.PreferenceAll.OverlayWorker.X = 0;
+                    pSettings.PreferenceAll.OverlayWorker.Y = 0;
 
-                    pSettings.MaphackPositionX = 0;
-                    pSettings.MaphackPositionY = 0;
+                    pSettings.PreferenceAll.OverlayMaphack.X = 0;
+                    pSettings.PreferenceAll.OverlayMaphack.Y = 0;
 
-                    pSettings.UnitTabPositionX = 0;
-                    pSettings.UnitTabPositionY = 0;
+                    pSettings.PreferenceAll.OverlayUnits.X = 0;
+                    pSettings.PreferenceAll.OverlayUnits.Y = 0;
 
-                    pSettings.ProdTabPositionX = 0;
-                    pSettings.ProdTabPositionY = 0;
+                    pSettings.PreferenceAll.OverlayProduction.X = 0;
+                    pSettings.PreferenceAll.OverlayProduction.Y = 0;
                 }
 
 

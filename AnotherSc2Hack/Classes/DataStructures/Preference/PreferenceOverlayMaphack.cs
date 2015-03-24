@@ -29,6 +29,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public bool RemoveCamera { get; set; }
         public List<XmlColor> UnitColors { get; set; }
         public List<PredefinedData.UnitId> UnitIds { get; set; }
+        public double Opacity { get; set; }
 
 
 
@@ -47,6 +48,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             ElementName = "OverlayMaphack";
             UnitColors = new List<XmlColor>();
             UnitIds = new List<PredefinedData.UnitId>();
+            Opacity = 1;
         }
     }
 }

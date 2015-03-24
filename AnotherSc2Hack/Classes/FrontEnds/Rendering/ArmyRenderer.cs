@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
 using Predefined;
 using AnotherSc2Hack.Classes.ExtensionMethods;
 
@@ -19,7 +20,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                       _imgWorker = Properties.Resources.P_Probe;
 
 
-        public ArmyRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+        public ArmyRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
             

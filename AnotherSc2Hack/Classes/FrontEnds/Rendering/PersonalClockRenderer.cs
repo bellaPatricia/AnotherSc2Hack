@@ -6,13 +6,14 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     class PersonalClockRenderer : BaseRenderer
     {
-        public PersonalClockRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+        public PersonalClockRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
 
