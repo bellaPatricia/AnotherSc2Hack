@@ -2200,8 +2200,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             ChatOff4 = 0x014;
 
             /* 1 Byte */
-            Localplayer4 = (int)starcraft.MainModule.BaseAddress + 0x0115470C;      //k
-
+            Localplayer4 = (int)starcraft.MainModule.BaseAddress + 0x0115EED0;      //k
+            
             /* 1 Byte 
              *
              * 0 - Teamcolor Off
