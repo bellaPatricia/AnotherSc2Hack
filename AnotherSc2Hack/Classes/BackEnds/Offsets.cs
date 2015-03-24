@@ -2212,7 +2212,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
              *
              * Devide by 4090 to get actual value 
              * Is 0 when not Ingame */
-            TimerData = (int)starcraft.MainModule.BaseAddress + 0x049DD4F4;          //k
+            TimerData = (int)starcraft.MainModule.BaseAddress + 0x035740D4;          //k
 
             /* 4 Bytes */
             Gamespeed = (int)starcraft.MainModule.BaseAddress + 0x04F2F6B4;         //k

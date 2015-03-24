@@ -1081,7 +1081,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             base.Hide();
 
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
         }
 
         /// <summary>
@@ -1095,7 +1095,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             base.Show();
 
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
         }
 
         /// <summary>
