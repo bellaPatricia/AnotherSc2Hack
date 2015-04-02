@@ -146,8 +146,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var playerbase = Memory.FindPattern(new byte[] {15, 0xb6, 0xc1, 0x69, 0xc0, 0, 0, 0, 0, 5, 0, 0, 0, 0},
                 "xxxxx??xxx????",
                 0,
-                0x1557000,
-                0xca2000);
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
 
             MyOffsets.PlayerStructSize = Memory.ReadInt32(playerbase + 5);
             MyOffsets.PlayerStruct = Memory.ReadInt32(playerbase + 10);
@@ -159,8 +159,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var localplayer = Memory.FindPattern(new byte[] { 0xA0, 0, 0, 0, 0, 0xC3, 0xA0, 0, 0, 0, 0, 0xC3 },
                  "x????xx????x",
                  0,
-                 0x1557000,
-                 0xca2000);
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
 
             MyOffsets.Localplayer4 = Memory.ReadInt32(localplayer + 7);
 
@@ -171,16 +171,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var unitbase = Memory.FindPattern(new byte[] { 0xc1, 0xe0, 6, 5, 0, 0, 0, 0, 0x33 },
                  "xxxx????x",
                  0,
-                 0x1557000,
-                 0xca2000);
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
 
             if (unitbase == (uint)Memory.Process.MainModule.BaseAddress)
             {
                 unitbase = Memory.FindPattern(new byte[] { 0xc1, 0xe0, 7, 5, 0, 0, 0, 0, 0x33 },
                  "xxxx????x",
                  0,
-                 0x1557000,
-                 0xca2000);
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
 
             }
 
@@ -193,10 +193,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var selection = Memory.FindPattern(new byte[] { 0x0F, 0xB6, 0xC1, 0x69, 0xC0, 0x60, 0x1B, 0x00, 0x00, 0x05, 0, 0, 0, 0, 0xC3 },
                  "xxxxxxxxxx????x",
                  0,
-                 0x1557000,
-                 0xca2000);
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
 
-            MyOffsets.Localplayer1 = Memory.ReadInt32(selection + 10);
+            MyOffsets.UiRawSelectionStruct = Memory.ReadInt32(selection + 10);
+            MyOffsets.UiSelectionStruct = Memory.ReadInt32(selection + 10);
+
+            
 
             #endregion
 
@@ -208,8 +211,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 				 },
                  "xxxxxxxxxx????xxx????xxxxxxx????xx????xxxxxxx",
                  0,
-                 0x1557000,
-                 0xca2000);
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
 
             MyOffsets.TimerData = Memory.ReadInt32(timer + 28);
 
