@@ -2193,7 +2193,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     {
                         GInformation = new GameInfo(PSettings.GlobalDataRefresh, ApplicationOptions)
                         {
-                            Of = new Offsets()
+                            MyOffsets = new Offsets()
                         };
                     }
 
@@ -2202,7 +2202,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     {
                         GInformation.Memory.Handle = IntPtr.Zero;
                         GInformation.CStarcraft2 = PSc2Process;
-                        GInformation.Of = new Offsets();
+                        GInformation.MyOffsets = new Offsets();
                         GInformation.HandleThread(true);
                     }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.Events;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -183,46 +184,64 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         #endregion
 
+        public event OffsetChangeHandler OffsetsChanged;
+        public event EventHandler OffsetsNotProperlySet;
+
+        private Process _starcraft = null;
+
+        public void OnOffsetsNotProperlySet(object o, EventArgs e)
+        {
+            if (OffsetsNotProperlySet != null)
+                OffsetsNotProperlySet(o, e);
+        }
+
+        public void OnOffsetsChanged(object o, OffsetArgs e)
+        {
+            if (OffsetsChanged != null)
+                OffsetsChanged(o, e);
+        }
+
         public Offsets()
         {
             Process proc;
             if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
-                AssignAddresses(proc);
+                _starcraft = proc;
         }
 
-        public void AssignAddresses(Process starcraft)
+        public void AssignAddresses()
         {
-            var starcraftVersion = starcraft.MainModule.FileVersionInfo.FileVersion;
+            var starcraftVersion = _starcraft.MainModule.FileVersionInfo.FileVersion;
 
             if (starcraftVersion.StartsWith("2.0.11"))
             {
-                Version__2_0_11(starcraft);
+                Version__2_0_11(_starcraft);
             }
 
             else if (starcraftVersion.Equals("2.1.0.28667"))
             {
-                Version__2_1_0_28667(starcraft);
+                Version__2_1_0_28667(_starcraft);
             }
 
             else if (starcraftVersion.Equals("2.1.1.29261") ||
                 starcraftVersion.Equals("2.1.2.30315") ||
                 starcraftVersion.Equals("2.1.3.30508"))
             {
-                Version__2_1_3_30508(starcraft);
+                Version__2_1_3_30508(_starcraft);
             }
 
             else if (starcraftVersion.Equals("2.1.4.32283"))
-                Version__2_1_4_32283(starcraft);
+                Version__2_1_4_32283(_starcraft);
 
             else if (starcraftVersion.Equals("2.1.5.32392") ||
                 starcraftVersion.Equals("2.1.6.32540") ||
                 starcraftVersion.Equals("2.1.7.33148") ||
                 starcraftVersion.Equals("2.1.8.33553"))
-                Version__2_1_5_32392(starcraft);
+                Version__2_1_5_32392(_starcraft);
 
+                
             else if (starcraftVersion.Equals("2.1.9.34644"))
                 Version__2_1_9_34644(starcraft);
-
+                
             else
             {
                 MessageBox.Show("This tool is outdated.\n" +
@@ -231,7 +250,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 "Maybe it's still possible to use\n" + 
                 "this tool. Give it a shot!", "Ouch... new SCII version!?");
 
-                Version__2_1_5_32392(starcraft);
+                Version__2_1_5_32392(_starcraft);
+
+                OnOffsetsNotProperlySet(this, new EventArgs());
             }
         }
 
@@ -2245,5 +2266,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #endregion
         }
+
+    }
+
+    public class BaseAddresses
+    {
+        public int PlayerStruct { get; set; }
+        public int PlayerStructSize { get; set; }
+        public int UnitStruct { get; set; }
+        public int UnitStructSize { get; set; }
+
     }
 }

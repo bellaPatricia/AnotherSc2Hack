@@ -40,7 +40,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -48,7 +48,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>true</UseVSHostingProcess>
-    <Prefer32Bit>false</Prefer32Bit>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
@@ -121,6 +121,7 @@
     <Compile Include="Classes\BackEnds\UpdateCheck.cs" />
     <Compile Include="Classes\BackEnds\UpdateChecker.cs" />
     <Compile Include="Classes\DataStructures\Xml\XmlColor.cs" />
+    <Compile Include="Classes\Events\OffsetArgs.cs" />
     <Compile Include="Classes\ExtensionMethods\ExtentColor.cs" />
     <Compile Include="Classes\ExtensionMethods\ExtentControl.cs" />
     <Compile Include="Classes\ExtensionMethods\ExtentGraphics.cs" />
@@ -521,12 +522,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\MainHandler\MainHandler.resx">
       <DependentUpon>MainHandler.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\PlayerInformation.resx">
       <DependentUpon>PlayerInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\MainHandler\NewMainHandler.resx">
       <DependentUpon>NewMainHandler.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Rendering\BaseRenderer.resx">
       <DependentUpon>BaseRenderer.cs</DependentUpon>
