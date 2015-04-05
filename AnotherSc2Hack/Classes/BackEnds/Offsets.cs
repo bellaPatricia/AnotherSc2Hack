@@ -191,13 +191,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 
             else
             {
-               /* MessageBox.Show("This tool is outdated.\n" +
+                MessageBox.Show("This tool is outdated.\n" +
                                 "Please be so kind and create a post in the forum\n" +
                                 "so I can update it!\n\n" + 
                 "Maybe it's still possible to use\n" + 
                 "this tool. Give it a shot!", "Ouch... new SCII version!?");
-                */
-                Version__2_1_5_32392(_starcraft);
+                
+                Version__2_1_9_34644(_starcraft);
                 
                 OnOffsetsNotProperlySet(this, new EventArgs());
             }

@@ -124,6 +124,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             MyOffsets.AssignAddresses();
         }
 
+        //TODO: Finish this
         void MyOffsets_OffsetsNotProperlySet(object sender, EventArgs e)
         {
             if (Memory.Process == null)
