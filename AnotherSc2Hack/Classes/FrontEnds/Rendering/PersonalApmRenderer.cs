@@ -42,10 +42,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
             var clApmColor = Brushes.Green;
-            if (PSettings.PersonalApmAlert)
+            if (PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert)
             {
                 if (GInformation.Player[GInformation.Player[0].Localplayer].Apm <
-                    PSettings.PersonalApmAlertLimit)
+                    PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit)
                     clApmColor = Brushes.Red;
             }
 
@@ -69,10 +69,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
         {
-            PSettings.PersonalApmHeight = (Height);
-            PSettings.PersonalApmWidth = Width;
-            PSettings.PersonalApmPositionX = Location.X;
-            PSettings.PersonalApmPositionY = Location.Y;
+            PSettings.PreferenceAll.OverlayPersonalApm.Height = (Height);
+            PSettings.PreferenceAll.OverlayPersonalApm.Width = Width;
+            PSettings.PreferenceAll.OverlayPersonalApm.X = Location.X;
+            PSettings.PreferenceAll.OverlayPersonalApm.Y = Location.Y;
         }
 
         protected override void AdjustPanelSize()
@@ -87,18 +87,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.PersonalApmPositionX,
-                                     PSettings.PersonalApmPositionY);
-            Size = new Size(PSettings.PersonalApmWidth,
-                            PSettings.PersonalApmHeight);
+            Location = new Point(PSettings.PreferenceAll.OverlayPersonalApm.X,
+                                     PSettings.PreferenceAll.OverlayPersonalApm.Y);
+            Size = new Size(PSettings.PreferenceAll.OverlayPersonalApm.Width,
+                            PSettings.PreferenceAll.OverlayPersonalApm.Height);
         }
 
         protected override void MouseUpTransferData()
         {
-            PSettings.PersonalApmPositionX = Location.X;
-            PSettings.PersonalApmPositionY = Location.Y;
-            PSettings.PersonalApmWidth = Width;
-            PSettings.PersonalApmHeight = Height; 
+            PSettings.PreferenceAll.OverlayPersonalApm.X = Location.X;
+            PSettings.PreferenceAll.OverlayPersonalApm.Y = Location.Y;
+            PSettings.PreferenceAll.OverlayPersonalApm.Width = Width;
+            PSettings.PreferenceAll.OverlayPersonalApm.Height = Height; 
         }
 
         protected override void MouseWheelTransferData(System.Windows.Forms.MouseEventArgs e)

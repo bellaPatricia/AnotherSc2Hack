@@ -156,19 +156,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
         {
             var myParent = (NewMainHandler)this.FindParent(String.Empty, typeof(NewMainHandler));
 
-            var index = myParent.PSettings.MaphackUnitIds.FindIndex(x => x == unitId);
+            var index = myParent.PSettings.PreferenceAll.OverlayMaphack.UnitIds.FindIndex(x => x == unitId);
 
 
             if (index == -1)
             {
-                myParent.PSettings.MaphackUnitIds.Add(unitId);
-                myParent.PSettings.MaphackUnitColors.Add(clColor);
+                myParent.PSettings.PreferenceAll.OverlayMaphack.UnitIds.Add(unitId);
+                myParent.PSettings.PreferenceAll.OverlayMaphack.UnitColors.Add(clColor);
             }
 
             else
             {
-                myParent.PSettings.MaphackUnitIds[index] = unitId;
-                myParent.PSettings.MaphackUnitColors[index] = clColor;
+                myParent.PSettings.PreferenceAll.OverlayMaphack.UnitIds[index] = unitId;
+                myParent.PSettings.PreferenceAll.OverlayMaphack.UnitColors[index] = clColor;
             }
         }
 
@@ -176,13 +176,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
         {
             var myParent = (NewMainHandler)this.FindParent(String.Empty, typeof(NewMainHandler));
 
-            var index = myParent.PSettings.MaphackUnitIds.FindIndex(x => x == unitId);
+            var index = myParent.PSettings.PreferenceAll.OverlayMaphack.UnitIds.FindIndex(x => x == unitId);
 
             if (index == -1)
                 return;
 
-            myParent.PSettings.MaphackUnitIds.RemoveAt(index);
-            myParent.PSettings.MaphackUnitColors.RemoveAt(index);
+            myParent.PSettings.PreferenceAll.OverlayMaphack.UnitIds.RemoveAt(index);
+            myParent.PSettings.PreferenceAll.OverlayMaphack.UnitColors.RemoveAt(index);
         }
 
         private void AddUnit(PredefinedData.UnitId unitId)

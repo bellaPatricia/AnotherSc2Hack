@@ -948,7 +948,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (GInformation.Gameinfo != null &&
                     GInformation.Gameinfo.IsIngame)
                 {
-                    if (PSettings.GlobalDrawOnlyInForeground && !BSurpressForeground)
+                    if (PSettings.PreferenceAll.Global.DrawOnlyInForeground && !BSurpressForeground)
                     {
                         _bDraw = InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle);
                     }

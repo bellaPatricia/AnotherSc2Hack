@@ -55,10 +55,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
         {
-            PSettings.PersonalClockHeight = (Height);
-            PSettings.PersonalClockWidth = Width;
-            PSettings.PersonalClockPositionX = Location.X;
-            PSettings.PersonalClockPositionY = Location.Y;
+            PSettings.PreferenceAll.OverlayPersonalClock.Height = (Height);
+            PSettings.PreferenceAll.OverlayPersonalClock.Width = Width;
+            PSettings.PreferenceAll.OverlayPersonalClock.X = Location.X;
+            PSettings.PreferenceAll.OverlayPersonalClock.Y = Location.Y;
         }
 
         protected override void AdjustPanelSize()
@@ -73,18 +73,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.PersonalClockPositionX,
-                                     PSettings.PersonalClockPositionY);
-            Size = new Size(PSettings.PersonalClockWidth,
-                            PSettings.PersonalClockHeight);
+            Location = new Point(PSettings.PreferenceAll.OverlayPersonalClock.X,
+                                     PSettings.PreferenceAll.OverlayPersonalClock.Y);
+            Size = new Size(PSettings.PreferenceAll.OverlayPersonalClock.Width,
+                            PSettings.PreferenceAll.OverlayPersonalClock.Height);
         }
 
         protected override void MouseUpTransferData()
         {
-            PSettings.PersonalClockPositionX = Location.X;
-            PSettings.PersonalClockPositionY = Location.Y;
-            PSettings.PersonalClockWidth = Width;
-            PSettings.PersonalClockHeight = Height; 
+            PSettings.PreferenceAll.OverlayPersonalClock.X = Location.X;
+            PSettings.PreferenceAll.OverlayPersonalClock.Y = Location.Y;
+            PSettings.PreferenceAll.OverlayPersonalClock.Width = Width;
+            PSettings.PreferenceAll.OverlayPersonalClock.Height = Height; 
         }
 
         protected override void MouseWheelTransferData(System.Windows.Forms.MouseEventArgs e)

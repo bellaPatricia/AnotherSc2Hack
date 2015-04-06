@@ -44,16 +44,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (iValidPlayerCount == 0)
                     return;
 
-                Opacity = PSettings.ResourceOpacity;
+                Opacity = PSettings.PreferenceAll.OverlayResources.Opacity;
                 var iSingleHeight = Height / iValidPlayerCount;
                 var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
-                var fInternalFont = new Font(PSettings.ResourceFontName, fNewFontSize, FontStyle.Bold);
+                var fInternalFont = new Font(PSettings.PreferenceAll.OverlayResources.FontName, fNewFontSize, FontStyle.Bold);
                 var fInternalFontNormal = new Font(fInternalFont.Name, fNewFontSize, FontStyle.Regular);
 
                 if (!BChangingPosition)
                 {
-                    Height = PSettings.ResourceHeight * iValidPlayerCount;
-                    Width = PSettings.ResourceWidth;
+                    Height = PSettings.PreferenceAll.OverlayResources.Height * iValidPlayerCount;
+                    Width = PSettings.PreferenceAll.OverlayResources.Width;
 
 
                 }
@@ -74,19 +74,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Escape sequences
 
-                    if (PSettings.ResourceRemoveAi)
+                    if (PSettings.PreferenceAll.OverlayResources.RemoveAi)
                     {
                         if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue;
                     }
 
-                    if (PSettings.ResourceRemoveNeutral)
+                    if (PSettings.PreferenceAll.OverlayResources.RemoveNeutral)
                     {
                         if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue;
                     }
 
-                    if (PSettings.ResourceRemoveAllie)
+                    if (PSettings.PreferenceAll.OverlayResources.RemoveAllie)
                     {
                         if (GInformation.Player[0].Localplayer == 16)
                         {
@@ -102,7 +102,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
                     }
 
-                    if (PSettings.ResourceRemoveLocalplayer)
+                    if (PSettings.PreferenceAll.OverlayResources.RemoveLocalplayer)
                     {
                         if (GInformation.Player[i].IsLocalplayer)
                             continue;
@@ -157,7 +157,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Bounds and Background
 
-                    if (PSettings.ResourceDrawBackground)
+                    if (PSettings.PreferenceAll.OverlayResources.DrawBackground)
                     {
                         /* Background */
                         g.Graphics.FillRectangle(Brushes.Gray, 1, 1 + (iSingleHeight * iCounter), Width - 2,
@@ -175,7 +175,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Name
 
-                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ResourceRemoveClanTag)
+                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.PreferenceAll.OverlayResources.RemoveClanTag)
                                          ? GInformation.Player[i].Name
                                          : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
@@ -273,11 +273,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             /* Has to be calculated manually because each panels has it's own Neutral handling.. */
             var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
-            PSettings.ResourcePositionX = Location.X;
-            PSettings.ResourcePositionY = Location.Y;
-            PSettings.ResourceWidth = Width;
-            PSettings.ResourceHeight = Height / iValidPlayerCount;
-            PSettings.ResourceOpacity = Opacity;
+            PSettings.PreferenceAll.OverlayResources.X = Location.X;
+            PSettings.PreferenceAll.OverlayResources.Y = Location.Y;
+            PSettings.PreferenceAll.OverlayResources.Width = Width;
+            PSettings.PreferenceAll.OverlayResources.Height = Height / iValidPlayerCount;
+            PSettings.PreferenceAll.OverlayResources.Opacity = Opacity;
         }
 
         /// <summary>
@@ -308,20 +308,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                PSettings.ResourceWidth = Cursor.Position.X - Left;
+                PSettings.PreferenceAll.OverlayResources.Width = Cursor.Position.X - Left;
 
                 var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
-                if (PSettings.ResourceRemoveNeutral)
+                if (PSettings.PreferenceAll.OverlayResources.RemoveNeutral)
                     iValidPlayerCount -= 1;
 
                 if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
                 {
-                    PSettings.ResourceHeight = (Cursor.Position.Y - Top) /
+                    PSettings.PreferenceAll.OverlayResources.Height = (Cursor.Position.Y - Top) /
                                                         iValidPlayerCount;
                 }
 
                 else
-                    PSettings.ResourceHeight = 5;
+                    PSettings.PreferenceAll.OverlayResources.Height = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -333,7 +333,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(PSettings.ResourceChangeSizePanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayResources.ChangeSize))
             {
                 if (BToggleSize)
                 {
@@ -346,7 +346,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             if (HelpFunctions.HotkeysPressed(Keys.Enter))
             {
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
 
                 BSetSize = false;
                 StrBackupSizeChatbox = string.Empty;
@@ -358,10 +358,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.ResourcePositionX,
-                                     PSettings.ResourcePositionY);
-            Size = new Size(PSettings.ResourceWidth, PSettings.ResourceHeight);
-            Opacity = PSettings.ResourceOpacity;
+            Location = new Point(PSettings.PreferenceAll.OverlayResources.X,
+                                     PSettings.PreferenceAll.OverlayResources.Y);
+            Size = new Size(PSettings.PreferenceAll.OverlayResources.Width, PSettings.PreferenceAll.OverlayResources.Height);
+            Opacity = PSettings.PreferenceAll.OverlayResources.Opacity;
         }
 
         /// <summary>
@@ -375,8 +375,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                PSettings.ResourcePositionX = Cursor.Position.X;
-                PSettings.ResourcePositionY = Cursor.Position.Y;
+                PSettings.PreferenceAll.OverlayResources.X = Cursor.Position.X;
+                PSettings.PreferenceAll.OverlayResources.Y = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -387,7 +387,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(PSettings.ResourceChangePositionPanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayResources.ChangePosition))
             {
                 if (BTogglePosition)
                 {
@@ -402,7 +402,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 BSetPosition = false;
                 StrBackupChatbox = string.Empty;
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
             }
         }
 
@@ -426,10 +426,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var iRealPlayerCount = iValidPlayerCount == 0 ? 1 : iValidPlayerCount;
 
-            PSettings.ResourceHeight = (Height / iRealPlayerCount);
-            PSettings.ResourceWidth = Width;
-            PSettings.ResourcePositionX = Location.X;
-            PSettings.ResourcePositionY = Location.Y;
+            PSettings.PreferenceAll.OverlayResources.Height = (Height / iRealPlayerCount);
+            PSettings.PreferenceAll.OverlayResources.Width = Width;
+            PSettings.PreferenceAll.OverlayResources.X = Location.X;
+            PSettings.PreferenceAll.OverlayResources.Y = Location.Y;
         }
     }
 }

@@ -199,7 +199,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             ApplicationOptions = app;
 
-            Gameinfo.CSleepTime = PSettings.GlobalDataRefresh;
+            Gameinfo.CSleepTime = PSettings.PreferenceAll.Global.DataRefresh;
             Gameinfo.IterationPerSecondChanged += Gameinfo_IterationPerSecondChanged;
 
             PluginsLocalLoadPlugins();
@@ -338,7 +338,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                     if (Gameinfo == null)
                     {
-                        Gameinfo = new GameInfo(PSettings.GlobalDataRefresh, ApplicationOptions)
+                        Gameinfo = new GameInfo(PSettings.PreferenceAll.Global.DataRefresh, ApplicationOptions)
                         {
                             Of = new Offsets()
                         };
@@ -355,9 +355,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
 
                     ChangeVisibleState(true);
-                    _tmrMainTick.Interval = PSettings.GlobalDataRefresh;
+                    _tmrMainTick.Interval = PSettings.PreferenceAll.Global.DataRefresh;
 
-                    Debug.WriteLine("Process found - " + PSettings.GlobalDataRefresh + "ms Delay!");
+                    Debug.WriteLine("Process found - " + PSettings.PreferenceAll.Global.DataRefresh + "ms Delay!");
                 }
             }
 
@@ -672,7 +672,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 return;
             }
 
-            PSettings.GlobalDataRefresh = o.Number;
+            PSettings.PreferenceAll.Global.DataRefresh = o.Number;
 
             Gameinfo.CSleepTime = o.Number;
             ntxtBenchmarkDataInterval.Number = o.Number;
@@ -691,20 +691,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 return;
             }
 
-            PSettings.GlobalDrawingRefresh = o.Number;
+            PSettings.PreferenceAll.Global.DrawingRefresh = o.Number;
             ntxtBenchmarkDrawingInterval.Number = o.Number;
 
-            _lContainer.SetDrawingInterval(PSettings.GlobalDrawingRefresh);
+            _lContainer.SetDrawingInterval(PSettings.PreferenceAll.Global.DrawingRefresh);
         }
 
         void ktxtReposition_KeyChanged(KeyTextBox o, EventKey e)
         {
-            PSettings.GlobalChangeSizeAndPosition = o.HotKeyValue;
+            PSettings.PreferenceAll.Global.ChangeSizeAndPosition = o.HotKeyValue;
         }
 
         private void chBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PSettings.GlobalLanguage = chBxLanguage.SelectedItem.ToString();
+            PSettings.PreferenceAll.Global.Language = chBxLanguage.SelectedItem.ToString();
         }
 
         private void btnReposition_Click(object sender, EventArgs e)

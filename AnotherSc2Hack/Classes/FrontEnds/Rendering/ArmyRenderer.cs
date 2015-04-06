@@ -45,16 +45,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (iValidPlayerCount == 0)
                     return;
 
-                Opacity = PSettings.ArmyOpacity;
+                Opacity = PSettings.PreferenceAll.OverlayArmy.Opacity;
                 var iSingleHeight = Height / iValidPlayerCount;
                 var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
-                var fInternalFont = new Font(PSettings.ArmyFontName, fNewFontSize, FontStyle.Bold);
+                var fInternalFont = new Font(PSettings.PreferenceAll.OverlayArmy.FontName, fNewFontSize, FontStyle.Bold);
                 var fInternalFontNormal = new Font(fInternalFont.Name, fNewFontSize, FontStyle.Regular);
 
                 if (!BChangingPosition)
                 {
-                    Height = PSettings.ArmyHeight * iValidPlayerCount;
-                    Width = PSettings.ArmyWidth;
+                    Height = PSettings.PreferenceAll.OverlayArmy.Height * iValidPlayerCount;
+                    Width = PSettings.PreferenceAll.OverlayArmy.Width;
                 }
 
                 var iCounter = 0;
@@ -71,19 +71,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Escape sequences
 
-                    if (PSettings.ArmyRemoveAi)
+                    if (PSettings.PreferenceAll.OverlayArmy.RemoveAi)
                     {
                         if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue;
                     }
 
-                    if (PSettings.ArmyRemoveNeutral)
+                    if (PSettings.PreferenceAll.OverlayArmy.RemoveNeutral)
                     {
                         if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue;
                     }
 
-                    if (PSettings.ArmyRemoveAllie)
+                    if (PSettings.PreferenceAll.OverlayArmy.RemoveAllie)
                     {
                         if (GInformation.Player[0].Localplayer == 16)
                         {
@@ -99,7 +99,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
                     }
 
-                    if (PSettings.ArmyRemoveLocalplayer)
+                    if (PSettings.PreferenceAll.OverlayArmy.RemoveLocalplayer)
                     {
                         if (GInformation.Player[i].IsLocalplayer)
                             continue;
@@ -152,7 +152,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Bounds and Background
 
-                    if (PSettings.ArmyDrawBackground)
+                    if (PSettings.PreferenceAll.OverlayArmy.DrawBackground)
                     {
                         /* Background */
                         g.Graphics.FillRectangle(Brushes.Gray, 1, 1 + (iSingleHeight * iCounter), Width - 2,
@@ -170,7 +170,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Name
 
-                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ArmyRemoveClanTag)
+                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.PreferenceAll.OverlayArmy.RemoveClanTag)
                                          ? GInformation.Player[i].Name
                                          : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
@@ -268,11 +268,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             /* Has to be calculated manually because each panels has it's own Neutral handling.. */
             var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
-            PSettings.ArmyPositionX = Location.X;
-            PSettings.ArmyPositionY = Location.Y;
-            PSettings.ArmyWidth = Width;
-            PSettings.ArmyHeight = Height / iValidPlayerCount;
-            PSettings.ArmyOpacity = Opacity;
+            PSettings.PreferenceAll.OverlayArmy.X = Location.X;
+            PSettings.PreferenceAll.OverlayArmy.Y = Location.Y;
+            PSettings.PreferenceAll.OverlayArmy.Width = Width;
+            PSettings.PreferenceAll.OverlayArmy.Height = Height / iValidPlayerCount;
+            PSettings.PreferenceAll.OverlayArmy.Opacity = Opacity;
         }
 
         /// <summary>
@@ -303,20 +303,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                PSettings.ArmyWidth = Cursor.Position.X - Left;
+                PSettings.PreferenceAll.OverlayArmy.Width = Cursor.Position.X - Left;
 
                 var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
-                if (PSettings.ArmyRemoveNeutral)
+                if (PSettings.PreferenceAll.OverlayArmy.RemoveNeutral)
                     iValidPlayerCount -= 1;
 
                 if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
                 {
-                    PSettings.ArmyHeight = (Cursor.Position.Y - Top) /
+                    PSettings.PreferenceAll.OverlayArmy.Height = (Cursor.Position.Y - Top) /
                                                         iValidPlayerCount;
                 }
 
                 else
-                    PSettings.ArmyHeight = 5;
+                    PSettings.PreferenceAll.OverlayArmy.Height = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -328,7 +328,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(PSettings.ArmyChangeSizePanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayArmy.ChangeSize))
             {
                 if (BToggleSize)
                 {
@@ -341,7 +341,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             if (HelpFunctions.HotkeysPressed(Keys.Enter))
             {
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
 
                 BSetSize = false;
                 StrBackupSizeChatbox = string.Empty;
@@ -353,10 +353,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.ArmyPositionX,
-                                     PSettings.ArmyPositionY);
-            Size = new Size(PSettings.ArmyWidth, PSettings.ArmyHeight);
-            Opacity = PSettings.ArmyOpacity;
+            Location = new Point(PSettings.PreferenceAll.OverlayArmy.X,
+                                     PSettings.PreferenceAll.OverlayArmy.Y);
+            Size = new Size(PSettings.PreferenceAll.OverlayArmy.Width, PSettings.PreferenceAll.OverlayArmy.Height);
+            Opacity = PSettings.PreferenceAll.OverlayArmy.Opacity;
         }
 
         /// <summary>
@@ -370,8 +370,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                PSettings.ArmyPositionX = Cursor.Position.X;
-                PSettings.ArmyPositionY = Cursor.Position.Y;
+                PSettings.PreferenceAll.OverlayArmy.X = Cursor.Position.X;
+                PSettings.PreferenceAll.OverlayArmy.Y = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -382,7 +382,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(PSettings.ArmyChangePositionPanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayArmy.ChangePosition))
             {
                 if (BTogglePosition)
                 {
@@ -397,7 +397,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 BSetPosition = false;
                 StrBackupChatbox = string.Empty;
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
             }
         }
 
@@ -421,10 +421,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var iRealPlayerCount = iValidPlayerCount == 0 ? 1 : iValidPlayerCount;
 
-            PSettings.ArmyHeight = (Height / iRealPlayerCount);
-            PSettings.ArmyWidth = Width;
-            PSettings.ArmyPositionX = Location.X;
-            PSettings.ArmyPositionY = Location.Y;
+            PSettings.PreferenceAll.OverlayArmy.Height = (Height / iRealPlayerCount);
+            PSettings.PreferenceAll.OverlayArmy.Width = Width;
+            PSettings.PreferenceAll.OverlayArmy.X = Location.X;
+            PSettings.PreferenceAll.OverlayArmy.Y = Location.Y;
         }
     }
 }

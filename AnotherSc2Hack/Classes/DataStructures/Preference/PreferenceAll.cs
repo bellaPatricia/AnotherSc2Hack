@@ -11,6 +11,8 @@
         public PreferenceOverlayArmy OverlayArmy { get; set; }
         public PreferenceOverlayApm OverlayApm { get; set; }
         public PreferenceOverlayMaphack OverlayMaphack { get; set; }
+        public PreferenceOverlayPersonalApm OverlayPersonalApm { get; set; }
+        public PreferenceOverlayPersonalClock OverlayPersonalClock { get; set; }
 
         public PreferenceAll()
         {
@@ -23,6 +25,8 @@
             OverlayProduction = new PreferenceOverlayProduction();
             OverlayUnits = new PreferenceOverlayUnits();
             OverlayMaphack = new PreferenceOverlayMaphack();
+            OverlayPersonalApm = new PreferenceOverlayPersonalApm();
+            OverlayPersonalClock = new PreferenceOverlayPersonalClock();
         }
     }
 
