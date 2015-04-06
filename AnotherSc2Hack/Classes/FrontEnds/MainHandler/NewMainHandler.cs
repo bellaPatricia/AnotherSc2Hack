@@ -62,18 +62,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private PreferenceManager _preferenceManager = new PreferenceManager();
-
-        public PreferenceManager PreferenceManager
-        {
-            get { return _preferenceManager; }
-            set
-            {
-                _preferenceManager = value;
-
-            }
-        }
-
         private GameInfo _gameinfo = new GameInfo();
 
         public GameInfo Gameinfo
@@ -2725,7 +2713,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void NewMainHandler_FormClosing(object sender, FormClosingEventArgs e)
         {
-            PreferenceManager.Write();
             PSettings.Write();
 
             foreach (var plugin in _lPlugins)

@@ -23,7 +23,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public bool RemoveNeutral { get; set; }
         public bool RemoveLocalplayer { get; set; }
         public bool RemoveDestinationLine { get; set; }
-        public Color DestinationLine { get; set; }
+        public XmlColor DestinationLine { get; set; }
         public bool ColorDefensifeStructures { get; set; }
         public bool RemoveVisionArea { get; set; }
         public bool RemoveCamera { get; set; }

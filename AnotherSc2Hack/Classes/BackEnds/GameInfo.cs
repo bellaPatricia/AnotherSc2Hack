@@ -393,9 +393,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     bIngame = Gameinfo.IsIngame;
 
                 DoMassiveScan();
-                var result = Memory.FindPattern(new byte[] {15, 0xb6, 0xc1, 0x69, 0xc0, 0, 0, 0, 0, 5, 0, 0, 0, 0}, "xxxxx??xxx????",
-                    0, 0x1557000, 0xCA2000);
-                Console.WriteLine(result);
+
 
                 if (Gameinfo != null && (!bIngame &&
                     Gameinfo.IsIngame))
