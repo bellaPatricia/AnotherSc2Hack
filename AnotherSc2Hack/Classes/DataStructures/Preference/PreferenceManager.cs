@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Runtime.InteropServices;
 using System.Xml.Serialization;
 using AnotherSc2Hack.Classes.BackEnds;
 
@@ -20,7 +21,10 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public void Read()
         {
             if (!File.Exists(Constants.StrXmlPreferences))
+            {
+                PreferenceAll.ConvertOldSettings();
                 return;
+            }
 
             PreferenceAll = (PreferenceAll)_xmlSerializer.Deserialize(new StreamReader(Constants.StrXmlPreferences));
         }
@@ -28,6 +32,9 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public void Write()
         {
             _xmlSerializer.Serialize(new StreamWriter(Constants.StrXmlPreferences), PreferenceAll);
+
+            if (File.Exists(Constants.StrDummyPref))
+                File.Delete(Constants.StrDummyPref);
         }
     }
 }

@@ -9,6 +9,7 @@
             Width = 200;
             Height = 50;
             Use24Format = true;
+            ElementName = "PersonalClock";
         }
 
         public int X { get; set; }

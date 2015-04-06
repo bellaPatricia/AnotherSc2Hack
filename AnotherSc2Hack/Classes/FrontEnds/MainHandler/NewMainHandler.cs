@@ -2643,13 +2643,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void InitializeProductiontab()
         {
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveAi.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveAi;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveAllie.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveAllie;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveClantags.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveClanTag;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveNeutral;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveYourself.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveLocalplayer;
-            pnlOverlayUnittab.pnlBasics.btnSetFont.Text = PSettings.PreferenceAll.OverlayProduction.FontName;
-            pnlOverlayUnittab.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.PreferenceAll.OverlayProduction.Opacity > 1.0
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAi.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveAi;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAllie.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveAllie;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveClantags.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveClanTag;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveNeutral;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveYourself.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveLocalplayer;
+            pnlOverlayProductiontab.pnlBasics.btnSetFont.Text = PSettings.PreferenceAll.OverlayProduction.FontName;
+            pnlOverlayProductiontab.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.PreferenceAll.OverlayProduction.Opacity > 1.0
                 ? (Int32)PSettings.PreferenceAll.OverlayProduction.Opacity
                 : (Int32)(PSettings.PreferenceAll.OverlayProduction.Opacity * 100);
             pnlOverlayProductiontab.pnlBasics.aChBxDisplayBuildings.Checked = PSettings.PreferenceAll.OverlayProduction.ShowBuildings;
@@ -2660,15 +2660,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayProductiontab.pnlBasics.aChBxTransparentImages.Checked = PSettings.PreferenceAll.OverlayProduction.UseTransparentImages;
 
 
-            pnlOverlayUnittab.pnlLauncher.ktxtHotkey1.Text = PSettings.PreferenceAll.OverlayProduction.Hotkey1.ToString();
-            pnlOverlayUnittab.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayProduction.Hotkey2.ToString();
-            pnlOverlayUnittab.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayProduction.Hotkey3.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey1.Text = PSettings.PreferenceAll.OverlayProduction.Hotkey1.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayProduction.Hotkey2.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayProduction.Hotkey3.ToString();
 
-            pnlOverlayUnittab.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayProduction.ChangePosition;
-            pnlOverlayUnittab.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayProduction.ChangeSize;
-            pnlOverlayUnittab.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayProduction.TogglePanel;
+            pnlOverlayProductiontab.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayProduction.ChangePosition;
+            pnlOverlayProductiontab.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayProduction.ChangeSize;
+            pnlOverlayProductiontab.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayProduction.TogglePanel;
 
-            pnlOverlayUnittab.pnlSpecial.ntxtSize.Text = PSettings.PreferenceAll.OverlayProduction.PictureSize.ToString();
+            pnlOverlayProductiontab.pnlSpecial.ntxtSize.Text = PSettings.PreferenceAll.OverlayProduction.PictureSize.ToString();
         }
 
         #endregion

@@ -10,6 +10,7 @@
             Height = 50;
             EnableAlert = true;
             ApmAlertLimit = 100;
+            ElementName = "PersonalApm";
         }
 
         public int X { get; set; }
