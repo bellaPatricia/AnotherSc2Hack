@@ -262,6 +262,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             OverlayPersonalApm.Y = oldPreferences.PersonalApmPositionY;
             OverlayPersonalApm.ApmAlertLimit = oldPreferences.PersonalApmAlertLimit;
             OverlayPersonalApm.EnableAlert = oldPreferences.PersonalApmAlert;
+            OverlayPersonalApm.PersonalApm = oldPreferences.PersonalApm;
 
             #endregion
 
@@ -271,6 +272,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             OverlayPersonalClock.Width = oldPreferences.PersonalClockWidth;
             OverlayPersonalClock.X = oldPreferences.PersonalClockPositionX;
             OverlayPersonalClock.Y = oldPreferences.PersonalClockPositionY;
+            OverlayPersonalClock.PersonalClock = oldPreferences.PersonalClock;
 
             #endregion
         }

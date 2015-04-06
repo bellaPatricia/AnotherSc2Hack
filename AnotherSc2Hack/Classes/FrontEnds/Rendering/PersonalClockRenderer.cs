@@ -37,8 +37,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
 
             var dtTimeStamp = DateTime.Now;
-            var strTime = dtTimeStamp.TimeOfDay.ToString().Substring(0, 8);
-
+            
+            var strTime = dtTimeStamp.ToLongTimeString();
             g.Graphics.DrawString(
                "Time: " + strTime,
                new Font("Century Gothic", fNewFontSize, FontStyle.Regular),

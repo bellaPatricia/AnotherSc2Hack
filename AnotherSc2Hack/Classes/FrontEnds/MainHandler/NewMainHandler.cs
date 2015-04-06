@@ -645,6 +645,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 throw new Exception("You passed something that isn't a button!");
         }
 
+        private void LaunchRenderer(Type targetType)
+        {
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer.GetType() == targetType)
+                {
+                    renderer.ToggleShowHide();
+                }
+            }
+        }
+
         #region Event methods
 
         private void ntxtMemoryRefresh_NumberChanged(object sender, NumberArgs e)
@@ -2466,6 +2477,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             InitializeMaphack();
             InitializeUnittab();
             InitializeProductiontab();
+            InitializeVarious();
         }
 
         private void InitializeResources()
@@ -2671,6 +2683,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayProductiontab.pnlSpecial.ntxtSize.Text = PSettings.PreferenceAll.OverlayProduction.PictureSize.ToString();
         }
 
+        private void InitializeVarious()
+        {
+            chBxVariousPersonalApmAlert.Checked = PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert;
+            chBxVariousShowPersonalApm.Checked = PSettings.PreferenceAll.OverlayPersonalApm.PersonalApm;
+            ntxtVariousApmLimit.Number = PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit;
+
+            chBxVariousShowPersonalClock.Checked = PSettings.PreferenceAll.OverlayPersonalClock.PersonalClock;
+        }
+
         #endregion
 
 
@@ -2817,6 +2838,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void btnHelpMePaypal_Click(object sender, EventArgs e)
         {
             Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3ZAZS7HNX6DPW");
+        }
+
+        private void ntxtVariousApmLimit_NumberChanged(object sender, NumberArgs e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit = e.Number;
+        }
+
+        private void chBxVariousShowPersonalApm_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalApm.PersonalApm = o.Checked;
+            LaunchRenderer(typeof(PersonalApmRenderer));
+        }
+
+        private void chBxVariousPersonalApmAlert_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert = o.Checked;
+        }
+
+        private void chBxVariousShowPersonalClock_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalClock.PersonalClock = o.Checked;
+            LaunchRenderer(typeof(PersonalClockRenderer));
         }
     } 
 }

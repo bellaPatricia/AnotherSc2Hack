@@ -9,6 +9,7 @@
             Width = 200;
             Height = 50;
             EnableAlert = true;
+            PersonalApm = true;
             ApmAlertLimit = 100;
             ElementName = "PersonalApm";
         }
@@ -18,6 +19,7 @@
         public int Width { get; set; }
         public int Height { get; set; }
         public bool EnableAlert { get; set; }
+        public bool PersonalApm { get; set; }
         public int ApmAlertLimit { get; set; }
     }
 }

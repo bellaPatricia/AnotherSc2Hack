@@ -945,7 +945,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 buffer.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
                 buffer.Graphics.SmoothingMode = SmoothingMode.HighSpeed;
 
-                if (GInformation.Gameinfo != null &&
+                if (GInformation != null &&
+                    GInformation.Gameinfo != null &&
                     GInformation.Gameinfo.IsIngame)
                 {
                     if (PSettings.PreferenceAll.Global.DrawOnlyInForeground && !BSurpressForeground)

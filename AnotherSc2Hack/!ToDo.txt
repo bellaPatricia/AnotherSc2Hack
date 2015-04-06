@@ -18,3 +18,8 @@ GUI
 Test
 ----
 - Plugins => make one appdomain and try to load a plugin's control
+
+Personal Renderers
+----
+Make sure they begin to render if they can (at launch)!
+Currently, they fail but don't know why.
