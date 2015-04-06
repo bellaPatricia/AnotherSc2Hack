@@ -19,6 +19,7 @@ namespace AnotherSc2Hack
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MaphackFilter());
             Application.Run(new NewMainHandler(new ApplicationStartOptions(args)));
+            //Application.Run(new MainHandler(new ApplicationStartOptions(args)));
         }
     }
 }
