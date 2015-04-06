@@ -157,6 +157,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public void AssignAddresses()
         {
+            if (_starcraft == null)
+                return;
+
             var starcraftVersion = _starcraft.MainModule.FileVersionInfo.FileVersion;
 
             if (starcraftVersion.StartsWith("2.0.11"))
