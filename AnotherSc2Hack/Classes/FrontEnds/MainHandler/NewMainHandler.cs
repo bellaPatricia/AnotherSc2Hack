@@ -1571,7 +1571,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void aChBxOverlaysDefensiveStructures_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.PreferenceAll.OverlayMaphack.ColorDefensifeStructures = o.Checked;
+            PSettings.PreferenceAll.OverlayMaphack.ColorDefensiveStructures = o.Checked;
         }
 
         #endregion
@@ -2566,7 +2566,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 ? (Int32)PSettings.PreferenceAll.OverlayMaphack.Opacity
                 : (Int32)(PSettings.PreferenceAll.OverlayMaphack.Opacity * 100);
             pnlOverlayMaphack.pnlBasics.aChBxDefensiveStructures.Checked =
-                PSettings.PreferenceAll.OverlayMaphack.ColorDefensifeStructures;
+                PSettings.PreferenceAll.OverlayMaphack.ColorDefensiveStructures;
             pnlOverlayMaphack.pnlBasics.aChBxRemoveCamera.Checked = PSettings.PreferenceAll.OverlayMaphack.RemoveCamera;
             pnlOverlayMaphack.pnlBasics.aChBxRemoveVisionArea.Checked = PSettings.PreferenceAll.OverlayMaphack.RemoveVisionArea;
             pnlOverlayMaphack.pnlBasics.aChBxRemoveDestinationLine.Checked = PSettings.PreferenceAll.OverlayMaphack.RemoveDestinationLine;

@@ -24,7 +24,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public bool RemoveLocalplayer { get; set; }
         public bool RemoveDestinationLine { get; set; }
         public XmlColor DestinationLine { get; set; }
-        public bool ColorDefensifeStructures { get; set; }
+        public bool ColorDefensiveStructures { get; set; }
         public bool RemoveVisionArea { get; set; }
         public bool RemoveCamera { get; set; }
         public List<XmlColor> UnitColors { get; set; }
@@ -43,7 +43,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             ChangeSize = "/mcs";
             Width = 261;
             Height = 255;
-            ColorDefensifeStructures = true;
+            ColorDefensiveStructures = true;
             DestinationLine = Color.Yellow;
             ElementName = "OverlayMaphack";
             UnitColors = new List<XmlColor>();

@@ -166,7 +166,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             {
                 OverlayMaphack.UnitColors.Add(maphackUnitColor);
             }
-            OverlayMaphack.ColorDefensifeStructures = oldPreferences.MaphackColorDefensivestructuresYellow;
+            OverlayMaphack.ColorDefensiveStructures = oldPreferences.MaphackColorDefensivestructuresYellow;
             OverlayMaphack.DestinationLine = oldPreferences.MaphackDestinationColor;
             OverlayMaphack.RemoveCamera = oldPreferences.MaphackRemoveCamera;
             OverlayMaphack.RemoveDestinationLine = oldPreferences.MaphackDisableDestinationLine;

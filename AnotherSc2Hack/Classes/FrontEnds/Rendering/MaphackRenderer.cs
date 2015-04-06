@@ -742,7 +742,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Unitgroup I - Defensive Buildings
 
-                    if (PSettings.PreferenceAll.OverlayMaphack.ColorDefensifeStructures)
+                    if (PSettings.PreferenceAll.OverlayMaphack.ColorDefensiveStructures)
                     {
                         if (tmpUnit.Id == PredefinedData.UnitId.TbTurret ||
                             tmpUnit.Id == PredefinedData.UnitId.TbBunker ||
