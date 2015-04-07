@@ -1701,7 +1701,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     click.Name = localPlugins.Md5Hash;
                     click.Size = new Size(152, 40);
 
-                    click.Icon = HelpFunctions.ByteArrayToImage(localPlugins.Plugin.GetPluginIcon()) ?? Properties.Resources.Icon_DefaultPluginIcon;
+                    click.Icon = HelpFunctions.ByteArrayToImage(localPlugins.Plugin.GetPluginIcon()) ?? Properties.Resources.icon_default_plugin;
 
                     click.TabIndex = 0;
                     click.TextSize = 11F;

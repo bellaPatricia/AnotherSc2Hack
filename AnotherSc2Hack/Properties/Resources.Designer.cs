@@ -103,9 +103,9 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Icon_Application {
+        public static System.Drawing.Bitmap icon_application {
             get {
-                object obj = ResourceManager.GetObject("Icon_Application", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_application", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Icon_Automation {
+        public static System.Drawing.Bitmap icon_automation {
             get {
-                object obj = ResourceManager.GetObject("Icon_Automation", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_automation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,19 +123,9 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Icon_Benchmark {
+        public static System.Drawing.Bitmap icon_benchmark {
             get {
-                object obj = ResourceManager.GetObject("Icon_Benchmark", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Icon_Bug {
-            get {
-                object obj = ResourceManager.GetObject("Icon_Bug", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_benchmark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +143,9 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_credits {
+        public static System.Drawing.Bitmap icon_credit {
             get {
-                object obj = ResourceManager.GetObject("icon_credits", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_credit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +153,9 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Icon_Debug {
+        public static System.Drawing.Bitmap icon_debug {
             get {
-                object obj = ResourceManager.GetObject("Icon_Debug", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_debug", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +163,9 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Icon_DefaultPluginIcon {
+        public static System.Drawing.Bitmap icon_default_plugin {
             get {
-                object obj = ResourceManager.GetObject("Icon_DefaultPluginIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_default_plugin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +173,9 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Icon_HelpMe {
+        public static System.Drawing.Bitmap icon_helpme {
             get {
-                object obj = ResourceManager.GetObject("Icon_HelpMe", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_helpme", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +183,9 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Icon_Overlays {
+        public static System.Drawing.Bitmap icon_overlays {
             get {
-                object obj = ResourceManager.GetObject("Icon_Overlays", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_overlays", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +193,19 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Icon_Plugins {
+        public static System.Drawing.Bitmap icon_plugin {
             get {
-                object obj = ResourceManager.GetObject("Icon_Plugins", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_plugin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icon_various {
+            get {
+                object obj = ResourceManager.GetObject("icon_various", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -117,33 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="cpnlApplication.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAA7
-        CgAAOwoBM0smkQAAAAd0SU1FB94LEA4GJk3gvgAAAAGvSURBVEhLvZa7SkNBFEUjaVKmDIJ+gVXEJLb2
-        AQvzBfoFVvapLFLqX9jbWtkIYmMnWARsLHwignpdazxj4gssHDcscubMOXvunftKbVpVVUWU4ib0YAg/
-        yTlrmtH2weNbUVCHPpzCb2WtPfWw+SomZ+J3BI+Q9QL3sA43gbE557LsGU17JTGIKMVjUA+w/xYmk1lY
-        hOvA2FxewFp71DjsJt4EbotHrs5gCY7SqKoGUeNe5wV6kRuAstYee5Vek+1i4P55irewDGugTqARNW3I
-        C7Qj1wBrlD326qFX3xqLvFvyBbV5Gw7SqKoOYQd2YQ9sFGNzzlmj7LFXD6Vn0wU89VLquUC+zzfBC7cK
-        nuYluC3zMAc5L8bmnLPG2pzXQy81dIGsVmxZBzzN87SHIcbdyEs30knWRr4T4xYk5QWOYQU03wL3+QIW
-        wC3UfAPuAmNzzlljrT326qGXnu8LPIEPkEdhoXqGK8hHrbH3vRjnvDXWKnvN6aXn/y1QfItUsYtc/DYt
-        /qCVfVXEnpV72SkG5V7XBOlXEZf54CgGZT6Zn8VkmY++oiCiFP/B35Za7RXR7ARi9HbOsAAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
-  <data name="cpnlPlugins.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAk
-        5QAAJOUBi1NojwAAAAd0SU1FB94LEA4HDI9ARpcAAAFWSURBVEhLtZU7bgIxEIYXUSOUI9BTIFFAwQWo
-        uUKuScUFqDhEukDqbP7PmiFj8G6iNftJv8YzHs8+/Gr6aNvW7Zu0wMZ4FaH4XrpIgN3H/ipUZCV9SBH8
-        laX8Hw2y1i+KbaRPKYK/sZQ7ilmrgDonZnfS1kTxd+lLiuATp99zd7FOhoJuT9JV4g1dFPuWIvjEYx7j
-        TrFehoK8OUk1MD59yRPq4DN5kxoYv7WSOXRYQg1/PuBGVgU84L661LaWkLOUjtJZGkpcXWmfyKb6NKbS
-        TJpLa2nI18TVxWZMOz5DQbcHqRaOlXR2ZSjom+4VLFJRRwG3r/0CNcadAzmjr6LR90HfTubBB8tjbrpe
-        hPGDjoq15fjqYo5K9D6g6zRlTph4z0P4pbkqn6YKun28D/gVTPwsJRj4FqffcxnXex+UbjTE6pqmJAPf
-        4jGv+0Zz1GmtYZTHN80P7a6/rIXiDy4AAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="cmPluginInstall.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>172, 17</value>
   </metadata>

@@ -1114,26 +1114,11 @@
   <data name="trans_zu_ultralisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trans_zu_ultralisk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon_Application" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon_Application.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon_Automation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon_Automation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon_Overlays" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_overlays" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Overlays.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon_Plugins" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon_Plugins.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checkmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkmark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon_Bug" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon_Bug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon_Debug" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon_Debug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Race_Protoss64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Race_Protoss64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1405,19 +1390,34 @@
   <data name="trans_Zup_VentralSacs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trans_Zup_VentralSacs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon_DefaultPluginIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon_DefaultPluginIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_credits" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_credits.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon_HelpMe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon_HelpMe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Icon_Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon_Benchmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon_Benchmark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_application" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_application.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_automation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_automation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_benchmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_benchmark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_credit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_credit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_debug" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_debug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_default_plugin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_default_plugin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_helpme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_helpme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_plugin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_plugin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_various" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_various.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

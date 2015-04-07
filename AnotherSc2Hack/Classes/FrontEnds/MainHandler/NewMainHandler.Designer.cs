@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMainHandler));
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
+            this.pnlVarious = new System.Windows.Forms.Panel();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
             this.pnlHelpMe = new System.Windows.Forms.Panel();
             this.btnHelpMeCopyEmail = new System.Windows.Forms.Button();
             this.btnHelpMeCopyBitcoin = new System.Windows.Forms.Button();
@@ -115,9 +117,6 @@
             this.btnLaunchIncome = new System.Windows.Forms.Button();
             this.btnLaunchResource = new System.Windows.Forms.Button();
             this.pnlBottomStrip = new System.Windows.Forms.Panel();
-            this.pnlVarious = new System.Windows.Forms.Panel();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
             this.chBxVariousShowPersonalClock = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.ntxtVariousApmLimit = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.chBxVariousPersonalApmAlert = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
@@ -185,6 +184,7 @@
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlLeftSelection.SuspendLayout();
+            this.pnlVarious.SuspendLayout();
             this.pnlHelpMe.SuspendLayout();
             this.pnlBenchmark.SuspendLayout();
             this.pnlCredits.SuspendLayout();
@@ -198,7 +198,6 @@
             this.cmPluginRemove.SuspendLayout();
             this.pnlMainArea.SuspendLayout();
             this.pnlBottomStrip.SuspendLayout();
-            this.pnlVarious.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLeftSelection
@@ -219,6 +218,45 @@
             this.pnlLeftSelection.Name = "pnlLeftSelection";
             this.pnlLeftSelection.Size = new System.Drawing.Size(152, 593);
             this.pnlLeftSelection.TabIndex = 5;
+            // 
+            // pnlVarious
+            // 
+            this.pnlVarious.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlVarious.Controls.Add(this.chBxVariousShowPersonalClock);
+            this.pnlVarious.Controls.Add(this.label35);
+            this.pnlVarious.Controls.Add(this.ntxtVariousApmLimit);
+            this.pnlVarious.Controls.Add(this.chBxVariousPersonalApmAlert);
+            this.pnlVarious.Controls.Add(this.chBxVariousShowPersonalApm);
+            this.pnlVarious.Controls.Add(this.label34);
+            this.pnlVarious.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlVarious.Location = new System.Drawing.Point(0, 80);
+            this.pnlVarious.Name = "pnlVarious";
+            this.pnlVarious.Size = new System.Drawing.Size(1029, 450);
+            this.pnlVarious.TabIndex = 32;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label35.Location = new System.Drawing.Point(223, 15);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(110, 20);
+            this.label35.TabIndex = 17;
+            this.label35.Text = "Personal Clock";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label34.Location = new System.Drawing.Point(15, 15);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(107, 20);
+            this.label34.TabIndex = 13;
+            this.label34.Text = "Personal Apm";
             // 
             // pnlHelpMe
             // 
@@ -1297,45 +1335,6 @@
             this.pnlBottomStrip.TabIndex = 22;
             this.pnlBottomStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
             // 
-            // pnlVarious
-            // 
-            this.pnlVarious.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlVarious.Controls.Add(this.chBxVariousShowPersonalClock);
-            this.pnlVarious.Controls.Add(this.label35);
-            this.pnlVarious.Controls.Add(this.ntxtVariousApmLimit);
-            this.pnlVarious.Controls.Add(this.chBxVariousPersonalApmAlert);
-            this.pnlVarious.Controls.Add(this.chBxVariousShowPersonalApm);
-            this.pnlVarious.Controls.Add(this.label34);
-            this.pnlVarious.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlVarious.Location = new System.Drawing.Point(0, 80);
-            this.pnlVarious.Name = "pnlVarious";
-            this.pnlVarious.Size = new System.Drawing.Size(1029, 450);
-            this.pnlVarious.TabIndex = 32;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label34.Location = new System.Drawing.Point(15, 15);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(107, 20);
-            this.label34.TabIndex = 13;
-            this.label34.Text = "Personal Apm";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.label35.Location = new System.Drawing.Point(223, 15);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(110, 20);
-            this.label35.TabIndex = 17;
-            this.label35.Text = "Personal Clock";
-            // 
             // chBxVariousShowPersonalClock
             // 
             this.chBxVariousShowPersonalClock.Checked = false;
@@ -2021,7 +2020,7 @@
             this.cpnlVarious.DisplayText = "Various";
             this.cpnlVarious.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlVarious.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlVarious.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Overlays;
+            this.cpnlVarious.Icon = global::AnotherSc2Hack.Properties.Resources.icon_various;
             this.cpnlVarious.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlVarious.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlVarious.IsClicked = false;
@@ -2045,7 +2044,7 @@
             this.cpnlHelpMe.DisplayText = "Help Me";
             this.cpnlHelpMe.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlHelpMe.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlHelpMe.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_HelpMe;
+            this.cpnlHelpMe.Icon = global::AnotherSc2Hack.Properties.Resources.icon_helpme;
             this.cpnlHelpMe.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlHelpMe.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlHelpMe.IsClicked = false;
@@ -2069,7 +2068,7 @@
             this.cpnlBenchmark.DisplayText = "Benchmark";
             this.cpnlBenchmark.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlBenchmark.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlBenchmark.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Benchmark;
+            this.cpnlBenchmark.Icon = global::AnotherSc2Hack.Properties.Resources.icon_benchmark;
             this.cpnlBenchmark.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlBenchmark.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlBenchmark.IsClicked = false;
@@ -2093,7 +2092,7 @@
             this.cpnlCredits.DisplayText = "Credits";
             this.cpnlCredits.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlCredits.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlCredits.Icon = global::AnotherSc2Hack.Properties.Resources.icon_credits;
+            this.cpnlCredits.Icon = global::AnotherSc2Hack.Properties.Resources.icon_credit;
             this.cpnlCredits.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlCredits.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlCredits.IsClicked = false;
@@ -2117,7 +2116,7 @@
             this.cpnlDebug.DisplayText = "Debug";
             this.cpnlDebug.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlDebug.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlDebug.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Debug;
+            this.cpnlDebug.Icon = global::AnotherSc2Hack.Properties.Resources.icon_debug;
             this.cpnlDebug.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlDebug.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlDebug.IsClicked = false;
@@ -2140,7 +2139,7 @@
             this.cpnlApplication.DisplayText = "Application";
             this.cpnlApplication.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlApplication.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlApplication.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlApplication.Icon")));
+            this.cpnlApplication.Icon = global::AnotherSc2Hack.Properties.Resources.icon_application;
             this.cpnlApplication.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlApplication.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlApplication.IsClicked = false;
@@ -2163,7 +2162,7 @@
             this.cpnlOverlays.DisplayText = "Overlays";
             this.cpnlOverlays.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlOverlays.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlOverlays.Icon = global::AnotherSc2Hack.Properties.Resources.Icon_Overlays;
+            this.cpnlOverlays.Icon = global::AnotherSc2Hack.Properties.Resources.icon_overlays;
             this.cpnlOverlays.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlOverlays.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlOverlays.IsClicked = false;
@@ -2186,7 +2185,7 @@
             this.cpnlPlugins.DisplayText = "Plugins";
             this.cpnlPlugins.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlPlugins.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlPlugins.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlPlugins.Icon")));
+            this.cpnlPlugins.Icon = global::AnotherSc2Hack.Properties.Resources.icon_plugin;
             this.cpnlPlugins.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlPlugins.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlPlugins.IsClicked = false;
@@ -2213,6 +2212,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewMainHandler_FormClosing);
             this.Resize += new System.EventHandler(this.NewMainHandler_Resize);
             this.pnlLeftSelection.ResumeLayout(false);
+            this.pnlVarious.ResumeLayout(false);
+            this.pnlVarious.PerformLayout();
             this.pnlHelpMe.ResumeLayout(false);
             this.pnlHelpMe.PerformLayout();
             this.pnlBenchmark.ResumeLayout(false);
@@ -2233,8 +2234,6 @@
             this.pnlMainArea.ResumeLayout(false);
             this.pnlMainArea.PerformLayout();
             this.pnlBottomStrip.ResumeLayout(false);
-            this.pnlVarious.ResumeLayout(false);
-            this.pnlVarious.PerformLayout();
             this.ResumeLayout(false);
 
         }
