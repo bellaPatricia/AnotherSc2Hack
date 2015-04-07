@@ -835,6 +835,43 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             //Debug.WriteLine("Time to Iterate the timer:" + 1000000 * _swMainWatch.ElapsedTicks / Stopwatch.Frequency + " µs");
         }
 
+        /// <summary>
+        /// Draws the border when you resize/resposition/Click the howkey around the panel
+        /// </summary>
+        /// <param name="buffer">The buffer that helps us to draw the border.</param>
+        private void DrawResizeBorder(BufferedGraphics buffer)
+        {
+            if (!BChangingPosition && !BSetPosition && !BSetSize) 
+                return;
+
+            // Simple border 
+            buffer.Graphics.DrawRectangle(Constants.PYellowGreen2,
+                1,
+                1,
+                Width - 2,
+                Height - 2);
+
+            // Draw some filled frectangles to make the resizing easier 
+            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
+                Width - SizeOfRectangle, 0, SizeOfRectangle,
+                SizeOfRectangle);
+
+            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
+                0, Height - SizeOfRectangle, SizeOfRectangle,
+                SizeOfRectangle);
+
+            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
+                Width - SizeOfRectangle, Height - SizeOfRectangle,
+                SizeOfRectangle, SizeOfRectangle);
+
+            // Draw current size 
+            buffer.Graphics.DrawString(
+                Width.ToString(CultureInfo.InvariantCulture) + "x" +
+                Height.ToString(CultureInfo.InvariantCulture) + " - [X=" +
+                Location.X.ToString(CultureInfo.InvariantCulture) + "; Y=" + Location.Y.ToString(CultureInfo.InvariantCulture) + "]",
+                new Font("Arial", 8, FontStyle.Regular), Brushes.YellowGreen, 2, 2);
+        }
+
         #endregion
 
         #region Protected abstract Methods (Form specific)
@@ -929,7 +966,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             base.OnPaint(e);
 
-
+            
 
             //_swMainWatch.Reset();
             //_swMainWatch.Start();
@@ -937,7 +974,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             var context = new BufferedGraphicsContext();
             context.MaximumBuffer = ClientSize;
 
-            using (BufferedGraphics buffer = context.Allocate(e.Graphics, ClientRectangle))
+            using (var buffer = context.Allocate(e.Graphics, ClientRectangle))
             {
                 buffer.Graphics.Clear(BackColor);
                 buffer.Graphics.CompositingMode = CompositingMode.SourceOver;
@@ -945,65 +982,41 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 buffer.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
                 buffer.Graphics.SmoothingMode = SmoothingMode.HighSpeed;
 
+                
+
                 if (GInformation != null &&
                     GInformation.Gameinfo != null &&
                     GInformation.Gameinfo.IsIngame)
                 {
+                    
                     if (PSettings.PreferenceAll.Global.DrawOnlyInForeground && !BSurpressForeground)
                     {
-                        _bDraw = InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle);
+                        if (PSc2Process == null)
+                            _bDraw = false;
+
+                        else
+                            _bDraw = InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle);
                     }
 
                     else
                     {
                         _bDraw = true;
 
-                        if (InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
+                        if (PSc2Process == null)
+                            _bDraw = false;
+
+                        else if (InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
                         {
                             InteropCalls.SetActiveWindow(Handle);
                         }
                     }
+                   
 
                     if (_bDraw)
                     {
                         Draw(buffer);
 
-                        #region Draw a Rectangle around the Panels (When changing position)
-
-                        /* Draw a final bound around the panel */
-                        if (BChangingPosition || BSetPosition || BSetSize)
-                        {
-
-
-                            /* Simple border */
-                            buffer.Graphics.DrawRectangle(Constants.PYellowGreen2,
-                                                        1,
-                                                        1,
-                                                        Width - 2,
-                                                        Height - 2);
-
-                            /* Draw some filled frectangles to make the resizing easier */
-                            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                                                          Width - SizeOfRectangle, 0, SizeOfRectangle,
-                                                          SizeOfRectangle);
-
-                            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                                                          0, Height - SizeOfRectangle, SizeOfRectangle,
-                                                          SizeOfRectangle);
-
-                            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                                                          Width - SizeOfRectangle, Height - SizeOfRectangle,
-                                                          SizeOfRectangle, SizeOfRectangle);
-
-                            /* Draw current size */
-                            buffer.Graphics.DrawString(
-                                Width.ToString(CultureInfo.InvariantCulture) + "x" +
-                                Height.ToString(CultureInfo.InvariantCulture) + " - [X=" +
-                            Location.X.ToString(CultureInfo.InvariantCulture) + "; Y=" + Location.Y.ToString(CultureInfo.InvariantCulture) + "]",
-                                new Font("Arial", 8, FontStyle.Regular), Brushes.YellowGreen, 2, 2);
-                        }
-
-                        #endregion
+                        DrawResizeBorder(buffer);
                     }
 
                 }
@@ -1014,7 +1027,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }
 
             context.Dispose();
-
+            
             //_swMainWatch.Stop();
             //Debug.WriteLine("Time to execute DrawingMethods:" + 1000000 * _swMainWatch.ElapsedTicks / Stopwatch.Frequency + " µs");
         }
