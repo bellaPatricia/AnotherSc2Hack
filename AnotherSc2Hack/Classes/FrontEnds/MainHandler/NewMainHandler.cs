@@ -1,30 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Policy;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.Integration;
-using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Plugin;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.Events;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
-using AnotherSc2Hack.Classes.FrontEnds.Container;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
-using Microsoft.Win32;
 using PluginInterface;
 using Predefined;
 using Timer = System.Windows.Forms.Timer;
@@ -33,6 +24,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
     public partial class NewMainHandler : Form
     {
+        #region Private Variables
+
         private readonly Timer _tmrMainTick = new Timer();
         
         private readonly RendererContainer _lContainer = new RendererContainer();
@@ -44,6 +37,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private Boolean _bProcessSet;
 
+        #endregion
 
         #region Getter and setter with advanced codeexecution
 
@@ -173,7 +167,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
+        #region Other Properties
+
         public ApplicationStartOptions ApplicationOptions { get; private set; }
+
+        #endregion
+
+        #region Constructors
 
         public NewMainHandler(ApplicationStartOptions app)
         {
@@ -196,10 +196,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             LoadContributers();
         }
 
-        void Gameinfo_IterationPerSecondChanged(object sender, Events.NumberArgs e)
-        {
-            ntxtBenchmarkDataIterations.Number = e.Number;
-        }
+        #endregion
 
         private void Init()
         {
@@ -235,122 +232,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer, true);
-        }
-
-        void _wcMainWebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            pbMainProgress.Value = 0;
-
-            if (e.UserState.Equals("Plugin"))
-            {
-                PluginsLocalLoadPlugins();
-            }
-
-            Console.WriteLine("Filedownload complete!");
-        }
-
-        void _wcMainWebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            pbMainProgress.Value = e.ProgressPercentage;
-            Console.WriteLine("We are at the ProgressChanged!");
-        }
-
-        void _tmrMainTick_Tick(object sender, EventArgs e)
-        {
-            if ((DateTime.Now - _dtSecond).Seconds >= 1)
-            {
-                _dtSecond = DateTime.Now;
-
-                if (cpnlDebug.IsClicked)
-                {
-                    Gameinfo.CAccessGameinfo = true;
-                    Gameinfo.CAccessMapInfo = true;
-                    Gameinfo.CAccessPlayers = true;
-                    Gameinfo.CAccessUnits = true;
-                    Gameinfo.CAccessUnitCommands = true;
-
-                    DebugPlayerRefresh();
-                    DebugUnitRefresh();
-                    DebugMapRefresh();
-                    DebugMatchinformationRefresh();
-                }
-
-                //Console.WriteLine("CAccessGameinfo: " + Gameinfo.CAccessGameinfo);
-                //Console.WriteLine("CAccessGroups: " + Gameinfo.CAccessGroups);
-                //Console.WriteLine("CAccessMapInfo: " + Gameinfo.CAccessMapInfo);
-                //Console.WriteLine("CAccessPlayers: " + Gameinfo.CAccessPlayers);
-                //Console.WriteLine("CAccessSelection: " + Gameinfo.CAccessSelection);
-                //Console.WriteLine("CAccessUnitCommands: " + Gameinfo.CAccessUnitCommands);
-                //Console.WriteLine("CAccessUnits: " + Gameinfo.CAccessUnits);
-            }
-
-            for (var i = 0; i < _lContainer.Count; i++)
-            {
-                Gameinfo.CAccessGameinfo |= _lContainer[i].GInformation.CAccessGameinfo;
-                Gameinfo.CAccessGroups |= _lContainer[i].GInformation.CAccessGroups;
-                Gameinfo.CAccessMapInfo |= _lContainer[i].GInformation.CAccessMapInfo;
-                Gameinfo.CAccessPlayers |= _lContainer[i].GInformation.CAccessPlayers;
-                Gameinfo.CAccessSelection |= _lContainer[i].GInformation.CAccessSelection;
-                Gameinfo.CAccessUnitCommands |= _lContainer[i].GInformation.CAccessUnitCommands;
-                Gameinfo.CAccessUnits |= _lContainer[i].GInformation.CAccessUnits;
-            }
-
-            
-
-            InputManager();
-            PluginDataRefresh();
-
-            #region Reset Process and gameinfo if Sc2 is not started
-
-            if (!Processing.GetProcess(Constants.StrStarcraft2ProcessName))
-            {
-                ChangeVisibleState(false);
-                _bProcessSet = false;
-                Gameinfo.HandleThread(false);
-
-                _tmrMainTick.Interval = 300;
-                Debug.WriteLine("Process not found - 300ms Delay!");
-            }
-
-
-            else
-            {
-                if (!_bProcessSet)
-                {
-                    _bProcessSet = true;
-
-                    Process proc;
-                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
-                        PSc2Process = proc;
-
-
-                    if (Gameinfo == null)
-                    {
-                        Gameinfo = new GameInfo(PSettings.PreferenceAll.Global.DataRefresh, ApplicationOptions)
-                        {
-                            MyOffsets = new Offsets()
-                        };
-                    }
-
-                    else if (Gameinfo != null &&
-                             !Gameinfo.CThreadState)
-                    {
-                        Gameinfo.Memory.Handle = IntPtr.Zero;
-                        Gameinfo.CStarcraft2 = PSc2Process;
-                        Gameinfo.MyOffsets = new Offsets();
-                        Gameinfo.HandleThread(true);
-                    }
-
-
-                    ChangeVisibleState(true);
-                    _tmrMainTick.Interval = PSettings.PreferenceAll.Global.DataRefresh;
-
-                    Debug.WriteLine("Process found - " + PSettings.PreferenceAll.Global.DataRefresh + "ms Delay!");
-                }
-            }
-
-            #endregion
-            
         }
 
         /// <summary>
@@ -562,35 +443,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         /// <summary>
-        /// Refresh the list of plugins
+        /// Make Panels visible (or invisible)
         /// </summary>
-        private void PluginDataRefresh()
+        /// <param name="state">Visibility state</param>
+        private void ChangeVisibleState(Boolean state)
         {
-            if (_lPlugins == null || _lPlugins.Count <= 0)
-                return;
-
-
-            foreach (var plugin in _lPlugins)
+            foreach (var renderer in _lContainer)
             {
-                /* Refresh some Data */
-                plugin.Plugin.SetMap(Gameinfo.Map);
-                plugin.Plugin.SetPlayers(Gameinfo.Player);
-                plugin.Plugin.SetUnits(Gameinfo.Unit);
-                plugin.Plugin.SetSelection(Gameinfo.Selection);
-                plugin.Plugin.SetGroups(Gameinfo.Group);
-                plugin.Plugin.SetGameinfo(Gameinfo.Gameinfo);
-
-                /* Set Access values for Gameinfo */
-                Gameinfo.CAccessPlayers |= plugin.Plugin.GetRequiresPlayer();
-                Gameinfo.CAccessSelection |= plugin.Plugin.GetRequiresSelection();
-                Gameinfo.CAccessUnits |= plugin.Plugin.GetRequiresUnit();
-                Gameinfo.CAccessUnitCommands |= plugin.Plugin.GetRequiresUnit();
-                Gameinfo.CAccessGameinfo |= plugin.Plugin.GetRequiresGameinfo();
-                Gameinfo.CAccessGroups |= plugin.Plugin.GetRequiresGroups();
-                Gameinfo.CAccessMapInfo |= plugin.Plugin.GetRequiresMap();
+                if (!renderer.IsHidden)
+                    renderer.Visible = state;
             }
         }
-
+       
         #region Side - Clickable Panels
 
         #region Event methods
@@ -713,6 +577,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             HelpFunctions.InitResolution(ref tmpPreferences);
             PSettings = tmpPreferences;
         }
+
+        private void chBxOnlyDrawInForeground_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.Global.DrawOnlyInForeground = o.Checked;
+        }
+
 
 
         #endregion
@@ -1830,6 +1700,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Event methods
 
+        private void pcbPluginsImages_Click(object sender, EventArgs e)
+        {
+            if (pcbPluginsImages.Image == null)
+                return;
+
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count == _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count)
+                new BigPreviewPicture(_lOnlinePlugins[IPluginsSelectedPluginIndex].Images).ShowDialog();
+
+            else
+                new BigPreviewPicture(pcbPluginsImages.Image).ShowDialog();
+        }
+
+
         private void lstvPluginsLoadedPlugins_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (e.Item.Index <= -1)
@@ -1940,6 +1823,37 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #endregion
+
+        /// <summary>
+        /// Refresh the list of plugins
+        /// </summary>
+        private void PluginDataRefresh()
+        {
+            if (_lPlugins == null || _lPlugins.Count <= 0)
+                return;
+
+
+            foreach (var plugin in _lPlugins)
+            {
+                /* Refresh some Data */
+                plugin.Plugin.SetMap(Gameinfo.Map);
+                plugin.Plugin.SetPlayers(Gameinfo.Player);
+                plugin.Plugin.SetUnits(Gameinfo.Unit);
+                plugin.Plugin.SetSelection(Gameinfo.Selection);
+                plugin.Plugin.SetGroups(Gameinfo.Group);
+                plugin.Plugin.SetGameinfo(Gameinfo.Gameinfo);
+
+                /* Set Access values for Gameinfo */
+                Gameinfo.CAccessPlayers |= plugin.Plugin.GetRequiresPlayer();
+                Gameinfo.CAccessSelection |= plugin.Plugin.GetRequiresSelection();
+                Gameinfo.CAccessUnits |= plugin.Plugin.GetRequiresUnit();
+                Gameinfo.CAccessUnitCommands |= plugin.Plugin.GetRequiresUnit();
+                Gameinfo.CAccessGameinfo |= plugin.Plugin.GetRequiresGameinfo();
+                Gameinfo.CAccessGroups |= plugin.Plugin.GetRequiresGroups();
+                Gameinfo.CAccessMapInfo |= plugin.Plugin.GetRequiresMap();
+            }
+        }
+
 
         private void PluginsInstallPlugin(object path)
         {
@@ -2455,6 +2369,130 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
+        #region Various Panel Data
+
+        #region Event Mappings
+
+        private void ntxtVariousApmLimit_NumberChanged(object sender, NumberArgs e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit = e.Number;
+        }
+
+        private void chBxVariousShowPersonalApm_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalApm.PersonalApm = o.Checked;
+            LaunchRenderer(typeof(PersonalApmRenderer));
+        }
+
+        private void chBxVariousPersonalApmAlert_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert = o.Checked;
+        }
+
+        private void chBxVariousShowPersonalClock_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalClock.PersonalClock = o.Checked;
+            LaunchRenderer(typeof(PersonalClockRenderer));
+        }
+
+        #endregion
+
+        #endregion
+
+        #region HelpMe Panel Data
+
+        #region Event Mappings
+
+        private void btnHelpMePostOnD3scene_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://www.d3scene.com/forum/newreply.php?p=717534&noquote=1");
+        }
+
+        private void btnHelpMeEmailMe_Click(object sender, EventArgs e)
+        {
+            Process.Start("mailto:bpatriciaella@yahoo.com");
+        }
+
+        private void btnHelpMeGithubIssues_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/bellaPatricia/AnotherSc2Hack/issues/new");
+        }
+
+        private void btnHelpMeLocalize_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Some cool file HERE");
+        }
+
+        private void btnHelpMeCopyBitcoin_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblHelpMeBitcoin.Text.Substring(lblHelpMeBitcoin.Text.IndexOf(":", StringComparison.Ordinal) + 2));
+        }
+
+        private void btnHelpMeCopyEmail_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblHelpMeEmail.Text);
+        }
+
+        private void btnHelpMePaypal_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3ZAZS7HNX6DPW");
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Credits Panel Data
+
+        /// <summary>
+        /// Load some contibuters into the listview
+        /// </summary>
+        private void LoadContributers()
+        {
+            var dict = new Dictionary<string, string>();
+
+            dict.Add("RHCP (D3Scene)", "Open Source MH, Gameinteraction, Minimap drawing and extremely helpful");
+            dict.Add("Beaving (D3Scene)", "Various hacking information, Concepts, Suggestions and good chats");
+            dict.Add("Mr Nukealizer (D3Scene)", "Open Source MH, Ideas and concepts");
+            dict.Add("MyTeeWun (D3Scene)", "Production-Tag (Unit and Upgrades) and good research in SC2 memory");
+            dict.Add("mischa (D3Scene)", "Great SC2 memory research with Upgrades, production and unitlists");
+            dict.Add("mr_ice (D3Scene)", "Graphical help");
+            dict.Add("Tracky (D3Scene)", "Suggestions and ideas");
+            dict.Add("D3Scene", "Good environment with a lot helpful people");
+            dict.Add("Various people", "...that gave ideas, suggestions and critism - thank you!");
+            dict.Add("Donators", "Because you people make me buy some candy :3");
+
+
+            foreach (KeyValuePair<string, string> keyValuePair in dict)
+            {
+                var item = new ListViewItem(keyValuePair.Key);
+                item.SubItems.Add(keyValuePair.Value);
+
+                if (lstvCredits.Items.Count % 2 == 0)
+                    item.BackColor = Color.WhiteSmoke;
+
+                lstvCredits.Items.Add(item);
+                lstvCredits.Columns[lstvCredits.Columns.Count - 1].Width = -2;
+            }
+
+        }
+
+        #region Event Mappings
+
+        /// <summary>
+        /// Simple resize
+        /// </summary>
+        /// <param name="sender">The sender (source)</param>
+        /// <param name="e">Standard event args</param>
+        private void lstvCredits_SizeChanged(object sender, EventArgs e)
+        {
+            lstvCredits.Columns[lstvCredits.Columns.Count - 1].Width = -2;
+        }
+
+
+        #endregion
+
+        #endregion
 
         #region Load Settings Into Controls
 
@@ -2694,17 +2732,105 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
+        #region Global Event Methods
 
-        /* Make panels in/ visible */
-        private void ChangeVisibleState(Boolean state)
+        void _tmrMainTick_Tick(object sender, EventArgs e)
         {
-            foreach (var renderer in _lContainer)
+            if ((DateTime.Now - _dtSecond).Seconds >= 1)
             {
-                if (!renderer.IsHidden)
-                    renderer.Visible = state;
-            }
-        }
+                _dtSecond = DateTime.Now;
 
+                if (cpnlDebug.IsClicked)
+                {
+                    Gameinfo.CAccessGameinfo = true;
+                    Gameinfo.CAccessMapInfo = true;
+                    Gameinfo.CAccessPlayers = true;
+                    Gameinfo.CAccessUnits = true;
+                    Gameinfo.CAccessUnitCommands = true;
+
+                    DebugPlayerRefresh();
+                    DebugUnitRefresh();
+                    DebugMapRefresh();
+                    DebugMatchinformationRefresh();
+                }
+
+                //Console.WriteLine("CAccessGameinfo: " + Gameinfo.CAccessGameinfo);
+                //Console.WriteLine("CAccessGroups: " + Gameinfo.CAccessGroups);
+                //Console.WriteLine("CAccessMapInfo: " + Gameinfo.CAccessMapInfo);
+                //Console.WriteLine("CAccessPlayers: " + Gameinfo.CAccessPlayers);
+                //Console.WriteLine("CAccessSelection: " + Gameinfo.CAccessSelection);
+                //Console.WriteLine("CAccessUnitCommands: " + Gameinfo.CAccessUnitCommands);
+                //Console.WriteLine("CAccessUnits: " + Gameinfo.CAccessUnits);
+            }
+
+            for (var i = 0; i < _lContainer.Count; i++)
+            {
+                Gameinfo.CAccessGameinfo |= _lContainer[i].GInformation.CAccessGameinfo;
+                Gameinfo.CAccessGroups |= _lContainer[i].GInformation.CAccessGroups;
+                Gameinfo.CAccessMapInfo |= _lContainer[i].GInformation.CAccessMapInfo;
+                Gameinfo.CAccessPlayers |= _lContainer[i].GInformation.CAccessPlayers;
+                Gameinfo.CAccessSelection |= _lContainer[i].GInformation.CAccessSelection;
+                Gameinfo.CAccessUnitCommands |= _lContainer[i].GInformation.CAccessUnitCommands;
+                Gameinfo.CAccessUnits |= _lContainer[i].GInformation.CAccessUnits;
+            }
+
+
+
+            InputManager();
+            PluginDataRefresh();
+
+            #region Reset Process and gameinfo if Sc2 is not started
+
+            if (!Processing.GetProcess(Constants.StrStarcraft2ProcessName))
+            {
+                ChangeVisibleState(false);
+                _bProcessSet = false;
+                Gameinfo.HandleThread(false);
+
+                _tmrMainTick.Interval = 300;
+                Debug.WriteLine("Process not found - 300ms Delay!");
+            }
+
+
+            else
+            {
+                if (!_bProcessSet)
+                {
+                    _bProcessSet = true;
+
+                    Process proc;
+                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                        PSc2Process = proc;
+
+
+                    if (Gameinfo == null)
+                    {
+                        Gameinfo = new GameInfo(PSettings.PreferenceAll.Global.DataRefresh, ApplicationOptions)
+                        {
+                            MyOffsets = new Offsets()
+                        };
+                    }
+
+                    else if (Gameinfo != null &&
+                             !Gameinfo.CThreadState)
+                    {
+                        Gameinfo.Memory.Handle = IntPtr.Zero;
+                        Gameinfo.CStarcraft2 = PSc2Process;
+                        Gameinfo.MyOffsets = new Offsets();
+                        Gameinfo.HandleThread(true);
+                    }
+
+
+                    ChangeVisibleState(true);
+                    _tmrMainTick.Interval = PSettings.PreferenceAll.Global.DataRefresh;
+
+                    Debug.WriteLine("Process found - " + PSettings.PreferenceAll.Global.DataRefresh + "ms Delay!");
+                }
+            }
+
+            #endregion
+
+        }
 
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)
         {
@@ -2717,7 +2843,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlMainArea.Invalidate();
         }
 
-
         //Draw a new border on the top and bottom of the panel
         private void DrawVerticalBorders(object sender, PaintEventArgs e)
         {
@@ -2725,11 +2850,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(193, 193, 193))), 0, 0, Width, 0);
             e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(193, 193, 193))), 0, send.Height - 1, Width, send.Height - 1);
-        }
-
-        private void chBxOnlyDrawInForeground_CheckedChanged(AnotherCheckbox o, EventChecked e)
-        {
-            PSettings.PreferenceAll.Global.DrawOnlyInForeground = o.Checked;
         }
 
         private void NewMainHandler_FormClosing(object sender, FormClosingEventArgs e)
@@ -2750,116 +2870,33 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Gameinfo.HandleThread(false);
         }
 
-        private void pcbPluginsImages_Click(object sender, EventArgs e)
+        void _wcMainWebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            if (pcbPluginsImages.Image == null)
-                return;
+            pbMainProgress.Value = 0;
 
-            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count == _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count)
-                new BigPreviewPicture(_lOnlinePlugins[IPluginsSelectedPluginIndex].Images).ShowDialog();
-
-            else 
-                new BigPreviewPicture(pcbPluginsImages.Image).ShowDialog();
-        }
-
-        /// <summary>
-        /// Load some contibuters into the listview
-        /// </summary>
-        private void LoadContributers()
-        {
-            var dict = new Dictionary<string, string>();
-
-            dict.Add("RHCP (D3Scene)", "Open Source MH, Gameinteraction, Minimap drawing and extremely helpful");
-            dict.Add("Beaving (D3Scene)", "Various hacking information, Concepts, Suggestions and good chats");
-            dict.Add("Mr Nukealizer (D3Scene)", "Open Source MH, Ideas and concepts");
-            dict.Add("MyTeeWun (D3Scene)", "Production-Tag (Unit and Upgrades) and good research in SC2 memory");
-            dict.Add("mischa (D3Scene)", "Great SC2 memory research with Upgrades, production and unitlists");
-            dict.Add("mr_ice (D3Scene)", "Graphical help");
-            dict.Add("Tracky (D3Scene)", "Suggestions and ideas");
-            dict.Add("D3Scene", "Good environment with a lot helpful people");
-            dict.Add("Various people", "...that gave ideas, suggestions and critism - thank you!");
-            dict.Add("Donators", "Because you people make me buy some candy :3");
-
-
-            foreach (KeyValuePair<string, string> keyValuePair in dict)
+            if (e.UserState.Equals("Plugin"))
             {
-                var item = new ListViewItem(keyValuePair.Key);
-                item.SubItems.Add(keyValuePair.Value);
-
-                if (lstvCredits.Items.Count%2 == 0)
-                    item.BackColor = Color.WhiteSmoke;
-
-                lstvCredits.Items.Add(item);
-                lstvCredits.Columns[lstvCredits.Columns.Count - 1].Width = -2;
+                PluginsLocalLoadPlugins();
             }
 
+            Console.WriteLine("Filedownload complete!");
         }
 
-        /// <summary>
-        /// Simple resize
-        /// </summary>
-        /// <param name="sender">The sender (source)</param>
-        /// <param name="e">Standard event args</param>
-        private void lstvCredits_SizeChanged(object sender, EventArgs e)
+        void _wcMainWebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            lstvCredits.Columns[lstvCredits.Columns.Count - 1].Width = -2;
+            pbMainProgress.Value = e.ProgressPercentage;
+            Console.WriteLine("We are at the ProgressChanged!");
         }
 
-        private void btnHelpMePostOnD3scene_Click(object sender, EventArgs e)
+        
+
+        void Gameinfo_IterationPerSecondChanged(object sender, NumberArgs e)
         {
-            Process.Start("http://www.d3scene.com/forum/newreply.php?p=717534&noquote=1");
+            ntxtBenchmarkDataIterations.Number = e.Number;
         }
 
-        private void btnHelpMeEmailMe_Click(object sender, EventArgs e)
-        {
-            Process.Start("mailto:bpatriciaella@yahoo.com");
-        }
+        #endregion
 
-        private void btnHelpMeGithubIssues_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/bellaPatricia/AnotherSc2Hack/issues/new");
-        }
-
-        private void btnHelpMeLocalize_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Some cool file HERE");
-        }
-
-        private void btnHelpMeCopyBitcoin_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(lblHelpMeBitcoin.Text.Substring(lblHelpMeBitcoin.Text.IndexOf(":") + 2));
-        }
-
-        private void btnHelpMeCopyEmail_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(lblHelpMeEmail.Text);
-        }
-
-        private void btnHelpMePaypal_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3ZAZS7HNX6DPW");
-        }
-
-        private void ntxtVariousApmLimit_NumberChanged(object sender, NumberArgs e)
-        {
-            PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit = e.Number;
-        }
-
-        private void chBxVariousShowPersonalApm_CheckedChanged(AnotherCheckbox o, EventChecked e)
-        {
-            PSettings.PreferenceAll.OverlayPersonalApm.PersonalApm = o.Checked;
-            LaunchRenderer(typeof(PersonalApmRenderer));
-        }
-
-        private void chBxVariousPersonalApmAlert_CheckedChanged(AnotherCheckbox o, EventChecked e)
-        {
-            PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert = o.Checked;
-        }
-
-        private void chBxVariousShowPersonalClock_CheckedChanged(AnotherCheckbox o, EventChecked e)
-        {
-            PSettings.PreferenceAll.OverlayPersonalClock.PersonalClock = o.Checked;
-            LaunchRenderer(typeof(PersonalClockRenderer));
-        }
+        
     } 
 }
