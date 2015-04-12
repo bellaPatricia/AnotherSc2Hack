@@ -26,12 +26,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Net;
 using System.Text;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 
 using AnotherSc2Hack.Classes.Events;
 using PredefinedTypes = Predefined.PredefinedData;

@@ -225,6 +225,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _lContainer.Add(new ProductionRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new PersonalApmRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new PersonalClockRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new WorkerCoachRenderer(Gameinfo, PSettings, PSc2Process));
 
             BaseRendererEventMapping();
 
@@ -2728,6 +2729,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ntxtVariousApmLimit.Number = PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit;
 
             chBxVariousShowPersonalClock.Checked = PSettings.PreferenceAll.OverlayPersonalClock.PersonalClock;
+
+            chBxVariousWorkerCoach.Checked = PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach;
         }
 
         #endregion
@@ -2896,6 +2899,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #endregion
+
+        private void chBxVariousWorkerCoach_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach = o.Checked;
+            LaunchRenderer(typeof(WorkerCoachRenderer));
+            
+        }
 
         
     } 

@@ -723,6 +723,16 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap pup_chrono {
+            get {
+                object obj = ResourceManager.GetObject("pup_chrono", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Pup_ExtendedThermalLance {
             get {
                 object obj = ResourceManager.GetObject("Pup_ExtendedThermalLance", resourceCulture);
@@ -3686,6 +3696,16 @@ namespace AnotherSc2Hack.Properties {
         public static System.Drawing.Bitmap Tup_WeaponRefit {
             get {
                 object obj = ResourceManager.GetObject("Tup_WeaponRefit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WorkerCoach {
+            get {
+                object obj = ResourceManager.GetObject("WorkerCoach", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

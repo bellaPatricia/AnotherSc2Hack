@@ -16,6 +16,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public PreferenceOverlayMaphack OverlayMaphack { get; set; }
         public PreferenceOverlayPersonalApm OverlayPersonalApm { get; set; }
         public PreferenceOverlayPersonalClock OverlayPersonalClock { get; set; }
+        public PreferenceWorkerCoach OverlayWorkerCoach { get; set; }
+
 
         public PreferenceAll()
         {
@@ -30,6 +32,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             OverlayMaphack = new PreferenceOverlayMaphack();
             OverlayPersonalApm = new PreferenceOverlayPersonalApm();
             OverlayPersonalClock = new PreferenceOverlayPersonalClock();
+            OverlayWorkerCoach = new PreferenceWorkerCoach();
         }
 
         public void ConvertOldSettings()

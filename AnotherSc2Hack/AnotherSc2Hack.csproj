@@ -99,6 +99,7 @@
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayPersonalApm.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayPersonalClock.cs" />
     <Compile Include="Classes\DataStructures\Preference\Preferences.cs" />
+    <Compile Include="Classes\DataStructures\Preference\PreferenceWorkerCoach.cs" />
     <Compile Include="Classes\Events\NumberArgs.cs" />
     <Compile Include="Classes\DataStructures\Plugin\Plugin.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceAll.cs" />
@@ -388,6 +389,9 @@
     </Compile>
     <Compile Include="Classes\FrontEnds\Rendering\RendererContainer.cs" />
     <Compile Include="Classes\FrontEnds\Rendering\UnitRenderer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Rendering\WorkerCoachRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Classes\FrontEnds\Rendering\WorkerRenderer.cs">
@@ -1073,16 +1077,12 @@
     <None Include="Resources\trans_pb_pylon.png" />
     <None Include="Resources\Application.png" />
     <None Include="Resources\Automation.png" />
-    <None Include="Resources\Overlays.png" />
     <None Include="Resources\Plugins.png" />
     <None Include="Resources\Automation1.png" />
-    <None Include="Resources\Overlays1.png" />
     <None Include="Resources\Plugins1.png" />
     <None Include="Resources\Icon_Automation.png" />
     <None Include="Resources\Icon_Overlays.png" />
-    <None Include="Resources\Icon_Plugins.png" />
     <None Include="Resources\checkmark.png" />
-    <None Include="Resources\Icon_Bug.png" />
     <None Include="Resources\Race_Terran64.png" />
     <None Include="Resources\Race_Zerg64.png" />
     <None Include="Resources\Race_Protoss64.png" />
@@ -1173,8 +1173,6 @@
     <None Include="Resources\trans_Tup_VehicleWeapon2.png" />
     <None Include="Resources\trans_Tup_VehicleWeapon3.png" />
     <None Include="Resources\trans_Tup_WeaponRefit.png" />
-    <None Include="Resources\Icon_DefaultPluginIcon.png" />
-    <None Include="Resources\icon_credits.png" />
     <None Include="Resources\Icon_Copy.png" />
     <None Include="Resources\icon_credit.png" />
     <None Include="Resources\icon_debug.png" />
@@ -1184,6 +1182,8 @@
     <None Include="Resources\icon_application.png" />
     <None Include="Resources\icon_benchmark.png" />
     <None Include="Resources\icon_helpme.png" />
+    <None Include="Resources\WorkerCoach.png" />
+    <None Include="Resources\pup_chrono.png" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />

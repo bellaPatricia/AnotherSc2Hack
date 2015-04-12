@@ -487,5 +487,26 @@ namespace Plugin.Extensions
         {
             return new Version(FileVersionInfo.GetVersionInfo(GetFileLocation()).FileVersion);
         }
+
+
+        public System.Windows.Controls.UserControl GetPanelSettingsData()
+        {
+            return null;
+        }
+
+        public string GetPluginEntryName()
+        {
+            return String.Empty;
+        }
+
+        public byte[] GetPluginIcon()
+        {
+            return null;
+        }
+
+        public void SetStarcraftProcess(Process sc2Process)
+        {
+            //No
+        }
     }
 }
