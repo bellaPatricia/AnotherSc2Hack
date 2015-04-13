@@ -2731,6 +2731,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             chBxVariousShowPersonalClock.Checked = PSettings.PreferenceAll.OverlayPersonalClock.PersonalClock;
 
             chBxVariousWorkerCoach.Checked = PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach;
+            ntxtVariousWorkerCoachDisableAfter.Number = PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter;
         }
 
         #endregion
@@ -2905,6 +2906,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach = o.Checked;
             LaunchRenderer(typeof(WorkerCoachRenderer));
             
+        }
+
+        private void ntxtVariousWorkerCoachDisableAfter_NumberChanged(object sender, NumberArgs e)
+        {
+            PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
         }
 
         

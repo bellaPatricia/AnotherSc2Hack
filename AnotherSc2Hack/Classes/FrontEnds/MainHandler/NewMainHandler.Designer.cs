@@ -185,6 +185,8 @@
             this.btnLaunchIncome = new System.Windows.Forms.Button();
             this.btnLaunchResource = new System.Windows.Forms.Button();
             this.pnlBottomStrip = new System.Windows.Forms.Panel();
+            this.label37 = new System.Windows.Forms.Label();
+            this.ntxtVariousWorkerCoachDisableAfter = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlVarious.SuspendLayout();
             this.pnlHelpMe.SuspendLayout();
@@ -249,6 +251,8 @@
             this.pnlVarious.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlVarious.Controls.Add(this.ntxtVariousWorkerCoachDisableAfter);
+            this.pnlVarious.Controls.Add(this.label37);
             this.pnlVarious.Controls.Add(this.chBxVariousWorkerCoach);
             this.pnlVarious.Controls.Add(this.label36);
             this.pnlVarious.Controls.Add(this.chBxVariousShowPersonalClock);
@@ -2226,6 +2230,25 @@
             this.pnlBottomStrip.TabIndex = 22;
             this.pnlBottomStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
             // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(437, 83);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(97, 20);
+            this.label37.TabIndex = 19;
+            this.label37.Text = "Disable after:";
+            // 
+            // ntxtVariousWorkerCoachDisableAfter
+            // 
+            this.ntxtVariousWorkerCoachDisableAfter.Location = new System.Drawing.Point(540, 80);
+            this.ntxtVariousWorkerCoachDisableAfter.Name = "ntxtVariousWorkerCoachDisableAfter";
+            this.ntxtVariousWorkerCoachDisableAfter.Number = 1;
+            this.ntxtVariousWorkerCoachDisableAfter.Size = new System.Drawing.Size(61, 27);
+            this.ntxtVariousWorkerCoachDisableAfter.TabIndex = 20;
+            this.ntxtVariousWorkerCoachDisableAfter.Text = "1";
+            this.ntxtVariousWorkerCoachDisableAfter.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtVariousWorkerCoachDisableAfter_NumberChanged);
+            // 
             // NewMainHandler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2424,6 +2447,8 @@
         private System.Windows.Forms.Label label35;
         private AnotherCheckbox chBxVariousWorkerCoach;
         private System.Windows.Forms.Label label36;
+        private NumberTextBox ntxtVariousWorkerCoachDisableAfter;
+        private System.Windows.Forms.Label label37;
 
     }
 }
