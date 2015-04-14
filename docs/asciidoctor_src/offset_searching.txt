@@ -1,12 +1,12 @@
 = AnotherSc2Hack - Offset searching =
 Author: bellaPatricia
-13 April 2015
+14. April 2015
 
 == Playerstructure ==
 
 .Essential (known) offsets
 |===
-|Offset |Size (Bytes) |Description |Sample values
+|*Offset* |*Size (Bytes)* |*Description* |*Sample values*
 |0x0008 |4 |Camera Position X |126976
 |0x000C |4 |Camera Position Y |672416
 |0x0010 |4 |Camera Distance |139264

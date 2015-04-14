@@ -24,7 +24,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
                 _number = value;
                 var en = new NumberArgs(_number);
-
                 
                 //Sometimes, this method gets called in "Not-a-UI-Thread" context, throwing an exception about cross-threading.
                 //So we prevent this by passing the action to the invoker to take care of it.
@@ -34,13 +33,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
                 try
                 {
+                    if (Handle != IntPtr.Zero)
                     Invoke(methInvoker);
                 }
 
                 //Like the Window Handle isn't initiated
                 catch (InvalidOperationException)
                 {
-                    Text = _number.ToString(CultureInfo.InvariantCulture);
+                    //We can't really allows cross-calling so we just swallow this exception
+                    //Text = _number.ToString(CultureInfo.InvariantCulture);
                 }
 
                 //Ignore all  the other errors

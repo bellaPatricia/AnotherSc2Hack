@@ -232,8 +232,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 _lRace.Add((PredefinedTypes.PlayerRace)raceChunk[i * MyOffsets.RaceSize]);
 
             #endregion
-
-
         }
 
 
@@ -320,7 +318,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         /* Main- worker that refreshes data */
         private DateTime _dtSecond = DateTime.Now;
-        private bool bIngame;
+        private bool _bIngame;
         private void RefreshData()
         {
             while (CThreadState)
@@ -387,12 +385,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 _lTimesRefreshed++;
 
                 if (Gameinfo != null)
-                    bIngame = Gameinfo.IsIngame;
+                    _bIngame = Gameinfo.IsIngame;
 
                 DoMassiveScan();
 
 
-                if (Gameinfo != null && (!bIngame &&
+                if (Gameinfo != null && (!_bIngame &&
                     Gameinfo.IsIngame))
                 {
                     OnNewMatch(this, new EventArgs());
