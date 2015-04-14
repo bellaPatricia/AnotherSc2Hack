@@ -1,0 +1,38 @@
+= AnotherSc2Hack - Offset searching =
+Author: bellaPatricia
+13 April 2015
+
+== Playerstructure ==
+
+.Essential (known) offsets
+|===
+|Offset |Size (Bytes) |Description |Sample values
+|0x0008 |4 |Camera Position X |126976
+|0x000C |4 |Camera Position Y |672416
+|0x0010 |4 |Camera Distance |139264
+|0x0014 |4 |Camera Angle |5088
+|0x0018 |4 |Camera Rotation |16384
+|0x001C |1 |Team |0, 1, 2, 3, 4 ...
+|0x001D |1 |Type |1, 2, 3, 4, 5, 6, 7
+|0x001E |1 |Status |0, 1, 2, 3
+|0x0020 |1 |Difficulty |1, 2, 3, 4, 5...
+|0x0064 |16 (?)|Name |Freizya
+|0x00D4 |4 |Name Length | 7
+|0x0108 |4 |Clantag Length | 4
+|0x0114 |4 |Clantag |MirG
+|0x01B8 |4 |Colorindex |0, 1, 2, 3, 4 
+|0x0210 |16 (?) |Account Id |
+|0x05F0 |4 |Current Apm |256
+|0x05F8 |4 |Average Apm |133
+|0x0630 |4 |Current Epm |86
+|0x0638 |4 |Average Epm |66
+|0x07E0 |4 |Worker Count |15
+|0x08A0 |4 |Supply Cap |45056
+|0x08B8 |4 |Current Supply |28672
+|0x08F8 |4 |Current Minerals |8744
+|0x0900 |4 |Current Vespene |1344
+|0x0978 |4 |Mineral Income |574
+|0x0980 |4 |Vespene Income |344
+|0x0C60 |4 |Mineral Army-value |1050
+|0x0C88 |4 |Vespene Army-value |750
+|===
