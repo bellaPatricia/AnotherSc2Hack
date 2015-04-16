@@ -269,8 +269,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
                 }
 
-                //Draw the background image manually
-                g.Graphics.DrawImage(Properties.Resources.WorkerCoach, 0, 0, Width - 1, Height - 1);
+                
 
                 if (iUnusedWorkers > 0)
                 {
@@ -308,6 +307,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 else
                     BEnergyJustGotInactive = false;
+
+
+                if (iUnusedEnergy > 0 ||
+                    iUnusedWorkers > 0)
+                {
+                    //Draw the background image manually
+                    g.Graphics.DrawImage(Properties.Resources.WorkerCoach, 0, 0, Width - 1, Height - 1);
+                }
             }
 
             catch (Exception ex)
