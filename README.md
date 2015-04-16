@@ -33,7 +33,7 @@ Features
 Requirements to compile:
 ------------------------
 1.) Windows Environment (Win 7/ 8/ 8.1)<br>
-2.) .Net Framework 4.0<br>
+2.) .Net Framework 4.5<br>
 3.) Visual Studio 2012/ 2013<br>
 
 
@@ -49,7 +49,7 @@ When you change the binary output, make sure you change the project references a
 
 Requirements to use:
 --------------------
-1.) .Net Framework 4.0<br>
+1.) .Net Framework 4.5<br>
 
 
 
