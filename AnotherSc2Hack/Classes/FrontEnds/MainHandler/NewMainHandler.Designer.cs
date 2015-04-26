@@ -32,6 +32,8 @@
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
             this.cpnlVarious = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlVarious = new System.Windows.Forms.Panel();
+            this.ntxtVariousWorkerCoachDisableAfter = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.chBxVariousWorkerCoach = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.label36 = new System.Windows.Forms.Label();
             this.chBxVariousShowPersonalClock = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
@@ -185,8 +187,7 @@
             this.btnLaunchIncome = new System.Windows.Forms.Button();
             this.btnLaunchResource = new System.Windows.Forms.Button();
             this.pnlBottomStrip = new System.Windows.Forms.Panel();
-            this.label37 = new System.Windows.Forms.Label();
-            this.ntxtVariousWorkerCoachDisableAfter = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
+            this.btnRestoreSettings = new System.Windows.Forms.Button();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlVarious.SuspendLayout();
             this.pnlHelpMe.SuspendLayout();
@@ -266,6 +267,25 @@
             this.pnlVarious.Name = "pnlVarious";
             this.pnlVarious.Size = new System.Drawing.Size(1029, 450);
             this.pnlVarious.TabIndex = 32;
+            // 
+            // ntxtVariousWorkerCoachDisableAfter
+            // 
+            this.ntxtVariousWorkerCoachDisableAfter.Location = new System.Drawing.Point(540, 80);
+            this.ntxtVariousWorkerCoachDisableAfter.Name = "ntxtVariousWorkerCoachDisableAfter";
+            this.ntxtVariousWorkerCoachDisableAfter.Number = 1;
+            this.ntxtVariousWorkerCoachDisableAfter.Size = new System.Drawing.Size(61, 27);
+            this.ntxtVariousWorkerCoachDisableAfter.TabIndex = 20;
+            this.ntxtVariousWorkerCoachDisableAfter.Text = "1";
+            this.ntxtVariousWorkerCoachDisableAfter.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtVariousWorkerCoachDisableAfter_NumberChanged);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(437, 83);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(97, 20);
+            this.label37.TabIndex = 19;
+            this.label37.Text = "Disable after:";
             // 
             // chBxVariousWorkerCoach
             // 
@@ -1375,6 +1395,7 @@
             this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlApplication.Controls.Add(this.btnRestoreSettings);
             this.pnlApplication.Controls.Add(this.label17);
             this.pnlApplication.Controls.Add(this.chBxLanguage);
             this.pnlApplication.Controls.Add(this.label4);
@@ -2074,15 +2095,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.pnlMainArea.Controls.Add(this.pnlVarious);
             this.pnlMainArea.Controls.Add(this.lblTabname);
-            this.pnlMainArea.Controls.Add(this.pnlHelpMe);
-            this.pnlMainArea.Controls.Add(this.pnlBenchmark);
-            this.pnlMainArea.Controls.Add(this.pnlCredits);
             this.pnlMainArea.Controls.Add(this.pnlApplication);
             this.pnlMainArea.Controls.Add(this.pnlPlugins);
             this.pnlMainArea.Controls.Add(this.pnlDebug);
             this.pnlMainArea.Controls.Add(this.pnlOverlays);
+            this.pnlMainArea.Controls.Add(this.pnlVarious);
+            this.pnlMainArea.Controls.Add(this.pnlHelpMe);
+            this.pnlMainArea.Controls.Add(this.pnlBenchmark);
+            this.pnlMainArea.Controls.Add(this.pnlCredits);
             this.pnlMainArea.Location = new System.Drawing.Point(152, 0);
             this.pnlMainArea.Name = "pnlMainArea";
             this.pnlMainArea.Size = new System.Drawing.Size(1029, 531);
@@ -2230,24 +2251,20 @@
             this.pnlBottomStrip.TabIndex = 22;
             this.pnlBottomStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
             // 
-            // label37
+            // btnRestoreSettings
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(437, 83);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(97, 20);
-            this.label37.TabIndex = 19;
-            this.label37.Text = "Disable after:";
-            // 
-            // ntxtVariousWorkerCoachDisableAfter
-            // 
-            this.ntxtVariousWorkerCoachDisableAfter.Location = new System.Drawing.Point(540, 80);
-            this.ntxtVariousWorkerCoachDisableAfter.Name = "ntxtVariousWorkerCoachDisableAfter";
-            this.ntxtVariousWorkerCoachDisableAfter.Number = 1;
-            this.ntxtVariousWorkerCoachDisableAfter.Size = new System.Drawing.Size(61, 27);
-            this.ntxtVariousWorkerCoachDisableAfter.TabIndex = 20;
-            this.ntxtVariousWorkerCoachDisableAfter.Text = "1";
-            this.ntxtVariousWorkerCoachDisableAfter.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtVariousWorkerCoachDisableAfter_NumberChanged);
+            this.btnRestoreSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRestoreSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnRestoreSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnRestoreSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestoreSettings.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestoreSettings.Location = new System.Drawing.Point(15, 409);
+            this.btnRestoreSettings.Name = "btnRestoreSettings";
+            this.btnRestoreSettings.Size = new System.Drawing.Size(144, 32);
+            this.btnRestoreSettings.TabIndex = 12;
+            this.btnRestoreSettings.Text = "Restore Settings";
+            this.btnRestoreSettings.UseVisualStyleBackColor = false;
+            this.btnRestoreSettings.Click += new System.EventHandler(this.btnRestoreSettings_Click);
             // 
             // NewMainHandler
             // 
@@ -2449,6 +2466,7 @@
         private System.Windows.Forms.Label label36;
         private NumberTextBox ntxtVariousWorkerCoachDisableAfter;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Button btnRestoreSettings;
 
     }
 }

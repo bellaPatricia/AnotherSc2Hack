@@ -36,5 +36,10 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             if (File.Exists(Constants.StrDummyPref))
                 File.Delete(Constants.StrDummyPref);
         }
+
+        public void Restore()
+        {
+            PreferenceAll = new PreferenceAll();
+        }
     }
 }

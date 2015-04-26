@@ -584,6 +584,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.PreferenceAll.Global.DrawOnlyInForeground = o.Checked;
         }
 
+        private void btnRestoreSettings_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Do you really want to reset your settings?", "Are you sure?",
+                MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                PSettings.Restore();
+                ControlsFill();
+            }
+        }
 
 
         #endregion
@@ -2912,6 +2923,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
         }
+
+        
 
         
     } 
