@@ -586,8 +586,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnRestoreSettings_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Do you really want to reset your settings?", "Are you sure?",
-                MessageBoxButtons.YesNo);
+            var result = new AnotherMessageBox().Show("Do you really want to reset your settings?", "Are you sure?", MessageBoxButtons.YesNo
+                );
+
+          
 
             if (result == DialogResult.Yes)
             {

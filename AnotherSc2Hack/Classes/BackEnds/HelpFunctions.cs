@@ -11,6 +11,7 @@ using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.FrontEnds;
+using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using PredefinedTypes = Predefined.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.BackEnds
@@ -513,9 +514,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #endregion
 
-            MessageBox.Show("Panel's size and position\n" +
+            new AnotherMessageBox().Show("Panel's size and position\n" +
                             "were adjusted successfully!\n\n" + 
-            "Please reload the panels!", "Panelposition channged!");
+            "Please reload the panels!", "Panelposition changed!");
         }
 
         public static Image byteArrayToImage(byte[] byteArrayIn)
