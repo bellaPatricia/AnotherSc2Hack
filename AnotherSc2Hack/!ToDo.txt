@@ -6,10 +6,6 @@ Gameinfo improving
 ------------------
 Cache unitdata (data percentage) per unit
 
-Settings
---------
-- Option to restore settings back to default
-
 GUI
 ---
 - Debug => Add nodes in the listview for all the collections
