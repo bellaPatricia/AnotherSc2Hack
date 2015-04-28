@@ -546,11 +546,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #endregion
 
+        #region Events
+
+        public event EventHandler IsHiddenChanged;
+
+        #endregion
+
         #region Getter/ Setter
 
         //Counts the iterations within a second
         private int _iterationsPerSecond = 0;
-
         public int IterationsPerSeconds
         {
             get { return _iterationsPerSecond; }
@@ -565,11 +570,30 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 OnNumberChanged(this, nArgs);
             }
-        }                          
+        }
+
+        private bool _isHidden = true;
+        public bool IsHidden
+        {
+            get
+            {
+                return _isHidden;
+            }
+
+            private set
+            {
+                if (value == _isHidden)
+                    return;
+
+                _isHidden = value;
+
+                OnIsHiddenChanged(this, new EventArgs());
+            }
+        }
 
         public Boolean IsDestroyed { get; set; }
         public PredefinedData.CustomWindowStyles SetWindowStyle { get; set; }
-        public Boolean IsHidden { get; private set; }
+        
         public Boolean IsAllowedToClose { get; set; }
         public GameInfo GInformation { get; set; }
         public PreferenceManager PSettings { get; set; }
@@ -600,6 +624,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         #endregion
 
         #region Private Methods
+
+        /// <summary>
+        /// Event manager to send the event to the caller
+        /// </summary>
+        /// <param name="sender">This object</param>
+        /// <param name="e">Event Args</param>
+        private void OnIsHiddenChanged(object sender, EventArgs e)
+        {
+            if (IsHiddenChanged != null)
+                IsHiddenChanged(sender, e);
+        }
 
         /// <summary>
         /// Initializes the code.

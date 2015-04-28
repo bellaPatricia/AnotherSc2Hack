@@ -14,12 +14,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     public class ProductionRenderer : BaseRenderer
     {
-
-        private Image _imgMinerals = Properties.Resources.Mineral_Protoss,
-                      _imgGas = Properties.Resources.Gas_Protoss,
-                      _imgSupply = Properties.Resources.Supply_Protoss,
-                      _imgWorker = Properties.Resources.P_Probe;
-
         /* Size for Unit/ Productionsize */
         private Int32 _iProdPanelWidth;
         private Int32 _iProdPanelWidthWithoutName;
@@ -29,7 +23,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public ProductionRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-            
+            IsHiddenChanged += ProductionRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -999,7 +993,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            
+        }
+
+        void ProductionRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayProduction.LaunchStatus = !IsHidden;
         }
 
         /// <summary>

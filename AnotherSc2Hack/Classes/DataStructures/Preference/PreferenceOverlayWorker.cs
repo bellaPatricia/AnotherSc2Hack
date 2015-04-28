@@ -4,6 +4,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
     public class PreferenceOverlayWorker : PreferenceBase
     {
+        public bool LaunchStatus { get; set; }
         public Keys Hotkey1 { get; set; }
         public Keys Hotkey2 { get; set; }
         public Keys Hotkey3 { get; set; }
@@ -17,11 +18,12 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public string FontName { get; set; }
         public double Opacity { get; set; }
         public bool DrawBackground { get; set; }
-
+        
 
 
         public PreferenceOverlayWorker()
         {
+            LaunchStatus = false;
             Hotkey1 = Keys.ControlKey;
             Hotkey2 = Keys.Menu;
             Hotkey3 = Keys.NumPad3;

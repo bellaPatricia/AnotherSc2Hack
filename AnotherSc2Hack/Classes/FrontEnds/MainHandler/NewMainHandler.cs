@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -194,6 +195,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             new Thread(PluginLoadAvailablePlugins).Start();
             
             LoadContributers();
+            LaunchOnStartup();
         }
 
         #endregion
@@ -780,6 +782,84 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             EventMappingResource();
             EventMappingUnittab();
             EventMappingWorker();
+        }
+
+        private void LaunchOnStartup()
+        {
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer.GetType() == typeof(ResourcesRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayResources.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(IncomeRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayIncome.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(WorkerRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayWorker.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(ApmRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayApm.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(ArmyRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayArmy.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(MaphackRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayMaphack.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(UnitRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayUnits.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(ProductionRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayProduction.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+            }
         }
 
         #region Global Event methods

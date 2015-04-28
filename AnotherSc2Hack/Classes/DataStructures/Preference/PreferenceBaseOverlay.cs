@@ -12,8 +12,9 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             DrawBackground = true;
             Opacity = 100;
             ElementName = "Overlays";
+            LaunchStatus = false;
         }
-
+        public bool LaunchStatus { get; set; }
         public Keys Hotkey1 { get; set; }
         public Keys Hotkey2 { get; set; }
         public Keys Hotkey3 { get; set; }

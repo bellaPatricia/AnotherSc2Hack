@@ -11,16 +11,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     public class WorkerRenderer : BaseRenderer
     {
-
-        private Image _imgMinerals = Properties.Resources.Mineral_Protoss,
-                      _imgGas = Properties.Resources.Gas_Protoss,
-                      _imgWorker = Properties.Resources.P_Probe;
-
-
         public WorkerRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-            
+            IsHiddenChanged += WorkerRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -245,7 +239,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            
+        }
+
+        void WorkerRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayWorker.LaunchStatus = !IsHidden;
         }
 
         /// <summary>

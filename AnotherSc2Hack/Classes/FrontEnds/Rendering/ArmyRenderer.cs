@@ -23,7 +23,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public ArmyRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-            
+            IsHiddenChanged += ArmyRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -406,7 +406,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            
+        }
+
+        void ArmyRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayArmy.LaunchStatus = !IsHidden;
         }
 
         /// <summary>

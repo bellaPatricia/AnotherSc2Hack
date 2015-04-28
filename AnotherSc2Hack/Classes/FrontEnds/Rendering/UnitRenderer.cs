@@ -14,12 +14,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     public class UnitRenderer : BaseRenderer
     {
-
-        private Image _imgMinerals = Properties.Resources.Mineral_Protoss,
-                      _imgGas = Properties.Resources.Gas_Protoss,
-                      _imgSupply = Properties.Resources.Supply_Protoss,
-                      _imgWorker = Properties.Resources.P_Probe;
-
         /* Size for Unit/ Productionsize */
         private Int32 _iUnitPanelWidth;
         private Int32 _iUnitPanelWidthWithoutName;
@@ -29,7 +23,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public UnitRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-            
+            IsHiddenChanged += UnitRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -703,7 +697,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            
+        }
+
+        void UnitRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayUnits.LaunchStatus = !IsHidden;
         }
 
         /// <summary>

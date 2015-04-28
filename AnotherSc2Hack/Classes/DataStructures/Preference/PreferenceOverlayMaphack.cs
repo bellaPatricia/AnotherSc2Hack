@@ -8,6 +8,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
     public class PreferenceOverlayMaphack : PreferenceBase
     {
+        public bool LaunchStatus { get; set; }
         public Keys Hotkey1 { get; set; }
         public Keys Hotkey2 { get; set; }
         public Keys Hotkey3 { get; set; }
@@ -35,6 +36,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
         public PreferenceOverlayMaphack()
         {
+            LaunchStatus = false;
             Hotkey1 = Keys.ControlKey;
             Hotkey2 = Keys.Menu;
             Hotkey3 = Keys.NumPad5;

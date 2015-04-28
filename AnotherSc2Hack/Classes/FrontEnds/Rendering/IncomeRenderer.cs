@@ -23,7 +23,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public IncomeRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-            
+            IsHiddenChanged += IncomeRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -409,7 +409,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            
+        }
+
+        void IncomeRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayIncome.LaunchStatus = !IsHidden;
         }
 
         /// <summary>

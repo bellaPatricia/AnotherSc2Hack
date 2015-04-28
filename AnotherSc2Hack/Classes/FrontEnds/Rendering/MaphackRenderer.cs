@@ -16,6 +16,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public MaphackRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
+            IsHiddenChanged += MaphackRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -1072,7 +1073,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            IsHiddenChanged += MaphackRenderer_IsHiddenChanged;
+        }
+
+        void MaphackRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayMaphack.LaunchStatus = !IsHidden;
         }
 
         /// <summary>

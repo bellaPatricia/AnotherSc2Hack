@@ -15,7 +15,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public ApmRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-            
+            IsHiddenChanged += ApmRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -349,7 +349,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            
+        }
+
+        void ApmRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayApm.LaunchStatus = !IsHidden;
         }
 
         /// <summary>

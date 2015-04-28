@@ -23,7 +23,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public ResourcesRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-            
+            IsHiddenChanged += ResourcesRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -411,7 +411,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            
+        }
+
+        void ResourcesRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayResources.LaunchStatus = !IsHidden;
         }
 
         /// <summary>
