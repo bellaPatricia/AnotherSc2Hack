@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -6,6 +7,38 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 {
     public class LanguageLabel : Label
     {
+        private static readonly List<LanguageLabel> Instances = new List<LanguageLabel>();
+
+        public LanguageLabel()
+        {
+            Instances.Add(this);
+        }
+
+        ~LanguageLabel()
+        {
+            var index = Instances.FindIndex(x => x.GetHashCode().Equals(GetHashCode()));
+            Instances.RemoveAt(index);
+        }
+
+
+        public static void OutputPath()
+        {
+            foreach (var languageLabel in Instances)
+            {
+                Console.WriteLine(GetParent(languageLabel));
+            }
+        }
+
+        private static string GetParent(Control control)
+        {
+            var strName = String.Empty;
+
+            if (control.Parent != null)
+                strName = GetParent(control.Parent) + "=>";
+
+            return strName + control.Name;
+        }
+
         public String LanguageFile
         {
             get { return _languageFile; }

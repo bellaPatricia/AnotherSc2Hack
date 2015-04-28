@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSetFont = new System.Windows.Forms.Button();
+            this.btnSetFont = new LanguageButton();
             this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.OpacityControl = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
             this.aChBxRemoveClantags = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
@@ -271,7 +271,7 @@
 
         #endregion
 
-        public System.Windows.Forms.Button btnSetFont;
+        public LanguageButton btnSetFont;
         private LanguageLabel languageLabel1;
         public UiOpacityControl OpacityControl;
         public AnotherCheckbox aChBxRemoveClantags;

@@ -29,59 +29,60 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMainHandler));
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
             this.cpnlVarious = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlVarious = new System.Windows.Forms.Panel();
             this.ntxtVariousWorkerCoachDisableAfter = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label37 = new System.Windows.Forms.Label();
+            this.label37 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.chBxVariousWorkerCoach = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.label36 = new System.Windows.Forms.Label();
+            this.label36 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.chBxVariousShowPersonalClock = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.label35 = new System.Windows.Forms.Label();
+            this.label35 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtVariousApmLimit = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.chBxVariousPersonalApmAlert = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.chBxVariousShowPersonalApm = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.label34 = new System.Windows.Forms.Label();
+            this.label34 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.cpnlHelpMe = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlHelpMe = new System.Windows.Forms.Panel();
-            this.btnHelpMeCopyEmail = new System.Windows.Forms.Button();
-            this.btnHelpMeCopyBitcoin = new System.Windows.Forms.Button();
-            this.lblHelpMeBitcoin = new System.Windows.Forms.Label();
-            this.btnHelpMePaypal = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
-            this.btnHelpMeLocalize = new System.Windows.Forms.Button();
-            this.btnHelpMeGithubIssues = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lblHelpMeEmail = new System.Windows.Forms.Label();
-            this.btnHelpMeEmailMe = new System.Windows.Forms.Button();
-            this.btnHelpMePostOnD3scene = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
+            this.btnHelpMeCopyEmail = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnHelpMeCopyBitcoin = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.lblHelpMeBitcoin = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.btnHelpMePaypal = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.label21 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.btnHelpMeLocalize = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnHelpMeGithubIssues = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.label20 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblHelpMeEmail = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.btnHelpMeEmailMe = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnHelpMePostOnD3scene = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.label18 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.cpnlBenchmark = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlBenchmark = new System.Windows.Forms.Panel();
             this.ntxtBenchmarkMaphackIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label33 = new System.Windows.Forms.Label();
+            this.label33 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtBenchmarkProductionTabIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label32 = new System.Windows.Forms.Label();
+            this.label32 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtBenchmarkUnitTabIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label31 = new System.Windows.Forms.Label();
+            this.label31 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtBenchmarkApmIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label30 = new System.Windows.Forms.Label();
+            this.label30 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtBenchmarkArmyIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label29 = new System.Windows.Forms.Label();
+            this.label29 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtBenchmarkWorkerIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label28 = new System.Windows.Forms.Label();
+            this.label28 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtBenchmarkIncomeIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label27 = new System.Windows.Forms.Label();
+            this.label27 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtBenchmarkResourceIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.ntxtBenchmarkDrawingInterval = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.label24 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.label25 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.label26 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtBenchmarkDataIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.ntxtBenchmarkDataInterval = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.label23 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.label22 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.label19 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.cpnlCredits = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlCredits = new System.Windows.Forms.Panel();
             this.lstvCredits = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
@@ -93,11 +94,11 @@
             this.lstvDebugMatchdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label13 = new System.Windows.Forms.Label();
+            this.label13 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.lstvDebugMapdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label10 = new System.Windows.Forms.Label();
+            this.label10 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtDebugUnitLocation = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.ntxtDebugPlayerLocation = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.lstvDebugUnitdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
@@ -107,34 +108,36 @@
             this.colHAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtDebugUnitMemory = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblDebugUnitLocation = new System.Windows.Forms.Label();
+            this.label9 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblDebugUnitLocation = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.txtDebugUnitname = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btnDebugUnitForward = new System.Windows.Forms.Button();
-            this.btnDebugUnitBack = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.btnDebugUnitForward = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnDebugUnitBack = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.label12 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.txtDebugPlayerMemory = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblDebugPlayerLocation = new System.Windows.Forms.Label();
+            this.label8 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblDebugPlayerLocation = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.txtDebugPlayername = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnDebugPlayerForward = new System.Windows.Forms.Button();
-            this.btnDebugPlayerBack = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.btnDebugPlayerForward = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnDebugPlayerBack = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.label6 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlApplication = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
+            this.btnFuckYou = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnRestoreSettings = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.label17 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.chBxLanguage = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblApplicationLanguage = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.chBxOnlyDrawInForeground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.btnReposition = new System.Windows.Forms.Button();
+            this.btnReposition = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
             this.ktxtReposition = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblApplicationReposition = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtGraphicsRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.ntxtMemoryRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblApplicationGraphicsRefresh = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblApplicationMemoryReading = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlOverlays = new System.Windows.Forms.Panel();
             this.pnlOverlayMaphack = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayMaphack();
@@ -156,38 +159,37 @@
             this.pnlOverlayUnittab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayUnittab();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlPlugins = new System.Windows.Forms.Panel();
-            this.btnPluginsInstallPlugin = new System.Windows.Forms.Button();
-            this.lblPluginsImageposition = new System.Windows.Forms.Label();
-            this.btnPluginsImagesNext = new System.Windows.Forms.Button();
-            this.btnPluginsImagesPrevious = new System.Windows.Forms.Button();
+            this.btnPluginsInstallPlugin = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.lblPluginsImageposition = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.btnPluginsImagesNext = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnPluginsImagesPrevious = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
             this.pcbPluginsImages = new System.Windows.Forms.PictureBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.label15 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
             this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmPluginInstall = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsPluginInstallPlugin = new System.Windows.Forms.ToolStripMenuItem();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label14 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.lstvPluginsLoadedPlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmPluginRemove = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsPluginRemove = new System.Windows.Forms.ToolStripMenuItem();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label5 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.pnlMainArea = new System.Windows.Forms.Panel();
-            this.lblTabname = new System.Windows.Forms.Label();
-            this.btnLaunchProduction = new System.Windows.Forms.Button();
-            this.btnLaunchUnit = new System.Windows.Forms.Button();
-            this.btnLaunchMaphack = new System.Windows.Forms.Button();
-            this.btnLaunchArmy = new System.Windows.Forms.Button();
-            this.btnLaunchApm = new System.Windows.Forms.Button();
-            this.btnLaunchWorker = new System.Windows.Forms.Button();
-            this.btnLaunchIncome = new System.Windows.Forms.Button();
-            this.btnLaunchResource = new System.Windows.Forms.Button();
+            this.lblTabname = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.btnLaunchProduction = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnLaunchUnit = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnLaunchMaphack = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnLaunchArmy = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnLaunchApm = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnLaunchWorker = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnLaunchIncome = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnLaunchResource = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
             this.pnlBottomStrip = new System.Windows.Forms.Panel();
-            this.btnRestoreSettings = new System.Windows.Forms.Button();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlVarious.SuspendLayout();
             this.pnlHelpMe.SuspendLayout();
@@ -234,7 +236,7 @@
             this.cpnlVarious.DisplayText = "Various";
             this.cpnlVarious.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlVarious.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlVarious.Icon = global::AnotherSc2Hack.Properties.Resources.icon_various;
+            this.cpnlVarious.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlVarious.Icon")));
             this.cpnlVarious.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlVarious.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlVarious.IsClicked = false;
@@ -281,6 +283,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
+            this.label37.LanguageFile = "";
             this.label37.Location = new System.Drawing.Point(437, 83);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(97, 20);
@@ -305,6 +308,7 @@
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label36.LanguageFile = "";
             this.label36.Location = new System.Drawing.Point(437, 15);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(107, 20);
@@ -329,6 +333,7 @@
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label35.LanguageFile = "";
             this.label35.Location = new System.Drawing.Point(223, 15);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(110, 20);
@@ -376,6 +381,7 @@
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label34.LanguageFile = "";
             this.label34.Location = new System.Drawing.Point(15, 15);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(107, 20);
@@ -393,7 +399,7 @@
             this.cpnlHelpMe.DisplayText = "Help Me";
             this.cpnlHelpMe.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlHelpMe.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlHelpMe.Icon = global::AnotherSc2Hack.Properties.Resources.icon_helpme;
+            this.cpnlHelpMe.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlHelpMe.Icon")));
             this.cpnlHelpMe.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlHelpMe.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlHelpMe.IsClicked = false;
@@ -434,7 +440,8 @@
             this.btnHelpMeCopyEmail.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnHelpMeCopyEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelpMeCopyEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelpMeCopyEmail.Image = global::AnotherSc2Hack.Properties.Resources.Icon_Copy;
+            this.btnHelpMeCopyEmail.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpMeCopyEmail.Image")));
+            this.btnHelpMeCopyEmail.LanguageFile = "";
             this.btnHelpMeCopyEmail.Location = new System.Drawing.Point(420, 86);
             this.btnHelpMeCopyEmail.Name = "btnHelpMeCopyEmail";
             this.btnHelpMeCopyEmail.Size = new System.Drawing.Size(29, 32);
@@ -448,7 +455,8 @@
             this.btnHelpMeCopyBitcoin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnHelpMeCopyBitcoin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelpMeCopyBitcoin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelpMeCopyBitcoin.Image = global::AnotherSc2Hack.Properties.Resources.Icon_Copy;
+            this.btnHelpMeCopyBitcoin.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpMeCopyBitcoin.Image")));
+            this.btnHelpMeCopyBitcoin.LanguageFile = "";
             this.btnHelpMeCopyBitcoin.Location = new System.Drawing.Point(376, 369);
             this.btnHelpMeCopyBitcoin.Name = "btnHelpMeCopyBitcoin";
             this.btnHelpMeCopyBitcoin.Size = new System.Drawing.Size(29, 32);
@@ -462,6 +470,7 @@
             this.lblHelpMeBitcoin.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblHelpMeBitcoin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHelpMeBitcoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblHelpMeBitcoin.LanguageFile = "";
             this.lblHelpMeBitcoin.Location = new System.Drawing.Point(16, 375);
             this.lblHelpMeBitcoin.Name = "lblHelpMeBitcoin";
             this.lblHelpMeBitcoin.Size = new System.Drawing.Size(354, 20);
@@ -474,6 +483,7 @@
             this.btnHelpMePaypal.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnHelpMePaypal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelpMePaypal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMePaypal.LanguageFile = "";
             this.btnHelpMePaypal.Location = new System.Drawing.Point(19, 331);
             this.btnHelpMePaypal.Name = "btnHelpMePaypal";
             this.btnHelpMePaypal.Size = new System.Drawing.Size(206, 32);
@@ -487,6 +497,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label21.LanguageFile = "";
             this.label21.Location = new System.Drawing.Point(15, 300);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(105, 20);
@@ -499,6 +510,7 @@
             this.btnHelpMeLocalize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnHelpMeLocalize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelpMeLocalize.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMeLocalize.LanguageFile = "";
             this.btnHelpMeLocalize.Location = new System.Drawing.Point(20, 230);
             this.btnHelpMeLocalize.Name = "btnHelpMeLocalize";
             this.btnHelpMeLocalize.Size = new System.Drawing.Size(206, 32);
@@ -513,6 +525,7 @@
             this.btnHelpMeGithubIssues.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnHelpMeGithubIssues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelpMeGithubIssues.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMeGithubIssues.LanguageFile = "";
             this.btnHelpMeGithubIssues.Location = new System.Drawing.Point(20, 124);
             this.btnHelpMeGithubIssues.Name = "btnHelpMeGithubIssues";
             this.btnHelpMeGithubIssues.Size = new System.Drawing.Size(206, 32);
@@ -526,6 +539,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label20.LanguageFile = "";
             this.label20.Location = new System.Drawing.Point(16, 198);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(152, 20);
@@ -538,6 +552,7 @@
             this.lblHelpMeEmail.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblHelpMeEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHelpMeEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblHelpMeEmail.LanguageFile = "";
             this.lblHelpMeEmail.Location = new System.Drawing.Point(235, 92);
             this.lblHelpMeEmail.Name = "lblHelpMeEmail";
             this.lblHelpMeEmail.Size = new System.Drawing.Size(179, 20);
@@ -550,6 +565,7 @@
             this.btnHelpMeEmailMe.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnHelpMeEmailMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelpMeEmailMe.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMeEmailMe.LanguageFile = "";
             this.btnHelpMeEmailMe.Location = new System.Drawing.Point(20, 86);
             this.btnHelpMeEmailMe.Name = "btnHelpMeEmailMe";
             this.btnHelpMeEmailMe.Size = new System.Drawing.Size(206, 32);
@@ -564,6 +580,7 @@
             this.btnHelpMePostOnD3scene.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnHelpMePostOnD3scene.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelpMePostOnD3scene.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpMePostOnD3scene.LanguageFile = "";
             this.btnHelpMePostOnD3scene.Location = new System.Drawing.Point(20, 48);
             this.btnHelpMePostOnD3scene.Name = "btnHelpMePostOnD3scene";
             this.btnHelpMePostOnD3scene.Size = new System.Drawing.Size(206, 32);
@@ -577,6 +594,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label18.LanguageFile = "";
             this.label18.Location = new System.Drawing.Point(15, 15);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(260, 20);
@@ -594,7 +612,7 @@
             this.cpnlBenchmark.DisplayText = "Benchmark";
             this.cpnlBenchmark.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlBenchmark.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlBenchmark.Icon = global::AnotherSc2Hack.Properties.Resources.icon_benchmark;
+            this.cpnlBenchmark.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlBenchmark.Icon")));
             this.cpnlBenchmark.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlBenchmark.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlBenchmark.IsClicked = false;
@@ -657,6 +675,7 @@
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label33.LanguageFile = "";
             this.label33.Location = new System.Drawing.Point(207, 285);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(173, 20);
@@ -679,6 +698,7 @@
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label32.LanguageFile = "";
             this.label32.Location = new System.Drawing.Point(207, 255);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(210, 20);
@@ -701,6 +721,7 @@
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label31.LanguageFile = "";
             this.label31.Location = new System.Drawing.Point(207, 225);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(165, 20);
@@ -723,6 +744,7 @@
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label30.LanguageFile = "";
             this.label30.Location = new System.Drawing.Point(207, 195);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(145, 20);
@@ -745,6 +767,7 @@
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label29.LanguageFile = "";
             this.label29.Location = new System.Drawing.Point(207, 165);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(148, 20);
@@ -767,6 +790,7 @@
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label28.LanguageFile = "";
             this.label28.Location = new System.Drawing.Point(207, 135);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(161, 20);
@@ -789,6 +813,7 @@
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label27.LanguageFile = "";
             this.label27.Location = new System.Drawing.Point(207, 105);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(162, 20);
@@ -822,6 +847,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label24.LanguageFile = "";
             this.label24.Location = new System.Drawing.Point(207, 75);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(173, 20);
@@ -833,6 +859,7 @@
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label25.LanguageFile = "";
             this.label25.Location = new System.Drawing.Point(207, 45);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(91, 20);
@@ -844,6 +871,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label26.LanguageFile = "";
             this.label26.Location = new System.Drawing.Point(207, 15);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(68, 20);
@@ -877,6 +905,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label23.LanguageFile = "";
             this.label23.Location = new System.Drawing.Point(15, 75);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(109, 20);
@@ -888,6 +917,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label22.LanguageFile = "";
             this.label22.Location = new System.Drawing.Point(15, 45);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(91, 20);
@@ -899,6 +929,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label19.LanguageFile = "";
             this.label19.Location = new System.Drawing.Point(15, 15);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(106, 20);
@@ -916,7 +947,7 @@
             this.cpnlCredits.DisplayText = "Credits";
             this.cpnlCredits.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlCredits.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlCredits.Icon = global::AnotherSc2Hack.Properties.Resources.icon_credit;
+            this.cpnlCredits.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlCredits.Icon")));
             this.cpnlCredits.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlCredits.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlCredits.IsClicked = false;
@@ -991,7 +1022,7 @@
             this.cpnlDebug.DisplayText = "Debug";
             this.cpnlDebug.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlDebug.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlDebug.Icon = global::AnotherSc2Hack.Properties.Resources.icon_debug;
+            this.cpnlDebug.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlDebug.Icon")));
             this.cpnlDebug.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlDebug.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlDebug.IsClicked = false;
@@ -1070,6 +1101,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label13.LanguageFile = "";
             this.label13.Location = new System.Drawing.Point(806, 15);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 20);
@@ -1107,6 +1139,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label10.LanguageFile = "";
             this.label10.Location = new System.Drawing.Point(589, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 20);
@@ -1203,6 +1236,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.LanguageFile = "";
             this.label9.Location = new System.Drawing.Point(277, 415);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 20);
@@ -1213,6 +1247,7 @@
             // 
             this.lblDebugUnitLocation.AutoSize = true;
             this.lblDebugUnitLocation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDebugUnitLocation.LanguageFile = "";
             this.lblDebugUnitLocation.Location = new System.Drawing.Point(418, 343);
             this.lblDebugUnitLocation.Name = "lblDebugUnitLocation";
             this.lblDebugUnitLocation.Size = new System.Drawing.Size(31, 20);
@@ -1233,6 +1268,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.LanguageFile = "";
             this.label11.Location = new System.Drawing.Point(277, 384);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 20);
@@ -1245,6 +1281,7 @@
             this.btnDebugUnitForward.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnDebugUnitForward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDebugUnitForward.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDebugUnitForward.LanguageFile = "";
             this.btnDebugUnitForward.Location = new System.Drawing.Point(551, 335);
             this.btnDebugUnitForward.Name = "btnDebugUnitForward";
             this.btnDebugUnitForward.Size = new System.Drawing.Size(27, 37);
@@ -1259,6 +1296,7 @@
             this.btnDebugUnitBack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnDebugUnitBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDebugUnitBack.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDebugUnitBack.LanguageFile = "";
             this.btnDebugUnitBack.Location = new System.Drawing.Point(281, 335);
             this.btnDebugUnitBack.Name = "btnDebugUnitBack";
             this.btnDebugUnitBack.Size = new System.Drawing.Size(27, 37);
@@ -1272,6 +1310,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label12.LanguageFile = "";
             this.label12.Location = new System.Drawing.Point(277, 15);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(70, 20);
@@ -1292,6 +1331,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.LanguageFile = "";
             this.label8.Location = new System.Drawing.Point(15, 415);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 20);
@@ -1302,6 +1342,7 @@
             // 
             this.lblDebugPlayerLocation.AutoSize = true;
             this.lblDebugPlayerLocation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDebugPlayerLocation.LanguageFile = "";
             this.lblDebugPlayerLocation.Location = new System.Drawing.Point(128, 343);
             this.lblDebugPlayerLocation.Name = "lblDebugPlayerLocation";
             this.lblDebugPlayerLocation.Size = new System.Drawing.Size(31, 20);
@@ -1322,6 +1363,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.LanguageFile = "";
             this.label7.Location = new System.Drawing.Point(15, 384);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 20);
@@ -1334,6 +1376,7 @@
             this.btnDebugPlayerForward.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnDebugPlayerForward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDebugPlayerForward.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDebugPlayerForward.LanguageFile = "";
             this.btnDebugPlayerForward.Location = new System.Drawing.Point(239, 335);
             this.btnDebugPlayerForward.Name = "btnDebugPlayerForward";
             this.btnDebugPlayerForward.Size = new System.Drawing.Size(27, 37);
@@ -1348,6 +1391,7 @@
             this.btnDebugPlayerBack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnDebugPlayerBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDebugPlayerBack.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDebugPlayerBack.LanguageFile = "";
             this.btnDebugPlayerBack.Location = new System.Drawing.Point(19, 335);
             this.btnDebugPlayerBack.Name = "btnDebugPlayerBack";
             this.btnDebugPlayerBack.Size = new System.Drawing.Size(27, 37);
@@ -1361,6 +1405,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label6.LanguageFile = "";
             this.label6.Location = new System.Drawing.Point(15, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
@@ -1377,7 +1422,7 @@
             this.cpnlApplication.DisplayText = "Application";
             this.cpnlApplication.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlApplication.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlApplication.Icon = global::AnotherSc2Hack.Properties.Resources.icon_application;
+            this.cpnlApplication.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlApplication.Icon")));
             this.cpnlApplication.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlApplication.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlApplication.IsClicked = false;
@@ -1395,28 +1440,62 @@
             this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlApplication.Controls.Add(this.btnFuckYou);
             this.pnlApplication.Controls.Add(this.btnRestoreSettings);
             this.pnlApplication.Controls.Add(this.label17);
             this.pnlApplication.Controls.Add(this.chBxLanguage);
-            this.pnlApplication.Controls.Add(this.label4);
+            this.pnlApplication.Controls.Add(this.lblApplicationLanguage);
             this.pnlApplication.Controls.Add(this.chBxOnlyDrawInForeground);
             this.pnlApplication.Controls.Add(this.btnReposition);
             this.pnlApplication.Controls.Add(this.ktxtReposition);
-            this.pnlApplication.Controls.Add(this.label3);
+            this.pnlApplication.Controls.Add(this.lblApplicationReposition);
             this.pnlApplication.Controls.Add(this.ntxtGraphicsRefresh);
             this.pnlApplication.Controls.Add(this.ntxtMemoryRefresh);
-            this.pnlApplication.Controls.Add(this.label2);
-            this.pnlApplication.Controls.Add(this.label1);
+            this.pnlApplication.Controls.Add(this.lblApplicationGraphicsRefresh);
+            this.pnlApplication.Controls.Add(this.lblApplicationMemoryReading);
             this.pnlApplication.Location = new System.Drawing.Point(0, 80);
             this.pnlApplication.Name = "pnlApplication";
             this.pnlApplication.Size = new System.Drawing.Size(1029, 450);
             this.pnlApplication.TabIndex = 0;
+            // 
+            // btnFuckYou
+            // 
+            this.btnFuckYou.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFuckYou.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnFuckYou.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnFuckYou.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFuckYou.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuckYou.LanguageFile = "";
+            this.btnFuckYou.Location = new System.Drawing.Point(866, 372);
+            this.btnFuckYou.Name = "btnFuckYou";
+            this.btnFuckYou.Size = new System.Drawing.Size(144, 32);
+            this.btnFuckYou.TabIndex = 13;
+            this.btnFuckYou.Text = "Fuck You";
+            this.btnFuckYou.UseVisualStyleBackColor = false;
+            this.btnFuckYou.Click += new System.EventHandler(this.btnFuckYou_Click);
+            // 
+            // btnRestoreSettings
+            // 
+            this.btnRestoreSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRestoreSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnRestoreSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnRestoreSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestoreSettings.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestoreSettings.LanguageFile = "";
+            this.btnRestoreSettings.Location = new System.Drawing.Point(15, 409);
+            this.btnRestoreSettings.Name = "btnRestoreSettings";
+            this.btnRestoreSettings.Size = new System.Drawing.Size(144, 32);
+            this.btnRestoreSettings.TabIndex = 12;
+            this.btnRestoreSettings.Text = "Restore Settings";
+            this.btnRestoreSettings.UseVisualStyleBackColor = false;
+            this.btnRestoreSettings.Click += new System.EventHandler(this.btnRestoreSettings_Click);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label17.LanguageFile = "";
             this.label17.Location = new System.Drawing.Point(15, 15);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(115, 20);
@@ -1436,15 +1515,16 @@
             this.chBxLanguage.TabIndex = 10;
             this.chBxLanguage.SelectedIndexChanged += new System.EventHandler(this.chBxLanguage_SelectedIndexChanged);
             // 
-            // label4
+            // lblApplicationLanguage
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Language:";
+            this.lblApplicationLanguage.AutoSize = true;
+            this.lblApplicationLanguage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationLanguage.LanguageFile = "";
+            this.lblApplicationLanguage.Location = new System.Drawing.Point(16, 135);
+            this.lblApplicationLanguage.Name = "lblApplicationLanguage";
+            this.lblApplicationLanguage.Size = new System.Drawing.Size(77, 20);
+            this.lblApplicationLanguage.TabIndex = 9;
+            this.lblApplicationLanguage.Text = "Language:";
             // 
             // chBxOnlyDrawInForeground
             // 
@@ -1466,6 +1546,7 @@
             this.btnReposition.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnReposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReposition.LanguageFile = "";
             this.btnReposition.Location = new System.Drawing.Point(20, 200);
             this.btnReposition.Name = "btnReposition";
             this.btnReposition.Size = new System.Drawing.Size(284, 32);
@@ -1484,15 +1565,16 @@
             this.ktxtReposition.TabIndex = 5;
             this.ktxtReposition.KeyChanged += new AnotherSc2Hack.Classes.FrontEnds.KeyValueChangeHandler(this.ktxtReposition_KeyChanged);
             // 
-            // label3
+            // lblApplicationReposition
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Reposition key:";
+            this.lblApplicationReposition.AutoSize = true;
+            this.lblApplicationReposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationReposition.LanguageFile = "";
+            this.lblApplicationReposition.Location = new System.Drawing.Point(16, 105);
+            this.lblApplicationReposition.Name = "lblApplicationReposition";
+            this.lblApplicationReposition.Size = new System.Drawing.Size(109, 20);
+            this.lblApplicationReposition.TabIndex = 4;
+            this.lblApplicationReposition.Text = "Reposition key:";
             // 
             // ntxtGraphicsRefresh
             // 
@@ -1516,25 +1598,27 @@
             this.ntxtMemoryRefresh.Text = "42";
             this.ntxtMemoryRefresh.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
             // 
-            // label2
+            // lblApplicationGraphicsRefresh
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Graphics Refresh (ms):";
+            this.lblApplicationGraphicsRefresh.AutoSize = true;
+            this.lblApplicationGraphicsRefresh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationGraphicsRefresh.LanguageFile = "";
+            this.lblApplicationGraphicsRefresh.Location = new System.Drawing.Point(15, 75);
+            this.lblApplicationGraphicsRefresh.Name = "lblApplicationGraphicsRefresh";
+            this.lblApplicationGraphicsRefresh.Size = new System.Drawing.Size(155, 20);
+            this.lblApplicationGraphicsRefresh.TabIndex = 1;
+            this.lblApplicationGraphicsRefresh.Text = "Graphics Refresh (ms):";
             // 
-            // label1
+            // lblApplicationMemoryReading
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Memory Reading (ms):";
+            this.lblApplicationMemoryReading.AutoSize = true;
+            this.lblApplicationMemoryReading.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationMemoryReading.LanguageFile = "";
+            this.lblApplicationMemoryReading.Location = new System.Drawing.Point(15, 45);
+            this.lblApplicationMemoryReading.Name = "lblApplicationMemoryReading";
+            this.lblApplicationMemoryReading.Size = new System.Drawing.Size(159, 20);
+            this.lblApplicationMemoryReading.TabIndex = 0;
+            this.lblApplicationMemoryReading.Text = "Memory Reading (ms):";
             // 
             // cpnlOverlays
             // 
@@ -1546,7 +1630,7 @@
             this.cpnlOverlays.DisplayText = "Overlays";
             this.cpnlOverlays.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlOverlays.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlOverlays.Icon = global::AnotherSc2Hack.Properties.Resources.icon_overlays;
+            this.cpnlOverlays.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlOverlays.Icon")));
             this.cpnlOverlays.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlOverlays.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlOverlays.IsClicked = false;
@@ -1845,7 +1929,7 @@
             this.cpnlPlugins.DisplayText = "Plugins";
             this.cpnlPlugins.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpnlPlugins.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
-            this.cpnlPlugins.Icon = global::AnotherSc2Hack.Properties.Resources.icon_plugin;
+            this.cpnlPlugins.Icon = ((System.Drawing.Image)(resources.GetObject("cpnlPlugins.Icon")));
             this.cpnlPlugins.InactiveBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
             this.cpnlPlugins.InactiveForegroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.cpnlPlugins.IsClicked = false;
@@ -1887,6 +1971,7 @@
             this.btnPluginsInstallPlugin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnPluginsInstallPlugin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPluginsInstallPlugin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsInstallPlugin.LanguageFile = "";
             this.btnPluginsInstallPlugin.Location = new System.Drawing.Point(534, 292);
             this.btnPluginsInstallPlugin.Name = "btnPluginsInstallPlugin";
             this.btnPluginsInstallPlugin.Size = new System.Drawing.Size(161, 37);
@@ -1899,6 +1984,7 @@
             // 
             this.lblPluginsImageposition.AutoSize = true;
             this.lblPluginsImageposition.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPluginsImageposition.LanguageFile = "";
             this.lblPluginsImageposition.Location = new System.Drawing.Point(801, 300);
             this.lblPluginsImageposition.Name = "lblPluginsImageposition";
             this.lblPluginsImageposition.Size = new System.Drawing.Size(31, 20);
@@ -1912,6 +1998,7 @@
             this.btnPluginsImagesNext.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnPluginsImagesNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPluginsImagesNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsImagesNext.LanguageFile = "";
             this.btnPluginsImagesNext.Location = new System.Drawing.Point(897, 292);
             this.btnPluginsImagesNext.Name = "btnPluginsImagesNext";
             this.btnPluginsImagesNext.Size = new System.Drawing.Size(27, 37);
@@ -1927,6 +2014,7 @@
             this.btnPluginsImagesPrevious.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnPluginsImagesPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPluginsImagesPrevious.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPluginsImagesPrevious.LanguageFile = "";
             this.btnPluginsImagesPrevious.Location = new System.Drawing.Point(710, 292);
             this.btnPluginsImagesPrevious.Name = "btnPluginsImagesPrevious";
             this.btnPluginsImagesPrevious.Size = new System.Drawing.Size(27, 37);
@@ -1952,6 +2040,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label16.LanguageFile = "";
             this.label16.Location = new System.Drawing.Point(706, 45);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(60, 20);
@@ -1963,6 +2052,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label15.LanguageFile = "";
             this.label15.Location = new System.Drawing.Point(530, 42);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(89, 20);
@@ -2027,6 +2117,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label14.LanguageFile = "";
             this.label14.Location = new System.Drawing.Point(277, 15);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(128, 20);
@@ -2083,6 +2174,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.label5.LanguageFile = "";
             this.label5.Location = new System.Drawing.Point(15, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 20);
@@ -2115,6 +2207,7 @@
             this.lblTabname.AutoSize = true;
             this.lblTabname.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTabname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblTabname.LanguageFile = "";
             this.lblTabname.Location = new System.Drawing.Point(15, 15);
             this.lblTabname.Name = "lblTabname";
             this.lblTabname.Size = new System.Drawing.Size(118, 30);
@@ -2127,6 +2220,7 @@
             this.btnLaunchProduction.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnLaunchProduction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaunchProduction.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchProduction.LanguageFile = "";
             this.btnLaunchProduction.Location = new System.Drawing.Point(757, 15);
             this.btnLaunchProduction.Name = "btnLaunchProduction";
             this.btnLaunchProduction.Size = new System.Drawing.Size(100, 32);
@@ -2141,6 +2235,7 @@
             this.btnLaunchUnit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnLaunchUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaunchUnit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchUnit.LanguageFile = "";
             this.btnLaunchUnit.Location = new System.Drawing.Point(651, 15);
             this.btnLaunchUnit.Name = "btnLaunchUnit";
             this.btnLaunchUnit.Size = new System.Drawing.Size(100, 32);
@@ -2155,6 +2250,7 @@
             this.btnLaunchMaphack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnLaunchMaphack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaunchMaphack.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchMaphack.LanguageFile = "";
             this.btnLaunchMaphack.Location = new System.Drawing.Point(333, 15);
             this.btnLaunchMaphack.Name = "btnLaunchMaphack";
             this.btnLaunchMaphack.Size = new System.Drawing.Size(100, 32);
@@ -2169,6 +2265,7 @@
             this.btnLaunchArmy.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnLaunchArmy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaunchArmy.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchArmy.LanguageFile = "";
             this.btnLaunchArmy.Location = new System.Drawing.Point(545, 15);
             this.btnLaunchArmy.Name = "btnLaunchArmy";
             this.btnLaunchArmy.Size = new System.Drawing.Size(100, 32);
@@ -2183,6 +2280,7 @@
             this.btnLaunchApm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnLaunchApm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaunchApm.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchApm.LanguageFile = "";
             this.btnLaunchApm.Location = new System.Drawing.Point(439, 15);
             this.btnLaunchApm.Name = "btnLaunchApm";
             this.btnLaunchApm.Size = new System.Drawing.Size(100, 32);
@@ -2197,6 +2295,7 @@
             this.btnLaunchWorker.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnLaunchWorker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaunchWorker.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchWorker.LanguageFile = "";
             this.btnLaunchWorker.Location = new System.Drawing.Point(227, 15);
             this.btnLaunchWorker.Name = "btnLaunchWorker";
             this.btnLaunchWorker.Size = new System.Drawing.Size(100, 32);
@@ -2211,6 +2310,7 @@
             this.btnLaunchIncome.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnLaunchIncome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaunchIncome.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchIncome.LanguageFile = "";
             this.btnLaunchIncome.Location = new System.Drawing.Point(121, 15);
             this.btnLaunchIncome.Name = "btnLaunchIncome";
             this.btnLaunchIncome.Size = new System.Drawing.Size(100, 32);
@@ -2225,6 +2325,7 @@
             this.btnLaunchResource.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnLaunchResource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaunchResource.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaunchResource.LanguageFile = "";
             this.btnLaunchResource.Location = new System.Drawing.Point(15, 15);
             this.btnLaunchResource.Name = "btnLaunchResource";
             this.btnLaunchResource.Size = new System.Drawing.Size(100, 32);
@@ -2250,21 +2351,6 @@
             this.pnlBottomStrip.Size = new System.Drawing.Size(1028, 62);
             this.pnlBottomStrip.TabIndex = 22;
             this.pnlBottomStrip.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
-            // 
-            // btnRestoreSettings
-            // 
-            this.btnRestoreSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRestoreSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnRestoreSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnRestoreSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestoreSettings.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestoreSettings.Location = new System.Drawing.Point(15, 409);
-            this.btnRestoreSettings.Name = "btnRestoreSettings";
-            this.btnRestoreSettings.Size = new System.Drawing.Size(144, 32);
-            this.btnRestoreSettings.TabIndex = 12;
-            this.btnRestoreSettings.Text = "Restore Settings";
-            this.btnRestoreSettings.UseVisualStyleBackColor = false;
-            this.btnRestoreSettings.Click += new System.EventHandler(this.btnRestoreSettings_Click);
             // 
             // NewMainHandler
             // 
@@ -2314,18 +2400,18 @@
         private System.Windows.Forms.Panel pnlLeftSelection;
         private System.Windows.Forms.Panel pnlMainArea;
         private System.Windows.Forms.Panel pnlApplication;
-        private System.Windows.Forms.Label lblTabname;
+        private LanguageLabel lblTabname;
         private NumberTextBox ntxtGraphicsRefresh;
         private NumberTextBox ntxtMemoryRefresh;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private LanguageLabel lblApplicationGraphicsRefresh;
+        private LanguageLabel lblApplicationMemoryReading;
         private KeyTextBox ktxtReposition;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnReposition;
+        private LanguageLabel lblApplicationReposition;
+        private LanguageButton btnReposition;
         private AnotherCheckbox chBxOnlyDrawInForeground;
         private Custom_Controls.ClickablePanel cpnlDebug;
         private System.Windows.Forms.ComboBox chBxLanguage;
-        private System.Windows.Forms.Label label4;
+        private LanguageLabel lblApplicationLanguage;
         private System.Windows.Forms.Panel pnlOverlays;
         private Custom_Controls.ClickablePanel cpnlOverlaysResources;
         private System.Windows.Forms.Panel pnlPanelContainer;
@@ -2346,21 +2432,21 @@
         private Container.PanelOverlayProductiontab pnlOverlayProductiontab;
         private System.Windows.Forms.Panel pnlDebug;
         private System.Windows.Forms.TextBox txtDebugPlayerMemory;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblDebugPlayerLocation;
+        private LanguageLabel label8;
+        private LanguageLabel lblDebugPlayerLocation;
         private System.Windows.Forms.TextBox txtDebugPlayername;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnDebugPlayerForward;
-        private System.Windows.Forms.Button btnDebugPlayerBack;
-        private System.Windows.Forms.Label label6;
+        private LanguageLabel label7;
+        private LanguageButton btnDebugPlayerForward;
+        private LanguageButton btnDebugPlayerBack;
+        private LanguageLabel label6;
         private System.Windows.Forms.TextBox txtDebugUnitMemory;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblDebugUnitLocation;
+        private LanguageLabel label9;
+        private LanguageLabel lblDebugUnitLocation;
         private System.Windows.Forms.TextBox txtDebugUnitname;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnDebugUnitForward;
-        private System.Windows.Forms.Button btnDebugUnitBack;
-        private System.Windows.Forms.Label label12;
+        private LanguageLabel label11;
+        private LanguageButton btnDebugUnitForward;
+        private LanguageButton btnDebugUnitBack;
+        private LanguageLabel label12;
         private AnotherListview lstvDebugPlayderdata;
         private System.Windows.Forms.ColumnHeader colHAttribute;
         private System.Windows.Forms.ColumnHeader colHValue;
@@ -2372,38 +2458,38 @@
         private AnotherListview lstvDebugMapdata;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Label label10;
+        private LanguageLabel label10;
         private AnotherListview lstvDebugMatchdata;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.Label label13;
+        private LanguageLabel label13;
         private System.Windows.Forms.Panel pnlPlugins;
-        private System.Windows.Forms.Label label5;
+        private LanguageLabel label5;
         private AnotherListview lstvPluginsLoadedPlugins;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private AnotherListview lstvPluginsAvailablePlugins;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btnPluginsInstallPlugin;
-        private System.Windows.Forms.Label lblPluginsImageposition;
-        private System.Windows.Forms.Button btnPluginsImagesNext;
-        private System.Windows.Forms.Button btnPluginsImagesPrevious;
+        private LanguageLabel label14;
+        private LanguageButton btnPluginsInstallPlugin;
+        private LanguageLabel lblPluginsImageposition;
+        private LanguageButton btnPluginsImagesNext;
+        private LanguageButton btnPluginsImagesPrevious;
         private System.Windows.Forms.PictureBox pcbPluginsImages;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
+        private LanguageLabel label16;
+        private LanguageLabel label15;
         private System.Windows.Forms.RichTextBox rtbPluginsDescription;
         private System.Windows.Forms.ProgressBar pbMainProgress;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button btnLaunchProduction;
-        private System.Windows.Forms.Button btnLaunchUnit;
-        private System.Windows.Forms.Button btnLaunchMaphack;
-        private System.Windows.Forms.Button btnLaunchArmy;
-        private System.Windows.Forms.Button btnLaunchApm;
-        private System.Windows.Forms.Button btnLaunchWorker;
-        private System.Windows.Forms.Button btnLaunchIncome;
-        private System.Windows.Forms.Button btnLaunchResource;
+        private LanguageLabel label17;
+        private LanguageButton btnLaunchProduction;
+        private LanguageButton btnLaunchUnit;
+        private LanguageButton btnLaunchMaphack;
+        private LanguageButton btnLaunchArmy;
+        private LanguageButton btnLaunchApm;
+        private LanguageButton btnLaunchWorker;
+        private LanguageButton btnLaunchIncome;
+        private LanguageButton btnLaunchResource;
         private System.Windows.Forms.ContextMenuStrip cmPluginRemove;
         private System.Windows.Forms.ToolStripMenuItem tsPluginRemove;
         private System.Windows.Forms.ContextMenuStrip cmPluginInstall;
@@ -2416,57 +2502,58 @@
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private Custom_Controls.ClickablePanel cpnlBenchmark;
         private System.Windows.Forms.Panel pnlHelpMe;
-        private System.Windows.Forms.Button btnHelpMePostOnD3scene;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button btnHelpMeEmailMe;
-        private System.Windows.Forms.Label lblHelpMeEmail;
-        private System.Windows.Forms.Button btnHelpMeGithubIssues;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button btnHelpMeLocalize;
-        private System.Windows.Forms.Label lblHelpMeBitcoin;
-        private System.Windows.Forms.Button btnHelpMePaypal;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button btnHelpMeCopyEmail;
-        private System.Windows.Forms.Button btnHelpMeCopyBitcoin;
+        private LanguageButton btnHelpMePostOnD3scene;
+        private LanguageLabel label18;
+        private LanguageButton btnHelpMeEmailMe;
+        private LanguageLabel lblHelpMeEmail;
+        private LanguageButton btnHelpMeGithubIssues;
+        private LanguageLabel label20;
+        private LanguageButton btnHelpMeLocalize;
+        private LanguageLabel lblHelpMeBitcoin;
+        private LanguageButton btnHelpMePaypal;
+        private LanguageLabel label21;
+        private LanguageButton btnHelpMeCopyEmail;
+        private LanguageButton btnHelpMeCopyBitcoin;
         private Custom_Controls.ClickablePanel cpnlHelpMe;
         private System.Windows.Forms.Panel pnlBenchmark;
         private NumberTextBox ntxtBenchmarkDataIterations;
         private NumberTextBox ntxtBenchmarkDataInterval;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label19;
+        private LanguageLabel label23;
+        private LanguageLabel label22;
+        private LanguageLabel label19;
         private NumberTextBox ntxtBenchmarkProductionTabIterations;
-        private System.Windows.Forms.Label label32;
+        private LanguageLabel label32;
         private NumberTextBox ntxtBenchmarkUnitTabIterations;
-        private System.Windows.Forms.Label label31;
+        private LanguageLabel label31;
         private NumberTextBox ntxtBenchmarkApmIterations;
-        private System.Windows.Forms.Label label30;
+        private LanguageLabel label30;
         private NumberTextBox ntxtBenchmarkArmyIterations;
-        private System.Windows.Forms.Label label29;
+        private LanguageLabel label29;
         private NumberTextBox ntxtBenchmarkWorkerIterations;
-        private System.Windows.Forms.Label label28;
+        private LanguageLabel label28;
         private NumberTextBox ntxtBenchmarkIncomeIterations;
-        private System.Windows.Forms.Label label27;
+        private LanguageLabel label27;
         private NumberTextBox ntxtBenchmarkResourceIterations;
         private NumberTextBox ntxtBenchmarkDrawingInterval;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
+        private LanguageLabel label24;
+        private LanguageLabel label25;
+        private LanguageLabel label26;
         private NumberTextBox ntxtBenchmarkMaphackIterations;
-        private System.Windows.Forms.Label label33;
+        private LanguageLabel label33;
         private Custom_Controls.ClickablePanel cpnlVarious;
         private System.Windows.Forms.Panel pnlVarious;
         private NumberTextBox ntxtVariousApmLimit;
         private AnotherCheckbox chBxVariousPersonalApmAlert;
         private AnotherCheckbox chBxVariousShowPersonalApm;
-        private System.Windows.Forms.Label label34;
+        private LanguageLabel label34;
         private AnotherCheckbox chBxVariousShowPersonalClock;
-        private System.Windows.Forms.Label label35;
+        private LanguageLabel label35;
         private AnotherCheckbox chBxVariousWorkerCoach;
-        private System.Windows.Forms.Label label36;
+        private LanguageLabel label36;
         private NumberTextBox ntxtVariousWorkerCoachDisableAfter;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Button btnRestoreSettings;
+        private LanguageLabel label37;
+        private LanguageButton btnRestoreSettings;
+        private LanguageButton btnFuckYou;
 
     }
 }

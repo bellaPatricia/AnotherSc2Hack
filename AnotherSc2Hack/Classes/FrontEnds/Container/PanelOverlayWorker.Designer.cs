@@ -30,7 +30,7 @@
         {
             this.aChBxDrawBackground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.btnSetFont = new System.Windows.Forms.Button();
+            this.btnSetFont = new LanguageButton();
             this.OpacityControl = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
             this.pnlLauncher = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsLauncher();
             this.SuspendLayout();
@@ -113,7 +113,7 @@
 
         public AnotherCheckbox aChBxDrawBackground;
         private LanguageLabel languageLabel1;
-        public System.Windows.Forms.Button btnSetFont;
+        public LanguageButton btnSetFont;
         public UiOpacityControl OpacityControl;
         public PanelSettingsLauncher pnlLauncher;
     }

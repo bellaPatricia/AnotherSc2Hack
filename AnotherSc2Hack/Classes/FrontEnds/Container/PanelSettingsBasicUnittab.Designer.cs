@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSetFont = new System.Windows.Forms.Button();
+            this.btnSetFont = new LanguageButton();
             this.aChBxRemoveProductionstatus = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.OpacityControl = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
@@ -288,7 +288,7 @@
 
         #endregion
 
-        public System.Windows.Forms.Button btnSetFont;
+        public LanguageButton btnSetFont;
         public AnotherCheckbox aChBxRemoveProductionstatus;
         private LanguageLabel languageLabel1;
         public UiOpacityControl OpacityControl;

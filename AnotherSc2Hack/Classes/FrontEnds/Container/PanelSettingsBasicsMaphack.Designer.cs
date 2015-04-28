@@ -36,7 +36,7 @@
             this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.aChBxRemoveDestinationLine = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.aChBxDefensiveStructures = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.btnColorDestinationline = new System.Windows.Forms.Button();
+            this.btnColorDestinationline = new LanguageButton();
             this.aChBxRemoveCamera = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.aChBxRemoveVisionArea = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.SuspendLayout();
@@ -220,7 +220,7 @@
         public UiOpacityControl OpacityControl;
         public AnotherCheckbox aChBxRemoveDestinationLine;
         public AnotherCheckbox aChBxDefensiveStructures;
-        public System.Windows.Forms.Button btnColorDestinationline;
+        public LanguageButton btnColorDestinationline;
         public AnotherCheckbox aChBxRemoveCamera;
         public AnotherCheckbox aChBxRemoveVisionArea;
 

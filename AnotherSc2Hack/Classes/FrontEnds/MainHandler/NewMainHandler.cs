@@ -3006,6 +3006,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
         }
 
+        private void btnFuckYou_Click(object sender, EventArgs e)
+        {
+            LanguageButton.OutputPath();
+            LanguageLabel.OutputPath();
+        }
+
         
 
         

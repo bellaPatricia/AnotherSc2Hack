@@ -34,9 +34,9 @@
             this.aChBxRemoveYourself = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.aChBxRemoveClantags = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
             this.OpacityControl = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
-            this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblBasics = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.aChBxDrawBackground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.btnSetFont = new System.Windows.Forms.Button();
+            this.btnSetFont = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
             this.SuspendLayout();
             // 
             // aChBxRemoveAi
@@ -119,17 +119,17 @@
             this.OpacityControl.Size = new System.Drawing.Size(153, 91);
             this.OpacityControl.TabIndex = 4;
             // 
-            // languageLabel1
+            // lblBasics
             // 
-            this.languageLabel1.AutoSize = true;
-            this.languageLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.languageLabel1.LanguageFile = "";
-            this.languageLabel1.Location = new System.Drawing.Point(3, 3);
-            this.languageLabel1.Name = "languageLabel1";
-            this.languageLabel1.Size = new System.Drawing.Size(52, 20);
-            this.languageLabel1.TabIndex = 13;
-            this.languageLabel1.Text = "Basics";
+            this.lblBasics.AutoSize = true;
+            this.lblBasics.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblBasics.LanguageFile = "";
+            this.lblBasics.Location = new System.Drawing.Point(3, 3);
+            this.lblBasics.Name = "lblBasics";
+            this.lblBasics.Size = new System.Drawing.Size(52, 20);
+            this.lblBasics.TabIndex = 13;
+            this.lblBasics.Text = "Basics";
             // 
             // aChBxDrawBackground
             // 
@@ -151,6 +151,7 @@
             this.btnSetFont.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnSetFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetFont.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetFont.LanguageFile = "";
             this.btnSetFont.Location = new System.Drawing.Point(7, 223);
             this.btnSetFont.Name = "btnSetFont";
             this.btnSetFont.Size = new System.Drawing.Size(157, 29);
@@ -164,7 +165,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnSetFont);
             this.Controls.Add(this.aChBxDrawBackground);
-            this.Controls.Add(this.languageLabel1);
+            this.Controls.Add(this.lblBasics);
             this.Controls.Add(this.OpacityControl);
             this.Controls.Add(this.aChBxRemoveClantags);
             this.Controls.Add(this.aChBxRemoveYourself);
@@ -185,9 +186,9 @@
         public AnotherCheckbox aChBxRemoveNeutral;
         public AnotherCheckbox aChBxRemoveYourself;
         public AnotherCheckbox aChBxRemoveClantags;
-        private LanguageLabel languageLabel1;
+        private LanguageLabel lblBasics;
         public AnotherCheckbox aChBxDrawBackground;
-        public System.Windows.Forms.Button btnSetFont;
+        public LanguageButton btnSetFont;
         public UiOpacityControl OpacityControl;
 
     }
