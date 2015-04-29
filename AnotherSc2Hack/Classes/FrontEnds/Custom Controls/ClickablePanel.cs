@@ -15,6 +15,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 using AnotherSc2Hack.Classes.BackEnds;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
@@ -220,7 +221,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         {
             foreach (var clickablePanel in Instances)
             {
-                Console.WriteLine(HelpFunctions.GetParent(clickablePanel) + Constants.ChrLanguageSplitSign + " ");
+                Console.WriteLine(HelpFunctions.GetParent(clickablePanel) + Constants.ChrLanguageSplitSign + " " + clickablePanel.DisplayText);
             }
         }
 
@@ -363,6 +364,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         public void PerformClick()
         {
             OnClick(new EventArgs());
+        }
+
+        public static bool ChangeLanguage(string languageFile)
+        {
+            if (!File.Exists(languageFile))
+                return false;
+
+            var strLines = File.ReadAllLines(languageFile, Encoding.Default);
+
+            foreach (var strLine in strLines)
+            {
+                var strControlandName = strLine.Split(Constants.ChrLanguageSplitSign);
+                if (strControlandName.Length != 2)
+                    continue;
+
+                var strControlNames = strControlandName[0].Split(Constants.ChrLanguageControlSplitSign);
+
+                foreach (var clickablePanel in Instances)
+                {
+                    if (HelpFunctions.CheckParents(clickablePanel, 0, ref strControlNames))
+                    {
+                        clickablePanel.DisplayText = strControlandName[1].Trim();
+                        clickablePanel.Refresh();
+                        break;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }

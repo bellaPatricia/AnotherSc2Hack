@@ -573,6 +573,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.PreferenceAll.Global.Language = chBxLanguage.SelectedItem.ToString();
 
             LanguageButton.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
+            LanguageLabel.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
+            AnotherCheckbox.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
+            ClickablePanel.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
         }
 
         private void btnReposition_Click(object sender, EventArgs e)

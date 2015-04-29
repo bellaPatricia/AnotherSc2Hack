@@ -1,0 +1,232 @@
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeCopyEmail: 
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeCopyBitcoin: 
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePaypal: Paypal
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeLocalize: Get the file and Translate!
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeGithubIssues: Github Issues
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeEmailMe: E-Mail me
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePostOnD3scene: Post on D3Scene
+NewMainHandler#pnlMainArea#pnlDebug#btnDebugUnitForward: >
+NewMainHandler#pnlMainArea#pnlDebug#btnDebugUnitBack: <
+NewMainHandler#pnlMainArea#pnlDebug#btnDebugPlayerForward: >
+NewMainHandler#pnlMainArea#pnlDebug#btnDebugPlayerBack: <
+NewMainHandler#pnlMainArea#pnlApplication#btnFuckYou: Fuck You
+NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Restore Settings
+NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Reset panelposition and -size
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#btnColorDestinationline: ...
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#btnSetFont: Century Gothic
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlBasics#btnSetFont: Century Gothic
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlBasics#btnSetFont: Century Gothic
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlBasics#btnSetFont: Century Gothic
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlBasics#btnSetFont: Century Gothic
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#btnSetFont: Century Gothic
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#btnSetFont: Century Gothic
+NewMainHandler#pnlMainArea#pnlPlugins#btnPluginsInstallPlugin: Install
+NewMainHandler#pnlMainArea#pnlPlugins#btnPluginsImagesNext: >
+NewMainHandler#pnlMainArea#pnlPlugins#btnPluginsImagesPrevious: <
+NewMainHandler#pnlBottomStrip#btnLaunchResource: Resource
+NewMainHandler#pnlBottomStrip#btnLaunchProduction: Production
+NewMainHandler#pnlBottomStrip#btnLaunchIncome: Income
+NewMainHandler#pnlBottomStrip#btnLaunchUnit: Units
+NewMainHandler#pnlBottomStrip#btnLaunchWorker: Worker
+NewMainHandler#pnlBottomStrip#btnLaunchArmy: Army
+NewMainHandler#pnlBottomStrip#btnLaunchMaphack: Maphack
+NewMainHandler#pnlBottomStrip#btnLaunchApm: Apm
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousDisableAfter: Disable after:
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousWorkerCoach: Worker Coach
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalClock: Personal Clock
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalApm: Personal Apm
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpMeBitcoin: Bitcoins: 14H1z2mT8yCQV7h3ZnBF4EBCPV7k8Udsnv
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpCash: Good 'ol Cash
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpLocalize: Help me localize this
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpMeEmail: bpatriciaella@yahoo.com
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpSuggestionsBug: Provide suggestions or report a bug
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkProductiontabIterations: ProductionTab Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkUnittabIterations: UnitTab Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkApmIterations: Apm Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkArmyIterations: Army Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkWorkerIterations: Worker Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkIncomeIterations: Income Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkResourceIterations: Resource Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawingInterval: Interval (ms)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawing: Drawing
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataIterations: Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataInterval: Interval (ms)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkData: Data Fetching
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMatchdata: Matchdata
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMapdata: Mapdata
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitObjects: Unit Objects:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitLocation: 0/0
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitname: Unitname:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitdata: Unitdata
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerObjects: Player Objects:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerLocation: 0/0
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayername: Playername:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerdata: Playerdata
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: Global Settings
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationLanguage: Language:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationReposition: Reposition key:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: Graphics Refresh (ms):
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Memory Reading (ms):
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#lblMaphackFilter: Maphack Filter
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlLauncher#lblHotkey1: Hotkey 1:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlLauncher#lblHotkey2: Hotkey 2:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlLauncher#lblHotkey3: Hotkey 3:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlLauncher#lblToggle: Toggle Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlLauncher#lblResize: Resize Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlLauncher#lblReposition: Reposition Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlLauncher#lblChat: Launch using ingame chat
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlLauncher#lblHotkeys: Launch using Hotkeys
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#lblBasics: Basics
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#lblBasics: Basics
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#pnlLauncher#lblHotkey1: Hotkey 1:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#pnlLauncher#lblHotkey2: Hotkey 2:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#pnlLauncher#lblHotkey3: Hotkey 3:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#pnlLauncher#lblToggle: Toggle Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#pnlLauncher#lblResize: Resize Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#pnlLauncher#lblReposition: Reposition Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#pnlLauncher#lblChat: Launch using ingame chat
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#pnlLauncher#lblHotkeys: Launch using Hotkeys
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlLauncher#lblHotkey1: Hotkey 1:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlLauncher#lblHotkey2: Hotkey 2:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlLauncher#lblHotkey3: Hotkey 3:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlLauncher#lblToggle: Toggle Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlLauncher#lblResize: Resize Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlLauncher#lblReposition: Reposition Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlLauncher#lblChat: Launch using ingame chat
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlLauncher#lblHotkeys: Launch using Hotkeys
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlBasics#lblBasics: Basics
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlLauncher#lblHotkey1: Hotkey 1:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlLauncher#lblHotkey2: Hotkey 2:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlLauncher#lblHotkey3: Hotkey 3:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlLauncher#lblToggle: Toggle Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlLauncher#lblResize: Resize Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlLauncher#lblReposition: Reposition Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlLauncher#lblChat: Launch using ingame chat
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlLauncher#lblHotkeys: Launch using Hotkeys
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlBasics#lblBasics: Basics
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlLauncher#lblHotkey1: Hotkey 1:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlLauncher#lblHotkey2: Hotkey 2:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlLauncher#lblHotkey3: Hotkey 3:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlLauncher#lblToggle: Toggle Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlLauncher#lblResize: Resize Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlLauncher#lblReposition: Reposition Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlLauncher#lblChat: Launch using ingame chat
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlLauncher#lblHotkeys: Launch using Hotkeys
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlBasics#lblBasics: Basics
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlLauncher#lblHotkey1: Hotkey 1:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlLauncher#lblHotkey2: Hotkey 2:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlLauncher#lblHotkey3: Hotkey 3:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlLauncher#lblToggle: Toggle Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlLauncher#lblResize: Resize Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlLauncher#lblReposition: Reposition Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlLauncher#lblChat: Launch using ingame chat
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlLauncher#lblHotkeys: Launch using Hotkeys
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlBasics#lblBasics: Basics
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlLauncher#lblHotkey1: Hotkey 1:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlLauncher#lblHotkey2: Hotkey 2:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlLauncher#lblHotkey3: Hotkey 3:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlLauncher#lblToggle: Toggle Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlLauncher#lblResize: Resize Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlLauncher#lblReposition: Reposition Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlLauncher#lblChat: Launch using ingame chat
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlLauncher#lblHotkeys: Launch using Hotkeys
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlSpecial#lblSpecial: Special
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlSpecial#lblSize: Size:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlSpecial#lblPreview: Preview:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#lblBasics: Basics
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#lblBasics: Basics
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlLauncher#lblHotkey1: Hotkey 1:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlLauncher#lblHotkey2: Hotkey 2:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlLauncher#lblHotkey3: Hotkey 3:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlLauncher#lblToggle: Toggle Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlLauncher#lblResize: Resize Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlLauncher#lblReposition: Reposition Panel:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlLauncher#lblChat: Launch using ingame chat
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlLauncher#lblHotkeys: Launch using Hotkeys
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlSpecial#lblSpecial: Special
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlSpecial#lblSize: Size:
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlSpecial#lblPreview: Preview:
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginsImageposition: 0/0
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginImages: Images
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginDescription: Description
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginAvailablePlugins: Available plugins
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginLoadedPlugins: Loaded plugins
+NewMainHandler#pnlMainArea#lblTabname: Application
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: Show Worker Coach
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: Show Personal Clock
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Apm Alert
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: Show Personal Apm
+NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Only draw when SCII is in foreground
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveAi: Remove Ai
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveAllie: Remove Allie
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveNeutral: Remove Neutral
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveYourself: Remove Yourself
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveDestinationLine: Remove Destinationline
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxDefensiveStructures: Color Defensives
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveCamera: Remove Camera
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveVisionArea: Remove Vision-Area
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayWorker#aChBxDrawBackground: Draw Background
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlBasics#aChBxRemoveAi: Remove Ai
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlBasics#aChBxRemoveAllie: Remove Allie
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlBasics#aChBxRemoveNeutral: Remove Neutral
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlBasics#aChBxRemoveYourself: Remove Yourself
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlBasics#aChBxRemoveClantags: Remove Clantags
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayArmy#pnlBasics#aChBxDrawBackground: Draw Background
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlBasics#aChBxRemoveAi: Remove Ai
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlBasics#aChBxRemoveAllie: Remove Allie
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlBasics#aChBxRemoveNeutral: Remove Neutral
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlBasics#aChBxRemoveYourself: Remove Yourself
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlBasics#aChBxRemoveClantags: Remove Clantags
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayApm#pnlBasics#aChBxDrawBackground: Draw Background
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlBasics#aChBxRemoveAi: Remove Ai
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlBasics#aChBxRemoveAllie: Remove Allie
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlBasics#aChBxRemoveNeutral: Remove Neutral
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlBasics#aChBxRemoveYourself: Remove Yourself
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlBasics#aChBxRemoveClantags: Remove Clantags
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayIncome#pnlBasics#aChBxDrawBackground: Draw Background
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlBasics#aChBxRemoveAi: Remove Ai
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlBasics#aChBxRemoveAllie: Remove Allie
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlBasics#aChBxRemoveNeutral: Remove Neutral
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlBasics#aChBxRemoveYourself: Remove Yourself
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlBasics#aChBxRemoveClantags: Remove Clantags
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayResource#pnlBasics#aChBxDrawBackground: Draw Background
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxRemoveClantags: Remove Clantags
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxRemoveYourself: Remove Yourself
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxRemoveNeutral: Remove Neutral
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxRemoveAllie: Remove Allie
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxRemoveAi: Remove Ai
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxRemoveChronoboost: Remove Chronoboost
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxSplitUnitsBuildings: Split Units/ Buildings
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxDisplayBuildings: Display Buildings
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxDisplayUnits: Display Units
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxTransparentImages: Transparent Images
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxDisplayUpgrades: Display Upgrades
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveProductionstatus: Remove Productionstatus
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveClantags: Remove Clantags
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveYourself: Remove Yourself
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveNeutral: Remove Neutral
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveAllie: Remove Allie
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveAi: Remove Ai
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveChronoboost: Remove Chronoboost
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveSpellcounter: Remove Spellcounter
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxSplitUnitsBuildings: Split Units/ Buildings
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxDisplayBuildings: Display Buildings
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxDisplayUnits: Display Units
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxTransparentImages: Transparent Images
+NewMainHandler#pnlLeftSelection#cpnlVarious: Various
+NewMainHandler#pnlLeftSelection#cpnlHelpMe: Help Me
+NewMainHandler#pnlLeftSelection#cpnlBenchmark: Benchmark
+NewMainHandler#pnlLeftSelection#cpnlCredits: Credits
+NewMainHandler#pnlLeftSelection#cpnlDebug: Debug
+NewMainHandler#pnlLeftSelection#cpnlApplication: Application
+NewMainHandler#pnlLeftSelection#cpnlOverlays: Overlays
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysProduction: Production
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysUnits: Units
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysMaphack: Maphack
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysApm: Apm
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysArmy: Army
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysWorker: Worker
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysIncome: Income
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysResources: Resources
+NewMainHandler#pnlLeftSelection#cpnlPlugins: Plugins

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 
@@ -8,6 +9,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 {
     public class LanguageLabel : Label
     {
+        public String LanguageFile { get; set; }
+
         private static readonly List<LanguageLabel> Instances = new List<LanguageLabel>();
 
         public LanguageLabel()
@@ -26,68 +29,36 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         {
             foreach (var languageLabel in Instances)
             {
-                Console.WriteLine(HelpFunctions.GetParent(languageLabel) + Constants.ChrLanguageSplitSign + " ");
+                Console.WriteLine(HelpFunctions.GetParent(languageLabel) + Constants.ChrLanguageSplitSign + " " + languageLabel.Text);
             }
         }
 
-        public String LanguageFile
+        public static bool ChangeLanguage(string languageFile)
         {
-            get { return _languageFile; }
-            set
+            if (!File.Exists(languageFile))
+                return false;
+
+            var strLines = File.ReadAllLines(languageFile, Encoding.Default);
+
+            foreach (var strLine in strLines)
             {
-                _languageFile = value;
-                ChangeLanguage();
-            }
-        }
+                var strControlandName = strLine.Split(Constants.ChrLanguageSplitSign);
+                if (strControlandName.Length != 2)
+                    continue;
 
-        private string _languageFile = String.Empty;
+                var strControlNames = strControlandName[0].Split(Constants.ChrLanguageControlSplitSign);
 
-        public void ChangeLanguage()
-        {
-            ReadLanguagefile();
-        }
-
-
-
-        private void ReadLanguagefile()
-        {
-            var tmpFileAvailable = File.Exists(_languageFile);
-
-            if (!tmpFileAvailable)
-                return;
-
-            using (var sr = new StreamReader(_languageFile, System.Text.Encoding.UTF8))
-            {
-                while (!sr.EndOfStream)
+                foreach (var languageButton in Instances)
                 {
-                    var strLine = sr.ReadLine();
-
-                    if (strLine == null ||
-                            strLine.Length <= 0)
-                        continue;
-
-                    if (strLine.StartsWith(";"))
-                        continue;
-
-                    /* If it is contained there.. (PARTLY) */
-                    if (strLine.Contains(Name))
+                    if (HelpFunctions.CheckParents(languageButton, 0, ref strControlNames))
                     {
-                        /* Now the actual compare */
-                        //var tmp = strLine.Replace(" ", "");
-                        var tmp = strLine;
-
-                        var mappedStuff = tmp.Split('=');
-
-                        if (mappedStuff.Length > 1)
-                        {
-                            if (mappedStuff[0].Trim().Equals(Name))
-                            {
-                                Text = mappedStuff[1].TrimStart();
-                            }
-                        }
+                        languageButton.Text = strControlandName[1].Trim();
+                        break;
                     }
                 }
             }
+
+            return true;
         }
     }
  

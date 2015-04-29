@@ -111,6 +111,19 @@ namespace AnotherSc2Hack
             }
         }
 
+        public static bool CheckParents(Control currentControl, int index, ref string[] controlNames)
+        {
+            var bResult = currentControl.Name == controlNames[controlNames.Length - index - 1];
+
+            if (!bResult)
+                return false;
+
+            if (currentControl.Parent != null)
+                CheckParents(currentControl.Parent, ++index, ref controlNames);
+
+            return true;
+        }
+
         public static string SetWindowTitle()
         {
             var rnd = new Random();

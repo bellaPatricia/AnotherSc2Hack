@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 using AnotherSc2Hack;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.ExtensionMethods;
@@ -40,7 +41,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         {
             foreach (var anotherCheckbox in Instances)
             {
-                Console.WriteLine(HelpFunctions.GetParent(anotherCheckbox) + Constants.ChrLanguageSplitSign + " ");
+                Console.WriteLine(HelpFunctions.GetParent(anotherCheckbox) + Constants.ChrLanguageSplitSign + " " + anotherCheckbox.DisplayText);
             }
         }
 
@@ -208,6 +209,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             Height = height + 10;
             Width = TextRenderer.MeasureText(DisplayText, Font).Width + 5 + width + 5;
+        }
+
+        public static bool ChangeLanguage(string languageFile)
+        {
+            if (!File.Exists(languageFile))
+                return false;
+
+            var strLines = File.ReadAllLines(languageFile, Encoding.Default);
+
+            foreach (var strLine in strLines)
+            {
+                var strControlandName = strLine.Split(Constants.ChrLanguageSplitSign);
+                if (strControlandName.Length != 2)
+                    continue;
+
+                var strControlNames = strControlandName[0].Split(Constants.ChrLanguageControlSplitSign);
+
+                foreach (var anotherCheckbox in Instances)
+                {
+                    if (HelpFunctions.CheckParents(anotherCheckbox, 0, ref strControlNames))
+                    {
+                        anotherCheckbox.DisplayText = strControlandName[1].Trim();
+                        anotherCheckbox.Refresh();
+                        break;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }
