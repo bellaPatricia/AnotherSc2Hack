@@ -49,6 +49,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static string StrUpdaterPath = Application.StartupPath + "\\Sc2Hack UpdateManager.exe";
         public static string StrFontFamilyNameMonospace = "DejaVu Sans Mono";
 
+        public static char ChrLanguageSplitSign = ':';
+        public static char ChrLanguageControlSplitSign = '#';
         public static string StrPreferenceRemoveAi = "Remove Ai";
         public static string StrPreferenceRemoveLocalplayer = "Remove Localplayer";
         public static string StrPreferenceRemoveNeutral = "Remove Neutral";

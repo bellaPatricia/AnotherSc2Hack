@@ -40,7 +40,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         {
             foreach (var anotherCheckbox in Instances)
             {
-                Console.WriteLine(HelpFunctions.GetParent(anotherCheckbox));
+                Console.WriteLine(HelpFunctions.GetParent(anotherCheckbox) + Constants.ChrLanguageSplitSign + " ");
             }
         }
 

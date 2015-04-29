@@ -15,6 +15,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.BackEnds;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
@@ -219,7 +220,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         {
             foreach (var clickablePanel in Instances)
             {
-                Console.WriteLine(HelpFunctions.GetParent(clickablePanel));
+                Console.WriteLine(HelpFunctions.GetParent(clickablePanel) + Constants.ChrLanguageSplitSign + " ");
             }
         }
 

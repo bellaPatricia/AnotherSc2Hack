@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.BackEnds;
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
@@ -26,7 +28,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         {
             foreach (var languageButton in Instances)
             {
-                Console.WriteLine(HelpFunctions.GetParent(languageButton));
+                Console.WriteLine(HelpFunctions.GetParent(languageButton) + Constants.ChrLanguageSplitSign + " ");
             }
         }
 
@@ -88,6 +90,52 @@ namespace AnotherSc2Hack.Classes.FrontEnds
                     }
                 }
             }
+        }
+
+        public static bool ChangeLanguage(string languageFile)
+        {
+            if (!File.Exists(languageFile))
+                return false;
+
+            var strLines = File.ReadAllLines(languageFile);
+
+            foreach (var strLine in strLines)
+            {
+                var strControlandName = strLine.Split(Constants.ChrLanguageSplitSign);
+                if (strControlandName.Length != 2)
+                    continue;
+
+                var strControlNames = strControlandName[0].Split(Constants.ChrLanguageControlSplitSign);
+
+                foreach (var languageButton in Instances)
+                {
+                    if (languageButton.Name == "btnLaunchResource")
+                        Console.WriteLine("");
+
+                    if (CheckParents(languageButton, 0, ref strControlNames))
+                    {
+                        languageButton.Text = strControlandName[1].Trim();
+                        break;
+                    }
+                }
+                
+
+            }
+
+            return true;
+        }
+
+        private static bool CheckParents(Control currentControl, int index, ref string[] controlNames)
+        {
+            var bResult = currentControl.Name == controlNames[controlNames.Length - index - 1];
+
+            if (!bResult)
+                return false;
+
+            if (currentControl.Parent != null)
+                CheckParents(currentControl.Parent, ++index, ref controlNames);
+
+            return true;
         }
     }
 }

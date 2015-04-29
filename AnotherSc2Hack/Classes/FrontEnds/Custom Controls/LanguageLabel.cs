@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.BackEnds;
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
@@ -25,7 +26,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         {
             foreach (var languageLabel in Instances)
             {
-                Console.WriteLine(HelpFunctions.GetParent(languageLabel));
+                Console.WriteLine(HelpFunctions.GetParent(languageLabel) + Constants.ChrLanguageSplitSign + " ");
             }
         }
 

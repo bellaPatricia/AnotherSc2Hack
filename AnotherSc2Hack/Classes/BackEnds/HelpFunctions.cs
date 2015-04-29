@@ -97,9 +97,18 @@ namespace AnotherSc2Hack
             var strName = String.Empty;
 
             if (control.Parent != null)
-                strName = GetParent(control.Parent) + "=>";
+                strName = GetParent(control.Parent) + Constants.ChrLanguageControlSplitSign;
 
             return strName + control.Name;
+        }
+
+        public static void GetParentNames(Control currentControl, ref List<string> names)
+        {
+            if (currentControl.Parent != null)
+            {
+                GetParentNames(currentControl.Parent, ref names);
+                names.Add(currentControl.Name);
+            }
         }
 
         public static string SetWindowTitle()

@@ -571,6 +571,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void chBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             PSettings.PreferenceAll.Global.Language = chBxLanguage.SelectedItem.ToString();
+
+            LanguageButton.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
         }
 
         private void btnReposition_Click(object sender, EventArgs e)
@@ -2597,10 +2599,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ntxtGraphicsRefresh.Number = PSettings.PreferenceAll.Global.DrawingRefresh;
             ktxtReposition.Text = PSettings.PreferenceAll.Global.ChangeSizeAndPosition.ToString();
             aChBxOnlyDrawInForeground.Checked = PSettings.PreferenceAll.Global.DrawOnlyInForeground;
+
+            InitializeLanguageFiles();
+            if (chBxLanguage.Items.Count > 0)
             chBxLanguage.SelectedIndex = chBxLanguage.Items.IndexOf(PSettings.PreferenceAll.Global.Language) > -1
                 ? chBxLanguage.Items.IndexOf(PSettings.PreferenceAll.Global.Language)
                 : 0;
 
+
+            
             InitializeResources();
             InitializeIncome();
             InitializeApm();
@@ -2610,6 +2617,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             InitializeUnittab();
             InitializeProductiontab();
             InitializeVarious();
+        }
+
+        private void InitializeLanguageFiles()
+        {
+            var files = Directory.GetFiles(Application.StartupPath, "*.lang");
+
+            foreach (var file in files)
+            {
+                if (file != null)
+                    chBxLanguage.Items.Add(Path.GetFileName(file));
+            }
         }
 
         private void InitializeResources()
