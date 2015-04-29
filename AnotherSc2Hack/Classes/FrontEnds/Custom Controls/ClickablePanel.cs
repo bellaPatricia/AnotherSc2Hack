@@ -206,8 +206,27 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         private Brush _selectionColor = Brushes.Orange;
         private Boolean _bInitCalled = false;
 
+        private static readonly List<ClickablePanel> Instances = new List<ClickablePanel>();
+
+        ~ClickablePanel()
+        {
+            var index = Instances.FindIndex(x => x.GetHashCode().Equals(GetHashCode()));
+            Instances.RemoveAt(index);
+        }
+
+
+        public static void OutputPath()
+        {
+            foreach (var clickablePanel in Instances)
+            {
+                Console.WriteLine(HelpFunctions.GetParent(clickablePanel));
+            }
+        }
+
         public ClickablePanel()
         {
+            Instances.Add(this);
+
             SetStyle(ControlStyles.DoubleBuffer |
              ControlStyles.UserPaint |
              ControlStyles.OptimizedDoubleBuffer |

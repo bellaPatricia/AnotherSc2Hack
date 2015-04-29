@@ -13,6 +13,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 {
     public delegate void CheckedChangeHandler(AnotherCheckbox o, EventChecked e);
 
+
     public class EventChecked : EventArgs
     {
         public Boolean Value;
@@ -26,6 +27,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds
     [DefaultEvent("CheckedChanged")]
     public class AnotherCheckbox : Panel
     {
+        private static readonly List<AnotherCheckbox> Instances = new List<AnotherCheckbox>();
+
+        ~AnotherCheckbox()
+        {
+            var index = Instances.FindIndex(x => x.GetHashCode().Equals(GetHashCode()));
+            Instances.RemoveAt(index);
+        }
+
+
+        public static void OutputPath()
+        {
+            foreach (var anotherCheckbox in Instances)
+            {
+                Console.WriteLine(HelpFunctions.GetParent(anotherCheckbox));
+            }
+        }
+
         public enum TextAlignment
         {
             Left,
@@ -101,6 +119,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         private void Init()
         {
             base.Cursor = Cursor;
+
+            Instances.Add(this);
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer |
             ControlStyles.AllPaintingInWmPaint |

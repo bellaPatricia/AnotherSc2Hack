@@ -40,8 +40,8 @@
             this.lblResize = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.txtReposition = new System.Windows.Forms.TextBox();
             this.lblReposition = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.languageLabel2 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblChat = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblHotkeys = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.SuspendLayout();
             // 
             // lblHotkey1
@@ -149,36 +149,36 @@
             this.lblReposition.TabIndex = 10;
             this.lblReposition.Text = "Reposition Panel:";
             // 
-            // languageLabel1
+            // lblChat
             // 
-            this.languageLabel1.AutoSize = true;
-            this.languageLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.languageLabel1.LanguageFile = "";
-            this.languageLabel1.Location = new System.Drawing.Point(3, 3);
-            this.languageLabel1.Name = "languageLabel1";
-            this.languageLabel1.Size = new System.Drawing.Size(191, 20);
-            this.languageLabel1.TabIndex = 12;
-            this.languageLabel1.Text = "Launch using ingame chat";
+            this.lblChat.AutoSize = true;
+            this.lblChat.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblChat.LanguageFile = "";
+            this.lblChat.Location = new System.Drawing.Point(3, 3);
+            this.lblChat.Name = "lblChat";
+            this.lblChat.Size = new System.Drawing.Size(191, 20);
+            this.lblChat.TabIndex = 12;
+            this.lblChat.Text = "Launch using ingame chat";
             // 
-            // languageLabel2
+            // lblHotkeys
             // 
-            this.languageLabel2.AutoSize = true;
-            this.languageLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.languageLabel2.LanguageFile = "";
-            this.languageLabel2.Location = new System.Drawing.Point(3, 135);
-            this.languageLabel2.Name = "languageLabel2";
-            this.languageLabel2.Size = new System.Drawing.Size(162, 20);
-            this.languageLabel2.TabIndex = 13;
-            this.languageLabel2.Text = "Launch using Hotkeys";
+            this.lblHotkeys.AutoSize = true;
+            this.lblHotkeys.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHotkeys.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblHotkeys.LanguageFile = "";
+            this.lblHotkeys.Location = new System.Drawing.Point(3, 135);
+            this.lblHotkeys.Name = "lblHotkeys";
+            this.lblHotkeys.Size = new System.Drawing.Size(162, 20);
+            this.lblHotkeys.TabIndex = 13;
+            this.lblHotkeys.Text = "Launch using Hotkeys";
             // 
             // PanelSettingsLauncher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.languageLabel2);
-            this.Controls.Add(this.languageLabel1);
+            this.Controls.Add(this.lblHotkeys);
+            this.Controls.Add(this.lblChat);
             this.Controls.Add(this.txtReposition);
             this.Controls.Add(this.lblReposition);
             this.Controls.Add(this.txtResize);
@@ -214,7 +214,7 @@
         private LanguageLabel lblResize;
         public System.Windows.Forms.TextBox txtReposition;
         private LanguageLabel lblReposition;
-        private LanguageLabel languageLabel1;
-        private LanguageLabel languageLabel2;
+        private LanguageLabel lblChat;
+        private LanguageLabel lblHotkeys;
     }
 }

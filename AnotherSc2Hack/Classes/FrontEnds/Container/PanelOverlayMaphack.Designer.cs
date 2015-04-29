@@ -32,7 +32,7 @@
             this.btnMaphackBasicsUnitColor = new System.Windows.Forms.Button();
             this.cmsListviewContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmRemoveItems = new System.Windows.Forms.ToolStripMenuItem();
-            this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblMaphackFilter = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.icbMaphackBasicsUnitSelection = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
             this.lstvMaphackBasicsUnitFilter = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -68,17 +68,17 @@
             this.tsmRemoveItems.Size = new System.Drawing.Size(157, 22);
             this.tsmRemoveItems.Text = "Remove item(s)";
             // 
-            // languageLabel1
+            // lblMaphackFilter
             // 
-            this.languageLabel1.AutoSize = true;
-            this.languageLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.languageLabel1.LanguageFile = "";
-            this.languageLabel1.Location = new System.Drawing.Point(708, 3);
-            this.languageLabel1.Name = "languageLabel1";
-            this.languageLabel1.Size = new System.Drawing.Size(112, 20);
-            this.languageLabel1.TabIndex = 30;
-            this.languageLabel1.Text = "Maphack Filter";
+            this.lblMaphackFilter.AutoSize = true;
+            this.lblMaphackFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaphackFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblMaphackFilter.LanguageFile = "";
+            this.lblMaphackFilter.Location = new System.Drawing.Point(708, 3);
+            this.lblMaphackFilter.Name = "lblMaphackFilter";
+            this.lblMaphackFilter.Size = new System.Drawing.Size(112, 20);
+            this.lblMaphackFilter.TabIndex = 30;
+            this.lblMaphackFilter.Text = "Maphack Filter";
             // 
             // icbMaphackBasicsUnitSelection
             // 
@@ -141,7 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.languageLabel1);
+            this.Controls.Add(this.lblMaphackFilter);
             this.Controls.Add(this.btnMaphackBasicsUnitColor);
             this.Controls.Add(this.icbMaphackBasicsUnitSelection);
             this.Controls.Add(this.lstvMaphackBasicsUnitFilter);
@@ -163,7 +163,7 @@
         private ImageCombobox icbMaphackBasicsUnitSelection;
         private AnotherListview lstvMaphackBasicsUnitFilter;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private LanguageLabel languageLabel1;
+        private LanguageLabel lblMaphackFilter;
         private System.Windows.Forms.ContextMenuStrip cmsListviewContext;
         private System.Windows.Forms.ToolStripMenuItem tsmRemoveItems;
 

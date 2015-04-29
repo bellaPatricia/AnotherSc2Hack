@@ -2596,7 +2596,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ntxtMemoryRefresh.Number = PSettings.PreferenceAll.Global.DataRefresh;
             ntxtGraphicsRefresh.Number = PSettings.PreferenceAll.Global.DrawingRefresh;
             ktxtReposition.Text = PSettings.PreferenceAll.Global.ChangeSizeAndPosition.ToString();
-            chBxOnlyDrawInForeground.Checked = PSettings.PreferenceAll.Global.DrawOnlyInForeground;
+            aChBxOnlyDrawInForeground.Checked = PSettings.PreferenceAll.Global.DrawOnlyInForeground;
             chBxLanguage.SelectedIndex = chBxLanguage.Items.IndexOf(PSettings.PreferenceAll.Global.Language) > -1
                 ? chBxLanguage.Items.IndexOf(PSettings.PreferenceAll.Global.Language)
                 : 0;
@@ -2817,13 +2817,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void InitializeVarious()
         {
-            chBxVariousPersonalApmAlert.Checked = PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert;
-            chBxVariousShowPersonalApm.Checked = PSettings.PreferenceAll.OverlayPersonalApm.PersonalApm;
+            aChBxVariousPersonalApmAlert.Checked = PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert;
+            aChBxVariousShowPersonalApm.Checked = PSettings.PreferenceAll.OverlayPersonalApm.PersonalApm;
             ntxtVariousApmLimit.Number = PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit;
 
-            chBxVariousShowPersonalClock.Checked = PSettings.PreferenceAll.OverlayPersonalClock.PersonalClock;
+            aChBxVariousShowPersonalClock.Checked = PSettings.PreferenceAll.OverlayPersonalClock.PersonalClock;
 
-            chBxVariousWorkerCoach.Checked = PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach;
+            aChBxVariousWorkerCoach.Checked = PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach;
             ntxtVariousWorkerCoachDisableAfter.Number = PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter;
         }
 
@@ -3010,6 +3010,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             LanguageButton.OutputPath();
             LanguageLabel.OutputPath();
+            AnotherCheckbox.OutputPath();
+            ClickablePanel.OutputPath();
         }
 
         

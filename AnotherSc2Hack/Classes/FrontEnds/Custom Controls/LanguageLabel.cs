@@ -25,18 +25,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         {
             foreach (var languageLabel in Instances)
             {
-                Console.WriteLine(GetParent(languageLabel));
+                Console.WriteLine(HelpFunctions.GetParent(languageLabel));
             }
-        }
-
-        private static string GetParent(Control control)
-        {
-            var strName = String.Empty;
-
-            if (control.Parent != null)
-                strName = GetParent(control.Parent) + "=>";
-
-            return strName + control.Name;
         }
 
         public String LanguageFile

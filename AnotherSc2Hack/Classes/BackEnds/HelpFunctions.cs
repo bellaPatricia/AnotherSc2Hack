@@ -9,12 +9,13 @@ using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.FrontEnds;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using PredefinedTypes = Predefined.PredefinedData;
 
-namespace AnotherSc2Hack.Classes.BackEnds
+namespace AnotherSc2Hack
 {
     class HelpFunctions
     {
@@ -89,6 +90,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 InteropCalls.SetWindowLong(handle, (Int32)InteropCalls.Gwl.ExStyle,
                                             (IntPtr)(initial | (Int32)InteropCalls.Ws.ExTransparent));
             }
+        }
+
+        public static string GetParent(Control control)
+        {
+            var strName = String.Empty;
+
+            if (control.Parent != null)
+                strName = GetParent(control.Parent) + "=>";
+
+            return strName + control.Name;
         }
 
         public static string SetWindowTitle()
