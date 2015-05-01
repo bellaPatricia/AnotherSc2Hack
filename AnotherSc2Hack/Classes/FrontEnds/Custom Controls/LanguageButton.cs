@@ -42,17 +42,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             foreach (var strLine in strLines)
             {
-                var strControlandName = strLine.Split(Constants.ChrLanguageSplitSign);
-                if (strControlandName.Length != 2)
-                    continue;
+                var strControlAndName = new string[2];
+                strControlAndName[0] = strLine.Substring(0, strLine.IndexOf(Constants.ChrLanguageSplitSign));
+                strControlAndName[1] = strLine.Substring(strLine.IndexOf(Constants.ChrLanguageSplitSign) + 1);
 
-                var strControlNames = strControlandName[0].Split(Constants.ChrLanguageControlSplitSign);
+
+                var strControlNames = strControlAndName[0].Split(Constants.ChrLanguageControlSplitSign);
 
                 foreach (var languageButton in Instances)
                 {
                     if (HelpFunctions.CheckParents(languageButton, 0, ref strControlNames))
                     {
-                        languageButton.Text = strControlandName[1].Trim();
+                        languageButton.Text = strControlAndName[1].Trim();
                         break;
                     }
                 }

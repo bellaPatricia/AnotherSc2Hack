@@ -118,7 +118,7 @@ namespace AnotherSc2Hack
             if (!bResult)
                 return false;
 
-            if (currentControl.Parent != null)
+            if (currentControl.Parent != null && controlNames.Length < index + 1)
                 CheckParents(currentControl.Parent, ++index, ref controlNames);
 
             return true;

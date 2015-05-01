@@ -375,17 +375,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
             foreach (var strLine in strLines)
             {
-                var strControlandName = strLine.Split(Constants.ChrLanguageSplitSign);
-                if (strControlandName.Length != 2)
-                    continue;
+                var strControlAndName = new string[2];
+                strControlAndName[0] = strLine.Substring(0, strLine.IndexOf(Constants.ChrLanguageSplitSign));
+                strControlAndName[1] = strLine.Substring(strLine.IndexOf(Constants.ChrLanguageSplitSign) + 1);
 
-                var strControlNames = strControlandName[0].Split(Constants.ChrLanguageControlSplitSign);
+
+                var strControlNames = strControlAndName[0].Split(Constants.ChrLanguageControlSplitSign);
 
                 foreach (var clickablePanel in Instances)
                 {
                     if (HelpFunctions.CheckParents(clickablePanel, 0, ref strControlNames))
                     {
-                        clickablePanel.DisplayText = strControlandName[1].Trim();
+                        clickablePanel.DisplayText = strControlAndName[1].Trim();
                         clickablePanel.Refresh();
                         break;
                     }

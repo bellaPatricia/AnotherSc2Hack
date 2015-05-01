@@ -220,17 +220,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             foreach (var strLine in strLines)
             {
-                var strControlandName = strLine.Split(Constants.ChrLanguageSplitSign);
-                if (strControlandName.Length != 2)
-                    continue;
+                var strControlAndName = new string[2];
+                strControlAndName[0] = strLine.Substring(0, strLine.IndexOf(Constants.ChrLanguageSplitSign));
+                strControlAndName[1] = strLine.Substring(strLine.IndexOf(Constants.ChrLanguageSplitSign) + 1);
 
-                var strControlNames = strControlandName[0].Split(Constants.ChrLanguageControlSplitSign);
+
+                var strControlNames = strControlAndName[0].Split(Constants.ChrLanguageControlSplitSign);
 
                 foreach (var anotherCheckbox in Instances)
                 {
                     if (HelpFunctions.CheckParents(anotherCheckbox, 0, ref strControlNames))
                     {
-                        anotherCheckbox.DisplayText = strControlandName[1].Trim();
+                        anotherCheckbox.DisplayText = strControlAndName[1].Trim();
                         anotherCheckbox.Refresh();
                         break;
                     }
