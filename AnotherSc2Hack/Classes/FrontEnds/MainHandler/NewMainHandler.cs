@@ -586,6 +586,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             LanguageLabel.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
             AnotherCheckbox.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
             ClickablePanel.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
+            LanguageString.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
         }
 
         private void btnReposition_Click(object sender, EventArgs e)
@@ -3051,18 +3052,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void ntxtVariousWorkerCoachDisableAfter_NumberChanged(object sender, NumberArgs e)
         {
             PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
-        }
-
-        private void btnFuckYou_Click(object sender, EventArgs e)
-        {
-            LanguageButton.OutputPath();
-            LanguageLabel.OutputPath();
-            AnotherCheckbox.OutputPath();
-            ClickablePanel.OutputPath();
-        }
-
-        
-
-        
+        }       
     } 
 }

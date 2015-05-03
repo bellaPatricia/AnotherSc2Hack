@@ -34,7 +34,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         }
 
         public DialogResult Show(string text,
-            string caption,
+            string caption = "",
             MessageBoxButtons buttons = MessageBoxButtons.OK)
         {
             #region Make buttons (in)visible

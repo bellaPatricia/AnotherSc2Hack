@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.Events;
 
 namespace AnotherSc2Hack.Classes.FrontEnds
@@ -52,7 +53,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
         public void SetLabelText(double opacityValue)
         {
-            lblOpacity.Text = "Opacity: " + tbOpacity.Value + " %";
+            lblOpacity.Text = new LanguageString("Opacity: ", "lstrOpacity").ToString() + tbOpacity.Value + " %";
         }
 
         private void tbOpacity_ValueChanged(object sender, EventArgs e)

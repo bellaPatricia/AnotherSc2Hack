@@ -125,7 +125,6 @@
             this.lblDebugPlayerdata = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlApplication = new System.Windows.Forms.Panel();
-            this.btnFuckYou = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
             this.btnRestoreSettings = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
             this.lblApplicationGlobalSettings = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.chBxLanguage = new System.Windows.Forms.ComboBox();
@@ -1440,7 +1439,6 @@
             this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlApplication.Controls.Add(this.btnFuckYou);
             this.pnlApplication.Controls.Add(this.btnRestoreSettings);
             this.pnlApplication.Controls.Add(this.lblApplicationGlobalSettings);
             this.pnlApplication.Controls.Add(this.chBxLanguage);
@@ -1457,22 +1455,6 @@
             this.pnlApplication.Name = "pnlApplication";
             this.pnlApplication.Size = new System.Drawing.Size(1029, 450);
             this.pnlApplication.TabIndex = 0;
-            // 
-            // btnFuckYou
-            // 
-            this.btnFuckYou.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFuckYou.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnFuckYou.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnFuckYou.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFuckYou.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuckYou.LanguageFile = "";
-            this.btnFuckYou.Location = new System.Drawing.Point(866, 372);
-            this.btnFuckYou.Name = "btnFuckYou";
-            this.btnFuckYou.Size = new System.Drawing.Size(144, 32);
-            this.btnFuckYou.TabIndex = 13;
-            this.btnFuckYou.Text = "Fuck You";
-            this.btnFuckYou.UseVisualStyleBackColor = false;
-            this.btnFuckYou.Click += new System.EventHandler(this.btnFuckYou_Click);
             // 
             // btnRestoreSettings
             // 
@@ -2551,7 +2533,6 @@
         private NumberTextBox ntxtVariousWorkerCoachDisableAfter;
         private LanguageLabel lblVariousDisableAfter;
         private LanguageButton btnRestoreSettings;
-        private LanguageButton btnFuckYou;
 
     }
 }

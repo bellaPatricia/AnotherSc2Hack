@@ -128,3 +128,7 @@ aChBxSplitUnitsBuildings: Split Buildings/Units
 aChBxDisplayBuildings: Show Buildings
 aChBxDisplayUnits: Show Units
 aChBxTransparentImages: Transparent Pictures
+
+
+;Non UI text
+lstrOpacity: Opacity:

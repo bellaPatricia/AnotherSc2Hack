@@ -9,83 +9,65 @@ namespace AnotherSc2Hack.Classes.BackEnds
     
     public class LanguageString
     {
+        private static readonly List<LanguageString> Instances = new List<LanguageString>();
+        private static string _strLastUsedLanguageFile = String.Empty;
+
         public string Text { get; set; }
         public string Name { get; set; }
-
-        public LanguageString()
-        {
-            
-        }
-
-        public LanguageString(string text)
-        {
-            Text = text;
-        }
 
         public LanguageString(string text, string name)
         {
             Text = text;
             Name = name;
+
+            Instances.Add(this);
+
+            ChangeLanguage(_strLastUsedLanguageFile);
         }
 
-        public string LanguageFile
+        ~LanguageString()
         {
-            get { return _languageFile; }
-            set
+            var index = Instances.FindIndex(x => x.GetHashCode().Equals(GetHashCode()));
+            Instances.RemoveAt(index);
+        }
+
+
+        public static bool ChangeLanguage(string languageFile)
+        {
+            if (!File.Exists(languageFile))
+                return false;
+
+            _strLastUsedLanguageFile = languageFile;
+
+            var strLines = File.ReadAllLines(languageFile, Encoding.Default);
+
+            foreach (var strLine in strLines)
             {
-                _languageFile = value;
-                ChangeLanguage();
-            }
-        }
+                if (strLine.Length <= 0 ||
+                    strLine.StartsWith(";"))
+                    continue;
 
-        private string _languageFile = String.Empty;
-
-        public void ChangeLanguage()
-        {
-            ReadLanguagefile();
-        }
+                var strControlAndName = new string[2];
+                strControlAndName[0] = strLine.Substring(0, strLine.IndexOf(Constants.ChrLanguageSplitSign));
+                strControlAndName[1] = strLine.Substring(strLine.IndexOf(Constants.ChrLanguageSplitSign) + 1);
 
 
+                var strControlNames = strControlAndName[0].Split(Constants.ChrLanguageControlSplitSign);
 
-        private void ReadLanguagefile()
-        {
-            var tmpFileAvailable = File.Exists(_languageFile);
-
-            if (!tmpFileAvailable)
-                return;
-
-            using (var sr = new StreamReader(_languageFile, System.Text.Encoding.UTF8))
-            {
-                while (!sr.EndOfStream)
+                foreach (var languageString in Instances)
                 {
-                    var strLine = sr.ReadLine();
-
-                    if (strLine == null ||
-                            strLine.Length <= 0)
-                        continue;
-
-                    if (strLine.StartsWith(";"))
-                        continue;
-
-                    /* If it is contained there.. (PARTLY) */
-                    if (strLine.Contains(Name))
-                    {
-                        /* Now the actual compare */
-                        //var tmp = strLine.Replace(" ", "");
-                        var tmp = strLine;
-
-                        var mappedStuff = tmp.Split('=');
-
-                        if (mappedStuff.Length > 1)
-                        {
-                            if (mappedStuff[0].Trim().Equals(Name))
-                            {
-                                Text = mappedStuff[1].TrimStart();
-                            }
-                        }
-                    }
+                    if (languageString.Name == strControlNames[0])
+                        languageString.Text = strControlAndName[1].Trim();
+                    
                 }
             }
+
+            return true;
+        }
+
+        public override string ToString()
+        {
+            return Text;
         }
     }
 }
