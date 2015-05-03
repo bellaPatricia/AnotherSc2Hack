@@ -220,6 +220,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             foreach (var strLine in strLines)
             {
+                if (strLine.Length <= 0 ||
+                    strLine.StartsWith(";"))
+                    continue;
+
                 var strControlAndName = new string[2];
                 strControlAndName[0] = strLine.Substring(0, strLine.IndexOf(Constants.ChrLanguageSplitSign));
                 strControlAndName[1] = strLine.Substring(strLine.IndexOf(Constants.ChrLanguageSplitSign) + 1);
@@ -233,7 +237,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds
                     {
                         anotherCheckbox.DisplayText = strControlAndName[1].Trim();
                         anotherCheckbox.Refresh();
-                        break;
                     }
                 }
             }

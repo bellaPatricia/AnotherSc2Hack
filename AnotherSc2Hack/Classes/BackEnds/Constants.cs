@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.BackEnds
@@ -47,6 +48,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static string StrPreferenceKeywordVarious = "Various";
         public static string StrPreferenceKeywordWorkerAutomation = "Worker Automation";
         public static string StrUpdaterPath = Application.StartupPath + "\\Sc2Hack UpdateManager.exe";
+        public static string StrLanguageFolder = Application.StartupPath + "\\Language\\";
         public static string StrFontFamilyNameMonospace = "DejaVu Sans Mono";
 
         public static char ChrLanguageSplitSign = ':';

@@ -35,6 +35,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly List<OnlinePlugin> _lOnlinePlugins = new List<OnlinePlugin>();
         private readonly WebClient _wcMainWebClient = new WebClient();
         private DateTime _dtSecond = DateTime.Now;
+        private readonly Dictionary<string, string> _dictLanguageFile = new Dictionary<string, string>();
 
         private Boolean _bProcessSet;
 
@@ -570,8 +571,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void chBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PSettings.PreferenceAll.Global.Language = chBxLanguage.SelectedItem.ToString();
-
+            //Get the proper language
+            foreach (var keyvalue in _dictLanguageFile)
+            {
+                if (keyvalue.Value == chBxLanguage.SelectedItem.ToString())
+                {
+                    PSettings.PreferenceAll.Global.Language = keyvalue.Key;
+                    break;
+                }
+            }
+            
+            //Change the language for all instances within those classes
             LanguageButton.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
             LanguageLabel.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
             AnotherCheckbox.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
@@ -2604,13 +2614,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             aChBxOnlyDrawInForeground.Checked = PSettings.PreferenceAll.Global.DrawOnlyInForeground;
 
             InitializeLanguageFiles();
-            if (chBxLanguage.Items.Count > 0)
-            chBxLanguage.SelectedIndex = chBxLanguage.Items.IndexOf(PSettings.PreferenceAll.Global.Language) > -1
-                ? chBxLanguage.Items.IndexOf(PSettings.PreferenceAll.Global.Language)
-                : 0;
-
-
-            
             InitializeResources();
             InitializeIncome();
             InitializeApm();
@@ -2624,12 +2627,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void InitializeLanguageFiles()
         {
-            var files = Directory.GetFiles(Application.StartupPath, "*.lang");
+            _dictLanguageFile.Clear();
+            var files = Directory.GetFiles(Constants.StrLanguageFolder, "*.lang");
 
             foreach (var file in files)
             {
                 if (file != null)
-                    chBxLanguage.Items.Add(Path.GetFileName(file));
+                {
+                    var strLanguageName = String.Empty;
+
+                    var strSource = File.ReadAllLines(file);
+                    foreach (var strLine in strSource)
+                    {
+                        if (strLine.StartsWith("LanguageName:"))
+                        {
+                            strLanguageName =
+                                strLine.Substring(strLine.IndexOf("LanguageName: ", StringComparison.Ordinal) +
+                                                  "LanguageName: ".Length);
+                            break;
+                        }
+                    }
+
+                    _dictLanguageFile.Add(file, strLanguageName);
+
+                    chBxLanguage.Items.Add(_dictLanguageFile[file]);
+
+                    //Select the last saved language
+                    if (PSettings.PreferenceAll.Global.Language == file)
+                        chBxLanguage.SelectedIndex = chBxLanguage.Items.Count - 1;
+                }
             }
         }
 

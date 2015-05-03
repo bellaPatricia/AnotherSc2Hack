@@ -1,0 +1,130 @@
+﻿;1.0.0.0
+;Translate file for the German Language
+;Created by bellaPatricia
+;Language Name (natively written)
+LanguageName: Deutsch
+
+;HelpMe tab
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePaypal: Paypal
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeLocalize: Hol' die Datei und Übersetze!
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeGithubIssues: Github Fehler
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeEmailMe: E-Mail an mich
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePostOnD3scene: Posten auf D3Scene
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpCash: Zaster
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpLocalize: Hilf' mir, zu lokalisieren
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpSuggestionsBug: Vorschläge oder Fehler melden
+
+;Debug tab
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMatchdata: Match Daten
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMapdata: Map Daten
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitObjects: Einheit Objekte:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitname: Einheiten Name:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitdata: Einheiten Daten
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerObjects: Spieler Objekte:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayername: Spieler Name:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerdata: Spieler Daten
+
+;Various tab
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousDisableAfter: Deaktivieren nach:
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousWorkerCoach: Arbeiter Coach
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalClock: Persönliche Uhr
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalApm: Persönliche Apm
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: Arbeiter Coach anzeigen
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: Persönliche Uhr anzeigen
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Apm Alarm
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: Personliche Apm anzeigen
+
+;Application tab 
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: Globale Einstellungen
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationLanguage: Sprache:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationReposition: Positionstaste:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: Neuzeichnen (ms):
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Speicher auslesen (ms):
+NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Einstellungen zurücksetzen
+NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Panelposition und -größe zurücksetzen
+NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Nur zeichnen, wenn SCII im Vordergrund
+
+;Benchmark tab
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkProductiontabIterations: ProduktionTab Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkUnittabIterations: EinheitenTab Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkApmIterations: Apm Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkArmyIterations: Armee Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkWorkerIterations: Arbeiter Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkIncomeIterations: Einkommen Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkResourceIterations: Ressourcen Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawingInterval: Interval (ms)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawing: Zeichnen
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataIterations: Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataInterval: Interval (ms)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkData: Daten holen
+
+;Plugin tab
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginImages: Bilder
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginDescription: Beschreibung
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginAvailablePlugins: Verfügbare Plugins
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginLoadedPlugins: Geladene Plugins
+NewMainHandler#pnlMainArea#pnlPlugins#btnPluginsInstallPlugin: Installieren
+
+;Left application panels
+NewMainHandler#pnlLeftSelection#cpnlVarious: Verschiedenes
+NewMainHandler#pnlLeftSelection#cpnlHelpMe: Hilf mir!
+NewMainHandler#pnlLeftSelection#cpnlBenchmark: Benchmark
+NewMainHandler#pnlLeftSelection#cpnlCredits: Credits
+NewMainHandler#pnlLeftSelection#cpnlDebug: Debug
+NewMainHandler#pnlLeftSelection#cpnlApplication: Anwendung
+NewMainHandler#pnlLeftSelection#cpnlOverlays: Overlays
+NewMainHandler#pnlLeftSelection#cpnlPlugins: Plugins
+
+;Overlays
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysProduction: Produktion
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysUnits: Einheiten
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysMaphack: Maphack
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysApm: Apm
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysArmy: Armee
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysWorker: Arbeiter
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysIncome: Einkommen
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysResources: Ressourcen
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveDestinationLine: Entferne Ziellinie
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxDefensiveStructures: Verteidigung einfärben
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveCamera: Entferne Kamera
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveVisionArea: Entferne Sichbereich
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#lblMaphackFilter: Maphack Filter
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxDisplayUpgrades: Upgrades anzeigen
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveProductionstatus: Entferne Produktionsstatus
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveSpellcounter: Entferne Fähigkeitenzähler
+
+;Bottom launcher
+NewMainHandler#pnlBottomStrip#btnLaunchResource: Ressourcen
+NewMainHandler#pnlBottomStrip#btnLaunchProduction: Produktion
+NewMainHandler#pnlBottomStrip#btnLaunchIncome: Einkommen
+NewMainHandler#pnlBottomStrip#btnLaunchUnit: Einheiten
+NewMainHandler#pnlBottomStrip#btnLaunchWorker: Arbeiter
+NewMainHandler#pnlBottomStrip#btnLaunchArmy: Armee
+NewMainHandler#pnlBottomStrip#btnLaunchMaphack: Maphack
+NewMainHandler#pnlBottomStrip#btnLaunchApm: Apm
+
+;General text (overlays)
+lblHotkey1: Hotkey 1:
+lblHotkey2: Hotkey 2:
+lblHotkey3: Hotkey 3:
+lblToggle: Trigger Panel:
+lblResize: Größe ändern Panel:
+lblReposition: Position ändern Panel:
+lblChat: Mittels InGame Chat starten
+lblHotkeys: Mittels Hotkeys starten
+lblBasics: Generelles
+lblSpecial: Spezial
+lblSize: Größe:
+lblPreview: Vorschau:
+aChBxRemoveAi: Entferne KI
+aChBxRemoveAllie: Entferne Verbündete
+aChBxRemoveNeutral: Entferne Neutral
+aChBxRemoveYourself: Entferne Dich
+aChBxDrawBackground: Zeichne Hintergrund
+aChBxRemoveClantags: Entferne Clantags
+aChBxRemoveChronoboost: Entferne Chronoboost
+aChBxSplitUnitsBuildings: Gebäude/Einheiten aufteilen
+aChBxDisplayBuildings: Gebäude anzeigen
+aChBxDisplayUnits: Einheiten anzeigen
+aChBxTransparentImages: Transparente Bilder
