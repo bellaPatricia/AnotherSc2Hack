@@ -39,6 +39,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private Boolean _bProcessSet;
 
+        private readonly LanguageString _lstrChCreditsContributer = new LanguageString("lstrChCreditsContributer");
+        private readonly LanguageString _lstrChCreditsReason = new LanguageString("lstrChCreditsReason");
+
         #endregion
 
         #region Getter and setter with advanced codeexecution
@@ -185,6 +188,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Init();
             OverlaysEventMapping();
             ControlsFill();
+            LanguageStringEventMapping();
             
 
             ApplicationOptions = app;
@@ -490,6 +494,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         #endregion
 
         #endregion
+
+        private void LanguageStringEventMapping()
+        {
+            _lstrChCreditsContributer.TextChanged += _lstrChCreditsContributer_TextChanged;
+            _lstrChCreditsReason.TextChanged += _lstrChCreditsReason_TextChanged;
+        }
+
+        void _lstrChCreditsReason_TextChanged(object sender, EventArgs e)
+        {
+            chCreditsReason.Text = _lstrChCreditsReason.Text;
+        }
+
+        void _lstrChCreditsContributer_TextChanged(object sender, EventArgs e)
+        {
+            chCreditsContributer.Text = _lstrChCreditsContributer.Text;
+        }
 
         #region Application Panel Data
 

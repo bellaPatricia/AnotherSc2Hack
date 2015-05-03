@@ -132,3 +132,5 @@ aChBxTransparentImages: Transparent Pictures
 
 ;Non UI text
 lstrOpacity: Opacity:
+lstrChCreditsContributer: Contributor
+lstrChCreditsReason: But.. why?
