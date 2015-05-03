@@ -45,17 +45,17 @@ NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Panelposition und -grö
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Nur zeichnen, wenn SCII im Vordergrund
 
 ;Benchmark tab
-NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterationen / sec.
-NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkProductiontabIterations: ProduktionTab Iterationen / sec.
-NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkUnittabIterations: EinheitenTab Iterationen / sec.
-NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkApmIterations: Apm Iterationen / sec.
-NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkArmyIterations: Armee Iterationen / sec.
-NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkWorkerIterations: Arbeiter Iterationen / sec.
-NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkIncomeIterations: Einkommen Iterationen / sec.
-NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkResourceIterations: Ressourcen Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterationen / sek.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkProductiontabIterations: ProduktionTab Iterationen / sek.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkUnittabIterations: EinheitenTab Iterationen / sek.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkApmIterations: Apm Iterationen / sek.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkArmyIterations: Armee Iterationen / sek.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkWorkerIterations: Arbeiter Iterationen / sek.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkIncomeIterations: Einkommen Iterationen / sek.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkResourceIterations: Ressourcen Iterationen / sek.
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawingInterval: Interval (ms)
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawing: Zeichnen
-NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataIterations: Iterationen / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataIterations: Iterationen / sek.
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataInterval: Interval (ms)
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkData: Daten holen
 
