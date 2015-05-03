@@ -12,10 +12,30 @@ namespace AnotherSc2Hack.Classes.BackEnds
         private static readonly List<LanguageString> Instances = new List<LanguageString>();
         private static string _strLastUsedLanguageFile = String.Empty;
 
-        public string Text { get; set; }
+        private string _text = String.Empty;
+
+        public event EventHandler TextChanged;
+
+        public string Text
+        {
+            get
+            {
+                return _text;
+            }
+            set
+            {
+                if (_text == value)
+                    return;
+
+                _text = value;
+
+                OnTextChanged(this, new EventArgs());
+            }
+        }
+
         public string Name { get; set; }
 
-        public LanguageString(string text, string name)
+        public LanguageString(string name, string text = "")
         {
             Text = text;
             Name = name;
@@ -29,6 +49,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             var index = Instances.FindIndex(x => x.GetHashCode().Equals(GetHashCode()));
             Instances.RemoveAt(index);
+        }
+
+        public void OnTextChanged(object sender, EventArgs e)
+        {
+            if (TextChanged != null)
+                TextChanged(sender, e);
         }
 
 
@@ -51,6 +77,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 strControlAndName[0] = strLine.Substring(0, strLine.IndexOf(Constants.ChrLanguageSplitSign));
                 strControlAndName[1] = strLine.Substring(strLine.IndexOf(Constants.ChrLanguageSplitSign) + 1);
 
+               
 
                 var strControlNames = strControlAndName[0].Split(Constants.ChrLanguageControlSplitSign);
 
@@ -58,7 +85,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 {
                     if (languageString.Name == strControlNames[0])
                         languageString.Text = strControlAndName[1].Trim();
-                    
+
                 }
             }
 

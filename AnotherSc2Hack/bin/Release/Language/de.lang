@@ -31,7 +31,7 @@ NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalClock: Persönliche Uhr
 NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalApm: Persönliche Apm
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: Arbeiter Coach anzeigen
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: Persönliche Uhr anzeigen
-NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Apm Alarm
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Apm Alarm:
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: Personliche Apm anzeigen
 
 ;Application tab 

@@ -15,6 +15,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         public event ValueChangeHandler ValueChanged;
 
         private Int32 _number;
+        private LanguageString _lstrOpacity = new LanguageString("lstrOpacity");
 
         public Int32 Number
         {
@@ -44,6 +45,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         public UiOpacityControl()
         {
             InitializeComponent();
+
+            _lstrOpacity.TextChanged += _lstrOpacity_TextChanged;
+        }
+
+        void _lstrOpacity_TextChanged(object sender, EventArgs e)
+        {
+            SetLabelText();   
         }
 
         private void tbOpacity_Scroll(object sender, EventArgs e)
@@ -51,14 +59,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             Number = tbOpacity.Value;
         }
 
-        public void SetLabelText(double opacityValue)
+        public void SetLabelText()
         {
-            lblOpacity.Text = new LanguageString("Opacity: ", "lstrOpacity").ToString() + tbOpacity.Value + " %";
+            lblOpacity.Text = _lstrOpacity + " " + tbOpacity.Value + "%";
         }
 
         private void tbOpacity_ValueChanged(object sender, EventArgs e)
         {
-            SetLabelText(tbOpacity.Value);
+            SetLabelText();
         }
     }
 
