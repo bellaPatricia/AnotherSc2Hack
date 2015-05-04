@@ -23,6 +23,8 @@ NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitdata: Unit Data
 NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerObjects: Player Objects:
 NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayername: Player Name:
 NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerdata: Player Data
+lstrChDebugAttribute: Attribute
+lstrChDebugValue: Value
 
 ;Various tab
 NewMainHandler#pnlMainArea#pnlVarious#lblVariousDisableAfter: Deactivate after:
@@ -43,6 +45,10 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Read Memo
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Restore Settings
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Restore Panelposition and -Size
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Only draw when SCII is in foreground
+lstrApplicationRestoreSettingsText: Do you really want to reset your settings?
+lstrApplicationRestoreSettingsHeader: Are you sure?
+lstrApplicationRestorePanelPositionText: Panel's size and position\nwere adjusted successfully!
+lstrApplicationRestorePanelPositionHeader: Panelposition changed!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterations / sec.
@@ -65,6 +71,10 @@ NewMainHandler#pnlMainArea#pnlPlugins#lblPluginDescription: Description
 NewMainHandler#pnlMainArea#pnlPlugins#lblPluginAvailablePlugins: Available Plugins
 NewMainHandler#pnlMainArea#pnlPlugins#lblPluginLoadedPlugins: Loaded Plugins
 NewMainHandler#pnlMainArea#pnlPlugins#btnPluginsInstallPlugin: Install
+lstrChPluginsPluginName: Plugin
+lstrChPluginsPluginVersion: Version
+lstrPluginContextInstallPlugin: Install plugin
+lstrPluginContextRemovePlugin: Remove plugin
 
 ;Left application panels
 NewMainHandler#pnlLeftSelection#cpnlVarious: Various
@@ -128,9 +138,9 @@ aChBxSplitUnitsBuildings: Split Buildings/Units
 aChBxDisplayBuildings: Show Buildings
 aChBxDisplayUnits: Show Units
 aChBxTransparentImages: Transparent Pictures
-
-;Programmed text
 lstrOpacity: Opacity:
+
+;Credits
 lstrChCreditsContributer: Contributor
 lstrChCreditsReason: But.. why?
 lstrCreditsReasonRhcp: Open Source MH, Gameinteraction, Minimap drawing and extremely helpful
@@ -143,8 +153,8 @@ lstrCreditsReasonTracky: Suggestions and ideas
 lstrCreditsReasonD3Scene: Good environment with a lot helpful people
 lstrCreditsReasonVariousPeople: ...that gave ideas, suggestions and critism - thank you!
 lstrCreditsReasonDonators: Because you people make me buy some candy :3
-lstrApplicationRestoreSettingsText: Do you really want to reset your settings?
-lstrApplicationRestoreSettingsHeader: Are you sure?
+
+;Messagebox
 lstrAnotherMessageBoxOk: Ok
 lstrAnotherMessageBoxCancel: Cancel
 lstrAnotherMessageBoxAbort: Abort
@@ -152,13 +162,7 @@ lstrAnotherMessageBoxRetry: Retry
 lstrAnotherMessageBoxIgnore: Ignore
 lstrAnotherMessageBoxYes: Yes
 lstrAnotherMessageBoxNo: No
-lstrApplicationRestorePanelPositionText: Panel's size and position\nwere adjusted successfully!
-lstrApplicationRestorePanelPositionHeader: Panelposition changed!
-lstrChPluginsPluginName: Plugin
-lstrChPluginsPluginVersion: Version
-lstrChDebugAttribute: Attribute
-lstrChDebugValue: Value
+
+;Maphack tab
 lstrChMaphackFilterUnit: Unit
 lstrMaphackFilterRemoveItem: Remove selection
-lstrPluginContextInstallPlugin: Install plugin
-lstrPluginContextRemovePlugin: Remove plugin

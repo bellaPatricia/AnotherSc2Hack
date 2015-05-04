@@ -23,6 +23,8 @@ NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitdata: Einheiten Daten
 NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerObjects: Spieler Objekte:
 NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayername: Spieler Name:
 NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerdata: Spieler Daten
+lstrChDebugAttribute: Attribut
+lstrChDebugValue: Wert
 
 ;Various tab
 NewMainHandler#pnlMainArea#pnlVarious#lblVariousDisableAfter: Deaktivieren nach:
@@ -43,6 +45,10 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Speicher 
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Einstellungen zurücksetzen
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Panelposition und -größe zurücksetzen
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Nur zeichnen, wenn SCII im Vordergrund
+lstrApplicationRestoreSettingsText: Möchtest Du wirklich Deine Einstellungen zurück setzen?
+lstrApplicationRestoreSettingsHeader: Bist Du sicher?
+lstrApplicationRestorePanelPositionText: Größe und Position der Panels\nwurden erfolgreich angepasst!
+lstrApplicationRestorePanelPositionHeader: Panelposition geändert!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterationen / sek.
@@ -65,6 +71,10 @@ NewMainHandler#pnlMainArea#pnlPlugins#lblPluginDescription: Beschreibung
 NewMainHandler#pnlMainArea#pnlPlugins#lblPluginAvailablePlugins: Verfügbare Plugins
 NewMainHandler#pnlMainArea#pnlPlugins#lblPluginLoadedPlugins: Geladene Plugins
 NewMainHandler#pnlMainArea#pnlPlugins#btnPluginsInstallPlugin: Installieren
+lstrChPluginsPluginName: Plugin
+lstrChPluginsPluginVersion: Version
+lstrPluginContextInstallPlugin: Plugin installieren
+lstrPluginContextRemovePlugin: Plugin entfernen
 
 ;Left application panels
 NewMainHandler#pnlLeftSelection#cpnlVarious: Verschiedenes
@@ -128,9 +138,9 @@ aChBxSplitUnitsBuildings: Gebäude/Einheiten aufteilen
 aChBxDisplayBuildings: Gebäude anzeigen
 aChBxDisplayUnits: Einheiten anzeigen
 aChBxTransparentImages: Transparente Bilder
-
-;Programmed text
 lstrOpacity: Sichtbarkeit:
+
+;Credits 
 lstrChCreditsContributer: Mitwirkender
 lstrChCreditsReason: Aber.. warum?
 lstrCreditsReasonRhcp: Open Source MH, Gameinteraction, Minimap zeichnen und sehr hilfreich
@@ -143,8 +153,8 @@ lstrCreditsReasonTracky: Vorschläge und Ideen
 lstrCreditsReasonD3Scene: Gute Umgebung und viele hilfreiche Leute
 lstrCreditsReasonVariousPeople: ... die Ideen, Vorschläge und Feedback gaben - danke!
 lstrCreditsReasonDonators: Weil ich durch euch Süßigkeiten kaufen kann :3
-lstrApplicationRestoreSettingsText: Möchtest Du wirklich Deine Einstellungen zurück setzen?
-lstrApplicationRestoreSettingsHeader: Bist Du sicher?
+
+;Messagebox
 lstrAnotherMessageBoxOk: Ok
 lstrAnotherMessageBoxCancel: Abbrechen
 lstrAnotherMessageBoxAbort: Abbrechen
@@ -152,13 +162,7 @@ lstrAnotherMessageBoxRetry: Neuer Versuch
 lstrAnotherMessageBoxIgnore: Ignorieren
 lstrAnotherMessageBoxYes: Ja
 lstrAnotherMessageBoxNo: Nein
-lstrApplicationRestorePanelPositionText: Größe und Position der Panels\nwurden erfolgreich angepasst!
-lstrApplicationRestorePanelPositionHeader: Panelposition geändert!
-lstrChPluginsPluginName: Plugin
-lstrChPluginsPluginVersion: Version
-lstrChDebugAttribute: Attribut
-lstrChDebugValue: Wert
+
+;Maphack tab
 lstrChMaphackFilterUnit: Einheit
 lstrMaphackFilterRemoveItem: Entferne Selektion
-lstrPluginContextInstallPlugin: Plugin installieren
-lstrPluginContextRemovePlugin: Plugin entfernen
