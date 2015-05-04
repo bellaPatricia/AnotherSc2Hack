@@ -3146,6 +3146,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void ntxtVariousWorkerCoachDisableAfter_NumberChanged(object sender, NumberArgs e)
         {
             PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
-        }       
+        }
+  
     } 
 }
