@@ -1,14 +1,35 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.BackEnds;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     public partial class AnotherMessageBox : Form
     {
+        #region Private Variables
+
+        private readonly LanguageString _lstrAnotherMessageBoxOk = new LanguageString("lstrAnotherMessageBoxOk");
+        private readonly LanguageString _lstrAnotherMessageBoxCancel = new LanguageString("lstrAnotherMessageBoxCancel");
+        private readonly LanguageString _lstrAnotherMessageBoxAbort = new LanguageString("lstrAnotherMessageBoxAbort");
+        private readonly LanguageString _lstrAnotherMessageBoxRetry = new LanguageString("lstrAnotherMessageBoxRetry");
+        private readonly LanguageString _lstrAnotherMessageBoxIgnore = new LanguageString("lstrAnotherMessageBoxIgnore");
+        private readonly LanguageString _lstrAnotherMessageBoxYes = new LanguageString("lstrAnotherMessageBoxYes");
+        private readonly LanguageString _lstrAnotherMessageBoxNo = new LanguageString("lstrAnotherMessageBoxNo");
+
+        #endregion
+
         public AnotherMessageBox()
         {
             InitializeComponent();
+
+            btnNo.Text = _lstrAnotherMessageBoxNo.Text;
+            btnOk.Text = _lstrAnotherMessageBoxOk.Text;
+            btnRetry.Text = _lstrAnotherMessageBoxRetry.Text;
+            btnYes.Text = _lstrAnotherMessageBoxYes.Text;
+            btnIgnore.Text = _lstrAnotherMessageBoxIgnore.Text;
+            btnCancel.Text = _lstrAnotherMessageBoxCancel.Text;
+            btnAbort.Text = _lstrAnotherMessageBoxAbort.Text;
         }
 
         private DialogResult _dialogResult = DialogResult.Abort;

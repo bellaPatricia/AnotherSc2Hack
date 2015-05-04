@@ -29,6 +29,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                 _text = value;
 
+                if (_text.Contains("\\n"))
+                    _text = _text.Replace("\\n", "\n");
+
                 OnTextChanged(this, new EventArgs());
             }
         }

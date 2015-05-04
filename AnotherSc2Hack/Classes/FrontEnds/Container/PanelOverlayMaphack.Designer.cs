@@ -35,7 +35,7 @@
             this.lblMaphackFilter = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.icbMaphackBasicsUnitSelection = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
             this.lstvMaphackBasicsUnitFilter = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chMaphackfilterUnit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlLauncher = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsLauncher();
             this.pnlBasics = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsBasicsMaphack();
             this.cmsListviewContext.SuspendLayout();
@@ -102,7 +102,7 @@
             // 
             this.lstvMaphackBasicsUnitFilter.AutoArrange = false;
             this.lstvMaphackBasicsUnitFilter.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader7});
+            this.chMaphackfilterUnit});
             this.lstvMaphackBasicsUnitFilter.ContextMenuStrip = this.cmsListviewContext;
             this.lstvMaphackBasicsUnitFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvMaphackBasicsUnitFilter.FullRowSelect = true;
@@ -116,10 +116,10 @@
             this.lstvMaphackBasicsUnitFilter.SelectedIndexChanged += new System.EventHandler(this.lstvMaphackBasicsUnitFilter_SelectedIndexChanged);
             this.lstvMaphackBasicsUnitFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstvMaphackBasicsUnitFilter_KeyDown);
             // 
-            // columnHeader7
+            // chMaphackfilterUnit
             // 
-            this.columnHeader7.Text = "Unit";
-            this.columnHeader7.Width = 202;
+            this.chMaphackfilterUnit.Text = "Unit";
+            this.chMaphackfilterUnit.Width = 202;
             // 
             // pnlLauncher
             // 
@@ -162,7 +162,7 @@
         public System.Windows.Forms.Button btnMaphackBasicsUnitColor;
         private ImageCombobox icbMaphackBasicsUnitSelection;
         private AnotherListview lstvMaphackBasicsUnitFilter;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader chMaphackfilterUnit;
         private LanguageLabel lblMaphackFilter;
         private System.Windows.Forms.ContextMenuStrip cmsListviewContext;
         private System.Windows.Forms.ToolStripMenuItem tsmRemoveItems;

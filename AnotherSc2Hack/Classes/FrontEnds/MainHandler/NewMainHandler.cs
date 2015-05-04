@@ -39,8 +39,34 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private Boolean _bProcessSet;
 
+        #region LanguageString
+
         private readonly LanguageString _lstrChCreditsContributer = new LanguageString("lstrChCreditsContributer");
         private readonly LanguageString _lstrChCreditsReason = new LanguageString("lstrChCreditsReason");
+        private readonly LanguageString _lstrChPluginsPluginName = new LanguageString("lstrChPluginsPluginName");
+        private readonly LanguageString _lstrChPluginsPluginVersion = new LanguageString("lstrChPluginsPluginVersion");
+        private readonly LanguageString _lstrChDebugAttribute = new LanguageString("lstrChDebugAttribute");
+        private readonly LanguageString _lstrChDebugValue = new LanguageString("lstrChDebugValue");
+
+        private readonly LanguageString _lstrCreditsReasonRhcp = new LanguageString("lstrCreditsReasonRhcp");
+        private readonly LanguageString _lstrCreditsReasonBeaving = new LanguageString("lstrCreditsReasonBeaving");
+        private readonly LanguageString _lstrCreditsReasonMrnukealizer = new LanguageString("lstrCreditsReasonMrnukealizer");
+        private readonly LanguageString _lstrCreditsReasonMyteewun = new LanguageString("lstrCreditsReasonMyteewun");
+        private readonly LanguageString _lstrCreditsReasonMischa = new LanguageString("lstrCreditsReasonMischa");
+        private readonly LanguageString _lstrCreditsReasonMrice = new LanguageString("lstrCreditsReasonMrice");
+        private readonly LanguageString _lstrCreditsReasonTracky = new LanguageString("lstrCreditsReasonTracky");
+        private readonly LanguageString _lstrCreditsReasonD3Scene = new LanguageString("lstrCreditsReasonD3Scene");
+        private readonly LanguageString _lstrCreditsReasonVariousPeople = new LanguageString("lstrCreditsReasonVariousPeople");
+        private readonly LanguageString _lstrCreditsReasonDonators = new LanguageString("lstrCreditsReasonDonators");
+
+        private readonly LanguageString _lstrApplicationRestoreSettingsText = new LanguageString("lstrApplicationRestoreSettingsText");
+        private readonly LanguageString _lstrApplicationRestoreSettingsHeader = new LanguageString("lstrApplicationRestoreSettingsHeader");
+        private readonly LanguageString _lstrApplicationRestorePanelPositionText = new LanguageString("lstrApplicationRestorePanelPositionText");
+        private readonly LanguageString _lstrApplicationRestorePanelPositionHeader = new LanguageString("lstrApplicationRestorePanelPositionHeader");
+
+
+
+        #endregion
 
         #endregion
 
@@ -187,8 +213,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             
             Init();
             OverlaysEventMapping();
-            ControlsFill();
             LanguageStringEventMapping();
+            ControlsFill();
+            
             
 
             ApplicationOptions = app;
@@ -499,17 +526,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             _lstrChCreditsContributer.TextChanged += _lstrChCreditsContributer_TextChanged;
             _lstrChCreditsReason.TextChanged += _lstrChCreditsReason_TextChanged;
+
+            _lstrChPluginsPluginName.TextChanged += _lstrChPluginsPluginName_TextChanged;
+            _lstrChPluginsPluginVersion.TextChanged += _lstrChPluginsPluginVersion_TextChanged;
+
+            _lstrChDebugAttribute.TextChanged += _lstrChDebugAttribute_TextChanged;
+            _lstrChDebugValue.TextChanged += _lstrChDebugValue_TextChanged;
         }
 
-        void _lstrChCreditsReason_TextChanged(object sender, EventArgs e)
-        {
-            chCreditsReason.Text = _lstrChCreditsReason.Text;
-        }
+        
 
-        void _lstrChCreditsContributer_TextChanged(object sender, EventArgs e)
-        {
-            chCreditsContributer.Text = _lstrChCreditsContributer.Text;
-        }
+        
+
+        
+
+
 
         #region Application Panel Data
 
@@ -607,13 +638,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             AnotherCheckbox.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
             ClickablePanel.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
             LanguageString.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
+
+            //Trigger some methods manually
+            LoadContributers();
         }
 
         private void btnReposition_Click(object sender, EventArgs e)
         {
             var tmpPreferences = PSettings;
 
-            HelpFunctions.InitResolution(ref tmpPreferences);
+            HelpFunctions.InitResolution(ref tmpPreferences, _lstrApplicationRestorePanelPositionText.Text, _lstrApplicationRestorePanelPositionHeader.Text);
             PSettings = tmpPreferences;
         }
 
@@ -624,7 +658,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnRestoreSettings_Click(object sender, EventArgs e)
         {
-            var result = new AnotherMessageBox().Show("Do you really want to reset your settings?", "Are you sure?", MessageBoxButtons.YesNo
+            var result = new AnotherMessageBox().Show(_lstrApplicationRestoreSettingsText.Text, _lstrApplicationRestoreSettingsHeader.Text, MessageBoxButtons.YesNo
                 );
 
           
@@ -1952,6 +1986,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             btnPluginsInstallPlugin_Click(btnPluginsInstallPlugin, e);
         }
 
+        void _lstrChPluginsPluginVersion_TextChanged(object sender, EventArgs e)
+        {
+            chPluginsAvailablePluginVersion.Text = _lstrChPluginsPluginVersion.Text;
+            chPluginsLoadedPluginVersion.Text = _lstrChPluginsPluginVersion.Text;
+        }
+
+        void _lstrChPluginsPluginName_TextChanged(object sender, EventArgs e)
+        {
+            chPluginsAvailablePluginName.Text = _lstrChPluginsPluginName.Text;
+            chPluginsLoadedPluginName.Text = _lstrChPluginsPluginName.Text;
+        }
+
         #endregion
 
         /// <summary>
@@ -2414,6 +2460,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
+        void _lstrChDebugValue_TextChanged(object sender, EventArgs e)
+        {
+            chDebugMapDataValue.Text = _lstrChDebugValue.Text;
+            chDebugMatchDataValue.Text = _lstrChDebugValue.Text;
+            chDebugUnitDataValue.Text = _lstrChDebugValue.Text;
+            chDebugPlayerDataValue.Text = _lstrChDebugValue.Text;
+        }
+
+        void _lstrChDebugAttribute_TextChanged(object sender, EventArgs e)
+        {
+            chDebugMapDataAttribute.Text = _lstrChDebugAttribute.Text;
+            chDebugMatchDataAttribute.Text = _lstrChDebugAttribute.Text;
+            chDebugUnitDataAttribute.Text = _lstrChDebugAttribute.Text;
+            chDebugPlayerDataAttribute.Text = _lstrChDebugAttribute.Text;
+        }
+
         #endregion
 
         #endregion
@@ -2579,18 +2641,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /// </summary>
         private void LoadContributers()
         {
+            lstvCredits.Items.Clear();
+
+
             var dict = new Dictionary<string, string>();
 
-            dict.Add("RHCP (D3Scene)", "Open Source MH, Gameinteraction, Minimap drawing and extremely helpful");
-            dict.Add("Beaving (D3Scene)", "Various hacking information, Concepts, Suggestions and good chats");
-            dict.Add("Mr Nukealizer (D3Scene)", "Open Source MH, Ideas and concepts");
-            dict.Add("MyTeeWun (D3Scene)", "Production-Tag (Unit and Upgrades) and good research in SC2 memory");
-            dict.Add("mischa (D3Scene)", "Great SC2 memory research with Upgrades, production and unitlists");
-            dict.Add("mr_ice (D3Scene)", "Graphical help");
-            dict.Add("Tracky (D3Scene)", "Suggestions and ideas");
-            dict.Add("D3Scene", "Good environment with a lot helpful people");
-            dict.Add("Various people", "...that gave ideas, suggestions and critism - thank you!");
-            dict.Add("Donators", "Because you people make me buy some candy :3");
+            dict.Add("RHCP (D3Scene)", _lstrCreditsReasonRhcp.Text);
+            dict.Add("Beaving (D3Scene)", _lstrCreditsReasonBeaving.Text);
+            dict.Add("Mr Nukealizer (D3Scene)", _lstrCreditsReasonMrnukealizer.Text);
+            dict.Add("MyTeeWun (D3Scene)", _lstrCreditsReasonMyteewun.Text);
+            dict.Add("mischa (D3Scene)", _lstrCreditsReasonMischa.Text);
+            dict.Add("mr_ice (D3Scene)", _lstrCreditsReasonMrice.Text);
+            dict.Add("Tracky (D3Scene)", _lstrCreditsReasonTracky.Text);
+            dict.Add("D3Scene", _lstrCreditsReasonD3Scene.Text);
+            dict.Add("Various people", _lstrCreditsReasonVariousPeople.Text);
+            dict.Add("Donators", _lstrCreditsReasonDonators.Text);
 
 
             foreach (KeyValuePair<string, string> keyValuePair in dict)
@@ -2619,6 +2684,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             lstvCredits.Columns[lstvCredits.Columns.Count - 1].Width = -2;
         }
 
+        void _lstrChCreditsReason_TextChanged(object sender, EventArgs e)
+        {
+            chCreditsReason.Text = _lstrChCreditsReason.Text;
+        }
+
+        void _lstrChCreditsContributer_TextChanged(object sender, EventArgs e)
+        {
+            chCreditsContributer.Text = _lstrChCreditsContributer.Text;
+        }
 
         #endregion
 

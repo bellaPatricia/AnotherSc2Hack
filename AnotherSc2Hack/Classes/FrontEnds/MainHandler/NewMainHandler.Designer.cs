@@ -92,21 +92,21 @@
             this.cpnlDebug = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlDebug = new System.Windows.Forms.Panel();
             this.lstvDebugMatchdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDebugMatchDataAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDebugMatchDataValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblDebugMatchdata = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.lstvDebugMapdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDebugMapDataAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDebugMapDataValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblDebugMapdata = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtDebugUnitLocation = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.ntxtDebugPlayerLocation = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
             this.lstvDebugUnitdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDebugUnitDataAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDebugUnitDataValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstvDebugPlayderdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.colHAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDebugPlayerDataAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDebugPlayerDataValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtDebugUnitMemory = new System.Windows.Forms.TextBox();
             this.lblDebugUnitObjects = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.lblDebugUnitLocation = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
@@ -167,14 +167,14 @@
             this.lblPluginDescription = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
             this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chPluginsAvailablePluginName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chPluginsAvailablePluginVersion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmPluginInstall = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsPluginInstallPlugin = new System.Windows.Forms.ToolStripMenuItem();
             this.lblPluginAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.lstvPluginsLoadedPlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chPluginsLoadedPluginName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chPluginsLoadedPluginVersion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmPluginRemove = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsPluginRemove = new System.Windows.Forms.ToolStripMenuItem();
             this.lblPluginLoadedPlugins = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
@@ -1073,8 +1073,8 @@
             // 
             this.lstvDebugMatchdata.AutoArrange = false;
             this.lstvDebugMatchdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6});
+            this.chDebugMatchDataAttribute,
+            this.chDebugMatchDataValue});
             this.lstvDebugMatchdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvDebugMatchdata.FullRowSelect = true;
             this.lstvDebugMatchdata.GridLines = true;
@@ -1085,15 +1085,15 @@
             this.lstvDebugMatchdata.UseCompatibleStateImageBehavior = false;
             this.lstvDebugMatchdata.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader5
+            // chDebugMatchDataAttribute
             // 
-            this.columnHeader5.Text = "Attribute";
-            this.columnHeader5.Width = 100;
+            this.chDebugMatchDataAttribute.Text = "Attribute";
+            this.chDebugMatchDataAttribute.Width = 100;
             // 
-            // columnHeader6
+            // chDebugMatchDataValue
             // 
-            this.columnHeader6.Text = "Value";
-            this.columnHeader6.Width = 96;
+            this.chDebugMatchDataValue.Text = "Value";
+            this.chDebugMatchDataValue.Width = 96;
             // 
             // lblDebugMatchdata
             // 
@@ -1111,8 +1111,8 @@
             // 
             this.lstvDebugMapdata.AutoArrange = false;
             this.lstvDebugMapdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader4});
+            this.chDebugMapDataAttribute,
+            this.chDebugMapDataValue});
             this.lstvDebugMapdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvDebugMapdata.FullRowSelect = true;
             this.lstvDebugMapdata.GridLines = true;
@@ -1123,15 +1123,15 @@
             this.lstvDebugMapdata.UseCompatibleStateImageBehavior = false;
             this.lstvDebugMapdata.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader3
+            // chDebugMapDataAttribute
             // 
-            this.columnHeader3.Text = "Attribute";
-            this.columnHeader3.Width = 100;
+            this.chDebugMapDataAttribute.Text = "Attribute";
+            this.chDebugMapDataAttribute.Width = 100;
             // 
-            // columnHeader4
+            // chDebugMapDataValue
             // 
-            this.columnHeader4.Text = "Value";
-            this.columnHeader4.Width = 96;
+            this.chDebugMapDataValue.Text = "Value";
+            this.chDebugMapDataValue.Width = 96;
             // 
             // lblDebugMapdata
             // 
@@ -1173,8 +1173,8 @@
             // 
             this.lstvDebugUnitdata.AutoArrange = false;
             this.lstvDebugUnitdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
+            this.chDebugUnitDataAttribute,
+            this.chDebugUnitDataValue});
             this.lstvDebugUnitdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvDebugUnitdata.FullRowSelect = true;
             this.lstvDebugUnitdata.GridLines = true;
@@ -1185,22 +1185,22 @@
             this.lstvDebugUnitdata.UseCompatibleStateImageBehavior = false;
             this.lstvDebugUnitdata.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // chDebugUnitDataAttribute
             // 
-            this.columnHeader1.Text = "Attribute";
-            this.columnHeader1.Width = 133;
+            this.chDebugUnitDataAttribute.Text = "Attribute";
+            this.chDebugUnitDataAttribute.Width = 133;
             // 
-            // columnHeader2
+            // chDebugUnitDataValue
             // 
-            this.columnHeader2.Text = "Value";
-            this.columnHeader2.Width = 160;
+            this.chDebugUnitDataValue.Text = "Value";
+            this.chDebugUnitDataValue.Width = 160;
             // 
             // lstvDebugPlayderdata
             // 
             this.lstvDebugPlayderdata.AutoArrange = false;
             this.lstvDebugPlayderdata.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colHAttribute,
-            this.colHValue});
+            this.chDebugPlayerDataAttribute,
+            this.chDebugPlayerDataValue});
             this.lstvDebugPlayderdata.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvDebugPlayderdata.FullRowSelect = true;
             this.lstvDebugPlayderdata.GridLines = true;
@@ -1211,15 +1211,15 @@
             this.lstvDebugPlayderdata.UseCompatibleStateImageBehavior = false;
             this.lstvDebugPlayderdata.View = System.Windows.Forms.View.Details;
             // 
-            // colHAttribute
+            // chDebugPlayerDataAttribute
             // 
-            this.colHAttribute.Text = "Attribute";
-            this.colHAttribute.Width = 133;
+            this.chDebugPlayerDataAttribute.Text = "Attribute";
+            this.chDebugPlayerDataAttribute.Width = 133;
             // 
-            // colHValue
+            // chDebugPlayerDataValue
             // 
-            this.colHValue.Text = "Value";
-            this.colHValue.Width = 110;
+            this.chDebugPlayerDataValue.Text = "Value";
+            this.chDebugPlayerDataValue.Width = 110;
             // 
             // txtDebugUnitMemory
             // 
@@ -2053,8 +2053,8 @@
             // 
             this.lstvPluginsAvailablePlugins.AutoArrange = false;
             this.lstvPluginsAvailablePlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader9,
-            this.columnHeader10});
+            this.chPluginsAvailablePluginName,
+            this.chPluginsAvailablePluginVersion});
             this.lstvPluginsAvailablePlugins.ContextMenuStrip = this.cmPluginInstall;
             this.lstvPluginsAvailablePlugins.Enabled = false;
             this.lstvPluginsAvailablePlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2069,15 +2069,15 @@
             this.lstvPluginsAvailablePlugins.View = System.Windows.Forms.View.Details;
             this.lstvPluginsAvailablePlugins.SelectedIndexChanged += new System.EventHandler(this.lstvPluginsAvailablePlugins_SelectedIndexChanged);
             // 
-            // columnHeader9
+            // chPluginsAvailablePluginName
             // 
-            this.columnHeader9.Text = "Plugin";
-            this.columnHeader9.Width = 133;
+            this.chPluginsAvailablePluginName.Text = "Plugin";
+            this.chPluginsAvailablePluginName.Width = 133;
             // 
-            // columnHeader10
+            // chPluginsAvailablePluginVersion
             // 
-            this.columnHeader10.Text = "Version";
-            this.columnHeader10.Width = 98;
+            this.chPluginsAvailablePluginVersion.Text = "Version";
+            this.chPluginsAvailablePluginVersion.Width = 98;
             // 
             // cmPluginInstall
             // 
@@ -2110,8 +2110,8 @@
             this.lstvPluginsLoadedPlugins.AutoArrange = false;
             this.lstvPluginsLoadedPlugins.CheckBoxes = true;
             this.lstvPluginsLoadedPlugins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader7,
-            this.columnHeader8});
+            this.chPluginsLoadedPluginName,
+            this.chPluginsLoadedPluginVersion});
             this.lstvPluginsLoadedPlugins.ContextMenuStrip = this.cmPluginRemove;
             this.lstvPluginsLoadedPlugins.Enabled = false;
             this.lstvPluginsLoadedPlugins.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2126,15 +2126,15 @@
             this.lstvPluginsLoadedPlugins.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstvPluginsLoadedPlugins_ItemChecked);
             this.lstvPluginsLoadedPlugins.SelectedIndexChanged += new System.EventHandler(this.lstvPluginsLoadedPlugins_SelectedIndexChanged);
             // 
-            // columnHeader7
+            // chPluginsLoadedPluginName
             // 
-            this.columnHeader7.Text = "Plugin";
-            this.columnHeader7.Width = 133;
+            this.chPluginsLoadedPluginName.Text = "Plugin";
+            this.chPluginsLoadedPluginName.Width = 133;
             // 
-            // columnHeader8
+            // chPluginsLoadedPluginVersion
             // 
-            this.columnHeader8.Text = "Version";
-            this.columnHeader8.Width = 98;
+            this.chPluginsLoadedPluginVersion.Text = "Version";
+            this.chPluginsLoadedPluginVersion.Width = 98;
             // 
             // cmPluginRemove
             // 
@@ -2169,14 +2169,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.pnlMainArea.Controls.Add(this.lblTabname);
-            this.pnlMainArea.Controls.Add(this.pnlCredits);
-            this.pnlMainArea.Controls.Add(this.pnlApplication);
-            this.pnlMainArea.Controls.Add(this.pnlPlugins);
-            this.pnlMainArea.Controls.Add(this.pnlDebug);
             this.pnlMainArea.Controls.Add(this.pnlOverlays);
             this.pnlMainArea.Controls.Add(this.pnlVarious);
             this.pnlMainArea.Controls.Add(this.pnlHelpMe);
             this.pnlMainArea.Controls.Add(this.pnlBenchmark);
+            this.pnlMainArea.Controls.Add(this.pnlCredits);
+            this.pnlMainArea.Controls.Add(this.pnlApplication);
+            this.pnlMainArea.Controls.Add(this.pnlPlugins);
+            this.pnlMainArea.Controls.Add(this.pnlDebug);
             this.pnlMainArea.Location = new System.Drawing.Point(152, 0);
             this.pnlMainArea.Name = "pnlMainArea";
             this.pnlMainArea.Size = new System.Drawing.Size(1029, 531);
@@ -2438,29 +2438,29 @@
         private LanguageButton btnDebugUnitBack;
         private LanguageLabel lblDebugUnitdata;
         private AnotherListview lstvDebugPlayderdata;
-        private System.Windows.Forms.ColumnHeader colHAttribute;
-        private System.Windows.Forms.ColumnHeader colHValue;
+        private System.Windows.Forms.ColumnHeader chDebugPlayerDataAttribute;
+        private System.Windows.Forms.ColumnHeader chDebugPlayerDataValue;
         private AnotherListview lstvDebugUnitdata;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader chDebugUnitDataAttribute;
+        private System.Windows.Forms.ColumnHeader chDebugUnitDataValue;
         private NumberTextBox ntxtDebugUnitLocation;
         private NumberTextBox ntxtDebugPlayerLocation;
         private AnotherListview lstvDebugMapdata;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader chDebugMapDataAttribute;
+        private System.Windows.Forms.ColumnHeader chDebugMapDataValue;
         private LanguageLabel lblDebugMapdata;
         private AnotherListview lstvDebugMatchdata;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader chDebugMatchDataAttribute;
+        private System.Windows.Forms.ColumnHeader chDebugMatchDataValue;
         private LanguageLabel lblDebugMatchdata;
         private System.Windows.Forms.Panel pnlPlugins;
         private LanguageLabel lblPluginLoadedPlugins;
         private AnotherListview lstvPluginsLoadedPlugins;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader chPluginsLoadedPluginName;
+        private System.Windows.Forms.ColumnHeader chPluginsLoadedPluginVersion;
         private AnotherListview lstvPluginsAvailablePlugins;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader chPluginsAvailablePluginName;
+        private System.Windows.Forms.ColumnHeader chPluginsAvailablePluginVersion;
         private LanguageLabel lblPluginAvailablePlugins;
         private LanguageButton btnPluginsInstallPlugin;
         private LanguageLabel lblPluginsImageposition;

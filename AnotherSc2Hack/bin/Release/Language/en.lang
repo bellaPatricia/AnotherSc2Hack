@@ -129,8 +129,34 @@ aChBxDisplayBuildings: Show Buildings
 aChBxDisplayUnits: Show Units
 aChBxTransparentImages: Transparent Pictures
 
-
-;Non UI text
+;Programmed text
 lstrOpacity: Opacity:
 lstrChCreditsContributer: Contributor
 lstrChCreditsReason: But.. why?
+lstrCreditsReasonRhcp: Open Source MH, Gameinteraction, Minimap drawing and extremely helpful
+lstrCreditsReasonBeaving: Various hacking information, Concepts, Suggestions and good chats
+lstrCreditsReasonMrnukealizer: Open Source MH, Ideas and concepts
+lstrCreditsReasonMyteewun: Production-Tag (Unit and Upgrades) and good research in SC2 memory
+lstrCreditsReasonMischa: Great SC2 memory research with Upgrades, production and unitlists
+lstrCreditsReasonMrice: Graphical help
+lstrCreditsReasonTracky: Suggestions and ideas
+lstrCreditsReasonD3Scene: Good environment with a lot helpful people
+lstrCreditsReasonVariousPeople: ...that gave ideas, suggestions and critism - thank you!
+lstrCreditsReasonDonators: Because you people make me buy some candy :3
+lstrApplicationRestoreSettingsText: Do you really want to reset your settings?
+lstrApplicationRestoreSettingsHeader: Are you sure?
+lstrAnotherMessageBoxOk: Ok
+lstrAnotherMessageBoxCancel: Cancel
+lstrAnotherMessageBoxAbort: Abort
+lstrAnotherMessageBoxRetry: Retry
+lstrAnotherMessageBoxIgnore: Ignore
+lstrAnotherMessageBoxYes: Yes
+lstrAnotherMessageBoxNo: No
+lstrApplicationRestorePanelPositionText: Panel's size and position\nwere adjusted successfully!
+lstrApplicationRestorePanelPositionHeader: Panelposition changed!
+lstrChPluginsPluginName: Plugin
+lstrChPluginsPluginVersion: Version
+lstrChDebugAttribute: Attribute
+lstrChDebugValue: Value
+lstrChMaphackFilterUnit: Unit
+lstrMaphackFilterRemoveItem: Remove selection

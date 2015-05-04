@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.ExtensionMethods;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using Predefined;
@@ -26,6 +27,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
     public partial class PanelOverlayMaphack : UserControl
     {
+        #region Variables
+
+        private readonly LanguageString _lstrChMaphackFilterUnit = new LanguageString("lstrChMaphackFilterUnit");
+        private readonly LanguageString _lstrMaphackFilterRemoveItem = new LanguageString("lstrMaphackFilterRemoveItem");
+
+        #endregion
+
         #region Getter/Setter
 
         public Dictionary<PredefinedData.UnitId, Color> LUnitFilter { get; private set; }
@@ -39,11 +47,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             InitializeComponent();
 
             LUnitFilter = new Dictionary<PredefinedData.UnitId, Color>();
+
+            _lstrChMaphackFilterUnit.TextChanged += _lstrChMaphackFilterUnit_TextChanged;
+            _lstrMaphackFilterRemoveItem.TextChanged += _lstrChMaphackFilterRemoveItem_TextChanged;
         }
 
         #endregion
 
         #region Event Methods
+
+        void _lstrChMaphackFilterRemoveItem_TextChanged(object sender, EventArgs e)
+        {
+            tsmRemoveItems.Text = _lstrMaphackFilterRemoveItem.Text;
+        }
+
+        void _lstrChMaphackFilterUnit_TextChanged(object sender, EventArgs e)
+        {
+            chMaphackfilterUnit.Text = _lstrChMaphackFilterUnit.Text;
+        }
+
         private void icbMaphackBasicsUnitSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             var unit = (ImageComboItem)icbMaphackBasicsUnitSelection.SelectedItem;
@@ -84,7 +106,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
 
         private void cmsListviewContext_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            if (e.ClickedItem.Text.Contains("Remove"))
+            if (e.ClickedItem.Text == _lstrMaphackFilterRemoveItem.Text)
             {
                 RemoveSelectedItems();
             }

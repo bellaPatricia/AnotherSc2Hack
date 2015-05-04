@@ -152,7 +152,7 @@ namespace AnotherSc2Hack
             return size;
         }
 
-        public static void InitResolution(ref PreferenceManager pSettings)
+        public static void InitResolution(ref PreferenceManager pSettings, string text, string header)
         {
             Int32 iWidth = Screen.PrimaryScreen.Bounds.Width,
                   iHeidth = Screen.PrimaryScreen.Bounds.Height;
@@ -547,9 +547,7 @@ namespace AnotherSc2Hack
 
             #endregion
 
-            new AnotherMessageBox().Show("Panel's size and position\n" +
-                            "were adjusted successfully!\n\n" + 
-            "Please reload the panels!", "Panelposition changed!");
+            new AnotherMessageBox().Show(text, header);
         }
 
         public static Image byteArrayToImage(byte[] byteArrayIn)

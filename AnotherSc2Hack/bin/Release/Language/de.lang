@@ -129,7 +129,34 @@ aChBxDisplayBuildings: Gebäude anzeigen
 aChBxDisplayUnits: Einheiten anzeigen
 aChBxTransparentImages: Transparente Bilder
 
-;Non UI text
+;Programmed text
 lstrOpacity: Sichtbarkeit:
 lstrChCreditsContributer: Mitwirkender
 lstrChCreditsReason: Aber.. warum?
+lstrCreditsReasonRhcp: Open Source MH, Gameinteraction, Minimap zeichnen und sehr hilfreich
+lstrCreditsReasonBeaving: Verschiedene hack-Informationen, Konzepte, Vorschläge und chats
+lstrCreditsReasonMrnukealizer: Open Source MH, Ideen und Konzepte
+lstrCreditsReasonMyteewun: Produktions-Tab (Einheiten und Upgrades) und gute SCII Speicher Forschung
+lstrCreditsReasonMischa: Großartige SCII Speicher Forschung für Upgrades, Produktion und Einheiten
+lstrCreditsReasonMrice: Bilder
+lstrCreditsReasonTracky: Vorschläge und Ideen
+lstrCreditsReasonD3Scene: Gute Umgebung und viele hilfreiche Leute
+lstrCreditsReasonVariousPeople: ... die Ideen, Vorschläge und Feedback gaben - danke!
+lstrCreditsReasonDonators: Weil ich durch euch Süßigkeiten kaufen kann :3
+lstrApplicationRestoreSettingsText: Möchtest Du wirklich Deine Einstellungen zurück setzen?
+lstrApplicationRestoreSettingsHeader: Bist Du sicher?
+lstrAnotherMessageBoxOk: Ok
+lstrAnotherMessageBoxCancel: Abbrechen
+lstrAnotherMessageBoxAbort: Abbrechen
+lstrAnotherMessageBoxRetry: Neuer Versuch
+lstrAnotherMessageBoxIgnore: Ignorieren
+lstrAnotherMessageBoxYes: Ja
+lstrAnotherMessageBoxNo: Nein
+lstrApplicationRestorePanelPositionText: Größe und Position der Panels\nwurden erfolgreich angepasst!
+lstrApplicationRestorePanelPositionHeader: Panelposition geändert!
+lstrChPluginsPluginName: Plugin
+lstrChPluginsPluginVersion: Version
+lstrChDebugAttribute: Attribut
+lstrChDebugValue: Wert
+lstrChMaphackFilterUnit: Einheit
+lstrMaphackFilterRemoveItem: Entferne Selektion
