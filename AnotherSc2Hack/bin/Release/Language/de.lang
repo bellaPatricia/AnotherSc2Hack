@@ -160,3 +160,5 @@ lstrChDebugAttribute: Attribut
 lstrChDebugValue: Wert
 lstrChMaphackFilterUnit: Einheit
 lstrMaphackFilterRemoveItem: Entferne Selektion
+lstrPluginContextInstallPlugin: Plugin installieren
+lstrPluginContextRemovePlugin: Plugin entfernen

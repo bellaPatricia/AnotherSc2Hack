@@ -64,6 +64,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly LanguageString _lstrApplicationRestorePanelPositionText = new LanguageString("lstrApplicationRestorePanelPositionText");
         private readonly LanguageString _lstrApplicationRestorePanelPositionHeader = new LanguageString("lstrApplicationRestorePanelPositionHeader");
 
+        private readonly LanguageString _lstrPluginContextInstallPlugin = new LanguageString("lstrPluginContextInstallPlugin");
+        private readonly LanguageString _lstrPluginContextRemovePlugin = new LanguageString("lstrPluginContextRemovePlugin");
+
 
 
         #endregion
@@ -532,15 +535,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             _lstrChDebugAttribute.TextChanged += _lstrChDebugAttribute_TextChanged;
             _lstrChDebugValue.TextChanged += _lstrChDebugValue_TextChanged;
+
+            _lstrPluginContextRemovePlugin.TextChanged += _lstrPluginContextRemovePlugin_TextChanged;
+            _lstrPluginContextInstallPlugin.TextChanged += _lstrPluginContextInstallPlugin_TextChanged;
         }
-
-        
-
-        
-
-        
-
-
 
         #region Application Panel Data
 
@@ -1998,6 +1996,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             chPluginsLoadedPluginName.Text = _lstrChPluginsPluginName.Text;
         }
 
+        void _lstrPluginContextInstallPlugin_TextChanged(object sender, EventArgs e)
+        {
+            tsPluginInstallPlugin.Text = _lstrPluginContextInstallPlugin.Text;
+        }
+
+        void _lstrPluginContextRemovePlugin_TextChanged(object sender, EventArgs e)
+        {
+            tsPluginRemove.Text = _lstrPluginContextRemovePlugin.Text;
+        }
+
         #endregion
 
         /// <summary>
@@ -2587,6 +2595,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             LaunchRenderer(typeof(PersonalClockRenderer));
         }
 
+        private void chBxVariousWorkerCoach_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach = o.Checked;
+            LaunchRenderer(typeof(WorkerCoachRenderer));
+
+        }
+
+        private void ntxtVariousWorkerCoachDisableAfter_NumberChanged(object sender, NumberArgs e)
+        {
+            PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
+        }
+  
+
         #endregion
 
         #endregion
@@ -3135,18 +3156,5 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #endregion
-
-        private void chBxVariousWorkerCoach_CheckedChanged(AnotherCheckbox o, EventChecked e)
-        {
-            PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach = o.Checked;
-            LaunchRenderer(typeof(WorkerCoachRenderer));
-            
-        }
-
-        private void ntxtVariousWorkerCoachDisableAfter_NumberChanged(object sender, NumberArgs e)
-        {
-            PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
-        }
-  
     } 
 }
