@@ -108,7 +108,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             set
             {
                 _displayText = value;
+
                 _lMainText.Text = _displayText;
+
+                RealignLabelLocation();
             }
         }
 
@@ -137,21 +140,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
                 if (_lMainText != null)
                 {
-                    _lMainText.Font = new Font(Font.Name, _textSize);
-
-                    var fTextSize = TextRenderer.MeasureText(DisplayText, _lMainText.Font);
-                    var fHeight = (float)Size.Height / 2;
-                    var fY = fHeight - ((float)fTextSize.Height / 2);
-
-                    var posX = Width - fTextSize.Width;
-                    posX = posX / 2;
-
-                    if (_iTextPosX != 0)
-                        posX = 0;
-
-                    _lMainText.Location = new Point(_iTextPosX + posX, (int)fY);
+                    RealignLabelLocation();
                 }
             }
+        }
+
+        private void RealignLabelLocation()
+        {
+            _lMainText.Font = new Font(Font.Name, _textSize);
+
+            var fTextSize = TextRenderer.MeasureText(DisplayText, _lMainText.Font);
+            var fHeight = (float)Size.Height / 2;
+            var fY = fHeight - ((float)fTextSize.Height / 2);
+
+            var posX = Width - fTextSize.Width;
+            posX = posX / 2;
+
+            if (_iTextPosX != 0)
+                posX = 0;
+
+            _lMainText.Location = new Point(_iTextPosX + posX, (int)fY);
         }
 
         private Image _imgIcon;
