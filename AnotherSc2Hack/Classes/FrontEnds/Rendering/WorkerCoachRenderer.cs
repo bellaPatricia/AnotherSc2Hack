@@ -214,11 +214,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                 if (GInformation.Gameinfo.Timer/60 >= PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter)
-                    Opacity = 0.3;
+                {
+                    return;
+                }
 
-                else
-                    Opacity = 0.8;
+                Opacity = 0.8;
                 
+
 
                 #endregion
 
@@ -269,58 +271,70 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
                 }
 
-                
+                //Draw the background image manually
+                if (iUnusedEnergy > 0 ||
+                    iUnusedWorkers > 0)
+                    g.Graphics.DrawImage(Properties.Resources.WorkerCoach, 0, 0, Width - 1, Height - 1);
+
 
                 if (iUnusedWorkers > 0)
                 {
                     BWorkerJustGotInactive = true;
 
-
-                    _iWorkerEnd = GInformation.Gameinfo.Timer;
-                    var strCurrentIdleTime = ((_iWorkerEnd - _iWorkerBegin) / 60) + ":" + (_iWorkerEnd - _iWorkerBegin) % 60;
-                    var iSumIdleTime = _lWorkerIdle.Sum() + (_iWorkerEnd - _iWorkerBegin);
-                    var strSumIdleTime = iSumIdleTime / 60 + ":" + iSumIdleTime % 60;
-
-                    g.Graphics.DrawImage(_imgWorker, new Rectangle(33, 28, 36, 36));
-                    g.Graphics.DrawString(strCurrentIdleTime + " [" + strSumIdleTime + "]", _bFont, Brushes.DarkOrange, new PointF(75 + 33 + 20, 28));
-                    g.Graphics.DrawString(iUnusedWorkers.ToString(), _bFont, Brushes.DarkOrange, new PointF(41 + 33, 28));
+                    DrawWorker(iUnusedWorkers, g);
                 }
 
                 else
+                {
                     BWorkerJustGotInactive = false;
+                }
 
 
                 if (iUnusedEnergy > 0)
                 {
                     BEnergyJustGotInactive = true;
 
-                    _iEnergyEnd = GInformation.Gameinfo.Timer;
-                    var strCurrentIdleTime = ((_iEnergyEnd - _iEnergyBegin) / 60) + ":" + (_iEnergyEnd - _iEnergyBegin) % 60;
-                    var iSumIdleTime = _lEnergyIdle.Sum() + (_iEnergyEnd - _iEnergyBegin);
-                    var strSumIdleTime = iSumIdleTime / 60 + ":" + iSumIdleTime % 60;
-
-                    g.Graphics.DrawImage(_imgSpecial, new Rectangle(33, 28 + 36, 36, 36));
-                    g.Graphics.DrawString(strCurrentIdleTime + " [" + strSumIdleTime + "]", _bFont, Brushes.DarkOrange, new PointF(75 + 33 + 20, 28 + 40));
-                    g.Graphics.DrawString(iUnusedEnergy.ToString(), _bFont, Brushes.DarkOrange,
-                        new PointF(41 + 33, 28 + 40));
+                    DrawSpecial(iUnusedEnergy, g);
                 }
 
                 else
-                    BEnergyJustGotInactive = false;
-
-
-                if (iUnusedEnergy > 0 ||
-                    iUnusedWorkers > 0)
                 {
-                    //Draw the background image manually
-                    g.Graphics.DrawImage(Properties.Resources.WorkerCoach, 0, 0, Width - 1, Height - 1);
+                    BEnergyJustGotInactive = false;
                 }
+
+
+
             }
 
             catch (Exception ex)
             {
 
             }
+        }
+
+        private void DrawWorker(int iUnusedWorkers, BufferedGraphics g)
+        {
+            _iWorkerEnd = GInformation.Gameinfo.Timer;
+            var strCurrentIdleTime = ((_iWorkerEnd - _iWorkerBegin) / 60) + ":" + (_iWorkerEnd - _iWorkerBegin) % 60;
+            var iSumIdleTime = _lWorkerIdle.Sum() + (_iWorkerEnd - _iWorkerBegin);
+            var strSumIdleTime = iSumIdleTime / 60 + ":" + iSumIdleTime % 60;
+
+            g.Graphics.DrawImage(_imgWorker, new Rectangle(33, 28, 36, 36));
+            g.Graphics.DrawString(strCurrentIdleTime + " [" + strSumIdleTime + "]", _bFont, Brushes.DarkOrange, new PointF(75 + 33 + 20, 28));
+            g.Graphics.DrawString(iUnusedWorkers.ToString(), _bFont, Brushes.DarkOrange, new PointF(41 + 33, 28));
+        }
+
+        private void DrawSpecial(int iUnusedEnergy, BufferedGraphics g)
+        {
+            _iEnergyEnd = GInformation.Gameinfo.Timer;
+            var strCurrentIdleTime = ((_iEnergyEnd - _iEnergyBegin) / 60) + ":" + (_iEnergyEnd - _iEnergyBegin) % 60;
+            var iSumIdleTime = _lEnergyIdle.Sum() + (_iEnergyEnd - _iEnergyBegin);
+            var strSumIdleTime = iSumIdleTime / 60 + ":" + iSumIdleTime % 60;
+
+            g.Graphics.DrawImage(_imgSpecial, new Rectangle(33, 28 + 36, 36, 36));
+            g.Graphics.DrawString(strCurrentIdleTime + " [" + strSumIdleTime + "]", _bFont, Brushes.DarkOrange, new PointF(75 + 33 + 20, 28 + 40));
+            g.Graphics.DrawString(iUnusedEnergy.ToString(), _bFont, Brushes.DarkOrange,
+                new PointF(41 + 33, 28 + 40));
         }
 
         protected override void LoadSpecificData()
