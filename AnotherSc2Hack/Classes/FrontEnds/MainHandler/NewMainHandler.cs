@@ -275,7 +275,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /// <summary>
         /// This method will handle the input for the overlays and other callable things.
         /// This supports button_click events, Keypresses (GetAsyncKeyState) and chat-input
-        /// <param name="senderButton">The Button- object you want to pass. Leave this to null if you don't have a button!</param>
+        /// <param name="clickButton">The Button- object you want to pass. Leave this to null if you don't have a button!</param>
         /// <param name="e">The standard EventArgs object. Leave this to null</param>
         /// </summary>
         private void InputManager(object clickButton = null, EventArgs e = null)
@@ -2769,7 +2769,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     chBxLanguage.Items.Add(_dictLanguageFile[file]);
 
                     //Select the last saved language
-                    if (PSettings.PreferenceAll.Global.Language == file)
+                    if (PSettings.PreferenceAll.Global.Language == strLanguageName)
                         chBxLanguage.SelectedIndex = chBxLanguage.Items.Count - 1;
                 }
             }
