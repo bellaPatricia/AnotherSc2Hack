@@ -562,14 +562,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.pnlMainArea.Controls.Add(this.lblTabname);
+            this.pnlMainArea.Controls.Add(this.pnlApplication);
+            this.pnlMainArea.Controls.Add(this.pnlPlugins);
+            this.pnlMainArea.Controls.Add(this.pnlDebug);
             this.pnlMainArea.Controls.Add(this.pnlOverlays);
             this.pnlMainArea.Controls.Add(this.pnlVarious);
             this.pnlMainArea.Controls.Add(this.pnlHelpMe);
             this.pnlMainArea.Controls.Add(this.pnlBenchmark);
             this.pnlMainArea.Controls.Add(this.pnlCredits);
-            this.pnlMainArea.Controls.Add(this.pnlApplication);
-            this.pnlMainArea.Controls.Add(this.pnlPlugins);
-            this.pnlMainArea.Controls.Add(this.pnlDebug);
             this.pnlMainArea.Location = new System.Drawing.Point(152, 0);
             this.pnlMainArea.Name = "pnlMainArea";
             this.pnlMainArea.Size = new System.Drawing.Size(1029, 531);
@@ -2394,6 +2394,7 @@
             this.Controls.Add(this.pnlMainArea);
             this.Controls.Add(this.pnlLeftSelection);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimumSize = new System.Drawing.Size(1196, 630);
             this.Name = "NewMainHandler";
             this.Text = "NewMainHandler";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewMainHandler_FormClosing);
