@@ -1,0 +1,170 @@
+﻿;1.0.0.1
+;Translate file for the Korean Language
+;Created by ironer1(ironer01@naver.com)
+;Language Name (natively written)
+LanguageName: 한국어
+
+;HelpMe tab
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePaypal: 페이팔
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeLocalize: 번역을 도와주세요!
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeGithubIssues: Github 버그 리포팅
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeEmailMe: 이메일 보내기
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePostOnD3scene: D3Scene 홈페이지 리포팅
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpCash: 현금 기부
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpLocalize: 번역을 도와주세요!
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpSuggestionsBug: 버그 또는 아이디어 제보 (영어)
+
+;Debug tab
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMatchdata: 방 정보
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMapdata: 맵 정보
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitObjects: 전체 오브젝트:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitname: 유닛 이름:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitdata: 유닛 정보
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerObjects: 플레이어의 오브젝트
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayername: 플레이어:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerdata: 플레이어 정보
+lstrChDebugAttribute: 속성
+lstrChDebugValue: 값
+
+;Various tab
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousDisableAfter: 비활성화 기준:
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousWorkerCoach: 일꾼 헬퍼
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalClock: 현제 시간
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalApm: 내 APM
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: 일꾼 수 보이기
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: 시계 보이기
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: APM 경고
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: APM 보이기
+
+;Application tab 
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: 기본 설정
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationLanguage: 언어:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationReposition: 판넬 위치설정 단축키:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: 랜더링 (ms):
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: 메모리 읽기 (ms):
+NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: 설정 초기화
+NewMainHandler#pnlMainArea#pnlApplication#btnReposition: 판넬 위치와 크기 초기화
+NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: 스타2 플레이중에만 핵 표시
+lstrApplicationRestoreSettingsText: 설정을 초기화 하시겠습니까?
+lstrApplicationRestoreSettingsHeader: 확실하세요?
+lstrApplicationRestorePanelPositionText: 판넬의 위치와 크기가 성공적으로 초기화되었습니다.
+lstrApplicationRestorePanelPositionHeader: 초기화 완료
+
+;Benchmark tab
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: 맵핵 반복 / 초.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkProductiontabIterations: 생산 판넬 반복 / 초.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkUnittabIterations: 유닛 판넬 반복 / 초.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkApmIterations: APM 판넬 / 초.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkArmyIterations: 병력 판넬 / 초.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkWorkerIterations: 일꾼 판넬 / 초.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkIncomeIterations: 수입 판넬 / 초.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkResourceIterations: 자원 판넬 / 초.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawingInterval: 간격 (ms)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawing: 랜더링
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataIterations: 반복 / 초.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataInterval: 간격 (ms)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkData: 데이터 
+
+;Plugin tab
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginImages: 미리보기
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginDescription: 설명
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginAvailablePlugins: 사용 가능한 플러그인
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginLoadedPlugins: 설치된 플러그인
+NewMainHandler#pnlMainArea#pnlPlugins#btnPluginsInstallPlugin: 플러그인 설치
+lstrChPluginsPluginName: 플러그인
+lstrChPluginsPluginVersion: 버전
+lstrPluginContextInstallPlugin: 설치
+lstrPluginContextRemovePlugin: 제거
+
+;Left application panels
+NewMainHandler#pnlLeftSelection#cpnlVarious: 기타
+NewMainHandler#pnlLeftSelection#cpnlHelpMe:도와주세요!
+NewMainHandler#pnlLeftSelection#cpnlBenchmark: 벤치마크
+NewMainHandler#pnlLeftSelection#cpnlCredits: 제작자
+NewMainHandler#pnlLeftSelection#cpnlDebug: 디버그
+NewMainHandler#pnlLeftSelection#cpnlApplication: 기본 설정
+NewMainHandler#pnlLeftSelection#cpnlOverlays: 핵 설정
+NewMainHandler#pnlLeftSelection#cpnlPlugins: 플러그인
+
+;Overlays
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysProduction: 생산
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysUnits: 유닛
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysMaphack: 맵핵
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysApm: APM
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysArmy: 병력
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysWorker: 일꾼
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysIncome: 수입
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysResources: 자원
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveDestinationLine: 유닛 목적지 핵 비활성화
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxDefensiveStructures: 방어포탑 강조
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveCamera: 카메라 제거
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveVisionArea: 보기 가능한 구역 표시 비활성화
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#lblMaphackFilter: 특정 유닛/건물 강조
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxDisplayUpgrades: 업그레이드 표시
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveProductionstatus: 생산 상태 비활성화
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveSpellcounter: 스킬 카운터 비활성화
+
+;Bottom launcher
+NewMainHandler#pnlBottomStrip#btnLaunchResource: 자원
+NewMainHandler#pnlBottomStrip#btnLaunchProduction: 생산
+NewMainHandler#pnlBottomStrip#btnLaunchIncome: 수입
+NewMainHandler#pnlBottomStrip#btnLaunchUnit: 유닛
+NewMainHandler#pnlBottomStrip#btnLaunchWorker: 일꾼
+NewMainHandler#pnlBottomStrip#btnLaunchArmy: 병력
+NewMainHandler#pnlBottomStrip#btnLaunchMaphack: 맵핵
+NewMainHandler#pnlBottomStrip#btnLaunchApm: APM
+
+;General text (overlays)
+lblHotkey1: 단축키 1:
+lblHotkey2: 단축키 2:
+lblHotkey3: 단축키 3:
+lblToggle: 판넬 활성/비활성:
+lblResize: 판넬 사이즈 변경:
+lblReposition: 판넬 위치 변경:
+lblChat: 활성/비활성 인게임 명령어 
+lblHotkeys:활성/비활성 단축키
+lblBasics: 설정
+lblSpecial: 특수
+lblSize: 크기:
+lblPreview: 미리보기:
+aChBxRemoveAi: Ai 제거
+aChBxRemoveAllie: 동맹 제거
+aChBxRemoveNeutral: 중립 제거
+aChBxRemoveYourself: 내 유닛 제거
+aChBxDrawBackground: 배경 그리기
+aChBxRemoveClantags: 클랜태그 제거
+aChBxRemoveChronoboost: 시간 증폭 제거
+aChBxSplitUnitsBuildings: 건물과 유닛을 나누기
+aChBxDisplayBuildings: 건물 보이기
+aChBxDisplayUnits: 유닛 보이기
+aChBxTransparentImages: 투명도
+lstrOpacity: 투명도:
+
+;Credits
+lstrChCreditsContributer: 도와주신 분들
+lstrChCreditsReason: 도와주신 것
+lstrCreditsReasonRhcp: 오픈소스 맵핵, 게임 내 상호작용, 미니맵 랜더링을 알려주셨습니다.
+lstrCreditsReasonBeaving: 매우 도움이 되는 정보와 컨셉, 추천을 주셨습니다.
+lstrCreditsReasonMrnukealizer: 오픈소스 맵핵, 새로운 컨셉을 추천해주셨습니다.
+lstrCreditsReasonMyteewun:생산 분야 (유닛과 업그레이드) 와 스타2 의 기초 메모리 구조를 알려주셨습니다.
+lstrCreditsReasonMischa: 업그레이드와 생산, 기초 메모리 해킹법을 알려주셨습니다.
+lstrCreditsReasonMrice: 랜더링 분야를 도와주셨습니다.
+lstrCreditsReasonTracky: 여러가지 놀라운 아이디어를 주셨습니다.
+lstrCreditsReasonD3Scene: 많은 친절한 사람들과 좋은 환경을 조성해주셧습니다.
+lstrCreditsReasonVariousPeople: ...아이디어를 주시고 버그를 제보해주셔서 - 매우 감사합니다!
+lstrCreditsReasonDonators: 맥주 한캔 사먹게 기부해주신분들도 다시한번 감사드립니다!  :D
+
+;Messagebox
+lstrAnotherMessageBoxOk: 네
+lstrAnotherMessageBoxCancel: 취소
+lstrAnotherMessageBoxAbort: 무르기
+lstrAnotherMessageBoxRetry: 재시도
+lstrAnotherMessageBoxIgnore: 무시
+lstrAnotherMessageBoxYes: 네
+lstrAnotherMessageBoxNo: 아니요
+
+;Maphack tab
+lstrChMaphackFilterUnit: 유닛
+lstrMaphackFilterRemoveItem: 선택 삭제
+lstrMaphackFilterMessageAddUnitText: Unit is already used!
+lstrMaphackFilterMessageAddUnitHeader: Ouch!

@@ -20,6 +20,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.ExtensionMethods;
+using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using Predefined;
 
@@ -31,6 +32,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
 
         private readonly LanguageString _lstrChMaphackFilterUnit = new LanguageString("lstrChMaphackFilterUnit");
         private readonly LanguageString _lstrMaphackFilterRemoveItem = new LanguageString("lstrMaphackFilterRemoveItem");
+        private readonly LanguageString _lstrMaphackFilterMessageAddUnitText = new LanguageString("lstrMaphackFilterMessageAddUnitText");
+        private readonly LanguageString _lstrMaphackFilterMessageAddUnitHeader = new LanguageString("lstrMaphackFilterMessageAddUnitHeader");
 
         #endregion
 
@@ -211,7 +214,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
         {
             if (LUnitFilter.ContainsKey(unitId))
             {
-                MessageBox.Show("Unit is already used!", "Ooch!");
+                new AnotherMessageBox().Show(_lstrMaphackFilterMessageAddUnitText.ToString(), _lstrMaphackFilterMessageAddUnitHeader.ToString());
 
                 var items = lstvMaphackBasicsUnitFilter.Items.Find(unitId.ToString(), false);
 
@@ -224,7 +227,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
                 }
 
                 items[0].Selected = true;
-
 
                 return;
             }

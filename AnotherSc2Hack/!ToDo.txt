@@ -1,4 +1,14 @@
-﻿################################
+﻿#############################
+# Add into the next release #
+#############################
+└ [OPEN]	Integrated Downloadmanager
+			├ Download the needed files like:
+				├ Plugininterface.dll
+				├ PredefinedFiles.dll
+				└ Languagefiles
+			└ Check if the listed files are available, if not, download them.
+
+################################
 # Those really should be added #
 ################################
 ├ [OPEN]	Proxy for updates

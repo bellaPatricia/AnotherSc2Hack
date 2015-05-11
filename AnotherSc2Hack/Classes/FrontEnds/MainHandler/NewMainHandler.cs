@@ -2744,6 +2744,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void InitializeLanguageFiles()
         {
             _dictLanguageFile.Clear();
+
+            if (!Directory.Exists(Constants.StrLanguageFolder))
+                return;
+
             var files = Directory.GetFiles(Constants.StrLanguageFolder, "*.lang");
 
             foreach (var file in files)
@@ -2751,12 +2755,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 if (file != null)
                 {
                     var strLanguageName = String.Empty;
+                    var strLanguageFile = String.Empty;
 
                     var strSource = File.ReadAllLines(file);
                     foreach (var strLine in strSource)
                     {
                         if (strLine.StartsWith("LanguageName:"))
                         {
+                            strLanguageFile = file;
                             strLanguageName =
                                 strLine.Substring(strLine.IndexOf("LanguageName: ", StringComparison.Ordinal) +
                                                   "LanguageName: ".Length);
@@ -2769,7 +2775,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     chBxLanguage.Items.Add(_dictLanguageFile[file]);
 
                     //Select the last saved language
-                    if (PSettings.PreferenceAll.Global.Language == strLanguageName)
+                    if (PSettings.PreferenceAll.Global.Language == strLanguageFile)
                         chBxLanguage.SelectedIndex = chBxLanguage.Items.Count - 1;
                 }
             }

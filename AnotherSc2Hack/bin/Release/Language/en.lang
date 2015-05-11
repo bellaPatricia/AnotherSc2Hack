@@ -166,3 +166,5 @@ lstrAnotherMessageBoxNo: No
 ;Maphack tab
 lstrChMaphackFilterUnit: Unit
 lstrMaphackFilterRemoveItem: Remove selection
+lstrMaphackFilterMessageAddUnitText: Unit is already used!
+lstrMaphackFilterMessageAddUnitHeader: Ouch!
