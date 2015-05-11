@@ -166,5 +166,5 @@ lstrAnotherMessageBoxNo: 아니요
 ;Maphack tab
 lstrChMaphackFilterUnit: 유닛
 lstrMaphackFilterRemoveItem: 선택 삭제
-lstrMaphackFilterMessageAddUnitText: Unit is already used!
-lstrMaphackFilterMessageAddUnitHeader: Ouch!
+lstrMaphackFilterMessageAddUnitText: 해당 유닛은 이미 추가되어 있습니다!
+lstrMaphackFilterMessageAddUnitHeader: 이런!
