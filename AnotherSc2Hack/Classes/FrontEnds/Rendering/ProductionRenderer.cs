@@ -6,28 +6,24 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
 using Predefined;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     public class ProductionRenderer : BaseRenderer
     {
-
-        private Image _imgMinerals = Properties.Resources.Mineral_Protoss,
-                      _imgGas = Properties.Resources.Gas_Protoss,
-                      _imgSupply = Properties.Resources.Supply_Protoss,
-                      _imgWorker = Properties.Resources.P_Probe;
-
         /* Size for Unit/ Productionsize */
         private Int32 _iProdPanelWidth;
         private Int32 _iProdPanelWidthWithoutName;
         private Int32 _iProdPosAfterName;
 
 
-        public ProductionRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+        public ProductionRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-            
+            IsHiddenChanged += ProductionRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -47,7 +43,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (!GInformation.Gameinfo.IsIngame)
                     return;
 
-                Opacity = PSettings.ProdTabOpacity;
+                Opacity = PSettings.PreferenceAll.OverlayProduction.Opacity;
 
                 /* Add the feature that the window (in case you have all races and more units than your display can hold) 
                  * will split the units to the next line */
@@ -57,7 +53,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 CountUnits();
 
                 var iHavetoadd = 0; //Adds +1 when a neutral player is on position 0
-                Int32 iSize = PSettings.ProdPictureSize;
+                Int32 iSize = PSettings.PreferenceAll.OverlayProduction.PictureSize;
                 var iPosY = 0;
                 var iPosX = 0;
                 var iPosYName = 0;
@@ -74,7 +70,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (fsize < 1)
                     fsize = 1;
 
-                var fStringFont = new Font(PSettings.ProdTabFontName, fsize, FontStyle.Regular);
+                var fStringFont = new Font(PSettings.PreferenceAll.OverlayProduction.FontName, fsize, FontStyle.Regular);
 
 
                 /* Define the startposition of the picture drawing
@@ -82,7 +78,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 var strPlayerName = String.Empty;
                 for (var i = 0; i < GInformation.Player.Count; i++)
                 {
-                    var strTemp = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ProdTabRemoveClanTag)
+                    var strTemp = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.PreferenceAll.OverlayProduction.RemoveClanTag)
                                              ? GInformation.Player[i].Name
                                              : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
@@ -124,7 +120,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Exceptions - Throw out players
 
                     /* Remove Ai - Works */
-                    if (PSettings.ProdTabRemoveAi)
+                    if (PSettings.PreferenceAll.OverlayProduction.RemoveAi)
                     {
                         if (GInformation.Player[i].Type == PredefinedData.PlayerType.Ai)
                         {
@@ -132,26 +128,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
                     }
 
-                    /* Remove Referee - Not Tested */
-                    if (PSettings.ProdTabRemoveReferee)
-                    {
-                        if (tmpPlayer.Type == PredefinedData.PlayerType.Referee)
-                        {
-                            continue;
-                        }
-                    }
-
-                    /* Remove Observer - Not Tested */
-                    if (PSettings.ProdTabRemoveObserver)
-                    {
-                        if (tmpPlayer.Type == PredefinedData.PlayerType.Observer)
-                        {
-                            continue;
-                        }
-                    }
-
                     /* Remove Neutral - Works */
-                    if (PSettings.ProdTabRemoveNeutral)
+                    if (PSettings.PreferenceAll.OverlayProduction.RemoveNeutral)
                     {
                         if (tmpPlayer.Type == PredefinedData.PlayerType.Neutral)
                         {
@@ -160,7 +138,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     /* Remove Localplayer - Works */
-                    if (PSettings.ProdTabRemoveLocalplayer)
+                    if (PSettings.PreferenceAll.OverlayProduction.RemoveLocalplayer)
                     {
                         if (tmpPlayer.IsLocalplayer)
                         {
@@ -169,7 +147,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     /* Remove Allie - Works */
-                    if (PSettings.ProdTabRemoveAllie)
+                    if (PSettings.PreferenceAll.OverlayProduction.RemoveAllie)
                     {
                         if (tmpPlayer.Team == GInformation.Player[GInformation.Player[i].Localplayer].Team &&
                             !tmpPlayer.IsLocalplayer)
@@ -178,9 +156,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
                     }
 
-                    if (tmpPlayer.Type == PredefinedData.PlayerType.Hostile)
+                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
                         continue;
 
+                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
+                        continue;
+
+                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
+                        continue;
 
 
                     #endregion
@@ -196,7 +179,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     iPosX = 0;
 
                     /* Draw Name in front of Icons */
-                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ProdTabRemoveClanTag)
+                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.PreferenceAll.OverlayProduction.RemoveClanTag)
                                          ? GInformation.Player[i].Name
                                          : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
@@ -207,7 +190,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Units
 
-                    if (PSettings.ProdTabShowUnits)
+                    if (PSettings.PreferenceAll.OverlayProduction.ShowUnits)
                     {
 
                         /* Terran */
@@ -342,7 +325,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region - Split Units and Buildings -
 
-                    if (PSettings.ProdTabSplitUnitsAndBuildings)
+                    if (PSettings.PreferenceAll.OverlayProduction.SplitBuildingsAndUnits)
                     {
                         iHavetoadd = 0;
 
@@ -368,7 +351,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        if (PSettings.ProdTabUseTransparentImages)
+                        if (PSettings.PreferenceAll.OverlayProduction.UseTransparentImages)
                             iPosY += 3;
                     }
 
@@ -376,7 +359,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Buildings
 
-                    if (PSettings.ProdTabShowBuildings)
+                    if (PSettings.PreferenceAll.OverlayProduction.ShowBuildings)
                     {
 
                         /* Terran */
@@ -506,7 +489,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region - Split Units and Buildings -
 
-                    if (PSettings.ProdTabSplitUnitsAndBuildings)
+                    if (PSettings.PreferenceAll.OverlayProduction.SplitBuildingsAndUnits)
                     {
                         iHavetoadd = 0;
 
@@ -532,7 +515,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        if (PSettings.ProdTabUseTransparentImages)
+                        if (PSettings.PreferenceAll.OverlayProduction.UseTransparentImages)
                             iPosY += 3;
                     }
 
@@ -540,7 +523,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Upgrades
 
-                    if (PSettings.ProdTabShowUpgrades)
+                    if (PSettings.PreferenceAll.OverlayProduction.ShowUpgrades)
                     {
 
                         #region Terran
@@ -787,7 +770,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         iPosY += iSize + 2;
                         
-                        if (PSettings.ProdTabUseTransparentImages)
+                        if (PSettings.PreferenceAll.OverlayProduction.UseTransparentImages)
                             iPosY += 5;
                     
                     }
@@ -840,7 +823,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     
                     if (iWidthMax > iPosXAfterName)
                     {
-                        Drawing.DrawString(g.Graphics,
+                        g.Graphics.DrawString(
                             strName,
                             fStringFont,
                             new SolidBrush(clPlayercolor),
@@ -882,11 +865,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             /* Has to be calculated manually because each panels has it's own Neutral handling.. */
             var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
-            PSettings.ProdTabPositionX = Location.X;
-            PSettings.ProdTabPositionY = Location.Y;
-            PSettings.ProdTabWidth = Width;
-            PSettings.ProdTabHeight = Height / iValidPlayerCount;
-            PSettings.ProdTabOpacity = Opacity;
+            PSettings.PreferenceAll.OverlayProduction.X = Location.X;
+            PSettings.PreferenceAll.OverlayProduction.Y = Location.Y;
+            PSettings.PreferenceAll.OverlayProduction.Width = Width;
+            PSettings.PreferenceAll.OverlayProduction.Height = Height / iValidPlayerCount;
+            PSettings.PreferenceAll.OverlayProduction.Opacity = Opacity;
         }
 
         /// <summary>
@@ -896,12 +879,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         {
             if (e.Delta.Equals(120))
             {
-                PSettings.ProdPictureSize += 1;
+                PSettings.PreferenceAll.OverlayProduction.PictureSize += 1;
             }
 
             else if (e.Delta.Equals(-120))
             {
-                PSettings.ProdPictureSize -= 1;
+                PSettings.PreferenceAll.OverlayProduction.PictureSize -= 1;
             }
         }
 
@@ -915,13 +898,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                PSettings.ProdTabWidth = Cursor.Position.X - Left;
+                PSettings.PreferenceAll.OverlayProduction.Width = Cursor.Position.X - Left;
 
                 if ((Cursor.Position.Y - Top) >= 5)
-                    PSettings.ProdTabHeight = (Cursor.Position.Y - Top);
+                    PSettings.PreferenceAll.OverlayProduction.Height = (Cursor.Position.Y - Top);
 
                 else
-                    PSettings.ProdTabHeight = 5;
+                    PSettings.PreferenceAll.OverlayProduction.Height = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -933,7 +916,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(PSettings.ProdChangeSizePanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayProduction.ChangeSize))
             {
                 if (BToggleSize)
                 {
@@ -946,7 +929,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             if (HelpFunctions.HotkeysPressed(Keys.Enter))
             {
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
 
                 BSetSize = false;
                 StrBackupSizeChatbox = string.Empty;
@@ -958,9 +941,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.ProdTabPositionX,
-                                     PSettings.ProdTabPositionY);
-            Opacity = PSettings.ProdTabOpacity;
+            Location = new Point(PSettings.PreferenceAll.OverlayProduction.X,
+                                     PSettings.PreferenceAll.OverlayProduction.Y);
+            Opacity = PSettings.PreferenceAll.OverlayProduction.Opacity;
         }
 
         /// <summary>
@@ -974,8 +957,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                PSettings.ProdTabPositionX = Cursor.Position.X;
-                PSettings.ProdTabPositionY = Cursor.Position.Y;
+                PSettings.PreferenceAll.OverlayProduction.X = Cursor.Position.X;
+                PSettings.PreferenceAll.OverlayProduction.Y = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -986,7 +969,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(PSettings.ProdChangePositionPanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayProduction.ChangePosition))
             {
                 if (BTogglePosition)
                 {
@@ -1001,7 +984,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 BSetPosition = false;
                 StrBackupChatbox = string.Empty;
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
             }
         }
 
@@ -1010,7 +993,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            
+        }
+
+        void ProductionRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayProduction.LaunchStatus = !IsHidden;
         }
 
         /// <summary>
@@ -1025,8 +1013,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             FormBorderStyle = FormBorderStyle.None;
 
             /* Calculate amount of unitpictures - width */
-            Int32 iAmount = _iProdPanelWidthWithoutName / PSettings.ProdPictureSize;
-            PSettings.ProdPictureSize = (Width - (_iProdPosAfterName + 1)) /
+            Int32 iAmount = _iProdPanelWidthWithoutName / PSettings.PreferenceAll.OverlayProduction.PictureSize;
+            PSettings.PreferenceAll.OverlayProduction.PictureSize = (Width - (_iProdPosAfterName + 1)) /
                                                       iAmount;
 
 
@@ -1039,8 +1027,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             tmrRefreshGraphic.Interval = oldInterval;
 
-            PSettings.ProdTabPositionX = Location.X;
-            PSettings.ProdTabPositionY = Location.Y;
+            PSettings.PreferenceAll.OverlayProduction.X = Location.X;
+            PSettings.PreferenceAll.OverlayProduction.Y = Location.Y;
         }
 
         /* Draw the units */
@@ -1086,7 +1074,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 }
 
 
-                if (bDraw && !PSettings.ProdTabRemoveChronoboost)
+                if (bDraw && !PSettings.PreferenceAll.OverlayProduction.RemoveChronoboost)
                 {
                     HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
                     new SolidBrush(Color.FromArgb(100, Color.White)),
@@ -1121,7 +1109,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 var iOffset = 5;
 
-                if (!PSettings.ProdTabUseTransparentImages)
+                if (!PSettings.PreferenceAll.OverlayProduction.UseTransparentImages)
                     iOffset = 0;
                     
 
@@ -1133,7 +1121,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);
             }
 
-            if (!PSettings.ProdTabUseTransparentImages)
+            if (!PSettings.PreferenceAll.OverlayProduction.UseTransparentImages)
                 g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
 
             posX += size;

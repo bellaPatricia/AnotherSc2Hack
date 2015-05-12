@@ -1,0 +1,170 @@
+﻿;1.0.0.0
+;Translate file for the English Language
+;Created by bellaPatricia
+;Language Name (natively written)
+LanguageName: English
+
+;HelpMe tab
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePaypal: Paypal
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeLocalize: Get the file and translate!
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeGithubIssues: Github issues
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeEmailMe: E-Mail me
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePostOnD3scene: Post on D3Scene
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpCash: Good 'ol cash
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpLocalize: Help me to localize
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpSuggestionsBug: Post suggestions or bugs
+
+;Debug tab
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMatchdata: Match Data
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMapdata: Map Data
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitObjects: Unit Objects:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitname: Unit Name:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitdata: Unit Data
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerObjects: Player Objects:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayername: Player Name:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerdata: Player Data
+lstrChDebugAttribute: Attribute
+lstrChDebugValue: Value
+
+;Various tab
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousDisableAfter: Deactivate after:
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousWorkerCoach: Worker Coach
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalClock: Personal Clock
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalApm: Personal Apm
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: Show Worker Coach
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: Show Personal Clock
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Apm Alarm
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: Show Personal Apm
+
+;Application tab 
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: Global Settings
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationLanguage: Language:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationReposition: Position-key:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: Redraw (ms):
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Read Memory (ms):
+NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Restore Settings
+NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Restore Panelposition and -Size
+NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Only draw when SCII is in foreground
+lstrApplicationRestoreSettingsText: Do you really want to reset your settings?
+lstrApplicationRestoreSettingsHeader: Are you sure?
+lstrApplicationRestorePanelPositionText: Panel's size and position\nwere adjusted successfully!
+lstrApplicationRestorePanelPositionHeader: Panelposition changed!
+
+;Benchmark tab
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkProductiontabIterations: ProductionTab Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkUnittabIterations: UnitTab Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkApmIterations: Apm Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkArmyIterations: Army Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkWorkerIterations: Worker Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkIncomeIterations: Income Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkResourceIterations: Resource Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawingInterval: Interval (ms)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawing: Drawing
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataIterations: Iterations / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataInterval: Interval (ms)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkData: Get Data
+
+;Plugin tab
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginImages: Pictures
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginDescription: Description
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginAvailablePlugins: Available Plugins
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginLoadedPlugins: Loaded Plugins
+NewMainHandler#pnlMainArea#pnlPlugins#btnPluginsInstallPlugin: Install
+lstrChPluginsPluginName: Plugin
+lstrChPluginsPluginVersion: Version
+lstrPluginContextInstallPlugin: Install plugin
+lstrPluginContextRemovePlugin: Remove plugin
+
+;Left application panels
+NewMainHandler#pnlLeftSelection#cpnlVarious: Various
+NewMainHandler#pnlLeftSelection#cpnlHelpMe: Help Me!
+NewMainHandler#pnlLeftSelection#cpnlBenchmark: Benchmark
+NewMainHandler#pnlLeftSelection#cpnlCredits: Credits
+NewMainHandler#pnlLeftSelection#cpnlDebug: Debug
+NewMainHandler#pnlLeftSelection#cpnlApplication: Application
+NewMainHandler#pnlLeftSelection#cpnlOverlays: Overlays
+NewMainHandler#pnlLeftSelection#cpnlPlugins: Plugins
+
+;Overlays
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysProduction: Production
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysUnits: Units
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysMaphack: Maphack
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysApm: Apm
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysArmy: Army
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysWorker: Worker
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysIncome: Income
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysResources: Resources
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveDestinationLine: Remove Destination Line
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxDefensiveStructures: Color Defensive
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveCamera: Remove Camera
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveVisionArea: Remove Vision Area
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#lblMaphackFilter: Maphack Filter
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxDisplayUpgrades: Show Upgrades
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveProductionstatus: Remove Productionstatus
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveSpellcounter: Remove Spellcounter
+
+;Bottom launcher
+NewMainHandler#pnlBottomStrip#btnLaunchResource: Resources
+NewMainHandler#pnlBottomStrip#btnLaunchProduction: Production
+NewMainHandler#pnlBottomStrip#btnLaunchIncome: Income
+NewMainHandler#pnlBottomStrip#btnLaunchUnit: Units
+NewMainHandler#pnlBottomStrip#btnLaunchWorker: Workers
+NewMainHandler#pnlBottomStrip#btnLaunchArmy: Army
+NewMainHandler#pnlBottomStrip#btnLaunchMaphack: Maphack
+NewMainHandler#pnlBottomStrip#btnLaunchApm: Apm
+
+;General text (overlays)
+lblHotkey1: Hotkey 1:
+lblHotkey2: Hotkey 2:
+lblHotkey3: Hotkey 3:
+lblToggle: Trigger Panel:
+lblResize: Change size of Panel:
+lblReposition: Change position of Panel:
+lblChat: Launch using ingame chat
+lblHotkeys: Launch using Hotkeys
+lblBasics: Basics
+lblSpecial: Special
+lblSize: Size:
+lblPreview: Preview:
+aChBxRemoveAi: Remove Ai
+aChBxRemoveAllie: Remove Allies
+aChBxRemoveNeutral: Remove Neutral
+aChBxRemoveYourself: Remove Yourself
+aChBxDrawBackground: Draw Background
+aChBxRemoveClantags: Remove Clantags
+aChBxRemoveChronoboost: Remove Chronoboost
+aChBxSplitUnitsBuildings: Split Buildings/Units
+aChBxDisplayBuildings: Show Buildings
+aChBxDisplayUnits: Show Units
+aChBxTransparentImages: Transparent Pictures
+lstrOpacity: Opacity:
+
+;Credits
+lstrChCreditsContributer: Contributor
+lstrChCreditsReason: But.. why?
+lstrCreditsReasonRhcp: Open Source MH, Gameinteraction, Minimap drawing and extremely helpful
+lstrCreditsReasonBeaving: Various hacking information, Concepts, Suggestions and good chats
+lstrCreditsReasonMrnukealizer: Open Source MH, Ideas and concepts
+lstrCreditsReasonMyteewun: Production-Tag (Unit and Upgrades) and good research in SC2 memory
+lstrCreditsReasonMischa: Great SC2 memory research with Upgrades, production and unitlists
+lstrCreditsReasonMrice: Graphical help
+lstrCreditsReasonTracky: Suggestions and ideas
+lstrCreditsReasonD3Scene: Good environment with a lot helpful people
+lstrCreditsReasonVariousPeople: ...that gave ideas, suggestions and critism - thank you!
+lstrCreditsReasonDonators: Because you people make me buy some candy :3
+
+;Messagebox
+lstrAnotherMessageBoxOk: Ok
+lstrAnotherMessageBoxCancel: Cancel
+lstrAnotherMessageBoxAbort: Abort
+lstrAnotherMessageBoxRetry: Retry
+lstrAnotherMessageBoxIgnore: Ignore
+lstrAnotherMessageBoxYes: Yes
+lstrAnotherMessageBoxNo: No
+
+;Maphack tab
+lstrChMaphackFilterUnit: Unit
+lstrMaphackFilterRemoveItem: Remove selection
+lstrMaphackFilterMessageAddUnitText: Unit is already used!
+lstrMaphackFilterMessageAddUnitHeader: Ouch!

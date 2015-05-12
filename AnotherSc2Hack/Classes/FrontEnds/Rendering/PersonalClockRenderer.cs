@@ -6,12 +6,14 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     class PersonalClockRenderer : BaseRenderer
     {
-        public PersonalClockRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+        public PersonalClockRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
 
@@ -35,9 +37,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
 
             var dtTimeStamp = DateTime.Now;
-            var strTime = dtTimeStamp.TimeOfDay.ToString().Substring(0, 8);
-
-            Drawing.DrawString(g.Graphics,
+            
+            var strTime = dtTimeStamp.ToLongTimeString();
+            g.Graphics.DrawString(
                "Time: " + strTime,
                new Font("Century Gothic", fNewFontSize, FontStyle.Regular),
                Brushes.White,
@@ -53,10 +55,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
         {
-            PSettings.PersonalClockHeight = (Height);
-            PSettings.PersonalClockWidth = Width;
-            PSettings.PersonalClockPositionX = Location.X;
-            PSettings.PersonalClockPositionY = Location.Y;
+            PSettings.PreferenceAll.OverlayPersonalClock.Height = (Height);
+            PSettings.PreferenceAll.OverlayPersonalClock.Width = Width;
+            PSettings.PreferenceAll.OverlayPersonalClock.X = Location.X;
+            PSettings.PreferenceAll.OverlayPersonalClock.Y = Location.Y;
         }
 
         protected override void AdjustPanelSize()
@@ -71,18 +73,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.PersonalClockPositionX,
-                                     PSettings.PersonalClockPositionY);
-            Size = new Size(PSettings.PersonalClockWidth,
-                            PSettings.PersonalClockHeight);
+            Location = new Point(PSettings.PreferenceAll.OverlayPersonalClock.X,
+                                     PSettings.PreferenceAll.OverlayPersonalClock.Y);
+            Size = new Size(PSettings.PreferenceAll.OverlayPersonalClock.Width,
+                            PSettings.PreferenceAll.OverlayPersonalClock.Height);
         }
 
         protected override void MouseUpTransferData()
         {
-            PSettings.PersonalClockPositionX = Location.X;
-            PSettings.PersonalClockPositionY = Location.Y;
-            PSettings.PersonalClockWidth = Width;
-            PSettings.PersonalClockHeight = Height; 
+            PSettings.PreferenceAll.OverlayPersonalClock.X = Location.X;
+            PSettings.PreferenceAll.OverlayPersonalClock.Y = Location.Y;
+            PSettings.PreferenceAll.OverlayPersonalClock.Width = Width;
+            PSettings.PreferenceAll.OverlayPersonalClock.Height = Height; 
         }
 
         protected override void MouseWheelTransferData(System.Windows.Forms.MouseEventArgs e)

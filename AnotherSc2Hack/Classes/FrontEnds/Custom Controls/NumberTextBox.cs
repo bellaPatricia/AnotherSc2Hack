@@ -1,30 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.Events;
+
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
-    public delegate void NumberChangeHandler(NumberTextBox o, EventNumber e);
-
-    public class EventNumber : EventArgs
-    {
-        public Int32 TheNumber;
-
-        public EventNumber(Int32 number)
-        {
-            TheNumber = number;
-        }
-    }
-
     [DefaultEvent("NumberChanged")]
     public class NumberTextBox : TextBox
     {
         public event NumberChangeHandler NumberChanged;
 
         private Int32 _number;
-
         public Int32 Number
         {
             get { return _number; }
@@ -35,12 +23,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds
                     return;
 
                 _number = value;
-                var en = new EventNumber(_number);
+                var en = new NumberArgs(_number);
+                
+                //Sometimes, this method gets called in "Not-a-UI-Thread" context, throwing an exception about cross-threading.
+                //So we prevent this by passing the action to the invoker to take care of it.
+                MethodInvoker methInvoker = delegate {
+                                                         Text = _number.ToString(CultureInfo.InvariantCulture);
+                };
+
+                try
+                {
+                    if (Handle != IntPtr.Zero)
+                    Invoke(methInvoker);
+                }
+
+                //Like the Window Handle isn't initiated
+                catch (InvalidOperationException)
+                {
+                    //We can't really allows cross-calling so we just swallow this exception
+                    //Text = _number.ToString(CultureInfo.InvariantCulture);
+                }
+
+                //Ignore all  the other errors
+                catch
+                {
+                    
+                }
 
                 //Call the Event
                 OnNumberChange(this, en);
-
-                Text = _number.ToString(CultureInfo.InvariantCulture);
             }
         }
 
@@ -50,7 +61,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         }
 
 
-        public void OnNumberChange(NumberTextBox o, EventNumber e)
+        public void OnNumberChange(NumberTextBox o, NumberArgs e)
         {
             if (NumberChanged != null)
                 NumberChanged(o, e);
@@ -90,5 +101,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             #endregion
         }
+
+        
     }
 }

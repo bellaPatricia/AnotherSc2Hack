@@ -6,15 +6,17 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
 using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     public class MaphackRenderer : BaseRenderer
     {
-        public MaphackRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+        public MaphackRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
+            IsHiddenChanged += MaphackRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -43,12 +45,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     return;
                 }
 
-                Opacity = PSettings.MaphackOpacity;
+                Opacity = PSettings.PreferenceAll.OverlayMaphack.Opacity;
 
                 if (!BChangingPosition)
                 {
-                    Height = PSettings.MaphackHeight;
-                    Width = PSettings.MaphackWidth;
+                    Height = PSettings.PreferenceAll.OverlayMaphack.Height;
+                    Width = PSettings.PreferenceAll.OverlayMaphack.Width;
                 }
 
                 var tmpMap = GInformation.Map;
@@ -88,7 +90,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Draw Bounds
 
-                if (!PSettings.MaphackRemoveVisionArea)
+                if (!PSettings.PreferenceAll.OverlayMaphack.RemoveVisionArea)
                 {
                     /* Draw Rectangle */
                     g.Graphics.DrawRectangle(Constants.PBound, 0, 0, Width - Constants.PBound.Width,
@@ -107,11 +109,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Draw Unit- destination
 
-                if (!PSettings.MaphackDisableDestinationLine)
+                if (!PSettings.PreferenceAll.OverlayMaphack.RemoveDestinationLine)
                 {
                     for (var i = 0; i < GInformation.Unit.Count; i++)
                     {
-                        var clDestination = PSettings.MaphackDestinationColor;
+                        var clDestination = PSettings.PreferenceAll.OverlayMaphack.DestinationLine;
 
                         var tmpUnit = GInformation.Unit[i];
 
@@ -122,7 +124,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                         /* Ai */
-                        if (PSettings.MaphackRemoveAi)
+                        if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                         {
                             if (
                                 GInformation.Player[tmpUnit.Owner].Type.Equals(
@@ -131,7 +133,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         /* Allie */
-                        if (PSettings.MaphackRemoveAllie)
+                        if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                         {
                             if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
                             {
@@ -143,14 +145,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         /* Localplayer Units */
-                        if (PSettings.MaphackRemoveLocalplayer)
+                        if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                         {
                             if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
                                 continue;
                         }
 
                         /* Neutral Units */
-                        if (PSettings.MaphackRemoveNeutral)
+                        if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                         {
                             if (
                                 GInformation.Player[tmpUnit.Owner].Type.Equals(
@@ -222,7 +224,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Exceptions
 
                     /* Ai */
-                    if (PSettings.MaphackRemoveAi)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue; //clUnitBoundBorder = Color.Transparent;
@@ -230,7 +232,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     /* Allie */
-                    if (PSettings.MaphackRemoveAllie)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                     {
                         if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
                         {
@@ -243,7 +245,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     /* Localplayer Units */
-                    if (PSettings.MaphackRemoveLocalplayer)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                     {
                         if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
                             continue; //clUnitBoundBorder = Color.Transparent;
@@ -251,7 +253,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     /* Neutral Units */
-                    if (PSettings.MaphackRemoveNeutral)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue; //clUnitBoundBorder = Color.Transparent;
@@ -321,14 +323,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Escape Sequences
 
                     /* Ai */
-                    if (PSettings.MaphackRemoveAi)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue;
                     }
 
                     /* Allie */
-                    if (PSettings.MaphackRemoveAllie)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                     {
                         if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
                         {
@@ -340,14 +342,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     /* Localplayer Units */
-                    if (PSettings.MaphackRemoveLocalplayer)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                     {
                         if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
                             continue;
                     }
 
                     /* Neutral Units */
-                    if (PSettings.MaphackRemoveNeutral)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue;
@@ -473,14 +475,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Escape Sequences
 
                     /* Ai */
-                    if (PSettings.MaphackRemoveAi)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue;
                     }
 
                     /* Allie */
-                    if (PSettings.MaphackRemoveAllie)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                     {
                         if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
                         {
@@ -492,14 +494,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     /* Localplayer Units */
-                    if (PSettings.MaphackRemoveLocalplayer)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                     {
                         if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
                             continue;
                     }
 
                     /* Neutral Units */
-                    if (PSettings.MaphackRemoveNeutral)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue;
@@ -584,7 +586,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Escape Sequences
 
                     /* Ai */
-                    if (PSettings.MaphackRemoveAi)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue; //clUnitBoundBorder = Color.Transparent;
@@ -592,7 +594,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     /* Allie */
-                    if (PSettings.MaphackRemoveAllie)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                     {
                         if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
                         {
@@ -605,7 +607,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     /* Localplayer Units */
-                    if (PSettings.MaphackRemoveLocalplayer)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                     {
                         if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
                             continue; //clUnitBoundBorder = Color.Transparent;
@@ -613,7 +615,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     /* Neutral Units */
-                    if (PSettings.MaphackRemoveNeutral)
+                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue; //clUnitBoundBorder = Color.Transparent;
@@ -655,12 +657,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Self created Units
 
-                    if (PSettings.MaphackUnitIds != null ||
-                        PSettings.MaphackUnitColors != null)
+                    if (PSettings.PreferenceAll.OverlayMaphack.UnitIds != null ||
+                        PSettings.PreferenceAll.OverlayMaphack.UnitColors != null)
                     {
-                        for (var j = 0; j < PSettings.MaphackUnitIds.Count; j++)
+                        for (var j = 0; j < PSettings.PreferenceAll.OverlayMaphack.UnitIds.Count; j++)
                         {
-                            var tmpSettingsId = PSettings.MaphackUnitIds[j];
+                            var tmpSettingsId = PSettings.PreferenceAll.OverlayMaphack.UnitIds[j];
                             var bExpression = false;
 
                             if (tmpSettingsId == PredefinedData.UnitId.ZuChangeling)
@@ -675,17 +677,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
 
                             else
-                                bExpression = tmpUnit.Id == PSettings.MaphackUnitIds[j] ? true : false;
+                                bExpression = tmpUnit.Id == PSettings.PreferenceAll.OverlayMaphack.UnitIds[j] ? true : false;
 
                             if (bExpression)
                             {
-                                if (PSettings.MaphackUnitColors[j] != Color.Transparent)
+                                if (PSettings.PreferenceAll.OverlayMaphack.UnitColors[j] != Color.Transparent)
                                 {
-                                    var clUnit = PSettings.MaphackUnitColors[j];
+                                    var clUnit = PSettings.PreferenceAll.OverlayMaphack.UnitColors[j];
                                     if (!tmpUnit.IsAlive)
                                         continue;
 
-                                    if (PSettings.MaphackRemoveLocalplayer)
+                                    if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                                     {
                                         if (tmpUnit.Owner ==
                                             GInformation.Player[0].Localplayer)
@@ -741,7 +743,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Unitgroup I - Defensive Buildings
 
-                    if (PSettings.MaphackColorDefensivestructuresYellow)
+                    if (PSettings.PreferenceAll.OverlayMaphack.ColorDefensiveStructures)
                     {
                         if (tmpUnit.Id == PredefinedData.UnitId.TbTurret ||
                             tmpUnit.Id == PredefinedData.UnitId.TbBunker ||
@@ -759,7 +761,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 continue;
 
 
-                            if (PSettings.MaphackRemoveLocalplayer)
+                            if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                             {
                                 if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
                                     continue;
@@ -809,7 +811,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Draw Player camera
 
-                if (!PSettings.MaphackRemoveCamera)
+                if (!PSettings.PreferenceAll.OverlayMaphack.RemoveCamera)
                 {
                     for (var i = 0; i < GInformation.Player.Count; i++)
                     {
@@ -839,35 +841,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         #region Escape Sequences
 
                         /* Ai - Works */
-                        if (PSettings.MaphackRemoveAi)
+                        if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                         {
                             if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
                                 continue;
                         }
 
-                        /* Observer */
-                        if (PSettings.MaphackRemoveObserver)
-                        {
-                            if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
-                                continue;
-                        }
-
-                        /* Referee */
-                        if (PSettings.MaphackRemoveReferee)
-                        {
-                            if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
-                                continue;
-                        }
-
                         /* Localplayer - Works */
-                        if (PSettings.MaphackRemoveLocalplayer)
+                        if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                         {
                             if (GInformation.Player[i].IsLocalplayer)
                                 continue;
                         }
 
                         /* Allie */
-                        if (PSettings.MaphackRemoveAllie)
+                        if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                         {
                             if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
                             {
@@ -879,14 +867,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         /* Neutral */
-                        if (PSettings.MaphackRemoveNeutral)
+                        if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                         {
                             if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
                                 continue;
                         }
 
-                        /* Hosile */
                         if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
+                            continue;
+
+                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
+                            continue;
+
+                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
                             continue;
 
                         if (float.IsInfinity(fScale))
@@ -942,11 +935,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void MouseUpTransferData()
         {
-            PSettings.MaphackPositionX = Location.X;
-            PSettings.MaphackPositionY = Location.Y;
-            PSettings.MaphackWidth = Width;
-            PSettings.MaphackHeight = Height;
-            PSettings.MaphackOpacity = Opacity;
+            PSettings.PreferenceAll.OverlayMaphack.X = Location.X;
+            PSettings.PreferenceAll.OverlayMaphack.Y = Location.Y;
+            PSettings.PreferenceAll.OverlayMaphack.Width = Width;
+            PSettings.PreferenceAll.OverlayMaphack.Height = Height;
+            PSettings.PreferenceAll.OverlayMaphack.Opacity = Opacity;
         }
 
         /// <summary>
@@ -977,20 +970,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                PSettings.MaphackWidth = Cursor.Position.X - Left;
+                PSettings.PreferenceAll.OverlayMaphack.Width = Cursor.Position.X - Left;
 
                 var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
-                if (PSettings.MaphackRemoveNeutral)
+                if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                     iValidPlayerCount -= 1;
 
                 if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
                 {
-                    PSettings.MaphackHeight = (Cursor.Position.Y - Top) /
+                    PSettings.PreferenceAll.OverlayMaphack.Height = (Cursor.Position.Y - Top) /
                                                         iValidPlayerCount;
                 }
 
                 else
-                    PSettings.MaphackHeight = 5;
+                    PSettings.PreferenceAll.OverlayMaphack.Height = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -1002,7 +995,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(PSettings.MaphackChangeSizePanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayMaphack.ChangeSize))
             {
                 if (BToggleSize)
                 {
@@ -1015,7 +1008,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             if (HelpFunctions.HotkeysPressed(Keys.Enter))
             {
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
 
                 BSetSize = false;
                 StrBackupSizeChatbox = string.Empty;
@@ -1027,10 +1020,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.MaphackPositionX,
-                                     PSettings.MaphackPositionY);
-            Size = new Size(PSettings.MaphackWidth, PSettings.MaphackHeight);
-            Opacity = PSettings.MaphackOpacity;
+            Location = new Point(PSettings.PreferenceAll.OverlayMaphack.X,
+                                     PSettings.PreferenceAll.OverlayMaphack.Y);
+            Size = new Size(PSettings.PreferenceAll.OverlayMaphack.Width, PSettings.PreferenceAll.OverlayMaphack.Height);
+            Opacity = PSettings.PreferenceAll.OverlayMaphack.Opacity;
         }
 
         /// <summary>
@@ -1044,8 +1037,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                PSettings.MaphackPositionX = Cursor.Position.X;
-                PSettings.MaphackPositionY = Cursor.Position.Y;
+                PSettings.PreferenceAll.OverlayMaphack.X = Cursor.Position.X;
+                PSettings.PreferenceAll.OverlayMaphack.Y = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -1056,7 +1049,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(PSettings.MaphackChangePositionPanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayMaphack.ChangePosition))
             {
                 if (BTogglePosition)
                 {
@@ -1071,7 +1064,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 BSetPosition = false;
                 StrBackupChatbox = string.Empty;
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
             }
         }
 
@@ -1080,7 +1073,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            IsHiddenChanged += MaphackRenderer_IsHiddenChanged;
+        }
+
+        void MaphackRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayMaphack.LaunchStatus = !IsHidden;
         }
 
         /// <summary>
@@ -1090,10 +1088,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="e"></param>
         protected override void BaseRenderer_ResizeEnd(object sender, EventArgs e)
         {
-            PSettings.MaphackHeight = Height;
-            PSettings.MaphackWidth = Width;
-            PSettings.MaphackPositionX = Location.X;
-            PSettings.MaphackPositionY = Location.Y;
+            PSettings.PreferenceAll.OverlayMaphack.Height = Height;
+            PSettings.PreferenceAll.OverlayMaphack.Width = Width;
+            PSettings.PreferenceAll.OverlayMaphack.X = Location.X;
+            PSettings.PreferenceAll.OverlayMaphack.Y = Location.Y;
         }
     }
 }

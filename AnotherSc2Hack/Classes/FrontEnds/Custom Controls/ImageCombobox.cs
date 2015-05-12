@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 using PredefinedTypes = Predefined.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.FrontEnds

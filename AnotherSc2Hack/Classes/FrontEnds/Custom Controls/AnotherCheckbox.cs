@@ -5,12 +5,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 using AnotherSc2Hack;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {
     public delegate void CheckedChangeHandler(AnotherCheckbox o, EventChecked e);
+
 
     public class EventChecked : EventArgs
     {
@@ -25,6 +28,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds
     [DefaultEvent("CheckedChanged")]
     public class AnotherCheckbox : Panel
     {
+        private static readonly List<AnotherCheckbox> Instances = new List<AnotherCheckbox>();
+
+        ~AnotherCheckbox()
+        {
+            var index = Instances.FindIndex(x => x.GetHashCode().Equals(GetHashCode()));
+            Instances.RemoveAt(index);
+        }
+
+
+        public static void OutputPath()
+        {
+            foreach (var anotherCheckbox in Instances)
+            {
+                Console.WriteLine(HelpFunctions.GetParent(anotherCheckbox) + Constants.ChrLanguageSplitSign + " " + anotherCheckbox.DisplayText);
+            }
+        }
+
         public enum TextAlignment
         {
             Left,
@@ -100,6 +120,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         private void Init()
         {
             base.Cursor = Cursor;
+
+            Instances.Add(this);
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer |
             ControlStyles.AllPaintingInWmPaint |
@@ -187,6 +209,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             Height = height + 10;
             Width = TextRenderer.MeasureText(DisplayText, Font).Width + 5 + width + 5;
+        }
+
+        public static bool ChangeLanguage(string languageFile)
+        {
+            if (!File.Exists(languageFile))
+                return false;
+
+            var strLines = File.ReadAllLines(languageFile, Encoding.Default);
+
+            foreach (var strLine in strLines)
+            {
+                if (strLine.Length <= 0 ||
+                    strLine.StartsWith(";"))
+                    continue;
+
+                var strControlAndName = new string[2];
+                strControlAndName[0] = strLine.Substring(0, strLine.IndexOf(Constants.ChrLanguageSplitSign));
+                strControlAndName[1] = strLine.Substring(strLine.IndexOf(Constants.ChrLanguageSplitSign) + 1);
+
+
+                var strControlNames = strControlAndName[0].Split(Constants.ChrLanguageControlSplitSign);
+
+                foreach (var anotherCheckbox in Instances)
+                {
+                    if (HelpFunctions.CheckParents(anotherCheckbox, 0, ref strControlNames))
+                    {
+                        anotherCheckbox.DisplayText = strControlAndName[1].Trim();
+                        anotherCheckbox.Refresh();
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }

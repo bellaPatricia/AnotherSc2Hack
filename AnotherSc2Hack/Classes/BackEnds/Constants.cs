@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.BackEnds
@@ -13,6 +14,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static string StrUpdateManager = Application.StartupPath + "\\Sc2Hack UpdateManager.exe";
         public static string StrPluginInterface = Application.StartupPath + "\\PluginInterface.dll";
         public static string StrPredefinedTypes = Application.StartupPath + "\\PredefinedTypes.dll";
+        public static string StrXmlPreferences = Application.StartupPath + "\\Settings.xml";
+        public static Random RndRandom = new Random();
         public static Pen PBlack1 = new Pen(Brushes.Black, 1);
         public static Pen PBlack2 = new Pen(Brushes.Black, 2);
         public static Pen PBlack3 = new Pen(Brushes.Black, 3);
@@ -45,8 +48,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static string StrPreferenceKeywordVarious = "Various";
         public static string StrPreferenceKeywordWorkerAutomation = "Worker Automation";
         public static string StrUpdaterPath = Application.StartupPath + "\\Sc2Hack UpdateManager.exe";
+        public static string StrLanguageFolder = Application.StartupPath + "\\Language\\";
         public static string StrFontFamilyNameMonospace = "DejaVu Sans Mono";
 
+        public static char ChrLanguageSplitSign = ':';
+        public static char ChrLanguageControlSplitSign = '#';
         public static string StrPreferenceRemoveAi = "Remove Ai";
         public static string StrPreferenceRemoveLocalplayer = "Remove Localplayer";
         public static string StrPreferenceRemoveNeutral = "Remove Neutral";

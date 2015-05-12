@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.languageLabel1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.label4 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblSpecial = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblSize = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.ntxtSize = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.languageLabel2 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblPreview = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.pnlPreview = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // languageLabel1
+            // lblSpecial
             // 
-            this.languageLabel1.AutoSize = true;
-            this.languageLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
-            this.languageLabel1.LanguageFile = "";
-            this.languageLabel1.Location = new System.Drawing.Point(3, 3);
-            this.languageLabel1.Name = "languageLabel1";
-            this.languageLabel1.Size = new System.Drawing.Size(57, 20);
-            this.languageLabel1.TabIndex = 23;
-            this.languageLabel1.Text = "Special";
+            this.lblSpecial.AutoSize = true;
+            this.lblSpecial.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpecial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblSpecial.LanguageFile = "";
+            this.lblSpecial.Location = new System.Drawing.Point(3, 3);
+            this.lblSpecial.Name = "lblSpecial";
+            this.lblSpecial.Size = new System.Drawing.Size(57, 20);
+            this.lblSpecial.TabIndex = 23;
+            this.lblSpecial.Text = "Special";
             // 
-            // label4
+            // lblSize
             // 
-            this.label4.AutoSize = true;
-            this.label4.LanguageFile = "";
-            this.label4.Location = new System.Drawing.Point(3, 34);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 20);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Size:";
+            this.lblSize.AutoSize = true;
+            this.lblSize.LanguageFile = "";
+            this.lblSize.Location = new System.Drawing.Point(3, 34);
+            this.lblSize.Name = "lblSize";
+            this.lblSize.Size = new System.Drawing.Size(39, 20);
+            this.lblSize.TabIndex = 24;
+            this.lblSize.Text = "Size:";
             // 
             // ntxtSize
             // 
@@ -65,17 +65,17 @@
             this.ntxtSize.Size = new System.Drawing.Size(100, 27);
             this.ntxtSize.TabIndex = 25;
             this.ntxtSize.Text = "45";
-            this.ntxtSize.NumberChanged += new AnotherSc2Hack.Classes.FrontEnds.NumberChangeHandler(this.ntxtSize_NumberChanged);
+            this.ntxtSize.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtSize_NumberChanged);
             // 
-            // languageLabel2
+            // lblPreview
             // 
-            this.languageLabel2.AutoSize = true;
-            this.languageLabel2.LanguageFile = "";
-            this.languageLabel2.Location = new System.Drawing.Point(3, 64);
-            this.languageLabel2.Name = "languageLabel2";
-            this.languageLabel2.Size = new System.Drawing.Size(63, 20);
-            this.languageLabel2.TabIndex = 26;
-            this.languageLabel2.Text = "Preview:";
+            this.lblPreview.AutoSize = true;
+            this.lblPreview.LanguageFile = "";
+            this.lblPreview.Location = new System.Drawing.Point(3, 64);
+            this.lblPreview.Name = "lblPreview";
+            this.lblPreview.Size = new System.Drawing.Size(63, 20);
+            this.lblPreview.TabIndex = 26;
+            this.lblPreview.Text = "Preview:";
             // 
             // pnlPreview
             // 
@@ -90,10 +90,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlPreview);
-            this.Controls.Add(this.languageLabel2);
+            this.Controls.Add(this.lblPreview);
             this.Controls.Add(this.ntxtSize);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.languageLabel1);
+            this.Controls.Add(this.lblSize);
+            this.Controls.Add(this.lblSpecial);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "PanelSettingsSpecialUnittab";
@@ -105,10 +105,10 @@
 
         #endregion
 
-        private LanguageLabel languageLabel1;
-        private LanguageLabel label4;
+        private LanguageLabel lblSpecial;
+        private LanguageLabel lblSize;
         public NumberTextBox ntxtSize;
-        private LanguageLabel languageLabel2;
+        private LanguageLabel lblPreview;
         public System.Windows.Forms.Panel pnlPreview;
     }
 }

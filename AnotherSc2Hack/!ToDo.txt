@@ -1,8 +1,46 @@
-﻿Some features that need to be implemented till next release
------------------------------------------------------------
-- Overlays -> Maphack -> Add Maphack Filter to include Units, Unitgroups and such to a color (maybe symbols)
+﻿#############################
+# Add into the next release #
+#############################
+└ [OPEN]	Integrated Downloadmanager
+			├ Download the needed files like:
+				├ Plugininterface.dll
+				├ PredefinedFiles.dll
+				└ Languagefiles
+			└ Check if the listed files are available, if not, download them.
 
-Gameinfo improving
-------------------
-Cache unitdata (data percentage) per unit
+################################
+# Those really should be added #
+################################
+├ [OPEN]	Proxy for updates
+├ [OPEN]	Proper Unitfilter to exclude a unit and unitgroups for maphack, production- and unittab
+├ [OPEN]	Debug-tab: Nodes for lists so you can read them properly
+├ [OPEN]	Different hosts to get the updates from (next to Dropbox)
+├ [OPEN]	Cancel Bunker if there's no SCV nearby and the Bunker in under construction
+			├ Only happens within the first 5 minutes
+			├ Save Sceenposition with CTRL + F5
+			├ Save Unitselection
+			└ Restore Unitselection and screen
+├ [OPEN]	Upgrade CCs automatically to OC
+			├ Only if there's enough Money available
+			├ Only if there's A Barracks available
+			└ If cancelled, wait 5 additional seconds before attempting tp upgrade again
+├ [OPEN]	Automatic unit production
+			├ Only if resources are available
+			├ Only if the APM is below X
+			└ Only selected units (steal shameless from SC2MapPro)
+└ [Open]	Alerts for Supply, Units, Buildings or Upgrades like Dark Templars or Cloak
+			├ Supply: Make multilevel Supply alert if you are about to get stuck. This should be changed with different phases of the game
+			├ Units, Buildings, Upgrades: If the Opponent is building that thing the first time, tell the player about it.
+			└ Optional: Voices to talks to the player
+				└ That would probably require a Sound selection which should be fairly difficult to make
 
+#####################
+# Ideas for plugins #
+#####################
+└ [OPEN]	Trainer to set various Player and unitinformation like you like it.
+			└ Offsets need to be gathered separately due to the limits of the interface
+
+#################
+# Test purposes #
+#################
+└ [OPEN] Plugins: Make on AppDomain and load the plugins in there. Then try to send controls to the host

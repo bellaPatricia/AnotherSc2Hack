@@ -17,6 +17,8 @@ using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
+using AnotherSc2Hack.Classes.Events;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using Predefined;
 
@@ -30,9 +32,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
     {
         #region Variables
 
-        public long IterationsPerSeconds { get; set; }                          //Counts the iterations within a second
+        
+        public event NumberChangeHandler IterationPerSecondChanged;
 
-        private long _lTimesRefreshed;                                          //Dunno.. :D
+        private int _iTimesRefreshed;                                           //Dunno.. :D
         private Point _ptMousePosition = new Point(0, 0);                       //Position for the Moving of the Panel
         private Boolean _bDraw = true;
         private const Int32 SizeOfRectangle = 10;                               //Size for the corner- rectangles (when changing position)
@@ -543,14 +546,57 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #endregion
 
+        #region Events
+
+        public event EventHandler IsHiddenChanged;
+
+        #endregion
+
         #region Getter/ Setter
+
+        //Counts the iterations within a second
+        private int _iterationsPerSecond = 0;
+        public int IterationsPerSeconds
+        {
+            get { return _iterationsPerSecond; }
+            set
+            {
+                if (_iterationsPerSecond == value)
+                    return;
+
+                _iterationsPerSecond = value;
+
+                var nArgs = new NumberArgs(value);
+
+                OnNumberChanged(this, nArgs);
+            }
+        }
+
+        private bool _isHidden = true;
+        public bool IsHidden
+        {
+            get
+            {
+                return _isHidden;
+            }
+
+            private set
+            {
+                if (value == _isHidden)
+                    return;
+
+                _isHidden = value;
+
+                OnIsHiddenChanged(this, new EventArgs());
+            }
+        }
 
         public Boolean IsDestroyed { get; set; }
         public PredefinedData.CustomWindowStyles SetWindowStyle { get; set; }
-        public Boolean IsHidden { get; private set; }
+        
         public Boolean IsAllowedToClose { get; set; }
         public GameInfo GInformation { get; set; }
-        public Preferences PSettings { get; set; }
+        public PreferenceManager PSettings { get; set; }
         public Process PSc2Process { get; set; }
 
         #endregion
@@ -563,7 +609,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="gInformation">The GameInfo reference to access the gamedata</param>
         /// <param name="pSettings">The Preference reference to get the information which data will be drawn</param>
         /// <param name="sc2Process">The Process- handle to check whenever a process is available or not</param>
-        protected BaseRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+        protected BaseRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
         {
             GInformation = gInformation;
             PSettings = pSettings;
@@ -578,6 +624,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         #endregion
 
         #region Private Methods
+
+        /// <summary>
+        /// Event manager to send the event to the caller
+        /// </summary>
+        /// <param name="sender">This object</param>
+        /// <param name="e">Event Args</param>
+        private void OnIsHiddenChanged(object sender, EventArgs e)
+        {
+            if (IsHiddenChanged != null)
+                IsHiddenChanged(sender, e);
+        }
 
         /// <summary>
         /// Initializes the code.
@@ -598,6 +655,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             LoadPreferencesIntoControls();
 
             Text = HelpFunctions.SetWindowTitle();
+        }
+
+        /// <summary>
+        /// Simple Event we call when it's time to...
+        /// </summary>
+        /// <param name="sender">The reference we use</param>
+        /// <param name="e">The Numberargs with the information about the number we pass by</param>
+        private void OnNumberChanged(object sender, NumberArgs e)
+        {
+            if (IterationPerSecondChanged != null)
+                IterationPerSecondChanged(sender, e);
         }
 
         /// <summary>
@@ -769,7 +837,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             //Debug.WriteLine("Time to Invalidate:" + 1000000 * _swMainWatch.ElapsedTicks / Stopwatch.Frequency + " µs");
 
 
-            if (HelpFunctions.HotkeysPressed(PSettings.GlobalChangeSizeAndPosition))
+            if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.Global.ChangeSizeAndPosition))
                 SetWindowStyle = PredefinedData.CustomWindowStyles.Clickable;
 
             else if (FormBorderStyle != FormBorderStyle.None)
@@ -800,6 +868,43 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             //_swMainWatch.Stop();
             //Debug.WriteLine("Time to Iterate the timer:" + 1000000 * _swMainWatch.ElapsedTicks / Stopwatch.Frequency + " µs");
+        }
+
+        /// <summary>
+        /// Draws the border when you resize/resposition/Click the howkey around the panel
+        /// </summary>
+        /// <param name="buffer">The buffer that helps us to draw the border.</param>
+        private void DrawResizeBorder(BufferedGraphics buffer)
+        {
+            if (!BChangingPosition && !BSetPosition && !BSetSize) 
+                return;
+
+            // Simple border 
+            buffer.Graphics.DrawRectangle(Constants.PYellowGreen2,
+                1,
+                1,
+                Width - 2,
+                Height - 2);
+
+            // Draw some filled frectangles to make the resizing easier 
+            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
+                Width - SizeOfRectangle, 0, SizeOfRectangle,
+                SizeOfRectangle);
+
+            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
+                0, Height - SizeOfRectangle, SizeOfRectangle,
+                SizeOfRectangle);
+
+            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
+                Width - SizeOfRectangle, Height - SizeOfRectangle,
+                SizeOfRectangle, SizeOfRectangle);
+
+            // Draw current size 
+            buffer.Graphics.DrawString(
+                Width.ToString(CultureInfo.InvariantCulture) + "x" +
+                Height.ToString(CultureInfo.InvariantCulture) + " - [X=" +
+                Location.X.ToString(CultureInfo.InvariantCulture) + "; Y=" + Location.Y.ToString(CultureInfo.InvariantCulture) + "]",
+                new Font("Arial", 8, FontStyle.Regular), Brushes.YellowGreen, 2, 2);
         }
 
         #endregion
@@ -888,15 +993,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if ((DateTime.Now - DtSecond).Seconds >= 1)
             {
                 //Debug.WriteLine("The OnPaint- loop was refreshed " + lTimesRefreshed + " times in a second!");
-                IterationsPerSeconds = _lTimesRefreshed;
-                _lTimesRefreshed = 0;
+                IterationsPerSeconds = _iTimesRefreshed;
+                _iTimesRefreshed = 0;
                 DtSecond = DateTime.Now;
             }
-            _lTimesRefreshed++;
+            _iTimesRefreshed++;
 
             base.OnPaint(e);
 
-
+            
 
             //_swMainWatch.Reset();
             //_swMainWatch.Start();
@@ -904,7 +1009,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             var context = new BufferedGraphicsContext();
             context.MaximumBuffer = ClientSize;
 
-            using (BufferedGraphics buffer = context.Allocate(e.Graphics, ClientRectangle))
+            using (var buffer = context.Allocate(e.Graphics, ClientRectangle))
             {
                 buffer.Graphics.Clear(BackColor);
                 buffer.Graphics.CompositingMode = CompositingMode.SourceOver;
@@ -912,64 +1017,41 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 buffer.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
                 buffer.Graphics.SmoothingMode = SmoothingMode.HighSpeed;
 
-                if (GInformation.Gameinfo != null &&
+                
+
+                if (GInformation != null &&
+                    GInformation.Gameinfo != null &&
                     GInformation.Gameinfo.IsIngame)
                 {
-                    if (PSettings.GlobalDrawOnlyInForeground && !BSurpressForeground)
+                    
+                    if (PSettings.PreferenceAll.Global.DrawOnlyInForeground && !BSurpressForeground)
                     {
-                        _bDraw = InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle);
+                        if (PSc2Process == null)
+                            _bDraw = false;
+
+                        else
+                            _bDraw = InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle);
                     }
 
                     else
                     {
                         _bDraw = true;
 
-                        if (InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
+                        if (PSc2Process == null)
+                            _bDraw = false;
+
+                        else if (InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
                         {
                             InteropCalls.SetActiveWindow(Handle);
                         }
                     }
+                   
 
                     if (_bDraw)
                     {
                         Draw(buffer);
 
-                        #region Draw a Rectangle around the Panels (When changing position)
-
-                        /* Draw a final bound around the panel */
-                        if (BChangingPosition || BSetPosition || BSetSize)
-                        {
-
-
-                            /* Simple border */
-                            buffer.Graphics.DrawRectangle(Constants.PYellowGreen2,
-                                                        1,
-                                                        1,
-                                                        Width - 2,
-                                                        Height - 2);
-
-                            /* Draw some filled frectangles to make the resizing easier */
-                            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                                                          Width - SizeOfRectangle, 0, SizeOfRectangle,
-                                                          SizeOfRectangle);
-
-                            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                                                          0, Height - SizeOfRectangle, SizeOfRectangle,
-                                                          SizeOfRectangle);
-
-                            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                                                          Width - SizeOfRectangle, Height - SizeOfRectangle,
-                                                          SizeOfRectangle, SizeOfRectangle);
-
-                            /* Draw current size */
-                            buffer.Graphics.DrawString(
-                                Width.ToString(CultureInfo.InvariantCulture) + "x" +
-                                Height.ToString(CultureInfo.InvariantCulture) + " - [X=" +
-                            Location.X.ToString(CultureInfo.InvariantCulture) + "; Y=" + Location.Y.ToString(CultureInfo.InvariantCulture) + "]",
-                                new Font("Arial", 8, FontStyle.Regular), Brushes.YellowGreen, 2, 2);
-                        }
-
-                        #endregion
+                        DrawResizeBorder(buffer);
                     }
 
                 }
@@ -980,7 +1062,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }
 
             context.Dispose();
-
+            
             //_swMainWatch.Stop();
             //Debug.WriteLine("Time to execute DrawingMethods:" + 1000000 * _swMainWatch.ElapsedTicks / Stopwatch.Frequency + " µs");
         }
@@ -1043,12 +1125,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             GInformation.CAccessUnitCommands = false;
             GInformation.CAccessUnits = false;
 
+            IterationsPerSeconds = 99999;
 
             tmrRefreshGraphic.Enabled = false;
 
             base.Hide();
 
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
         }
 
         /// <summary>
@@ -1062,7 +1145,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             base.Show();
 
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
         }
 
         /// <summary>

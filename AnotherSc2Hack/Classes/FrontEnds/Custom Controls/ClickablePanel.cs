@@ -15,6 +15,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using AnotherSc2Hack.Classes.BackEnds;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
@@ -29,7 +31,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
     [DefaultEvent("Click")]
     public class ClickablePanel : Panel
     {
-        
+        public Panel SettingsPanel { get; set; }
 
         public ActiveBorderPosition ActiveBorderPosition { get; set; }
 
@@ -106,7 +108,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             set
             {
                 _displayText = value;
+
                 _lMainText.Text = _displayText;
+
+                RealignLabelLocation();
             }
         }
 
@@ -135,21 +140,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
                 if (_lMainText != null)
                 {
-                    _lMainText.Font = new Font(Font.Name, _textSize);
-
-                    var fTextSize = TextRenderer.MeasureText(DisplayText, _lMainText.Font);
-                    var fHeight = (float)Size.Height / 2;
-                    var fY = fHeight - ((float)fTextSize.Height / 2);
-
-                    var posX = Width - fTextSize.Width;
-                    posX = posX / 2;
-
-                    if (_iTextPosX != 0)
-                        posX = 0;
-
-                    _lMainText.Location = new Point(_iTextPosX + posX, (int)fY);
+                    RealignLabelLocation();
                 }
             }
+        }
+
+        private void RealignLabelLocation()
+        {
+            _lMainText.Font = new Font(Font.Name, _textSize);
+
+            var fTextSize = TextRenderer.MeasureText(DisplayText, _lMainText.Font);
+            var fHeight = (float)Size.Height / 2;
+            var fY = fHeight - ((float)fTextSize.Height / 2);
+
+            var posX = Width - fTextSize.Width;
+            posX = posX / 2;
+
+            if (_iTextPosX != 0)
+                posX = 0;
+
+            _lMainText.Location = new Point(_iTextPosX + posX, (int)fY);
         }
 
         private Image _imgIcon;
@@ -206,8 +216,27 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         private Brush _selectionColor = Brushes.Orange;
         private Boolean _bInitCalled = false;
 
+        private static readonly List<ClickablePanel> Instances = new List<ClickablePanel>();
+
+        ~ClickablePanel()
+        {
+            var index = Instances.FindIndex(x => x.GetHashCode().Equals(GetHashCode()));
+            Instances.RemoveAt(index);
+        }
+
+
+        public static void OutputPath()
+        {
+            foreach (var clickablePanel in Instances)
+            {
+                Console.WriteLine(HelpFunctions.GetParent(clickablePanel) + Constants.ChrLanguageSplitSign + " " + clickablePanel.DisplayText);
+            }
+        }
+
         public ClickablePanel()
         {
+            Instances.Add(this);
+
             SetStyle(ControlStyles.DoubleBuffer |
              ControlStyles.UserPaint |
              ControlStyles.OptimizedDoubleBuffer |
@@ -249,16 +278,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         }
 
         void _pcbImage_MouseEnter(object sender, EventArgs e)
-        {
-            OnMouseEnter(e);
-        }
-
-        void _lMainText_Click(object sender, EventArgs e)
-        {
-            OnClick(e);
-        }
-
-        void _lMainText_MouseEnter(object sender, EventArgs e)
         {
             OnMouseEnter(e);
         }
@@ -353,6 +372,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         public void PerformClick()
         {
             OnClick(new EventArgs());
+        }
+
+        public static bool ChangeLanguage(string languageFile)
+        {
+            if (!File.Exists(languageFile))
+                return false;
+
+            var strLines = File.ReadAllLines(languageFile, Encoding.Default);
+
+            foreach (var strLine in strLines)
+            {
+                if (strLine.Length <= 0 ||
+                    strLine.StartsWith(";"))
+                    continue;
+
+                var strControlAndName = new string[2];
+                strControlAndName[0] = strLine.Substring(0, strLine.IndexOf(Constants.ChrLanguageSplitSign));
+                strControlAndName[1] = strLine.Substring(strLine.IndexOf(Constants.ChrLanguageSplitSign) + 1);
+
+
+                var strControlNames = strControlAndName[0].Split(Constants.ChrLanguageControlSplitSign);
+
+                foreach (var clickablePanel in Instances)
+                {
+                    if (HelpFunctions.CheckParents(clickablePanel, 0, ref strControlNames))
+                    {
+                        clickablePanel.DisplayText = strControlAndName[1].Trim();
+                        clickablePanel.Refresh();
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }

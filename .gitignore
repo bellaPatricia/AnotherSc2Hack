@@ -7,11 +7,13 @@
 *.manifest
 obj/
 Plugins/
+bin/
 
 ### Binaries
 *.dat
 *.exe
 *.dll
+*.xml
 
 ### VS crap
 *.pdb
@@ -19,3 +21,4 @@ Plugins/
 
 ### ReSharper settings
 *.DotSettings.user
+/AnotherSc2Hack/bin

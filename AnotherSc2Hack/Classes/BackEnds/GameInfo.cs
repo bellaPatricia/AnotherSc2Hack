@@ -26,17 +26,17 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Net;
 using System.Text;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
+
+using AnotherSc2Hack.Classes.Events;
 using PredefinedTypes = Predefined.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
     public delegate void NewMatchHandler(object sender, EventArgs e);
+
 
     
 
@@ -52,13 +52,36 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public event NewMatchHandler NewMatch;
         private readonly List<PredefinedTypes.PlayerRace> _lRace = new List<PredefinedTypes.PlayerRace>();
         private ApplicationStartOptions _startOptions;
-        
 
-        private long _lTimesRefreshed;
 
-        public long IterationsPerSeconds { get; set; }
+        public event NumberChangeHandler IterationPerSecondChanged;
 
-        public Offsets Of = new Offsets();
+        private int _lTimesRefreshed;
+
+        private int _iterationsPerSecond = 0;
+
+        public int IterationsPerSeconds
+        {
+            get { return _iterationsPerSecond;}
+            set
+            {
+                if (_iterationsPerSecond == value)
+                    return;
+
+                _iterationsPerSecond = value;
+                var nArgs = new NumberArgs(value);
+
+                OnNumberChanged(this, nArgs);
+            }
+        }
+
+        public Offsets MyOffsets = new Offsets();
+
+        private void OnNumberChanged(object sender, NumberArgs e)
+        {
+            if (IterationPerSecondChanged != null)
+                IterationPerSecondChanged(sender, e);
+        }
 
         /* Is able to shut the Worker- thread down */
         public void HandleThread(bool threadState)
@@ -88,9 +111,110 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
         }
 
+       
+
         private void Init()
         {
             NewMatch += GameInfo_NewMatch;
+            MyOffsets.OffsetsNotProperlySet += MyOffsets_OffsetsNotProperlySet;
+
+            MyOffsets.AssignAddresses();
+        }
+
+        //TODO: Finish this
+        void MyOffsets_OffsetsNotProperlySet(object sender, EventArgs e)
+        {
+            if (Memory.Process == null)
+            {
+                Process proc;
+                if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                {
+                    Memory.Process = proc;
+                    Memory.DesiredAccess = Memory.VmRead;
+                    //Memory.UnlockProcess(Memory.VmRead);
+
+                    CStarcraft2 = Memory.Process;
+
+                    CWindowStyle = GetGWindowStyle();
+                }
+            }
+
+            #region Player
+
+            var playerbase = Memory.FindPattern(new byte[] {15, 0xb6, 0xc1, 0x69, 0xc0, 0, 0, 0, 0, 5, 0, 0, 0, 0},
+                "xxxxx??xxx????",
+                0,
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
+
+            MyOffsets.PlayerStructSize = Memory.ReadInt32(playerbase + 5);
+            MyOffsets.PlayerStruct = Memory.ReadInt32(playerbase + 10);
+
+            #endregion
+
+            #region Localplayer
+
+            var localplayer = Memory.FindPattern(new byte[] { 0xA0, 0, 0, 0, 0, 0xC3, 0xA0, 0, 0, 0, 0, 0xC3 },
+                 "x????xx????x",
+                 0,
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
+
+            MyOffsets.Localplayer4 = Memory.ReadInt32(localplayer + 7);
+
+            #endregion
+
+            #region Unit
+
+            var unitbase = Memory.FindPattern(new byte[] { 0xc1, 0xe0, 6, 5, 0, 0, 0, 0, 0x33 },
+                 "xxxx????x",
+                 0,
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
+
+            if (unitbase == (uint)Memory.Process.MainModule.BaseAddress)
+            {
+                unitbase = Memory.FindPattern(new byte[] { 0xc1, 0xe0, 7, 5, 0, 0, 0, 0, 0x33 },
+                 "xxxx????x",
+                 0,
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
+
+            }
+
+            MyOffsets.UnitStruct = Memory.ReadInt32(unitbase + 4);
+
+            #endregion
+
+            #region Selection
+
+            var selection = Memory.FindPattern(new byte[] { 0x0F, 0xB6, 0xC1, 0x69, 0xC0, 0x60, 0x1B, 0x00, 0x00, 0x05, 0, 0, 0, 0, 0xC3 },
+                 "xxxxxxxxxx????x",
+                 0,
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
+
+            MyOffsets.UiRawSelectionStruct = Memory.ReadInt32(selection + 10);
+            MyOffsets.UiSelectionStruct = Memory.ReadInt32(selection + 10);
+
+            
+
+            #endregion
+
+            #region Timer
+
+            var timer = Memory.FindPattern(new byte[] { 
+					0xC1, 0xEA, 0x0A, 0xB9, 0x00, 0x01, 0x00, 0x00, 0x01, 0x0D, 0, 0, 0, 0, 0xF6, 0xD2, 0xA3, 0, 0, 0, 0, 0xF6, 0xC2, 
+					0x01, 0x74, 0x06, 0x01, 0x0D, 0, 0, 0, 0, 0x83, 0x3D, 0, 0, 0, 0, 0x00, 0x56, 0xBE, 0xFF, 0xFF, 0xFF, 0x7F
+				 },
+                 "xxxxxxxxxx????xxx????xxxxxxx????xx????xxxxxxx",
+                 0,
+                (int)Memory.Process.MainModule.BaseAddress,
+                Memory.Process.MainModule.ModuleMemorySize);
+
+            MyOffsets.TimerData = Memory.ReadInt32(timer + 28);
+
+            #endregion
         }
 
         void GameInfo_NewMatch(object sender, EventArgs e)
@@ -100,16 +224,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
             _lRace.Clear();
 
             // Race Buffer 
-            var racelenght = _maxPlayerAmount * Of.RaceSize;
-            var raceChunk = Memory.ReadMemory(Of.RaceStruct, racelenght);
+            var racelenght = _maxPlayerAmount * MyOffsets.RaceSize;
+            var raceChunk = Memory.ReadMemory(MyOffsets.RaceStruct, racelenght);
 
             // Create little race- array and catch all races 
             for (var i = 0; i < _maxPlayerAmount; i++)
-                _lRace.Add((PredefinedTypes.PlayerRace)raceChunk[i * Of.RaceSize]);
+                _lRace.Add((PredefinedTypes.PlayerRace)raceChunk[i * MyOffsets.RaceSize]);
 
             #endregion
-
-
         }
 
 
@@ -196,7 +318,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         /* Main- worker that refreshes data */
         private DateTime _dtSecond = DateTime.Now;
-        private bool bIngame;
+        private bool _bIngame;
         private void RefreshData()
         {
             while (CThreadState)
@@ -263,12 +385,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 _lTimesRefreshed++;
 
                 if (Gameinfo != null)
-                    bIngame = Gameinfo.IsIngame;
+                    _bIngame = Gameinfo.IsIngame;
 
                 DoMassiveScan();
 
 
-                if (Gameinfo != null && (!bIngame &&
+                if (Gameinfo != null && (!_bIngame &&
                     Gameinfo.IsIngame))
                 {
                     OnNewMatch(this, new EventArgs());
@@ -303,13 +425,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             GatherAndMapPlayerData();
 
-            _swmainwatch.Reset();
-            _swmainwatch.Start();
+            //_swmainwatch.Reset();
+            //_swmainwatch.Start();
 
             GatherAndMapUnitData();
 
-            _swmainwatch.Stop();
-            Console.WriteLine(1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency);
+            //_swmainwatch.Stop();
+            //Console.WriteLine(1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency);
             
             GatherAndMapMapData();
             GatherAndMapSelectionData();
@@ -326,8 +448,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 return;
 
             // Player Buffer 
-            var playerLenght = _maxPlayerAmount * Of.PlayerStructSize;
-            var playerChunk = Memory.ReadMemory(Of.PlayerStruct, playerLenght);
+            var playerLenght = _maxPlayerAmount * MyOffsets.PlayerStructSize;
+            var playerChunk = Memory.ReadMemory(MyOffsets.PlayerStruct, playerLenght);
 
             
             // Counts the valid race- holders (Ai, Human) 
@@ -341,37 +463,37 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     var p = new PredefinedTypes.PlayerStruct();
 
-                    p.CameraPositionX = BitConverter.ToInt32(playerChunk, Of.RawPlayerCameraX + (i * Of.PlayerStructSize));
-                    p.CameraPositionY = BitConverter.ToInt32(playerChunk, Of.RawPlayerCameraY + (i * Of.PlayerStructSize));
-                    p.CameraDistance = BitConverter.ToInt32(playerChunk, Of.RawPlayerCameraDistance + (i * Of.PlayerStructSize));
-                    p.CameraAngle = BitConverter.ToInt32(playerChunk, Of.RawPlayerCameraAngle + (i * Of.PlayerStructSize));
-                    p.CameraRotation = BitConverter.ToInt32(playerChunk, Of.RawPlayerCameraRotation + (i * Of.PlayerStructSize));
-                    p.Difficulty = (PredefinedTypes.PlayerDifficulty)playerChunk[Of.RawPlayerDifficulty + (i * Of.PlayerStructSize)];
-                    p.Status = GetGPlayerStatusModified(playerChunk[Of.RawPlayerStatus + (i * Of.PlayerStructSize)]);
-                    p.Type = GetGPlayerTypeModified(playerChunk[Of.RawPlayerPlayertype + (i * Of.PlayerStructSize)]);
-                    p.NameLength = BitConverter.ToInt32(playerChunk, Of.RawPlayerNamelenght + (i * Of.PlayerStructSize)) >> 2;
-                    p.Name = Encoding.UTF8.GetString(playerChunk, Of.RawPlayerName + (i * Of.PlayerStructSize), p.NameLength);
-                    p.ClanTag = Encoding.UTF8.GetString(playerChunk, Of.RawPlayerClanTag + (i * Of.PlayerStructSize), 6);
-                    p.Color = GetGPlayerColorModified(BitConverter.ToInt32(playerChunk, Of.RawPlayerColor + (i * Of.PlayerStructSize)));
-                    p.Apm = BitConverter.ToInt32(playerChunk, Of.RawPlayerApmCurrent + (i * Of.PlayerStructSize));
-                    p.Epm = BitConverter.ToInt32(playerChunk, Of.RawPlayerEpmCurrent + (i * Of.PlayerStructSize));
-                    p.ApmAverage = BitConverter.ToInt32(playerChunk, Of.RawPlayerApmAverage + (i * Of.PlayerStructSize));
-                    p.EpmAverage = BitConverter.ToInt32(playerChunk, Of.RawPlayerEpmAverage + (i * Of.PlayerStructSize));
-                    p.Worker = BitConverter.ToInt32(playerChunk, Of.RawPlayerWorkers + (i * Of.PlayerStructSize));
-                    p.AccountId = Encoding.UTF8.GetString(playerChunk, Of.RawPlayerAccountId + (i * Of.PlayerStructSize), 16);
-                    p.SupplyMaxRaw = BitConverter.ToInt32(playerChunk, Of.RawPlayerSupplyMax + (i * Of.PlayerStructSize));
-                    p.SupplyMinRaw = BitConverter.ToInt32(playerChunk, Of.RawPlayerSupplyMin + (i * Of.PlayerStructSize));
+                    p.CameraPositionX = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCameraX + (i * MyOffsets.PlayerStructSize));
+                    p.CameraPositionY = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCameraY + (i * MyOffsets.PlayerStructSize));
+                    p.CameraDistance = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCameraDistance + (i * MyOffsets.PlayerStructSize));
+                    p.CameraAngle = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCameraAngle + (i * MyOffsets.PlayerStructSize));
+                    p.CameraRotation = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCameraRotation + (i * MyOffsets.PlayerStructSize));
+                    p.Difficulty = (PredefinedTypes.PlayerDifficulty)playerChunk[MyOffsets.RawPlayerDifficulty + (i * MyOffsets.PlayerStructSize)];
+                    p.Status = GetGPlayerStatusModified(playerChunk[MyOffsets.RawPlayerStatus + (i * MyOffsets.PlayerStructSize)]);
+                    p.Type = GetGPlayerTypeModified(playerChunk[MyOffsets.RawPlayerPlayertype + (i * MyOffsets.PlayerStructSize)]);
+                    p.NameLength = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerNamelenght + (i * MyOffsets.PlayerStructSize)) >> 2;
+                    p.Name = Encoding.UTF8.GetString(playerChunk, MyOffsets.RawPlayerName + (i * MyOffsets.PlayerStructSize), p.NameLength);
+                    p.ClanTag = Encoding.UTF8.GetString(playerChunk, MyOffsets.RawPlayerClanTag + (i * MyOffsets.PlayerStructSize), 6);
+                    p.Color = GetGPlayerColorModified(BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerColor + (i * MyOffsets.PlayerStructSize)));
+                    p.Apm = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerApmCurrent + (i * MyOffsets.PlayerStructSize));
+                    p.Epm = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerEpmCurrent + (i * MyOffsets.PlayerStructSize));
+                    p.ApmAverage = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerApmAverage + (i * MyOffsets.PlayerStructSize));
+                    p.EpmAverage = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerEpmAverage + (i * MyOffsets.PlayerStructSize));
+                    p.Worker = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerWorkers + (i * MyOffsets.PlayerStructSize));
+                    p.AccountId = Encoding.UTF8.GetString(playerChunk, MyOffsets.RawPlayerAccountId + (i * MyOffsets.PlayerStructSize), 16);
+                    p.SupplyMaxRaw = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerSupplyMax + (i * MyOffsets.PlayerStructSize));
+                    p.SupplyMinRaw = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerSupplyMin + (i * MyOffsets.PlayerStructSize));
                     p.SupplyMax = p.SupplyMaxRaw >> 12;
                     p.SupplyMin = p.SupplyMinRaw >> 12;
                     p.ArmySupply = p.SupplyMin - p.Worker;
-                    p.CurrentBuildings = BitConverter.ToInt32(playerChunk, Of.RawPlayerCurrentBuildings + (i * Of.PlayerStructSize));
-                    p.Minerals = BitConverter.ToInt32(playerChunk, Of.RawPlayerMinerals + (i * Of.PlayerStructSize));
-                    p.Gas = BitConverter.ToInt32(playerChunk, Of.RawPlayerGas + (i * Of.PlayerStructSize));
-                    p.MineralsIncome = BitConverter.ToInt32(playerChunk, Of.RawPlayerMineralsIncome + (i * Of.PlayerStructSize));
-                    p.GasIncome = BitConverter.ToInt32(playerChunk, Of.RawPlayerGasIncome + (i * Of.PlayerStructSize));
-                    p.MineralsArmy = BitConverter.ToInt32(playerChunk, Of.RawPlayerMineralsArmy + (i * Of.PlayerStructSize));
-                    p.GasArmy = BitConverter.ToInt32(playerChunk, Of.RawPlayerGasArmy + (i * Of.PlayerStructSize));
-                    p.Team = playerChunk[Of.RawPlayerTeam + (i * Of.PlayerStructSize)];
+                    p.CurrentBuildings = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCurrentBuildings + (i * MyOffsets.PlayerStructSize));
+                    p.Minerals = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerMinerals + (i * MyOffsets.PlayerStructSize));
+                    p.Gas = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerGas + (i * MyOffsets.PlayerStructSize));
+                    p.MineralsIncome = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerMineralsIncome + (i * MyOffsets.PlayerStructSize));
+                    p.GasIncome = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerGasIncome + (i * MyOffsets.PlayerStructSize));
+                    p.MineralsArmy = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerMineralsArmy + (i * MyOffsets.PlayerStructSize));
+                    p.GasArmy = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerGasArmy + (i * MyOffsets.PlayerStructSize));
+                    p.Team = playerChunk[MyOffsets.RawPlayerTeam + (i * MyOffsets.PlayerStructSize)];
                     p.Localplayer = GetGPlayerLocalplayer();
                     p.IsLocalplayer = p.Localplayer == i;
                     lPlayer.LocalplayerIndex = p.Localplayer;
@@ -416,9 +538,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             // Unit Buffer 
             var iAmountOfUnits = GetGUnitReadUnitCount();
-            var unitLength = iAmountOfUnits * Of.UnitStructSize;
+            var unitLength = iAmountOfUnits * MyOffsets.UnitStructSize;
 
-            var unitChunk = Memory.ReadMemory(Of.UnitStruct, unitLength);
+            var unitChunk = Memory.ReadMemory(MyOffsets.UnitStruct, unitLength);
 
 
             if (unitChunk.Length > 0)
@@ -437,23 +559,23 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     var u = new PredefinedTypes.Unit();
 
-                    u.PositionX = BitConverter.ToInt32(unitChunk, Of.RawUnitPosX + (i * Of.UnitStructSize));
-                    u.PositionY = BitConverter.ToInt32(unitChunk, Of.RawUnitPosY + (i * Of.UnitStructSize));
-                    u.DestinationPositionX = BitConverter.ToInt32(unitChunk, Of.RawUnitDestinationX + (i * Of.UnitStructSize));
-                    u.DestinationPositionY = BitConverter.ToInt32(unitChunk, Of.RawUnitDestinationY + (i * Of.UnitStructSize));
-                    u.DamageTaken = BitConverter.ToInt32(unitChunk, Of.RawUnitDamageTaken + (i * Of.UnitStructSize));
-                    u.ShieldDamageTaken = BitConverter.ToInt32(unitChunk, Of.RawUnitShieldDamageTaken + (i * Of.UnitStructSize));
-                    u.TargetFilter = BitConverter.ToUInt64(unitChunk, Of.RawUnitTargetFilter + (i * Of.UnitStructSize));
-                    u.State = BitConverter.ToInt32(unitChunk, Of.RawUnitState + (i * Of.UnitStructSize));
-                    u.RandomFlag = unitChunk[Of.RawUnitRandomFlag + (i * Of.UnitStructSize)];
-                    u.Owner = unitChunk[Of.RawUnitOwner + (i * Of.UnitStructSize)];
+                    u.PositionX = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitPosX + (i * MyOffsets.UnitStructSize));
+                    u.PositionY = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitPosY + (i * MyOffsets.UnitStructSize));
+                    u.DestinationPositionX = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitDestinationX + (i * MyOffsets.UnitStructSize));
+                    u.DestinationPositionY = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitDestinationY + (i * MyOffsets.UnitStructSize));
+                    u.DamageTaken = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitDamageTaken + (i * MyOffsets.UnitStructSize));
+                    u.ShieldDamageTaken = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitShieldDamageTaken + (i * MyOffsets.UnitStructSize));
+                    u.TargetFilter = BitConverter.ToUInt64(unitChunk, MyOffsets.RawUnitTargetFilter + (i * MyOffsets.UnitStructSize));
+                    u.State = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitState + (i * MyOffsets.UnitStructSize));
+                    u.RandomFlag = unitChunk[MyOffsets.RawUnitRandomFlag + (i * MyOffsets.UnitStructSize)];
+                    u.Owner = unitChunk[MyOffsets.RawUnitOwner + (i * MyOffsets.UnitStructSize)];
                     u.SpeedMultiplier = BitConverter.ToInt32(unitChunk,
-                        Of.RawUnitSpeedMultiplier + (i * Of.UnitStructSize));
-                    u.Movestate = BitConverter.ToInt32(unitChunk, Of.RawUnitMovestate + (i * Of.UnitStructSize));
-                    u.Energy = BitConverter.ToInt32(unitChunk, Of.RawUnitEnergy + (i * Of.UnitStructSize));
-                    u.BuildingState = BitConverter.ToInt16(unitChunk, Of.RawUnitBuildingState + (i * Of.UnitStructSize));
-                    u.ModelPointer = BitConverter.ToInt32(unitChunk, Of.RawUnitModel + (i * Of.UnitStructSize));
-                    u.AliveSince = BitConverter.ToInt32(unitChunk, Of.RawUnitAliveSince + (i * Of.UnitStructSize));
+                        MyOffsets.RawUnitSpeedMultiplier + (i * MyOffsets.UnitStructSize));
+                    u.Movestate = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitMovestate + (i * MyOffsets.UnitStructSize));
+                    u.Energy = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitEnergy + (i * MyOffsets.UnitStructSize));
+                    u.BuildingState = BitConverter.ToInt16(unitChunk, MyOffsets.RawUnitBuildingState + (i * MyOffsets.UnitStructSize));
+                    u.ModelPointer = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitModel + (i * MyOffsets.UnitStructSize));
+                    u.AliveSince = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitAliveSince + (i * MyOffsets.UnitStructSize));
                     u.IsAlive = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Dead) == 0;
                     u.IsUnderConstruction = (u.TargetFilter &
                                              (UInt64)PredefinedTypes.TargetFilterFlag.UnderConstruction) > 0;
@@ -579,18 +701,18 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 return;
 
             // Map Buffer 
-            var mapLength = Of.RawMapTop + 4;
+            var mapLength = MyOffsets.RawMapTop + 4;
 
-            var mapChunk = Memory.ReadMemory(Of.MapStruct, mapLength);
+            var mapChunk = Memory.ReadMemory(MyOffsets.MapStruct, mapLength);
 
 
 
             var map = new PredefinedTypes.Map
             {
-                Bottom = BitConverter.ToInt32(mapChunk, Of.RawMapBottom),
-                Top = BitConverter.ToInt32(mapChunk, Of.RawMapTop),
-                Right = BitConverter.ToInt32(mapChunk, Of.RawMapRight),
-                Left = BitConverter.ToInt32(mapChunk, Of.RawMapLeft),
+                Bottom = BitConverter.ToInt32(mapChunk, MyOffsets.RawMapBottom),
+                Top = BitConverter.ToInt32(mapChunk, MyOffsets.RawMapTop),
+                Right = BitConverter.ToInt32(mapChunk, MyOffsets.RawMapRight),
+                Left = BitConverter.ToInt32(mapChunk, MyOffsets.RawMapLeft),
             };
 
             map.PlayableWidth = map.Right - map.Left;
@@ -605,9 +727,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 return;
 
             // Selection Buffer 
-            var selectionlength = GetGSelectionCount() * 4 + Of.UiRawSelectedIndex;
+            var selectionlength = GetGSelectionCount() * 4 + MyOffsets.UiRawSelectedIndex;
 
-            var selectionChunk = Memory.ReadMemory(Of.UiRawSelectionStruct, selectionlength);
+            var selectionChunk = Memory.ReadMemory(MyOffsets.UiRawSelectionStruct, selectionlength);
 
 
             var realSelectionCount = selectionChunk.Length / 4 - 2;
@@ -621,7 +743,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 {
                     var sel = new PredefinedTypes.Selection();
 
-                    sel.UnitIndex = BitConverter.ToInt16(selectionChunk, Of.UiRawSelectedIndex + (4 * i)) / 4;
+                    sel.UnitIndex = BitConverter.ToInt16(selectionChunk, MyOffsets.UiRawSelectedIndex + (4 * i)) / 4;
                     try
                     {
                         if (sel.UnitIndex < 0 ||
@@ -653,9 +775,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 return;
 
             // Group Buffer 
-            var groupLenght = 11 * Of.RawGroupSize;
+            var groupLenght = 11 * MyOffsets.RawGroupSize;
 
-            var groupChunk = Memory.ReadMemory(Of.RawGroupBase, groupLenght);
+            var groupChunk = Memory.ReadMemory(MyOffsets.RawGroupBase, groupLenght);
 
 
             var lGroups = new List<PredefinedTypes.Groups>();
@@ -665,7 +787,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 for (var i = 0; i < 10; i++)
                 {
                     var group = new PredefinedTypes.Groups();
-                    var amountOfUnits = BitConverter.ToInt16(groupChunk, Of.RawGroupAmountofUnits + (Of.RawGroupSize * i));
+                    var amountOfUnits = BitConverter.ToInt16(groupChunk, MyOffsets.RawGroupAmountofUnits + (MyOffsets.RawGroupSize * i));
                     var lUnit = new List<PredefinedTypes.Unit>();
 
                     for (var k = 0; k < amountOfUnits; k++)
@@ -673,8 +795,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         try
                         {
                             var tmp = BitConverter.ToInt16(groupChunk,
-                                (Of.RawGroupSize * i) + (Of.RawGroupUnitIndexSize * k) +
-                                Of.RawGroupUnitIndex) / 4;
+                                (MyOffsets.RawGroupSize * i) + (MyOffsets.RawGroupUnitIndexSize * k) +
+                                MyOffsets.RawGroupUnitIndex) / 4;
 
                             if (tmp < 0 ||
                                 tmp >= Unit.Count)
@@ -915,7 +1037,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 1 Byte */
         private Int32 GetGPlayerLocalplayer()
         {
-            var tmp = Memory.ReadMemory(Of.Localplayer4, 1)[0];// InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.Localplayer4, sizeof (byte))[0];
+            var tmp = Memory.ReadMemory(MyOffsets.Localplayer4, 1)[0];// InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.Localplayer4, sizeof (byte))[0];
 
             return tmp;
         }
@@ -930,17 +1052,17 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* Get the name */
         private PredefinedTypes.UnitModelStruct GetGUnitStruct(Int32 iUnitNum)
         {
-            var iContentofUnitModel = Memory.ReadInt32(Of.UnitModel + Of.UnitStructSize * iUnitNum);
+            var iContentofUnitModel = Memory.ReadInt32(MyOffsets.UnitModel + MyOffsets.UnitStructSize * iUnitNum);
             /*BitConverter.ToInt32(
                 InteropCalls.Help_ReadProcessMemory(HStarcraft,
-                                     Of.UnitModel + Of.UnitStructSize * iUnitNum, 4), 0);*/
+                                     MyOffsets.UnitModel + MyOffsets.UnitStructSize * iUnitNum, 4), 0);*/
 
             var iContentofUnitModelShifted = (iContentofUnitModel << 5) & 0xFFFFFFFF;
 
             /* Id - 2 Byte*/
-            var id = (PredefinedTypes.UnitId)Memory.ReadInt16(Of.UnitModelId + (int)iContentofUnitModelShifted);
+            var id = (PredefinedTypes.UnitId)Memory.ReadInt16(MyOffsets.UnitModelId + (int)iContentofUnitModelShifted);
             /*BitConverter.ToInt16(
-                InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UnitModelId + (int)iContentofUnitModelShifted, 2),
+                InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.UnitModelId + (int)iContentofUnitModelShifted, 2),
                 0);*/
 
             //if (id.Equals(PredefinedTypes.UnitId.PuZealot))
@@ -949,9 +1071,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
             //}
 
             /* Size - 4 Byte*/
-            var size = (float)Memory.ReadInt32(Of.UnitModelSize + (int)iContentofUnitModelShifted);
+            var size = (float)Memory.ReadInt32(MyOffsets.UnitModelSize + (int)iContentofUnitModelShifted);
             /* (float)BitConverter.ToInt32(
-                 InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UnitModelSize + (int)iContentofUnitModelShifted, 4),
+                 InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.UnitModelSize + (int)iContentofUnitModelShifted, 4),
                  0);*/
 
             size /= 4096;
@@ -959,29 +1081,29 @@ namespace AnotherSc2Hack.Classes.BackEnds
             /* Maximum Health - 4 Byte 
              * Value is raw and has to be 
              * devided by 4096 or bitshifted >> 12! */
-            var health = Memory.ReadInt32(Of.UnitMaxHealth + (int)iContentofUnitModelShifted);
+            var health = Memory.ReadInt32(MyOffsets.UnitMaxHealth + (int)iContentofUnitModelShifted);
             /*BitConverter.ToInt32(
-                    InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UnitMaxHealth + (int)iContentofUnitModelShifted, 4),
+                    InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.UnitMaxHealth + (int)iContentofUnitModelShifted, 4),
                     0);*/
             // HelpFunctions.GetMaximumHealth((PredefinedTypes.UnitId) id) << 12;
 
-            var maximumEnergy = Memory.ReadInt32(Of.UnitMaxEnergy + iContentofUnitModelShifted);
+            var maximumEnergy = Memory.ReadInt32(MyOffsets.UnitMaxEnergy + iContentofUnitModelShifted);
 
 
             /* Maximum Health - 4 Byte 
              * Value is raw and has to be 
              * devided by 4096 or bitshifted >> 12! */
-            var shield = Memory.ReadInt32(Of.UnitMaxShield + (int)iContentofUnitModelShifted);
+            var shield = Memory.ReadInt32(MyOffsets.UnitMaxShield + (int)iContentofUnitModelShifted);
             /*BitConverter.ToInt32(
-                InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UnitMaxShield + (int)iContentofUnitModelShifted, 4),
+                InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.UnitMaxShield + (int)iContentofUnitModelShifted, 4),
                 0);*/
             // HelpFunctions.GetMaximumHealth((PredefinedTypes.UnitId) id) << 12;
 
 
             /* Pointer to the name struct */
-            var iStringStruct = Memory.ReadInt32(Of.UnitStringStruct + (int)iContentofUnitModelShifted);
+            var iStringStruct = Memory.ReadInt32(MyOffsets.UnitStringStruct + (int)iContentofUnitModelShifted);
             /*BitConverter.ToInt32(
-                InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UnitStringStruct + (int)iContentofUnitModelShifted, 4),
+                InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.UnitStringStruct + (int)iContentofUnitModelShifted, 4),
                 0);*/
 
             /* Namelenght */
@@ -991,8 +1113,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                    0);*/
 
             /* Name */
-            var sName = Memory.ReadString(iNameLenght + Of.UnitString, 50, Encoding.UTF8);
-            /*Encoding.UTF8.GetString(  InteropCalls.Help_ReadProcessMemory(HStarcraft, iNameLenght + Of.UnitString,
+            var sName = Memory.ReadString(iNameLenght + MyOffsets.UnitString, 50, Encoding.UTF8);
+            /*Encoding.UTF8.GetString(  InteropCalls.Help_ReadProcessMemory(HStarcraft, iNameLenght + MyOffsets.UnitString,
                                                                         50));*/
 
             if (sName.Contains("\0"))
@@ -1017,9 +1139,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 4 Bytes */
         private Int32 GetGUnitReadUnitCount()
         {
-            return Memory.ReadInt32(Of.UnitTotal);
+            return Memory.ReadInt32(MyOffsets.UnitTotal);
             /*  (BitConverter.ToInt32(
-                  InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UnitTotal, sizeof(Int32)),
+                  InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.UnitTotal, sizeof(Int32)),
                   0));*/
         }
 
@@ -1028,8 +1150,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var lUnitIds = new List<PredefinedTypes.UnitProduction>();
 
             /* Content of Abilities (pAbilities) */
-            var iUnitAbilitiesPointer = Memory.ReadUInt32(Of.UnitStruct + 0xDC + Of.UnitStructSize * iUnitNum);
-            /* BitConverter.ToUInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UnitStruct + 0xDC + Of.UnitStructSize * iUnitNum, 4), 0);*/
+            var iUnitAbilitiesPointer = Memory.ReadUInt32(MyOffsets.UnitStruct + 0xDC + MyOffsets.UnitStructSize * iUnitNum);
+            /* BitConverter.ToUInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.UnitStruct + 0xDC + MyOffsets.UnitStructSize * iUnitNum, 4), 0);*/
 
 
 
@@ -1239,9 +1361,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     structureId.Equals(PredefinedTypes.UnitId.PuMothershipCore) ||
                     structureId.Equals(PredefinedTypes.UnitId.PuArchon))
                 {
-                    var iUnitCommandQueuePointer = Memory.ReadUInt32(Of.UnitStruct + 0xD4 + Of.UnitStructSize * iUnitNum);
+                    var iUnitCommandQueuePointer = Memory.ReadUInt32(MyOffsets.UnitStruct + 0xD4 + MyOffsets.UnitStructSize * iUnitNum);
                     /*InteropCalls.ReadUInt32(HStarcraft,
-                    Of.UnitStruct + 0xD4 + Of.UnitStructSize * iUnitNum);*/
+                    MyOffsets.UnitStruct + 0xD4 + MyOffsets.UnitStructSize * iUnitNum);*/
 
                     if (iUnitCommandQueuePointer > 0)
                     {
@@ -1373,8 +1495,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         private Int32 GetGSelectionCount()
         {
-            return Memory.ReadInt16(Of.UiTotalSelectedUnits);
-            //(BitConverter.ToInt16(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.UiTotalSelectedUnits, 2), 0));
+            return Memory.ReadInt16(MyOffsets.UiTotalSelectedUnits);
+            //(BitConverter.ToInt16(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.UiTotalSelectedUnits, 2), 0));
         }
 
         #endregion
@@ -1385,13 +1507,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
         //Max length is 255
         private string GetGChatInput()
         {
-            var i1 = Memory.ReadInt32(Of.ChatBase);// BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.ChatBase, 4), 0);
-            var i2 = Memory.ReadInt32(Of.ChatOff0 + i1);// BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.ChatOff0 + i1, 4), 0);
-            var i3 = Memory.ReadInt32(Of.ChatOff1 + i2); //BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.ChatOff1 + i2, 4), 0);
-            var i4 = Memory.ReadInt32(Of.ChatOff2 + i3); //BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.ChatOff2 + i3, 4), 0);
-            var i5 = Memory.ReadInt32(Of.ChatOff3 + i4); //BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.ChatOff3 + i4, 4), 0);
+            var i1 = Memory.ReadInt32(MyOffsets.ChatBase);// BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.ChatBase, 4), 0);
+            var i2 = Memory.ReadInt32(MyOffsets.ChatOff0 + i1);// BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.ChatOff0 + i1, 4), 0);
+            var i3 = Memory.ReadInt32(MyOffsets.ChatOff1 + i2); //BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.ChatOff1 + i2, 4), 0);
+            var i4 = Memory.ReadInt32(MyOffsets.ChatOff2 + i3); //BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.ChatOff2 + i3, 4), 0);
+            var i5 = Memory.ReadInt32(MyOffsets.ChatOff3 + i4); //BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.ChatOff3 + i4, 4), 0);
 
-            var i6 = i5 + Of.ChatOff4;    //<-- Result
+            var i6 = i5 + MyOffsets.ChatOff4;    //<-- Result
 
             return Memory.ReadString(i6, 255, Encoding.UTF8);// Encoding.UTF8.GetString(InteropCalls.Help_ReadProcessMemory(HStarcraft, i6, 255));
         }
@@ -1402,13 +1524,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             /*
 
-            var i1 = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.ChatOpenBase, 4), 0);
-            var i2 = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.ChatOpenOff0 + i1, 4), 0);
-            var i3 = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.ChatOpenOff1 + i2, 4), 0);
-            var i4 = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.ChatOpenOff2 + i3, 4), 0);
-            var i5 = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.ChatOpenOff3 + i4, 4), 0);
+            var i1 = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.ChatOpenBase, 4), 0);
+            var i2 = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.ChatOpenOff0 + i1, 4), 0);
+            var i3 = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.ChatOpenOff1 + i2, 4), 0);
+            var i4 = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.ChatOpenOff2 + i3, 4), 0);
+            var i5 = BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.ChatOpenOff3 + i4, 4), 0);
 
-            var i6 = i5 + Of.ChatOpenOff4;    //<-- Result
+            var i6 = i5 + MyOffsets.ChatOpenOff4;    //<-- Result
 
             return BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, i6, 255), 0) > 0;*/
         }
@@ -1416,9 +1538,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 4 Bytes */
         private Int32 GetGTimer()
         {
-            //Console.WriteLine("Timer (RAW): " + Memory.ReadInt32(Of.TimerData));
-            return Memory.ReadInt32(Of.TimerData) >> 12;
-            //(BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.TimerData, sizeof (Int32)), 0) >> 12);
+            //Console.WriteLine("Timer (RAW): " + Memory.ReadInt32(MyOffsets.TimerData));
+            return Memory.ReadInt32(MyOffsets.TimerData) >> 12;
+            //(BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.TimerData, sizeof (Int32)), 0) >> 12);
         }
 
         /* Gathered from Timerdata */
@@ -1432,16 +1554,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 4 Bytes */
         private Int32 GetGFps()
         {
-            return Memory.ReadInt32(Of.FramesPerSecond);
+            return Memory.ReadInt32(MyOffsets.FramesPerSecond);
             /*(BitConverter.ToInt32(
-                InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.FramesPerSecond, sizeof (Int32)), 0));*/
+                InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.FramesPerSecond, sizeof (Int32)), 0));*/
         }
 
         /* 4 Bytes */
         private PredefinedTypes.Gamespeed GetGGamespeed()
         {
-            var iBuffer = Memory.ReadInt32(Of.Gamespeed);
-            // BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.Gamespeed, sizeof (Int32)), 0);
+            var iBuffer = Memory.ReadInt32(MyOffsets.Gamespeed);
+            // BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.Gamespeed, sizeof (Int32)), 0);
 
             return (PredefinedTypes.Gamespeed)iBuffer;
         }
@@ -1449,7 +1571,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 1 Byte */
         private Boolean GetGTeamcolor()
         {
-            var iBuffer = Memory.ReadByte(Of.TeamColor1);// InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.TeamColor1, sizeof (Byte))[0];
+            var iBuffer = Memory.ReadByte(MyOffsets.TeamColor1);// InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.TeamColor1, sizeof (Byte))[0];
 
             if (iBuffer == 0)
                 return false;
@@ -1468,7 +1590,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 4 Bytes */
         private Boolean GetGPause()
         {
-            return Memory.ReadInt32(Of.PauseEnabled) > 0;// (BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, Of.PauseEnabled, 4), 0) > 0);
+            return Memory.ReadInt32(MyOffsets.PauseEnabled) > 0;// (BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.PauseEnabled, 4), 0) > 0);
         }
 
         #endregion

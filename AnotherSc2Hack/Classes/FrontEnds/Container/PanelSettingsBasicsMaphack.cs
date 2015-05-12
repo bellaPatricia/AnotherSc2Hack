@@ -7,6 +7,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
         public PanelSettingsBasicsMaphack()
         {
             InitializeComponent();
+
         }
     }
 }

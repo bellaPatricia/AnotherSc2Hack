@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
 using Predefined;
+using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     public class ApmRenderer : BaseRenderer
     {
-        public ApmRenderer(GameInfo gInformation, Preferences pSettings, Process sc2Process)
+        public ApmRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-            
+            IsHiddenChanged += ApmRenderer_IsHiddenChanged;
         }
 
         /// <summary>
@@ -35,16 +36,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (iValidPlayerCount == 0)
                     return;
 
-                Opacity = PSettings.ApmOpacity;
+                Opacity = PSettings.PreferenceAll.OverlayApm.Opacity;
                 var iSingleHeight = Height / iValidPlayerCount;
                 var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
-                var fInternalFont = new Font(PSettings.ApmFontName, fNewFontSize, FontStyle.Bold);
+                var fInternalFont = new Font(PSettings.PreferenceAll.OverlayApm.FontName, fNewFontSize, FontStyle.Bold);
                 var fInternalFontNormal = new Font(fInternalFont.Name, fNewFontSize, FontStyle.Regular);
 
                 if (!BChangingPosition)
                 {
-                    Height = PSettings.ApmHeight * iValidPlayerCount;
-                    Width = PSettings.ApmWidth;
+                    Height = PSettings.PreferenceAll.OverlayApm.Height * iValidPlayerCount;
+                    Width = PSettings.PreferenceAll.OverlayApm.Width;
                 }
 
                 var iCounter = 0;
@@ -79,19 +80,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
 
-                    if (PSettings.ApmRemoveAi)
+                    if (PSettings.PreferenceAll.OverlayApm.RemoveAi)
                     {
                         if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
                             continue;
                     }
 
-                    if (PSettings.ApmRemoveNeutral)
+                    if (PSettings.PreferenceAll.OverlayApm.RemoveNeutral)
                     {
                         if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
                             continue;
                     }
 
-                    if (PSettings.ApmRemoveAllie)
+                    if (PSettings.PreferenceAll.OverlayApm.RemoveAllie)
                     {
                         if (GInformation.Player[0].Localplayer == 16)
                         {
@@ -107,7 +108,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
                     }
 
-                    if (PSettings.ApmRemoveLocalplayer)
+                    if (PSettings.PreferenceAll.OverlayApm.RemoveLocalplayer)
                     {
                         if (GInformation.Player[i].IsLocalplayer)
                             continue;
@@ -119,7 +120,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Draw Bounds and Background
 
-                    if (PSettings.ApmDrawBackground)
+                    if (PSettings.PreferenceAll.OverlayApm.DrawBackground)
                     {
                         /* Background */
                         g.Graphics.FillRectangle(Brushes.Gray, 1, 1 + (iSingleHeight * iCounter), Width - 2,
@@ -137,11 +138,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Name
 
-                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.ApmRemoveClanTag)
+                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.PreferenceAll.OverlayApm.RemoveClanTag)
                                          ? GInformation.Player[i].Name
                                          : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         strName,
                         fInternalFont,
                         new SolidBrush(clPlayercolor),
@@ -153,7 +154,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Team
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         "#" + GInformation.Player[i].Team, fInternalFontNormal,
                         Brushes.White,
                         Brushes.Black, (float)((29.67 / 100) * Width),
@@ -164,7 +165,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Apm
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                         "APM: " + GInformation.Player[i].ApmAverage +
                         " [" + GInformation.Player[i].Apm + "]", fInternalFontNormal,
                         Brushes.White,
@@ -177,7 +178,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Epm
 
-                    Drawing.DrawString(g.Graphics,
+                    g.Graphics.DrawString(
                        "EPM: " + GInformation.Player[i].EpmAverage +
                         " [" + GInformation.Player[i].Epm + "]", fInternalFontNormal,
                         Brushes.White,
@@ -210,11 +211,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             /* Has to be calculated manually because each panels has it's own Neutral handling.. */
             var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
-            PSettings.ApmPositionX = Location.X;
-            PSettings.ApmPositionY = Location.Y;
-            PSettings.ApmWidth = Width;
-            PSettings.ApmHeight = Height / iValidPlayerCount;
-            PSettings.ApmOpacity = Opacity;
+            PSettings.PreferenceAll.OverlayApm.X  = Location.X;
+            PSettings.PreferenceAll.OverlayApm.Y  = Location.Y;
+            PSettings.PreferenceAll.OverlayApm.Width = Width;
+            PSettings.PreferenceAll.OverlayApm.Height = Height / iValidPlayerCount;
+            PSettings.PreferenceAll.OverlayApm.Opacity = Opacity;
         }
 
         /// <summary>
@@ -245,20 +246,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 tmrRefreshGraphic.Interval = 20;
 
-                PSettings.ApmWidth = Cursor.Position.X - Left;
+                PSettings.PreferenceAll.OverlayApm.Width = Cursor.Position.X - Left;
 
                 var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
-                if (PSettings.ApmRemoveNeutral)
+                if (PSettings.PreferenceAll.OverlayApm.RemoveNeutral)
                     iValidPlayerCount -= 1;
 
                 if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
                 {
-                    PSettings.ApmHeight = (Cursor.Position.Y - Top) /
+                    PSettings.PreferenceAll.OverlayApm.Height = (Cursor.Position.Y - Top) /
                                                         iValidPlayerCount;
                 }
 
                 else
-                    PSettings.ApmHeight = 5;
+                    PSettings.PreferenceAll.OverlayApm.Height = 5;
             }
 
             var strInput = StrBackupSizeChatbox;
@@ -270,7 +271,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
 
-            if (strInput.Equals(PSettings.ApmChangeSizePanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayApm.ChangeSize))
             {
                 if (BToggleSize)
                 {
@@ -283,7 +284,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             if (HelpFunctions.HotkeysPressed(Keys.Enter))
             {
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
 
                 BSetSize = false;
                 StrBackupSizeChatbox = string.Empty;
@@ -295,10 +296,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
-            Location = new Point(PSettings.ApmPositionX,
-                                     PSettings.ApmPositionY);
-            Size = new Size(PSettings.ApmWidth, PSettings.ApmHeight);
-            Opacity = PSettings.ApmOpacity;
+            Location = new Point(PSettings.PreferenceAll.OverlayApm.X,
+                                     PSettings.PreferenceAll.OverlayApm.Y);
+            Size = new Size(PSettings.PreferenceAll.OverlayApm.Width, PSettings.PreferenceAll.OverlayApm.Height);
+            Opacity = PSettings.PreferenceAll.OverlayApm.Opacity;
         }
 
         /// <summary>
@@ -312,8 +313,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 tmrRefreshGraphic.Interval = 20;
 
                 Location = Cursor.Position;
-                PSettings.ApmPositionX = Cursor.Position.X;
-                PSettings.ApmPositionY = Cursor.Position.Y;
+                PSettings.PreferenceAll.OverlayApm.X = Cursor.Position.X;
+                PSettings.PreferenceAll.OverlayApm.Y = Cursor.Position.Y;
             }
 
             var strInput = StrBackupChatbox;
@@ -324,7 +325,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (strInput.Contains('\0'))
                 strInput = strInput.Substring(0, strInput.IndexOf('\0'));
 
-            if (strInput.Equals(PSettings.ApmChangePositionPanel))
+            if (strInput.Equals(PSettings.PreferenceAll.OverlayApm.ChangePosition))
             {
                 if (BTogglePosition)
                 {
@@ -339,7 +340,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 BSetPosition = false;
                 StrBackupChatbox = string.Empty;
-                tmrRefreshGraphic.Interval = PSettings.GlobalDrawingRefresh;
+                tmrRefreshGraphic.Interval = PSettings.PreferenceAll.Global.DrawingRefresh;
             }
         }
 
@@ -348,7 +349,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         protected override void LoadSpecificData()
         {
-            /* Nothing special here :) */
+            
+        }
+
+        void ApmRenderer_IsHiddenChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.OverlayApm.LaunchStatus = !IsHidden;
         }
 
         /// <summary>
@@ -363,10 +369,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var iRealPlayerCount = iValidPlayerCount == 0 ? 1 : iValidPlayerCount;
 
-            PSettings.ApmHeight = (Height / iRealPlayerCount);
-            PSettings.ApmWidth = Width;
-            PSettings.ApmPositionX = Location.X;
-            PSettings.ApmPositionY = Location.Y;
+            PSettings.PreferenceAll.OverlayApm.Height = (Height / iRealPlayerCount);
+            PSettings.PreferenceAll.OverlayApm.Width = Width;
+            PSettings.PreferenceAll.OverlayApm.X = Location.X;
+            PSettings.PreferenceAll.OverlayApm.Y = Location.Y;
         }
     }
 }

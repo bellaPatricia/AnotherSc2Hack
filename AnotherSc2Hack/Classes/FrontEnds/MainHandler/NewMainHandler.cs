@@ -1,26 +1,22 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Policy;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
-using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.DataStructures.Plugin;
+using AnotherSc2Hack.Classes.DataStructures.Preference;
+using AnotherSc2Hack.Classes.Events;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
-using AnotherSc2Hack.Classes.FrontEnds.Container;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
-using Microsoft.Win32;
 using PluginInterface;
 using Predefined;
 using Timer = System.Windows.Forms.Timer;
@@ -29,6 +25,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
     public partial class NewMainHandler : Form
     {
+        #region Private Variables
+
         private readonly Timer _tmrMainTick = new Timer();
         
         private readonly RendererContainer _lContainer = new RendererContainer();
@@ -37,15 +35,49 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly List<OnlinePlugin> _lOnlinePlugins = new List<OnlinePlugin>();
         private readonly WebClient _wcMainWebClient = new WebClient();
         private DateTime _dtSecond = DateTime.Now;
+        private readonly Dictionary<string, string> _dictLanguageFile = new Dictionary<string, string>();
 
         private Boolean _bProcessSet;
 
+        #region LanguageString
+
+        private readonly LanguageString _lstrChCreditsContributer = new LanguageString("lstrChCreditsContributer");
+        private readonly LanguageString _lstrChCreditsReason = new LanguageString("lstrChCreditsReason");
+        private readonly LanguageString _lstrChPluginsPluginName = new LanguageString("lstrChPluginsPluginName");
+        private readonly LanguageString _lstrChPluginsPluginVersion = new LanguageString("lstrChPluginsPluginVersion");
+        private readonly LanguageString _lstrChDebugAttribute = new LanguageString("lstrChDebugAttribute");
+        private readonly LanguageString _lstrChDebugValue = new LanguageString("lstrChDebugValue");
+
+        private readonly LanguageString _lstrCreditsReasonRhcp = new LanguageString("lstrCreditsReasonRhcp");
+        private readonly LanguageString _lstrCreditsReasonBeaving = new LanguageString("lstrCreditsReasonBeaving");
+        private readonly LanguageString _lstrCreditsReasonMrnukealizer = new LanguageString("lstrCreditsReasonMrnukealizer");
+        private readonly LanguageString _lstrCreditsReasonMyteewun = new LanguageString("lstrCreditsReasonMyteewun");
+        private readonly LanguageString _lstrCreditsReasonMischa = new LanguageString("lstrCreditsReasonMischa");
+        private readonly LanguageString _lstrCreditsReasonMrice = new LanguageString("lstrCreditsReasonMrice");
+        private readonly LanguageString _lstrCreditsReasonTracky = new LanguageString("lstrCreditsReasonTracky");
+        private readonly LanguageString _lstrCreditsReasonD3Scene = new LanguageString("lstrCreditsReasonD3Scene");
+        private readonly LanguageString _lstrCreditsReasonVariousPeople = new LanguageString("lstrCreditsReasonVariousPeople");
+        private readonly LanguageString _lstrCreditsReasonDonators = new LanguageString("lstrCreditsReasonDonators");
+
+        private readonly LanguageString _lstrApplicationRestoreSettingsText = new LanguageString("lstrApplicationRestoreSettingsText");
+        private readonly LanguageString _lstrApplicationRestoreSettingsHeader = new LanguageString("lstrApplicationRestoreSettingsHeader");
+        private readonly LanguageString _lstrApplicationRestorePanelPositionText = new LanguageString("lstrApplicationRestorePanelPositionText");
+        private readonly LanguageString _lstrApplicationRestorePanelPositionHeader = new LanguageString("lstrApplicationRestorePanelPositionHeader");
+
+        private readonly LanguageString _lstrPluginContextInstallPlugin = new LanguageString("lstrPluginContextInstallPlugin");
+        private readonly LanguageString _lstrPluginContextRemovePlugin = new LanguageString("lstrPluginContextRemovePlugin");
+
+
+
+        #endregion
+
+        #endregion
 
         #region Getter and setter with advanced codeexecution
 
-        private Preferences _pSettings = new Preferences();
+        private PreferenceManager _pSettings = new PreferenceManager();
 
-        public Preferences PSettings
+        public PreferenceManager PSettings
         {
             get { return _pSettings; }
             set
@@ -169,7 +201,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
+        #region Other Properties
+
         public ApplicationStartOptions ApplicationOptions { get; private set; }
+
+        #endregion
+
+        #region Constructors
 
         public NewMainHandler(ApplicationStartOptions app)
         {
@@ -178,26 +216,33 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             
             Init();
             OverlaysEventMapping();
+            LanguageStringEventMapping();
             ControlsFill();
+            
             
 
             ApplicationOptions = app;
 
-            Gameinfo.CSleepTime = PSettings.GlobalDataRefresh;
+            Gameinfo.CSleepTime = PSettings.PreferenceAll.Global.DataRefresh;
+            Gameinfo.IterationPerSecondChanged += Gameinfo_IterationPerSecondChanged;
 
             PluginsLocalLoadPlugins();
             new Thread(PluginLoadAvailablePlugins).Start();
             
+            LoadContributers();
+            LaunchOnStartup();
         }
+
+        #endregion
 
         private void Init()
         {
-            PSettings = new Preferences();
+            PSettings = new PreferenceManager();
 
             cpnlApplication.PerformClick();
             cpnlOverlaysResources.PerformClick();
 
-            _tmrMainTick.Interval = PSettings.GlobalDataRefresh;
+            _tmrMainTick.Interval = PSettings.PreferenceAll.Global.DataRefresh;
             _tmrMainTick.Tick += _tmrMainTick_Tick;
             _tmrMainTick.Enabled = true;
 
@@ -217,6 +262,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _lContainer.Add(new ProductionRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new PersonalApmRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new PersonalClockRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new WorkerCoachRenderer(Gameinfo, PSettings, PSc2Process));
+
+            BaseRendererEventMapping();
 
             SetStyle(ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.OptimizedDoubleBuffer |
@@ -224,126 +272,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 ControlStyles.DoubleBuffer, true);
         }
 
-        void _wcMainWebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            pbMainProgress.Value = 0;
-
-            if (e.UserState.Equals("Plugin"))
-            {
-                PluginsLocalLoadPlugins();
-            }
-
-            Console.WriteLine("Filedownload complete!");
-        }
-
-        void _wcMainWebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            pbMainProgress.Value = e.ProgressPercentage;
-            Console.WriteLine("We are at the ProgressChanged!");
-        }
-
-        void _tmrMainTick_Tick(object sender, EventArgs e)
-        {
-            if ((DateTime.Now - _dtSecond).Seconds >= 1)
-            {
-                _dtSecond = DateTime.Now;
-
-                if (cpnlDebug.IsClicked)
-                {
-                    Gameinfo.CAccessGameinfo = true;
-                    Gameinfo.CAccessMapInfo = true;
-                    Gameinfo.CAccessPlayers = true;
-                    Gameinfo.CAccessUnits = true;
-                    Gameinfo.CAccessUnitCommands = true;
-
-                    DebugPlayerRefresh();
-                    DebugUnitRefresh();
-                    DebugMapRefresh();
-                    DebugMatchinformationRefresh();
-                }
-
-                //Console.WriteLine("CAccessGameinfo: " + Gameinfo.CAccessGameinfo);
-                //Console.WriteLine("CAccessGroups: " + Gameinfo.CAccessGroups);
-                //Console.WriteLine("CAccessMapInfo: " + Gameinfo.CAccessMapInfo);
-                //Console.WriteLine("CAccessPlayers: " + Gameinfo.CAccessPlayers);
-                //Console.WriteLine("CAccessSelection: " + Gameinfo.CAccessSelection);
-                //Console.WriteLine("CAccessUnitCommands: " + Gameinfo.CAccessUnitCommands);
-                //Console.WriteLine("CAccessUnits: " + Gameinfo.CAccessUnits);
-            }
-
-            for (var i = 0; i < _lContainer.Count; i++)
-            {
-                Gameinfo.CAccessGameinfo |= _lContainer[i].GInformation.CAccessGameinfo;
-                Gameinfo.CAccessGroups |= _lContainer[i].GInformation.CAccessGroups;
-                Gameinfo.CAccessMapInfo |= _lContainer[i].GInformation.CAccessMapInfo;
-                Gameinfo.CAccessPlayers |= _lContainer[i].GInformation.CAccessPlayers;
-                Gameinfo.CAccessSelection |= _lContainer[i].GInformation.CAccessSelection;
-                Gameinfo.CAccessUnitCommands |= _lContainer[i].GInformation.CAccessUnitCommands;
-                Gameinfo.CAccessUnits |= _lContainer[i].GInformation.CAccessUnits;
-            }
-
-            
-
-            InputManager();
-            PluginDataRefresh();
-
-            #region Reset Process and gameinfo if Sc2 is not started
-
-            if (!Processing.GetProcess(Constants.StrStarcraft2ProcessName))
-            {
-                ChangeVisibleState(false);
-                _bProcessSet = false;
-                Gameinfo.HandleThread(false);
-
-                _tmrMainTick.Interval = 300;
-                Debug.WriteLine("Process not found - 300ms Delay!");
-            }
-
-
-            else
-            {
-                if (!_bProcessSet)
-                {
-                    _bProcessSet = true;
-
-                    Process proc;
-                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
-                        PSc2Process = proc;
-
-
-                    if (Gameinfo == null)
-                    {
-                        Gameinfo = new GameInfo(PSettings.GlobalDataRefresh, ApplicationOptions)
-                        {
-                            Of = new Offsets()
-                        };
-                    }
-
-                    else if (Gameinfo != null &&
-                             !Gameinfo.CThreadState)
-                    {
-                        Gameinfo.Memory.Handle = IntPtr.Zero;
-                        Gameinfo.CStarcraft2 = PSc2Process;
-                        Gameinfo.Of = new Offsets();
-                        Gameinfo.HandleThread(true);
-                    }
-
-
-                    ChangeVisibleState(true);
-                    _tmrMainTick.Interval = PSettings.GlobalDataRefresh;
-
-                    Debug.WriteLine("Process found - " + PSettings.GlobalDataRefresh + "ms Delay!");
-                }
-            }
-
-            #endregion
-            
-        }
-
         /// <summary>
         /// This method will handle the input for the overlays and other callable things.
         /// This supports button_click events, Keypresses (GetAsyncKeyState) and chat-input
-        /// <param name="senderButton">The Button- object you want to pass. Leave this to null if you don't have a button!</param>
+        /// <param name="clickButton">The Button- object you want to pass. Leave this to null if you don't have a button!</param>
         /// <param name="e">The standard EventArgs object. Leave this to null</param>
         /// </summary>
         private void InputManager(object clickButton = null, EventArgs e = null)
@@ -404,13 +336,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             {
                 if (renderer is ResourcesRenderer)
                 {
-                    if (HelpFunctions.HotkeysPressed(PSettings.ResourceHotkey1,
-                        PSettings.ResourceHotkey2,
-                        PSettings.ResourceHotkey3))
+                    if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.OverlayResources.Hotkey1,
+                        PSettings.PreferenceAll.OverlayResources.Hotkey2,
+                        PSettings.PreferenceAll.OverlayResources.Hotkey3))
                         renderer.ToggleShowHide();
 
 
-                    else if (strInput.Equals(PSettings.ResourceTogglePanel))
+                    else if (strInput.Equals(PSettings.PreferenceAll.OverlayResources.TogglePanel))
                     {
                         renderer.ToggleShowHide();
 
@@ -422,13 +354,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 else if (renderer is IncomeRenderer)
                 {
-                    if (HelpFunctions.HotkeysPressed(PSettings.IncomeHotkey1,
-                        PSettings.IncomeHotkey2,
-                        PSettings.IncomeHotkey3))
+                    if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.OverlayIncome.Hotkey1,
+                        PSettings.PreferenceAll.OverlayIncome.Hotkey2,
+                        PSettings.PreferenceAll.OverlayIncome.Hotkey3))
                         renderer.ToggleShowHide();
 
 
-                    else if (strInput.Equals(PSettings.IncomeTogglePanel))
+                    else if (strInput.Equals(PSettings.PreferenceAll.OverlayIncome.TogglePanel))
                     {
                         renderer.ToggleShowHide();
 
@@ -440,13 +372,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 else if (renderer is WorkerRenderer)
                 {
-                    if (HelpFunctions.HotkeysPressed(PSettings.WorkerHotkey1,
-                        PSettings.WorkerHotkey2,
-                        PSettings.WorkerHotkey3))
+                    if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.OverlayWorker.Hotkey1,
+                        PSettings.PreferenceAll.OverlayWorker.Hotkey2,
+                        PSettings.PreferenceAll.OverlayWorker.Hotkey3))
                         renderer.ToggleShowHide();
 
 
-                    else if (strInput.Equals(PSettings.WorkerTogglePanel))
+                    else if (strInput.Equals(PSettings.PreferenceAll.OverlayWorker.TogglePanel))
                     {
                         renderer.ToggleShowHide();
 
@@ -458,13 +390,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 else if (renderer is ApmRenderer)
                 {
-                    if (HelpFunctions.HotkeysPressed(PSettings.ApmHotkey1,
-                        PSettings.ApmHotkey2,
-                        PSettings.ApmHotkey3))
+                    if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.OverlayApm.Hotkey1,
+                        PSettings.PreferenceAll.OverlayApm.Hotkey2,
+                        PSettings.PreferenceAll.OverlayApm.Hotkey3))
                         renderer.ToggleShowHide();
 
 
-                    else if (strInput.Equals(PSettings.ApmTogglePanel))
+                    else if (strInput.Equals(PSettings.PreferenceAll.OverlayApm.TogglePanel))
                     {
                         renderer.ToggleShowHide();
 
@@ -476,13 +408,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 else if (renderer is ArmyRenderer)
                 {
-                    if (HelpFunctions.HotkeysPressed(PSettings.ArmyHotkey1,
-                        PSettings.ArmyHotkey2,
-                        PSettings.ArmyHotkey3))
+                    if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.OverlayArmy.Hotkey1,
+                        PSettings.PreferenceAll.OverlayArmy.Hotkey2,
+                        PSettings.PreferenceAll.OverlayArmy.Hotkey3))
                         renderer.ToggleShowHide();
 
 
-                    else if (strInput.Equals(PSettings.ArmyTogglePanel))
+                    else if (strInput.Equals(PSettings.PreferenceAll.OverlayArmy.TogglePanel))
                     {
                         renderer.ToggleShowHide();
 
@@ -494,13 +426,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 else if (renderer is MaphackRenderer)
                 {
-                    if (HelpFunctions.HotkeysPressed(PSettings.MaphackHotkey1,
-                        PSettings.MaphackHotkey2,
-                        PSettings.MaphackHotkey3))
+                    if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.OverlayMaphack.Hotkey1,
+                        PSettings.PreferenceAll.OverlayMaphack.Hotkey2,
+                        PSettings.PreferenceAll.OverlayMaphack.Hotkey3))
                         renderer.ToggleShowHide();
 
 
-                    else if (strInput.Equals(PSettings.MaphackTogglePanel))
+                    else if (strInput.Equals(PSettings.PreferenceAll.OverlayMaphack.TogglePanel))
                     {
                         renderer.ToggleShowHide();
 
@@ -512,13 +444,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 else if (renderer is UnitRenderer)
                 {
-                    if (HelpFunctions.HotkeysPressed(PSettings.UnitHotkey1,
-                        PSettings.UnitHotkey2,
-                        PSettings.UnitHotkey3))
+                    if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.OverlayUnits.Hotkey1,
+                        PSettings.PreferenceAll.OverlayUnits.Hotkey2,
+                        PSettings.PreferenceAll.OverlayUnits.Hotkey3))
                         renderer.ToggleShowHide();
 
 
-                    else if (strInput.Equals(PSettings.UnitTogglePanel))
+                    else if (strInput.Equals(PSettings.PreferenceAll.OverlayUnits.TogglePanel))
                     {
                         renderer.ToggleShowHide();
 
@@ -530,13 +462,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 else if (renderer is ProductionRenderer)
                 {
-                    if (HelpFunctions.HotkeysPressed(PSettings.ProdHotkey1,
-                        PSettings.ProdHotkey2,
-                        PSettings.ProdHotkey3))
+                    if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.OverlayProduction.Hotkey1,
+                        PSettings.PreferenceAll.OverlayProduction.Hotkey2,
+                        PSettings.PreferenceAll.OverlayProduction.Hotkey3))
                         renderer.ToggleShowHide();
 
 
-                    else if (strInput.Equals(PSettings.ProdTogglePanel))
+                    else if (strInput.Equals(PSettings.PreferenceAll.OverlayProduction.TogglePanel))
                     {
                         renderer.ToggleShowHide();
 
@@ -548,102 +480,43 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private void PluginDataRefresh()
+        /// <summary>
+        /// Make Panels visible (or invisible)
+        /// </summary>
+        /// <param name="state">Visibility state</param>
+        private void ChangeVisibleState(Boolean state)
         {
-            if (_lPlugins == null || _lPlugins.Count <= 0)
-                return;
-
-
-            foreach (var plugin in _lPlugins)
+            foreach (var renderer in _lContainer)
             {
-                /* Refresh some Data */
-                plugin.Plugin.SetMap(Gameinfo.Map);
-                plugin.Plugin.SetPlayers(Gameinfo.Player);
-                plugin.Plugin.SetUnits(Gameinfo.Unit);
-                plugin.Plugin.SetSelection(Gameinfo.Selection);
-                plugin.Plugin.SetGroups(Gameinfo.Group);
-                plugin.Plugin.SetGameinfo(Gameinfo.Gameinfo);
-
-                /* Set Access values for Gameinfo */
-                Gameinfo.CAccessPlayers |= plugin.Plugin.GetRequiresPlayer();
-                Gameinfo.CAccessSelection |= plugin.Plugin.GetRequiresSelection();
-                Gameinfo.CAccessUnits |= plugin.Plugin.GetRequiresUnit();
-                Gameinfo.CAccessUnitCommands |= plugin.Plugin.GetRequiresUnit();
-                Gameinfo.CAccessGameinfo |= plugin.Plugin.GetRequiresGameinfo();
-                Gameinfo.CAccessGroups |= plugin.Plugin.GetRequiresGroups();
-                Gameinfo.CAccessMapInfo |= plugin.Plugin.GetRequiresMap();
+                if (!renderer.IsHidden)
+                    renderer.Visible = state;
             }
         }
-
+       
         #region Side - Clickable Panels
 
         #region Event methods
 
-        private void cpnlApplication_Click(object sender, EventArgs e)
+        private void cpnl_Click(object sender, EventArgs e)
         {
-            lblTabname.Text = "Application";
-
-            pnlApplication.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
+            var panel = sender as ClickablePanel;
+            if (panel != null)
             {
-                if (pnl == pnlApplication)
-                    continue;
+                lblTabname.Text = panel.DisplayText;
 
-                if (pnl.GetType() == typeof(Panel))
+                if (panel.SettingsPanel != null)
+                    panel.SettingsPanel.Visible = true;
+
+
+                foreach (var pnl in pnlMainArea.Controls)
                 {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
+                    if (pnl == panel.SettingsPanel)
+                        continue;
 
-        private void cpnlOverlays_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Overlays";
-
-            pnlOverlays.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlOverlays)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
-
-        private void cpnlPlugins_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Plugins";
-
-            pnlPlugins.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlPlugins)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
-                }
-            }
-        }
-
-        private void cpnlDebug_Click(object sender, EventArgs e)
-        {
-            lblTabname.Text = "Debug";
-
-
-            pnlDebug.Visible = true;
-            foreach (var pnl in pnlMainArea.Controls)
-            {
-                if (pnl == pnlDebug)
-                    continue;
-
-                if (pnl.GetType() == typeof(Panel))
-                {
-                    ((Panel)pnl).Visible = false;
+                    if (pnl.GetType() == typeof(Panel))
+                    {
+                        ((Panel)pnl).Visible = false;
+                    }
                 }
             }
         }
@@ -651,6 +524,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         #endregion
 
         #endregion
+
+        private void LanguageStringEventMapping()
+        {
+            _lstrChCreditsContributer.TextChanged += _lstrChCreditsContributer_TextChanged;
+            _lstrChCreditsReason.TextChanged += _lstrChCreditsReason_TextChanged;
+
+            _lstrChPluginsPluginName.TextChanged += _lstrChPluginsPluginName_TextChanged;
+            _lstrChPluginsPluginVersion.TextChanged += _lstrChPluginsPluginVersion_TextChanged;
+
+            _lstrChDebugAttribute.TextChanged += _lstrChDebugAttribute_TextChanged;
+            _lstrChDebugValue.TextChanged += _lstrChDebugValue_TextChanged;
+
+            _lstrPluginContextRemovePlugin.TextChanged += _lstrPluginContextRemovePlugin_TextChanged;
+            _lstrPluginContextInstallPlugin.TextChanged += _lstrPluginContextInstallPlugin_TextChanged;
+        }
 
         #region Application Panel Data
 
@@ -674,24 +562,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 throw new Exception("You passed something that isn't a button!");
         }
 
-        #region Event methods
-
-        private void ntxtMemoryRefresh_NumberChanged(NumberTextBox o, EventNumber e)
+        private void LaunchRenderer(Type targetType)
         {
-            if (o.Number == 0)
+            foreach (var renderer in _lContainer)
             {
-                o.Number = 1;
-                o.Select(1, 0);
-                return;
+                if (renderer.GetType() == targetType)
+                {
+                    renderer.ToggleShowHide();
+                }
             }
-
-            PSettings.GlobalDataRefresh = o.Number;
-
-            Gameinfo.CSleepTime = o.Number;
         }
 
-        private void ntxtGraphicsRefresh_NumberChanged(NumberTextBox o, EventNumber e)
+        #region Event methods
+
+        private void ntxtMemoryRefresh_NumberChanged(object sender, NumberArgs e)
         {
+            var o = sender as NumberTextBox;
+            if (o == null)
+                return;
+
             if (o.Number == 0)
             {
                 o.Number = 1;
@@ -699,27 +588,84 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 return;
             }
 
-            PSettings.GlobalDrawingRefresh = o.Number;
+            PSettings.PreferenceAll.Global.DataRefresh = o.Number;
 
-            _lContainer.SetDrawingInterval(PSettings.GlobalDrawingRefresh);
+            Gameinfo.CSleepTime = o.Number;
+            ntxtBenchmarkDataInterval.Number = o.Number;
+        }
+
+        private void ntxtGraphicsRefresh_NumberChanged(object sender, NumberArgs e)
+        {
+            var o = sender as NumberTextBox;
+            if (o == null)
+                return;
+
+            if (o.Number == 0)
+            {
+                o.Number = 1;
+                o.Select(1, 0);
+                return;
+            }
+
+            PSettings.PreferenceAll.Global.DrawingRefresh = o.Number;
+            ntxtBenchmarkDrawingInterval.Number = o.Number;
+
+            _lContainer.SetDrawingInterval(PSettings.PreferenceAll.Global.DrawingRefresh);
         }
 
         void ktxtReposition_KeyChanged(KeyTextBox o, EventKey e)
         {
-            PSettings.GlobalChangeSizeAndPosition = o.HotKeyValue;
+            PSettings.PreferenceAll.Global.ChangeSizeAndPosition = o.HotKeyValue;
         }
 
         private void chBxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PSettings.GlobalLanguage = chBxLanguage.SelectedItem.ToString();
+            //Get the proper language
+            foreach (var keyvalue in _dictLanguageFile)
+            {
+                if (keyvalue.Value == chBxLanguage.SelectedItem.ToString())
+                {
+                    PSettings.PreferenceAll.Global.Language = keyvalue.Key;
+                    break;
+                }
+            }
+            
+            //Change the language for all instances within those classes
+            LanguageButton.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
+            LanguageLabel.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
+            AnotherCheckbox.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
+            ClickablePanel.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
+            LanguageString.ChangeLanguage(PSettings.PreferenceAll.Global.Language);
+
+            //Trigger some methods manually
+            LoadContributers();
         }
 
         private void btnReposition_Click(object sender, EventArgs e)
         {
             var tmpPreferences = PSettings;
 
-            HelpFunctions.InitResolution(ref tmpPreferences);
+            HelpFunctions.InitResolution(ref tmpPreferences, _lstrApplicationRestorePanelPositionText.Text, _lstrApplicationRestorePanelPositionHeader.Text);
             PSettings = tmpPreferences;
+        }
+
+        private void chBxOnlyDrawInForeground_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.Global.DrawOnlyInForeground = o.Checked;
+        }
+
+        private void btnRestoreSettings_Click(object sender, EventArgs e)
+        {
+            var result = new AnotherMessageBox().Show(_lstrApplicationRestoreSettingsText.Text, _lstrApplicationRestoreSettingsHeader.Text, MessageBoxButtons.YesNo
+                );
+
+          
+
+            if (result == DialogResult.Yes)
+            {
+                PSettings.Restore();
+                ControlsFill();
+            }
         }
 
 
@@ -779,6 +725,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayWorker.pnlLauncher.txtReposition.TextChanged += txtOverlaysReposition_TextChanged;
             pnlOverlayWorker.pnlLauncher.txtResize.TextChanged += txtOverlaysResize_TextChanged;
             pnlOverlayWorker.pnlLauncher.txtToggle.TextChanged += txtOverlaysToggle_TextChanged;
+
         }
 
         private void EventMappingApm()
@@ -903,6 +850,84 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             EventMappingResource();
             EventMappingUnittab();
             EventMappingWorker();
+        }
+
+        private void LaunchOnStartup()
+        {
+            foreach (var renderer in _lContainer)
+            {
+                if (renderer.GetType() == typeof(ResourcesRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayResources.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(IncomeRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayIncome.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(WorkerRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayWorker.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(ApmRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayApm.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(ArmyRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayArmy.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(MaphackRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayMaphack.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(UnitRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayUnits.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+
+                else if (renderer.GetType() == typeof(ProductionRenderer))
+                {
+                    if (PSettings.PreferenceAll.OverlayProduction.LaunchStatus)
+                    {
+                        renderer.Show();
+                    }
+
+                }
+            }
         }
 
         #region Global Event methods
@@ -1031,28 +1056,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             var parent = HelpFunctions.findParentByName(senda, "pnlOverlays");
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceTogglePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayResources.TogglePanel = senda.Text;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeTogglePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayIncome.TogglePanel = senda.Text;
 
             else if (parent.Name.Contains("Worker"))
-                PSettings.WorkerTogglePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayWorker.TogglePanel = senda.Text;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmTogglePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayApm.TogglePanel = senda.Text;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyTogglePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayArmy.TogglePanel = senda.Text;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackTogglePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayMaphack.TogglePanel = senda.Text;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdTogglePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayProduction.TogglePanel = senda.Text;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTogglePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayUnits.TogglePanel = senda.Text;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1065,28 +1090,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(senda, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceChangeSizePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayResources.ChangeSize = senda.Text;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeChangeSizePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayIncome.ChangeSize = senda.Text;
 
             else if (parent.Name.Contains("Worker"))
-                PSettings.WorkerChangeSizePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayWorker.ChangeSize = senda.Text;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmChangeSizePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayApm.ChangeSize = senda.Text;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyChangeSizePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayArmy.ChangeSize = senda.Text;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackChangeSizePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayMaphack.ChangeSize = senda.Text;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdChangeSizePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayProduction.ChangeSize = senda.Text;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitChangeSizePanel = senda.Text;
+                PSettings.PreferenceAll.OverlayUnits.ChangeSize = senda.Text;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1099,28 +1124,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(senda, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceChangePositionPanel = senda.Text;
+                PSettings.PreferenceAll.OverlayResources.ChangePosition = senda.Text;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeChangePositionPanel = senda.Text;
+                PSettings.PreferenceAll.OverlayIncome.ChangePosition = senda.Text;
 
             else if (parent.Name.Contains("Worker"))
-                PSettings.WorkerChangePositionPanel = senda.Text;
+                PSettings.PreferenceAll.OverlayWorker.ChangePosition = senda.Text;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmChangePositionPanel = senda.Text;
+                PSettings.PreferenceAll.OverlayApm.ChangePosition = senda.Text;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyChangePositionPanel = senda.Text;
+                PSettings.PreferenceAll.OverlayArmy.ChangePosition = senda.Text;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackChangePositionPanel = senda.Text;
+                PSettings.PreferenceAll.OverlayMaphack.ChangePosition = senda.Text;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdChangePositionPanel = senda.Text;
+                PSettings.PreferenceAll.OverlayProduction.ChangePosition = senda.Text;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitChangePositionPanel = senda.Text;
+                PSettings.PreferenceAll.OverlayUnits.ChangePosition = senda.Text;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1131,28 +1156,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceHotkey3 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayResources.Hotkey3 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeHotkey3 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayIncome.Hotkey3 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Worker"))
-                PSettings.WorkerHotkey3 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayWorker.Hotkey3 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmHotkey3 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayApm.Hotkey3 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyHotkey3 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayArmy.Hotkey3 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackHotkey3 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayMaphack.Hotkey3 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdHotkey3 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayProduction.Hotkey3 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitHotkey3 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayUnits.Hotkey3 = o.HotKeyValue;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1163,28 +1188,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceHotkey2 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayResources.Hotkey2 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeHotkey2 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayIncome.Hotkey2 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Worker"))
-                PSettings.WorkerHotkey2 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayWorker.Hotkey2 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmHotkey2 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayApm.Hotkey2 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyHotkey2 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayArmy.Hotkey2 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackHotkey2 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayMaphack.Hotkey2 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdHotkey2 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayProduction.Hotkey2 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitHotkey2 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayUnits.Hotkey2 = o.HotKeyValue;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1195,60 +1220,60 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceHotkey1 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayResources.Hotkey1 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeHotkey1 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayIncome.Hotkey1 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Worker"))
-                PSettings.WorkerHotkey1 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayWorker.Hotkey1 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmHotkey1 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayApm.Hotkey1 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyHotkey1 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayArmy.Hotkey1 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackHotkey1 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayMaphack.Hotkey1 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdHotkey1 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayProduction.Hotkey1 = o.HotKeyValue;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitHotkey1 = o.HotKeyValue;
+                PSettings.PreferenceAll.OverlayUnits.Hotkey1 = o.HotKeyValue;
 
             else
                 Messages.Show("Couldn't find parent!");
         }
 
-        void ocOverlaysOpacity_ValueChanged(UiOpacityControl uiOpacityControl, EventNumber eventNumber)
+        void ocOverlaysOpacity_ValueChanged(UiOpacityControl uiOpacityControl, NumberArgs eventNumber)
         {
             var parent = HelpFunctions.findParentByName(uiOpacityControl, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceOpacity = (float)uiOpacityControl.Number / 100;
+                PSettings.PreferenceAll.OverlayResources.Opacity = (float)uiOpacityControl.Number / 100;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeOpacity = (float)uiOpacityControl.Number / 100;
+                PSettings.PreferenceAll.OverlayIncome.Opacity = (float)uiOpacityControl.Number / 100;
 
             else if (parent.Name.Contains("Worker"))
-                PSettings.WorkerOpacity = (float)uiOpacityControl.Number / 100;
+                PSettings.PreferenceAll.OverlayWorker.Opacity = (float)uiOpacityControl.Number / 100;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmOpacity = (float)uiOpacityControl.Number / 100;
+                PSettings.PreferenceAll.OverlayApm.Opacity = (float)uiOpacityControl.Number / 100;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyOpacity = (float)uiOpacityControl.Number / 100;
+                PSettings.PreferenceAll.OverlayArmy.Opacity = (float)uiOpacityControl.Number / 100;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackOpacity = (float)uiOpacityControl.Number / 100;
+                PSettings.PreferenceAll.OverlayMaphack.Opacity = (float)uiOpacityControl.Number / 100;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdTabOpacity = (float)uiOpacityControl.Number / 100;
+                PSettings.PreferenceAll.OverlayProduction.Opacity = (float)uiOpacityControl.Number / 100;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabOpacity = (float)uiOpacityControl.Number / 100;
+                PSettings.PreferenceAll.OverlayUnits.Opacity = (float)uiOpacityControl.Number / 100;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1263,25 +1288,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(senda, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceFontName = ftDialog.Font.Name;
+                PSettings.PreferenceAll.OverlayResources.FontName = ftDialog.Font.Name;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeFontName = ftDialog.Font.Name;
+                PSettings.PreferenceAll.OverlayIncome.FontName = ftDialog.Font.Name;
 
             else if (parent.Name.Contains("Worker"))
-                PSettings.WorkerFontName = ftDialog.Font.Name;
+                PSettings.PreferenceAll.OverlayWorker.FontName = ftDialog.Font.Name;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmFontName = ftDialog.Font.Name;
+                PSettings.PreferenceAll.OverlayApm.FontName = ftDialog.Font.Name;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyFontName = ftDialog.Font.Name;
+                PSettings.PreferenceAll.OverlayArmy.FontName = ftDialog.Font.Name;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdTabFontName = ftDialog.Font.Name;
+                PSettings.PreferenceAll.OverlayProduction.FontName = ftDialog.Font.Name;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabFontName = ftDialog.Font.Name;
+                PSettings.PreferenceAll.OverlayUnits.FontName = ftDialog.Font.Name;
 
             else 
                 Messages.Show("Couldn't find parent!");
@@ -1294,25 +1319,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceRemoveLocalplayer = o.Checked;
+                PSettings.PreferenceAll.OverlayResources.RemoveLocalplayer = o.Checked;
             
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeRemoveLocalplayer = o.Checked;
+                PSettings.PreferenceAll.OverlayIncome.RemoveLocalplayer = o.Checked;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmRemoveLocalplayer = o.Checked;
+                PSettings.PreferenceAll.OverlayApm.RemoveLocalplayer = o.Checked;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyRemoveLocalplayer = o.Checked;
+                PSettings.PreferenceAll.OverlayArmy.RemoveLocalplayer = o.Checked;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackRemoveLocalplayer = o.Checked;
+                PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer = o.Checked;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdTabRemoveLocalplayer = o.Checked;
+                PSettings.PreferenceAll.OverlayProduction.RemoveLocalplayer = o.Checked;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabRemoveLocalplayer = o.Checked;
+                PSettings.PreferenceAll.OverlayUnits.RemoveLocalplayer = o.Checked;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1323,25 +1348,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceRemoveNeutral = o.Checked;
+                PSettings.PreferenceAll.OverlayResources.RemoveNeutral = o.Checked;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeRemoveNeutral = o.Checked;
+                PSettings.PreferenceAll.OverlayIncome.RemoveNeutral = o.Checked;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmRemoveNeutral = o.Checked;
+                PSettings.PreferenceAll.OverlayApm.RemoveNeutral = o.Checked;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyRemoveNeutral = o.Checked;
+                PSettings.PreferenceAll.OverlayArmy.RemoveNeutral = o.Checked;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackRemoveNeutral = o.Checked;
+                PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral = o.Checked;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdTabRemoveNeutral = o.Checked;
+                PSettings.PreferenceAll.OverlayProduction.RemoveNeutral = o.Checked;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabRemoveNeutral = o.Checked;
+                PSettings.PreferenceAll.OverlayUnits.RemoveNeutral = o.Checked;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1352,22 +1377,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceRemoveClanTag = o.Checked;
+                PSettings.PreferenceAll.OverlayResources.RemoveClanTag = o.Checked;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeRemoveClanTag = o.Checked;
+                PSettings.PreferenceAll.OverlayIncome.RemoveClanTag = o.Checked;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmRemoveClanTag = o.Checked;
+                PSettings.PreferenceAll.OverlayApm.RemoveClanTag = o.Checked;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyRemoveClanTag = o.Checked;
+                PSettings.PreferenceAll.OverlayArmy.RemoveClanTag = o.Checked;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdTabRemoveClanTag = o.Checked;
+                PSettings.PreferenceAll.OverlayProduction.RemoveClanTag = o.Checked;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabRemoveClanTag = o.Checked;
+                PSettings.PreferenceAll.OverlayUnits.RemoveClanTag = o.Checked;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1378,25 +1403,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceRemoveAllie = o.Checked;
+                PSettings.PreferenceAll.OverlayResources.RemoveAllie = o.Checked;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeRemoveAllie = o.Checked;
+                PSettings.PreferenceAll.OverlayIncome.RemoveAllie = o.Checked;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmRemoveAllie = o.Checked;
+                PSettings.PreferenceAll.OverlayApm.RemoveAllie = o.Checked;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyRemoveAllie = o.Checked;
+                PSettings.PreferenceAll.OverlayArmy.RemoveAllie = o.Checked;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackRemoveAllie = o.Checked;
+                PSettings.PreferenceAll.OverlayMaphack.RemoveAllie = o.Checked;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdTabRemoveAllie = o.Checked;
+                PSettings.PreferenceAll.OverlayProduction.RemoveAllie = o.Checked;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabRemoveAllie = o.Checked;
+                PSettings.PreferenceAll.OverlayUnits.RemoveAllie = o.Checked;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1407,25 +1432,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceRemoveAi = o.Checked;
+                PSettings.PreferenceAll.OverlayResources.RemoveAi = o.Checked;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeRemoveAi = o.Checked;
+                PSettings.PreferenceAll.OverlayIncome.RemoveAi = o.Checked;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmRemoveAi = o.Checked;
+                PSettings.PreferenceAll.OverlayApm.RemoveAi = o.Checked;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyRemoveAi = o.Checked;
+                PSettings.PreferenceAll.OverlayArmy.RemoveAi = o.Checked;
 
             else if (parent.Name.Contains("Maphack"))
-                PSettings.MaphackRemoveAi = o.Checked;
+                PSettings.PreferenceAll.OverlayMaphack.RemoveAi = o.Checked;
 
             else if (parent.Name.Contains("Production"))
-                PSettings.ProdTabRemoveAi = o.Checked;
+                PSettings.PreferenceAll.OverlayProduction.RemoveAi = o.Checked;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabRemoveAi = o.Checked;
+                PSettings.PreferenceAll.OverlayUnits.RemoveAi = o.Checked;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1436,33 +1461,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Resource"))
-                PSettings.ResourceDrawBackground = o.Checked;
+                PSettings.PreferenceAll.OverlayResources.DrawBackground = o.Checked;
 
             else if (parent.Name.Contains("Income"))
-                PSettings.IncomeDrawBackground = o.Checked;
+                PSettings.PreferenceAll.OverlayIncome.DrawBackground = o.Checked;
 
             else if (parent.Name.Contains("Apm"))
-                PSettings.ApmDrawBackground = o.Checked;
+                PSettings.PreferenceAll.OverlayApm.DrawBackground = o.Checked;
 
             else if (parent.Name.Contains("Army"))
-                PSettings.ArmyDrawBackground = o.Checked;
+                PSettings.PreferenceAll.OverlayArmy.DrawBackground = o.Checked;
 
             else if (parent.Name.Contains("Worker"))
-                PSettings.WorkerDrawBackground = o.Checked;
+                PSettings.PreferenceAll.OverlayWorker.DrawBackground = o.Checked;
 
             else
                 Messages.Show("Couldn't find parent!");
         }
 
-        void ntxtOverlaysSize_NumberChanged(NumberTextBox o, EventNumber e)
+        void ntxtOverlaysSize_NumberChanged(object sender, NumberArgs e)
         {
+            var o = sender as NumberTextBox;
+
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
-                PSettings.ProdPictureSize = o.Number;
+                PSettings.PreferenceAll.OverlayProduction.PictureSize = o.Number;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitPictureSize = o.Number;
+                PSettings.PreferenceAll.OverlayUnits.PictureSize = o.Number;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1470,7 +1497,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void aChBxOverlaysDisplayUpgrades_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.ProdTabShowUpgrades = o.Checked;
+            PSettings.PreferenceAll.OverlayProduction.ShowUpgrades = o.Checked;
         }
 
         void aChBxOverlaysTransparentImages_CheckedChanged(AnotherCheckbox o, EventChecked e)
@@ -1479,13 +1506,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             if (parent.Name.Contains("Production"))
             {
-                PSettings.ProdTabUseTransparentImages = o.Checked;
+                PSettings.PreferenceAll.OverlayProduction.UseTransparentImages = o.Checked;
                 _lContainer.Find(x => x is ProductionRenderer).ChangeImageResources(o.Checked);
             }
 
             else if (parent.Name.Contains("Unit"))
             {
-                PSettings.UnitTabUseTransparentImages = o.Checked;
+                PSettings.PreferenceAll.OverlayUnits.UseTransparentImages = o.Checked;
                 _lContainer.Find(x => x is UnitRenderer).ChangeImageResources(o.Checked);
             }
 
@@ -1498,10 +1525,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
-                PSettings.ProdTabSplitUnitsAndBuildings = o.Checked;
+                PSettings.PreferenceAll.OverlayProduction.SplitBuildingsAndUnits = o.Checked;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabSplitUnitsAndBuildings = o.Checked;
+                PSettings.PreferenceAll.OverlayUnits.SplitBuildingsAndUnits = o.Checked;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1509,12 +1536,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void aChBxOverlaysRemoveSpellcounter_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.UnitTabRemoveSpellCounter = o.Checked;
+            PSettings.PreferenceAll.OverlayUnits.RemoveSpellCounter = o.Checked;
         }
 
         void aChBxOverlaysRemoveProductionstatus_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.UnitTabRemoveProdLine = o.Checked;
+            PSettings.PreferenceAll.OverlayUnits.RemoveProductionLine = o.Checked;
         }
 
         void aChBxOverlaysRemoveChronoboost_CheckedChanged(AnotherCheckbox o, EventChecked e)
@@ -1522,10 +1549,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
-                PSettings.ProdTabRemoveChronoboost = o.Checked;
+                PSettings.PreferenceAll.OverlayProduction.RemoveChronoboost = o.Checked;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabRemoveChronoboost = o.Checked;
+                PSettings.PreferenceAll.OverlayUnits.RemoveChronoboost = o.Checked;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1536,10 +1563,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
-                PSettings.ProdTabShowBuildings = o.Checked;
+                PSettings.PreferenceAll.OverlayProduction.ShowBuildings = o.Checked;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabShowBuildings = o.Checked;
+                PSettings.PreferenceAll.OverlayUnits.ShowBuildings = o.Checked;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1550,10 +1577,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var parent = HelpFunctions.findParentByName(o, "pnlOverlays");
 
             if (parent.Name.Contains("Production"))
-                PSettings.ProdTabShowUnits = o.Checked;
+                PSettings.PreferenceAll.OverlayProduction.ShowUnits = o.Checked;
 
             else if (parent.Name.Contains("Unit"))
-                PSettings.UnitTabShowUnits = o.Checked;
+                PSettings.PreferenceAll.OverlayUnits.ShowUnits = o.Checked;
 
             else
                 Messages.Show("Couldn't find parent!");
@@ -1566,28 +1593,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             cl.FullOpen = true;
             cl.ShowDialog();
 
-            PSettings.MaphackDestinationColor = cl.Color;
+            PSettings.PreferenceAll.OverlayMaphack.DestinationLine = cl.Color;
             pnlOverlayMaphack.pnlBasics.btnColorDestinationline.BackColor = cl.Color;
         }
 
         void aChBxOverlaysRemoveVisionArea_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.MaphackRemoveVisionArea = o.Checked;
+            PSettings.PreferenceAll.OverlayMaphack.RemoveVisionArea = o.Checked;
         }
 
         void aChBxOverlaysRemoveDestinationLine_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.MaphackDisableDestinationLine = o.Checked;
+            PSettings.PreferenceAll.OverlayMaphack.RemoveDestinationLine = o.Checked;
         }
 
         void aChBxOverlaysRemoveCamera_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.MaphackRemoveCamera = o.Checked;
+            PSettings.PreferenceAll.OverlayMaphack.RemoveCamera = o.Checked;
         }
 
         void aChBxOverlaysDefensiveStructures_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            PSettings.MaphackColorDefensivestructuresYellow = o.Checked;
+            PSettings.PreferenceAll.OverlayMaphack.ColorDefensiveStructures = o.Checked;
         }
 
         #endregion
@@ -1618,7 +1645,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                             tmpAppDomain.CreateInstanceFromAndUnwrap(files[i], "Plugin.Extensions.AnotherSc2HackPlugin");
 
                     if (_lPlugins.Exists(x => x.Plugin.GetPluginName() == foo.GetPluginName()))
-                       throw new TypeLoadException("Fuck you");
+                       throw new TypeLoadException("Fuck you"); //:D
 
 
 
@@ -1651,6 +1678,73 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             foreach (ListViewItem item in lstvPluginsLoadedPlugins.Items)
             {
                 item.Checked = true;
+            }
+
+            //Init the clickable panels for the plugins (if needed)
+            foreach (var localPlugins in _lPlugins)
+            {
+                if (localPlugins.Plugin.GetPluginEntryName() != null && localPlugins.Plugin.GetPluginEntryName().Length > 0)
+                {
+                    var cntrls = pnlLeftSelection.Controls;
+                    var iHeight = cpnlApplication.Height;
+
+                    foreach (var cntrl in cntrls)
+                    {
+                        var cont = cntrl as ClickablePanel;
+
+                        if (cont != null)
+                            iHeight += cont.Height;
+                    }
+
+                    #region Create Panel
+
+                    var panel = new Panel();
+
+                    panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+                    panel.Location = new System.Drawing.Point(0, 80);
+                    panel.Name = localPlugins.Md5Hash;
+                    panel.Size = new System.Drawing.Size(1029, 450);
+                    panel.TabIndex = 0;
+
+                    pnlMainArea.Controls.Add(panel);
+
+                    #endregion
+
+                    #region Clickable Panel
+
+                    var click = new ClickablePanel();
+                    click.Parent = pnlLeftSelection;
+
+                    click.ActiveBackgroundColor = Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(63)))), ((int)(((byte)(72)))));
+                    click.ActiveBorderPosition = ActiveBorderPosition.Left;
+                    click.ActiveForegroundColor = Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+                    click.BackColor = Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+                    click.DisplayColor = Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+                    click.DisplayText = localPlugins.Plugin.GetPluginEntryName();
+                    click.Font = new Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    click.HoverBackgroundColor = Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
+                    click.InactiveBackgroundColor = Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
+                    click.InactiveForegroundColor = Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+                    click.IsClicked = false;
+                    click.IsHovering = false;
+                    click.Location = new Point(0, iHeight);
+                    click.Name = localPlugins.Md5Hash;
+                    click.Size = new Size(152, 40);
+
+                    click.Icon = HelpFunctions.ByteArrayToImage(localPlugins.Plugin.GetPluginIcon()) ?? Properties.Resources.icon_default_plugin;
+
+                    click.TabIndex = 0;
+                    click.TextSize = 11F;
+                    click.SettingsPanel = panel;
+
+                    click.Click += cpnl_Click;
+
+                    #endregion
+
+
+                }
             }
         }
 
@@ -1768,6 +1862,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region Event methods
 
+        private void pcbPluginsImages_Click(object sender, EventArgs e)
+        {
+            if (pcbPluginsImages.Image == null)
+                return;
+
+            if (_lOnlinePlugins[IPluginsSelectedPluginIndex].Images.Count == _lOnlinePlugins[IPluginsSelectedPluginIndex].ImageLinks.Count)
+                new BigPreviewPicture(_lOnlinePlugins[IPluginsSelectedPluginIndex].Images).ShowDialog();
+
+            else
+                new BigPreviewPicture(pcbPluginsImages.Image).ShowDialog();
+        }
+
+
         private void lstvPluginsLoadedPlugins_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (e.Item.Index <= -1)
@@ -1829,6 +1936,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 _lOnlinePlugins.Count <= 0)
                 return;
 
+
+
             if (_lPlugins.Find(x => x.Md5Hash == _lOnlinePlugins[IPluginsSelectedPluginIndex].Md5Hash) != null)
             {
                 MessageBox.Show("Plugin already installed!\n\nPlease select another plugin!", "Plugin Error");
@@ -1875,7 +1984,60 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             btnPluginsInstallPlugin_Click(btnPluginsInstallPlugin, e);
         }
 
+        void _lstrChPluginsPluginVersion_TextChanged(object sender, EventArgs e)
+        {
+            chPluginsAvailablePluginVersion.Text = _lstrChPluginsPluginVersion.Text;
+            chPluginsLoadedPluginVersion.Text = _lstrChPluginsPluginVersion.Text;
+        }
+
+        void _lstrChPluginsPluginName_TextChanged(object sender, EventArgs e)
+        {
+            chPluginsAvailablePluginName.Text = _lstrChPluginsPluginName.Text;
+            chPluginsLoadedPluginName.Text = _lstrChPluginsPluginName.Text;
+        }
+
+        void _lstrPluginContextInstallPlugin_TextChanged(object sender, EventArgs e)
+        {
+            tsPluginInstallPlugin.Text = _lstrPluginContextInstallPlugin.Text;
+        }
+
+        void _lstrPluginContextRemovePlugin_TextChanged(object sender, EventArgs e)
+        {
+            tsPluginRemove.Text = _lstrPluginContextRemovePlugin.Text;
+        }
+
         #endregion
+
+        /// <summary>
+        /// Refresh the list of plugins
+        /// </summary>
+        private void PluginDataRefresh()
+        {
+            if (_lPlugins == null || _lPlugins.Count <= 0)
+                return;
+
+
+            foreach (var plugin in _lPlugins)
+            {
+                /* Refresh some Data */
+                plugin.Plugin.SetMap(Gameinfo.Map);
+                plugin.Plugin.SetPlayers(Gameinfo.Player);
+                plugin.Plugin.SetUnits(Gameinfo.Unit);
+                plugin.Plugin.SetSelection(Gameinfo.Selection);
+                plugin.Plugin.SetGroups(Gameinfo.Group);
+                plugin.Plugin.SetGameinfo(Gameinfo.Gameinfo);
+
+                /* Set Access values for Gameinfo */
+                Gameinfo.CAccessPlayers |= plugin.Plugin.GetRequiresPlayer();
+                Gameinfo.CAccessSelection |= plugin.Plugin.GetRequiresSelection();
+                Gameinfo.CAccessUnits |= plugin.Plugin.GetRequiresUnit();
+                Gameinfo.CAccessUnitCommands |= plugin.Plugin.GetRequiresUnit();
+                Gameinfo.CAccessGameinfo |= plugin.Plugin.GetRequiresGameinfo();
+                Gameinfo.CAccessGroups |= plugin.Plugin.GetRequiresGroups();
+                Gameinfo.CAccessMapInfo |= plugin.Plugin.GetRequiresMap();
+            }
+        }
+
 
         private void PluginsInstallPlugin(object path)
         {
@@ -1961,7 +2123,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void PluginRemovePlugin(int index)
         {
             var iDomainIndex =
-                _lPluginContainer.FindIndex(x => x.FriendlyName == _lPlugins[index].PluginPath.Substring(_lPlugins[index].PluginPath.LastIndexOf(("\\"))));
+                _lPluginContainer.FindIndex(x => x.FriendlyName == _lPlugins[index].PluginPath.Substring(_lPlugins[index].PluginPath.LastIndexOf(("\\"), StringComparison.Ordinal)));
 
             if (iDomainIndex < 0)
                 return;
@@ -1972,6 +2134,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             try
             {
                 var strTempPluginPath = String.Empty;
+                var strPuginHash = _lPlugins[index].Md5Hash;
 
                 //Stop plugin nicely 
                 _lPlugins[index].Plugin.StopPlugin();
@@ -1987,9 +2150,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 var pluginFiles = Directory.GetFiles(
                     strTempPluginPath.Substring(0, strTempPluginPath.LastIndexOf("\\", StringComparison.Ordinal)), filename + "*");
 
+                //Remove plugin from cliclable container
+                var clickControls = pnlLeftSelection.Controls.Find(strPuginHash, false);
+                var clickPanels = pnlMainArea.Controls.Find(strPuginHash, false);
+
+                foreach (var clickControl in clickControls)
+                {
+                    pnlLeftSelection.Controls.Remove(clickControl);
+                }
+
+                foreach (var clickPanel in clickPanels)
+                {
+                    pnlMainArea.Controls.Remove(clickPanel);
+                }
+
                 foreach (var pluginFile in pluginFiles)
                 {
+                    try
+                    {
+
+                    
                     File.Delete(pluginFile);
+                    }
+
+                    catch
+                    {
+                        MessageBox.Show("Can't delete the plugin!\n" +
+                                        "Please remove it manually from here:\n" +
+                                        pluginFile);
+                    }
                 }
             }
 
@@ -2216,14 +2405,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 IDebugUnitIndex += 1;
         }
 
-        private void ntxtDebugPlayerLocation_NumberChanged(NumberTextBox o, EventNumber e)
+        private void ntxtDebugPlayerLocation_NumberChanged(object sender, NumberArgs e)
         {
-            IDebugPlayerIndex = (Int32)e.TheNumber;
+            var o = sender as NumberTextBox;
+            if (o == null)
+                return;
+
+            IDebugPlayerIndex = e.Number;
         }
 
-        private void ntxtDebugUnitLocation_NumberChanged(NumberTextBox o, EventNumber e)
+        private void ntxtDebugUnitLocation_NumberChanged(object sender, NumberArgs e)
         {
-            IDebugUnitIndex = (Int32)e.TheNumber;
+            var o = sender as NumberTextBox;
+            if (o == null)
+                return;
+
+            IDebugUnitIndex = e.Number;
         }
 
         private void txtDebugPlayername_TextChanged(object sender, EventArgs e)
@@ -2271,6 +2468,253 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
+        void _lstrChDebugValue_TextChanged(object sender, EventArgs e)
+        {
+            chDebugMapDataValue.Text = _lstrChDebugValue.Text;
+            chDebugMatchDataValue.Text = _lstrChDebugValue.Text;
+            chDebugUnitDataValue.Text = _lstrChDebugValue.Text;
+            chDebugPlayerDataValue.Text = _lstrChDebugValue.Text;
+        }
+
+        void _lstrChDebugAttribute_TextChanged(object sender, EventArgs e)
+        {
+            chDebugMapDataAttribute.Text = _lstrChDebugAttribute.Text;
+            chDebugMatchDataAttribute.Text = _lstrChDebugAttribute.Text;
+            chDebugUnitDataAttribute.Text = _lstrChDebugAttribute.Text;
+            chDebugPlayerDataAttribute.Text = _lstrChDebugAttribute.Text;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Renderer Eventmappings
+
+        /// <summary>
+        /// Init Eventmapping for the Baserenderer
+        /// </summary>
+        private void BaseRendererEventMapping()
+        {
+            foreach (var renderer in _lContainer)
+            {
+                renderer.IterationPerSecondChanged += renderer_IterationPerSecondChanged;
+            }
+        }
+
+        /// <summary>
+        /// Implement the required action (set the number)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void renderer_IterationPerSecondChanged(object sender, Events.NumberArgs e)
+        {
+            var resourcesRenderer = sender as ResourcesRenderer;
+            if (resourcesRenderer != null)
+            {
+                ntxtBenchmarkResourceIterations.Number = e.Number;
+                return;
+            }
+
+            var incomeRenderer = sender as IncomeRenderer;
+            if (incomeRenderer != null)
+            {
+                ntxtBenchmarkIncomeIterations.Number = e.Number;
+                return;
+            }
+
+            var workerRenderer = sender as WorkerRenderer;
+            if (workerRenderer != null)
+            {
+                ntxtBenchmarkWorkerIterations.Number = e.Number;
+                return;
+            }
+
+            var armyRenderer = sender as ArmyRenderer;
+            if (armyRenderer != null)
+            {
+                ntxtBenchmarkArmyIterations.Number = e.Number;
+                return;
+            }
+
+            var apmRenderer = sender as ApmRenderer;
+            if (apmRenderer != null)
+            {
+                ntxtBenchmarkApmIterations.Number = e.Number;
+                return;
+            }
+
+            var unitRenderer = sender as UnitRenderer;
+            if (unitRenderer != null)
+            {
+                ntxtBenchmarkUnitTabIterations.Number = e.Number;
+                return;
+            }
+
+            var productionRenderer = sender as ProductionRenderer;
+            if (productionRenderer != null)
+            {
+                ntxtBenchmarkProductionTabIterations.Number = e.Number;
+                return;
+            }
+
+            var maphackRenderer = sender as MaphackRenderer;
+            if (maphackRenderer != null)
+            {
+                ntxtBenchmarkMaphackIterations.Number = e.Number;
+                return;
+            }
+
+
+        }
+
+        #endregion
+
+        #region Various Panel Data
+
+        #region Event Mappings
+
+        private void ntxtVariousApmLimit_NumberChanged(object sender, NumberArgs e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit = e.Number;
+        }
+
+        private void chBxVariousShowPersonalApm_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalApm.PersonalApm = o.Checked;
+            LaunchRenderer(typeof(PersonalApmRenderer));
+        }
+
+        private void chBxVariousPersonalApmAlert_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert = o.Checked;
+        }
+
+        private void chBxVariousShowPersonalClock_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayPersonalClock.PersonalClock = o.Checked;
+            LaunchRenderer(typeof(PersonalClockRenderer));
+        }
+
+        private void chBxVariousWorkerCoach_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach = o.Checked;
+            LaunchRenderer(typeof(WorkerCoachRenderer));
+
+        }
+
+        private void ntxtVariousWorkerCoachDisableAfter_NumberChanged(object sender, NumberArgs e)
+        {
+            PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
+        }
+  
+
+        #endregion
+
+        #endregion
+
+        #region HelpMe Panel Data
+
+        #region Event Mappings
+
+        private void btnHelpMePostOnD3scene_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://www.d3scene.com/forum/newreply.php?p=717534&noquote=1");
+        }
+
+        private void btnHelpMeEmailMe_Click(object sender, EventArgs e)
+        {
+            Process.Start("mailto:bpatriciaella@yahoo.com");
+        }
+
+        private void btnHelpMeGithubIssues_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/bellaPatricia/AnotherSc2Hack/issues/new");
+        }
+
+        private void btnHelpMeLocalize_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Some cool file HERE");
+        }
+
+        private void btnHelpMeCopyBitcoin_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblHelpMeBitcoin.Text.Substring(lblHelpMeBitcoin.Text.IndexOf(":", StringComparison.Ordinal) + 2));
+        }
+
+        private void btnHelpMeCopyEmail_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblHelpMeEmail.Text);
+        }
+
+        private void btnHelpMePaypal_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3ZAZS7HNX6DPW");
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Credits Panel Data
+
+        /// <summary>
+        /// Load some contibuters into the listview
+        /// </summary>
+        private void LoadContributers()
+        {
+            lstvCredits.Items.Clear();
+
+
+            var dict = new Dictionary<string, string>();
+
+            dict.Add("RHCP (D3Scene)", _lstrCreditsReasonRhcp.Text);
+            dict.Add("Beaving (D3Scene)", _lstrCreditsReasonBeaving.Text);
+            dict.Add("Mr Nukealizer (D3Scene)", _lstrCreditsReasonMrnukealizer.Text);
+            dict.Add("MyTeeWun (D3Scene)", _lstrCreditsReasonMyteewun.Text);
+            dict.Add("mischa (D3Scene)", _lstrCreditsReasonMischa.Text);
+            dict.Add("mr_ice (D3Scene)", _lstrCreditsReasonMrice.Text);
+            dict.Add("Tracky (D3Scene)", _lstrCreditsReasonTracky.Text);
+            dict.Add("D3Scene", _lstrCreditsReasonD3Scene.Text);
+            dict.Add("Various people", _lstrCreditsReasonVariousPeople.Text);
+            dict.Add("Donators", _lstrCreditsReasonDonators.Text);
+
+
+            foreach (KeyValuePair<string, string> keyValuePair in dict)
+            {
+                var item = new ListViewItem(keyValuePair.Key);
+                item.SubItems.Add(keyValuePair.Value);
+
+                if (lstvCredits.Items.Count % 2 == 0)
+                    item.BackColor = Color.WhiteSmoke;
+
+                lstvCredits.Items.Add(item);
+                lstvCredits.Columns[lstvCredits.Columns.Count - 1].Width = -2;
+            }
+
+        }
+
+        #region Event Mappings
+
+        /// <summary>
+        /// Simple resize
+        /// </summary>
+        /// <param name="sender">The sender (source)</param>
+        /// <param name="e">Standard event args</param>
+        private void lstvCredits_SizeChanged(object sender, EventArgs e)
+        {
+            lstvCredits.Columns[lstvCredits.Columns.Count - 1].Width = -2;
+        }
+
+        void _lstrChCreditsReason_TextChanged(object sender, EventArgs e)
+        {
+            chCreditsReason.Text = _lstrChCreditsReason.Text;
+        }
+
+        void _lstrChCreditsContributer_TextChanged(object sender, EventArgs e)
+        {
+            chCreditsContributer.Text = _lstrChCreditsContributer.Text;
+        }
+
         #endregion
 
         #endregion
@@ -2280,14 +2724,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void ControlsFill()
         {
             //Application / Global
-            ntxtMemoryRefresh.Number = PSettings.GlobalDataRefresh;
-            ntxtGraphicsRefresh.Number = PSettings.GlobalDrawingRefresh;
-            ktxtReposition.Text = PSettings.GlobalChangeSizeAndPosition.ToString();
-            chBxOnlyDrawInForeground.Checked = PSettings.GlobalDrawOnlyInForeground;
-            chBxLanguage.SelectedIndex = chBxLanguage.Items.IndexOf(PSettings.GlobalLanguage) > -1
-                ? chBxLanguage.Items.IndexOf(PSettings.GlobalLanguage)
-                : 0;
+            ntxtMemoryRefresh.Number = PSettings.PreferenceAll.Global.DataRefresh;
+            ntxtGraphicsRefresh.Number = PSettings.PreferenceAll.Global.DrawingRefresh;
+            ktxtReposition.Text = PSettings.PreferenceAll.Global.ChangeSizeAndPosition.ToString();
+            aChBxOnlyDrawInForeground.Checked = PSettings.PreferenceAll.Global.DrawOnlyInForeground;
 
+            InitializeLanguageFiles();
             InitializeResources();
             InitializeIncome();
             InitializeApm();
@@ -2296,212 +2738,365 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             InitializeMaphack();
             InitializeUnittab();
             InitializeProductiontab();
+            InitializeVarious();
+        }
+
+        private void InitializeLanguageFiles()
+        {
+            _dictLanguageFile.Clear();
+
+            if (!Directory.Exists(Constants.StrLanguageFolder))
+                return;
+
+            var files = Directory.GetFiles(Constants.StrLanguageFolder, "*.lang");
+
+            foreach (var file in files)
+            {
+                if (file != null)
+                {
+                    var strLanguageName = String.Empty;
+                    var strLanguageFile = String.Empty;
+
+                    var strSource = File.ReadAllLines(file);
+                    foreach (var strLine in strSource)
+                    {
+                        if (strLine.StartsWith("LanguageName:"))
+                        {
+                            strLanguageFile = file;
+                            strLanguageName =
+                                strLine.Substring(strLine.IndexOf("LanguageName: ", StringComparison.Ordinal) +
+                                                  "LanguageName: ".Length);
+                            break;
+                        }
+                    }
+
+                    _dictLanguageFile.Add(file, strLanguageName);
+
+                    chBxLanguage.Items.Add(_dictLanguageFile[file]);
+
+                    //Select the last saved language
+                    if (PSettings.PreferenceAll.Global.Language == strLanguageFile)
+                        chBxLanguage.SelectedIndex = chBxLanguage.Items.Count - 1;
+                }
+            }
         }
 
         private void InitializeResources()
         {
-            pnlOverlayResource.pnlBasics.aChBxDrawBackground.Checked = PSettings.ResourceDrawBackground;
-            pnlOverlayResource.pnlBasics.aChBxRemoveAi.Checked = PSettings.ResourceRemoveAi;
-            pnlOverlayResource.pnlBasics.aChBxRemoveAllie.Checked = PSettings.ResourceRemoveAllie;
-            pnlOverlayResource.pnlBasics.aChBxRemoveClantags.Checked = PSettings.ResourceRemoveClanTag;
-            pnlOverlayResource.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.ResourceRemoveNeutral;
-            pnlOverlayResource.pnlBasics.aChBxRemoveYourself.Checked = PSettings.ResourceRemoveLocalplayer;
-            pnlOverlayResource.pnlBasics.btnSetFont.Text = PSettings.ResourceFontName;
-            pnlOverlayResource.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.ResourceOpacity > 1.0
-                ? (Int32)PSettings.ResourceOpacity
-                : (Int32)(PSettings.ResourceOpacity * 100);
+            pnlOverlayResource.pnlBasics.aChBxDrawBackground.Checked = PSettings.PreferenceAll.OverlayResources.DrawBackground;
+            pnlOverlayResource.pnlBasics.aChBxRemoveAi.Checked = PSettings.PreferenceAll.OverlayResources.RemoveAi;
+            pnlOverlayResource.pnlBasics.aChBxRemoveAllie.Checked = PSettings.PreferenceAll.OverlayResources.RemoveAllie;
+            pnlOverlayResource.pnlBasics.aChBxRemoveClantags.Checked = PSettings.PreferenceAll.OverlayResources.RemoveClanTag;
+            pnlOverlayResource.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.PreferenceAll.OverlayResources.RemoveNeutral;
+            pnlOverlayResource.pnlBasics.aChBxRemoveYourself.Checked = PSettings.PreferenceAll.OverlayResources.RemoveLocalplayer;
+            pnlOverlayResource.pnlBasics.btnSetFont.Text = PSettings.PreferenceAll.OverlayResources.FontName;
+            pnlOverlayResource.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.PreferenceAll.OverlayResources.Opacity > 1.0
+                ? (Int32)PSettings.PreferenceAll.OverlayResources.Opacity
+                : (Int32)(PSettings.PreferenceAll.OverlayResources.Opacity * 100);
 
-            pnlOverlayResource.pnlLauncher.ktxtHotkey1.Text = PSettings.ResourceHotkey1.ToString();
-            pnlOverlayResource.pnlLauncher.ktxtHotkey2.Text = PSettings.ResourceHotkey2.ToString();
-            pnlOverlayResource.pnlLauncher.ktxtHotkey3.Text = PSettings.ResourceHotkey3.ToString();
+            pnlOverlayResource.pnlLauncher.ktxtHotkey1.Text = PSettings.PreferenceAll.OverlayResources.Hotkey1.ToString();
+            pnlOverlayResource.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayResources.Hotkey2.ToString();
+            pnlOverlayResource.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayResources.Hotkey3.ToString();
 
-            pnlOverlayResource.pnlLauncher.txtReposition.Text = PSettings.ResourceChangePositionPanel;
-            pnlOverlayResource.pnlLauncher.txtResize.Text = PSettings.ResourceChangeSizePanel;
-            pnlOverlayResource.pnlLauncher.txtToggle.Text = PSettings.ResourceTogglePanel;
+            pnlOverlayResource.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayResources.ChangePosition;
+            pnlOverlayResource.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayResources.ChangeSize;
+            pnlOverlayResource.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayResources.TogglePanel;
         }
 
         private void InitializeIncome()
         {
-            pnlOverlayIncome.pnlBasics.aChBxDrawBackground.Checked = PSettings.IncomeDrawBackground;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveAi.Checked = PSettings.IncomeRemoveAi;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveAllie.Checked = PSettings.IncomeRemoveAllie;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveClantags.Checked = PSettings.IncomeRemoveClanTag;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.IncomeRemoveNeutral;
-            pnlOverlayIncome.pnlBasics.aChBxRemoveYourself.Checked = PSettings.IncomeRemoveLocalplayer;
-            pnlOverlayIncome.pnlBasics.btnSetFont.Text = PSettings.IncomeFontName;
-            pnlOverlayIncome.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.IncomeOpacity > 1.0
-                ? (Int32)PSettings.IncomeOpacity
-                : (Int32)(PSettings.IncomeOpacity * 100);
+            pnlOverlayIncome.pnlBasics.aChBxDrawBackground.Checked = PSettings.PreferenceAll.OverlayIncome.DrawBackground;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveAi.Checked = PSettings.PreferenceAll.OverlayIncome.RemoveAi;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveAllie.Checked = PSettings.PreferenceAll.OverlayIncome.RemoveAllie;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveClantags.Checked = PSettings.PreferenceAll.OverlayIncome.RemoveClanTag;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.PreferenceAll.OverlayIncome.RemoveNeutral;
+            pnlOverlayIncome.pnlBasics.aChBxRemoveYourself.Checked = PSettings.PreferenceAll.OverlayIncome.RemoveLocalplayer;
+            pnlOverlayIncome.pnlBasics.btnSetFont.Text = PSettings.PreferenceAll.OverlayIncome.FontName;
+            pnlOverlayIncome.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.PreferenceAll.OverlayIncome.Opacity > 1.0
+                ? (Int32)PSettings.PreferenceAll.OverlayIncome.Opacity
+                : (Int32)(PSettings.PreferenceAll.OverlayIncome.Opacity * 100);
 
-            pnlOverlayIncome.pnlLauncher.ktxtHotkey1.Text = PSettings.IncomeHotkey1.ToString();
-            pnlOverlayIncome.pnlLauncher.ktxtHotkey2.Text = PSettings.IncomeHotkey2.ToString();
-            pnlOverlayIncome.pnlLauncher.ktxtHotkey3.Text = PSettings.IncomeHotkey3.ToString();
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey1.Text = PSettings.PreferenceAll.OverlayIncome.Hotkey1.ToString();
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayIncome.Hotkey2.ToString();
+            pnlOverlayIncome.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayIncome.Hotkey3.ToString();
 
-            pnlOverlayIncome.pnlLauncher.txtReposition.Text = PSettings.IncomeChangePositionPanel;
-            pnlOverlayIncome.pnlLauncher.txtResize.Text = PSettings.IncomeChangeSizePanel;
-            pnlOverlayIncome.pnlLauncher.txtToggle.Text = PSettings.IncomeTogglePanel;
+            pnlOverlayIncome.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayIncome.ChangePosition;
+            pnlOverlayIncome.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayIncome.ChangeSize;
+            pnlOverlayIncome.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayIncome.TogglePanel;
         }
 
         private void InitializeApm()
         {
-            pnlOverlayApm.pnlBasics.aChBxDrawBackground.Checked = PSettings.ApmDrawBackground;
-            pnlOverlayApm.pnlBasics.aChBxRemoveAi.Checked = PSettings.ApmRemoveAi;
-            pnlOverlayApm.pnlBasics.aChBxRemoveAllie.Checked = PSettings.ApmRemoveAllie;
-            pnlOverlayApm.pnlBasics.aChBxRemoveClantags.Checked = PSettings.ApmRemoveClanTag;
-            pnlOverlayApm.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.ApmRemoveNeutral;
-            pnlOverlayApm.pnlBasics.aChBxRemoveYourself.Checked = PSettings.ApmRemoveLocalplayer;
-            pnlOverlayApm.pnlBasics.btnSetFont.Text = PSettings.ApmFontName;
-            pnlOverlayApm.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.ApmOpacity > 1.0
-                ? (Int32)PSettings.ApmOpacity
-                : (Int32)(PSettings.ApmOpacity * 100);
+            pnlOverlayApm.pnlBasics.aChBxDrawBackground.Checked = PSettings.PreferenceAll.OverlayApm.DrawBackground;
+            pnlOverlayApm.pnlBasics.aChBxRemoveAi.Checked = PSettings.PreferenceAll.OverlayApm.RemoveAi;
+            pnlOverlayApm.pnlBasics.aChBxRemoveAllie.Checked = PSettings.PreferenceAll.OverlayApm.RemoveAllie;
+            pnlOverlayApm.pnlBasics.aChBxRemoveClantags.Checked = PSettings.PreferenceAll.OverlayApm.RemoveClanTag;
+            pnlOverlayApm.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.PreferenceAll.OverlayApm.RemoveNeutral;
+            pnlOverlayApm.pnlBasics.aChBxRemoveYourself.Checked = PSettings.PreferenceAll.OverlayApm.RemoveLocalplayer;
+            pnlOverlayApm.pnlBasics.btnSetFont.Text = PSettings.PreferenceAll.OverlayApm.FontName;
+            pnlOverlayApm.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.PreferenceAll.OverlayApm.Opacity > 1.0
+                ? (Int32)PSettings.PreferenceAll.OverlayApm.Opacity
+                : (Int32)(PSettings.PreferenceAll.OverlayApm.Opacity * 100);
 
-            pnlOverlayApm.pnlLauncher.ktxtHotkey1.Text = PSettings.ApmHotkey1.ToString();
-            pnlOverlayApm.pnlLauncher.ktxtHotkey2.Text = PSettings.ApmHotkey2.ToString();
-            pnlOverlayApm.pnlLauncher.ktxtHotkey3.Text = PSettings.ApmHotkey3.ToString();
+            pnlOverlayApm.pnlLauncher.ktxtHotkey1.Text = PSettings.PreferenceAll.OverlayApm.Hotkey1.ToString();
+            pnlOverlayApm.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayApm.Hotkey2.ToString();
+            pnlOverlayApm.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayApm.Hotkey3.ToString();
 
-            pnlOverlayApm.pnlLauncher.txtReposition.Text = PSettings.ApmChangePositionPanel;
-            pnlOverlayApm.pnlLauncher.txtResize.Text = PSettings.ApmChangeSizePanel;
-            pnlOverlayApm.pnlLauncher.txtToggle.Text = PSettings.ApmTogglePanel;
+            pnlOverlayApm.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayApm.ChangePosition;
+            pnlOverlayApm.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayApm.ChangeSize;
+            pnlOverlayApm.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayApm.TogglePanel;
         }
 
         private void InitializeArmy()
         {
-            pnlOverlayArmy.pnlBasics.aChBxDrawBackground.Checked = PSettings.ArmyDrawBackground;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveAi.Checked = PSettings.ArmyRemoveAi;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveAllie.Checked = PSettings.ArmyRemoveAllie;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveClantags.Checked = PSettings.ArmyRemoveClanTag;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.ArmyRemoveNeutral;
-            pnlOverlayArmy.pnlBasics.aChBxRemoveYourself.Checked = PSettings.ArmyRemoveLocalplayer;
-            pnlOverlayArmy.pnlBasics.btnSetFont.Text = PSettings.ArmyFontName;
-            pnlOverlayArmy.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.ArmyOpacity > 1.0
-                ? (Int32)PSettings.ArmyOpacity
-                : (Int32)(PSettings.ArmyOpacity * 100);
+            pnlOverlayArmy.pnlBasics.aChBxDrawBackground.Checked = PSettings.PreferenceAll.OverlayArmy.DrawBackground;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveAi.Checked = PSettings.PreferenceAll.OverlayArmy.RemoveAi;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveAllie.Checked = PSettings.PreferenceAll.OverlayArmy.RemoveAllie;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveClantags.Checked = PSettings.PreferenceAll.OverlayArmy.RemoveClanTag;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.PreferenceAll.OverlayArmy.RemoveNeutral;
+            pnlOverlayArmy.pnlBasics.aChBxRemoveYourself.Checked = PSettings.PreferenceAll.OverlayArmy.RemoveLocalplayer;
+            pnlOverlayArmy.pnlBasics.btnSetFont.Text = PSettings.PreferenceAll.OverlayArmy.FontName;
+            pnlOverlayArmy.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.PreferenceAll.OverlayArmy.Opacity > 1.0
+                ? (Int32)PSettings.PreferenceAll.OverlayArmy.Opacity
+                : (Int32)(PSettings.PreferenceAll.OverlayArmy.Opacity * 100);
 
-            pnlOverlayArmy.pnlLauncher.ktxtHotkey1.Text = PSettings.ArmyHotkey1.ToString();
-            pnlOverlayArmy.pnlLauncher.ktxtHotkey2.Text = PSettings.ArmyHotkey2.ToString();
-            pnlOverlayArmy.pnlLauncher.ktxtHotkey3.Text = PSettings.ArmyHotkey3.ToString();
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey1.Text = PSettings.PreferenceAll.OverlayArmy.Hotkey1.ToString();
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayArmy.Hotkey2.ToString();
+            pnlOverlayArmy.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayArmy.Hotkey3.ToString();
 
-            pnlOverlayArmy.pnlLauncher.txtReposition.Text = PSettings.ArmyChangePositionPanel;
-            pnlOverlayArmy.pnlLauncher.txtResize.Text = PSettings.ArmyChangeSizePanel;
-            pnlOverlayArmy.pnlLauncher.txtToggle.Text = PSettings.ArmyTogglePanel;
+            pnlOverlayArmy.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayArmy.ChangePosition;
+            pnlOverlayArmy.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayArmy.ChangeSize;
+            pnlOverlayArmy.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayArmy.TogglePanel;
         }
 
         private void InitializeMaphack()
         {
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveAi.Checked = PSettings.MaphackRemoveAi;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveAllie.Checked = PSettings.MaphackRemoveAllie;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.MaphackRemoveNeutral;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveYourself.Checked = PSettings.MaphackRemoveLocalplayer;
-            pnlOverlayMaphack.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.MaphackOpacity > 1.0
-                ? (Int32)PSettings.MaphackOpacity
-                : (Int32)(PSettings.MaphackOpacity * 100);
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveAi.Checked = PSettings.PreferenceAll.OverlayMaphack.RemoveAi;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveAllie.Checked = PSettings.PreferenceAll.OverlayMaphack.RemoveAllie;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveYourself.Checked = PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer;
+            pnlOverlayMaphack.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.PreferenceAll.OverlayMaphack.Opacity > 1.0
+                ? (Int32)PSettings.PreferenceAll.OverlayMaphack.Opacity
+                : (Int32)(PSettings.PreferenceAll.OverlayMaphack.Opacity * 100);
             pnlOverlayMaphack.pnlBasics.aChBxDefensiveStructures.Checked =
-                PSettings.MaphackColorDefensivestructuresYellow;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveCamera.Checked = PSettings.MaphackRemoveCamera;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveVisionArea.Checked = PSettings.MaphackRemoveVisionArea;
-            pnlOverlayMaphack.pnlBasics.aChBxRemoveDestinationLine.Checked = PSettings.MaphackDisableDestinationLine;
-            pnlOverlayMaphack.pnlBasics.btnColorDestinationline.BackColor = PSettings.MaphackDestinationColor;
+                PSettings.PreferenceAll.OverlayMaphack.ColorDefensiveStructures;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveCamera.Checked = PSettings.PreferenceAll.OverlayMaphack.RemoveCamera;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveVisionArea.Checked = PSettings.PreferenceAll.OverlayMaphack.RemoveVisionArea;
+            pnlOverlayMaphack.pnlBasics.aChBxRemoveDestinationLine.Checked = PSettings.PreferenceAll.OverlayMaphack.RemoveDestinationLine;
+            pnlOverlayMaphack.pnlBasics.btnColorDestinationline.BackColor = PSettings.PreferenceAll.OverlayMaphack.DestinationLine;
 
-            pnlOverlayMaphack.pnlLauncher.ktxtHotkey1.Text = PSettings.MaphackHotkey1.ToString();
-            pnlOverlayMaphack.pnlLauncher.ktxtHotkey2.Text = PSettings.MaphackHotkey2.ToString();
-            pnlOverlayMaphack.pnlLauncher.ktxtHotkey3.Text = PSettings.MaphackHotkey3.ToString();
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey1.Text = PSettings.PreferenceAll.OverlayMaphack.Hotkey1.ToString();
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayMaphack.Hotkey2.ToString();
+            pnlOverlayMaphack.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayMaphack.Hotkey3.ToString();
 
-            pnlOverlayMaphack.pnlLauncher.txtReposition.Text = PSettings.MaphackChangePositionPanel;
-            pnlOverlayMaphack.pnlLauncher.txtResize.Text = PSettings.MaphackChangeSizePanel;
-            pnlOverlayMaphack.pnlLauncher.txtToggle.Text = PSettings.MaphackTogglePanel;
+            pnlOverlayResource.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayMaphack.ChangePosition;
+            pnlOverlayResource.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayMaphack.ChangeSize;
+            pnlOverlayResource.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayMaphack.TogglePanel;
+
+            for (var i = 0; i < PSettings.PreferenceAll.OverlayMaphack.UnitIds.Count; i++)
+            {
+                var id =
+               (PredefinedData.UnitId)
+                   Enum.Parse(typeof(PredefinedData.UnitId), PSettings.PreferenceAll.OverlayMaphack.UnitIds[i].ToString());
+
+                pnlOverlayMaphack.LUnitFilter.Add(id, PSettings.PreferenceAll.OverlayMaphack.UnitColors[i]);
+            }
+
+            pnlOverlayMaphack.AddUnitsToListview();
+
         }
 
         private void InitializeWorker()
         {
-            pnlOverlayWorker.aChBxDrawBackground.Checked = PSettings.WorkerDrawBackground;
-            pnlOverlayWorker.btnSetFont.Text = PSettings.WorkerFontName;
-            pnlOverlayWorker.OpacityControl.tbOpacity.Value = PSettings.WorkerOpacity > 1.0
-                ? (Int32)PSettings.WorkerOpacity
-                : (Int32)(PSettings.WorkerOpacity * 100);
+            pnlOverlayWorker.aChBxDrawBackground.Checked = PSettings.PreferenceAll.OverlayWorker.DrawBackground;
+            pnlOverlayWorker.btnSetFont.Text = PSettings.PreferenceAll.OverlayWorker.FontName;
+            pnlOverlayWorker.OpacityControl.tbOpacity.Value = PSettings.PreferenceAll.OverlayWorker.Opacity > 1.0
+                ? (Int32)PSettings.PreferenceAll.OverlayWorker.Opacity
+                : (Int32)(PSettings.PreferenceAll.OverlayWorker.Opacity * 100);
 
-            pnlOverlayWorker.pnlLauncher.ktxtHotkey1.Text = PSettings.WorkerHotkey1.ToString();
-            pnlOverlayWorker.pnlLauncher.ktxtHotkey2.Text = PSettings.WorkerHotkey2.ToString();
-            pnlOverlayWorker.pnlLauncher.ktxtHotkey3.Text = PSettings.WorkerHotkey3.ToString();
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey1.Text = PSettings.PreferenceAll.OverlayWorker.Hotkey1.ToString();
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayWorker.Hotkey2.ToString();
+            pnlOverlayWorker.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayWorker.Hotkey3.ToString();
 
-            pnlOverlayWorker.pnlLauncher.txtReposition.Text = PSettings.WorkerChangePositionPanel;
-            pnlOverlayWorker.pnlLauncher.txtResize.Text = PSettings.WorkerChangeSizePanel;
-            pnlOverlayWorker.pnlLauncher.txtToggle.Text = PSettings.WorkerTogglePanel;
+            pnlOverlayWorker.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayWorker.ChangePosition;
+            pnlOverlayWorker.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayWorker.ChangeSize;
+            pnlOverlayWorker.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayWorker.TogglePanel;
         }
 
         private void InitializeUnittab()
         {
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveAi.Checked = PSettings.UnitTabRemoveAi;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveAllie.Checked = PSettings.UnitTabRemoveAllie;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveClantags.Checked = PSettings.UnitTabRemoveClanTag;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.UnitTabRemoveNeutral;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveYourself.Checked = PSettings.UnitTabRemoveLocalplayer;
-            pnlOverlayUnittab.pnlBasics.btnSetFont.Text = PSettings.UnitTabFontName;
-            pnlOverlayUnittab.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.UnitTabOpacity > 1.0
-                ? (Int32)PSettings.UnitTabOpacity
-                : (Int32)(PSettings.UnitTabOpacity * 100);
-            pnlOverlayUnittab.pnlBasics.aChBxDisplayBuildings.Checked = PSettings.UnitTabShowBuildings;
-            pnlOverlayUnittab.pnlBasics.aChBxDisplayUnits.Checked = PSettings.UnitTabShowUnits;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveChronoboost.Checked = PSettings.UnitTabRemoveChronoboost;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveProductionstatus.Checked = PSettings.UnitTabRemoveProdLine;
-            pnlOverlayUnittab.pnlBasics.aChBxRemoveSpellcounter.Checked = PSettings.UnitTabRemoveSpellCounter;
-            pnlOverlayUnittab.pnlBasics.aChBxSplitUnitsBuildings.Checked = PSettings.UnitTabSplitUnitsAndBuildings;
-            pnlOverlayUnittab.pnlBasics.aChBxTransparentImages.Checked = PSettings.UnitTabUseTransparentImages;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveAi.Checked = PSettings.PreferenceAll.OverlayUnits.RemoveAi;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveAllie.Checked = PSettings.PreferenceAll.OverlayUnits.RemoveAllie;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveClantags.Checked = PSettings.PreferenceAll.OverlayUnits.RemoveClanTag;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.PreferenceAll.OverlayUnits.RemoveNeutral;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveYourself.Checked = PSettings.PreferenceAll.OverlayUnits.RemoveLocalplayer;
+            pnlOverlayUnittab.pnlBasics.btnSetFont.Text = PSettings.PreferenceAll.OverlayUnits.FontName;
+            pnlOverlayUnittab.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.PreferenceAll.OverlayUnits.Opacity > 1.0
+                ? (Int32)PSettings.PreferenceAll.OverlayUnits.Opacity
+                : (Int32)(PSettings.PreferenceAll.OverlayUnits.Opacity * 100);
+            pnlOverlayUnittab.pnlBasics.aChBxDisplayBuildings.Checked = PSettings.PreferenceAll.OverlayUnits.ShowBuildings;
+            pnlOverlayUnittab.pnlBasics.aChBxDisplayUnits.Checked = PSettings.PreferenceAll.OverlayUnits.ShowUnits;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveChronoboost.Checked = PSettings.PreferenceAll.OverlayUnits.RemoveChronoboost;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveProductionstatus.Checked = PSettings.PreferenceAll.OverlayUnits.RemoveProductionLine;
+            pnlOverlayUnittab.pnlBasics.aChBxRemoveSpellcounter.Checked = PSettings.PreferenceAll.OverlayUnits.RemoveSpellCounter;
+            pnlOverlayUnittab.pnlBasics.aChBxSplitUnitsBuildings.Checked = PSettings.PreferenceAll.OverlayUnits.SplitBuildingsAndUnits;
+            pnlOverlayUnittab.pnlBasics.aChBxTransparentImages.Checked = PSettings.PreferenceAll.OverlayUnits.UseTransparentImages;
             
 
-            pnlOverlayUnittab.pnlLauncher.ktxtHotkey1.Text = PSettings.UnitHotkey1.ToString();
-            pnlOverlayUnittab.pnlLauncher.ktxtHotkey2.Text = PSettings.UnitHotkey2.ToString();
-            pnlOverlayUnittab.pnlLauncher.ktxtHotkey3.Text = PSettings.UnitHotkey3.ToString();
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey1.Text = PSettings.PreferenceAll.OverlayUnits.Hotkey1.ToString();
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayUnits.Hotkey2.ToString();
+            pnlOverlayUnittab.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayUnits.Hotkey3.ToString();
 
-            pnlOverlayUnittab.pnlLauncher.txtReposition.Text = PSettings.UnitChangePositionPanel;
-            pnlOverlayUnittab.pnlLauncher.txtResize.Text = PSettings.UnitChangeSizePanel;
-            pnlOverlayUnittab.pnlLauncher.txtToggle.Text = PSettings.UnitTogglePanel;
+            pnlOverlayUnittab.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayUnits.ChangePosition;
+            pnlOverlayUnittab.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayUnits.ChangeSize;
+            pnlOverlayUnittab.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayUnits.TogglePanel;
 
-            pnlOverlayUnittab.pnlSpecial.ntxtSize.Text = PSettings.UnitPictureSize.ToString();
+            pnlOverlayUnittab.pnlSpecial.ntxtSize.Text = PSettings.PreferenceAll.OverlayUnits.PictureSize.ToString();
         }
 
         private void InitializeProductiontab()
         {
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAi.Checked = PSettings.ProdTabRemoveAi;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAllie.Checked = PSettings.ProdTabRemoveAllie;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveClantags.Checked = PSettings.ProdTabRemoveClanTag;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.ProdTabRemoveNeutral;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveYourself.Checked = PSettings.ProdTabRemoveLocalplayer;
-            pnlOverlayProductiontab.pnlBasics.btnSetFont.Text = PSettings.ProdTabFontName;
-            pnlOverlayProductiontab.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.ProdTabOpacity > 1.0
-                ? (Int32)PSettings.ProdTabOpacity
-                : (Int32)(PSettings.ProdTabOpacity * 100);
-            pnlOverlayProductiontab.pnlBasics.aChBxDisplayBuildings.Checked = PSettings.ProdTabShowBuildings;
-            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUnits.Checked = PSettings.ProdTabShowUnits;
-            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUpgrades.Checked = PSettings.ProdTabShowUpgrades;
-            pnlOverlayProductiontab.pnlBasics.aChBxRemoveChronoboost.Checked = PSettings.ProdTabRemoveChronoboost;
-            pnlOverlayProductiontab.pnlBasics.aChBxSplitUnitsBuildings.Checked = PSettings.ProdTabSplitUnitsAndBuildings;
-            pnlOverlayProductiontab.pnlBasics.aChBxTransparentImages.Checked = PSettings.ProdTabUseTransparentImages;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAi.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveAi;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveAllie.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveAllie;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveClantags.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveClanTag;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveNeutral.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveNeutral;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveYourself.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveLocalplayer;
+            pnlOverlayProductiontab.pnlBasics.btnSetFont.Text = PSettings.PreferenceAll.OverlayProduction.FontName;
+            pnlOverlayProductiontab.pnlBasics.OpacityControl.tbOpacity.Value = PSettings.PreferenceAll.OverlayProduction.Opacity > 1.0
+                ? (Int32)PSettings.PreferenceAll.OverlayProduction.Opacity
+                : (Int32)(PSettings.PreferenceAll.OverlayProduction.Opacity * 100);
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayBuildings.Checked = PSettings.PreferenceAll.OverlayProduction.ShowBuildings;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUnits.Checked = PSettings.PreferenceAll.OverlayProduction.ShowUnits;
+            pnlOverlayProductiontab.pnlBasics.aChBxDisplayUpgrades.Checked = PSettings.PreferenceAll.OverlayProduction.ShowUpgrades;
+            pnlOverlayProductiontab.pnlBasics.aChBxRemoveChronoboost.Checked = PSettings.PreferenceAll.OverlayProduction.RemoveChronoboost;
+            pnlOverlayProductiontab.pnlBasics.aChBxSplitUnitsBuildings.Checked = PSettings.PreferenceAll.OverlayProduction.SplitBuildingsAndUnits;
+            pnlOverlayProductiontab.pnlBasics.aChBxTransparentImages.Checked = PSettings.PreferenceAll.OverlayProduction.UseTransparentImages;
 
 
-            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey1.Text = PSettings.ProdHotkey1.ToString();
-            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey2.Text = PSettings.ProdHotkey2.ToString();
-            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey3.Text = PSettings.ProdHotkey3.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey1.Text = PSettings.PreferenceAll.OverlayProduction.Hotkey1.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayProduction.Hotkey2.ToString();
+            pnlOverlayProductiontab.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayProduction.Hotkey3.ToString();
 
-            pnlOverlayProductiontab.pnlLauncher.txtReposition.Text = PSettings.ProdChangePositionPanel;
-            pnlOverlayProductiontab.pnlLauncher.txtResize.Text = PSettings.ProdChangeSizePanel;
-            pnlOverlayProductiontab.pnlLauncher.txtToggle.Text = PSettings.ProdTogglePanel;
+            pnlOverlayProductiontab.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayProduction.ChangePosition;
+            pnlOverlayProductiontab.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayProduction.ChangeSize;
+            pnlOverlayProductiontab.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayProduction.TogglePanel;
 
-            pnlOverlayProductiontab.pnlSpecial.ntxtSize.Text = PSettings.ProdPictureSize.ToString();
+            pnlOverlayProductiontab.pnlSpecial.ntxtSize.Text = PSettings.PreferenceAll.OverlayProduction.PictureSize.ToString();
+        }
+
+        private void InitializeVarious()
+        {
+            aChBxVariousPersonalApmAlert.Checked = PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert;
+            aChBxVariousShowPersonalApm.Checked = PSettings.PreferenceAll.OverlayPersonalApm.PersonalApm;
+            ntxtVariousApmLimit.Number = PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit;
+
+            aChBxVariousShowPersonalClock.Checked = PSettings.PreferenceAll.OverlayPersonalClock.PersonalClock;
+
+            aChBxVariousWorkerCoach.Checked = PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach;
+            ntxtVariousWorkerCoachDisableAfter.Number = PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter;
         }
 
         #endregion
 
+        #region Global Event Methods
 
-        /* Make panels in/ visible */
-        private void ChangeVisibleState(Boolean state)
+        void _tmrMainTick_Tick(object sender, EventArgs e)
         {
-            foreach (var renderer in _lContainer)
+            if ((DateTime.Now - _dtSecond).Seconds >= 1)
             {
-                if (!renderer.IsHidden)
-                    renderer.Visible = state;
-            }
-        }
+                _dtSecond = DateTime.Now;
 
+                if (cpnlDebug.IsClicked)
+                {
+                    Gameinfo.CAccessGameinfo = true;
+                    Gameinfo.CAccessMapInfo = true;
+                    Gameinfo.CAccessPlayers = true;
+                    Gameinfo.CAccessUnits = true;
+                    Gameinfo.CAccessUnitCommands = true;
+
+                    DebugPlayerRefresh();
+                    DebugUnitRefresh();
+                    DebugMapRefresh();
+                    DebugMatchinformationRefresh();
+                }
+
+                //Console.WriteLine("CAccessGameinfo: " + Gameinfo.CAccessGameinfo);
+                //Console.WriteLine("CAccessGroups: " + Gameinfo.CAccessGroups);
+                //Console.WriteLine("CAccessMapInfo: " + Gameinfo.CAccessMapInfo);
+                //Console.WriteLine("CAccessPlayers: " + Gameinfo.CAccessPlayers);
+                //Console.WriteLine("CAccessSelection: " + Gameinfo.CAccessSelection);
+                //Console.WriteLine("CAccessUnitCommands: " + Gameinfo.CAccessUnitCommands);
+                //Console.WriteLine("CAccessUnits: " + Gameinfo.CAccessUnits);
+            }
+
+            for (var i = 0; i < _lContainer.Count; i++)
+            {
+                Gameinfo.CAccessGameinfo |= _lContainer[i].GInformation.CAccessGameinfo;
+                Gameinfo.CAccessGroups |= _lContainer[i].GInformation.CAccessGroups;
+                Gameinfo.CAccessMapInfo |= _lContainer[i].GInformation.CAccessMapInfo;
+                Gameinfo.CAccessPlayers |= _lContainer[i].GInformation.CAccessPlayers;
+                Gameinfo.CAccessSelection |= _lContainer[i].GInformation.CAccessSelection;
+                Gameinfo.CAccessUnitCommands |= _lContainer[i].GInformation.CAccessUnitCommands;
+                Gameinfo.CAccessUnits |= _lContainer[i].GInformation.CAccessUnits;
+            }
+
+
+
+            InputManager();
+            PluginDataRefresh();
+
+            #region Reset Process and gameinfo if Sc2 is not started
+
+            if (!Processing.GetProcess(Constants.StrStarcraft2ProcessName))
+            {
+                ChangeVisibleState(false);
+                _bProcessSet = false;
+                Gameinfo.HandleThread(false);
+
+                _tmrMainTick.Interval = 300;
+                Debug.WriteLine("Process not found - 300ms Delay!");
+            }
+
+
+            else
+            {
+                if (!_bProcessSet)
+                {
+                    _bProcessSet = true;
+
+                    Process proc;
+                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                        PSc2Process = proc;
+
+
+                    if (Gameinfo == null)
+                    {
+                        Gameinfo = new GameInfo(PSettings.PreferenceAll.Global.DataRefresh, ApplicationOptions)
+                        {
+                            MyOffsets = new Offsets()
+                        };
+                    }
+
+                    else if (Gameinfo != null &&
+                             !Gameinfo.CThreadState)
+                    {
+                        Gameinfo.Memory.Handle = IntPtr.Zero;
+                        Gameinfo.CStarcraft2 = PSc2Process;
+                        Gameinfo.MyOffsets = new Offsets();
+                        Gameinfo.HandleThread(true);
+                    }
+
+
+                    ChangeVisibleState(true);
+                    _tmrMainTick.Interval = PSettings.PreferenceAll.Global.DataRefresh;
+
+                    Debug.WriteLine("Process found - " + PSettings.PreferenceAll.Global.DataRefresh + "ms Delay!");
+                }
+            }
+
+            #endregion
+
+        }
 
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)
         {
@@ -2514,7 +3109,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlMainArea.Invalidate();
         }
 
-
         //Draw a new border on the top and bottom of the panel
         private void DrawVerticalBorders(object sender, PaintEventArgs e)
         {
@@ -2524,14 +3118,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(193, 193, 193))), 0, send.Height - 1, Width, send.Height - 1);
         }
 
-        private void chBxOnlyDrawInForeground_CheckedChanged(AnotherCheckbox o, EventChecked e)
-        {
-            PSettings.GlobalDrawOnlyInForeground = o.Checked;
-        }
-
         private void NewMainHandler_FormClosing(object sender, FormClosingEventArgs e)
         {
-            PSettings.WritePreferences();
+            PSettings.Write();
 
             foreach (var plugin in _lPlugins)
             {
@@ -2547,20 +3136,31 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Gameinfo.HandleThread(false);
         }
 
+        void _wcMainWebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            pbMainProgress.Value = 0;
+
+            if (e.UserState.Equals("Plugin"))
+            {
+                PluginsLocalLoadPlugins();
+            }
+
+            Console.WriteLine("Filedownload complete!");
+        }
+
+        void _wcMainWebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            pbMainProgress.Value = e.ProgressPercentage;
+            Console.WriteLine("We are at the ProgressChanged!");
+        }
+
         
 
-        private void button1_Click(object sender, EventArgs e)
+        void Gameinfo_IterationPerSecondChanged(object sender, NumberArgs e)
         {
-            /*
-
-            UpdateChecker ch = new UpdateChecker();
-
-            if (ch.UpdatesAvailable)
-            {
-                new AnotherMessageBox().Show(ch.ShowApplicationUpdates(), "Updates Available", new Font(Constants.StrFontFamilyNameMonospace, Font.Size));
-            }
-            */
-
+            ntxtBenchmarkDataIterations.Number = e.Number;
         }
+
+        #endregion
     } 
 }

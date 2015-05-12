@@ -113,6 +113,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         #endregion
 
+        #region Private Variables
+
+        private byte[] regionBuffer;
+
+        #endregion
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -546,5 +552,79 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             Handle = InteropCalls.OpenProcess(desiredAccess, true, process.Id);
         }
+
+        /// <summary>
+        /// MaskCheck
+        /// 
+        ///     Compares the current pattern byte to the current memory dump
+        ///     byte to check for a match. Uses wildcards to skip bytes that
+        ///     are deemed unneeded in the compares.
+        /// </summary>
+        /// <param name="nOffset">Offset in the dump to start at.</param>
+        /// <param name="btPattern">Pattern to scan for.</param>
+        /// <param name="strMask">Mask to compare against.</param>
+        /// <returns>Boolean depending on if the pattern was found.</returns>
+        private bool MaskCheck(int nOffset, byte[] btPattern, string strMask)
+        {
+            if (regionBuffer == null ||
+                regionBuffer.Length <= 0)
+                return false;
+
+            // Loop the pattern and compare to the mask and dump.
+            for (int x = 0; x < btPattern.Length; x++)
+            {
+                // If the mask char is a wildcard, just continue.
+                if (strMask[x] == '?')
+                    continue;
+
+                // If the mask char is not a wildcard, ensure a match is made in the pattern.
+                if ((strMask[x] == 'x') && (btPattern[x] != regionBuffer[nOffset + x]))
+                    return false;
+            }
+
+            // The loop was successful so we found the pattern.
+            return true;
+        }
+
+        /// <summary>
+        /// FindPattern
+        /// 
+        ///     Attempts to locate the given pattern inside the dumped memory region
+        ///     compared against the given mask. If the pattern is found, the offset
+        ///     is added to the located address and returned to the user.
+        /// </summary>
+        /// <param name="btPattern">Byte pattern to look for in the dumped region.</param>
+        /// <param name="strMask">The mask string to compare against.</param>
+        /// <param name="nOffset">The offset added to the result address.</param>
+        /// <returns>IntPtr - zero if not found, address if found.</returns> 
+        public uint FindPattern(byte[] btPattern, string strMask, int nOffset, int baseAddress, int size)
+        {
+            regionBuffer = ReadMemory(baseAddress, size);
+
+            try
+            {
+
+                // Ensure the mask and pattern lengths match.
+                if (strMask.Length != btPattern.Length)
+                    return 0;
+
+                // Loop the region and look for the pattern.
+                for (int x = 0; x < regionBuffer.Length; x++)
+                {
+                    if (MaskCheck(x, btPattern, strMask))
+                    {
+                        // The pattern was found, return it.
+                        return (uint)(baseAddress + (x + nOffset));
+                    }
+                }
+
+                // Pattern was not found.
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        } 
     }
 }
