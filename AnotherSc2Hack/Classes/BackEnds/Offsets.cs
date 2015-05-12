@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.Events;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -9,6 +10,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         #region create variables for Addresses
 
         public int PlayerStruct = 0;
+        public int PlayerStructSize = 0;
         public int UnitStruct = 0;
         public int MapStruct = 0;
 
@@ -43,31 +45,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                      RawPlayerLocalplayer = 0,
                      RawPlayerCurrentBuildings = 0;
 
-        public int CameraX = 0,
-                            CameraY = 0,
-                            CameraDistance = 0,
-                            CameraRotation = 0,
-                            Playertype = 0,
-                            Status = 0,
-                            NameLenght = 0,
-                            Name = 0,
-                            AccountId = 0,
-                            Color = 0,
-                            Apm = 0,
-                            Epm = 0,
-                            ApmAverage = 0,
-                            EpmAverage = 0,
-                            Workers = 0,
-                            SupplyMin = 0,
-                            SupplyMax = 0,
-                            MineralsCurrent = 0,
-                            GasCurrent = 0,
-                            MineralsIncome = 0,
-                            CurrentBuildings = 0,
-                            GasIncome = 0,
-                            MineralsArmy = 0,
-                            GasArmy = 0,
-                            PlayerStructSize = 0;
+        
 
         public int RawGroupBase = 0x31CE258,
                    RawGroupSize = 0x1b60,
@@ -94,10 +72,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             ChatOpenOff3 = 0x008,
             ChatOpenOff4 = 0x16C;
 
-        public int Localplayer1 = 0,
-                            Localplayer2 = 0,
-                            Localplayer3 = 0,
-                            Localplayer4 = 0;
+        public int Localplayer4 = 0;
 
         public Int32 RawUnitPosX = 0,
             RawUnitPosY = 0,
@@ -117,20 +92,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             RawUnitMovestate = 0,
             RawUnitRandomFlag = 0;
 
-        public int UnitPosX = 0,
-                   UnitPosY = 0,
-                   UnitTargetFilter = 0,
-                   UnitTotal = 0,
-                   UnitDeathType = 0,
-                   UnitDestinationX = 0,
-                   UnitDestinationY = 0,
-                   UnitEnergy = 0,
-                   UnitHp = 0,
-                   UnitOwner = 0,
-                   UnitState = 0,
+        public int UnitTotal = 0,
                    UnitModel = 0,
-                   UnitBeeingPuked = 0,
-                   UnitMoveState = 0,
                    UnitStringStruct = 0,
                    UnitString = 0,
                    UnitStructSize = 0,
@@ -139,14 +102,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
                    UnitMaxHealth = 0,
                    UnitMaxEnergy = 0,
                    UnitModelSize = 0;
-
-        public Int32 StructureStruct = 0,
-                     StructurePointerToUnitStruct = 0,
-                     StructureHarvesterCount = 0,
-                     StructureCount = 0,
-                     StructureSize = 0;
-
-        public Int32 RawStructureHarvesterCount = 0;
 
         public int MapIngame = 0,
                    MapFileInfoName = 0;
@@ -183,48 +138,61 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         #endregion
 
+        public event EventHandler OffsetsNotProperlySet;
+
+        private Process _starcraft = null;
+
+        public void OnOffsetsNotProperlySet(object o, EventArgs e)
+        {
+            if (OffsetsNotProperlySet != null)
+                OffsetsNotProperlySet(o, e);
+        }
+
         public Offsets()
         {
             Process proc;
             if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
-                AssignAddresses(proc);
+                _starcraft = proc;
         }
 
-        public void AssignAddresses(Process starcraft)
+        public void AssignAddresses()
         {
-            var starcraftVersion = starcraft.MainModule.FileVersionInfo.FileVersion;
+            if (_starcraft == null)
+                return;
+
+            var starcraftVersion = _starcraft.MainModule.FileVersionInfo.FileVersion;
 
             if (starcraftVersion.StartsWith("2.0.11"))
             {
-                Version__2_0_11(starcraft);
+                Version__2_0_11(_starcraft);
             }
 
             else if (starcraftVersion.Equals("2.1.0.28667"))
             {
-                Version__2_1_0_28667(starcraft);
+                Version__2_1_0_28667(_starcraft);
             }
 
             else if (starcraftVersion.Equals("2.1.1.29261") ||
                 starcraftVersion.Equals("2.1.2.30315") ||
                 starcraftVersion.Equals("2.1.3.30508"))
             {
-                Version__2_1_3_30508(starcraft);
+                Version__2_1_3_30508(_starcraft);
             }
 
             else if (starcraftVersion.Equals("2.1.4.32283"))
-                Version__2_1_4_32283(starcraft);
+                Version__2_1_4_32283(_starcraft);
 
             else if (starcraftVersion.Equals("2.1.5.32392") ||
                 starcraftVersion.Equals("2.1.6.32540") ||
                 starcraftVersion.Equals("2.1.7.33148") ||
                 starcraftVersion.Equals("2.1.8.33553"))
-                Version__2_1_5_32392(starcraft);
+                Version__2_1_5_32392(_starcraft);
 
+                
             else if (starcraftVersion.Equals("2.1.9.34644") ||
-            starcraftVersion.Equals("2.1.10.35237"))
-                Version__2_1_9_34644(starcraft);
-               
-
+                starcraftVersion.Equals("2.1.10.35237"))
+                Version__2_1_9_34644(_starcraft);
+                
             else
             {
                 MessageBox.Show("This tool is outdated.\n" +
@@ -232,8 +200,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                 "so I can update it!\n\n" + 
                 "Maybe it's still possible to use\n" + 
                 "this tool. Give it a shot!", "Ouch... new SCII version!?");
-
-                Version__2_1_5_32392(starcraft);
+                
+                Version__2_1_9_34644(_starcraft);
+                
+                OnOffsetsNotProperlySet(this, new EventArgs());
             }
         }
 
@@ -541,14 +511,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                                * 0x25ef0b8 
                                                * 0x3de06e4 
                                                * 0x3e0fc20 */
-
-            /* Structure Struct - UNUSED */
-            StructureStruct = (int)starcraft.MainModule.BaseAddress + 0x0329029C;
-            StructureHarvesterCount = StructureStruct + 0x4C;
-            StructureCount = (int)starcraft.MainModule.BaseAddress + 0x03290288;
-            StructureSize = 0x94;
-
-
             //Fps
             FramesPerSecond = (int)
                               starcraft.MainModule.BaseAddress + 0x03ED54DC;
@@ -875,14 +837,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                                * 0x25ef0b8 
                                                * 0x3de06e4 
                                                * 0x3e0fc20 */
-
-            /* Structure Struct - UNUSED */
-            StructureStruct = (int)starcraft.MainModule.BaseAddress + 0x0329029C;
-            StructureHarvesterCount = StructureStruct + 0x4C;
-            StructureCount = (int)starcraft.MainModule.BaseAddress + 0x03290288;
-            StructureSize = 0x94;
-
-
             //Fps
             FramesPerSecond = (int)
                               starcraft.MainModule.BaseAddress + 0x03ED54DC;
@@ -1211,13 +1165,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                                * 0x25ef0b8 
                                                * 0x3de06e4 
                                                * 0x3e0fc20 */
-
-            /* Structure Struct - UNUSED */
-            StructureStruct = (int)starcraft.MainModule.BaseAddress + 0x0329029C;
-            StructureHarvesterCount = StructureStruct + 0x4C;
-            StructureCount = (int)starcraft.MainModule.BaseAddress + 0x03290288;
-            StructureSize = 0x94;
-
 
             //Fps
             FramesPerSecond = (int)
@@ -1550,14 +1497,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                                * 0x25ef0b8 
                                                * 0x3de06e4 
                                                * 0x3e0fc20 */
-
-            /* Structure Struct - UNUSED */
-            StructureStruct = (int)starcraft.MainModule.BaseAddress + 0x0329029C;
-            StructureHarvesterCount = StructureStruct + 0x4C;
-            StructureCount = (int)starcraft.MainModule.BaseAddress + 0x03290288;
-            StructureSize = 0x94;
-
-
             //Fps
             FramesPerSecond = (int)
                               starcraft.MainModule.BaseAddress + 0x03ED54DC;
@@ -1892,13 +1831,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                                * 0x3de06e4 
                                                * 0x3e0fc20 */
 
-            /* Structure Struct - UNUSED */
-            StructureStruct = (int)starcraft.MainModule.BaseAddress + 0x0329029C;
-            StructureHarvesterCount = StructureStruct + 0x4C;
-            StructureCount = (int)starcraft.MainModule.BaseAddress + 0x03290288;
-            StructureSize = 0x94;
-
-
             //Fps
             FramesPerSecond = (int)
                               starcraft.MainModule.BaseAddress + 0x03ED54DC;
@@ -2203,7 +2135,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             /* 1 Byte */
             Localplayer4 = (int)starcraft.MainModule.BaseAddress + 0x0115EED0;      //k
-
+            
             /* 1 Byte 
              *
              * 0 - Teamcolor Off
@@ -2228,5 +2160,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #endregion
         }
+
     }
 }
