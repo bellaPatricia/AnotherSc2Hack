@@ -189,7 +189,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 Version__2_1_5_32392(_starcraft);
 
                 
-            else if (starcraftVersion.Equals("2.1.9.34644"))
+            else if (starcraftVersion.Equals("2.1.9.34644") ||
+                starcraftVersion.Equals("2.1.10.35237"))
                 Version__2_1_9_34644(_starcraft);
                 
             else
