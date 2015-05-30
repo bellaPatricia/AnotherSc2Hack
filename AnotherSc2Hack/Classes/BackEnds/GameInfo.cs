@@ -126,10 +126,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (Memory.Process == null)
             {
-                Process proc;
-                if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                List<Process> procs;
+                if (Processing.GetProcesses(Constants.StrStarcraft2ProcessNames, out procs))
                 {
-                    Memory.Process = proc;
+                    Memory.Process = procs[0];
                     Memory.DesiredAccess = Memory.VmRead;
                     //Memory.UnlockProcess(Memory.VmRead);
 
@@ -275,10 +275,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 /* Check if the Handle is unlocked */
                 if (Memory.Handle == IntPtr.Zero)
                 {
-                    Process proc;
-                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                    List<Process> procs;
+                    if (Processing.GetProcesses(Constants.StrStarcraft2ProcessNames, out procs))
                     {
-                        Memory.Process = proc;
+                        Memory.Process = procs[0];
                         Memory.DesiredAccess = Memory.VmRead;
                         //Memory.UnlockProcess(Memory.VmRead);
 
@@ -328,10 +328,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 /* Check if the Handle is unlocked */
                 if (Memory.Handle == IntPtr.Zero)
                 {
-                    Process proc;
-                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                    List<Process> procs;
+                    if (Processing.GetProcesses(Constants.StrStarcraft2ProcessNames, out procs))
                     {
-                        Memory.Process = proc;
+                        Memory.Process = procs[0];
                         Memory.DesiredAccess = Memory.VmRead;
                         //Memory.UnlockProcess(Memory.VmRead);
 

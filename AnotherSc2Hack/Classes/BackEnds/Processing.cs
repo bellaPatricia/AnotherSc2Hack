@@ -45,6 +45,44 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return bResult;
         }
 
+        public static Boolean GetProcesses(string[] processNames, out List<Process> processes)
+        {
+            var bResult = false;
+            processes = new List<Process>();
+
+            var procs = Process.GetProcesses();
+            foreach (var proc in procs)
+            {
+                foreach (var strStarcraft2ProcessName in Constants.StrStarcraft2ProcessNames)
+                {
+                    if (proc.ProcessName == strStarcraft2ProcessName)
+                    {
+                        processes.Add(proc);
+                        bResult = true;
+                    }
+                }
+            }
+
+            return bResult;
+        }
+
+        public static Boolean GetProcesses(string[] processNames)
+        {
+            var procs = Process.GetProcesses();
+            foreach (var proc in procs)
+            {
+                foreach (var strStarcraft2ProcessName in Constants.StrStarcraft2ProcessNames)
+                {
+                    if (proc.ProcessName == strStarcraft2ProcessName)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// Checks if the given Process(name) is available
         /// </summary>

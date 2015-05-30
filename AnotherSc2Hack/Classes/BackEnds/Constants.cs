@@ -32,7 +32,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static Pen PArea = new Pen(Brushes.Red);
         public static Font FArial1 = new Font("Arial", 12, FontStyle.Bold);
         public static Font FCenturyGothic12 = new Font("Centruy Gothic", 12, FontStyle.Regular);
-        public static string StrStarcraft2ProcessName = "SC2";
+        public static string[] StrStarcraft2ProcessNames = { "SC2", "SC2_x64" };
         public static string[] StrRedundantSigns = { "\r", " = " };
         public static string StrDummyPref = Application.StartupPath + "\\dPreferences.dat";
         public static string StrPreferenceKeywordResource = "Resource";

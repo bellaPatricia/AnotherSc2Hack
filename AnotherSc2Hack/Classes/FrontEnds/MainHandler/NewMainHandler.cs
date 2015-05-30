@@ -3047,7 +3047,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             #region Reset Process and gameinfo if Sc2 is not started
 
-            if (!Processing.GetProcess(Constants.StrStarcraft2ProcessName))
+            if (!Processing.GetProcesses(Constants.StrStarcraft2ProcessNames))
             {
                 ChangeVisibleState(false);
                 _bProcessSet = false;
@@ -3064,9 +3064,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 {
                     _bProcessSet = true;
 
-                    Process proc;
-                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
-                        PSc2Process = proc;
+                    List<Process> procs;
+                    if (Processing.GetProcesses(Constants.StrStarcraft2ProcessNames, out procs))
+                        PSc2Process = procs[0];
 
 
                     if (Gameinfo == null)
