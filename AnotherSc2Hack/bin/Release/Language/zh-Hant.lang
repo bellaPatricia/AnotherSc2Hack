@@ -1,0 +1,168 @@
+﻿;1.0.0.0
+;Translate file for the Traditional Chinese Language
+;Created by kk321010
+;Language Name (natively written)
+LanguageName: 中文維基百科
+
+;HelpMe tab
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePaypal: Paypal
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeLocalize: 得到軟體來翻譯
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeGithubIssues: 在 Github issues 張貼評論
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeEmailMe: E-Mail 給我
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePostOnD3scene: 張貼在 D3Scene 上
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpCash: 贊助現金
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpLocalize: 幫助我翻譯軟體
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpSuggestionsBug: 發表建議或錯誤
+
+;Debug tab
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMatchdata: 比賽數據
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMapdata: 地圖數據
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitObjects: 單位對象:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitname: 單位名稱:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitdata: 單位數據
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerObjects: 玩家:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayername: 玩家名稱:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerdata: 玩家數據
+lstrChDebugAttribute: 屬性
+lstrChDebugValue: 值
+
+;Various tab
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousDisableAfter: 達到多少後停用:
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousWorkerCoach: 工作單位
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalClock: 時鐘
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalApm: APM
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: 顯示工作單位
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: 顯示時鐘
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: APM 警告
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: 顯示 APM
+
+;Application tab 
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: 主要設定
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationLanguage: 語言:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationReposition: 視窗按鍵:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: 刷新率 (ms):
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: 讀取記憶體 (ms):
+NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: 恢復預設設定
+NewMainHandler#pnlMainArea#pnlApplication#btnReposition: 恢復面板位置與大小
+NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: 只有 SCII 在最前面才會顯示
+lstrApplicationRestoreSettingsText: 你真的想要重置你的設定嗎?
+lstrApplicationRestoreSettingsHeader: 你確定嗎?
+lstrApplicationRestorePanelPositionText: 你的面板尺寸與位置已調整成功!
+lstrApplicationRestorePanelPositionHeader: 面板位置已改變!
+
+;Benchmark tab
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack 刷新率 / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkProductiontabIterations: 生產面板刷新率 / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkUnittabIterations: 單位面板刷新率 / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkApmIterations: APM 刷新率 / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkArmyIterations: 部隊刷新率 / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkWorkerIterations: 工作單位刷新率 / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkIncomeIterations: 收入刷新率 / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkResourceIterations: 資源刷新率 / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawingInterval: 間隔時間 (ms)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawing: 面板刷新率
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataIterations: 刷新率 / sec.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataInterval: 間隔時間 (ms)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkData: 讀取數值
+
+;Plugin tab
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginImages: 圖片
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginDescription: 說明
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginAvailablePlugins: 可用插件
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginLoadedPlugins: 載入插件
+NewMainHandler#pnlMainArea#pnlPlugins#btnPluginsInstallPlugin: 安裝
+lstrChPluginsPluginName: 插件
+lstrChPluginsPluginVersion: 版本
+lstrPluginContextInstallPlugin: 安裝插件
+lstrPluginContextRemovePlugin: 刪除插件
+
+;Left application panels
+NewMainHandler#pnlLeftSelection#cpnlVarious: 額外功能
+NewMainHandler#pnlLeftSelection#cpnlHelpMe: 幫助我!
+NewMainHandler#pnlLeftSelection#cpnlBenchmark: 基準
+NewMainHandler#pnlLeftSelection#cpnlCredits: 感謝
+NewMainHandler#pnlLeftSelection#cpnlDebug: 微調
+NewMainHandler#pnlLeftSelection#cpnlApplication: 主選單
+NewMainHandler#pnlLeftSelection#cpnlOverlays: 面板
+NewMainHandler#pnlLeftSelection#cpnlPlugins: 插件
+
+;Overlays
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysProduction: 生產
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysUnits: 單位
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysMaphack: 地圖
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysApm: APM
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysArmy: 部隊
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysWorker: 工作單位
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysIncome: 收入
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysResources: 資源
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveDestinationLine: 刪除移動線
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxDefensiveStructures: 顏色防守
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveCamera: 移除鏡頭框
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveVisionArea: 移除地圖外掛框
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#lblMaphackFilter: 地圖過濾器
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxDisplayUpgrades: 顯示升級
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveProductionstatus: 移除生產狀況
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveSpellcounter: 移除技能次數
+
+;Bottom launcher
+NewMainHandler#pnlBottomStrip#btnLaunchResource: 資源
+NewMainHandler#pnlBottomStrip#btnLaunchProduction: 生產
+NewMainHandler#pnlBottomStrip#btnLaunchIncome: 收入
+NewMainHandler#pnlBottomStrip#btnLaunchUnit: 單位
+NewMainHandler#pnlBottomStrip#btnLaunchWorker: 工作單位
+NewMainHandler#pnlBottomStrip#btnLaunchArmy: 部隊
+NewMainHandler#pnlBottomStrip#btnLaunchMaphack: 地圖
+NewMainHandler#pnlBottomStrip#btnLaunchApm: APM
+
+;General text (overlays)
+lblHotkey1: 熱鍵 1:
+lblHotkey2: 熱鍵 2:
+lblHotkey3: 熱鍵 3:
+lblToggle: 觸發面板:
+lblResize: 面板尺寸變化:
+lblReposition: 面板位置改變:
+lblChat: 使用遊戲聊天框
+lblHotkeys: 使用熱鍵啟動
+lblBasics: 基本
+lblSpecial: 進階
+lblSize: 尺寸:
+lblPreview: 預覽:
+aChBxRemoveAi: 刪除電腦
+aChBxRemoveAllie: 刪除同盟
+aChBxRemoveNeutral: 刪除中立
+aChBxRemoveYourself: 刪除自己
+aChBxDrawBackground: 繪製背景
+aChBxRemoveClantags: 刪除戰隊名稱
+aChBxRemoveChronoboost: 刪除時間
+aChBxSplitUnitsBuildings: 使單位與建築不同行
+aChBxDisplayBuildings: 顯示建築物
+aChBxDisplayUnits: 顯示單位
+aChBxTransparentImages: 透明度
+lstrOpacity: 不透明度:
+
+;Credits
+lstrChCreditsContributer: 貢獻者
+lstrChCreditsReason: 但是...為什麼?
+lstrCreditsReasonRhcp: 開放源碼 MH、遊戲交互功能、小地圖繪製非常有幫助。
+lstrCreditsReasonBeaving: 各種資料、概念、建議，很有幫助。
+lstrCreditsReasonMrnukealizer: 開放源碼 MH，想法以及觀念。
+lstrCreditsReasonMyteewun: 生產標籤 (單位和升級) 還有對於SC2記憶體的研究。
+lstrCreditsReasonMischa: 對於SC2升級、生產、單位的記憶體研究，極有幫助。
+lstrCreditsReasonMrice: 圖形幫助。
+lstrCreditsReasonTracky: 建議和想法。
+lstrCreditsReasonD3Scene: 有著優良的環境和許說善心人。
+lstrCreditsReasonVariousPeople: 這給了想法、建議和指教 - 謝謝你!
+lstrCreditsReasonDonators: 因為你們讓我可以買些糖果 :3
+
+;Messagebox
+lstrAnotherMessageBoxOk: 好
+lstrAnotherMessageBoxCancel: 取消
+lstrAnotherMessageBoxAbort: 中止
+lstrAnotherMessageBoxRetry: 重試
+lstrAnotherMessageBoxIgnore: 忽略
+lstrAnotherMessageBoxYes: 是
+lstrAnotherMessageBoxNo: 不是
+
+;Maphack tab
+lstrChMaphackFilterUnit: 單位
+lstrMaphackFilterRemoveItem: 選擇刪除
