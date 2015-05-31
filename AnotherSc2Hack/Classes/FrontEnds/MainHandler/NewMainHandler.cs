@@ -36,6 +36,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly WebClient _wcMainWebClient = new WebClient();
         private DateTime _dtSecond = DateTime.Now;
         private readonly Dictionary<string, string> _dictLanguageFile = new Dictionary<string, string>();
+        private readonly UpdateChecker _ucUpdateChecker = new UpdateChecker();
 
         private Boolean _bProcessSet;
 
@@ -250,6 +251,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _wcMainWebClient.DownloadProgressChanged += _wcMainWebClient_DownloadProgressChanged;
             _wcMainWebClient.DownloadFileCompleted += _wcMainWebClient_DownloadFileCompleted;
 
+            _ucUpdateChecker.UpdateAvailable += _ucUpdateChecker_UpdateAvailable;
+
 
             /* Add all the panels to the container... */
             _lContainer.Add(new ResourcesRenderer(Gameinfo, PSettings, PSc2Process));
@@ -270,6 +273,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer, true);
+        }
+
+        void _ucUpdateChecker_UpdateAvailable(object sender, EventArgs e)
+        {
+            var checker = sender as UpdateChecker;
+
+            if (checker == null)
+                return;
+
+            var result = new AnotherMessageBox().Show(checker.ShowApplicationUpdates(), "Updates", MessageBoxButtons.YesNo);
+
+            Console.WriteLine(result);
         }
 
         /// <summary>
@@ -2746,7 +2761,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _dictLanguageFile.Clear();
 
             if (!Directory.Exists(Constants.StrLanguageFolder))
+            {
+                Directory.CreateDirectory(Constants.StrLanguageFolder);
                 return;
+            }
 
             var files = Directory.GetFiles(Constants.StrLanguageFolder, "*.lang");
 
@@ -3162,5 +3180,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #endregion
+
+        private void languageButton1_Click_1(object sender, EventArgs e)
+        {
+            _ucUpdateChecker.LaunchCheckApplication();
+
+        }
     } 
 }
