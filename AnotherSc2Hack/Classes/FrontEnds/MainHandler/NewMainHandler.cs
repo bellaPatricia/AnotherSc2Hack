@@ -282,7 +282,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (checker == null)
                 return;
 
-            var result = new AnotherMessageBox().Show(checker.ShowApplicationUpdates(), "Updates", MessageBoxButtons.YesNo, new Font("Courier New", 13));
+            Console.WriteLine("cool");
+
+            //var result = new AnotherMessageBox().Show(checker.ShowApplicationUpdates(), "Updates", MessageBoxButtons.YesNo, new Font("Courier New", 13));
         }
 
         /// <summary>
@@ -3181,7 +3183,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void languageButton1_Click_1(object sender, EventArgs e)
         {
-            _ucUpdateChecker.LaunchCheckApplication();
+            _ucUpdateChecker.CheckPlugins(_lPlugins);
 
         }
     } 
