@@ -282,9 +282,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (checker == null)
                 return;
 
-            var result = new AnotherMessageBox().Show(checker.ShowApplicationUpdates(), "Updates", MessageBoxButtons.YesNo);
-
-            Console.WriteLine(result);
+            var result = new AnotherMessageBox().Show(checker.ShowApplicationUpdates(), "Updates", MessageBoxButtons.YesNo, new Font("Courier New", 13));
         }
 
         /// <summary>

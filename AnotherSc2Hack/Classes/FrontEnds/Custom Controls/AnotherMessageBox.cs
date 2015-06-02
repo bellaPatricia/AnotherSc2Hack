@@ -7,6 +7,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     public partial class AnotherMessageBox : Form
     {
+
         #region Private Variables
 
         private readonly LanguageString _lstrAnotherMessageBoxOk = new LanguageString("lstrAnotherMessageBoxOk");
@@ -56,8 +57,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         public DialogResult Show(string text,
             string caption = "",
-            MessageBoxButtons buttons = MessageBoxButtons.OK)
+            MessageBoxButtons buttons = MessageBoxButtons.OK, Font font = null)
         {
+            const int iMargin = 25;
+            const int iButtonSpacer = 15;
+
+
+            if (font != null)
+            {
+                Font = font;
+            }
+
             #region Make buttons (in)visible
 
             var controls = pnlBottomContainer.Controls;
@@ -77,15 +87,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
                 btnYes.Visible = true;
                 btnNo.Visible = true;
 
-                btnNo.Location = new Point(507, btnNo.Location.Y);
-                btnYes.Location = new Point(393, btnYes.Location.Y);
+                btnNo.Location = new Point(ClientSize.Width - btnNo.Width - iMargin, btnNo.Location.Y);
+                btnYes.Location = new Point(ClientSize.Width - btnNo.Width - iMargin - btnYes.Width - iButtonSpacer, btnYes.Location.Y);
             }
 
             else if (buttons == MessageBoxButtons.OK)
             {
                 btnOk.Visible = true;
 
-                btnOk.Location = new Point(507, btnOk.Location.Y);
+                btnOk.Location = new Point(ClientSize.Width - btnOk.Width - iMargin, btnOk.Location.Y);
             }
 
             #endregion

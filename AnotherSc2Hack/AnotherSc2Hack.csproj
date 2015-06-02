@@ -100,6 +100,7 @@
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayPersonalClock.cs" />
     <Compile Include="Classes\DataStructures\Preference\Preferences.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceWorkerCoach.cs" />
+    <Compile Include="Classes\DataStructures\Versioning\ApplicationDatastore.cs" />
     <Compile Include="Classes\DataStructures\Versioning\PluginDatastore.cs" />
     <Compile Include="Classes\Events\NumberArgs.cs" />
     <Compile Include="Classes\DataStructures\Plugin\Plugin.cs" />

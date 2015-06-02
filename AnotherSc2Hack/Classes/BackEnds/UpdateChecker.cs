@@ -8,6 +8,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using AnotherSc2Hack.Classes.DataStructures.Versioning;
 using AnotherSc2Hack.Classes.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.BackEnds
@@ -41,14 +43,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         #endregion
 
-        private string _urlToApplicationVersioning =
-            @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Sc2Hack_Version";
+        private const string StrApplicationDatastore =
+            @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/v1.0.0.0/Application.xml";
 
-        private string _urlToPluginVersioning =
-            @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Plugins.txt";
+        private const string StrPluginDatastore =
+            @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/v1.0.0.0/Plugins.xml";
 
-        private ApplicationVersioning _offlineVersioning;
-        private ApplicationVersioning _onlineVersioning;
+        private ApplicationVersioning _offlineVersioning = new ApplicationVersioning();
+        private ApplicationVersioning _onlineVersioning = new ApplicationVersioning();
 
         public UpdateChecker()
         {
@@ -76,16 +78,32 @@ namespace AnotherSc2Hack.Classes.BackEnds
         private bool CheckApplication()
         {
             BUpdatesAvailable = false;
+            _onlineVersioning = new ApplicationVersioning();
+            _offlineVersioning = new ApplicationVersioning();
 
-            var textFile = DownloadApplicationVersioning(_urlToApplicationVersioning);
-            _onlineVersioning.ParseOnlineApplicationVersioning(textFile);
+            _onlineVersioning.ParseOnlineApplicationVersioning(StrApplicationDatastore);
             _offlineVersioning.ParseOfflineApplicationVersioning();
 
-            BUpdatesAvailable |= !_onlineVersioning.ApplicationVersion.Equals(_offlineVersioning.ApplicationVersion);
-            BUpdatesAvailable |= !_onlineVersioning.PluginInterfaceVersion.Equals(_offlineVersioning.PluginInterfaceVersion);
-            BUpdatesAvailable |= !_onlineVersioning.PredefinedTypesVersion.Equals(_offlineVersioning.PredefinedTypesVersion);
+            var bUpdatesAvailable = !_onlineVersioning.ApplicationVersion.Equals(_offlineVersioning.ApplicationVersion);
 
-            return BUpdatesAvailable;
+            foreach (var dll in _onlineVersioning.DynamicLinkLibraries)
+            {
+                var library = _offlineVersioning.DynamicLinkLibraries.Find(x => x.DllName == dll.DllName);
+
+                if (library == null)
+                {
+                    bUpdatesAvailable = true;
+                }
+
+                else
+                {
+                    bUpdatesAvailable |= dll.DllVersion != library.DllVersion;
+                }
+            }
+
+            BUpdatesAvailable = bUpdatesAvailable;
+
+            return bUpdatesAvailable;
         }
 
         public string ShowApplicationUpdates()
@@ -101,94 +119,101 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                   _onlineVersioning.ApplicationVersion);
                 }
 
-                if (!_onlineVersioning.PluginInterfaceVersion.Equals(_offlineVersioning.PluginInterfaceVersion))
+                foreach (var dll in _onlineVersioning.DynamicLinkLibraries)
                 {
-                    sb.AppendLine(Path.GetFileName(_offlineVersioning.PluginInterfaceUrl).Fill(" ", 30) + 
-                                  _offlineVersioning.PluginInterfaceVersion + " => " +
-                                  _onlineVersioning.PluginInterfaceVersion);
-                }
+                    var library = _offlineVersioning.DynamicLinkLibraries.Find(x => x.DllName == dll.DllName);
 
-                if (!_onlineVersioning.PredefinedTypesVersion.Equals(_offlineVersioning.PredefinedTypesVersion))
-                {
-                    sb.AppendLine(Path.GetFileName(_offlineVersioning.PredefinedTypesUrl).Fill(" ", 30) + 
-                                  _offlineVersioning.PredefinedTypesVersion + " => " +
-                                  _onlineVersioning.PredefinedTypesVersion);
+                    if (library == null)
+                    {
+                        sb.Append("\n");
+                        sb.Append(dll.DllName.Fill(" ", 30));
+                        sb.Append("New!");
+                    }
+
+                    else
+                    {
+                        if (library.DllVersion != dll.DllVersion)
+                        {
+                            sb.Append("\n");
+                            sb.Append(library.DllName.Fill(" ", 30));
+                            sb.Append(library.DllVersion + " => ");
+                            sb.Append(dll.DllVersion);
+                        }
+                    }
                 }
             }
 
             return sb.ToString();
         }
-
-        private string DownloadApplicationVersioning(string url)
-        {
-            var wc = new WebClient{};
-            var strContent = wc.DownloadString(new Uri(url));
-
-            strContent = strContent.RemoveAll("\r");
-
-            return strContent;
-        }
-
-        
-
         
     }
 
-    struct ApplicationVersioning
+    public class ApplicationVersioning
     {
         public Version ApplicationVersion { get; set; }
         public string ApplicationUrl { get; set; }
         public string ApplicationChanges { get; set; }
         public string ApplicationCounter { get; set; }
-        public Version PluginInterfaceVersion { get; set; }
-        public string PluginInterfaceUrl { get; set; }
-        public Version PredefinedTypesVersion { get; set; }
-        public string PredefinedTypesUrl { get; set; }
+        public List<DynamicLinkLibrary> DynamicLinkLibraries { get; set; }
 
-        public void ParseOnlineApplicationVersioning(string onlineSource)
+        public ApplicationVersioning()
         {
-            //Unfortunately, we can not check the consistency of the onlineSource
-            //And I don't really wan't to create such a mechanism.
-            //So we just access the lines that are available..
+            ApplicationVersion = new Version(0,0,0,0);
+            ApplicationChanges = String.Empty;
+            ApplicationCounter = String.Empty;
+            ApplicationUrl = String.Empty;
+            DynamicLinkLibraries = new List<DynamicLinkLibrary>();
+        }
 
-            var lines = onlineSource.Split('\n');
+        public void Clear()
+        {
+            ApplicationVersion = new Version(0, 0, 0, 0);
+            ApplicationChanges = String.Empty;
+            ApplicationCounter = String.Empty;
+            ApplicationUrl = String.Empty;
+            DynamicLinkLibraries.Clear();
+        }
 
-            if (lines.Length >= 8)
+        public void ParseOnlineApplicationVersioning(string strApplicationPath)
+        {
+            var wc = new WebClient {Proxy = null};
+            var strSource = wc.DownloadString(strApplicationPath);
+
+            var xmlSerializer = new XmlSerializer(typeof(ApplicationDatastore));
+
+            var appDatastore = (ApplicationDatastore) xmlSerializer.Deserialize(new StringReader(strSource));
+
+
+            ApplicationVersion = new Version(appDatastore.ApplicationVersion);
+            ApplicationUrl = appDatastore.ApplicationDownloadPath;
+            ApplicationChanges = appDatastore.ApplicationChangesPath;
+            ApplicationCounter = appDatastore.ApplicationDownloadCounterPath;
+
+            foreach (var dll in appDatastore.DllDynamicLinkLibraries)
             {
-                ApplicationVersion = new Version(lines[0]);
-                ApplicationUrl = lines[1];
-                ApplicationChanges = lines[2];
-                ApplicationCounter = lines[3];
-
-                PluginInterfaceVersion = new Version(lines[4]);
-                PluginInterfaceUrl = lines[5];
-
-                PredefinedTypesVersion = new Version(lines[6]);
-                PredefinedTypesUrl = lines[7];
+                DynamicLinkLibraries.Add(dll);
             }
         }
 
         public void ParseOfflineApplicationVersioning()
         {
-            //Unfortunately, we can not check the consistency of the onlineSource
-            //And I don't really wan't to create such a mechanism.
-            //So we just access the lines that are available..
-
             ApplicationVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             ApplicationUrl = Application.ExecutablePath;
 
             if (File.Exists(Constants.StrPluginInterface))
             {
-                PluginInterfaceVersion =
-                    new Version(FileVersionInfo.GetVersionInfo(Constants.StrPluginInterface).FileVersion);
-                PluginInterfaceUrl = Constants.StrPluginInterface;
+                var dll = new DynamicLinkLibrary(Path.GetFileNameWithoutExtension(Constants.StrPluginInterface), Constants.StrPluginInterface,
+                    FileVersionInfo.GetVersionInfo(Constants.StrPluginInterface).FileVersion);
+
+                DynamicLinkLibraries.Add(dll);
             }
 
             if (File.Exists(Constants.StrPredefinedTypes))
             {
-                PredefinedTypesVersion =
-                    new Version(FileVersionInfo.GetVersionInfo(Constants.StrPredefinedTypes).FileVersion);
-                PredefinedTypesUrl = Constants.StrPredefinedTypes;
+                var dll = new DynamicLinkLibrary(Path.GetFileNameWithoutExtension(Constants.StrPredefinedTypes), Constants.StrPredefinedTypes,
+                    FileVersionInfo.GetVersionInfo(Constants.StrPredefinedTypes).FileVersion);
+
+                DynamicLinkLibraries.Add(dll);
             }
         }
     }
