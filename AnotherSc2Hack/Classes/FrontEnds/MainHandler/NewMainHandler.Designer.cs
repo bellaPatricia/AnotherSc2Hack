@@ -125,7 +125,6 @@
             this.lblDebugPlayerdata = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlApplication = new System.Windows.Forms.Panel();
-            this.languageButton1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblApplicationGlobalSettings = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
             this.lblApplicationMemoryReading = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
@@ -1442,24 +1441,12 @@
             this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlApplication.Controls.Add(this.languageButton1);
             this.pnlApplication.Controls.Add(this.panel1);
             this.pnlApplication.Controls.Add(this.btnRestoreSettings);
             this.pnlApplication.Location = new System.Drawing.Point(0, 80);
             this.pnlApplication.Name = "pnlApplication";
             this.pnlApplication.Size = new System.Drawing.Size(1029, 450);
             this.pnlApplication.TabIndex = 0;
-            // 
-            // languageButton1
-            // 
-            this.languageButton1.LanguageFile = null;
-            this.languageButton1.Location = new System.Drawing.Point(665, 160);
-            this.languageButton1.Name = "languageButton1";
-            this.languageButton1.Size = new System.Drawing.Size(75, 23);
-            this.languageButton1.TabIndex = 14;
-            this.languageButton1.Text = "languageButton1";
-            this.languageButton1.UseVisualStyleBackColor = true;
-            this.languageButton1.Click += new System.EventHandler(this.languageButton1_Click_1);
             // 
             // panel1
             // 
@@ -2604,7 +2591,6 @@
         private LanguageLabel lblVariousDisableAfter;
         private LanguageButton btnRestoreSettings;
         private System.Windows.Forms.Panel panel1;
-        private LanguageButton languageButton1;
 
     }
 }

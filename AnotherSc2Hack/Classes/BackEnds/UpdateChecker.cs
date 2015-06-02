@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using AnotherSc2Hack.Classes.DataStructures.Plugin;
 using AnotherSc2Hack.Classes.DataStructures.Versioning;
 using AnotherSc2Hack.Classes.ExtensionMethods;
 
@@ -52,11 +49,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         private ApplicationVersioning _offlineVersioning = new ApplicationVersioning();
         private ApplicationVersioning _onlineVersioning = new ApplicationVersioning();
-
-        public UpdateChecker()
-        {
-            
-        }
 
         private void OnUpdateAvailable(object sender, EventArgs e)
         {
@@ -106,38 +98,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             return bUpdatesAvailable;
         }
-
-
-        //Rewrite Plugins
-        public bool CheckPlugins(List<LocalPlugins> localPlugins)
-        {
-            var wc = new WebClient {Proxy = null};
-            var strSource = wc.DownloadString(StrPluginDatastore);
-
-            var lOnlinePlugins = new List<PluginDatastore>();
-            var xs = new XmlSerializer(lOnlinePlugins.GetType());
-            lOnlinePlugins = (List<PluginDatastore>) xs.Deserialize(new StringReader(strSource));
-
-            foreach (var localPlugin in localPlugins)
-            {
-                var plugin = lOnlinePlugins.Find(x => x.Name == localPlugin.Plugin.GetPluginName());
-
-                if (plugin == null)
-                    continue;
-
-                var onlineVersion = new Version(plugin.Version);
-
-                if (onlineVersion > localPlugin.Plugin.GetPluginVersion())
-                {
-                    BUpdatesAvailable = true;
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        
 
         public string ShowApplicationUpdates()
         {

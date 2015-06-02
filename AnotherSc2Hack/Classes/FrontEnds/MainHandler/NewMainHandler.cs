@@ -64,9 +64,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly LanguageString _lstrApplicationRestoreSettingsHeader = new LanguageString("lstrApplicationRestoreSettingsHeader");
         private readonly LanguageString _lstrApplicationRestorePanelPositionText = new LanguageString("lstrApplicationRestorePanelPositionText");
         private readonly LanguageString _lstrApplicationRestorePanelPositionHeader = new LanguageString("lstrApplicationRestorePanelPositionHeader");
+        private readonly LanguageString _lstrApplicationDoYouWishToUpdate = new LanguageString("lstrApplicationDoYouWishToUpdate");
 
         private readonly LanguageString _lstrPluginContextInstallPlugin = new LanguageString("lstrPluginContextInstallPlugin");
         private readonly LanguageString _lstrPluginContextRemovePlugin = new LanguageString("lstrPluginContextRemovePlugin");
+
+        
 
 
 
@@ -269,6 +272,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             BaseRendererEventMapping();
 
+            _ucUpdateChecker.LaunchCheckApplication();
+
             SetStyle(ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.UserPaint |
@@ -282,9 +287,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (checker == null)
                 return;
 
-            Console.WriteLine("cool");
+            var result = new AnotherMessageBox().Show(checker.ShowApplicationUpdates() + "\n\n" + _lstrApplicationDoYouWishToUpdate, "Updates", MessageBoxButtons.YesNo, new Font("Courier New", 13));
 
-            //var result = new AnotherMessageBox().Show(checker.ShowApplicationUpdates(), "Updates", MessageBoxButtons.YesNo, new Font("Courier New", 13));
+            if (result == DialogResult.Yes)
+            {
+                //Launch Download Manager
+                throw new NotImplementedException("Launch Download Manager");
+            }
         }
 
         /// <summary>
@@ -3180,11 +3189,5 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #endregion
-
-        private void languageButton1_Click_1(object sender, EventArgs e)
-        {
-            _ucUpdateChecker.CheckPlugins(_lPlugins);
-
-        }
     } 
 }
