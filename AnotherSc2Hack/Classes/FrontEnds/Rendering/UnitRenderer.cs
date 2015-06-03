@@ -7,7 +7,7 @@ using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
-using AnotherSc2Hack.Classes.ExtensionMethods;
+using Utilities.ExtensionMethods;
 using Predefined;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering

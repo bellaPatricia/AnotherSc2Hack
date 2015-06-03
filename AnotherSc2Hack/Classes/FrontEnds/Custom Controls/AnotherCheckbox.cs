@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.IO;
 using AnotherSc2Hack;
 using AnotherSc2Hack.Classes.BackEnds;
-using AnotherSc2Hack.Classes.ExtensionMethods;
+using Utilities.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds
 {

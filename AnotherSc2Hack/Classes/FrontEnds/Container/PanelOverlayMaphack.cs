@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
-using AnotherSc2Hack.Classes.ExtensionMethods;
+using Utilities.ExtensionMethods;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using Predefined;

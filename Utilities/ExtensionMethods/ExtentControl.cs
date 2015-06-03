@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace AnotherSc2Hack.Classes.ExtensionMethods
+namespace Utilities.ExtensionMethods
 {
     public static class ExtentControl
     {

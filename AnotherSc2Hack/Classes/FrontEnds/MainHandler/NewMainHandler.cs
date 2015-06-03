@@ -19,6 +19,7 @@ using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
 using PluginInterface;
 using Predefined;
+
 using Timer = System.Windows.Forms.Timer;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
@@ -36,7 +37,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly WebClient _wcMainWebClient = new WebClient();
         private DateTime _dtSecond = DateTime.Now;
         private readonly Dictionary<string, string> _dictLanguageFile = new Dictionary<string, string>();
-        private readonly UpdateChecker _ucUpdateChecker = new UpdateChecker();
+        private readonly UpdateChecker.DownloadManager _ucDownloadManager = new UpdateChecker.DownloadManager();
 
         private Boolean _bProcessSet;
 
@@ -254,7 +255,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _wcMainWebClient.DownloadProgressChanged += _wcMainWebClient_DownloadProgressChanged;
             _wcMainWebClient.DownloadFileCompleted += _wcMainWebClient_DownloadFileCompleted;
 
-            _ucUpdateChecker.UpdateAvailable += _ucUpdateChecker_UpdateAvailable;
+            _ucDownloadManager.UpdateAvailable += UcDownloadManagerUpdateAvailable;
 
 
             /* Add all the panels to the container... */
@@ -272,7 +273,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             BaseRendererEventMapping();
 
-            _ucUpdateChecker.LaunchCheckApplication();
+            _ucDownloadManager.LaunchCheckApplication();
 
             SetStyle(ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.OptimizedDoubleBuffer |
@@ -280,9 +281,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 ControlStyles.DoubleBuffer, true);
         }
 
-        void _ucUpdateChecker_UpdateAvailable(object sender, EventArgs e)
+        void UcDownloadManagerUpdateAvailable(object sender, EventArgs e)
         {
-            var checker = sender as UpdateChecker;
+            var checker = sender as UpdateChecker.DownloadManager;
 
             if (checker == null)
                 return;

@@ -6,18 +6,40 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sc2Hack UpdateManager", "Sc2Hack UpdateManager\Sc2Hack UpdateManager\Sc2Hack UpdateManager.csproj", "{7970248B-3E79-4C0E-AFF3-632535FE99C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginInterface", "PluginInterface\PluginInterface.csproj", "{DCA4E026-F889-42AE-AF51-F8628C6A076B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredefinedTypes", "PredefinedTypes\PredefinedTypes.csproj", "{F5FA0AD3-E5D0-4050-8094-1839A950D47A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherSc2Hack", "AnotherSc2Hack\AnotherSc2Hack.csproj", "{8A39F9D3-359A-4A0D-AF04-F1F642A21CC2}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DCA4E026-F889-42AE-AF51-F8628C6A076B} = {DCA4E026-F889-42AE-AF51-F8628C6A076B}
+		{AF4C8A2C-42A4-4583-838D-C6D570953719} = {AF4C8A2C-42A4-4583-838D-C6D570953719}
+		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}
 		{F5FA0AD3-E5D0-4050-8094-1839A950D47A} = {F5FA0AD3-E5D0-4050-8094-1839A950D47A}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginWorkerTrainer", "PluginWorkerTrainer\PluginWorkerTrainer.csproj", "{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginSupply", "PluginSupply\PluginSupply.csproj", "{51549DDB-F342-4346-82EF-BF62B9B754A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherSc2Hack DownloadManager", "AnotherSc2Hack DownloadManager\AnotherSc2Hack DownloadManager.csproj", "{290CF3CB-6046-4B18-991D-FD4FCF645BD6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF4C8A2C-42A4-4583-838D-C6D570953719} = {AF4C8A2C-42A4-4583-838D-C6D570953719}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{FF7C9281-7326-4811-B43D-0F14DD0BE178}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateChecker", "UpdateChecker\UpdateChecker.csproj", "{AF4C8A2C-42A4-4583-838D-C6D570953719}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,8 +71,24 @@ Global
 		{51549DDB-F342-4346-82EF-BF62B9B754A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51549DDB-F342-4346-82EF-BF62B9B754A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51549DDB-F342-4346-82EF-BF62B9B754A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290CF3CB-6046-4B18-991D-FD4FCF645BD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290CF3CB-6046-4B18-991D-FD4FCF645BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290CF3CB-6046-4B18-991D-FD4FCF645BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290CF3CB-6046-4B18-991D-FD4FCF645BD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF4C8A2C-42A4-4583-838D-C6D570953719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF4C8A2C-42A4-4583-838D-C6D570953719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF4C8A2C-42A4-4583-838D-C6D570953719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF4C8A2C-42A4-4583-838D-C6D570953719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF4C8A2C-42A4-4583-838D-C6D570953719} = {FF7C9281-7326-4811-B43D-0F14DD0BE178}
+		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {FF7C9281-7326-4811-B43D-0F14DD0BE178}
 	EndGlobalSection
 EndGlobal
