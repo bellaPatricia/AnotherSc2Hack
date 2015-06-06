@@ -8,6 +8,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginInterface", "PluginInterface\PluginInterface.csproj", "{DCA4E026-F889-42AE-AF51-F8628C6A076B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}
+		{F5FA0AD3-E5D0-4050-8094-1839A950D47A} = {F5FA0AD3-E5D0-4050-8094-1839A950D47A}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredefinedTypes", "PredefinedTypes\PredefinedTypes.csproj", "{F5FA0AD3-E5D0-4050-8094-1839A950D47A}"

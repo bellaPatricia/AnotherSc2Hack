@@ -18,6 +18,7 @@ using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
 using PluginInterface;
 using Predefined;
+using UpdateChecker;
 using Utilities.Events;
 using Timer = System.Windows.Forms.Timer;
 
@@ -36,7 +37,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly WebClient _wcMainWebClient = new WebClient();
         private DateTime _dtSecond = DateTime.Now;
         private readonly Dictionary<string, string> _dictLanguageFile = new Dictionary<string, string>();
-        private readonly UpdateChecker.DownloadManager _ucDownloadManager = new UpdateChecker.DownloadManager();
+        private readonly DownloadManager _ucDownloadManager = new DownloadManager();
+        private string _strUpdateFiles = String.Empty;
+        private bool _bLaunchDownloadManager = false;
 
         private Boolean _bProcessSet;
 
@@ -64,6 +67,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly LanguageString _lstrApplicationRestoreSettingsHeader = new LanguageString("lstrApplicationRestoreSettingsHeader");
         private readonly LanguageString _lstrApplicationRestorePanelPositionText = new LanguageString("lstrApplicationRestorePanelPositionText");
         private readonly LanguageString _lstrApplicationRestorePanelPositionHeader = new LanguageString("lstrApplicationRestorePanelPositionHeader");
+        private readonly LanguageString _lstrApplicationUpdateTitle = new LanguageString("lstrApplicationUpdateTitle");
         private readonly LanguageString _lstrApplicationDoYouWishToUpdate = new LanguageString("lstrApplicationDoYouWishToUpdate");
 
         private readonly LanguageString _lstrPluginContextInstallPlugin = new LanguageString("lstrPluginContextInstallPlugin");
@@ -254,7 +258,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _wcMainWebClient.DownloadProgressChanged += _wcMainWebClient_DownloadProgressChanged;
             _wcMainWebClient.DownloadFileCompleted += _wcMainWebClient_DownloadFileCompleted;
 
-            _ucDownloadManager.UpdateAvailable += UcDownloadManagerUpdateAvailable;
+            _ucDownloadManager.UpdateAvailable += _ucDownloadManager_UpdateAvailable;
+            _ucDownloadManager.CheckComplete += _ucDownloadManager_CheckComplete;
+            _ucDownloadManager.DownloadManagerUpdateRequired += _ucDownloadManager_DownloadManagerUpdateRequired;
+            _ucDownloadManager.CheckUpdates();
+            
 
 
             /* Add all the panels to the container... */
@@ -272,28 +280,50 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             BaseRendererEventMapping();
 
-            _ucDownloadManager.LaunchCheckApplication();
-
             SetStyle(ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer, true);
         }
 
-        void UcDownloadManagerUpdateAvailable(object sender, EventArgs e)
+        void _ucDownloadManager_DownloadManagerUpdateRequired(object sender, EventArgs e)
         {
-            var checker = sender as UpdateChecker.DownloadManager;
+            var dm = sender as DownloadManager;
 
-            if (checker == null)
+            if (dm == null)
                 return;
 
-            var result = new AnotherMessageBox().Show(checker.ShowApplicationUpdates() + "\n\n" + _lstrApplicationDoYouWishToUpdate, "Updates", MessageBoxButtons.YesNo, new Font("Courier New", 13));
+            dm.InstallDownloadManager();
+        }
 
-            if (result == DialogResult.Yes)
+        void _ucDownloadManager_UpdateAvailable(object sender, UpdateArgs e)
+        {
+            _strUpdateFiles += "[" + e.UpdateName + "] " + e.OldVersion + " -> " + e.NewVersion + "\n";
+        }
+
+        void _ucDownloadManager_CheckComplete(object sender, EventArgs e)
+        {
+            var dm = sender as DownloadManager;
+
+            if (dm == null)
+                return;
+
+            if (dm.BUpdatesAvailable == UpdateState.Available)
             {
-                //Launch Download Manager
-                throw new NotImplementedException("Launch Download Manager");
+                var result = new AnotherMessageBox().Show(_strUpdateFiles + "\n" + _lstrApplicationDoYouWishToUpdate, _lstrApplicationUpdateTitle.Text, MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    if (File.Exists(Constants.StrDownloadManager))
+                    {
+                        _bLaunchDownloadManager = true;
+                        MethodInvoker invoker = Close;
+
+                        Invoke(invoker);
+                    }
+                }
             }
+
+             
         }
 
         /// <summary>
@@ -3189,5 +3219,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #endregion
+
+        private void NewMainHandler_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (_bLaunchDownloadManager)
+                Process.Start(Constants.StrDownloadManager);
+        }
     } 
 }

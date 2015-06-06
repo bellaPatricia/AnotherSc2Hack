@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,6 +32,7 @@ namespace UpdateChecker
         public event UpdateChangeHandler NoUpdateAvailable;
         public event EventHandler ApplicationInstallationComplete;
         public event EventHandler CheckComplete;
+        public event EventHandler DownloadManagerUpdateRequired;
         public event DownloadManagerProgressHandler DownloadManagerProgressChanged;
 
         #endregion
@@ -62,6 +64,12 @@ namespace UpdateChecker
         #endregion
 
         #region Event Initializers
+
+        private void OnDownloadManagerUpdateRequired(object sender, EventArgs e)
+        {
+            if (DownloadManagerUpdateRequired != null)
+                DownloadManagerUpdateRequired(sender, e);
+        }
 
         private void OnDownloadManagerProgressChanged(object sender, DownloadManagerProgressChangedEventArgs e)
         {
@@ -139,6 +147,20 @@ namespace UpdateChecker
                         _onlineApplicationVersioning.ApplicationVersion.ToString()));
             }
 
+            if (_onlineApplicationVersioning.DownloadManagerVersion >
+                _offlineApplicationVersioning.DownloadManagerVersion)
+            {
+                OnDownloadManagerUpdateRequired(this, new EventArgs());
+            }
+
+            else
+            {
+                OnNoUpdateAvailable(this,
+                    new UpdateArgs(Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.DownloadManagerUrl),
+                        _offlineApplicationVersioning.DownloadManagerVersion.ToString(),
+                        _onlineApplicationVersioning.DownloadManagerVersion.ToString()));
+            }
+
             foreach (var onlineLibrary in _onlineApplicationVersioning.DynamicLinkLibraries)
             {
                 var offlineLibrary = _offlineApplicationVersioning.DynamicLinkLibraries.Find(x => x.DllName == onlineLibrary.DllName);
@@ -188,14 +210,14 @@ namespace UpdateChecker
 
         #region Public Methods
 
-        public void LaunchCheckApplication()
+        public void CheckUpdates()
         {
             Task tsk = new Task(x => CheckVersions(), null);
 
             tsk.Start();
         }
 
-        public bool InstallApplicationUpdates()
+        public void InstallApplicationUpdates()
         {
             if (_onlineApplicationVersioning.ApplicationVersion > _offlineApplicationVersioning.ApplicationVersion)
             {
@@ -205,6 +227,24 @@ namespace UpdateChecker
                 _strDownloadedFileName = Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.ApplicationUrl);
                 _wcDownloader.DownloadFileAsync(new Uri(_onlineApplicationVersioning.ApplicationUrl), _offlineApplicationVersioning.ApplicationUrl);
                 while (_wcDownloader.IsBusy) { Thread.Sleep(10);}
+            }
+
+            if (_onlineApplicationVersioning.DownloadManagerVersion > _offlineApplicationVersioning.DownloadManagerVersion)
+            {
+                if (File.Exists(_offlineApplicationVersioning.DownloadManagerUrl))
+                {
+                    var strTempFile =
+                        Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.DownloadManagerUrl) + ".TEMP";
+                    if (File.Exists(strTempFile))
+                        File.Delete(strTempFile);
+
+                    File.Move(_offlineApplicationVersioning.DownloadManagerUrl, strTempFile);
+                    File.SetAttributes(strTempFile, File.GetAttributes(strTempFile) | FileAttributes.Hidden);
+                }
+
+                _strDownloadedFileName = Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.DownloadManagerUrl);
+                _wcDownloader.DownloadFileAsync(new Uri(_onlineApplicationVersioning.DownloadManagerUrl), _offlineApplicationVersioning.DownloadManagerUrl);
+                while (_wcDownloader.IsBusy) { Thread.Sleep(10); }
             }
 
             foreach (var dynamicLinkLibrary in _onlineApplicationVersioning.DynamicLinkLibraries)
@@ -235,8 +275,6 @@ namespace UpdateChecker
             }
 
             OnApplicationInstallationComplete(this, new EventArgs());
-
-            return true;
         }
 
         public void InstallPluginUpdates()
@@ -257,6 +295,20 @@ namespace UpdateChecker
                     _wcDownloader.DownloadFileAsync(new Uri(onlinePlugin.DownloadPath), installedPlugin.DownloadPath);
                     while (_wcDownloader.IsBusy) { Thread.Sleep(10); }
                 }
+            }
+        }
+
+        public void InstallDownloadManager()
+        {
+            if (_onlineApplicationVersioning.DownloadManagerVersion >
+                _offlineApplicationVersioning.DownloadManagerVersion)
+            {
+                if (File.Exists(_offlineApplicationVersioning.DownloadManagerUrl))
+                    File.Delete(_offlineApplicationVersioning.DownloadManagerUrl);
+
+                _strDownloadedFileName = Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.DownloadManagerUrl);
+                _wcDownloader.DownloadFileAsync(new Uri(_onlineApplicationVersioning.DownloadManagerUrl), _offlineApplicationVersioning.DownloadManagerUrl);
+                while (_wcDownloader.IsBusy) { Thread.Sleep(10); }
             }
         }
 

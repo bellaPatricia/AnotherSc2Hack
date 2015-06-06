@@ -12,6 +12,8 @@ namespace UpdateChecker
             ApplicationDownloadCounterPath = String.Empty;
             ApplicationDownloadPath = String.Empty;
             ApplicationVersion = String.Empty;
+            DownloadManagerDownloadPath = String.Empty;
+            DownloadManagerVersion = String.Empty;
             DynamicLinkLibraries = new List<DynamicLinkLibrary>();
         }
 
@@ -19,6 +21,8 @@ namespace UpdateChecker
         public string ApplicationChangesPath { get; set; }
         public string ApplicationDownloadCounterPath { get; set; }
         public string ApplicationVersion { get; set; }
+        public string DownloadManagerDownloadPath { get; set; }
+        public string DownloadManagerVersion { get; set; }
         public List<DynamicLinkLibrary> DynamicLinkLibraries { get; set; }
     }
 

@@ -50,6 +50,7 @@ lstrApplicationRestoreSettingsHeader: Bist Du sicher?
 lstrApplicationRestorePanelPositionText: Größe und Position der Panels\nwurden erfolgreich angepasst!
 lstrApplicationRestorePanelPositionHeader: Panelposition geändert!
 lstrApplicationDoYouWishToUpdate: Möchten Sie wirklich updaten?
+lstrApplicationUpdateTitle: Updates verfügbar!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterationen / sek.

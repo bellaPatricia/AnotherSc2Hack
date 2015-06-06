@@ -1,4 +1,4 @@
-﻿;1.0.0.1
+﻿;1.0.0.0
 ;Translate file for the Korean Language
 ;Created by ironer1(ironer01@naver.com)
 ;Language Name (natively written)
@@ -50,6 +50,7 @@ lstrApplicationRestoreSettingsHeader: 확실하세요?
 lstrApplicationRestorePanelPositionText: 판넬의 위치와 크기가 성공적으로 초기화되었습니다.
 lstrApplicationRestorePanelPositionHeader: 초기화 완료
 lstrApplicationDoYouWishToUpdate: 당신은 업데이트 하시겠습니까?
+lstrApplicationUpdateTitle: 업데이트 가능합니다!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: 맵핵 반복 / 초.

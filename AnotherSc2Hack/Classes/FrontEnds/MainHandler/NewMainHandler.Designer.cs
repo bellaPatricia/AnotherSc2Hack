@@ -281,7 +281,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtVariousWorkerCoachDisableAfter.Size = new System.Drawing.Size(47, 27);
             this.ntxtVariousWorkerCoachDisableAfter.TabIndex = 20;
             this.ntxtVariousWorkerCoachDisableAfter.Text = "1";
-            this.ntxtVariousWorkerCoachDisableAfter.NumberChanged += new NumberChangeHandler(this.ntxtVariousWorkerCoachDisableAfter_NumberChanged);
+            this.ntxtVariousWorkerCoachDisableAfter.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtVariousWorkerCoachDisableAfter_NumberChanged);
             // 
             // lblVariousDisableAfter
             // 
@@ -351,7 +351,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtVariousApmLimit.Size = new System.Drawing.Size(49, 27);
             this.ntxtVariousApmLimit.TabIndex = 16;
             this.ntxtVariousApmLimit.Text = "1";
-            this.ntxtVariousApmLimit.NumberChanged += new NumberChangeHandler(this.ntxtVariousApmLimit_NumberChanged);
+            this.ntxtVariousApmLimit.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtVariousApmLimit_NumberChanged);
             // 
             // aChBxVariousPersonalApmAlert
             // 
@@ -1159,7 +1159,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtDebugUnitLocation.Size = new System.Drawing.Size(50, 27);
             this.ntxtDebugUnitLocation.TabIndex = 25;
             this.ntxtDebugUnitLocation.Text = "1";
-            this.ntxtDebugUnitLocation.NumberChanged += new NumberChangeHandler(this.ntxtDebugUnitLocation_NumberChanged);
+            this.ntxtDebugUnitLocation.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtDebugUnitLocation_NumberChanged);
             // 
             // ntxtDebugPlayerLocation
             // 
@@ -1171,7 +1171,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtDebugPlayerLocation.Size = new System.Drawing.Size(50, 27);
             this.ntxtDebugPlayerLocation.TabIndex = 24;
             this.ntxtDebugPlayerLocation.Text = "1";
-            this.ntxtDebugPlayerLocation.NumberChanged += new NumberChangeHandler(this.ntxtDebugPlayerLocation_NumberChanged);
+            this.ntxtDebugPlayerLocation.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtDebugPlayerLocation_NumberChanged);
             // 
             // lstvDebugUnitdata
             // 
@@ -1535,7 +1535,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtMemoryRefresh.Size = new System.Drawing.Size(80, 27);
             this.ntxtMemoryRefresh.TabIndex = 2;
             this.ntxtMemoryRefresh.Text = "42";
-            this.ntxtMemoryRefresh.NumberChanged += new NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
+            this.ntxtMemoryRefresh.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
             // 
             // lblApplicationLanguage
             // 
@@ -1561,7 +1561,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtGraphicsRefresh.Size = new System.Drawing.Size(80, 27);
             this.ntxtGraphicsRefresh.TabIndex = 3;
             this.ntxtGraphicsRefresh.Text = "42";
-            this.ntxtGraphicsRefresh.NumberChanged += new NumberChangeHandler(this.ntxtGraphicsRefresh_NumberChanged);
+            this.ntxtGraphicsRefresh.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtGraphicsRefresh_NumberChanged);
             // 
             // aChBxOnlyDrawInForeground
             // 
@@ -2400,6 +2400,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.Name = "NewMainHandler";
             this.Text = "NewMainHandler";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewMainHandler_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NewMainHandler_FormClosed);
             this.Resize += new System.EventHandler(this.NewMainHandler_Resize);
             this.pnlLeftSelection.ResumeLayout(false);
             this.pnlVarious.ResumeLayout(false);

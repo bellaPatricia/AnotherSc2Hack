@@ -50,6 +50,7 @@ lstrApplicationRestoreSettingsHeader: 你確定嗎?
 lstrApplicationRestorePanelPositionText: 你的面板尺寸與位置已調整成功!
 lstrApplicationRestorePanelPositionHeader: 面板位置已改變!
 lstrApplicationDoYouWishToUpdate: 難道你想更新？
+lstrApplicationUpdateTitle: 更新可用！
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack 刷新率 / sec.
