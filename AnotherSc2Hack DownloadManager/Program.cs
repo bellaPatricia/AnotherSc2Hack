@@ -28,7 +28,6 @@ namespace AnotherSc2Hack_DownloadManager
         {
             var dm = new DownloadManager();
             dm.UpdateAvailable += dm_UpdateAvailable;
-            dm.ApplicationInstallationComplete += dm_ApplicationInstallationComplete;
             dm.NoUpdateAvailable += dm_NoUpdateAvailable;
             dm.CheckComplete += dm_CheckComplete;
             dm.DownloadManagerProgressChanged += dm_DownloadManagerProgressChanged;
@@ -79,11 +78,6 @@ namespace AnotherSc2Hack_DownloadManager
         static void dm_NoUpdateAvailable(object sender, UpdateArgs e)
         {
             Console.WriteLine("[{0}] -> up-to-date!", e.UpdateName);
-        }
-
-        static void dm_ApplicationInstallationComplete(object sender, EventArgs e)
-        {
-            Console.WriteLine("Installation successful!");
         }
     }
 }
