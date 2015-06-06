@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDatastore.cs" />
+    <Compile Include="ApplicationVersioning.cs" />
     <Compile Include="PluginDatastore.cs" />
+    <Compile Include="PluginVersioning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DownloadManager.cs" />
   </ItemGroup>

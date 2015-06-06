@@ -1,73 +1,83 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
-using AnotherSc2Hack.Classes.DataStructures.Versioning;
-using Utilities.ExtensionMethods;
+using Utilities.Events;
 
 namespace UpdateChecker
 {
+    public enum UpdateState
+    {
+        Available = 1,
+        NotAvailable = 2,
+        None = 4
+    };
+
     public class DownloadManager
     {
         #region Properties
 
-        private bool? _bUpdatesAvailable = null;
-
-        public bool? BUpdatesAvailable
-        {
-            get {return _bUpdatesAvailable;}
-            set
-            {
-                if (_bUpdatesAvailable == value)
-                    return;
-
-                _bUpdatesAvailable = value;
-
-                if (_bUpdatesAvailable == null)
-                    return;
-
-                if (_bUpdatesAvailable.Value)
-                    OnUpdateAvailable(this, new EventArgs());
-
-                else
-                    OnNoUpdateAvailable(this, new EventArgs());
-            }
-        }
+        public UpdateState BUpdatesAvailable { get; set; }
 
 
         #endregion
 
         #region Events 
 
-        public event EventHandler UpdateAvailable;
-        public event EventHandler NoUpdateAvailable;
+        public event UpdateChangeHandler UpdateAvailable;
+        public event UpdateChangeHandler NoUpdateAvailable;
         public event EventHandler ApplicationInstallationComplete;
+        public event EventHandler CheckComplete;
+        public event DownloadManagerProgressHandler DownloadManagerProgressChanged;
 
         #endregion
 
+        #region Private Fields
+
         private const string StrApplicationDatastore =
-            @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/v1.0.0.0/Application.xml";
+            @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack2/UpdateInformation/Application.xml";
 
         private const string StrPluginDatastore =
-            @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/v1.0.0.0/Plugins.xml";
+            @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack2/UpdateInformation/Plugins.xml";
 
-        private ApplicationVersioning _offlineVersioning = new ApplicationVersioning();
-        private ApplicationVersioning _onlineVersioning = new ApplicationVersioning();
+        private readonly ApplicationVersioning _offlineApplicationVersioning = new ApplicationVersioning();
+        private readonly ApplicationVersioning _onlineApplicationVersioning = new ApplicationVersioning();
+        private readonly PluginVersioning _offlinePluginVersioning = new PluginVersioning();
+        private readonly PluginVersioning _onlinePluginVersioning = new PluginVersioning();
+        private readonly WebClient _wcDownloader = new WebClient {Proxy = null};
+        private string _strDownloadedFileName = String.Empty;
 
-        private WebClient _wcDownloader = new WebClient {Proxy = null};
+        #endregion
 
-        private void OnUpdateAvailable(object sender, EventArgs e)
+        #region Constructor
+
+        public DownloadManager()
         {
+            _wcDownloader.DownloadProgressChanged += _wcDownloader_DownloadProgressChanged;
+        }
+
+        #endregion
+
+        #region Event Initializers
+
+        private void OnDownloadManagerProgressChanged(object sender, DownloadManagerProgressChangedEventArgs e)
+        {
+            if (DownloadManagerProgressChanged != null)
+                DownloadManagerProgressChanged(sender, e);
+        }
+
+        private void OnUpdateAvailable(object sender, UpdateArgs e)
+        {
+            BUpdatesAvailable = UpdateState.Available;
+
             if (UpdateAvailable != null)
                 UpdateAvailable(sender, e);
         }
 
-        private void OnNoUpdateAvailable(object sender, EventArgs e)
+        private void OnNoUpdateAvailable(object sender, UpdateArgs e)
         {
             if (NoUpdateAvailable != null)
                 NoUpdateAvailable(sender, e);
@@ -79,120 +89,135 @@ namespace UpdateChecker
                 ApplicationInstallationComplete(sender, e);
         }
 
-        public void LaunchCheckApplication()
+        private void OnCheckComplete(object sender, EventArgs e)
         {
-            Task<bool> tsk = new Task<bool>(x => CheckApplication(), null);
-
-            tsk.Start();
-
+            if (CheckComplete != null)
+                CheckComplete(sender, e);
         }
 
-        /// <summary>
-        /// Check if there are new ApplicationUpdates
-        /// </summary>
-        /// <returns>True if updates are available</returns>
-        private bool CheckApplication()
+        #endregion
+
+        #region Private Methods
+
+        void _wcDownloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            BUpdatesAvailable = false;
-            _onlineVersioning = new ApplicationVersioning();
-            _offlineVersioning = new ApplicationVersioning();
+            OnDownloadManagerProgressChanged(this,
+                new DownloadManagerProgressChangedEventArgs(_strDownloadedFileName, e.TotalBytesToReceive,
+                    e.BytesReceived, e.ProgressPercentage));
+        }
 
-            _onlineVersioning.ParseOnlineApplicationVersioning(StrApplicationDatastore);
-            _offlineVersioning.ParseOfflineApplicationVersioning(_onlineVersioning);
+        private void CheckVersions()
+        {
+            BUpdatesAvailable = UpdateState.None;
+            CheckApplication();
+            CheckPlugins();
 
-            var bUpdatesAvailable = !_onlineVersioning.ApplicationVersion.Equals(_offlineVersioning.ApplicationVersion);
+            OnCheckComplete(this, new EventArgs());
+        }
 
-            foreach (var onlineLibrary in _onlineVersioning.DynamicLinkLibraries)
+        private void CheckApplication()
+        {
+            _onlineApplicationVersioning.Clear();
+            _offlineApplicationVersioning.Clear();
+            
+            _onlineApplicationVersioning.ParseOnlineApplicationVersioning(StrApplicationDatastore);
+            _offlineApplicationVersioning.ParseOfflineApplicationVersioning(_onlineApplicationVersioning);
+
+            if (_onlineApplicationVersioning.ApplicationVersion > _offlineApplicationVersioning.ApplicationVersion)
             {
-                var offlineLibrary = _offlineVersioning.DynamicLinkLibraries.Find(x => x.DllName == onlineLibrary.DllName);
+                OnUpdateAvailable(this,
+                    new UpdateArgs(Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.ApplicationUrl),
+                        _offlineApplicationVersioning.ApplicationVersion.ToString(),
+                        _onlineApplicationVersioning.ApplicationVersion.ToString()));
+            }
+
+            else
+            {
+                OnNoUpdateAvailable(this,
+                    new UpdateArgs(Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.ApplicationUrl),
+                        _offlineApplicationVersioning.ApplicationVersion.ToString(),
+                        _onlineApplicationVersioning.ApplicationVersion.ToString()));
+            }
+
+            foreach (var onlineLibrary in _onlineApplicationVersioning.DynamicLinkLibraries)
+            {
+                var offlineLibrary = _offlineApplicationVersioning.DynamicLinkLibraries.Find(x => x.DllName == onlineLibrary.DllName);
 
                 if (offlineLibrary == null)
-                {
-                    bUpdatesAvailable = true;
-                }
-
+                    OnUpdateAvailable(this, new UpdateArgs(onlineLibrary.DllName, String.Empty, onlineLibrary.DllVersion));
+                
                 else
                 {
-                    bUpdatesAvailable |= new Version(onlineLibrary.DllVersion) > new Version(offlineLibrary.DllVersion);
+                    if (new Version(onlineLibrary.DllVersion) > new Version(offlineLibrary.DllVersion))
+                        OnUpdateAvailable(this, new UpdateArgs(onlineLibrary.DllName, offlineLibrary.DllVersion, onlineLibrary.DllVersion));
+                    
+                    else 
+                        OnNoUpdateAvailable(this, new UpdateArgs(onlineLibrary.DllName, offlineLibrary.DllVersion, onlineLibrary.DllVersion));
+
                 }
             }
-
-            BUpdatesAvailable = bUpdatesAvailable;
-
-            return bUpdatesAvailable;
         }
 
-        public string ShowApplicationUpdates()
+        private void CheckPlugins()
         {
-            var sb = new StringBuilder();
+            _offlinePluginVersioning.Clear();
+            _onlinePluginVersioning.Clear();
 
-            if (BUpdatesAvailable == null)
-                return String.Empty;
+            _onlinePluginVersioning.ParseOnlinePluginVersioning(StrPluginDatastore);
+            _offlinePluginVersioning.ParseOfflinePluginVersioning(_onlinePluginVersioning);
 
-            if (BUpdatesAvailable.Value)
+            foreach (var onlinePlugin in _onlinePluginVersioning.Plugins)
             {
-                if (!_onlineVersioning.ApplicationVersion.Equals(_offlineVersioning.ApplicationVersion))
-                {
-                    if (!File.Exists(_offlineVersioning.ApplicationUrl))
-                    {
-                        sb.Append(Path.GetFileNameWithoutExtension(_offlineVersioning.ApplicationUrl).Fill(" ", 30));
-                        sb.Append("New!");
-                    }
+                var offlinePlugin = _offlinePluginVersioning.Plugins.Find(x => x.Name == onlinePlugin.Name);
 
-                    else
-                    {
-                        sb.Append(Path.GetFileName(_offlineVersioning.ApplicationUrl).Fill(" ", 30) +
-                                      _offlineVersioning.ApplicationVersion + " => " +
-                                      _onlineVersioning.ApplicationVersion);
-                    }
-                }
+                if (offlinePlugin == null)
+                    continue;
 
-                foreach (var onlineLibrary in _onlineVersioning.DynamicLinkLibraries)
-                {
-                    var offlineLibrary = _offlineVersioning.DynamicLinkLibraries.Find(x => x.DllName == onlineLibrary.DllName);
+                if (new Version(onlinePlugin.Version) > new Version(offlinePlugin.Version))
+                    OnUpdateAvailable(this,
+                        new UpdateArgs(onlinePlugin.Name, offlinePlugin.Version, onlinePlugin.Version));
 
-                    if (offlineLibrary == null)
-                    {
-                        sb.Append("\n");
-                        sb.Append(onlineLibrary.DllName.Fill(" ", 30));
-                        sb.Append("New!");
-                    }
+                else
+                    OnNoUpdateAvailable(this,
+                        new UpdateArgs(onlinePlugin.Name, offlinePlugin.Version, onlinePlugin.Version));
 
-                    else
-                    {
-                        if (new Version(onlineLibrary.DllVersion) > new Version(offlineLibrary.DllVersion))
-                        {
-                            sb.Append("\n");
-                            sb.Append(offlineLibrary.DllName.Fill(" ", 30));
-                            sb.Append(offlineLibrary.DllVersion + " => ");
-                            sb.Append(onlineLibrary.DllVersion);
-                        }
-                    }
-                }
             }
+        }
 
-            return sb.ToString();
+        #endregion
+
+        #region Public Methods
+
+        public void LaunchCheckApplication()
+        {
+            Task tsk = new Task(x => CheckVersions(), null);
+
+            tsk.Start();
         }
 
         public bool InstallApplicationUpdates()
         {
-            if (_onlineVersioning.ApplicationVersion > _offlineVersioning.ApplicationVersion)
+            if (_onlineApplicationVersioning.ApplicationVersion > _offlineApplicationVersioning.ApplicationVersion)
             {
-                if (File.Exists(_offlineVersioning.ApplicationUrl))
-                    File.Delete(_offlineVersioning.ApplicationUrl);
+                if (File.Exists(_offlineApplicationVersioning.ApplicationUrl))
+                    File.Delete(_offlineApplicationVersioning.ApplicationUrl);
 
-                _wcDownloader.DownloadFile(_onlineVersioning.ApplicationUrl, _offlineVersioning.ApplicationUrl);
+                _strDownloadedFileName = Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.ApplicationUrl);
+                _wcDownloader.DownloadFileAsync(new Uri(_onlineApplicationVersioning.ApplicationUrl), _offlineApplicationVersioning.ApplicationUrl);
+                while (_wcDownloader.IsBusy) { Thread.Sleep(10);}
             }
 
-            foreach (var dynamicLinkLibrary in _onlineVersioning.DynamicLinkLibraries)
+            foreach (var dynamicLinkLibrary in _onlineApplicationVersioning.DynamicLinkLibraries)
             {
                 var availableLibrary =
-                    _offlineVersioning.DynamicLinkLibraries.Find(x => x.DllName == dynamicLinkLibrary.DllName);
+                    _offlineApplicationVersioning.DynamicLinkLibraries.Find(x => x.DllName == dynamicLinkLibrary.DllName);
 
                 if (availableLibrary == null)
                 {
-                    _wcDownloader.DownloadFile(dynamicLinkLibrary.DllDownloadPath,
+                    _strDownloadedFileName = dynamicLinkLibrary.DllName;
+                    _wcDownloader.DownloadFileAsync(new Uri(dynamicLinkLibrary.DllDownloadPath),
                         Path.Combine(Application.StartupPath, dynamicLinkLibrary.DllName + ".dll"));
+                    while (_wcDownloader.IsBusy) { Thread.Sleep(10); }
                 }
 
                 else
@@ -200,9 +225,11 @@ namespace UpdateChecker
                     if (new Version(dynamicLinkLibrary.DllVersion) > new Version(availableLibrary.DllVersion))
                     {
                         if (File.Exists(availableLibrary.DllDownloadPath))
-                            File.Delete(availableLibrary.DllDownloadPath);
+                        File.Delete(availableLibrary.DllDownloadPath);
 
-                        _wcDownloader.DownloadFile(dynamicLinkLibrary.DllDownloadPath, Path.Combine(Application.StartupPath, dynamicLinkLibrary.DllName + ".dll"));
+                        _strDownloadedFileName = dynamicLinkLibrary.DllName;
+                        _wcDownloader.DownloadFileAsync(new Uri(dynamicLinkLibrary.DllDownloadPath), Path.Combine(Application.StartupPath, dynamicLinkLibrary.DllName + ".dll"));
+                        while (_wcDownloader.IsBusy) { Thread.Sleep(10); }
                     }
                 }
             }
@@ -211,90 +238,34 @@ namespace UpdateChecker
 
             return true;
         }
-        
-    }
 
-    public class ApplicationVersioning
-    {
-        public Version ApplicationVersion { get; set; }
-        public string ApplicationUrl { get; set; }
-        public string ApplicationChanges { get; set; }
-        public string ApplicationCounter { get; set; }
-        public List<DynamicLinkLibrary> DynamicLinkLibraries { get; set; }
-
-        public ApplicationVersioning()
+        public void InstallPluginUpdates()
         {
-            ApplicationVersion = new Version(0,0,0,0);
-            ApplicationChanges = String.Empty;
-            ApplicationCounter = String.Empty;
-            ApplicationUrl = String.Empty;
-            DynamicLinkLibraries = new List<DynamicLinkLibrary>();
-        }
-
-        public void Clear()
-        {
-            ApplicationVersion = new Version(0, 0, 0, 0);
-            ApplicationChanges = String.Empty;
-            ApplicationCounter = String.Empty;
-            ApplicationUrl = String.Empty;
-            DynamicLinkLibraries.Clear();
-        }
-
-        public void ParseOnlineApplicationVersioning(string strApplicationPath)
-        {
-            var wc = new WebClient {Proxy = null};
-            var strSource = wc.DownloadString(strApplicationPath);
-
-            var xmlSerializer = new XmlSerializer(typeof(ApplicationDatastore));
-
-            var appDatastore = (ApplicationDatastore) xmlSerializer.Deserialize(new StringReader(strSource));
-
-
-            ApplicationVersion = new Version(appDatastore.ApplicationVersion);
-            ApplicationUrl = appDatastore.ApplicationDownloadPath;
-            ApplicationChanges = appDatastore.ApplicationChangesPath;
-            ApplicationCounter = appDatastore.ApplicationDownloadCounterPath;
-
-            foreach (var dll in appDatastore.DllDynamicLinkLibraries)
+            foreach (var onlinePlugin in _onlinePluginVersioning.Plugins)
             {
-                DynamicLinkLibraries.Add(dll);
-            }
-        }
+                var installedPlugin = _offlinePluginVersioning.Plugins.Find(x => x.Name == onlinePlugin.Name);
 
-        public void ParseOfflineApplicationVersioning(ApplicationVersioning onlineVersion)
-        {
-            var strApplicationNames = onlineVersion.ApplicationUrl.Split('/');
-            var strApplicationName = strApplicationNames[strApplicationNames.Length - 1];
+                if (installedPlugin == null)
+                    continue;
 
-            if (Path.GetFileName(Application.ExecutablePath) != strApplicationName)
-            {
-                ApplicationUrl = Path.Combine(Application.StartupPath, strApplicationName);
-            }
-            else
-            {
-                ApplicationUrl = Application.ExecutablePath;
-            }
-
-            if (File.Exists(ApplicationUrl))
-                ApplicationVersion = new Version(FileVersionInfo.GetVersionInfo(ApplicationUrl).FileVersion);
-
-            //Get local dlls and get the names
-            var localLibraries = Directory.GetFiles(Application.StartupPath, "*.dll");
-
-            foreach (var dll in onlineVersion.DynamicLinkLibraries)
-            {
-                foreach (var localLibrary in localLibraries)
+                if (new Version(onlinePlugin.Version) > new Version(installedPlugin.Version))
                 {
-                    var localLibraryName = Path.GetFileNameWithoutExtension(localLibrary);
-                    if (localLibraryName == dll.DllName)
-                    {
-                        var localLibraryVersion = FileVersionInfo.GetVersionInfo(localLibrary).FileVersion;
-                        var localDll = new DynamicLinkLibrary(localLibraryName, localLibrary, localLibraryVersion);
-                        DynamicLinkLibraries.Add(localDll);
-                        break;
-                    }
+                    if (File.Exists(installedPlugin.DownloadPath))
+                        File.Delete(installedPlugin.DownloadPath);
+
+                    _strDownloadedFileName = Path.GetFileNameWithoutExtension(installedPlugin.DownloadPath);
+                    _wcDownloader.DownloadFileAsync(new Uri(onlinePlugin.DownloadPath), installedPlugin.DownloadPath);
+                    while (_wcDownloader.IsBusy) { Thread.Sleep(10); }
                 }
             }
         }
+
+        public void LaunchApplication()
+        {
+            if (File.Exists(_offlineApplicationVersioning.ApplicationUrl))
+                Process.Start(_offlineApplicationVersioning.ApplicationUrl);
+        }
+
+        #endregion
     }
 }

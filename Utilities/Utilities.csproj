@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\DownloadManagerProgressChangedEventArgs.cs" />
+    <Compile Include="Events\NumberArgs.cs" />
+    <Compile Include="Events\UpdateArgs.cs" />
     <Compile Include="ExtensionMethods\ExtentColor.cs" />
     <Compile Include="ExtensionMethods\ExtentControl.cs" />
     <Compile Include="ExtensionMethods\ExtentGraphics.cs" />

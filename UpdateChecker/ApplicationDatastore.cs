@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace AnotherSc2Hack.Classes.DataStructures.Versioning
+namespace UpdateChecker
 {
     public class ApplicationDatastore
     {
@@ -12,20 +12,23 @@ namespace AnotherSc2Hack.Classes.DataStructures.Versioning
             ApplicationDownloadCounterPath = String.Empty;
             ApplicationDownloadPath = String.Empty;
             ApplicationVersion = String.Empty;
-            DllDynamicLinkLibraries = new List<DynamicLinkLibrary>();
+            DynamicLinkLibraries = new List<DynamicLinkLibrary>();
         }
 
         public string ApplicationDownloadPath { get; set; }
         public string ApplicationChangesPath { get; set; }
         public string ApplicationDownloadCounterPath { get; set; }
         public string ApplicationVersion { get; set; }
-        public List<DynamicLinkLibrary> DllDynamicLinkLibraries { get; set; }
-
+        public List<DynamicLinkLibrary> DynamicLinkLibraries { get; set; }
     }
 
     [DebuggerDisplay("DllName: {DllName}, DllVersion: {DllVersion}")]
     public class DynamicLinkLibrary
     {
+        public string DllDownloadPath { get; set; }
+        public string DllVersion { get; set; }
+        public string DllName { get; set; }
+
         public DynamicLinkLibrary()
         {
             DllName = String.Empty;
@@ -39,9 +42,5 @@ namespace AnotherSc2Hack.Classes.DataStructures.Versioning
             DllDownloadPath = downloadPath;
             DllVersion = version;
         }
-
-        public string DllDownloadPath { get; set; }
-        public string DllVersion { get; set; }
-        public string DllName { get; set; }
     }
 }

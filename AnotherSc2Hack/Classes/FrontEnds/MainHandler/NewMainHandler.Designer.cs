@@ -1,4 +1,6 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
+﻿using Utilities.Events;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
     partial class NewMainHandler
     {
@@ -279,7 +281,7 @@
             this.ntxtVariousWorkerCoachDisableAfter.Size = new System.Drawing.Size(47, 27);
             this.ntxtVariousWorkerCoachDisableAfter.TabIndex = 20;
             this.ntxtVariousWorkerCoachDisableAfter.Text = "1";
-            this.ntxtVariousWorkerCoachDisableAfter.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtVariousWorkerCoachDisableAfter_NumberChanged);
+            this.ntxtVariousWorkerCoachDisableAfter.NumberChanged += new NumberChangeHandler(this.ntxtVariousWorkerCoachDisableAfter_NumberChanged);
             // 
             // lblVariousDisableAfter
             // 
@@ -349,7 +351,7 @@
             this.ntxtVariousApmLimit.Size = new System.Drawing.Size(49, 27);
             this.ntxtVariousApmLimit.TabIndex = 16;
             this.ntxtVariousApmLimit.Text = "1";
-            this.ntxtVariousApmLimit.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtVariousApmLimit_NumberChanged);
+            this.ntxtVariousApmLimit.NumberChanged += new NumberChangeHandler(this.ntxtVariousApmLimit_NumberChanged);
             // 
             // aChBxVariousPersonalApmAlert
             // 
@@ -1157,7 +1159,7 @@
             this.ntxtDebugUnitLocation.Size = new System.Drawing.Size(50, 27);
             this.ntxtDebugUnitLocation.TabIndex = 25;
             this.ntxtDebugUnitLocation.Text = "1";
-            this.ntxtDebugUnitLocation.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtDebugUnitLocation_NumberChanged);
+            this.ntxtDebugUnitLocation.NumberChanged += new NumberChangeHandler(this.ntxtDebugUnitLocation_NumberChanged);
             // 
             // ntxtDebugPlayerLocation
             // 
@@ -1169,7 +1171,7 @@
             this.ntxtDebugPlayerLocation.Size = new System.Drawing.Size(50, 27);
             this.ntxtDebugPlayerLocation.TabIndex = 24;
             this.ntxtDebugPlayerLocation.Text = "1";
-            this.ntxtDebugPlayerLocation.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtDebugPlayerLocation_NumberChanged);
+            this.ntxtDebugPlayerLocation.NumberChanged += new NumberChangeHandler(this.ntxtDebugPlayerLocation_NumberChanged);
             // 
             // lstvDebugUnitdata
             // 
@@ -1533,7 +1535,7 @@
             this.ntxtMemoryRefresh.Size = new System.Drawing.Size(80, 27);
             this.ntxtMemoryRefresh.TabIndex = 2;
             this.ntxtMemoryRefresh.Text = "42";
-            this.ntxtMemoryRefresh.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
+            this.ntxtMemoryRefresh.NumberChanged += new NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
             // 
             // lblApplicationLanguage
             // 
@@ -1559,7 +1561,7 @@
             this.ntxtGraphicsRefresh.Size = new System.Drawing.Size(80, 27);
             this.ntxtGraphicsRefresh.TabIndex = 3;
             this.ntxtGraphicsRefresh.Text = "42";
-            this.ntxtGraphicsRefresh.NumberChanged += new AnotherSc2Hack.Classes.Events.NumberChangeHandler(this.ntxtGraphicsRefresh_NumberChanged);
+            this.ntxtGraphicsRefresh.NumberChanged += new NumberChangeHandler(this.ntxtGraphicsRefresh_NumberChanged);
             // 
             // aChBxOnlyDrawInForeground
             // 

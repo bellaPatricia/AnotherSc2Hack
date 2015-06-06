@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using AnotherSc2Hack.Classes.Events;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {

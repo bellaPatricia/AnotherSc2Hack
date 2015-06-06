@@ -14,12 +14,11 @@ using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Plugin;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
-using AnotherSc2Hack.Classes.Events;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
 using PluginInterface;
 using Predefined;
-
+using Utilities.Events;
 using Timer = System.Windows.Forms.Timer;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
@@ -2531,7 +2530,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void renderer_IterationPerSecondChanged(object sender, Events.NumberArgs e)
+        private void renderer_IterationPerSecondChanged(object sender, NumberArgs e)
         {
             var resourcesRenderer = sender as ResourcesRenderer;
             if (resourcesRenderer != null)

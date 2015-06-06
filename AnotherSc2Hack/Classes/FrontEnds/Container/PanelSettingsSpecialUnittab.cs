@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AnotherSc2Hack.Classes.Events;
+using Utilities.Events;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
