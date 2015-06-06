@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace AnotherSc2Hack.Classes.ExtensionMethods
+namespace Utilities.ExtensionMethods
 {
     public static class ExtentGraphics
     {

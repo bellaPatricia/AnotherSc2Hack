@@ -14,11 +14,11 @@ using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Plugin;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
-using AnotherSc2Hack.Classes.Events;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
 using PluginInterface;
 using Predefined;
+using Utilities.Events;
 using Timer = System.Windows.Forms.Timer;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
@@ -36,6 +36,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly WebClient _wcMainWebClient = new WebClient();
         private DateTime _dtSecond = DateTime.Now;
         private readonly Dictionary<string, string> _dictLanguageFile = new Dictionary<string, string>();
+        private readonly UpdateChecker.DownloadManager _ucDownloadManager = new UpdateChecker.DownloadManager();
 
         private Boolean _bProcessSet;
 
@@ -63,9 +64,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly LanguageString _lstrApplicationRestoreSettingsHeader = new LanguageString("lstrApplicationRestoreSettingsHeader");
         private readonly LanguageString _lstrApplicationRestorePanelPositionText = new LanguageString("lstrApplicationRestorePanelPositionText");
         private readonly LanguageString _lstrApplicationRestorePanelPositionHeader = new LanguageString("lstrApplicationRestorePanelPositionHeader");
+        private readonly LanguageString _lstrApplicationDoYouWishToUpdate = new LanguageString("lstrApplicationDoYouWishToUpdate");
 
         private readonly LanguageString _lstrPluginContextInstallPlugin = new LanguageString("lstrPluginContextInstallPlugin");
         private readonly LanguageString _lstrPluginContextRemovePlugin = new LanguageString("lstrPluginContextRemovePlugin");
+
+        
 
 
 
@@ -250,6 +254,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _wcMainWebClient.DownloadProgressChanged += _wcMainWebClient_DownloadProgressChanged;
             _wcMainWebClient.DownloadFileCompleted += _wcMainWebClient_DownloadFileCompleted;
 
+            _ucDownloadManager.UpdateAvailable += UcDownloadManagerUpdateAvailable;
+
 
             /* Add all the panels to the container... */
             _lContainer.Add(new ResourcesRenderer(Gameinfo, PSettings, PSc2Process));
@@ -266,10 +272,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             BaseRendererEventMapping();
 
+            _ucDownloadManager.LaunchCheckApplication();
+
             SetStyle(ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer, true);
+        }
+
+        void UcDownloadManagerUpdateAvailable(object sender, EventArgs e)
+        {
+            var checker = sender as UpdateChecker.DownloadManager;
+
+            if (checker == null)
+                return;
+
+            var result = new AnotherMessageBox().Show(checker.ShowApplicationUpdates() + "\n\n" + _lstrApplicationDoYouWishToUpdate, "Updates", MessageBoxButtons.YesNo, new Font("Courier New", 13));
+
+            if (result == DialogResult.Yes)
+            {
+                //Launch Download Manager
+                throw new NotImplementedException("Launch Download Manager");
+            }
         }
 
         /// <summary>
@@ -2506,7 +2530,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void renderer_IterationPerSecondChanged(object sender, Events.NumberArgs e)
+        private void renderer_IterationPerSecondChanged(object sender, NumberArgs e)
         {
             var resourcesRenderer = sender as ResourcesRenderer;
             if (resourcesRenderer != null)
@@ -2746,7 +2770,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _dictLanguageFile.Clear();
 
             if (!Directory.Exists(Constants.StrLanguageFolder))
+            {
+                Directory.CreateDirectory(Constants.StrLanguageFolder);
                 return;
+            }
 
             var files = Directory.GetFiles(Constants.StrLanguageFolder, "*.lang");
 

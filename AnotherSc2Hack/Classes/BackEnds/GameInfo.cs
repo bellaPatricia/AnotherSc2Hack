@@ -29,8 +29,7 @@ using System.Drawing;
 using System.Text;
 using System.Diagnostics;
 using System.Threading;
-
-using AnotherSc2Hack.Classes.Events;
+using Utilities.Events;
 using PredefinedTypes = Predefined.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.BackEnds

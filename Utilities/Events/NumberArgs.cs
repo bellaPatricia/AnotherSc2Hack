@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnotherSc2Hack.Classes.Events
+namespace Utilities.Events
 {
     public delegate void NumberChangeHandler(object sender, NumberArgs e);
 

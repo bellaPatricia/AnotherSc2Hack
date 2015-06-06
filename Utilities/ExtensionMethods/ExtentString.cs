@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace AnotherSc2Hack.Classes.ExtensionMethods
+namespace Utilities.ExtensionMethods
 {
     public static class ExtentString
     {

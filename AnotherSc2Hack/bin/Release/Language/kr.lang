@@ -49,6 +49,7 @@ lstrApplicationRestoreSettingsText: 설정을 초기화 하시겠습니까?
 lstrApplicationRestoreSettingsHeader: 확실하세요?
 lstrApplicationRestorePanelPositionText: 판넬의 위치와 크기가 성공적으로 초기화되었습니다.
 lstrApplicationRestorePanelPositionHeader: 초기화 완료
+lstrApplicationDoYouWishToUpdate: 당신은 업데이트 하시겠습니까?
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: 맵핵 반복 / 초.

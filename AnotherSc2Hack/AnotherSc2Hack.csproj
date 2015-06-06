@@ -98,6 +98,12 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
+    <Reference Include="UpdateChecker">
+      <HintPath>..\UpdateChecker\bin\Release\UpdateChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities">
+      <HintPath>..\Utilities\bin\Release\Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
@@ -118,7 +124,6 @@
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayPersonalClock.cs" />
     <Compile Include="Classes\DataStructures\Preference\Preferences.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceWorkerCoach.cs" />
-    <Compile Include="Classes\Events\NumberArgs.cs" />
     <Compile Include="Classes\DataStructures\Plugin\Plugin.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceAll.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceBase.cs" />
@@ -136,14 +141,7 @@
     <Compile Include="Classes\BackEnds\Processing.cs" />
     <Compile Include="Classes\BackEnds\Renderer_Helper.cs" />
     <Compile Include="Classes\BackEnds\Simulation.cs" />
-    <Compile Include="Classes\BackEnds\UpdateCheck.cs" />
-    <Compile Include="Classes\BackEnds\UpdateChecker.cs" />
     <Compile Include="Classes\DataStructures\Xml\XmlColor.cs" />
-    <Compile Include="Classes\ExtensionMethods\ExtentColor.cs" />
-    <Compile Include="Classes\ExtensionMethods\ExtentControl.cs" />
-    <Compile Include="Classes\ExtensionMethods\ExtentGraphics.cs" />
-    <Compile Include="Classes\ExtensionMethods\ExtentImage.cs" />
-    <Compile Include="Classes\ExtensionMethods\ExtentString.cs" />
     <Compile Include="Classes\FrontEnds\Container\PanelOverlayBasics.cs">
       <SubType>UserControl</SubType>
     </Compile>

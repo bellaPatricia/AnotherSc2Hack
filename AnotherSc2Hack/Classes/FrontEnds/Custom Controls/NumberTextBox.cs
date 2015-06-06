@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
-using AnotherSc2Hack.Classes.Events;
+using Utilities.Events;
 
 
 namespace AnotherSc2Hack.Classes.FrontEnds
