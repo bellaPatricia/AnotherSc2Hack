@@ -20,6 +20,7 @@ using PluginInterface;
 using Predefined;
 using UpdateChecker;
 using Utilities.Events;
+using Utilities.VariousClasses.Hashes;
 using Timer = System.Windows.Forms.Timer;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
@@ -34,12 +35,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly List<AppDomain> _lPluginContainer = new List<AppDomain>();
         private readonly List<LocalPlugins> _lPlugins = new List<LocalPlugins>();
         private readonly List<OnlinePlugin> _lOnlinePlugins = new List<OnlinePlugin>();
+        private readonly List<PluginDatastore> _lPluginDatastores = new List<PluginDatastore>(); 
         private readonly WebClient _wcMainWebClient = new WebClient();
         private DateTime _dtSecond = DateTime.Now;
         private readonly Dictionary<string, string> _dictLanguageFile = new Dictionary<string, string>();
         private readonly DownloadManager _ucDownloadManager = new DownloadManager();
         private string _strUpdateFiles = String.Empty;
-        private bool _bLaunchDownloadManager = false;
+        private bool _bLaunchDownloadManager;
 
         private Boolean _bProcessSet;
 
@@ -235,7 +237,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Gameinfo.IterationPerSecondChanged += Gameinfo_IterationPerSecondChanged;
 
             PluginsLocalLoadPlugins();
-            new Thread(PluginLoadAvailablePlugins).Start();
             
             LoadContributers();
             LaunchOnStartup();
@@ -303,6 +304,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void _ucDownloadManager_CheckComplete(object sender, EventArgs e)
         {
+            new Thread(PluginLoadAvailablePlugins).Start();
+
             var dm = sender as DownloadManager;
 
             if (dm == null)
@@ -323,7 +326,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 }
             }
 
-             
+            _strUpdateFiles = String.Empty;
         }
 
         /// <summary>
@@ -1686,6 +1689,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (!Directory.Exists(Constants.StrPluginFolder))
                 Directory.CreateDirectory(Constants.StrPluginFolder);
 
+            _lPluginContainer.Clear();
+            _lPlugins.Clear();
+            _lPluginDatastores.Clear();
+            
+
             var files = Directory.GetFiles(Constants.StrPluginFolder, "*.dll");
 
             for (var i = 0; i < files.Length; i++)
@@ -1699,7 +1707,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                             tmpAppDomain.CreateInstanceFromAndUnwrap(files[i], "Plugin.Extensions.AnotherSc2HackPlugin");
 
                     if (_lPlugins.Exists(x => x.Plugin.GetPluginName() == foo.GetPluginName()))
-                       throw new TypeLoadException("Fuck you"); //:D
+                       throw new TypeLoadException("Plugin Load Error"); //:D
 
 
 
@@ -1720,6 +1728,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 }
             }
 
+            var languageFiles = Directory.GetFiles(Constants.StrPluginFolder, "*.lang");
+
+            foreach (var languageFile in languageFiles)
+            {
+                var plugin = new PluginDatastore();
+                plugin.Name = Path.GetFileNameWithoutExtension(languageFile);
+
+                using (var sr = new StreamReader(languageFile))
+                    plugin.Version = sr.ReadLine().Substring(1);
+
+                plugin.Hash = Hashes.HashFromFile(languageFile, Hashes.HashAlgorithm.Md5);
+                plugin.DownloadPath = languageFile;
+
+                _lPluginDatastores.Add(plugin);
+            }
+            InitializeLanguageFiles();
+
+
             PluginsLocalLoadedPluginsRefresh();
 
             //Launch Plugins
@@ -1734,11 +1760,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 item.Checked = true;
             }
 
+
+
             //Init the clickable panels for the plugins (if needed)
             foreach (var localPlugins in _lPlugins)
             {
                 if (localPlugins.Plugin.GetPluginEntryName() != null && localPlugins.Plugin.GetPluginEntryName().Length > 0)
                 {
+                    //Remove plugin from cliclable container
+                    var clickControls = pnlLeftSelection.Controls.Find(localPlugins.Hash, false);
+                    var clickPanels = pnlMainArea.Controls.Find(localPlugins.Hash, false);
+
+                    foreach (var clickControl in clickControls)
+                    {
+                        pnlLeftSelection.Controls.Remove(clickControl);
+                    }
+
+                    foreach (var clickPanel in clickPanels)
+                    {
+                        pnlMainArea.Controls.Remove(clickPanel);
+                    }
+
+
                     var cntrls = pnlLeftSelection.Controls;
                     var iHeight = cpnlApplication.Height;
 
@@ -1758,7 +1801,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
                     panel.Location = new System.Drawing.Point(0, 80);
-                    panel.Name = localPlugins.Md5Hash;
+                    panel.Name = localPlugins.Hash;
                     panel.Size = new System.Drawing.Size(1029, 450);
                     panel.TabIndex = 0;
 
@@ -1784,7 +1827,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     click.IsClicked = false;
                     click.IsHovering = false;
                     click.Location = new Point(0, iHeight);
-                    click.Name = localPlugins.Md5Hash;
+                    click.Name = localPlugins.Hash;
                     click.Size = new Size(152, 40);
 
                     click.Icon = HelpFunctions.ByteArrayToImage(localPlugins.Plugin.GetPluginIcon()) ?? Properties.Resources.icon_default_plugin;
@@ -1818,6 +1861,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 lwi.Checked = true;
                 lstvPluginsLoadedPlugins.Items.Add(lwi);
             }
+
+            foreach (var plugin in _lPluginDatastores)
+            {
+                var lwi = new ListViewItem();
+
+                lwi.BackColor = lstvPluginsLoadedPlugins.Items.Count % 2 == 0 ? lwi.BackColor : Color.WhiteSmoke;
+                lwi.Text = plugin.Name;
+
+                lwi.SubItems.Add(new ListViewItem.ListViewSubItem(lwi, plugin.Version));
+                lwi.Checked = true;
+                lstvPluginsLoadedPlugins.Items.Add(lwi);
+            }
+
+   
         }
 
         /// <summary>
@@ -1828,43 +1885,30 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             Console.WriteLine("Worker \"PluginLoadAvailablePlugins()\" started!");
 
-            const string strUrlPlugins = @"https://dl.dropboxusercontent.com/u/62845853/AnotherSc2Hack/UpdateFiles/Plugins.txt";
-
-            var strSource = _wcMainWebClient.DownloadString(strUrlPlugins);
-            // Info: Plugin- Names start with '#'
-            // Plugin- Descriptions start with '+'
-            // Plugin- Downloadlinks start with '*'
-            // Plugin- Pictures start with '-'
-            // Plugin- Versions start with 'V'
-
-            var strSpltted = strSource.Split('\n');
-            foreach (var str in strSpltted)
+            _lOnlinePlugins.Clear();
+            foreach (var pluginDatastore in _ucDownloadManager.PluginDatastoresOnline)
             {
-                if (str.StartsWith("#"))
+                var onlinePlugin = new OnlinePlugin();
+                onlinePlugin.Name = pluginDatastore.Name;
+                onlinePlugin.Description = pluginDatastore.Description;
+                onlinePlugin.DownloadLink = pluginDatastore.DownloadPath;
+                onlinePlugin.Hash = pluginDatastore.Hash;
+
+                foreach (var imagePath in pluginDatastore.ImagePaths)
                 {
-                    _lOnlinePlugins.Add(new OnlinePlugin());
-                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].Name = str.Substring(1).Trim();
+                    onlinePlugin.ImageLinks.Add(imagePath);
                 }
 
-                else if (str.StartsWith("+"))
-                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].Description = str.Substring(1).Trim();
-
-                else if (str.StartsWith("*"))
-                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].DownloadLink = str.Substring(1).Trim();
-
-                else if (str.StartsWith("-"))
-                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].ImageLinks.Add(str.Substring(1).Trim());
-
-                else if (str.StartsWith("V"))
-                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].Version = new Version(str.Substring(1).Trim());
-
-                else if (str.StartsWith("@"))
-                    _lOnlinePlugins[_lOnlinePlugins.Count - 1].Md5Hash = str.Substring(1).Trim();
+                onlinePlugin.Version = new Version(pluginDatastore.Version);
+                _lOnlinePlugins.Add(onlinePlugin);
             }
 
             //We have to operate cross-thread wide. So we have to create an invoker...
             MethodInvoker myInvoker = delegate
             {
+                lstvPluginsAvailablePlugins.Items.Clear();
+                lstvPluginsAvailablePlugins.Enabled = true;
+
                 foreach (var plugin in _lOnlinePlugins)
                 {
                     var lwi = new ListViewItem();
@@ -1877,7 +1921,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     lstvPluginsAvailablePlugins.Items.Add(lwi);
                 }
 
-                lstvPluginsAvailablePlugins.Enabled = true;
+                
             };
 
             
@@ -1928,7 +1972,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 new BigPreviewPicture(pcbPluginsImages.Image).ShowDialog();
         }
 
-
         private void lstvPluginsLoadedPlugins_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (e.Item.Index <= -1)
@@ -1937,6 +1980,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (_lPlugins.Count <= 0)
                 return;
 
+            if (e.Item.Index >= _lPlugins.Count)
+                return;
+
+            
             if (e.Item.Checked)
                 _lPlugins[e.Item.Index].Plugin.StartPlugin();
 
@@ -1992,11 +2039,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
 
 
-            if (_lPlugins.Find(x => x.Md5Hash == _lOnlinePlugins[IPluginsSelectedPluginIndex].Md5Hash) != null)
+            if (_lPlugins.Find(x => x.Hash == _lOnlinePlugins[IPluginsSelectedPluginIndex].Hash) != null)
+            {
+                MessageBox.Show("Plugin already installed!\n\nPlease select another plugin!", "Plugin Error");
+            }
+
+            if (_lPluginDatastores.Find(x => x.Hash == _lOnlinePlugins[IPluginsSelectedPluginIndex].Hash) != null)
             {
                 MessageBox.Show("Plugin already installed!\n\nPlease select another plugin!", "Plugin Error");
                 return;
             }
+           
 
             var strOnlinePath = _lOnlinePlugins[IPluginsSelectedPluginIndex].DownloadLink;
             var strLocalPath =
@@ -2027,7 +2080,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 return;
 
             if (lstvPluginsLoadedPlugins.SelectedIndices[0] < 0 ||
-                lstvPluginsLoadedPlugins.SelectedIndices[0] > _lPlugins.Count - 1)
+                lstvPluginsLoadedPlugins.SelectedIndices[0] > _lPlugins.Count + _lPluginDatastores.Count - 1)
                 return;
 
             PluginRemovePlugin(lstvPluginsLoadedPlugins.SelectedIndices[0]);
@@ -2176,11 +2229,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void PluginRemovePlugin(int index)
         {
-            var iDomainIndex =
-                _lPluginContainer.FindIndex(x => x.FriendlyName == _lPlugins[index].PluginPath.Substring(_lPlugins[index].PluginPath.LastIndexOf(("\\"), StringComparison.Ordinal)));
+            var iDomainIndex = -1;
 
+            if (index < _lPlugins.Count)
+              iDomainIndex = _lPluginContainer.FindIndex(x => x.FriendlyName == _lPlugins[index].PluginPath.Substring(_lPlugins[index].PluginPath.LastIndexOf(("\\"), StringComparison.Ordinal)));
+
+            //No Domain found - it's a languagePlugin
             if (iDomainIndex < 0)
+            {
+                index = index - _lPlugins.Count;
+
+                var plugin = _lPluginDatastores[index];
+
+                if (PSettings.PreferenceAll.Global.Language == plugin.DownloadPath)
+                {
+                    new AnotherMessageBox().Show("Can't delete currently selected language!");
+                    return;
+                }
+
+                if (File.Exists(plugin.DownloadPath))
+                {
+                    File.Delete(plugin.DownloadPath);
+                    _lPluginDatastores.RemoveAt(index);
+                    chBxLanguage.Items.RemoveAt(index);
+                    PluginsLocalLoadedPluginsRefresh();
+                }
+
                 return;
+            }
+                
 
             Console.WriteLine("Removing Plugin {0} - Closing AppDomain {1}", _lPlugins[index].Plugin.GetPluginName(), _lPluginContainer[iDomainIndex].FriendlyName);
             Console.WriteLine("This Domain: " + AppDomain.CurrentDomain.FriendlyName);
@@ -2188,7 +2265,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             try
             {
                 var strTempPluginPath = String.Empty;
-                var strPuginHash = _lPlugins[index].Md5Hash;
+                var strPuginHash = _lPlugins[index].Hash;
 
                 //Stop plugin nicely 
                 _lPlugins[index].Plugin.StopPlugin();
@@ -2798,14 +2875,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void InitializeLanguageFiles()
         {
             _dictLanguageFile.Clear();
+            chBxLanguage.Items.Clear();
 
-            if (!Directory.Exists(Constants.StrLanguageFolder))
+            if (!Directory.Exists(Constants.StrPluginFolder))
             {
-                Directory.CreateDirectory(Constants.StrLanguageFolder);
+                Directory.CreateDirectory(Constants.StrPluginFolder);
                 return;
             }
 
-            var files = Directory.GetFiles(Constants.StrLanguageFolder, "*.lang");
+            var files = Directory.GetFiles(Constants.StrPluginFolder, "*.lang");
 
             foreach (var file in files)
             {
@@ -3224,6 +3302,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             if (_bLaunchDownloadManager)
                 Process.Start(Constants.StrDownloadManager);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _ucDownloadManager.CheckUpdates();
         }
     } 
 }

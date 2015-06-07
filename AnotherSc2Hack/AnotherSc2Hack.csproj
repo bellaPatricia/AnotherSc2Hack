@@ -95,7 +95,6 @@
     <Compile Include="Classes\BackEnds\Automation Helper.cs" />
     <Compile Include="Classes\BackEnds\Constants.cs" />
     <Compile Include="Classes\BackEnds\GameInfo.cs" />
-    <Compile Include="Classes\BackEnds\Hashes.cs" />
     <Compile Include="Classes\BackEnds\HelpFunctions.cs" />
     <Compile Include="Classes\BackEnds\InteropCalls.cs" />
     <Compile Include="Classes\BackEnds\LanguageString.cs" />

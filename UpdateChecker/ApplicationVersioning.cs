@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -45,7 +46,17 @@ namespace UpdateChecker
         public void ParseOnlineApplicationVersioning(string strApplicationUrl)
         {
             var wc = new WebClient { Proxy = null };
-            var strSource = wc.DownloadString(strApplicationUrl);
+            var strSource = String.Empty;
+
+            try
+            {
+                strSource = wc.DownloadString(strApplicationUrl);
+            }
+
+            catch
+            {
+                return;
+            }
 
             var xmlSerializer = new XmlSerializer(typeof(ApplicationDatastore));
 

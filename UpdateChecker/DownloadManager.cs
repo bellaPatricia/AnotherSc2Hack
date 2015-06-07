@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -21,7 +22,9 @@ namespace UpdateChecker
     {
         #region Properties
 
-        public UpdateState BUpdatesAvailable { get; set; }
+        public UpdateState BUpdatesAvailable { get; private set; }
+        public List<PluginDatastore> PluginDatastoresOnline { get; private set; }
+        public List<PluginDatastore> PluginDatastoresOffline { get; private set; }
 
 
         #endregion
@@ -59,6 +62,9 @@ namespace UpdateChecker
         public DownloadManager()
         {
             _wcDownloader.DownloadProgressChanged += _wcDownloader_DownloadProgressChanged;
+
+            BUpdatesAvailable = UpdateState.None;
+            PluginDatastoresOnline = new List<PluginDatastore>();
         }
 
         #endregion
@@ -187,6 +193,9 @@ namespace UpdateChecker
 
             _onlinePluginVersioning.ParseOnlinePluginVersioning(StrPluginDatastore);
             _offlinePluginVersioning.ParseOfflinePluginVersioning(_onlinePluginVersioning);
+
+            PluginDatastoresOnline = _onlinePluginVersioning.Plugins;
+            PluginDatastoresOffline = _offlinePluginVersioning.Plugins;
 
             foreach (var onlinePlugin in _onlinePluginVersioning.Plugins)
             {
