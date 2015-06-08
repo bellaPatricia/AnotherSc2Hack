@@ -9,6 +9,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public string Language { get; set; }
         public Keys ChangeSizeAndPosition { get; set; }
         public bool DrawOnlyInForeground { get; set; }
+        public int ApplicationCallCounter { get; set; }
+        public bool ApplicationAskedForDonation { get; set; }
 
         public PreferenceGlobal()
         {
@@ -17,6 +19,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             Language = "English";
             ChangeSizeAndPosition = Keys.NumPad0;
             ElementName = "Global";
+            ApplicationCallCounter = 0;
+            ApplicationAskedForDonation = false;
         }
     }
 }

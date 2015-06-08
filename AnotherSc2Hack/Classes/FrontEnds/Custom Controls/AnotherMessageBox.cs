@@ -112,6 +112,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
             textSize.Height += pnlBottomContainer.Height;
             textSize.Height += lblMainText.Location.Y + lblMainText.Padding.Vertical;
+            textSize.Height += iMargin;
 
 
             ClientSize = textSize;

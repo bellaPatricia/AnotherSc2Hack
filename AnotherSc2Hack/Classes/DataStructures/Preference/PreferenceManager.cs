@@ -1,12 +1,17 @@
 ﻿using System.IO;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
     public class PreferenceManager
     {
+        private LanguageString _lstrContributionTitle = new LanguageString("lstrContributionTitle");
+        private LanguageString _lstrContributionText = new LanguageString("lstrContributionText");
+
         public PreferenceAll PreferenceAll { get; private set; }
         private readonly XmlSerializer _xmlSerializer;
 
@@ -31,6 +36,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
         public void Write()
         {
+            PreferenceAll.Global.ApplicationCallCounter += 1;
+
             _xmlSerializer.Serialize(new StreamWriter(Constants.StrXmlPreferences), PreferenceAll);
 
             if (File.Exists(Constants.StrDummyPref))
@@ -40,6 +47,22 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public void Restore()
         {
             PreferenceAll = new PreferenceAll();
+        }
+
+        public bool AskForDonation()
+        {
+            if (!PreferenceAll.Global.ApplicationAskedForDonation && PreferenceAll.Global.ApplicationCallCounter > 50)
+            {
+                var result = new AnotherMessageBox().Show(_lstrContributionText.Text, _lstrContributionTitle.Text,
+                    MessageBoxButtons.YesNo);
+
+                PreferenceAll.Global.ApplicationAskedForDonation = true;
+
+                if (result == DialogResult.Yes)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

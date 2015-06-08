@@ -240,6 +240,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             
             LoadContributers();
             LaunchOnStartup();
+
+            
         }
 
         #endregion
@@ -247,6 +249,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void Init()
         {
             PSettings = new PreferenceManager();
+
+            
 
             cpnlApplication.PerformClick();
             cpnlOverlaysResources.PerformClick();
@@ -285,48 +289,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 ControlStyles.OptimizedDoubleBuffer |
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer, true);
-        }
-
-        void _ucDownloadManager_DownloadManagerUpdateRequired(object sender, EventArgs e)
-        {
-            var dm = sender as DownloadManager;
-
-            if (dm == null)
-                return;
-
-            dm.InstallDownloadManager();
-        }
-
-        void _ucDownloadManager_UpdateAvailable(object sender, UpdateArgs e)
-        {
-            _strUpdateFiles += "[" + e.UpdateName + "] " + e.OldVersion + " -> " + e.NewVersion + "\n";
-        }
-
-        void _ucDownloadManager_CheckComplete(object sender, EventArgs e)
-        {
-            new Thread(PluginLoadAvailablePlugins).Start();
-
-            var dm = sender as DownloadManager;
-
-            if (dm == null)
-                return;
-
-            if (dm.BUpdatesAvailable == UpdateState.Available)
-            {
-                var result = new AnotherMessageBox().Show(_strUpdateFiles + "\n" + _lstrApplicationDoYouWishToUpdate, _lstrApplicationUpdateTitle.Text, MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    if (File.Exists(Constants.StrDownloadManager))
-                    {
-                        _bLaunchDownloadManager = true;
-                        MethodInvoker invoker = Close;
-
-                        Invoke(invoker);
-                    }
-                }
-            }
-
-            _strUpdateFiles = String.Empty;
         }
 
         /// <summary>
@@ -725,6 +687,59 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
+        private void NewMainHandler_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (_bLaunchDownloadManager)
+                Process.Start(Constants.StrDownloadManager);
+        }
+
+        private void NewMainHandler_Load(object sender, EventArgs e)
+        {
+            if (PSettings.AskForDonation())
+                cpnlHelpMe.PerformClick();
+        }
+
+        void _ucDownloadManager_DownloadManagerUpdateRequired(object sender, EventArgs e)
+        {
+            var dm = sender as DownloadManager;
+
+            if (dm == null)
+                return;
+
+            dm.InstallDownloadManager();
+        }
+
+        void _ucDownloadManager_UpdateAvailable(object sender, UpdateArgs e)
+        {
+            _strUpdateFiles += "[" + e.UpdateName + "] " + e.OldVersion + " -> " + e.NewVersion + "\n";
+        }
+
+        void _ucDownloadManager_CheckComplete(object sender, EventArgs e)
+        {
+            new Thread(PluginLoadAvailablePlugins).Start();
+
+            var dm = sender as DownloadManager;
+
+            if (dm == null)
+                return;
+
+            if (dm.BUpdatesAvailable == UpdateState.Available)
+            {
+                var result = new AnotherMessageBox().Show(_strUpdateFiles + "\n" + _lstrApplicationDoYouWishToUpdate, _lstrApplicationUpdateTitle.Text, MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    if (File.Exists(Constants.StrDownloadManager))
+                    {
+                        _bLaunchDownloadManager = true;
+                        MethodInvoker invoker = Close;
+
+                        Invoke(invoker);
+                    }
+                }
+            }
+
+            _strUpdateFiles = String.Empty;
+        }
 
         #endregion
 
@@ -3298,15 +3313,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
-        private void NewMainHandler_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (_bLaunchDownloadManager)
-                Process.Start(Constants.StrDownloadManager);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            _ucDownloadManager.CheckUpdates();
-        }
+       
     } 
 }

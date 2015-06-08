@@ -1,12 +1,7 @@
 ﻿#############################
 # Add into the next release #
 #############################
-└ [OPEN]	Integrated Downloadmanager
-			├ Download the needed files like:
-				├ Plugininterface.dll
-				├ PredefinedFiles.dll
-				└ Languagefiles
-			└ Check if the listed files are available, if not, download them.
+
 
 ################################
 # Those really should be added #
@@ -44,3 +39,13 @@
 # Test purposes #
 #################
 └ [OPEN] Plugins: Make on AppDomain and load the plugins in there. Then try to send controls to the host
+
+############
+# Finished #
+############
+└ [Done]	Integrated Downloadmanager
+			├ Download the needed files like:
+				├ Plugininterface.dll
+				├ PredefinedFiles.dll
+				└ Languagefiles
+			└ Check if the listed files are available, if not, download them.
