@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -236,6 +235,11 @@ namespace UpdateChecker
                 _strDownloadedFileName = Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.ApplicationUrl);
                 _wcDownloader.DownloadFileAsync(new Uri(_onlineApplicationVersioning.ApplicationUrl), _offlineApplicationVersioning.ApplicationUrl);
                 while (_wcDownloader.IsBusy) { Thread.Sleep(10);}
+
+                //Increment download couonter
+                var webRequest = WebRequest.Create(_onlineApplicationVersioning.ApplicationCounter);
+                webRequest.Proxy = _wcDownloader.Proxy;
+                webRequest.GetResponse();
             }
 
             if (_onlineApplicationVersioning.DownloadManagerVersion > _offlineApplicationVersioning.DownloadManagerVersion)

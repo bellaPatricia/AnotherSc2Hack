@@ -1751,7 +1751,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 plugin.Name = Path.GetFileNameWithoutExtension(languageFile);
 
                 using (var sr = new StreamReader(languageFile))
-                    plugin.Version = sr.ReadLine().Substring(1);
+                {
+                    var strVersion = sr.ReadLine();
+
+                    if (strVersion != null && strVersion.Length > 2)
+                        plugin.Version = strVersion.Substring(1);
+
+                    else
+                        plugin.Version = "0.0.0.0";
+                }   
 
                 plugin.Hash = Hashes.HashFromFile(languageFile, Hashes.HashAlgorithm.Md5);
                 plugin.DownloadPath = languageFile;

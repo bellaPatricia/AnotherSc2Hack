@@ -1,7 +1,7 @@
 ﻿#############################
 # Add into the next release #
 #############################
-
+├ [OPEN]	Default test in Language String so there's a backup for missing text
 
 ################################
 # Those really should be added #
@@ -43,9 +43,10 @@
 ############
 # Finished #
 ############
-└ [Done]	Integrated Downloadmanager
-			├ Download the needed files like:
-				├ Plugininterface.dll
-				├ PredefinedFiles.dll
-				└ Languagefiles
-			└ Check if the listed files are available, if not, download them.
+├ [DONE]	[2015-06-08]	Download Counter - open bit.ly for the with a webrequest (GET?) for a download
+└ [DONE]	[2015-06-08]	Integrated Downloadmanager
+							├ Download the needed files like:
+								├ Plugininterface.dll
+								├ PredefinedFiles.dll
+								└ Languagefiles
+							└ Check if the listed files are available, if not, download them.

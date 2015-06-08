@@ -9,8 +9,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
     public class PreferenceManager
     {
-        private LanguageString _lstrContributionTitle = new LanguageString("lstrContributionTitle");
-        private LanguageString _lstrContributionText = new LanguageString("lstrContributionText");
+        private readonly LanguageString _lstrContributionTitle = new LanguageString("lstrContributionTitle");
+        private readonly LanguageString _lstrContributionText = new LanguageString("lstrContributionText");
 
         public PreferenceAll PreferenceAll { get; private set; }
         private readonly XmlSerializer _xmlSerializer;
@@ -51,7 +51,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
         public bool AskForDonation()
         {
-            if (!PreferenceAll.Global.ApplicationAskedForDonation && PreferenceAll.Global.ApplicationCallCounter > 50)
+            if (!PreferenceAll.Global.ApplicationAskedForDonation && PreferenceAll.Global.ApplicationCallCounter > -1)
             {
                 var result = new AnotherMessageBox().Show(_lstrContributionText.Text, _lstrContributionTitle.Text,
                     MessageBoxButtons.YesNo);
