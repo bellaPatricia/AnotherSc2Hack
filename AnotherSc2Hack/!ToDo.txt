@@ -2,6 +2,8 @@
 # Add into the next release #
 #############################
 ├ [OPEN]	Add preview panels for the overlays. Additionally display the size and position
+├ [OPEN]	Application wont find SC2 if it's started before SC2
+├ [OPEN]	Unitcount and Draw fails
 
 ################################
 # Those really should be added #
