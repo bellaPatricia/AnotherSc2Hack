@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using PredefinedTypes = Predefined.PredefinedData;
+using PredefinedTypes;
+using PredefinedTypes = PredefinedTypes.PredefinedData;
 
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
     class RendererHelper
     {
-        public static void TeamColor(List<PredefinedTypes.PlayerStruct> pPlayers, Int32 iIndex, Boolean isTeamcolorEnabled, ref Color clPlayercolor)
+        public static void TeamColor(List<PredefinedData.PlayerStruct> pPlayers, Int32 iIndex, Boolean isTeamcolorEnabled, ref Color clPlayercolor)
         {
             if (!isTeamcolorEnabled)
                 return;
@@ -34,7 +35,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         }
 
-        public static void TeamColor(List<PredefinedTypes.PlayerStruct> pPlayers, List<PredefinedTypes.Unit> uUnit , Int32 iIndex, Boolean isTeamcolorEnabled, ref Color clPlayercolor)
+        public static void TeamColor(List<PredefinedData.PlayerStruct> pPlayers, List<PredefinedData.Unit> uUnit , Int32 iIndex, Boolean isTeamcolorEnabled, ref Color clPlayercolor)
         {
             if (!isTeamcolorEnabled)
                 return;
@@ -50,7 +51,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                          !pPlayers[uUnit[iIndex].Owner].IsLocalplayer)
                     clPlayercolor = Color.Yellow;
 
-                else if (pPlayers[uUnit[iIndex].Owner].Type.Equals(PredefinedTypes.PlayerType.Neutral))
+                else if (pPlayers[uUnit[iIndex].Owner].Type.Equals(PredefinedData.PlayerType.Neutral))
                     clPlayercolor = Color.White;
 
                 else

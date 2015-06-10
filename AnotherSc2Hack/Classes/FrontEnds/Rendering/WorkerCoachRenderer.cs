@@ -6,7 +6,8 @@ using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using System.Drawing;
-using PredefinedTypes = Predefined.PredefinedData;
+using PredefinedTypes;
+using PredefinedTypes = PredefinedTypes.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -133,13 +134,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 var player = GInformation.Player[GInformation.Player.LocalplayerIndex];
 
-                if (player.PlayerRace == PredefinedTypes.PlayerRace.Terran)
+                if (player.PlayerRace == PredefinedData.PlayerRace.Terran)
                 {
                     _imgWorker = Properties.Resources.trans_tu_scv;
                     _imgSpecial = Properties.Resources.trans_tu_mule;
                 }
 
-                else if (player.PlayerRace == PredefinedTypes.PlayerRace.Protoss)
+                else if (player.PlayerRace == PredefinedData.PlayerRace.Protoss)
                 {
                     _imgWorker = Properties.Resources.trans_pu_probe;
                     _imgSpecial = Properties.Resources.pup_chrono;
@@ -238,20 +239,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (localPlayer.SupplyMin == localPlayer.SupplyMax)
                         return;
 
-                    if (unit.Id.Equals(PredefinedTypes.UnitId.TbCcGround) ||
-                        unit.Id.Equals(PredefinedTypes.UnitId.TbPlanetary) ||
-                        unit.Id.Equals(PredefinedTypes.UnitId.TbOrbitalGround))
+                    if (unit.Id.Equals(PredefinedData.UnitId.TbCcGround) ||
+                        unit.Id.Equals(PredefinedData.UnitId.TbPlanetary) ||
+                        unit.Id.Equals(PredefinedData.UnitId.TbOrbitalGround))
                     {
                         if (!unit.IsUnderConstruction &&
                             unit.ProdNumberOfQueuedUnits <= 0)
                         {
-                            if (!unit.ProdUnitProductionId.Contains(PredefinedTypes.UnitId.TupUpgradeToOrbital) &&
-                                !unit.ProdUnitProductionId.Contains(PredefinedTypes.UnitId.TupUpgradeToPlanetary))
+                            if (!unit.ProdUnitProductionId.Contains(PredefinedData.UnitId.TupUpgradeToOrbital) &&
+                                !unit.ProdUnitProductionId.Contains(PredefinedData.UnitId.TupUpgradeToPlanetary))
                                 iUnusedWorkers += 1;
                         }
 
-                        if (unit.Id.Equals(PredefinedTypes.UnitId.TbOrbitalGround) ||
-                            unit.Id.Equals(PredefinedTypes.UnitId.TbOrbitalAir))
+                        if (unit.Id.Equals(PredefinedData.UnitId.TbOrbitalGround) ||
+                            unit.Id.Equals(PredefinedData.UnitId.TbOrbitalAir))
                         {
                             var tmp = (double)(unit.Energy >> 12) / 50;
                             tmp = Math.Floor(tmp);
@@ -259,7 +260,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
                     }
 
-                    if (unit.Id.Equals(PredefinedTypes.UnitId.PbNexus))
+                    if (unit.Id.Equals(PredefinedData.UnitId.PbNexus))
                     {
                         if (!unit.IsUnderConstruction &&
                             unit.ProdNumberOfQueuedUnits <= 0)

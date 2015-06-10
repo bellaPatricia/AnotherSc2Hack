@@ -4,8 +4,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using Utilities.Events;
 
-
-namespace AnotherSc2Hack.Classes.FrontEnds
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     [DefaultEvent("NumberChanged")]
     public class NumberTextBox : TextBox

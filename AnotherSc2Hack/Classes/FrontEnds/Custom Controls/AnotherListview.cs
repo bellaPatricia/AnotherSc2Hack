@@ -1,8 +1,6 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace AnotherSc2Hack.Classes.FrontEnds
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     public class AnotherListview : ListView
     {

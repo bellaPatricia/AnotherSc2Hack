@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.DataStructures.Xml;
-using Predefined;
+using PredefinedTypes;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {

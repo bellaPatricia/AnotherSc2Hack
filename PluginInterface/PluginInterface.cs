@@ -25,7 +25,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Drawing;
-using PredefinedTypes = Predefined.PredefinedData;
+using PredefinedTypes;
+using PredefinedTypes = PredefinedTypes.PredefinedData;
 
 namespace PluginInterface
 {
@@ -140,37 +141,37 @@ namespace PluginInterface
         /// Supplies the map-data to the plugin to use it
         /// </summary>
         /// <param name="map">The actual map data-structure</param>
-        void SetMap(PredefinedTypes.Map map);
+        void SetMap(PredefinedData.Map map);
 
         /// <summary>
         /// Supplies the unit-data to the plugin to use it
         /// </summary>
         /// <param name="units">The actual unit data-structure</param>
-        void SetUnits(List<PredefinedTypes.Unit> units);
+        void SetUnits(List<PredefinedData.Unit> units);
 
         /// <summary>
         /// Supplies the player-data to the plugin to use it
         /// </summary>
         /// <param name="players">The actual player data-structure</param>
-        void SetPlayers(PredefinedTypes.PList players);
+        void SetPlayers(PredefinedData.PList players);
 
         /// <summary>
         /// Supplies the selection-data to the plugin to use it
         /// </summary>
         /// <param name="selection">The actual selection data-structure</param>
-        void SetSelection(PredefinedTypes.LSelection selection);
+        void SetSelection(PredefinedData.LSelection selection);
 
         /// <summary>
         /// Supplies the group-data to the plugin to use it
         /// </summary>
         /// <param name="groups">The actual group data-structure</param>
-        void SetGroups(List<PredefinedTypes.Groups> groups);
+        void SetGroups(List<PredefinedData.Groups> groups);
 
         /// <summary>
         /// Supplies the game-data to the plugin to use it
         /// </summary>
         /// <param name="gameinfo">The actual game data-structure</param>
-        void SetGameinfo(PredefinedTypes.Gameinformation gameinfo);
+        void SetGameinfo(PredefinedData.Gameinformation gameinfo);
 
         /// <summary>
         /// Supplies the process-data to the plugin to use it

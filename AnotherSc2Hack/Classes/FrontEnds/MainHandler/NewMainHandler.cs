@@ -17,7 +17,7 @@ using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
 using PluginInterface;
-using Predefined;
+using PredefinedTypes;
 using UpdateChecker;
 using Utilities.Events;
 using Utilities.VariousClasses.Hashes;

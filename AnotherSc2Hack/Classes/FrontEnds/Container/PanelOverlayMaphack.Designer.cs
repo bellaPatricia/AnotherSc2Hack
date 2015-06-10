@@ -1,4 +1,6 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Container
+﻿using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
     partial class PanelOverlayMaphack
     {
@@ -32,9 +34,9 @@
             this.btnMaphackBasicsUnitColor = new System.Windows.Forms.Button();
             this.cmsListviewContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmRemoveItems = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblMaphackFilter = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.icbMaphackBasicsUnitSelection = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
-            this.lstvMaphackBasicsUnitFilter = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.lblMaphackFilter = new LanguageLabel();
+            this.icbMaphackBasicsUnitSelection = new ImageCombobox();
+            this.lstvMaphackBasicsUnitFilter = new AnotherListview();
             this.chMaphackfilterUnit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlLauncher = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsLauncher();
             this.pnlBasics = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsBasicsMaphack();

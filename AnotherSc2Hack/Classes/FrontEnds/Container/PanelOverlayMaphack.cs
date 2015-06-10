@@ -22,7 +22,7 @@ using AnotherSc2Hack.Classes.BackEnds;
 using Utilities.ExtensionMethods;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
-using Predefined;
+using PredefinedTypes;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {

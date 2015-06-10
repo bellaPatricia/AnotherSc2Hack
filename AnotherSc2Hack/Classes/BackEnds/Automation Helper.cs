@@ -1,38 +1,39 @@
 ﻿using System;
 using System.Windows.Forms;
-using PredefinedTypes = Predefined.PredefinedData;
+using PredefinedTypes;
+using PredefinedTypes = PredefinedTypes.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
     class AutomationHelper
     {
         private readonly IntPtr _myHandle = IntPtr.Zero;
-        private readonly PredefinedTypes.AutomationMethods _myMethod = PredefinedTypes.AutomationMethods.PostMessage;
+        private readonly PredefinedData.AutomationMethods _myMethod = PredefinedData.AutomationMethods.PostMessage;
 
-        public AutomationHelper(IntPtr handle, PredefinedTypes.AutomationMethods method)
+        public AutomationHelper(IntPtr handle, PredefinedData.AutomationMethods method)
         {
             _myHandle = handle;
             _myMethod = method;
         }
 
-        public void SelectGroup(PredefinedTypes.GroupSelection group)
+        public void SelectGroup(PredefinedData.GroupSelection group)
         {
-            if (_myMethod.Equals(PredefinedTypes.AutomationMethods.SendMessage))
+            if (_myMethod.Equals(PredefinedData.AutomationMethods.SendMessage))
             {
                 InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)group, IntPtr.Zero);
                 InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keyup, (IntPtr)group, IntPtr.Zero);
             }
 
-            else if (_myMethod.Equals(PredefinedTypes.AutomationMethods.PostMessage))
+            else if (_myMethod.Equals(PredefinedData.AutomationMethods.PostMessage))
             {
                 InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)group, IntPtr.Zero);
                 InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keyup, (IntPtr)group, IntPtr.Zero);
             }
         }
 
-        public void AssignGroup(PredefinedTypes.GroupSelection group)
+        public void AssignGroup(PredefinedData.GroupSelection group)
         {
-            if (_myMethod.Equals(PredefinedTypes.AutomationMethods.SendMessage))
+            if (_myMethod.Equals(PredefinedData.AutomationMethods.SendMessage))
             {
                 InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)Keys.ControlKey, IntPtr.Zero);
                 InteropCalls.SendMessage(_myHandle, (uint) InteropCalls.WMessages.Keydown, (IntPtr) group,
@@ -40,7 +41,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keyup, (IntPtr)Keys.ControlKey, IntPtr.Zero);
             }
 
-            else if (_myMethod.Equals(PredefinedTypes.AutomationMethods.PostMessage))
+            else if (_myMethod.Equals(PredefinedData.AutomationMethods.PostMessage))
             {
                 InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)Keys.ControlKey, IntPtr.Zero);
                 InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)group,
@@ -51,7 +52,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public void PerformCompleteKeypress(Keys key)
         {
-            if (_myMethod.Equals(PredefinedTypes.AutomationMethods.SendMessage))
+            if (_myMethod.Equals(PredefinedData.AutomationMethods.SendMessage))
             {
                 InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown,
                                          (IntPtr)key, IntPtr.Zero);
@@ -62,7 +63,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
 
-            else if (_myMethod.Equals(PredefinedTypes.AutomationMethods.PostMessage))
+            else if (_myMethod.Equals(PredefinedData.AutomationMethods.PostMessage))
             {
                 InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown,
                                          (IntPtr)key, IntPtr.Zero);

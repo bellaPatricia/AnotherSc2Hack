@@ -1,11 +1,9 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
-using AnotherSc2Hack.Classes.BackEnds;
+using PredefinedTypes;
 using Utilities.ExtensionMethods;
-using PredefinedTypes = Predefined.PredefinedData;
 
-namespace AnotherSc2Hack.Classes.FrontEnds
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     class ImageCombobox : ComboBox
     {
@@ -159,42 +157,42 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             #region Units
 
-            Items.Add(new ImageComboItem("SCV", Properties.Resources.trans_tu_scv, PredefinedTypes.UnitId.TuScv, imgTerran));
-            Items.Add(new ImageComboItem("MULE", Properties.Resources.trans_tu_mule, PredefinedTypes.UnitId.TuMule, imgTerran));
-            Items.Add(new ImageComboItem("Marine", Properties.Resources.trans_tu_marine, PredefinedTypes.UnitId.TuMarine, imgTerran));
-            Items.Add(new ImageComboItem("Marauder", Properties.Resources.trans_tu_marauder, PredefinedTypes.UnitId.TuMarauder, imgTerran));
-            Items.Add(new ImageComboItem("Reaper", Properties.Resources.trans_tu_reaper, PredefinedTypes.UnitId.TuReaper, imgTerran));
-            Items.Add(new ImageComboItem("Ghost", Properties.Resources.trans_tu_ghost, PredefinedTypes.UnitId.TuGhost, imgTerran));
-            Items.Add(new ImageComboItem("Hellion", Properties.Resources.trans_tu_hellion, PredefinedTypes.UnitId.TuHellion, imgTerran));
-            Items.Add(new ImageComboItem("Hellbat", Properties.Resources.trans_tu_hellbat, PredefinedTypes.UnitId.TuHellbat, imgTerran));
-            Items.Add(new ImageComboItem("Widow Mine", Properties.Resources.trans_tu_widowmine, PredefinedTypes.UnitId.TuWidowMine, imgTerran));
-            Items.Add(new ImageComboItem("Siege Tank", Properties.Resources.trans_tu_siegetank, PredefinedTypes.UnitId.TuSiegetank, imgTerran));
-            Items.Add(new ImageComboItem("Thor", Properties.Resources.trans_tu_thor, PredefinedTypes.UnitId.TuThor, imgTerran));
-            Items.Add(new ImageComboItem("Viking", Properties.Resources.trans_tu_vikingair, PredefinedTypes.UnitId.TuVikingAir, imgTerran));
-            Items.Add(new ImageComboItem("Medivac", Properties.Resources.trans_tu_medivac, PredefinedTypes.UnitId.TuMedivac, imgTerran));
-            Items.Add(new ImageComboItem("Banshee", Properties.Resources.trans_tu_banshee, PredefinedTypes.UnitId.TuBanshee, imgTerran));
-            Items.Add(new ImageComboItem("Raven", Properties.Resources.trans_tu_raven, PredefinedTypes.UnitId.TuRaven, imgTerran));
-            Items.Add(new ImageComboItem("Battlecruiser", Properties.Resources.trans_tu_battlecruiser, PredefinedTypes.UnitId.TuBattlecruiser, imgTerran));
+            Items.Add(new ImageComboItem("SCV", Properties.Resources.trans_tu_scv, PredefinedData.UnitId.TuScv, imgTerran));
+            Items.Add(new ImageComboItem("MULE", Properties.Resources.trans_tu_mule, PredefinedData.UnitId.TuMule, imgTerran));
+            Items.Add(new ImageComboItem("Marine", Properties.Resources.trans_tu_marine, PredefinedData.UnitId.TuMarine, imgTerran));
+            Items.Add(new ImageComboItem("Marauder", Properties.Resources.trans_tu_marauder, PredefinedData.UnitId.TuMarauder, imgTerran));
+            Items.Add(new ImageComboItem("Reaper", Properties.Resources.trans_tu_reaper, PredefinedData.UnitId.TuReaper, imgTerran));
+            Items.Add(new ImageComboItem("Ghost", Properties.Resources.trans_tu_ghost, PredefinedData.UnitId.TuGhost, imgTerran));
+            Items.Add(new ImageComboItem("Hellion", Properties.Resources.trans_tu_hellion, PredefinedData.UnitId.TuHellion, imgTerran));
+            Items.Add(new ImageComboItem("Hellbat", Properties.Resources.trans_tu_hellbat, PredefinedData.UnitId.TuHellbat, imgTerran));
+            Items.Add(new ImageComboItem("Widow Mine", Properties.Resources.trans_tu_widowmine, PredefinedData.UnitId.TuWidowMine, imgTerran));
+            Items.Add(new ImageComboItem("Siege Tank", Properties.Resources.trans_tu_siegetank, PredefinedData.UnitId.TuSiegetank, imgTerran));
+            Items.Add(new ImageComboItem("Thor", Properties.Resources.trans_tu_thor, PredefinedData.UnitId.TuThor, imgTerran));
+            Items.Add(new ImageComboItem("Viking", Properties.Resources.trans_tu_vikingair, PredefinedData.UnitId.TuVikingAir, imgTerran));
+            Items.Add(new ImageComboItem("Medivac", Properties.Resources.trans_tu_medivac, PredefinedData.UnitId.TuMedivac, imgTerran));
+            Items.Add(new ImageComboItem("Banshee", Properties.Resources.trans_tu_banshee, PredefinedData.UnitId.TuBanshee, imgTerran));
+            Items.Add(new ImageComboItem("Raven", Properties.Resources.trans_tu_raven, PredefinedData.UnitId.TuRaven, imgTerran));
+            Items.Add(new ImageComboItem("Battlecruiser", Properties.Resources.trans_tu_battlecruiser, PredefinedData.UnitId.TuBattlecruiser, imgTerran));
 
             #endregion
 
             #region Buildings
 
-            Items.Add(new ImageComboItem("Command Center", Properties.Resources.trans_tb_commandcenter, PredefinedTypes.UnitId.TbCcGround, imgTerran));
-            Items.Add(new ImageComboItem("Orbital Command", Properties.Resources.trans_tb_orbitalcommand, PredefinedTypes.UnitId.TbOrbitalGround, imgTerran));
-            Items.Add(new ImageComboItem("Planetary Fortress", Properties.Resources.trans_tb_planetaryfortress, PredefinedTypes.UnitId.TbPlanetary, imgTerran));
-            Items.Add(new ImageComboItem("Supply Depot", Properties.Resources.trans_tb_supplydepot, PredefinedTypes.UnitId.TbSupplyGround, imgTerran));
-            Items.Add(new ImageComboItem("Barracks", Properties.Resources.trans_tb_barracks, PredefinedTypes.UnitId.TbBarracksGround, imgTerran));
-            Items.Add(new ImageComboItem("Refinery", Properties.Resources.trans_tb_refinery, PredefinedTypes.UnitId.TbRefinery, imgTerran));
-            Items.Add(new ImageComboItem("Bunker", Properties.Resources.trans_tb_bunker, PredefinedTypes.UnitId.TbBunker, imgTerran));
-            Items.Add(new ImageComboItem("Engineering Bay", Properties.Resources.trans_tb_engineeringbay, PredefinedTypes.UnitId.TbEbay, imgTerran));
-            Items.Add(new ImageComboItem("Missle Turret", Properties.Resources.trans_tb_missileturret, PredefinedTypes.UnitId.TbTurret, imgTerran));
-            Items.Add(new ImageComboItem("Sensor Tower", Properties.Resources.trans_tb_sensortower, PredefinedTypes.UnitId.TbSensortower, imgTerran));
-            Items.Add(new ImageComboItem("Factory", Properties.Resources.trans_tb_factory, PredefinedTypes.UnitId.TbFactoryGround, imgTerran));
-            Items.Add(new ImageComboItem("Starport", Properties.Resources.trans_tb_starport, PredefinedTypes.UnitId.TbStarportGround, imgTerran));
-            Items.Add(new ImageComboItem("Ghost Academy", Properties.Resources.trans_tb_ghostacademy, PredefinedTypes.UnitId.TbGhostacademy, imgTerran));
-            Items.Add(new ImageComboItem("Fusion Core", Properties.Resources.trans_tb_fusioncore, PredefinedTypes.UnitId.TbFusioncore, imgTerran));
-            Items.Add(new ImageComboItem("Armory", Properties.Resources.trans_tb_armory, PredefinedTypes.UnitId.TbArmory, imgTerran));
+            Items.Add(new ImageComboItem("Command Center", Properties.Resources.trans_tb_commandcenter, PredefinedData.UnitId.TbCcGround, imgTerran));
+            Items.Add(new ImageComboItem("Orbital Command", Properties.Resources.trans_tb_orbitalcommand, PredefinedData.UnitId.TbOrbitalGround, imgTerran));
+            Items.Add(new ImageComboItem("Planetary Fortress", Properties.Resources.trans_tb_planetaryfortress, PredefinedData.UnitId.TbPlanetary, imgTerran));
+            Items.Add(new ImageComboItem("Supply Depot", Properties.Resources.trans_tb_supplydepot, PredefinedData.UnitId.TbSupplyGround, imgTerran));
+            Items.Add(new ImageComboItem("Barracks", Properties.Resources.trans_tb_barracks, PredefinedData.UnitId.TbBarracksGround, imgTerran));
+            Items.Add(new ImageComboItem("Refinery", Properties.Resources.trans_tb_refinery, PredefinedData.UnitId.TbRefinery, imgTerran));
+            Items.Add(new ImageComboItem("Bunker", Properties.Resources.trans_tb_bunker, PredefinedData.UnitId.TbBunker, imgTerran));
+            Items.Add(new ImageComboItem("Engineering Bay", Properties.Resources.trans_tb_engineeringbay, PredefinedData.UnitId.TbEbay, imgTerran));
+            Items.Add(new ImageComboItem("Missle Turret", Properties.Resources.trans_tb_missileturret, PredefinedData.UnitId.TbTurret, imgTerran));
+            Items.Add(new ImageComboItem("Sensor Tower", Properties.Resources.trans_tb_sensortower, PredefinedData.UnitId.TbSensortower, imgTerran));
+            Items.Add(new ImageComboItem("Factory", Properties.Resources.trans_tb_factory, PredefinedData.UnitId.TbFactoryGround, imgTerran));
+            Items.Add(new ImageComboItem("Starport", Properties.Resources.trans_tb_starport, PredefinedData.UnitId.TbStarportGround, imgTerran));
+            Items.Add(new ImageComboItem("Ghost Academy", Properties.Resources.trans_tb_ghostacademy, PredefinedData.UnitId.TbGhostacademy, imgTerran));
+            Items.Add(new ImageComboItem("Fusion Core", Properties.Resources.trans_tb_fusioncore, PredefinedData.UnitId.TbFusioncore, imgTerran));
+            Items.Add(new ImageComboItem("Armory", Properties.Resources.trans_tb_armory, PredefinedData.UnitId.TbArmory, imgTerran));
 
             #endregion
 
@@ -204,42 +202,42 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             #region Units
 
-            Items.Add(new ImageComboItem("Probe", Properties.Resources.trans_pu_probe, PredefinedTypes.UnitId.PuProbe, imgProtoss));
-            Items.Add(new ImageComboItem("Zealot", Properties.Resources.trans_pu_zealot, PredefinedTypes.UnitId.PuZealot, imgProtoss));
-            Items.Add(new ImageComboItem("Stalker", Properties.Resources.trans_pu_stalker, PredefinedTypes.UnitId.PuStalker, imgProtoss));
-            Items.Add(new ImageComboItem("Sentry", Properties.Resources.trans_pu_sentry, PredefinedTypes.UnitId.PuSentry, imgProtoss));
-            Items.Add(new ImageComboItem("Dark Templar", Properties.Resources.trans_pu_darktemplar, PredefinedTypes.UnitId.PuDarktemplar, imgProtoss));
-            Items.Add(new ImageComboItem("High Templar", Properties.Resources.trans_pu_hightemplar, PredefinedTypes.UnitId.PuHightemplar, imgProtoss));
-            Items.Add(new ImageComboItem("Immortal", Properties.Resources.trans_pu_immortal, PredefinedTypes.UnitId.PuImmortal, imgProtoss));
-            Items.Add(new ImageComboItem("Observer", Properties.Resources.trans_pu_observer, PredefinedTypes.UnitId.PuObserver, imgProtoss));
-            Items.Add(new ImageComboItem("Warp Prism", Properties.Resources.trans_pu_warpprism, PredefinedTypes.UnitId.PuWarpprismTransport, imgProtoss));
-            Items.Add(new ImageComboItem("Colossus", Properties.Resources.trans_pu_colossus, PredefinedTypes.UnitId.PuColossus, imgProtoss));
-            Items.Add(new ImageComboItem("Phoenix", Properties.Resources.trans_pu_phoenix, PredefinedTypes.UnitId.PuPhoenix, imgProtoss));
-            Items.Add(new ImageComboItem("Void Ray", Properties.Resources.trans_pu_voidray, PredefinedTypes.UnitId.PuVoidray, imgProtoss));
-            Items.Add(new ImageComboItem("oracle", Properties.Resources.trans_pu_oracle, PredefinedTypes.UnitId.PuOracle, imgProtoss));
-            Items.Add(new ImageComboItem("Tenpest", Properties.Resources.trans_pu_tempest, PredefinedTypes.UnitId.PuTempest, imgProtoss));
-            Items.Add(new ImageComboItem("Carrier", Properties.Resources.trans_pu_carrier, PredefinedTypes.UnitId.PuCarrier, imgProtoss));
-            Items.Add(new ImageComboItem("Mothership Core", Properties.Resources.trans_pu_mothershipcore, PredefinedTypes.UnitId.PuMothershipCore, imgProtoss));
-            Items.Add(new ImageComboItem("Mothership", Properties.Resources.trans_pu_mothership, PredefinedTypes.UnitId.PuMothership, imgProtoss));
+            Items.Add(new ImageComboItem("Probe", Properties.Resources.trans_pu_probe, PredefinedData.UnitId.PuProbe, imgProtoss));
+            Items.Add(new ImageComboItem("Zealot", Properties.Resources.trans_pu_zealot, PredefinedData.UnitId.PuZealot, imgProtoss));
+            Items.Add(new ImageComboItem("Stalker", Properties.Resources.trans_pu_stalker, PredefinedData.UnitId.PuStalker, imgProtoss));
+            Items.Add(new ImageComboItem("Sentry", Properties.Resources.trans_pu_sentry, PredefinedData.UnitId.PuSentry, imgProtoss));
+            Items.Add(new ImageComboItem("Dark Templar", Properties.Resources.trans_pu_darktemplar, PredefinedData.UnitId.PuDarktemplar, imgProtoss));
+            Items.Add(new ImageComboItem("High Templar", Properties.Resources.trans_pu_hightemplar, PredefinedData.UnitId.PuHightemplar, imgProtoss));
+            Items.Add(new ImageComboItem("Immortal", Properties.Resources.trans_pu_immortal, PredefinedData.UnitId.PuImmortal, imgProtoss));
+            Items.Add(new ImageComboItem("Observer", Properties.Resources.trans_pu_observer, PredefinedData.UnitId.PuObserver, imgProtoss));
+            Items.Add(new ImageComboItem("Warp Prism", Properties.Resources.trans_pu_warpprism, PredefinedData.UnitId.PuWarpprismTransport, imgProtoss));
+            Items.Add(new ImageComboItem("Colossus", Properties.Resources.trans_pu_colossus, PredefinedData.UnitId.PuColossus, imgProtoss));
+            Items.Add(new ImageComboItem("Phoenix", Properties.Resources.trans_pu_phoenix, PredefinedData.UnitId.PuPhoenix, imgProtoss));
+            Items.Add(new ImageComboItem("Void Ray", Properties.Resources.trans_pu_voidray, PredefinedData.UnitId.PuVoidray, imgProtoss));
+            Items.Add(new ImageComboItem("oracle", Properties.Resources.trans_pu_oracle, PredefinedData.UnitId.PuOracle, imgProtoss));
+            Items.Add(new ImageComboItem("Tenpest", Properties.Resources.trans_pu_tempest, PredefinedData.UnitId.PuTempest, imgProtoss));
+            Items.Add(new ImageComboItem("Carrier", Properties.Resources.trans_pu_carrier, PredefinedData.UnitId.PuCarrier, imgProtoss));
+            Items.Add(new ImageComboItem("Mothership Core", Properties.Resources.trans_pu_mothershipcore, PredefinedData.UnitId.PuMothershipCore, imgProtoss));
+            Items.Add(new ImageComboItem("Mothership", Properties.Resources.trans_pu_mothership, PredefinedData.UnitId.PuMothership, imgProtoss));
 
             #endregion 
 
             #region Buildings
 
-            Items.Add(new ImageComboItem("Nexus", Properties.Resources.trans_pb_nexus, PredefinedTypes.UnitId.PbNexus, imgProtoss));
-            Items.Add(new ImageComboItem("Pylon", Properties.Resources.trans_pb_pylon, PredefinedTypes.UnitId.PbPylon, imgProtoss));
-            Items.Add(new ImageComboItem("Gateway", Properties.Resources.trans_pb_gateway, PredefinedTypes.UnitId.PbGateway, imgProtoss));
-            Items.Add(new ImageComboItem("Warpgate", Properties.Resources.trans_pb_warpgate, PredefinedTypes.UnitId.PupWarpGate, imgProtoss));
-            Items.Add(new ImageComboItem("Assimilator", Properties.Resources.trans_pb_assimilator, PredefinedTypes.UnitId.PbAssimilator, imgProtoss));
-            Items.Add(new ImageComboItem("Photon Cannon", Properties.Resources.trans_pb_photoncannon, PredefinedTypes.UnitId.PbCannon, imgProtoss));
-            Items.Add(new ImageComboItem("Forge", Properties.Resources.trans_pb_forge, PredefinedTypes.UnitId.PbForge, imgProtoss));
-            Items.Add(new ImageComboItem("Templar Archive", Properties.Resources.trans_pb_templararchive, PredefinedTypes.UnitId.PbTemplararchives, imgProtoss));
-            Items.Add(new ImageComboItem("Dark Shrine", Properties.Resources.trans_pb_darkshrine, PredefinedTypes.UnitId.PbDarkshrine, imgProtoss));
-            Items.Add(new ImageComboItem("Twilight Council", Properties.Resources.trans_pb_twilightcouncil, PredefinedTypes.UnitId.PbTwilightcouncil, imgProtoss));
-            Items.Add(new ImageComboItem("Stargate", Properties.Resources.trans_pb_stargate, PredefinedTypes.UnitId.PbStargate, imgProtoss));
-            Items.Add(new ImageComboItem("Robotics Bay", Properties.Resources.trans_pb_roboticsbay, PredefinedTypes.UnitId.PbRoboticssupportbay, imgProtoss));
-            Items.Add(new ImageComboItem("Robotics Facility", Properties.Resources.trans_pb_roboticsfacility, PredefinedTypes.UnitId.PbRoboticsbay, imgProtoss));
-            Items.Add(new ImageComboItem("Fleet Beacon", Properties.Resources.trans_pb_fleetbeacon, PredefinedTypes.UnitId.PbFleetbeacon, imgProtoss));
+            Items.Add(new ImageComboItem("Nexus", Properties.Resources.trans_pb_nexus, PredefinedData.UnitId.PbNexus, imgProtoss));
+            Items.Add(new ImageComboItem("Pylon", Properties.Resources.trans_pb_pylon, PredefinedData.UnitId.PbPylon, imgProtoss));
+            Items.Add(new ImageComboItem("Gateway", Properties.Resources.trans_pb_gateway, PredefinedData.UnitId.PbGateway, imgProtoss));
+            Items.Add(new ImageComboItem("Warpgate", Properties.Resources.trans_pb_warpgate, PredefinedData.UnitId.PupWarpGate, imgProtoss));
+            Items.Add(new ImageComboItem("Assimilator", Properties.Resources.trans_pb_assimilator, PredefinedData.UnitId.PbAssimilator, imgProtoss));
+            Items.Add(new ImageComboItem("Photon Cannon", Properties.Resources.trans_pb_photoncannon, PredefinedData.UnitId.PbCannon, imgProtoss));
+            Items.Add(new ImageComboItem("Forge", Properties.Resources.trans_pb_forge, PredefinedData.UnitId.PbForge, imgProtoss));
+            Items.Add(new ImageComboItem("Templar Archive", Properties.Resources.trans_pb_templararchive, PredefinedData.UnitId.PbTemplararchives, imgProtoss));
+            Items.Add(new ImageComboItem("Dark Shrine", Properties.Resources.trans_pb_darkshrine, PredefinedData.UnitId.PbDarkshrine, imgProtoss));
+            Items.Add(new ImageComboItem("Twilight Council", Properties.Resources.trans_pb_twilightcouncil, PredefinedData.UnitId.PbTwilightcouncil, imgProtoss));
+            Items.Add(new ImageComboItem("Stargate", Properties.Resources.trans_pb_stargate, PredefinedData.UnitId.PbStargate, imgProtoss));
+            Items.Add(new ImageComboItem("Robotics Bay", Properties.Resources.trans_pb_roboticsbay, PredefinedData.UnitId.PbRoboticssupportbay, imgProtoss));
+            Items.Add(new ImageComboItem("Robotics Facility", Properties.Resources.trans_pb_roboticsfacility, PredefinedData.UnitId.PbRoboticsbay, imgProtoss));
+            Items.Add(new ImageComboItem("Fleet Beacon", Properties.Resources.trans_pb_fleetbeacon, PredefinedData.UnitId.PbFleetbeacon, imgProtoss));
 
             #endregion
 
@@ -249,42 +247,42 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
             #region Units
 
-            Items.Add(new ImageComboItem("Larva", Properties.Resources.trans_zu_larva, PredefinedTypes.UnitId.ZuLarva, imgZerg));
-            Items.Add(new ImageComboItem("Queen", Properties.Resources.trans_zu_queen, PredefinedTypes.UnitId.ZuQueen, imgZerg));
-            Items.Add(new ImageComboItem("Drone", Properties.Resources.trans_zu_drone, PredefinedTypes.UnitId.ZuDrone, imgZerg));
-            Items.Add(new ImageComboItem("Zergling", Properties.Resources.trans_zu_zergling, PredefinedTypes.UnitId.ZuZergling, imgZerg));
-            Items.Add(new ImageComboItem("Baneling Cocoon", Properties.Resources.trans_zu_banelingcocoon, PredefinedTypes.UnitId.ZuBanelingCocoon, imgZerg));
-            Items.Add(new ImageComboItem("Baneling", Properties.Resources.trans_zu_baneling, PredefinedTypes.UnitId.ZuBaneling, imgZerg));
-            Items.Add(new ImageComboItem("Roach", Properties.Resources.trans_zu_roach, PredefinedTypes.UnitId.ZuRoach, imgZerg));
-            Items.Add(new ImageComboItem("Hydralisk", Properties.Resources.trans_zu_hydralisk, PredefinedTypes.UnitId.ZuHydralisk, imgZerg));
-            Items.Add(new ImageComboItem("Mutalisk", Properties.Resources.trans_zu_mutalisk, PredefinedTypes.UnitId.ZuMutalisk, imgZerg));
-            Items.Add(new ImageComboItem("Infestor", Properties.Resources.trans_zu_infestor, PredefinedTypes.UnitId.ZuInfestor, imgZerg));
-            Items.Add(new ImageComboItem("Infested Terran", Properties.Resources.trans_zu_InfestedTerran, PredefinedTypes.UnitId.ZuInfestedTerran, imgZerg));
-            Items.Add(new ImageComboItem("Viper", Properties.Resources.trans_zu_viper, PredefinedTypes.UnitId.ZuViper, imgZerg));
-            Items.Add(new ImageComboItem("Corruptor", Properties.Resources.trans_zu_corruptor, PredefinedTypes.UnitId.ZuCorruptor, imgZerg));
-            Items.Add(new ImageComboItem("Changeling", Properties.Resources.trans_zu_changeling, PredefinedTypes.UnitId.ZuChangeling, imgZerg));
-            Items.Add(new ImageComboItem("Broodlord Cocoon", Properties.Resources.trans_zu_BroodLordCocoon, PredefinedTypes.UnitId.ZuBroodlordCocoon, imgZerg));
-            Items.Add(new ImageComboItem("Broodlord", Properties.Resources.trans_zu_broodlord, PredefinedTypes.UnitId.ZuBroodlord, imgZerg));
-            Items.Add(new ImageComboItem("Ultralisk", Properties.Resources.trans_zu_ultralisk, PredefinedTypes.UnitId.ZuUltra, imgZerg));
+            Items.Add(new ImageComboItem("Larva", Properties.Resources.trans_zu_larva, PredefinedData.UnitId.ZuLarva, imgZerg));
+            Items.Add(new ImageComboItem("Queen", Properties.Resources.trans_zu_queen, PredefinedData.UnitId.ZuQueen, imgZerg));
+            Items.Add(new ImageComboItem("Drone", Properties.Resources.trans_zu_drone, PredefinedData.UnitId.ZuDrone, imgZerg));
+            Items.Add(new ImageComboItem("Zergling", Properties.Resources.trans_zu_zergling, PredefinedData.UnitId.ZuZergling, imgZerg));
+            Items.Add(new ImageComboItem("Baneling Cocoon", Properties.Resources.trans_zu_banelingcocoon, PredefinedData.UnitId.ZuBanelingCocoon, imgZerg));
+            Items.Add(new ImageComboItem("Baneling", Properties.Resources.trans_zu_baneling, PredefinedData.UnitId.ZuBaneling, imgZerg));
+            Items.Add(new ImageComboItem("Roach", Properties.Resources.trans_zu_roach, PredefinedData.UnitId.ZuRoach, imgZerg));
+            Items.Add(new ImageComboItem("Hydralisk", Properties.Resources.trans_zu_hydralisk, PredefinedData.UnitId.ZuHydralisk, imgZerg));
+            Items.Add(new ImageComboItem("Mutalisk", Properties.Resources.trans_zu_mutalisk, PredefinedData.UnitId.ZuMutalisk, imgZerg));
+            Items.Add(new ImageComboItem("Infestor", Properties.Resources.trans_zu_infestor, PredefinedData.UnitId.ZuInfestor, imgZerg));
+            Items.Add(new ImageComboItem("Infested Terran", Properties.Resources.trans_zu_InfestedTerran, PredefinedData.UnitId.ZuInfestedTerran, imgZerg));
+            Items.Add(new ImageComboItem("Viper", Properties.Resources.trans_zu_viper, PredefinedData.UnitId.ZuViper, imgZerg));
+            Items.Add(new ImageComboItem("Corruptor", Properties.Resources.trans_zu_corruptor, PredefinedData.UnitId.ZuCorruptor, imgZerg));
+            Items.Add(new ImageComboItem("Changeling", Properties.Resources.trans_zu_changeling, PredefinedData.UnitId.ZuChangeling, imgZerg));
+            Items.Add(new ImageComboItem("Broodlord Cocoon", Properties.Resources.trans_zu_BroodLordCocoon, PredefinedData.UnitId.ZuBroodlordCocoon, imgZerg));
+            Items.Add(new ImageComboItem("Broodlord", Properties.Resources.trans_zu_broodlord, PredefinedData.UnitId.ZuBroodlord, imgZerg));
+            Items.Add(new ImageComboItem("Ultralisk", Properties.Resources.trans_zu_ultralisk, PredefinedData.UnitId.ZuUltra, imgZerg));
 
             #endregion
 
             #region Buildings
 
-            Items.Add(new ImageComboItem("Hatchery", Properties.Resources.trans_zb_hatchery, PredefinedTypes.UnitId.ZbHatchery, imgZerg));
-            Items.Add(new ImageComboItem("Lair", Properties.Resources.trans_zb_lair, PredefinedTypes.UnitId.ZbLiar, imgZerg));
-            Items.Add(new ImageComboItem("Hive", Properties.Resources.trans_zb_hive, PredefinedTypes.UnitId.ZbHive, imgZerg));
-            Items.Add(new ImageComboItem("Spawning Pool", Properties.Resources.trans_zb_spawningpool, PredefinedTypes.UnitId.ZbSpawningPool, imgZerg));
-            Items.Add(new ImageComboItem("Baneling Nest", Properties.Resources.trans_zb_banelingnest, PredefinedTypes.UnitId.ZbBanelingNest, imgZerg));
-            Items.Add(new ImageComboItem("Evolution Chamber", Properties.Resources.trans_zb_evolutionchamber, PredefinedTypes.UnitId.ZbEvolutionChamber, imgZerg));
-            Items.Add(new ImageComboItem("Spine Crawler", Properties.Resources.trans_zb_spinecrawler, PredefinedTypes.UnitId.ZbSpineCrawler, imgZerg));
-            Items.Add(new ImageComboItem("Sport Crawler", Properties.Resources.trans_zb_sporecrawler, PredefinedTypes.UnitId.ZbSporeCrawler, imgZerg));
-            Items.Add(new ImageComboItem("Roach Warren", Properties.Resources.trans_zb_roachwarren, PredefinedTypes.UnitId.ZbRoachWarren, imgZerg));
-            Items.Add(new ImageComboItem("Hydralisk Den", Properties.Resources.trans_zb_hydraliskden, PredefinedTypes.UnitId.ZbHydraDen, imgZerg));
-            Items.Add(new ImageComboItem("Infestation Pit", Properties.Resources.trans_zb_infestationpit, PredefinedTypes.UnitId.ZbInfestationPit, imgZerg));
-            Items.Add(new ImageComboItem("Spire", Properties.Resources.trans_zb_spire, PredefinedTypes.UnitId.ZbSpire, imgZerg));
-            Items.Add(new ImageComboItem("Greater Spire", Properties.Resources.trans_zb_greaterspire, PredefinedTypes.UnitId.ZbGreaterspire, imgZerg));
-            Items.Add(new ImageComboItem("Ultralisk Cavern", Properties.Resources.trans_zb_ultraliskcavern, PredefinedTypes.UnitId.ZbUltraCavern, imgZerg));
+            Items.Add(new ImageComboItem("Hatchery", Properties.Resources.trans_zb_hatchery, PredefinedData.UnitId.ZbHatchery, imgZerg));
+            Items.Add(new ImageComboItem("Lair", Properties.Resources.trans_zb_lair, PredefinedData.UnitId.ZbLiar, imgZerg));
+            Items.Add(new ImageComboItem("Hive", Properties.Resources.trans_zb_hive, PredefinedData.UnitId.ZbHive, imgZerg));
+            Items.Add(new ImageComboItem("Spawning Pool", Properties.Resources.trans_zb_spawningpool, PredefinedData.UnitId.ZbSpawningPool, imgZerg));
+            Items.Add(new ImageComboItem("Baneling Nest", Properties.Resources.trans_zb_banelingnest, PredefinedData.UnitId.ZbBanelingNest, imgZerg));
+            Items.Add(new ImageComboItem("Evolution Chamber", Properties.Resources.trans_zb_evolutionchamber, PredefinedData.UnitId.ZbEvolutionChamber, imgZerg));
+            Items.Add(new ImageComboItem("Spine Crawler", Properties.Resources.trans_zb_spinecrawler, PredefinedData.UnitId.ZbSpineCrawler, imgZerg));
+            Items.Add(new ImageComboItem("Sport Crawler", Properties.Resources.trans_zb_sporecrawler, PredefinedData.UnitId.ZbSporeCrawler, imgZerg));
+            Items.Add(new ImageComboItem("Roach Warren", Properties.Resources.trans_zb_roachwarren, PredefinedData.UnitId.ZbRoachWarren, imgZerg));
+            Items.Add(new ImageComboItem("Hydralisk Den", Properties.Resources.trans_zb_hydraliskden, PredefinedData.UnitId.ZbHydraDen, imgZerg));
+            Items.Add(new ImageComboItem("Infestation Pit", Properties.Resources.trans_zb_infestationpit, PredefinedData.UnitId.ZbInfestationPit, imgZerg));
+            Items.Add(new ImageComboItem("Spire", Properties.Resources.trans_zb_spire, PredefinedData.UnitId.ZbSpire, imgZerg));
+            Items.Add(new ImageComboItem("Greater Spire", Properties.Resources.trans_zb_greaterspire, PredefinedData.UnitId.ZbGreaterspire, imgZerg));
+            Items.Add(new ImageComboItem("Ultralisk Cavern", Properties.Resources.trans_zb_ultraliskcavern, PredefinedData.UnitId.ZbUltraCavern, imgZerg));
 
             #endregion
 
@@ -310,14 +308,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             Image = image;
         }
 
-        public ImageComboItem(string text, Image image, PredefinedTypes.UnitId unitId)
+        public ImageComboItem(string text, Image image, PredefinedData.UnitId unitId)
         {
             Text = text;
             Image = image;
             UnitId = unitId;
         }
 
-        public ImageComboItem(string text, Image image, PredefinedTypes.UnitId unitId, Image backgroundImage)
+        public ImageComboItem(string text, Image image, PredefinedData.UnitId unitId, Image backgroundImage)
         {
             Text = text;
             Image = image;
@@ -391,9 +389,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds
 
         public Image BackgroundImage { get; set; }
 
-        private PredefinedTypes.UnitId _unitId = PredefinedTypes.UnitId.NbXelNagaTower;
+        private PredefinedData.UnitId _unitId = PredefinedData.UnitId.NbXelNagaTower;
 
-        public PredefinedTypes.UnitId UnitId
+        public PredefinedData.UnitId UnitId
         {
             get { return _unitId; }
             set { _unitId = value; }

@@ -46,14 +46,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             this.label7 = new System.Windows.Forms.Label();
             this.btnMaphackFilterConfirmRule = new System.Windows.Forms.Button();
             this.pnlMaphackFilterRuleContainer = new System.Windows.Forms.Panel();
-            this.icbSigns = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
-            this.chBxMaphackFilterUseSigns = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
+            this.icbSigns = new ImageCombobox();
+            this.chBxMaphackFilterUseSigns = new AnotherCheckbox();
             this.btnMaphackFilterColor = new System.Windows.Forms.Button();
-            this.chBxMaphackFilterUseColor = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
+            this.chBxMaphackFilterUseColor = new AnotherCheckbox();
             this.txtMaphackFilterRuleName = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherTextbox();
-            this.icbMaphackFilterUnits = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
-            this.icbMaphackFilterUnitProperties = new AnotherSc2Hack.Classes.FrontEnds.ImageCombobox();
-            this.lstvMaphackFilterCurrentFilters = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.icbMaphackFilterUnits = new ImageCombobox();
+            this.icbMaphackFilterUnitProperties = new ImageCombobox();
+            this.lstvMaphackFilterCurrentFilters = new AnotherListview();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlFooter.SuspendLayout();
@@ -278,7 +278,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             this.chBxMaphackFilterUseSigns.Name = "chBxMaphackFilterUseSigns";
             this.chBxMaphackFilterUseSigns.Size = new System.Drawing.Size(102, 30);
             this.chBxMaphackFilterUseSigns.TabIndex = 42;
-            this.chBxMaphackFilterUseSigns.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.chBxMaphackFilterUseSigns.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // btnMaphackFilterColor
             // 
@@ -304,7 +304,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             this.chBxMaphackFilterUseColor.Name = "chBxMaphackFilterUseColor";
             this.chBxMaphackFilterUseColor.Size = new System.Drawing.Size(103, 30);
             this.chBxMaphackFilterUseColor.TabIndex = 40;
-            this.chBxMaphackFilterUseColor.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.chBxMaphackFilterUseColor.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // txtMaphackFilterRuleName
             // 

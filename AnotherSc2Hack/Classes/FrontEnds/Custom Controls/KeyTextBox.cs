@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace AnotherSc2Hack.Classes.FrontEnds
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     public delegate void KeyValueChangeHandler(KeyTextBox o, EventKey e);
 
@@ -39,7 +39,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
                 //Call the Event
                 OnKeyValueChange(this, en);
 
-                Text = _hotKeyValue.ToString(CultureInfo.InvariantCulture);
+                Text = _hotKeyValue.ToString();
             }
         }
 

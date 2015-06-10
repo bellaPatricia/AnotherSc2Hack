@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using Utilities.Events;
 
-namespace AnotherSc2Hack.Classes.FrontEnds
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     public delegate void ValueChangeHandler(UiOpacityControl o, NumberArgs e);
 
@@ -15,7 +15,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         public event ValueChangeHandler ValueChanged;
 
         private Int32 _number;
-        private LanguageString _lstrOpacity = new LanguageString("lstrOpacity");
+        private readonly LanguageString _lstrOpacity = new LanguageString("lstrOpacity", "Opacity");
 
         public Int32 Number
         {

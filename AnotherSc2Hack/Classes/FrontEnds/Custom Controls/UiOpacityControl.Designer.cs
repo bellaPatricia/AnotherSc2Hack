@@ -1,4 +1,4 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds
+﻿namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     partial class UiOpacityControl
     {

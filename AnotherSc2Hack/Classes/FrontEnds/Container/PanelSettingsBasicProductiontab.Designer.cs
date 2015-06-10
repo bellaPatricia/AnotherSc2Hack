@@ -1,4 +1,6 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Container
+﻿using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
     partial class PanelSettingsBasicProductiontab
     {
@@ -28,20 +30,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSetFont = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.lblBasics = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.OpacityControl = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
-            this.aChBxRemoveClantags = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveYourself = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveNeutral = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveAllie = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveAi = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveChronoboost = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxSplitUnitsBuildings = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxDisplayBuildings = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxDisplayUnits = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxTransparentImages = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxDisplayUpgrades = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
+            this.btnSetFont = new LanguageButton();
+            this.lblBasics = new LanguageLabel();
+            this.OpacityControl = new UiOpacityControl();
+            this.aChBxRemoveClantags = new AnotherCheckbox();
+            this.aChBxRemoveYourself = new AnotherCheckbox();
+            this.aChBxRemoveNeutral = new AnotherCheckbox();
+            this.aChBxRemoveAllie = new AnotherCheckbox();
+            this.aChBxRemoveAi = new AnotherCheckbox();
+            this.aChBxRemoveChronoboost = new AnotherCheckbox();
+            this.aChBxSplitUnitsBuildings = new AnotherCheckbox();
+            this.aChBxDisplayBuildings = new AnotherCheckbox();
+            this.aChBxDisplayUnits = new AnotherCheckbox();
+            this.aChBxTransparentImages = new AnotherCheckbox();
+            this.aChBxDisplayUpgrades = new AnotherCheckbox();
             this.SuspendLayout();
             // 
             // btnSetFont
@@ -93,7 +95,7 @@
             this.aChBxRemoveClantags.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveClantags.Size = new System.Drawing.Size(154, 30);
             this.aChBxRemoveClantags.TabIndex = 19;
-            this.aChBxRemoveClantags.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveClantags.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveYourself
             // 
@@ -108,7 +110,7 @@
             this.aChBxRemoveYourself.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveYourself.Size = new System.Drawing.Size(150, 30);
             this.aChBxRemoveYourself.TabIndex = 18;
-            this.aChBxRemoveYourself.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveYourself.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveNeutral
             // 
@@ -123,7 +125,7 @@
             this.aChBxRemoveNeutral.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveNeutral.Size = new System.Drawing.Size(146, 30);
             this.aChBxRemoveNeutral.TabIndex = 16;
-            this.aChBxRemoveNeutral.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveNeutral.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveAllie
             // 
@@ -138,7 +140,7 @@
             this.aChBxRemoveAllie.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveAllie.Size = new System.Drawing.Size(127, 30);
             this.aChBxRemoveAllie.TabIndex = 17;
-            this.aChBxRemoveAllie.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveAllie.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveAi
             // 
@@ -153,7 +155,7 @@
             this.aChBxRemoveAi.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveAi.Size = new System.Drawing.Size(111, 30);
             this.aChBxRemoveAi.TabIndex = 15;
-            this.aChBxRemoveAi.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveAi.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveChronoboost
             // 
@@ -168,7 +170,7 @@
             this.aChBxRemoveChronoboost.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveChronoboost.Size = new System.Drawing.Size(183, 30);
             this.aChBxRemoveChronoboost.TabIndex = 21;
-            this.aChBxRemoveChronoboost.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveChronoboost.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxSplitUnitsBuildings
             // 
@@ -183,7 +185,7 @@
             this.aChBxSplitUnitsBuildings.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxSplitUnitsBuildings.Size = new System.Drawing.Size(177, 30);
             this.aChBxSplitUnitsBuildings.TabIndex = 23;
-            this.aChBxSplitUnitsBuildings.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxSplitUnitsBuildings.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxDisplayBuildings
             // 
@@ -198,7 +200,7 @@
             this.aChBxDisplayBuildings.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxDisplayBuildings.Size = new System.Drawing.Size(153, 30);
             this.aChBxDisplayBuildings.TabIndex = 24;
-            this.aChBxDisplayBuildings.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxDisplayBuildings.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxDisplayUnits
             // 
@@ -213,7 +215,7 @@
             this.aChBxDisplayUnits.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxDisplayUnits.Size = new System.Drawing.Size(125, 30);
             this.aChBxDisplayUnits.TabIndex = 25;
-            this.aChBxDisplayUnits.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxDisplayUnits.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxTransparentImages
             // 
@@ -228,7 +230,7 @@
             this.aChBxTransparentImages.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxTransparentImages.Size = new System.Drawing.Size(169, 30);
             this.aChBxTransparentImages.TabIndex = 26;
-            this.aChBxTransparentImages.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxTransparentImages.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxDisplayUpgrades
             // 
@@ -243,7 +245,7 @@
             this.aChBxDisplayUpgrades.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxDisplayUpgrades.Size = new System.Drawing.Size(156, 30);
             this.aChBxDisplayUpgrades.TabIndex = 25;
-            this.aChBxDisplayUpgrades.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxDisplayUpgrades.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // PanelSettingsBasicProductiontab
             // 

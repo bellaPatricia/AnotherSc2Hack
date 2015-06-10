@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 
-namespace AnotherSc2Hack.Classes.FrontEnds
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     public class LanguageLabel : Label
     {
