@@ -51,7 +51,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
         public bool AskForDonation()
         {
-            if (!PreferenceAll.Global.ApplicationAskedForDonation && PreferenceAll.Global.ApplicationCallCounter > -1)
+            if (!PreferenceAll.Global.ApplicationAskedForDonation && PreferenceAll.Global.ApplicationCallCounter > 50)
             {
                 var result = new AnotherMessageBox().Show(_lstrContributionText.Text, _lstrContributionTitle.Text,
                     MessageBoxButtons.YesNo);
