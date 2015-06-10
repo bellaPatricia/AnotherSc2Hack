@@ -231,6 +231,12 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\NumberTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.Designer.cs">
+      <DependentUpon>UiOpacityControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\FrontEnds\DoubleBufferedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -332,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\MaphackFilter.resx">
       <DependentUpon>MaphackFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.resx">
+      <DependentUpon>UiOpacityControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\MainHandler\NewMainHandler.resx">
       <DependentUpon>NewMainHandler.cs</DependentUpon>
