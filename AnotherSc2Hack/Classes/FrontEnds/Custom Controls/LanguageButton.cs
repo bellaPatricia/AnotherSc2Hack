@@ -37,6 +37,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         {
             if (!File.Exists(languageFile))
                 return false;
+            
 
             var strLines = File.ReadAllLines(languageFile, Encoding.Default);
 

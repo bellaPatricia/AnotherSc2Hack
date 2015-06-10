@@ -47,33 +47,33 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #region LanguageString
 
-        private readonly LanguageString _lstrChCreditsContributer = new LanguageString("lstrChCreditsContributer");
-        private readonly LanguageString _lstrChCreditsReason = new LanguageString("lstrChCreditsReason");
-        private readonly LanguageString _lstrChPluginsPluginName = new LanguageString("lstrChPluginsPluginName");
-        private readonly LanguageString _lstrChPluginsPluginVersion = new LanguageString("lstrChPluginsPluginVersion");
-        private readonly LanguageString _lstrChDebugAttribute = new LanguageString("lstrChDebugAttribute");
-        private readonly LanguageString _lstrChDebugValue = new LanguageString("lstrChDebugValue");
+        private readonly LanguageString _lstrChCreditsContributer = new LanguageString("lstrChCreditsContributer", "Contributor");
+        private readonly LanguageString _lstrChCreditsReason = new LanguageString("lstrChCreditsReason", "But.. why?");
+        private readonly LanguageString _lstrChPluginsPluginName = new LanguageString("lstrChPluginsPluginName", "Plugin");
+        private readonly LanguageString _lstrChPluginsPluginVersion = new LanguageString("lstrChPluginsPluginVersion", "Version");
+        private readonly LanguageString _lstrChDebugAttribute = new LanguageString("lstrChDebugAttribute", "Attribute");
+        private readonly LanguageString _lstrChDebugValue = new LanguageString("lstrChDebugValue", "Value");
 
-        private readonly LanguageString _lstrCreditsReasonRhcp = new LanguageString("lstrCreditsReasonRhcp");
-        private readonly LanguageString _lstrCreditsReasonBeaving = new LanguageString("lstrCreditsReasonBeaving");
-        private readonly LanguageString _lstrCreditsReasonMrnukealizer = new LanguageString("lstrCreditsReasonMrnukealizer");
-        private readonly LanguageString _lstrCreditsReasonMyteewun = new LanguageString("lstrCreditsReasonMyteewun");
-        private readonly LanguageString _lstrCreditsReasonMischa = new LanguageString("lstrCreditsReasonMischa");
-        private readonly LanguageString _lstrCreditsReasonMrice = new LanguageString("lstrCreditsReasonMrice");
-        private readonly LanguageString _lstrCreditsReasonTracky = new LanguageString("lstrCreditsReasonTracky");
-        private readonly LanguageString _lstrCreditsReasonD3Scene = new LanguageString("lstrCreditsReasonD3Scene");
-        private readonly LanguageString _lstrCreditsReasonVariousPeople = new LanguageString("lstrCreditsReasonVariousPeople");
-        private readonly LanguageString _lstrCreditsReasonDonators = new LanguageString("lstrCreditsReasonDonators");
+        private readonly LanguageString _lstrCreditsReasonRhcp = new LanguageString("lstrCreditsReasonRhcp", "Open Source MH, Gameinteraction, Minimap drawing and extremely helpful");
+        private readonly LanguageString _lstrCreditsReasonBeaving = new LanguageString("lstrCreditsReasonBeaving", "Various hacking information, Concepts, Suggestions and good chats");
+        private readonly LanguageString _lstrCreditsReasonMrnukealizer = new LanguageString("lstrCreditsReasonMrnukealizer", "Open Source MH, Ideas and concepts");
+        private readonly LanguageString _lstrCreditsReasonMyteewun = new LanguageString("lstrCreditsReasonMyteewun", "Production-Tag (Unit and Upgrades) and good research in SC2 memory");
+        private readonly LanguageString _lstrCreditsReasonMischa = new LanguageString("lstrCreditsReasonMischa", "Great SC2 memory research with Upgrades, production and unitlists");
+        private readonly LanguageString _lstrCreditsReasonMrice = new LanguageString("lstrCreditsReasonMrice", "Graphical help");
+        private readonly LanguageString _lstrCreditsReasonTracky = new LanguageString("lstrCreditsReasonTracky", "Suggestions and ideas");
+        private readonly LanguageString _lstrCreditsReasonD3Scene = new LanguageString("lstrCreditsReasonD3Scene", "Good environment with a lot helpful people");
+        private readonly LanguageString _lstrCreditsReasonVariousPeople = new LanguageString("lstrCreditsReasonVariousPeople", "...that gave ideas, suggestions and critism - thank you!");
+        private readonly LanguageString _lstrCreditsReasonDonators = new LanguageString("lstrCreditsReasonDonators", "Because you people make me buy some candy :3");
 
-        private readonly LanguageString _lstrApplicationRestoreSettingsText = new LanguageString("lstrApplicationRestoreSettingsText");
-        private readonly LanguageString _lstrApplicationRestoreSettingsHeader = new LanguageString("lstrApplicationRestoreSettingsHeader");
-        private readonly LanguageString _lstrApplicationRestorePanelPositionText = new LanguageString("lstrApplicationRestorePanelPositionText");
-        private readonly LanguageString _lstrApplicationRestorePanelPositionHeader = new LanguageString("lstrApplicationRestorePanelPositionHeader");
-        private readonly LanguageString _lstrApplicationUpdateTitle = new LanguageString("lstrApplicationUpdateTitle");
-        private readonly LanguageString _lstrApplicationDoYouWishToUpdate = new LanguageString("lstrApplicationDoYouWishToUpdate");
+        private readonly LanguageString _lstrApplicationRestoreSettingsText = new LanguageString("lstrApplicationRestoreSettingsText", "Do you really want to reset your settings?");
+        private readonly LanguageString _lstrApplicationRestoreSettingsHeader = new LanguageString("lstrApplicationRestoreSettingsHeader", "Are you sure?");
+        private readonly LanguageString _lstrApplicationRestorePanelPositionText = new LanguageString("lstrApplicationRestorePanelPositionText", "Panel's size and position\nwere adjusted successfully!");
+        private readonly LanguageString _lstrApplicationRestorePanelPositionHeader = new LanguageString("lstrApplicationRestorePanelPositionHeader", "Panelposition changed!");
+        private readonly LanguageString _lstrApplicationUpdateTitle = new LanguageString("lstrApplicationUpdateTitle", "Updates available!");
+        private readonly LanguageString _lstrApplicationDoYouWishToUpdate = new LanguageString("lstrApplicationDoYouWishToUpdate", "Do you wish to update?");
 
-        private readonly LanguageString _lstrPluginContextInstallPlugin = new LanguageString("lstrPluginContextInstallPlugin");
-        private readonly LanguageString _lstrPluginContextRemovePlugin = new LanguageString("lstrPluginContextRemovePlugin");
+        private readonly LanguageString _lstrPluginContextInstallPlugin = new LanguageString("lstrPluginContextInstallPlugin", "Install plugin");
+        private readonly LanguageString _lstrPluginContextRemovePlugin = new LanguageString("lstrPluginContextRemovePlugin", "Remove plugin");
 
         
 

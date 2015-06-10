@@ -37,10 +37,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         public string Name { get; set; }
+        public string DefaultText { get; private set; }
 
-        public LanguageString(string name, string text = "")
+        public LanguageString(string name, string defaultText = "")
         {
-            Text = text;
+            DefaultText = defaultText;
             Name = name;
 
             Instances.Add(this);
@@ -64,7 +65,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static bool ChangeLanguage(string languageFile)
         {
             if (!File.Exists(languageFile))
+            {
+                //Setup default text
+                foreach (var languageString in Instances)
+                {
+                    languageString.Text = languageString.DefaultText;
+                }
+
                 return false;
+            }
 
             _strLastUsedLanguageFile = languageFile;
 
@@ -88,6 +97,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 {
                     if (languageString.Name == strControlNames[0])
                         languageString.Text = strControlAndName[1].Trim();
+
+                    if (languageString.Text.Length <= 0)
+                        languageString.Text = languageString.DefaultText;
 
                 }
             }

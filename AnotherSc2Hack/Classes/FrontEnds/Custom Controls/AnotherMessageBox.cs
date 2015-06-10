@@ -10,13 +10,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         #region Private Variables
 
-        private readonly LanguageString _lstrAnotherMessageBoxOk = new LanguageString("lstrAnotherMessageBoxOk");
-        private readonly LanguageString _lstrAnotherMessageBoxCancel = new LanguageString("lstrAnotherMessageBoxCancel");
-        private readonly LanguageString _lstrAnotherMessageBoxAbort = new LanguageString("lstrAnotherMessageBoxAbort");
-        private readonly LanguageString _lstrAnotherMessageBoxRetry = new LanguageString("lstrAnotherMessageBoxRetry");
-        private readonly LanguageString _lstrAnotherMessageBoxIgnore = new LanguageString("lstrAnotherMessageBoxIgnore");
-        private readonly LanguageString _lstrAnotherMessageBoxYes = new LanguageString("lstrAnotherMessageBoxYes");
-        private readonly LanguageString _lstrAnotherMessageBoxNo = new LanguageString("lstrAnotherMessageBoxNo");
+        private readonly LanguageString _lstrAnotherMessageBoxOk = new LanguageString("lstrAnotherMessageBoxOk", "Ok");
+        private readonly LanguageString _lstrAnotherMessageBoxCancel = new LanguageString("lstrAnotherMessageBoxCancel", "Cancel");
+        private readonly LanguageString _lstrAnotherMessageBoxAbort = new LanguageString("lstrAnotherMessageBoxAbort", "Abort");
+        private readonly LanguageString _lstrAnotherMessageBoxRetry = new LanguageString("lstrAnotherMessageBoxRetry", "Retry");
+        private readonly LanguageString _lstrAnotherMessageBoxIgnore = new LanguageString("lstrAnotherMessageBoxIgnore", "Ignore");
+        private readonly LanguageString _lstrAnotherMessageBoxYes = new LanguageString("lstrAnotherMessageBoxYes", "Yes");
+        private readonly LanguageString _lstrAnotherMessageBoxNo = new LanguageString("lstrAnotherMessageBoxNo", "No");
 
         #endregion
 

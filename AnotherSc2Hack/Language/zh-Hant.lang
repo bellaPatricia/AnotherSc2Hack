@@ -51,6 +51,8 @@ lstrApplicationRestorePanelPositionText: 你的面板尺寸與位置已調整成
 lstrApplicationRestorePanelPositionHeader: 面板位置已改變!
 lstrApplicationDoYouWishToUpdate: 難道你想更新？
 lstrApplicationUpdateTitle: 更新可用！
+lstrContributionTitle: 貢獻
+lstrContributionText: 看起來你使用這軟體\n有一段時間。如果你喜歡\n你可以透過翻譯\n捐贈或是回報bug。\n\n你想要 參與嗎?
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack 刷新率 / sec.

@@ -51,6 +51,8 @@ lstrApplicationRestorePanelPositionText: Größe und Position der Panels\nwurden
 lstrApplicationRestorePanelPositionHeader: Panelposition geändert!
 lstrApplicationDoYouWishToUpdate: Möchten Sie wirklich updaten?
 lstrApplicationUpdateTitle: Updates verfügbar!
+lstrContributionTitle: Mitwirken
+lstrContributionText: Es sieht so aus, als würdest Du dieses Tool\nschon länger benutzen. Wenn Du einen\nBeitrag lesten möchtest, kannst Du mit\nÜbersetzungen, Spenden oder Bug Reports helfen.\n\nMöchtest Du mitwirken?
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterationen / sek.

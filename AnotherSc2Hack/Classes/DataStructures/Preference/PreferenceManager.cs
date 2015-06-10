@@ -9,8 +9,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
     public class PreferenceManager
     {
-        private readonly LanguageString _lstrContributionTitle = new LanguageString("lstrContributionTitle");
-        private readonly LanguageString _lstrContributionText = new LanguageString("lstrContributionText");
+        private readonly LanguageString _lstrContributionTitle = new LanguageString("lstrContributionTitle", "Contribution");
+        private readonly LanguageString _lstrContributionText = new LanguageString("lstrContributionText", "Looks like you've been using this tool\nfor quite a while. If you like it you can\ncontribute to the project by translations,\ndonations or bug reports.\n\nDo you want to contribute?");
 
         public PreferenceAll PreferenceAll { get; private set; }
         private readonly XmlSerializer _xmlSerializer;

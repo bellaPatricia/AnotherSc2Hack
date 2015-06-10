@@ -51,6 +51,8 @@ lstrApplicationRestorePanelPositionText: 판넬의 위치와 크기가 성공적
 lstrApplicationRestorePanelPositionHeader: 초기화 완료
 lstrApplicationDoYouWishToUpdate: 당신은 업데이트 하시겠습니까?
 lstrApplicationUpdateTitle: 업데이트 가능합니다!
+lstrContributionTitle: 도와주세요!
+lstrContributionText: 이 스타2 툴을 사용하신지 꽤 되신것 같네요! \n 만약 영어나 컴퓨터에 뛰어나셔서\n오번역을 수정하시거나,\n버그 리포팅을(기부도 환영입니다!).\n\n도와주실수 있으세요?
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: 맵핵 반복 / 초.
