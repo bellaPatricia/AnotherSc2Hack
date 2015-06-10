@@ -189,9 +189,6 @@
     <Compile Include="Classes\FrontEnds\Container\PanelSettingsSpecialUnittab.Designer.cs">
       <DependentUpon>PanelSettingsSpecialUnittab.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\AbstractUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\AnotherCheckbox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -206,12 +203,6 @@
     </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\AnotherTextbox.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Automation_Worker.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Automation_Worker.Designer.cs">
-      <DependentUpon>Automation_Worker.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\BigPreviewPicture.cs">
       <SubType>Form</SubType>
@@ -228,127 +219,16 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\MaphackFilter.Designer.cs">
       <DependentUpon>MaphackFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiBasics.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiBasics.Designer.cs">
-      <DependentUpon>UiBasics.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiMaphackBasics.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiMaphackBasics.Designer.cs">
-      <DependentUpon>UiMaphackBasics.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiUnitTabBasic.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiUnitTabBasic.Designer.cs">
-      <DependentUpon>UiUnitTabBasic.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiWorkerBasics.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiWorkerBasics.Designer.cs">
-      <DependentUpon>UiWorkerBasics.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Benchmark.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Benchmark.Designer.cs">
-      <DependentUpon>Benchmark.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Bugs.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Bugs.Designer.cs">
-      <DependentUpon>Bugs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiChatInput.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiChatInput.Designer.cs">
-      <DependentUpon>UiChatInput.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Control_Global.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Control_Global.Designer.cs">
-      <DependentUpon>Control_Global.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Debug.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Debug.Designer.cs">
-      <DependentUpon>Custom_Debug.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Requirements.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Requirements.Designer.cs">
-      <DependentUpon>Custom_Requirements.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Various.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_Various.Designer.cs">
-      <DependentUpon>Custom_Various.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\GraphicalPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiHotkeys.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiHotkeys.Designer.cs">
-      <DependentUpon>UiHotkeys.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiInformation.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiInformation.Designer.cs">
-      <DependentUpon>UiInformation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiProductionTabBasics.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiProductionTabBasics.Designer.cs">
-      <DependentUpon>UiProductionTabBasics.cs</DependentUpon>
-    </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\KeyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\LanguageButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\LanguageCheckbox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\LanguageGroupbox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\LanguageLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\LanguageRadiobutton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\NumberTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.Designer.cs">
-      <DependentUpon>UiOpacityControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UnitInformation.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\UnitInformation.Designer.cs">
-      <DependentUpon>UnitInformation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\Custom_PictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Classes\FrontEnds\DoubleBufferedPanel.cs">
@@ -356,12 +236,6 @@
     </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\ImageCombobox.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\PlayerInformation.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\PlayerInformation.Designer.cs">
-      <DependentUpon>PlayerInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FrontEnds\MainHandler\NewMainHandler.cs">
       <SubType>Form</SubType>
@@ -453,65 +327,11 @@
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\AnotherMessageBox.resx">
       <DependentUpon>AnotherMessageBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Automation_Worker.resx">
-      <DependentUpon>Automation_Worker.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\BigPreviewPicture.resx">
       <DependentUpon>BigPreviewPicture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\MaphackFilter.resx">
       <DependentUpon>MaphackFilter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiBasics.resx">
-      <DependentUpon>UiBasics.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiMaphackBasics.resx">
-      <DependentUpon>UiMaphackBasics.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiUnitTabBasic.resx">
-      <DependentUpon>UiUnitTabBasic.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiWorkerBasics.resx">
-      <DependentUpon>UiWorkerBasics.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Benchmark.resx">
-      <DependentUpon>Benchmark.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Bugs.resx">
-      <DependentUpon>Bugs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiChatInput.resx">
-      <DependentUpon>UiChatInput.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Control_Global.resx">
-      <DependentUpon>Control_Global.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Debug.resx">
-      <DependentUpon>Custom_Debug.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Requirements.resx">
-      <DependentUpon>Custom_Requirements.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\Custom_Various.resx">
-      <DependentUpon>Custom_Various.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiHotkeys.resx">
-      <DependentUpon>UiHotkeys.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiInformation.resx">
-      <DependentUpon>UiInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiProductionTabBasics.resx">
-      <DependentUpon>UiProductionTabBasics.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UiOpacityControl.resx">
-      <DependentUpon>UiOpacityControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\UnitInformation.resx">
-      <DependentUpon>UnitInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\PlayerInformation.resx">
-      <DependentUpon>PlayerInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\MainHandler\NewMainHandler.resx">
       <DependentUpon>NewMainHandler.cs</DependentUpon>
@@ -920,7 +740,6 @@
   <ItemGroup>
     <Content Include="!ToDo.txt" />
     <Content Include="Research.txt" />
-    <Content Include="Calculations.txt" />
     <None Include="Resources\StarCraft_Icon.ico" />
     <None Include="Resources\pu_mothershipcore.png" />
     <None Include="Resources\Units_Transparent\Protoss\trans_pu_mothershipcore.png" />
