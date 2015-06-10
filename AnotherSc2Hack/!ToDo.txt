@@ -1,7 +1,7 @@
 ﻿#############################
 # Add into the next release #
 #############################
-
+├ [OPEN]	Add preview panels for the overlays. Additionally display the size and position
 
 ################################
 # Those really should be added #
@@ -43,7 +43,7 @@
 ############
 # Finished #
 ############
-├ [Done]	[2015-06-10]	Default test in Language String so there's a backup for missing text
+├ [DONE]	[2015-06-10]	Default test in Language String so there's a backup for missing text
 ├ [DONE]	[2015-06-08]	Download Counter - open bit.ly for the with a webrequest (GET?) for a download
 └ [DONE]	[2015-06-08]	Integrated Downloadmanager
 							├ Download the needed files like:

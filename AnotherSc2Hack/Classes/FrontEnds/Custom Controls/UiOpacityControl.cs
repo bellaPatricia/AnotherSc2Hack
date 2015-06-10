@@ -15,7 +15,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         public event ValueChangeHandler ValueChanged;
 
         private Int32 _number;
-        private readonly LanguageString _lstrOpacity = new LanguageString("lstrOpacity", "Opacity");
+        private readonly LanguageString _lstrOpacity = new LanguageString("lstrOpacity", "Opacity:");
 
         public Int32 Number
         {
