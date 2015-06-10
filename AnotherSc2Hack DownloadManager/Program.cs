@@ -32,7 +32,7 @@ namespace AnotherSc2Hack_DownloadManager
             dm.CheckComplete += dm_CheckComplete;
             dm.DownloadManagerProgressChanged += dm_DownloadManagerProgressChanged;
 
-            dm.LaunchCheckApplication();
+            dm.CheckUpdates();
 
             Console.ReadKey();
             dm.LaunchApplication();

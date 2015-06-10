@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using AnotherSc2Hack.Classes.BackEnds;
 using PluginInterface;
+using Utilities.VariousClasses.Hashes;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Plugin
 {
@@ -26,7 +27,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Plugin
         /// <summary>
         /// The hash which is created at construction
         /// </summary>
-        public string Md5Hash { get; private set; }
+        public string Hash { get; private set; }
 
         /// <summary>
         /// Constructor
@@ -37,7 +38,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Plugin
         {
             PluginPath = pluginPath;
             Plugin = plugin;
-            Md5Hash = Hashes.HashFromFile(PluginPath, Hashes.HashAlgorithm.Md5);
+            Hash = Hashes.HashFromFile(PluginPath, Hashes.HashAlgorithm.Md5);
         }
     }
 
@@ -70,7 +71,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Plugin
             Version = new Version(0, 0, 0, 0);
             RequiresUpdate = false;
             LocalPath = String.Empty;
-            Md5Hash = String.Empty;
+            Hash = String.Empty;
         }
 
 
@@ -110,6 +111,6 @@ namespace AnotherSc2Hack.Classes.DataStructures.Plugin
         /// <summary>
         /// Md5 checksum to compare plugins
         /// </summary>
-        public string Md5Hash { get; set; }
+        public string Hash { get; set; }
     }
 }

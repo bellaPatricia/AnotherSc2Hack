@@ -1,4 +1,6 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Container
+﻿using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
     partial class PanelSettingsBasicsMaphack
     {
@@ -28,17 +30,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.aChBxRemoveAi = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveAllie = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveNeutral = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveYourself = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.OpacityControl = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
-            this.lblBasics = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.aChBxRemoveDestinationLine = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxDefensiveStructures = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.btnColorDestinationline = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.aChBxRemoveCamera = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveVisionArea = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
+            this.aChBxRemoveAi = new AnotherCheckbox();
+            this.aChBxRemoveAllie = new AnotherCheckbox();
+            this.aChBxRemoveNeutral = new AnotherCheckbox();
+            this.aChBxRemoveYourself = new AnotherCheckbox();
+            this.OpacityControl = new UiOpacityControl();
+            this.lblBasics = new LanguageLabel();
+            this.aChBxRemoveDestinationLine = new AnotherCheckbox();
+            this.aChBxDefensiveStructures = new AnotherCheckbox();
+            this.btnColorDestinationline = new LanguageButton();
+            this.aChBxRemoveCamera = new AnotherCheckbox();
+            this.aChBxRemoveVisionArea = new AnotherCheckbox();
             this.SuspendLayout();
             // 
             // aChBxRemoveAi
@@ -53,7 +55,7 @@
             this.aChBxRemoveAi.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveAi.Size = new System.Drawing.Size(111, 30);
             this.aChBxRemoveAi.TabIndex = 0;
-            this.aChBxRemoveAi.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveAi.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveAllie
             // 
@@ -67,7 +69,7 @@
             this.aChBxRemoveAllie.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveAllie.Size = new System.Drawing.Size(127, 30);
             this.aChBxRemoveAllie.TabIndex = 1;
-            this.aChBxRemoveAllie.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveAllie.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveNeutral
             // 
@@ -81,7 +83,7 @@
             this.aChBxRemoveNeutral.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveNeutral.Size = new System.Drawing.Size(146, 30);
             this.aChBxRemoveNeutral.TabIndex = 1;
-            this.aChBxRemoveNeutral.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveNeutral.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveYourself
             // 
@@ -95,7 +97,7 @@
             this.aChBxRemoveYourself.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveYourself.Size = new System.Drawing.Size(150, 30);
             this.aChBxRemoveYourself.TabIndex = 2;
-            this.aChBxRemoveYourself.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveYourself.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // OpacityControl
             // 
@@ -131,7 +133,7 @@
             this.aChBxRemoveDestinationLine.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveDestinationLine.Size = new System.Drawing.Size(197, 30);
             this.aChBxRemoveDestinationLine.TabIndex = 1;
-            this.aChBxRemoveDestinationLine.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveDestinationLine.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxDefensiveStructures
             // 
@@ -145,7 +147,7 @@
             this.aChBxDefensiveStructures.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxDefensiveStructures.Size = new System.Drawing.Size(150, 30);
             this.aChBxDefensiveStructures.TabIndex = 2;
-            this.aChBxDefensiveStructures.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxDefensiveStructures.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // btnColorDestinationline
             // 
@@ -173,7 +175,7 @@
             this.aChBxRemoveCamera.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveCamera.Size = new System.Drawing.Size(148, 30);
             this.aChBxRemoveCamera.TabIndex = 3;
-            this.aChBxRemoveCamera.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveCamera.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveVisionArea
             // 
@@ -187,7 +189,7 @@
             this.aChBxRemoveVisionArea.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveVisionArea.Size = new System.Drawing.Size(174, 30);
             this.aChBxRemoveVisionArea.TabIndex = 4;
-            this.aChBxRemoveVisionArea.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveVisionArea.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // PanelSettingsBasicsMaphack
             // 

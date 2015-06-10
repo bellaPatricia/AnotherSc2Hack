@@ -1,4 +1,6 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Container
+﻿using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
     partial class PanelOverlayWorker
     {
@@ -28,10 +30,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.aChBxDrawBackground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.lblBasics = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.btnSetFont = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.OpacityControl = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
+            this.aChBxDrawBackground = new AnotherCheckbox();
+            this.lblBasics = new LanguageLabel();
+            this.btnSetFont = new LanguageButton();
+            this.OpacityControl = new UiOpacityControl();
             this.pnlLauncher = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsLauncher();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             this.aChBxDrawBackground.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxDrawBackground.Size = new System.Drawing.Size(157, 30);
             this.aChBxDrawBackground.TabIndex = 5;
-            this.aChBxDrawBackground.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxDrawBackground.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // lblBasics
             // 

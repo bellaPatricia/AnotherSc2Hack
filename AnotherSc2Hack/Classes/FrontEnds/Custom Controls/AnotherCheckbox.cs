@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using AnotherSc2Hack;
 using AnotherSc2Hack.Classes.BackEnds;
 using Utilities.ExtensionMethods;
 
-namespace AnotherSc2Hack.Classes.FrontEnds
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     public delegate void CheckedChangeHandler(AnotherCheckbox o, EventChecked e);
 
@@ -126,16 +124,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds
             SetStyle(ControlStyles.OptimizedDoubleBuffer |
             ControlStyles.AllPaintingInWmPaint |
             ControlStyles.UserPaint, true);
-        }
-
-        void _lMainText_Click(object sender, EventArgs e)
-        {
-            OnClick(e);
-        }
-
-        void _lMainText_MouseEnter(object sender, EventArgs e)
-        {
-            OnMouseEnter(e);
         }
 
         public AnotherCheckbox()

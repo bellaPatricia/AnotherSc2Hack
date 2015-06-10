@@ -8,8 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PredefinedTypes = Predefined.PredefinedData;
+using PredefinedTypes = PredefinedTypes.PredefinedData;
 using AnotherSc2Hack.Classes.FrontEnds;
+using PredefinedTypes;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
@@ -39,7 +40,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         private void SetupValidStringArray()
         {
-            var propertyNames = Enum.GetNames(typeof(PredefinedTypes.TargetFilterFlag));
+            var propertyNames = Enum.GetNames(typeof(PredefinedData.TargetFilterFlag));
 
             for (var i = 0; i < propertyNames.Length; i++)
             {
@@ -70,7 +71,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         {
             icbMaphackFilterUnitProperties.Items.Clear();
 
-            var propertyNames = Enum.GetNames(typeof(PredefinedTypes.TargetFilterFlag));
+            var propertyNames = Enum.GetNames(typeof(PredefinedData.TargetFilterFlag));
 
             for (var i = 0; i < propertyNames.Length; i++)
             {

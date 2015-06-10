@@ -6,7 +6,8 @@ using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
-using PredefinedTypes = Predefined.PredefinedData;
+using PredefinedTypes;
+using PredefinedTypes = PredefinedTypes.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
@@ -15,7 +16,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public Preferences()
         {
             MaphackUnitColors = new List<Color>();
-            MaphackUnitIds = new List<PredefinedTypes.UnitId>();
+            MaphackUnitIds = new List<PredefinedData.UnitId>();
 
             ReadPreferences();
         }
@@ -3553,14 +3554,14 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length <= 0)
                         {
-                            const PredefinedTypes.UnitId uId = PredefinedTypes.UnitId.TuScv;
+                            const PredefinedData.UnitId uId = PredefinedData.UnitId.TuScv;
                             MaphackUnitIds.Add(uId);
                         }
 
                         else
                         {
                             var id =
-                                (PredefinedTypes.UnitId)Enum.Parse(typeof(PredefinedTypes.UnitId), strInnerValue);
+                                (PredefinedData.UnitId)Enum.Parse(typeof(PredefinedData.UnitId), strInnerValue);
 
                             MaphackUnitIds.Add(id);
                         }
@@ -3864,11 +3865,11 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             MaphackColorUnit3 = Color.Transparent;
             MaphackColorUnit4 = Color.Transparent;
             MaphackColorUnit5 = Color.Transparent;
-            MaphackUnitId1 = PredefinedTypes.UnitId.TuScv;
-            MaphackUnitId2 = PredefinedTypes.UnitId.TuScv;
-            MaphackUnitId3 = PredefinedTypes.UnitId.TuScv;
-            MaphackUnitId4 = PredefinedTypes.UnitId.TuScv;
-            MaphackUnitId5 = PredefinedTypes.UnitId.TuScv;
+            MaphackUnitId1 = PredefinedData.UnitId.TuScv;
+            MaphackUnitId2 = PredefinedData.UnitId.TuScv;
+            MaphackUnitId3 = PredefinedData.UnitId.TuScv;
+            MaphackUnitId4 = PredefinedData.UnitId.TuScv;
+            MaphackUnitId5 = PredefinedData.UnitId.TuScv;
             MaphackOpacity = 1;
             ResourcePositionX = 500;
             ResourcePositionY = 50;
@@ -4134,7 +4135,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         }
 
         public Byte PreferencesSet { get; set; }
-        public PredefinedTypes.IsDeveloper GlobalIsDeveloper { get; set; }
+        public PredefinedData.IsDeveloper GlobalIsDeveloper { get; set; }
         public Boolean ProdTabRemoveAi { get; set; }
         public Boolean ProdTabRemoveAllie { get; set; }
         public Boolean ProdTabRemoveReferee { get; set; }
@@ -4200,11 +4201,11 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public Color MaphackColorUnit3 { get; set; }
         public Color MaphackColorUnit4 { get; set; }
         public Color MaphackColorUnit5 { get; set; }
-        public PredefinedTypes.UnitId MaphackUnitId1 { get; set; }
-        public PredefinedTypes.UnitId MaphackUnitId2 { get; set; }
-        public PredefinedTypes.UnitId MaphackUnitId3 { get; set; }
-        public PredefinedTypes.UnitId MaphackUnitId4 { get; set; }
-        public PredefinedTypes.UnitId MaphackUnitId5 { get; set; }
+        public PredefinedData.UnitId MaphackUnitId1 { get; set; }
+        public PredefinedData.UnitId MaphackUnitId2 { get; set; }
+        public PredefinedData.UnitId MaphackUnitId3 { get; set; }
+        public PredefinedData.UnitId MaphackUnitId4 { get; set; }
+        public PredefinedData.UnitId MaphackUnitId5 { get; set; }
         public Double MaphackOpacity { get; set; }
         public Int32 ResourcePositionX { get; set; }
         public Int32 ResourcePositionY { get; set; }
@@ -4316,7 +4317,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public Keys StealUnitsHotkey1 { get; set; }
         public Keys StealUnitsHotkey2 { get; set; }
         public Keys StealUnitsHotkey3 { get; set; }
-        public List<PredefinedTypes.UnitId> MaphackUnitIds { get; set; }
+        public List<PredefinedData.UnitId> MaphackUnitIds { get; set; }
         public List<Color> MaphackUnitColors { get; set; }
         public Boolean PersonalApm { get; set; }
         public Int32 PersonalApmPositionX { get; set; }

@@ -41,5 +41,13 @@ namespace Utilities.ExtensionMethods
 
             return sb.ToString();
         }
+
+        public static String DecodeUrlString(this string url)
+        {
+            string newUrl;
+            while ((newUrl = Uri.UnescapeDataString(url)) != url)
+                url = newUrl;
+            return newUrl;
+        }
     }
 }

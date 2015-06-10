@@ -22,7 +22,7 @@ using AnotherSc2Hack.Classes.BackEnds;
 using Utilities.ExtensionMethods;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
-using Predefined;
+using PredefinedTypes;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
@@ -30,10 +30,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
     {
         #region Variables
 
-        private readonly LanguageString _lstrChMaphackFilterUnit = new LanguageString("lstrChMaphackFilterUnit");
-        private readonly LanguageString _lstrMaphackFilterRemoveItem = new LanguageString("lstrMaphackFilterRemoveItem");
-        private readonly LanguageString _lstrMaphackFilterMessageAddUnitText = new LanguageString("lstrMaphackFilterMessageAddUnitText");
-        private readonly LanguageString _lstrMaphackFilterMessageAddUnitHeader = new LanguageString("lstrMaphackFilterMessageAddUnitHeader");
+        private readonly LanguageString _lstrChMaphackFilterUnit = new LanguageString("lstrChMaphackFilterUnit", "Unit");
+        private readonly LanguageString _lstrMaphackFilterRemoveItem = new LanguageString("lstrMaphackFilterRemoveItem", "Remove selection");
+        private readonly LanguageString _lstrMaphackFilterMessageAddUnitText = new LanguageString("lstrMaphackFilterMessageAddUnitText", "Unit is already used!");
+        private readonly LanguageString _lstrMaphackFilterMessageAddUnitHeader = new LanguageString("lstrMaphackFilterMessageAddUnitHeader", "Ouch!");
 
         #endregion
 

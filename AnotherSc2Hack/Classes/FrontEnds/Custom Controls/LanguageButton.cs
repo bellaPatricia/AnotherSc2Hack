@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 
-namespace AnotherSc2Hack.Classes.FrontEnds
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     public class LanguageButton : Button
     {
@@ -37,6 +37,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds
         {
             if (!File.Exists(languageFile))
                 return false;
+            
 
             var strLines = File.ReadAllLines(languageFile, Encoding.Default);
 

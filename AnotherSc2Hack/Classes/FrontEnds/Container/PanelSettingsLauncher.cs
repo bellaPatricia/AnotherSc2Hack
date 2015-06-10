@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {

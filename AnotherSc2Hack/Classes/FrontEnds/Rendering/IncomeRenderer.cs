@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
-using Predefined;
+using PredefinedTypes;
 using Utilities.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering

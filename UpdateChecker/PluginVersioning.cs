@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using Utilities.VariousClasses.Hashes;
 
 namespace UpdateChecker
 {
@@ -24,7 +26,16 @@ namespace UpdateChecker
         public void ParseOnlinePluginVersioning(string strPluginUrl)
         {
             var wc = new WebClient { Proxy = null };
-            var strSource = wc.DownloadString(strPluginUrl);
+            var strSource = String.Empty;
+
+            try
+            {
+                strSource = wc.DownloadString(strPluginUrl);
+            }
+            catch
+            {
+                return;
+            }
 
             var xmlSerializer = new XmlSerializer(typeof(List<PluginDatastore>));
 
@@ -61,6 +72,7 @@ namespace UpdateChecker
                         offlinePlugin.Version = FileVersionInfo.GetVersionInfo(offlinePlugin.DownloadPath).FileVersion;
                     }
 
+                    offlinePlugin.Hash = Hashes.HashFromFile(offlinePlugin.DownloadPath, Hashes.HashAlgorithm.Md5);
                     Plugins.Add(offlinePlugin);
                 }
             }

@@ -1,4 +1,6 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Container
+﻿using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
     partial class PanelSettingsLauncher
     {
@@ -28,20 +30,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblHotkey1 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ktxtHotkey1 = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
-            this.ktxtHotkey2 = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
-            this.lblHotkey2 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ktxtHotkey3 = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
-            this.lblHotkey3 = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblToggle = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblHotkey1 = new LanguageLabel();
+            this.ktxtHotkey1 = new KeyTextBox();
+            this.ktxtHotkey2 = new KeyTextBox();
+            this.lblHotkey2 = new LanguageLabel();
+            this.ktxtHotkey3 = new KeyTextBox();
+            this.lblHotkey3 = new LanguageLabel();
+            this.lblToggle = new LanguageLabel();
             this.txtToggle = new System.Windows.Forms.TextBox();
             this.txtResize = new System.Windows.Forms.TextBox();
-            this.lblResize = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblResize = new LanguageLabel();
             this.txtReposition = new System.Windows.Forms.TextBox();
-            this.lblReposition = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblChat = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblHotkeys = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblReposition = new LanguageLabel();
+            this.lblChat = new LanguageLabel();
+            this.lblHotkeys = new LanguageLabel();
             this.SuspendLayout();
             // 
             // lblHotkey1

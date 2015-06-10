@@ -1,4 +1,5 @@
-﻿using Utilities.Events;
+﻿using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+using Utilities.Events;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
@@ -35,111 +36,111 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
             this.cpnlVarious = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlVarious = new System.Windows.Forms.Panel();
-            this.ntxtVariousWorkerCoachDisableAfter = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblVariousDisableAfter = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.aChBxVariousWorkerCoach = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.lblVariousWorkerCoach = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.aChBxVariousShowPersonalClock = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.lblVariousPersonalClock = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtVariousApmLimit = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.aChBxVariousPersonalApmAlert = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxVariousShowPersonalApm = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.lblVariousPersonalApm = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.ntxtVariousWorkerCoachDisableAfter = new NumberTextBox();
+            this.lblVariousDisableAfter = new LanguageLabel();
+            this.aChBxVariousWorkerCoach = new AnotherCheckbox();
+            this.lblVariousWorkerCoach = new LanguageLabel();
+            this.aChBxVariousShowPersonalClock = new AnotherCheckbox();
+            this.lblVariousPersonalClock = new LanguageLabel();
+            this.ntxtVariousApmLimit = new NumberTextBox();
+            this.aChBxVariousPersonalApmAlert = new AnotherCheckbox();
+            this.aChBxVariousShowPersonalApm = new AnotherCheckbox();
+            this.lblVariousPersonalApm = new LanguageLabel();
             this.cpnlHelpMe = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlHelpMe = new System.Windows.Forms.Panel();
-            this.btnHelpMeCopyEmail = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnHelpMeCopyBitcoin = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.lblHelpMeBitcoin = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.btnHelpMePaypal = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.lblHelpCash = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.btnHelpMeLocalize = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnHelpMeGithubIssues = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.lblHelpLocalize = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblHelpMeEmail = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.btnHelpMeEmailMe = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnHelpMePostOnD3scene = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.lblHelpSuggestionsBug = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.btnHelpMeCopyEmail = new LanguageButton();
+            this.btnHelpMeCopyBitcoin = new LanguageButton();
+            this.lblHelpMeBitcoin = new LanguageLabel();
+            this.btnHelpMePaypal = new LanguageButton();
+            this.lblHelpCash = new LanguageLabel();
+            this.btnHelpMeLocalize = new LanguageButton();
+            this.btnHelpMeGithubIssues = new LanguageButton();
+            this.lblHelpLocalize = new LanguageLabel();
+            this.lblHelpMeEmail = new LanguageLabel();
+            this.btnHelpMeEmailMe = new LanguageButton();
+            this.btnHelpMePostOnD3scene = new LanguageButton();
+            this.lblHelpSuggestionsBug = new LanguageLabel();
             this.cpnlBenchmark = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlBenchmark = new System.Windows.Forms.Panel();
-            this.ntxtBenchmarkMaphackIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblBenchmarkMaphackIterations = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtBenchmarkProductionTabIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblBenchmarkProductiontabIterations = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtBenchmarkUnitTabIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblBenchmarkUnittabIterations = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtBenchmarkApmIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblBenchmarkApmIterations = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtBenchmarkArmyIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblBenchmarkArmyIterations = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtBenchmarkWorkerIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblBenchmarkWorkerIterations = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtBenchmarkIncomeIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblBenchmarkIncomeIterations = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtBenchmarkResourceIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.ntxtBenchmarkDrawingInterval = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblBenchmarkResourceIterations = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblBenchmarkDrawingInterval = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblBenchmarkDrawing = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtBenchmarkDataIterations = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.ntxtBenchmarkDataInterval = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblBenchmarkDataIterations = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblBenchmarkDataInterval = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblBenchmarkData = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.ntxtBenchmarkMaphackIterations = new NumberTextBox();
+            this.lblBenchmarkMaphackIterations = new LanguageLabel();
+            this.ntxtBenchmarkProductionTabIterations = new NumberTextBox();
+            this.lblBenchmarkProductiontabIterations = new LanguageLabel();
+            this.ntxtBenchmarkUnitTabIterations = new NumberTextBox();
+            this.lblBenchmarkUnittabIterations = new LanguageLabel();
+            this.ntxtBenchmarkApmIterations = new NumberTextBox();
+            this.lblBenchmarkApmIterations = new LanguageLabel();
+            this.ntxtBenchmarkArmyIterations = new NumberTextBox();
+            this.lblBenchmarkArmyIterations = new LanguageLabel();
+            this.ntxtBenchmarkWorkerIterations = new NumberTextBox();
+            this.lblBenchmarkWorkerIterations = new LanguageLabel();
+            this.ntxtBenchmarkIncomeIterations = new NumberTextBox();
+            this.lblBenchmarkIncomeIterations = new LanguageLabel();
+            this.ntxtBenchmarkResourceIterations = new NumberTextBox();
+            this.ntxtBenchmarkDrawingInterval = new NumberTextBox();
+            this.lblBenchmarkResourceIterations = new LanguageLabel();
+            this.lblBenchmarkDrawingInterval = new LanguageLabel();
+            this.lblBenchmarkDrawing = new LanguageLabel();
+            this.ntxtBenchmarkDataIterations = new NumberTextBox();
+            this.ntxtBenchmarkDataInterval = new NumberTextBox();
+            this.lblBenchmarkDataIterations = new LanguageLabel();
+            this.lblBenchmarkDataInterval = new LanguageLabel();
+            this.lblBenchmarkData = new LanguageLabel();
             this.cpnlCredits = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlCredits = new System.Windows.Forms.Panel();
-            this.lstvCredits = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.lstvCredits = new AnotherListview();
             this.chCreditsContributer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chCreditsReason = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pbMainProgress = new System.Windows.Forms.ProgressBar();
             this.cpnlDebug = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlDebug = new System.Windows.Forms.Panel();
-            this.lstvDebugMatchdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.lstvDebugMatchdata = new AnotherListview();
             this.chDebugMatchDataAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDebugMatchDataValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblDebugMatchdata = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lstvDebugMapdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.lblDebugMatchdata = new LanguageLabel();
+            this.lstvDebugMapdata = new AnotherListview();
             this.chDebugMapDataAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDebugMapDataValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblDebugMapdata = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtDebugUnitLocation = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.ntxtDebugPlayerLocation = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lstvDebugUnitdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.lblDebugMapdata = new LanguageLabel();
+            this.ntxtDebugUnitLocation = new NumberTextBox();
+            this.ntxtDebugPlayerLocation = new NumberTextBox();
+            this.lstvDebugUnitdata = new AnotherListview();
             this.chDebugUnitDataAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDebugUnitDataValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lstvDebugPlayderdata = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.lstvDebugPlayderdata = new AnotherListview();
             this.chDebugPlayerDataAttribute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDebugPlayerDataValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtDebugUnitMemory = new System.Windows.Forms.TextBox();
-            this.lblDebugUnitObjects = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblDebugUnitLocation = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblDebugUnitObjects = new LanguageLabel();
+            this.lblDebugUnitLocation = new LanguageLabel();
             this.txtDebugUnitname = new System.Windows.Forms.TextBox();
-            this.lblDebugUnitname = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.btnDebugUnitForward = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnDebugUnitBack = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.lblDebugUnitdata = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblDebugUnitname = new LanguageLabel();
+            this.btnDebugUnitForward = new LanguageButton();
+            this.btnDebugUnitBack = new LanguageButton();
+            this.lblDebugUnitdata = new LanguageLabel();
             this.txtDebugPlayerMemory = new System.Windows.Forms.TextBox();
-            this.lblDebugPlayerObjects = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblDebugPlayerLocation = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblDebugPlayerObjects = new LanguageLabel();
+            this.lblDebugPlayerLocation = new LanguageLabel();
             this.txtDebugPlayername = new System.Windows.Forms.TextBox();
-            this.lblDebugPlayername = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.btnDebugPlayerForward = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnDebugPlayerBack = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.lblDebugPlayerdata = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblDebugPlayername = new LanguageLabel();
+            this.btnDebugPlayerForward = new LanguageButton();
+            this.btnDebugPlayerBack = new LanguageButton();
+            this.lblDebugPlayerdata = new LanguageLabel();
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlApplication = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblApplicationGlobalSettings = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblApplicationMemoryReading = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblApplicationGraphicsRefresh = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblApplicationGlobalSettings = new LanguageLabel();
+            this.lblApplicationMemoryReading = new LanguageLabel();
+            this.lblApplicationGraphicsRefresh = new LanguageLabel();
             this.chBxLanguage = new System.Windows.Forms.ComboBox();
-            this.ntxtMemoryRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblApplicationLanguage = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtGraphicsRefresh = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.aChBxOnlyDrawInForeground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.lblApplicationReposition = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.btnReposition = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.ktxtReposition = new AnotherSc2Hack.Classes.FrontEnds.KeyTextBox();
-            this.btnRestoreSettings = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.ntxtMemoryRefresh = new NumberTextBox();
+            this.lblApplicationLanguage = new LanguageLabel();
+            this.ntxtGraphicsRefresh = new NumberTextBox();
+            this.aChBxOnlyDrawInForeground = new AnotherCheckbox();
+            this.lblApplicationReposition = new LanguageLabel();
+            this.btnReposition = new LanguageButton();
+            this.ktxtReposition = new KeyTextBox();
+            this.btnRestoreSettings = new LanguageButton();
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlOverlays = new System.Windows.Forms.Panel();
             this.pnlOverlayMaphack = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayMaphack();
@@ -161,37 +162,37 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlOverlayUnittab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayUnittab();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlPlugins = new System.Windows.Forms.Panel();
-            this.btnPluginsInstallPlugin = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.lblPluginsImageposition = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.btnPluginsImagesNext = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnPluginsImagesPrevious = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnPluginsInstallPlugin = new LanguageButton();
+            this.lblPluginsImageposition = new LanguageLabel();
+            this.btnPluginsImagesNext = new LanguageButton();
+            this.btnPluginsImagesPrevious = new LanguageButton();
             this.pcbPluginsImages = new System.Windows.Forms.PictureBox();
-            this.lblPluginImages = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblPluginDescription = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblPluginImages = new LanguageLabel();
+            this.lblPluginDescription = new LanguageLabel();
             this.rtbPluginsDescription = new System.Windows.Forms.RichTextBox();
-            this.lstvPluginsAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.lstvPluginsAvailablePlugins = new AnotherListview();
             this.chPluginsAvailablePluginName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chPluginsAvailablePluginVersion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmPluginInstall = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsPluginInstallPlugin = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblPluginAvailablePlugins = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lstvPluginsLoadedPlugins = new AnotherSc2Hack.Classes.FrontEnds.AnotherListview();
+            this.lblPluginAvailablePlugins = new LanguageLabel();
+            this.lstvPluginsLoadedPlugins = new AnotherListview();
             this.chPluginsLoadedPluginName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chPluginsLoadedPluginVersion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmPluginRemove = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsPluginRemove = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblPluginLoadedPlugins = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblPluginLoadedPlugins = new LanguageLabel();
             this.pnlMainArea = new System.Windows.Forms.Panel();
-            this.lblTabname = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblTabname = new LanguageLabel();
             this.pnlBottomStrip = new System.Windows.Forms.Panel();
-            this.btnLaunchResource = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnLaunchProduction = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnLaunchIncome = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnLaunchUnit = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnLaunchWorker = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnLaunchArmy = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnLaunchMaphack = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
-            this.btnLaunchApm = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.btnLaunchResource = new LanguageButton();
+            this.btnLaunchProduction = new LanguageButton();
+            this.btnLaunchIncome = new LanguageButton();
+            this.btnLaunchUnit = new LanguageButton();
+            this.btnLaunchWorker = new LanguageButton();
+            this.btnLaunchArmy = new LanguageButton();
+            this.btnLaunchMaphack = new LanguageButton();
+            this.btnLaunchApm = new LanguageButton();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlVarious.SuspendLayout();
             this.pnlHelpMe.SuspendLayout();
@@ -281,7 +282,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtVariousWorkerCoachDisableAfter.Size = new System.Drawing.Size(47, 27);
             this.ntxtVariousWorkerCoachDisableAfter.TabIndex = 20;
             this.ntxtVariousWorkerCoachDisableAfter.Text = "1";
-            this.ntxtVariousWorkerCoachDisableAfter.NumberChanged += new NumberChangeHandler(this.ntxtVariousWorkerCoachDisableAfter_NumberChanged);
+            this.ntxtVariousWorkerCoachDisableAfter.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtVariousWorkerCoachDisableAfter_NumberChanged);
             // 
             // lblVariousDisableAfter
             // 
@@ -303,8 +304,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.aChBxVariousWorkerCoach.Name = "aChBxVariousWorkerCoach";
             this.aChBxVariousWorkerCoach.Size = new System.Drawing.Size(172, 30);
             this.aChBxVariousWorkerCoach.TabIndex = 16;
-            this.aChBxVariousWorkerCoach.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
-            this.aChBxVariousWorkerCoach.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.CheckedChangeHandler(this.chBxVariousWorkerCoach_CheckedChanged);
+            this.aChBxVariousWorkerCoach.TextAlign = AnotherCheckbox.TextAlignment.Right;
+            this.aChBxVariousWorkerCoach.CheckedChanged += new CheckedChangeHandler(this.chBxVariousWorkerCoach_CheckedChanged);
             // 
             // lblVariousWorkerCoach
             // 
@@ -328,8 +329,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.aChBxVariousShowPersonalClock.Name = "aChBxVariousShowPersonalClock";
             this.aChBxVariousShowPersonalClock.Size = new System.Drawing.Size(175, 30);
             this.aChBxVariousShowPersonalClock.TabIndex = 15;
-            this.aChBxVariousShowPersonalClock.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
-            this.aChBxVariousShowPersonalClock.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.CheckedChangeHandler(this.chBxVariousShowPersonalClock_CheckedChanged);
+            this.aChBxVariousShowPersonalClock.TextAlign = AnotherCheckbox.TextAlignment.Right;
+            this.aChBxVariousShowPersonalClock.CheckedChanged += new CheckedChangeHandler(this.chBxVariousShowPersonalClock_CheckedChanged);
             // 
             // lblVariousPersonalClock
             // 
@@ -351,7 +352,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtVariousApmLimit.Size = new System.Drawing.Size(49, 27);
             this.ntxtVariousApmLimit.TabIndex = 16;
             this.ntxtVariousApmLimit.Text = "1";
-            this.ntxtVariousApmLimit.NumberChanged += new NumberChangeHandler(this.ntxtVariousApmLimit_NumberChanged);
+            this.ntxtVariousApmLimit.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtVariousApmLimit_NumberChanged);
             // 
             // aChBxVariousPersonalApmAlert
             // 
@@ -363,8 +364,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.aChBxVariousPersonalApmAlert.Name = "aChBxVariousPersonalApmAlert";
             this.aChBxVariousPersonalApmAlert.Size = new System.Drawing.Size(107, 30);
             this.aChBxVariousPersonalApmAlert.TabIndex = 15;
-            this.aChBxVariousPersonalApmAlert.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
-            this.aChBxVariousPersonalApmAlert.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.CheckedChangeHandler(this.chBxVariousPersonalApmAlert_CheckedChanged);
+            this.aChBxVariousPersonalApmAlert.TextAlign = AnotherCheckbox.TextAlignment.Right;
+            this.aChBxVariousPersonalApmAlert.CheckedChanged += new CheckedChangeHandler(this.chBxVariousPersonalApmAlert_CheckedChanged);
             // 
             // aChBxVariousShowPersonalApm
             // 
@@ -376,8 +377,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.aChBxVariousShowPersonalApm.Name = "aChBxVariousShowPersonalApm";
             this.aChBxVariousShowPersonalApm.Size = new System.Drawing.Size(171, 30);
             this.aChBxVariousShowPersonalApm.TabIndex = 14;
-            this.aChBxVariousShowPersonalApm.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
-            this.aChBxVariousShowPersonalApm.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.CheckedChangeHandler(this.chBxVariousShowPersonalApm_CheckedChanged);
+            this.aChBxVariousShowPersonalApm.TextAlign = AnotherCheckbox.TextAlignment.Right;
+            this.aChBxVariousShowPersonalApm.CheckedChanged += new CheckedChangeHandler(this.chBxVariousShowPersonalApm_CheckedChanged);
             // 
             // lblVariousPersonalApm
             // 
@@ -1159,7 +1160,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtDebugUnitLocation.Size = new System.Drawing.Size(50, 27);
             this.ntxtDebugUnitLocation.TabIndex = 25;
             this.ntxtDebugUnitLocation.Text = "1";
-            this.ntxtDebugUnitLocation.NumberChanged += new NumberChangeHandler(this.ntxtDebugUnitLocation_NumberChanged);
+            this.ntxtDebugUnitLocation.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtDebugUnitLocation_NumberChanged);
             // 
             // ntxtDebugPlayerLocation
             // 
@@ -1171,7 +1172,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtDebugPlayerLocation.Size = new System.Drawing.Size(50, 27);
             this.ntxtDebugPlayerLocation.TabIndex = 24;
             this.ntxtDebugPlayerLocation.Text = "1";
-            this.ntxtDebugPlayerLocation.NumberChanged += new NumberChangeHandler(this.ntxtDebugPlayerLocation_NumberChanged);
+            this.ntxtDebugPlayerLocation.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtDebugPlayerLocation_NumberChanged);
             // 
             // lstvDebugUnitdata
             // 
@@ -1535,7 +1536,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtMemoryRefresh.Size = new System.Drawing.Size(80, 27);
             this.ntxtMemoryRefresh.TabIndex = 2;
             this.ntxtMemoryRefresh.Text = "42";
-            this.ntxtMemoryRefresh.NumberChanged += new NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
+            this.ntxtMemoryRefresh.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtMemoryRefresh_NumberChanged);
             // 
             // lblApplicationLanguage
             // 
@@ -1561,7 +1562,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ntxtGraphicsRefresh.Size = new System.Drawing.Size(80, 27);
             this.ntxtGraphicsRefresh.TabIndex = 3;
             this.ntxtGraphicsRefresh.Text = "42";
-            this.ntxtGraphicsRefresh.NumberChanged += new NumberChangeHandler(this.ntxtGraphicsRefresh_NumberChanged);
+            this.ntxtGraphicsRefresh.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtGraphicsRefresh_NumberChanged);
             // 
             // aChBxOnlyDrawInForeground
             // 
@@ -1576,8 +1577,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.aChBxOnlyDrawInForeground.Name = "aChBxOnlyDrawInForeground";
             this.aChBxOnlyDrawInForeground.Size = new System.Drawing.Size(283, 30);
             this.aChBxOnlyDrawInForeground.TabIndex = 8;
-            this.aChBxOnlyDrawInForeground.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Left;
-            this.aChBxOnlyDrawInForeground.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.CheckedChangeHandler(this.chBxOnlyDrawInForeground_CheckedChanged);
+            this.aChBxOnlyDrawInForeground.TextAlign = AnotherCheckbox.TextAlignment.Left;
+            this.aChBxOnlyDrawInForeground.CheckedChanged += new CheckedChangeHandler(this.chBxOnlyDrawInForeground_CheckedChanged);
             // 
             // lblApplicationReposition
             // 
@@ -1620,7 +1621,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.ktxtReposition.Name = "ktxtReposition";
             this.ktxtReposition.Size = new System.Drawing.Size(80, 27);
             this.ktxtReposition.TabIndex = 5;
-            this.ktxtReposition.KeyChanged += new AnotherSc2Hack.Classes.FrontEnds.KeyValueChangeHandler(this.ktxtReposition_KeyChanged);
+            this.ktxtReposition.KeyChanged += new KeyValueChangeHandler(this.ktxtReposition_KeyChanged);
             // 
             // btnRestoreSettings
             // 
@@ -2400,6 +2401,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.Name = "NewMainHandler";
             this.Text = "NewMainHandler";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewMainHandler_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NewMainHandler_FormClosed);
+            this.Load += new System.EventHandler(this.NewMainHandler_Load);
             this.Resize += new System.EventHandler(this.NewMainHandler_Resize);
             this.pnlLeftSelection.ResumeLayout(false);
             this.pnlVarious.ResumeLayout(false);

@@ -12,6 +12,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static string StrPreferencesFile = Application.StartupPath + "\\Preferences.dat";
         public static string StrLogFile = Application.StartupPath + "\\AnotherLogFile.rtf";
         public static string StrUpdateManager = Application.StartupPath + "\\Sc2Hack UpdateManager.exe";
+        public static string StrDownloadManager = Application.StartupPath + "\\AnotherSc2Hack DownloadManager.exe";
         public static string StrPluginInterface = Application.StartupPath + "\\PluginInterface.dll";
         public static string StrPredefinedTypes = Application.StartupPath + "\\PredefinedTypes.dll";
         public static string StrXmlPreferences = Application.StartupPath + "\\Settings.xml";

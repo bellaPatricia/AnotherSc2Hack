@@ -15,6 +15,7 @@ namespace UpdateChecker
         public string DownloadPath { get; set; }
         public List<string> ImagePaths { get; set; }
         public string Version { get; set; }
+        public string Hash { get; set; }
 
         public PluginDatastore()
         {
@@ -23,6 +24,7 @@ namespace UpdateChecker
             DownloadPath = String.Empty;
             ImagePaths = new List<string>();
             Version = String.Empty;
+            Hash = String.Empty;
         }
     }
 }

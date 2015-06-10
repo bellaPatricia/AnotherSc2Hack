@@ -19,7 +19,7 @@ using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
-using Predefined;
+using PredefinedTypes;
 using Utilities.Events;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering

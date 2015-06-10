@@ -1,4 +1,5 @@
-﻿using Utilities.Events;
+﻿using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+using Utilities.Events;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
@@ -30,10 +31,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblSpecial = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.lblSize = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.ntxtSize = new AnotherSc2Hack.Classes.FrontEnds.NumberTextBox();
-            this.lblPreview = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
+            this.lblSpecial = new LanguageLabel();
+            this.lblSize = new LanguageLabel();
+            this.ntxtSize = new NumberTextBox();
+            this.lblPreview = new LanguageLabel();
             this.pnlPreview = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 

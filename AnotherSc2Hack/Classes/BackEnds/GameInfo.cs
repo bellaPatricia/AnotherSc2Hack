@@ -29,8 +29,9 @@ using System.Drawing;
 using System.Text;
 using System.Diagnostics;
 using System.Threading;
+using PredefinedTypes;
 using Utilities.Events;
-using PredefinedTypes = Predefined.PredefinedData;
+using PredefinedTypes = PredefinedTypes.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -44,12 +45,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
         private Thread _thrWorker;
         private Int32 _maxPlayerAmount = 16;
         private Stopwatch _swmainwatch = new Stopwatch();
-        private readonly List<PredefinedTypes.UnitAssigner> _lUnitAssigner = new List<PredefinedTypes.UnitAssigner>();
+        private readonly List<PredefinedData.UnitAssigner> _lUnitAssigner = new List<PredefinedData.UnitAssigner>();
         private bool _bSkip;
         private Random _rnd = new Random();
         public readonly Memory Memory = new Memory();
         public event NewMatchHandler NewMatch;
-        private readonly List<PredefinedTypes.PlayerRace> _lRace = new List<PredefinedTypes.PlayerRace>();
+        private readonly List<PredefinedData.PlayerRace> _lRace = new List<PredefinedData.PlayerRace>();
         private ApplicationStartOptions _startOptions;
 
 
@@ -228,7 +229,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             // Create little race- array and catch all races 
             for (var i = 0; i < _maxPlayerAmount; i++)
-                _lRace.Add((PredefinedTypes.PlayerRace)raceChunk[i * MyOffsets.RaceSize]);
+                _lRace.Add((PredefinedData.PlayerRace)raceChunk[i * MyOffsets.RaceSize]);
 
             #endregion
         }
@@ -293,10 +294,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 #endregion
 
 
-                Unit = new List<PredefinedTypes.Unit>();
-                Player = new PredefinedTypes.PList();
-                Selection = new PredefinedTypes.LSelection();
-                Group = new List<PredefinedTypes.Groups>();
+                Unit = new List<PredefinedData.Unit>();
+                Player = new PredefinedData.PList();
+                Selection = new PredefinedData.LSelection();
+                Group = new List<PredefinedData.Groups>();
                 /*if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out Memory.Process)) 
                 {}*/
 
@@ -356,7 +357,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                      }*/
 
                     if (Gameinfo == null)
-                        Gameinfo = new PredefinedTypes.Gameinformation();
+                        Gameinfo = new PredefinedData.Gameinformation();
 
                     Gameinfo.IsIngame = false;
 
@@ -453,21 +454,21 @@ namespace AnotherSc2Hack.Classes.BackEnds
             
             // Counts the valid race- holders (Ai, Human) 
             var iRaceCounter = 0;
-            var lPlayer = new PredefinedTypes.PList(_maxPlayerAmount);
+            var lPlayer = new PredefinedData.PList(_maxPlayerAmount);
 
             if (playerChunk.Length > 0)
             {
                 for (var i = 0; i < _maxPlayerAmount; i++)
                 {
 
-                    var p = new PredefinedTypes.PlayerStruct();
+                    var p = new PredefinedData.PlayerStruct();
 
                     p.CameraPositionX = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCameraX + (i * MyOffsets.PlayerStructSize));
                     p.CameraPositionY = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCameraY + (i * MyOffsets.PlayerStructSize));
                     p.CameraDistance = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCameraDistance + (i * MyOffsets.PlayerStructSize));
                     p.CameraAngle = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCameraAngle + (i * MyOffsets.PlayerStructSize));
                     p.CameraRotation = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerCameraRotation + (i * MyOffsets.PlayerStructSize));
-                    p.Difficulty = (PredefinedTypes.PlayerDifficulty)playerChunk[MyOffsets.RawPlayerDifficulty + (i * MyOffsets.PlayerStructSize)];
+                    p.Difficulty = (PredefinedData.PlayerDifficulty)playerChunk[MyOffsets.RawPlayerDifficulty + (i * MyOffsets.PlayerStructSize)];
                     p.Status = GetGPlayerStatusModified(playerChunk[MyOffsets.RawPlayerStatus + (i * MyOffsets.PlayerStructSize)]);
                     p.Type = GetGPlayerTypeModified(playerChunk[MyOffsets.RawPlayerPlayertype + (i * MyOffsets.PlayerStructSize)]);
                     p.NameLength = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerNamelenght + (i * MyOffsets.PlayerStructSize)) >> 2;
@@ -497,8 +498,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     p.IsLocalplayer = p.Localplayer == i;
                     lPlayer.LocalplayerIndex = p.Localplayer;
 
-                    if (p.Type == PredefinedTypes.PlayerType.Human ||
-                        p.Type == PredefinedTypes.PlayerType.Ai)
+                    if (p.Type == PredefinedData.PlayerType.Human ||
+                        p.Type == PredefinedData.PlayerType.Ai)
                     {
                         p.PlayerRace = _lRace[iRaceCounter];
                         iRaceCounter++;
@@ -548,7 +549,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     _lUnitAssigner.Clear();
 
 
-                var lUnit = new List<PredefinedTypes.Unit>(iAmountOfUnits);
+                var lUnit = new List<PredefinedData.Unit>(iAmountOfUnits);
                 for (var i = 0; i < iAmountOfUnits; i++)
                 {
                     //_swmainwatch.Reset();
@@ -556,7 +557,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                     _bSkip = false;
 
-                    var u = new PredefinedTypes.Unit();
+                    var u = new PredefinedData.Unit();
 
                     u.PositionX = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitPosX + (i * MyOffsets.UnitStructSize));
                     u.PositionY = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitPosY + (i * MyOffsets.UnitStructSize));
@@ -575,24 +576,24 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     u.BuildingState = BitConverter.ToInt16(unitChunk, MyOffsets.RawUnitBuildingState + (i * MyOffsets.UnitStructSize));
                     u.ModelPointer = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitModel + (i * MyOffsets.UnitStructSize));
                     u.AliveSince = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitAliveSince + (i * MyOffsets.UnitStructSize));
-                    u.IsAlive = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Dead) == 0;
+                    u.IsAlive = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Dead) == 0;
                     u.IsUnderConstruction = (u.TargetFilter &
-                                             (UInt64)PredefinedTypes.TargetFilterFlag.UnderConstruction) > 0;
-                    u.IsStructure = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Structure) > 0;
-                    u.IsCloaked = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Cloaked) > 0;
-                    u.IsAir = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Air) > 0;
-                    u.IsArmored = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Armored) > 0;
-                    u.IsBiological = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Biological) > 0;
-                    u.IsBurried = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Buried) > 0;
-                    u.IsDetector = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Detector) > 0;
-                    u.IsGround = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Ground) > 0;
-                    u.IsHallucination = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Hallucination) > 0;
-                    u.IsLight = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Light) > 0;
-                    u.IsMassive = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Massive) > 0;
-                    u.IsMechanical = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Mechanical) > 0;
-                    u.IsPsionic = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Psionic) > 0;
-                    u.IsRobotic = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Robotic) > 0;
-                    u.IsVisible = (u.TargetFilter & (UInt64)PredefinedTypes.TargetFilterFlag.Visible) > 0;
+                                             (UInt64)PredefinedData.TargetFilterFlag.UnderConstruction) > 0;
+                    u.IsStructure = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Structure) > 0;
+                    u.IsCloaked = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Cloaked) > 0;
+                    u.IsAir = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Air) > 0;
+                    u.IsArmored = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Armored) > 0;
+                    u.IsBiological = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Biological) > 0;
+                    u.IsBurried = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Buried) > 0;
+                    u.IsDetector = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Detector) > 0;
+                    u.IsGround = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Ground) > 0;
+                    u.IsHallucination = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Hallucination) > 0;
+                    u.IsLight = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Light) > 0;
+                    u.IsMassive = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Massive) > 0;
+                    u.IsMechanical = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Mechanical) > 0;
+                    u.IsPsionic = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Psionic) > 0;
+                    u.IsRobotic = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Robotic) > 0;
+                    u.IsVisible = (u.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Visible) > 0;
 
                     /* Reset owner */
                     if (Player != null &&
@@ -652,7 +653,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         continue;
 
                     /* Assign a new Unit- assigner */
-                    var ua = new PredefinedTypes.UnitAssigner
+                    var ua = new PredefinedData.UnitAssigner
                     {
                         Pointer = u.ModelPointer,
                         CustomStruct = GetGUnitStruct(i)
@@ -706,7 +707,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
 
-            var map = new PredefinedTypes.Map
+            var map = new PredefinedData.Map
             {
                 Bottom = BitConverter.ToInt32(mapChunk, MyOffsets.RawMapBottom),
                 Top = BitConverter.ToInt32(mapChunk, MyOffsets.RawMapTop),
@@ -734,13 +735,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var realSelectionCount = selectionChunk.Length / 4 - 2;
 
 
-            var lSelection = new PredefinedTypes.LSelection();
+            var lSelection = new PredefinedData.LSelection();
 
             if (CAccessSelection)
             {
                 for (var i = 0; i < realSelectionCount; i++)
                 {
-                    var sel = new PredefinedTypes.Selection();
+                    var sel = new PredefinedData.Selection();
 
                     sel.UnitIndex = BitConverter.ToInt16(selectionChunk, MyOffsets.UiRawSelectedIndex + (4 * i)) / 4;
                     try
@@ -779,15 +780,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var groupChunk = Memory.ReadMemory(MyOffsets.RawGroupBase, groupLenght);
 
 
-            var lGroups = new List<PredefinedTypes.Groups>();
+            var lGroups = new List<PredefinedData.Groups>();
 
             if (CAccessGroups)
             {
                 for (var i = 0; i < 10; i++)
                 {
-                    var group = new PredefinedTypes.Groups();
+                    var group = new PredefinedData.Groups();
                     var amountOfUnits = BitConverter.ToInt16(groupChunk, MyOffsets.RawGroupAmountofUnits + (MyOffsets.RawGroupSize * i));
-                    var lUnit = new List<PredefinedTypes.Unit>();
+                    var lUnit = new List<PredefinedData.Unit>();
 
                     for (var k = 0; k < amountOfUnits; k++)
                     {
@@ -829,7 +830,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (!CAccessGameinfo)
                 return;
 
-            var gInfo = new PredefinedTypes.Gameinformation
+            var gInfo = new PredefinedData.Gameinformation
             {
                 ChatInput = GetGChatInput(),
                 Timer = GetGTimer(),
@@ -851,52 +852,52 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         /* Method to assign the unitcommands (how many units are in queue, how is the 
          * completion percentage of that unit) */
-        private void AssignUnitCommands(ref PredefinedTypes.Unit u, int i)
+        private void AssignUnitCommands(ref PredefinedData.Unit u, int i)
         {
-            if (u.Id.Equals(PredefinedTypes.UnitId.PbNexus) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PbGateway) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PbWarpgate) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PbStargate) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PbRoboticsbay) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbCcGround) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbOrbitalGround) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbPlanetary) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbBarracksGround) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbFactoryGround) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbStarportGround) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbHatchery) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbLiar) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbHive) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZuBanelingCocoon) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZuBroodlordCocoon) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZuEgg) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZuOverseerCocoon) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbEbay) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbTechlabFactory) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbTechlabRax) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbTechlabStarport) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbFusioncore) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbGhostacademy) ||
-                u.Id.Equals(PredefinedTypes.UnitId.TbArmory) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PbCybercore) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PbFleetbeacon) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PbForge) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PbTemplararchives) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PbTwilightcouncil) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PbRoboticssupportbay) ||
-                u.Id.Equals(PredefinedTypes.UnitId.PuMothershipCore) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbEvolutionChamber) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbSpire) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbSpawningPool) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbUltraCavern) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbRoachWarren) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbHydraDen) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbBanelingNest) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbHatchery) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbLiar) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbHive) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbInfestationPit) ||
-                u.Id.Equals(PredefinedTypes.UnitId.ZbGreaterspire))
+            if (u.Id.Equals(PredefinedData.UnitId.PbNexus) ||
+                u.Id.Equals(PredefinedData.UnitId.PbGateway) ||
+                u.Id.Equals(PredefinedData.UnitId.PbWarpgate) ||
+                u.Id.Equals(PredefinedData.UnitId.PbStargate) ||
+                u.Id.Equals(PredefinedData.UnitId.PbRoboticsbay) ||
+                u.Id.Equals(PredefinedData.UnitId.TbCcGround) ||
+                u.Id.Equals(PredefinedData.UnitId.TbOrbitalGround) ||
+                u.Id.Equals(PredefinedData.UnitId.TbPlanetary) ||
+                u.Id.Equals(PredefinedData.UnitId.TbBarracksGround) ||
+                u.Id.Equals(PredefinedData.UnitId.TbFactoryGround) ||
+                u.Id.Equals(PredefinedData.UnitId.TbStarportGround) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbHatchery) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbLiar) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbHive) ||
+                u.Id.Equals(PredefinedData.UnitId.ZuBanelingCocoon) ||
+                u.Id.Equals(PredefinedData.UnitId.ZuBroodlordCocoon) ||
+                u.Id.Equals(PredefinedData.UnitId.ZuEgg) ||
+                u.Id.Equals(PredefinedData.UnitId.ZuOverseerCocoon) ||
+                u.Id.Equals(PredefinedData.UnitId.TbEbay) ||
+                u.Id.Equals(PredefinedData.UnitId.TbTechlabFactory) ||
+                u.Id.Equals(PredefinedData.UnitId.TbTechlabRax) ||
+                u.Id.Equals(PredefinedData.UnitId.TbTechlabStarport) ||
+                u.Id.Equals(PredefinedData.UnitId.TbFusioncore) ||
+                u.Id.Equals(PredefinedData.UnitId.TbGhostacademy) ||
+                u.Id.Equals(PredefinedData.UnitId.TbArmory) ||
+                u.Id.Equals(PredefinedData.UnitId.PbCybercore) ||
+                u.Id.Equals(PredefinedData.UnitId.PbFleetbeacon) ||
+                u.Id.Equals(PredefinedData.UnitId.PbForge) ||
+                u.Id.Equals(PredefinedData.UnitId.PbTemplararchives) ||
+                u.Id.Equals(PredefinedData.UnitId.PbTwilightcouncil) ||
+                u.Id.Equals(PredefinedData.UnitId.PbRoboticssupportbay) ||
+                u.Id.Equals(PredefinedData.UnitId.PuMothershipCore) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbEvolutionChamber) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbSpire) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbSpawningPool) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbUltraCavern) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbRoachWarren) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbHydraDen) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbBanelingNest) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbHatchery) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbLiar) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbHive) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbInfestationPit) ||
+                u.Id.Equals(PredefinedData.UnitId.ZbGreaterspire))
             {
                 if (u.IsAlive)
                 {
@@ -925,54 +926,54 @@ namespace AnotherSc2Hack.Classes.BackEnds
         #region Functions to get Playerinformation
 
 
-        private PredefinedTypes.PlayerStatus GetGPlayerStatusModified(Byte bValue)
+        private PredefinedData.PlayerStatus GetGPlayerStatusModified(Byte bValue)
         {
             switch (bValue)
             {
-                case (Int32)PredefinedTypes.PlayerStatus.Lost:
-                    return PredefinedTypes.PlayerStatus.Lost;
+                case (Int32)PredefinedData.PlayerStatus.Lost:
+                    return PredefinedData.PlayerStatus.Lost;
 
-                case (Int32)PredefinedTypes.PlayerStatus.Playing:
-                    return PredefinedTypes.PlayerStatus.Playing;
+                case (Int32)PredefinedData.PlayerStatus.Playing:
+                    return PredefinedData.PlayerStatus.Playing;
 
-                case (Int32)PredefinedTypes.PlayerStatus.Tied:
-                    return PredefinedTypes.PlayerStatus.Tied;
+                case (Int32)PredefinedData.PlayerStatus.Tied:
+                    return PredefinedData.PlayerStatus.Tied;
 
-                case (Int32)PredefinedTypes.PlayerStatus.Won:
-                    return PredefinedTypes.PlayerStatus.Won;
+                case (Int32)PredefinedData.PlayerStatus.Won:
+                    return PredefinedData.PlayerStatus.Won;
 
                 default:
-                    return PredefinedTypes.PlayerStatus.NotDefined;
+                    return PredefinedData.PlayerStatus.NotDefined;
             }
         }
 
 
 
         /* Translates pure data into types */
-        private PredefinedTypes.PlayerType GetGPlayerTypeModified(Byte bValue)
+        private PredefinedData.PlayerType GetGPlayerTypeModified(Byte bValue)
         {
             switch (bValue)
             {
-                case (Int32)PredefinedTypes.PlayerType.Ai:
-                    return PredefinedTypes.PlayerType.Ai;
+                case (Int32)PredefinedData.PlayerType.Ai:
+                    return PredefinedData.PlayerType.Ai;
 
-                case (Int32)PredefinedTypes.PlayerType.Hostile:
-                    return PredefinedTypes.PlayerType.Hostile;
+                case (Int32)PredefinedData.PlayerType.Hostile:
+                    return PredefinedData.PlayerType.Hostile;
 
-                case (Int32)PredefinedTypes.PlayerType.Human:
-                    return PredefinedTypes.PlayerType.Human;
+                case (Int32)PredefinedData.PlayerType.Human:
+                    return PredefinedData.PlayerType.Human;
 
-                case (Int32)PredefinedTypes.PlayerType.Neutral:
-                    return PredefinedTypes.PlayerType.Neutral;
+                case (Int32)PredefinedData.PlayerType.Neutral:
+                    return PredefinedData.PlayerType.Neutral;
 
-                case (Int32)PredefinedTypes.PlayerType.Observer:
-                    return PredefinedTypes.PlayerType.Observer;
+                case (Int32)PredefinedData.PlayerType.Observer:
+                    return PredefinedData.PlayerType.Observer;
 
-                case (Int32)PredefinedTypes.PlayerType.Referee:
-                    return PredefinedTypes.PlayerType.Referee;
+                case (Int32)PredefinedData.PlayerType.Referee:
+                    return PredefinedData.PlayerType.Referee;
 
                 default:
-                    return PredefinedTypes.PlayerType.NotDefined;
+                    return PredefinedData.PlayerType.NotDefined;
             }
         }
 
@@ -981,49 +982,49 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             switch (iValue)
             {
-                case (Int32)PredefinedTypes.PlayerColor.Blue:
+                case (Int32)PredefinedData.PlayerColor.Blue:
                     return Color.FromArgb(255, 0, 66, 255);
 
-                case (Int32)PredefinedTypes.PlayerColor.Brown:
+                case (Int32)PredefinedData.PlayerColor.Brown:
                     return Color.FromArgb(255, 78, 42, 4);
 
-                case (Int32)PredefinedTypes.PlayerColor.DarkGray:
+                case (Int32)PredefinedData.PlayerColor.DarkGray:
                     return Color.FromArgb(255, 35, 35, 35);
 
-                case (Int32)PredefinedTypes.PlayerColor.DarkGreen:
+                case (Int32)PredefinedData.PlayerColor.DarkGreen:
                     return Color.FromArgb(255, 16, 98, 70);
 
-                case (Int32)PredefinedTypes.PlayerColor.Green:
+                case (Int32)PredefinedData.PlayerColor.Green:
                     return Color.FromArgb(255, 22, 128, 0);
 
-                case (Int32)PredefinedTypes.PlayerColor.LightGray:
+                case (Int32)PredefinedData.PlayerColor.LightGray:
                     return Color.FromArgb(255, 82, 84, 148);
 
-                case (Int32)PredefinedTypes.PlayerColor.LightGreen:
+                case (Int32)PredefinedData.PlayerColor.LightGreen:
                     return Color.FromArgb(255, 150, 255, 145);
 
-                case (Int32)PredefinedTypes.PlayerColor.LightPink:
+                case (Int32)PredefinedData.PlayerColor.LightPink:
                     return Color.FromArgb(255, 204, 166, 252);
 
-                case (Int32)PredefinedTypes.PlayerColor.Orange:
+                case (Int32)PredefinedData.PlayerColor.Orange:
                     return Color.FromArgb(255, 254, 138, 14);
 
-                case (Int32)PredefinedTypes.PlayerColor.Pink:
+                case (Int32)PredefinedData.PlayerColor.Pink:
                     return Color.FromArgb(255, 229, 91, 176);
 
-                case (Int32)PredefinedTypes.PlayerColor.Purple:
+                case (Int32)PredefinedData.PlayerColor.Purple:
                     return Color.FromArgb(255, 84, 0, 129);
 
-                case (Int32)PredefinedTypes.PlayerColor.Red:
+                case (Int32)PredefinedData.PlayerColor.Red:
                     return Color.FromArgb(255, 182, 20, 30);
 
-                case (Int32)PredefinedTypes.PlayerColor.Teal:
+                case (Int32)PredefinedData.PlayerColor.Teal:
                     return Color.FromArgb(255, 28, 167, 234);
 
-                case (Int32)PredefinedTypes.PlayerColor.Violet:
+                case (Int32)PredefinedData.PlayerColor.Violet:
                     return Color.FromArgb(255, 31, 1, 201);
 
-                case (Int32)PredefinedTypes.PlayerColor.White:
+                case (Int32)PredefinedData.PlayerColor.White:
                     return Color.White;
 
                 default:
@@ -1049,7 +1050,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
         /* Get the name */
-        private PredefinedTypes.UnitModelStruct GetGUnitStruct(Int32 iUnitNum)
+        private PredefinedData.UnitModelStruct GetGUnitStruct(Int32 iUnitNum)
         {
             var iContentofUnitModel = Memory.ReadInt32(MyOffsets.UnitModel + MyOffsets.UnitStructSize * iUnitNum);
             /*BitConverter.ToInt32(
@@ -1059,7 +1060,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var iContentofUnitModelShifted = (iContentofUnitModel << 5) & 0xFFFFFFFF;
 
             /* Id - 2 Byte*/
-            var id = (PredefinedTypes.UnitId)Memory.ReadInt16(MyOffsets.UnitModelId + (int)iContentofUnitModelShifted);
+            var id = (PredefinedData.UnitId)Memory.ReadInt16(MyOffsets.UnitModelId + (int)iContentofUnitModelShifted);
             /*BitConverter.ToInt16(
                 InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.UnitModelId + (int)iContentofUnitModelShifted, 2),
                 0);*/
@@ -1120,7 +1121,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 sName = sName.Substring(0, sName.IndexOf('\0'));
 
 
-            var str = new PredefinedTypes.UnitModelStruct();
+            var str = new PredefinedData.UnitModelStruct();
             str.NameLenght = sName.Length;
             str.RawName = sName;
             str.Id = id;
@@ -1144,9 +1145,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                   0));*/
         }
 
-        private List<PredefinedTypes.UnitProduction> GetGUnitNumberOfQueuedUnit(Int32 iUnitNum, PredefinedTypes.UnitId structureId)
+        private List<PredefinedData.UnitProduction> GetGUnitNumberOfQueuedUnit(Int32 iUnitNum, PredefinedData.UnitId structureId)
         {
-            var lUnitIds = new List<PredefinedTypes.UnitProduction>();
+            var lUnitIds = new List<PredefinedData.UnitProduction>();
 
             /* Content of Abilities (pAbilities) */
             var iUnitAbilitiesPointer = Memory.ReadUInt32(MyOffsets.UnitStruct + 0xDC + MyOffsets.UnitStructSize * iUnitNum);
@@ -1200,7 +1201,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 {
                     iIndexToLookAt = i;
 
-                    if (!structureId.Equals(PredefinedTypes.UnitId.TbPlanetary))
+                    if (!structureId.Equals(PredefinedData.UnitId.TbPlanetary))
                         break;
                 }
 
@@ -1331,7 +1332,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 var iVespineCost2 = BitConverter.ToInt32(productionChunk2, 0x78);
                 var iUnitIndexBuiltFrom2 = BitConverter.ToUInt16(productionChunk2, 0x5E) / 4;
 
-                var prd2 = new PredefinedTypes.UnitProduction();
+                var prd2 = new PredefinedData.UnitProduction();
                 prd2.ProductionStatus = 100 - (iTimeLeft2 / iTimeMax2) * 100;
                 prd2.Id = HelpFunctions.GetUnitIdFromLogicalId(structureId, iType2, (Int32)iTimeMax2, iMineralCost2, iVespineCost2);
                 prd2.ReactorAttached = bReactorAttached;
@@ -1351,14 +1352,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
             //Thus: Check if the sourcebuilding is a hatch or something..
             else if (iNumberOfQueuedUnits <= 0)
             {
-                if (structureId.Equals(PredefinedTypes.UnitId.ZbHatchery) ||
-                    structureId.Equals(PredefinedTypes.UnitId.ZbLiar) ||
-                    structureId.Equals(PredefinedTypes.UnitId.ZbSpire) ||
-                    structureId.Equals(PredefinedTypes.UnitId.ZuBroodlordCocoon) ||
-                    structureId.Equals(PredefinedTypes.UnitId.ZuOverseerCocoon) ||
-                    structureId.Equals(PredefinedTypes.UnitId.TbCcGround) ||
-                    structureId.Equals(PredefinedTypes.UnitId.PuMothershipCore) ||
-                    structureId.Equals(PredefinedTypes.UnitId.PuArchon))
+                if (structureId.Equals(PredefinedData.UnitId.ZbHatchery) ||
+                    structureId.Equals(PredefinedData.UnitId.ZbLiar) ||
+                    structureId.Equals(PredefinedData.UnitId.ZbSpire) ||
+                    structureId.Equals(PredefinedData.UnitId.ZuBroodlordCocoon) ||
+                    structureId.Equals(PredefinedData.UnitId.ZuOverseerCocoon) ||
+                    structureId.Equals(PredefinedData.UnitId.TbCcGround) ||
+                    structureId.Equals(PredefinedData.UnitId.PuMothershipCore) ||
+                    structureId.Equals(PredefinedData.UnitId.PuArchon))
                 {
                     var iUnitCommandQueuePointer = Memory.ReadUInt32(MyOffsets.UnitStruct + 0xD4 + MyOffsets.UnitStructSize * iUnitNum);
                     /*InteropCalls.ReadUInt32(HStarcraft,
@@ -1377,7 +1378,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         var iMineralCost2 = BitConverter.ToInt32(iUnitCommandQueueChunk, 0xC4);
                         var iVespineCost2 = BitConverter.ToInt32(iUnitCommandQueueChunk, 0xC8);
 
-                        var prd2 = new PredefinedTypes.UnitProduction
+                        var prd2 = new PredefinedData.UnitProduction
                         {
                             Id =
                                 HelpFunctions.GetUnitIdFromLogicalId(structureId, iType2, (Int32)iTimeMax2,
@@ -1469,7 +1470,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var strType = Convert.ToString(iType, 16);
 
 
-            var prd = new PredefinedTypes.UnitProduction();
+            var prd = new PredefinedData.UnitProduction();
             prd.ProductionStatus = 100 - (iTimeLeft / iTimeMax) * 100;
             prd.Id = HelpFunctions.GetUnitIdFromLogicalId(structureId, iType, (Int32)iTimeMax, iMineralCost, iVespineCost);
             prd.ReactorAttached = bReactorAttached;
@@ -1559,12 +1560,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* 4 Bytes */
-        private PredefinedTypes.Gamespeed GetGGamespeed()
+        private PredefinedData.Gamespeed GetGGamespeed()
         {
             var iBuffer = Memory.ReadInt32(MyOffsets.Gamespeed);
             // BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.Gamespeed, sizeof (Int32)), 0);
 
-            return (PredefinedTypes.Gamespeed)iBuffer;
+            return (PredefinedData.Gamespeed)iBuffer;
         }
 
         /* 1 Byte */
@@ -1579,11 +1580,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* 4 Bytes - No memory read */
-        private PredefinedTypes.WindowStyle GetGWindowStyle()
+        private PredefinedData.WindowStyle GetGWindowStyle()
         {
             var iBuffer = InteropCalls.GetWindowLongPtr(Memory.Process.MainWindowHandle, (Int32)InteropCalls.Gwl.ExStyle);
 
-            return (PredefinedTypes.WindowStyle)iBuffer;
+            return (PredefinedData.WindowStyle)iBuffer;
         }
 
         /* 4 Bytes */
@@ -1597,7 +1598,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Int32 CSleepTime { get; set; }
         public Boolean CThreadState { get; set; }
         public Process CStarcraft2 { get; set; }
-        public PredefinedTypes.WindowStyle CWindowStyle { get; set; }
+        public PredefinedData.WindowStyle CWindowStyle { get; set; }
 
 
         public Boolean CAccessUnitCommands { get; set; }
@@ -1610,13 +1611,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
         //public List<PredefinedTypes.PlayerStruct> Player { get; set; }
-        public List<PredefinedTypes.Unit> Unit { get; set; }
-        public PredefinedTypes.Map Map { get; set; }
-        public PredefinedTypes.Gameinformation Gameinfo { get; set; }
-        public PredefinedTypes.LSelection Selection { get; set; }
-        public List<PredefinedTypes.Groups> Group { get; set; }
+        public List<PredefinedData.Unit> Unit { get; set; }
+        public PredefinedData.Map Map { get; set; }
+        public PredefinedData.Gameinformation Gameinfo { get; set; }
+        public PredefinedData.LSelection Selection { get; set; }
+        public List<PredefinedData.Groups> Group { get; set; }
 
-        public PredefinedTypes.PList Player { get; set; }
+        public PredefinedData.PList Player { get; set; }
 
         public Int32 RandomNumber { get; set; }
         public DateTime LastCallTime { get; private set; }

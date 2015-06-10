@@ -50,6 +50,9 @@ lstrApplicationRestoreSettingsHeader: Are you sure?
 lstrApplicationRestorePanelPositionText: Panel's size and position\nwere adjusted successfully!
 lstrApplicationRestorePanelPositionHeader: Panelposition changed!
 lstrApplicationDoYouWishToUpdate: Do you wish to update?
+lstrApplicationUpdateTitle: Updates available!
+lstrContributionTitle: Contribution
+lstrContributionText: Looks like you've been using this tool\nfor quite a while. If you like it you can\ncontribute to the project by translations,\ndonations or bug reports.\n\nDo you want to contribute?
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterations / sec.

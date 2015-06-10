@@ -1,4 +1,6 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Container
+﻿using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
     partial class PanelSettingsBasics
     {
@@ -28,15 +30,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.aChBxRemoveAi = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveAllie = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveNeutral = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveYourself = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.aChBxRemoveClantags = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.OpacityControl = new AnotherSc2Hack.Classes.FrontEnds.UiOpacityControl();
-            this.lblBasics = new AnotherSc2Hack.Classes.FrontEnds.LanguageLabel();
-            this.aChBxDrawBackground = new AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox();
-            this.btnSetFont = new AnotherSc2Hack.Classes.FrontEnds.LanguageButton();
+            this.aChBxRemoveAi = new AnotherCheckbox();
+            this.aChBxRemoveAllie = new AnotherCheckbox();
+            this.aChBxRemoveNeutral = new AnotherCheckbox();
+            this.aChBxRemoveYourself = new AnotherCheckbox();
+            this.aChBxRemoveClantags = new AnotherCheckbox();
+            this.OpacityControl = new UiOpacityControl();
+            this.lblBasics = new LanguageLabel();
+            this.aChBxDrawBackground = new AnotherCheckbox();
+            this.btnSetFont = new LanguageButton();
             this.SuspendLayout();
             // 
             // aChBxRemoveAi
@@ -51,7 +53,7 @@
             this.aChBxRemoveAi.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveAi.Size = new System.Drawing.Size(111, 30);
             this.aChBxRemoveAi.TabIndex = 0;
-            this.aChBxRemoveAi.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveAi.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveAllie
             // 
@@ -65,7 +67,7 @@
             this.aChBxRemoveAllie.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveAllie.Size = new System.Drawing.Size(127, 30);
             this.aChBxRemoveAllie.TabIndex = 1;
-            this.aChBxRemoveAllie.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveAllie.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveNeutral
             // 
@@ -79,7 +81,7 @@
             this.aChBxRemoveNeutral.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveNeutral.Size = new System.Drawing.Size(146, 30);
             this.aChBxRemoveNeutral.TabIndex = 1;
-            this.aChBxRemoveNeutral.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveNeutral.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveYourself
             // 
@@ -93,7 +95,7 @@
             this.aChBxRemoveYourself.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveYourself.Size = new System.Drawing.Size(150, 30);
             this.aChBxRemoveYourself.TabIndex = 2;
-            this.aChBxRemoveYourself.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveYourself.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // aChBxRemoveClantags
             // 
@@ -107,7 +109,7 @@
             this.aChBxRemoveClantags.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxRemoveClantags.Size = new System.Drawing.Size(154, 30);
             this.aChBxRemoveClantags.TabIndex = 3;
-            this.aChBxRemoveClantags.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxRemoveClantags.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // OpacityControl
             // 
@@ -143,7 +145,7 @@
             this.aChBxDrawBackground.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.aChBxDrawBackground.Size = new System.Drawing.Size(157, 30);
             this.aChBxDrawBackground.TabIndex = 4;
-            this.aChBxDrawBackground.TextAlign = AnotherSc2Hack.Classes.FrontEnds.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxDrawBackground.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // btnSetFont
             // 
