@@ -1949,15 +1949,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             
             //...and invoke it here
-            var bFailed = true;
+            var iCounter = 0;
 
-            while (bFailed)
+            while (iCounter < 10)
             {
                 try
                 {
-                    //Actual invoking
-                    Invoke(myInvoker);
-                    bFailed = false;
+                    if (!Created)
+                    {
+                        Thread.Sleep(50);
+
+                    }
+
+                    else
+                    {
+                        //Actual invoking
+                        Invoke(myInvoker);
+                        break;
+                    }
                 }
 
                 catch (InvalidOperationException)
@@ -1971,6 +1980,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 {
                     //If we reach this point, something horrible happened.
                     Thread.Sleep(30);
+                }
+
+                finally
+                {
+                    iCounter += 1;
                 }
             }
 
