@@ -100,7 +100,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private GameInfo _gameinfo = new GameInfo();
+        private GameInfo _gameinfo;
 
         public GameInfo Gameinfo
         {
@@ -223,6 +223,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             InitializeComponent();
 
+            Gameinfo = new GameInfo();
+            Gameinfo.CSleepTime = PSettings.PreferenceAll.Global.DataRefresh;
+            Gameinfo.IterationPerSecondChanged += Gameinfo_IterationPerSecondChanged;
+            Gameinfo.ProcessFound += Gameinfo_ProcessFound;
             
             Init();
             OverlaysEventMapping();
@@ -233,8 +237,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             ApplicationOptions = app;
 
-            Gameinfo.CSleepTime = PSettings.PreferenceAll.Global.DataRefresh;
-            Gameinfo.IterationPerSecondChanged += Gameinfo_IterationPerSecondChanged;
+            
 
             PluginsLocalLoadPlugins();
             
@@ -242,6 +245,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             LaunchOnStartup();
 
             
+        }
+
+        void Gameinfo_ProcessFound(object sender, ProcessFoundArgs e)
+        {
+            PSc2Process = e.Process;
         }
 
         #endregion
@@ -3217,7 +3225,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             InputManager();
             PluginDataRefresh();
 
-            #region Reset Process and gameinfo if Sc2 is not started
+           /* #region Reset Process and gameinfo if Sc2 is not started
 
             if (!Processing.GetProcess(Constants.StrStarcraft2ProcessName))
             {
@@ -3266,8 +3274,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 }
             }
 
-            #endregion
-
+            #endregion*/
         }
 
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)

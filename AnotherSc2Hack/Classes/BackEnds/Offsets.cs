@@ -154,8 +154,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 _starcraft = proc;
         }
 
-        public void AssignAddresses()
+        public void AssignAddresses(Process starcraft = null)
         {
+            if (starcraft != null)
+                _starcraft = starcraft;
+
             if (_starcraft == null)
                 return;
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Utilities.Events
 {
     public delegate void UpdateChangeHandler(object sender, UpdateArgs e);
-    public class UpdateArgs
+    public class UpdateArgs : EventArgs
     {
         public string UpdateName { get; set; }
         public string OldVersion { get; set; }

@@ -55,6 +55,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
         public event NumberChangeHandler IterationPerSecondChanged;
+        public event ProcessFoundHandler ProcessFound;
 
         private int _lTimesRefreshed;
 
@@ -81,6 +82,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (IterationPerSecondChanged != null)
                 IterationPerSecondChanged(sender, e);
+        }
+
+        private void OnProcessFound(object sender, ProcessFoundArgs e)
+        {
+            if (ProcessFound != null)
+                ProcessFound(sender, e);
         }
 
         /* Is able to shut the Worker- thread down */
@@ -116,10 +123,19 @@ namespace AnotherSc2Hack.Classes.BackEnds
         private void Init()
         {
             NewMatch += GameInfo_NewMatch;
-            MyOffsets.OffsetsNotProperlySet += MyOffsets_OffsetsNotProperlySet;
+            ProcessFound += GameInfo_ProcessFound;
 
-            MyOffsets.AssignAddresses();
+            MyOffsets.OffsetsNotProperlySet += MyOffsets_OffsetsNotProperlySet;
+            
+
+            //MyOffsets.AssignAddresses();
         }
+
+        void GameInfo_ProcessFound(object sender, ProcessFoundArgs e)
+        {
+            MyOffsets.AssignAddresses(e.Process);
+        }
+
 
         //TODO: Finish this
         void MyOffsets_OffsetsNotProperlySet(object sender, EventArgs e)
@@ -235,7 +251,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
 
-        #region Constructor
+        #region Constructors
 
        
         public GameInfo()
@@ -326,23 +342,27 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 #region Exceptions
 
                 /* Check if the Handle is unlocked */
-                if (Memory.Handle == IntPtr.Zero)
+                if (CStarcraft2 == null || CStarcraft2.HasExited)
                 {
                     Process proc;
                     if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
                     {
+                        
+
                         Memory.Process = proc;
                         Memory.DesiredAccess = Memory.VmRead;
                         //Memory.UnlockProcess(Memory.VmRead);
 
                         CStarcraft2 = Memory.Process;
+                        OnProcessFound(this, new ProcessFoundArgs(Memory.Process));
 
                         CWindowStyle = GetGWindowStyle();
                     }
 
                     else
                     {
-                        Thread.Sleep(CSleepTime);
+                        CStarcraft2 = null;
+                        Thread.Sleep(100);
                         continue;
                     }
                 }
