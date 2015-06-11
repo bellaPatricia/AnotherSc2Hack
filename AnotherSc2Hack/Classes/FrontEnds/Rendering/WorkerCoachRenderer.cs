@@ -182,10 +182,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         protected override void Draw(BufferedGraphics g)
         {
-            GInformation.CAccessPlayers = true;
-            GInformation.CAccessUnits = true;
-            GInformation.CAccessUnitCommands = true;
-
             try
             {
                 #region Exceptions

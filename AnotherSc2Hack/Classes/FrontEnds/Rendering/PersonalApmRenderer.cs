@@ -19,10 +19,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         }
 
-        protected override void Draw(System.Drawing.BufferedGraphics g)
+        protected override void Draw(BufferedGraphics g)
         {
-            GInformation.CAccessPlayers = true;
-
             if (!GInformation.Gameinfo.IsIngame)
                 return;
 

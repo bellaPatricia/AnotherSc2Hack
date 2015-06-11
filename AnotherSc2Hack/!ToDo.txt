@@ -2,7 +2,6 @@
 # Add into the next release #
 #############################
 ├ [OPEN]	Add preview panels for the overlays. Additionally display the size and position
-
 ├ [OPEN]	Unitcount and Draw fails
 
 ################################

@@ -615,8 +615,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             PSettings = pSettings;
             PSc2Process = sc2Process;
 
-            GInformation.CAccessGameinfo = true;
-
             InitCode();
         }
 
@@ -1117,13 +1115,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public new void Hide()
         {
             IsHidden = true;
-
-            GInformation.CAccessGroups = false;
-            GInformation.CAccessMapInfo = false;
-            GInformation.CAccessPlayers = false;
-            GInformation.CAccessSelection = false;
-            GInformation.CAccessUnitCommands = false;
-            GInformation.CAccessUnits = false;
 
             IterationsPerSeconds = 99999;
 

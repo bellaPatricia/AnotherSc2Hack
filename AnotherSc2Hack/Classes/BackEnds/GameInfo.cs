@@ -257,7 +257,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public GameInfo()
         {
             Init();
-
+            
             CSleepTime = 33;
 
             HandleThread(true);
@@ -1621,23 +1621,221 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public PredefinedData.WindowStyle CWindowStyle { get; set; }
 
 
-        public Boolean CAccessUnitCommands { get; set; }
-        public Boolean CAccessUnits { get; set; }
-        public Boolean CAccessPlayers { get; set; }
-        public Boolean CAccessGroups { get; set; }
-        public Boolean CAccessSelection { get; set; }
-        public Boolean CAccessMapInfo { get; set; }
-        public Boolean CAccessGameinfo { get; set; }
+        public bool CAccessUnitCommands { get; private set; }
+
+        private bool _cAccessUnits;
+
+        public bool CAccessUnits
+        {
+            get
+            {
+                if (_iUnitCalls > 10)
+                {
+                    _cAccessUnits = false;
+                    CAccessUnitCommands = false;
+                }
+
+                _iUnitCalls += 1;
+                return _cAccessUnits;
+            }
+            private set { _cAccessUnits = value; }
+        }
+
+        private bool _cAccessPlayers;
+        public bool CAccessPlayers
+        {
+            get
+            {
+                if (_iPlayerCalls > 10)
+                {
+                    _cAccessPlayers = false;
+                }
+
+                _iPlayerCalls += 1;
+
+                return _cAccessPlayers;
+            }
+            private set { _cAccessPlayers = value; }
+        }
+
+        private bool _cAccessGroups;
+        public bool CAccessGroups
+        {
+            get
+            {
+                if (_iGroupCalls > 10)
+                {
+                    _cAccessGroups = false;
+                }
+
+                _iGroupCalls += 1;
+
+                return _cAccessGroups;
+            }
+            private set { _cAccessGroups = value; }
+        }
+
+        private bool _cAccessSelection;
+        public bool CAccessSelection
+        {
+            get
+            {
+                if (_iSelectionCalls > 10)
+                {
+                    _cAccessSelection = false;
+                }
+
+                _iSelectionCalls += 1;
+
+                return _cAccessSelection;
+            }
+            private set { _cAccessSelection = value; }
+        }
+
+        private bool _cAccessMapInfo;
+        public bool CAccessMapInfo
+        {
+            get
+            {
+                if (_iMapinfoCalls > 10)
+                {
+                    _cAccessMapInfo = false;
+                }
+
+                _iMapinfoCalls += 1;
+
+                return _cAccessMapInfo;
+            }
+            private set { _cAccessMapInfo = value; }
+        }
+
+        private bool _cAccessGameinfo;
+        public bool CAccessGameinfo
+        {
+            get
+            {
+                if (_iGameinfoCalls > 10)
+                {
+                    _cAccessGameinfo = false;
+                }
+
+                _iGameinfoCalls += 1;
+
+                return _cAccessGameinfo;
+            }
+            private set { _cAccessGameinfo = value; }
+        }
 
 
-        //public List<PredefinedTypes.PlayerStruct> Player { get; set; }
-        public List<PredefinedData.Unit> Unit { get; set; }
-        public PredefinedData.Map Map { get; set; }
-        public PredefinedData.Gameinformation Gameinfo { get; set; }
-        public PredefinedData.LSelection Selection { get; set; }
-        public List<PredefinedData.Groups> Group { get; set; }
+        private int _iPlayerCalls;
+        private int _iUnitCalls;
+        private int _iMapinfoCalls;
+        private int _iSelectionCalls;
+        private int _iGroupCalls;
+        private int _iGameinfoCalls;
 
-        public PredefinedData.PList Player { get; set; }
+        #region Units
+
+        private List<PredefinedData.Unit> _unit = new List<PredefinedData.Unit>();
+
+        public List<PredefinedData.Unit> Unit
+        {
+            get
+            {
+                _iUnitCalls = 0;
+                CAccessUnits = true;
+                CAccessUnitCommands = true;
+                return _unit;
+            }
+            set { _unit = value; }
+        }
+
+        #endregion
+
+        #region Map
+
+        private PredefinedData.Map _map;
+
+        public PredefinedData.Map Map
+        {
+            get
+            {
+                _iMapinfoCalls = 0;
+                CAccessMapInfo = true;
+                return _map;
+            }
+            set { _map = value; }
+        }
+
+        #endregion
+
+        #region Gameinfo
+
+        private PredefinedData.Gameinformation _gameinfo = new PredefinedData.Gameinformation();
+
+        public PredefinedData.Gameinformation Gameinfo
+        {
+            get
+            {
+                _iMapinfoCalls = 0;
+                CAccessGameinfo = true;
+                return _gameinfo;
+            }
+            set { _gameinfo = value; }
+        }
+
+        #endregion
+
+        #region Selection
+
+        private PredefinedData.LSelection _selection = new PredefinedData.LSelection();
+
+        public PredefinedData.LSelection Selection
+        {
+            get
+            {
+                _iSelectionCalls = 0;
+                CAccessSelection = true;
+                return _selection;
+            }
+            set { _selection = value; }
+        }
+
+        #endregion
+
+        #region Group
+
+        private List<PredefinedData.Groups> _group = new List<PredefinedData.Groups>();
+
+        public List<PredefinedData.Groups> Group
+        {
+            get
+            {
+                _iGroupCalls = 0;
+                CAccessGroups = true;
+                return _group;
+            }
+            set { _group = value; }
+        }
+
+        #endregion
+
+        #region Player
+
+        private PredefinedData.PList _player = new PredefinedData.PList();
+
+        public PredefinedData.PList Player
+        {
+            get
+            {
+                _iPlayerCalls = 0;
+                CAccessPlayers = true;
+                return _player;
+            }
+            set { _player = value; }
+        }
+
+        #endregion
 
         public Int32 RandomNumber { get; set; }
         public DateTime LastCallTime { get; private set; }

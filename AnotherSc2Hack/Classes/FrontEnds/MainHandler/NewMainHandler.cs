@@ -2180,13 +2180,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 plugin.Plugin.SetGameinfo(Gameinfo.Gameinfo);
 
                 /* Set Access values for Gameinfo */
-                Gameinfo.CAccessPlayers |= plugin.Plugin.GetRequiresPlayer();
+               /* Gameinfo.CAccessPlayers |= plugin.Plugin.GetRequiresPlayer();
                 Gameinfo.CAccessSelection |= plugin.Plugin.GetRequiresSelection();
                 Gameinfo.CAccessUnits |= plugin.Plugin.GetRequiresUnit();
                 Gameinfo.CAccessUnitCommands |= plugin.Plugin.GetRequiresUnit();
                 Gameinfo.CAccessGameinfo |= plugin.Plugin.GetRequiresGameinfo();
                 Gameinfo.CAccessGroups |= plugin.Plugin.GetRequiresGroups();
-                Gameinfo.CAccessMapInfo |= plugin.Plugin.GetRequiresMap();
+                Gameinfo.CAccessMapInfo |= plugin.Plugin.GetRequiresMap();*/
             }
         }
 
@@ -3188,93 +3188,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                 if (cpnlDebug.IsClicked)
                 {
-                    Gameinfo.CAccessGameinfo = true;
-                    Gameinfo.CAccessMapInfo = true;
-                    Gameinfo.CAccessPlayers = true;
-                    Gameinfo.CAccessUnits = true;
-                    Gameinfo.CAccessUnitCommands = true;
-
                     DebugPlayerRefresh();
                     DebugUnitRefresh();
                     DebugMapRefresh();
                     DebugMatchinformationRefresh();
                 }
-
-                //Console.WriteLine("CAccessGameinfo: " + Gameinfo.CAccessGameinfo);
-                //Console.WriteLine("CAccessGroups: " + Gameinfo.CAccessGroups);
-                //Console.WriteLine("CAccessMapInfo: " + Gameinfo.CAccessMapInfo);
-                //Console.WriteLine("CAccessPlayers: " + Gameinfo.CAccessPlayers);
-                //Console.WriteLine("CAccessSelection: " + Gameinfo.CAccessSelection);
-                //Console.WriteLine("CAccessUnitCommands: " + Gameinfo.CAccessUnitCommands);
-                //Console.WriteLine("CAccessUnits: " + Gameinfo.CAccessUnits);
             }
 
             for (var i = 0; i < _lContainer.Count; i++)
             {
-                Gameinfo.CAccessGameinfo |= _lContainer[i].GInformation.CAccessGameinfo;
+              /*  Gameinfo.CAccessGameinfo |= _lContainer[i].GInformation.CAccessGameinfo;
                 Gameinfo.CAccessGroups |= _lContainer[i].GInformation.CAccessGroups;
                 Gameinfo.CAccessMapInfo |= _lContainer[i].GInformation.CAccessMapInfo;
                 Gameinfo.CAccessPlayers |= _lContainer[i].GInformation.CAccessPlayers;
                 Gameinfo.CAccessSelection |= _lContainer[i].GInformation.CAccessSelection;
                 Gameinfo.CAccessUnitCommands |= _lContainer[i].GInformation.CAccessUnitCommands;
-                Gameinfo.CAccessUnits |= _lContainer[i].GInformation.CAccessUnits;
+                Gameinfo.CAccessUnits |= _lContainer[i].GInformation.CAccessUnits;*/
             }
 
 
 
             InputManager();
             PluginDataRefresh();
-
-           /* #region Reset Process and gameinfo if Sc2 is not started
-
-            if (!Processing.GetProcess(Constants.StrStarcraft2ProcessName))
-            {
-                ChangeVisibleState(false);
-                _bProcessSet = false;
-                Gameinfo.HandleThread(false);
-
-                _tmrMainTick.Interval = 300;
-                Debug.WriteLine("Process not found - 300ms Delay!");
-            }
-
-
-            else
-            {
-                if (!_bProcessSet)
-                {
-                    _bProcessSet = true;
-
-                    Process proc;
-                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
-                        PSc2Process = proc;
-
-
-                    if (Gameinfo == null)
-                    {
-                        Gameinfo = new GameInfo(PSettings.PreferenceAll.Global.DataRefresh, ApplicationOptions)
-                        {
-                            MyOffsets = new Offsets()
-                        };
-                    }
-
-                    else if (Gameinfo != null &&
-                             !Gameinfo.CThreadState)
-                    {
-                        Gameinfo.Memory.Handle = IntPtr.Zero;
-                        Gameinfo.CStarcraft2 = PSc2Process;
-                        Gameinfo.MyOffsets = new Offsets();
-                        Gameinfo.HandleThread(true);
-                    }
-
-
-                    ChangeVisibleState(true);
-                    _tmrMainTick.Interval = PSettings.PreferenceAll.Global.DataRefresh;
-
-                    Debug.WriteLine("Process found - " + PSettings.PreferenceAll.Global.DataRefresh + "ms Delay!");
-                }
-            }
-
-            #endregion*/
         }
 
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)
