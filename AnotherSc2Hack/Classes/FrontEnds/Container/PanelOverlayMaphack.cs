@@ -39,7 +39,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
 
         #region Getter/Setter
 
-        public Dictionary<PredefinedData.UnitId, Color> LUnitFilter { get; private set; }
+        public Dictionary<UnitId, Color> LUnitFilter { get; private set; }
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
         {
             InitializeComponent();
 
-            LUnitFilter = new Dictionary<PredefinedData.UnitId, Color>();
+            LUnitFilter = new Dictionary<UnitId, Color>();
 
             _lstrChMaphackFilterUnit.TextChanged += _lstrChMaphackFilterUnit_TextChanged;
             _lstrMaphackFilterRemoveItem.TextChanged += _lstrChMaphackFilterRemoveItem_TextChanged;
@@ -84,8 +84,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             foreach (ListViewItem selectedItem in lstvMaphackBasicsUnitFilter.SelectedItems)
             {
                 var id =
-                (PredefinedData.UnitId)
-                    Enum.Parse(typeof(PredefinedData.UnitId), selectedItem.Text);
+                (UnitId)
+                    Enum.Parse(typeof(UnitId), selectedItem.Text);
 
                 LUnitFilter[id] = cl.Color;
                 AddUnitToSettings(id, cl.Color);
@@ -100,8 +100,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
                 return;
 
             var id =
-                (PredefinedData.UnitId)
-                    Enum.Parse(typeof(PredefinedData.UnitId), lstvMaphackBasicsUnitFilter.SelectedItems[0].Text);
+                (UnitId)
+                    Enum.Parse(typeof(UnitId), lstvMaphackBasicsUnitFilter.SelectedItems[0].Text);
 
             if (LUnitFilter.ContainsKey(id))
                 btnMaphackBasicsUnitColor.BackColor = LUnitFilter[id];
@@ -133,8 +133,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             foreach (ListViewItem item in lstvMaphackBasicsUnitFilter.Items)
             {
                 var id =
-                (PredefinedData.UnitId)
-                    Enum.Parse(typeof(PredefinedData.UnitId), item.Text);
+                (UnitId)
+                    Enum.Parse(typeof(UnitId), item.Text);
 
                 if (LUnitFilter.ContainsKey(id))
                 {
@@ -177,7 +177,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
 
         #region Private Methods
 
-        private void AddUnitToSettings(PredefinedData.UnitId unitId, Color clColor)
+        private void AddUnitToSettings(UnitId unitId, Color clColor)
         {
             var myParent = (NewMainHandler)this.FindParent(String.Empty, typeof(NewMainHandler));
 
@@ -197,7 +197,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             }
         }
 
-        private void RemoveUnitFromSettings(PredefinedData.UnitId unitId)
+        private void RemoveUnitFromSettings(UnitId unitId)
         {
             var myParent = (NewMainHandler)this.FindParent(String.Empty, typeof(NewMainHandler));
 
@@ -210,7 +210,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             myParent.PSettings.PreferenceAll.OverlayMaphack.UnitColors.RemoveAt(index);
         }
 
-        private void AddUnit(PredefinedData.UnitId unitId)
+        private void AddUnit(UnitId unitId)
         {
             if (LUnitFilter.ContainsKey(unitId))
             {
@@ -243,8 +243,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             foreach (ListViewItem selectedItem in lstvMaphackBasicsUnitFilter.SelectedItems)
             {
                 var id =
-                (PredefinedData.UnitId)
-                    Enum.Parse(typeof(PredefinedData.UnitId), selectedItem.Text);
+                (UnitId)
+                    Enum.Parse(typeof(UnitId), selectedItem.Text);
 
                 LUnitFilter.Remove(id);
                 RemoveUnitFromSettings(id);

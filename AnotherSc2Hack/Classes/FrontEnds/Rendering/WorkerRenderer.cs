@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
+using PredefinedTypes;
 using Utilities.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
@@ -23,8 +24,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
         {
-            GInformation.CAccessPlayers = true;
-
             try
             {
 
@@ -45,8 +44,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 Color clPlayercolor;
 
-                if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
-                    clPlayercolor = GInformation.Player[GInformation.Player[0].Localplayer].Color;
+                if (Player.LocalPlayer != null)
+                    clPlayercolor = Player.LocalPlayer.Color;
 
                 else
                     return;
@@ -81,7 +80,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 #region Worker
 
                 g.Graphics.DrawString(
-                        GInformation.Player[GInformation.Player[0].Localplayer].Worker + "   Workers",
+                        Player.LocalPlayer.Worker + "   Workers",
                         fInternalFont,
                         new SolidBrush(clPlayercolor),
                         Brushes.Black, (float)((16.67 / 100) * Width),

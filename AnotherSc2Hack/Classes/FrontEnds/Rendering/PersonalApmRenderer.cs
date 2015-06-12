@@ -19,10 +19,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         }
 
-        protected override void Draw(System.Drawing.BufferedGraphics g)
+        protected override void Draw(BufferedGraphics g)
         {
-            GInformation.CAccessPlayers = true;
-
             if (!GInformation.Gameinfo.IsIngame)
                 return;
 
@@ -34,7 +32,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (GInformation.Player.Count <= 0)
                 return;
 
-            if (GInformation.Player[0].Localplayer == 16)
+            if (PredefinedTypes.Player.LocalPlayer == null)
                 return;
 
             var iSingleHeight = Height;
@@ -44,16 +42,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             var clApmColor = Brushes.Green;
             if (PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert)
             {
-                if (GInformation.Player[GInformation.Player[0].Localplayer].Apm <
+                if (PredefinedTypes.Player.LocalPlayer.Apm <
                     PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit)
                     clApmColor = Brushes.Red;
             }
 
             g.Graphics.DrawString(
                 "APM: " +
-                GInformation.Player[GInformation.Player[0].Localplayer].ApmAverage.ToString(
+                PredefinedTypes.Player.LocalPlayer.ApmAverage.ToString(
                     CultureInfo.InvariantCulture) + " [" +
-                GInformation.Player[GInformation.Player[0].Localplayer].Apm.ToString(
+                PredefinedTypes.Player.LocalPlayer.Apm.ToString(
                     CultureInfo.InvariantCulture) + "]",
                 new Font("Century Gothic", fNewFontSize, FontStyle.Regular),
                 clApmColor,

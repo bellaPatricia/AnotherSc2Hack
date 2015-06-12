@@ -32,11 +32,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
         {
-            GInformation.CAccessPlayers = true;
-            GInformation.CAccessUnits = true;
-            GInformation.CAccessUnitCommands = true;
-
-
             try
             {
 
@@ -100,14 +95,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (GInformation.Gameinfo.IsTeamcolor)
                     {
-                        if (GInformation.Player[i].Localplayer < GInformation.Player.Count)
+                        if (Player.LocalPlayer != null)
                         {
-                            if (GInformation.Player[i].IsLocalplayer)
+                            if (GInformation.Player[i] == Player.LocalPlayer)
                                 clPlayercolor = Color.Green;
 
                             else if (GInformation.Player[i].Team ==
-                                     GInformation.Player[GInformation.Player[0].Localplayer].Team &&
-                                     !GInformation.Player[i].IsLocalplayer)
+                                     Player.LocalPlayer.Team &&
+                                     GInformation.Player[i] != Player.LocalPlayer)
                                 clPlayercolor = Color.Yellow;
 
                             else
@@ -122,7 +117,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Ai - Works */
                     if (PSettings.PreferenceAll.OverlayProduction.RemoveAi)
                     {
-                        if (GInformation.Player[i].Type == PredefinedData.PlayerType.Ai)
+                        if (GInformation.Player[i].Type == PlayerType.Ai)
                         {
                             continue;
                         }
@@ -131,7 +126,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Neutral - Works */
                     if (PSettings.PreferenceAll.OverlayProduction.RemoveNeutral)
                     {
-                        if (tmpPlayer.Type == PredefinedData.PlayerType.Neutral)
+                        if (tmpPlayer.Type == PlayerType.Neutral)
                         {
                             continue;
                         }
@@ -140,29 +135,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Localplayer - Works */
                     if (PSettings.PreferenceAll.OverlayProduction.RemoveLocalplayer)
                     {
-                        if (tmpPlayer.IsLocalplayer)
-                        {
+                        if (tmpPlayer == Player.LocalPlayer)
                             continue;
-                        }
+                        
                     }
 
                     /* Remove Allie - Works */
                     if (PSettings.PreferenceAll.OverlayProduction.RemoveAllie)
                     {
-                        if (tmpPlayer.Team == GInformation.Player[GInformation.Player[i].Localplayer].Team &&
-                            !tmpPlayer.IsLocalplayer)
+                        if (tmpPlayer.Team == Player.LocalPlayer.Team &&
+                            tmpPlayer != Player.LocalPlayer)
                         {
                             continue;
                         }
                     }
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Hostile))
                         continue;
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Observer))
                         continue;
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Referee))
                         continue;
 
 
@@ -330,7 +324,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         iHavetoadd = 0;
 
 
-                        if (GInformation.Player[0].Type == PredefinedData.PlayerType.Neutral)
+                        if (GInformation.Player[0].Type == PlayerType.Neutral)
                             iHavetoadd += 1;
 
                         if (i == iHavetoadd)
@@ -494,7 +488,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         iHavetoadd = 0;
 
 
-                        if (GInformation.Player[0].Type == PredefinedData.PlayerType.Neutral)
+                        if (GInformation.Player[0].Type == PlayerType.Neutral)
                             iHavetoadd += 1;
 
                         if (i == iHavetoadd)
@@ -1032,7 +1026,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /* Draw the units */
-        private void Helper_DrawUnitsProduction(PredefinedData.UnitCount unit, ref Int32 posX, Int32 posY, Int32 size, Image img,
+        private void Helper_DrawUnitsProduction(UnitCount unit, ref Int32 posX, Int32 posY, Int32 size, Image img,
                                       BufferedGraphics g, Color clPlayercolor, Font font, Boolean isStructure)
         {
             /* Unitamount defines all buildings*/

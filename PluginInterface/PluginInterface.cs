@@ -26,7 +26,6 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Drawing;
 using PredefinedTypes;
-using PredefinedTypes = PredefinedTypes.PredefinedData;
 
 namespace PluginInterface
 {
@@ -141,37 +140,37 @@ namespace PluginInterface
         /// Supplies the map-data to the plugin to use it
         /// </summary>
         /// <param name="map">The actual map data-structure</param>
-        void SetMap(PredefinedData.Map map);
+        void SetMap(Map map);
 
         /// <summary>
         /// Supplies the unit-data to the plugin to use it
         /// </summary>
         /// <param name="units">The actual unit data-structure</param>
-        void SetUnits(List<PredefinedData.Unit> units);
+        void SetUnits(List<Unit> units);
 
         /// <summary>
         /// Supplies the player-data to the plugin to use it
         /// </summary>
         /// <param name="players">The actual player data-structure</param>
-        void SetPlayers(PredefinedData.PList players);
+        void SetPlayers(List<Player> players);
 
         /// <summary>
         /// Supplies the selection-data to the plugin to use it
         /// </summary>
         /// <param name="selection">The actual selection data-structure</param>
-        void SetSelection(PredefinedData.LSelection selection);
+        void SetSelection(List<Selection> selection);
 
         /// <summary>
         /// Supplies the group-data to the plugin to use it
         /// </summary>
         /// <param name="groups">The actual group data-structure</param>
-        void SetGroups(List<PredefinedData.Groups> groups);
+        void SetGroups(List<Groups> groups);
 
         /// <summary>
         /// Supplies the game-data to the plugin to use it
         /// </summary>
         /// <param name="gameinfo">The actual game data-structure</param>
-        void SetGameinfo(PredefinedData.Gameinformation gameinfo);
+        void SetGameinfo(Gameinformation gameinfo);
 
         /// <summary>
         /// Supplies the process-data to the plugin to use it

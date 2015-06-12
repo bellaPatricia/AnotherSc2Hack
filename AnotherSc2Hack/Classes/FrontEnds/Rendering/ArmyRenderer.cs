@@ -32,8 +32,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
         {
-            GInformation.CAccessPlayers = true;
-
             try
             {
 
@@ -73,19 +71,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (PSettings.PreferenceAll.OverlayArmy.RemoveAi)
                     {
-                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
+                        if (GInformation.Player[i].Type.Equals(PlayerType.Ai))
                             continue;
                     }
 
                     if (PSettings.PreferenceAll.OverlayArmy.RemoveNeutral)
                     {
-                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
+                        if (GInformation.Player[i].Type.Equals(PlayerType.Neutral))
                             continue;
                     }
 
                     if (PSettings.PreferenceAll.OverlayArmy.RemoveAllie)
                     {
-                        if (GInformation.Player[0].Localplayer == 16)
+                        if (Player.LocalPlayer == null)
                         {
                             //Do nothing
                         }
@@ -93,28 +91,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else
                         {
                             if (GInformation.Player[i].Team ==
-                                GInformation.Player[GInformation.Player[i].Localplayer].Team &&
-                                !GInformation.Player[i].IsLocalplayer)
+                                Player.LocalPlayer.Team &&
+                                GInformation.Player[i].Index != Player.LocalPlayer.Index)
                                 continue;
                         }
                     }
 
                     if (PSettings.PreferenceAll.OverlayArmy.RemoveLocalplayer)
                     {
-                        if (GInformation.Player[i].IsLocalplayer)
+                        if (GInformation.Player[i] == Player.LocalPlayer)
                             continue;
                     }
 
                     if (GInformation.Player[i].Name.StartsWith("\0") || GInformation.Player[i].NameLength <= 0)
                         continue;
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Hostile))
                         continue;
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Observer))
                         continue;
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Referee))
                         continue;
 
                     if (CheckIfGameheart(GInformation.Player[i]))
@@ -124,7 +122,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region SetValidImages (Race)
 
-                    if (GInformation.Player[i].PlayerRace.Equals(PredefinedData.PlayerRace.Terran))
+                    if (GInformation.Player[i].PlayerRace.Equals(PlayerRace.Terran))
                     {
                         _imgMinerals = Properties.Resources.Mineral_Terran;
                         _imgGas = Properties.Resources.Gas_Terran;
@@ -132,7 +130,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         _imgWorker = Properties.Resources.T_SCV;
                     }
 
-                    else if (GInformation.Player[i].PlayerRace.Equals(PredefinedData.PlayerRace.Protoss))
+                    else if (GInformation.Player[i].PlayerRace.Equals(PlayerRace.Protoss))
                     {
                         _imgMinerals = Properties.Resources.Mineral_Protoss;
                         _imgGas = Properties.Resources.Gas_Protoss;

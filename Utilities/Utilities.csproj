@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Events\DownloadManagerProgressChangedEventArgs.cs" />
     <Compile Include="Events\NumberArgs.cs" />
+    <Compile Include="Events\ProcessFoundArgs.cs" />
     <Compile Include="Events\UpdateArgs.cs" />
     <Compile Include="ExtensionMethods\ExtentColor.cs" />
     <Compile Include="ExtensionMethods\ExtentControl.cs" />

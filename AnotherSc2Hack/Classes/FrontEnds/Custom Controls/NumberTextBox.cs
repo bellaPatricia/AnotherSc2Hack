@@ -11,6 +11,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
     {
         public event NumberChangeHandler NumberChanged;
 
+        private delegate void SetNumberTextboxTextDelegate(int number);
+
+        private void SetNumberTextboxText(int number)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new SetNumberTextboxTextDelegate(SetNumberTextboxText), number);
+                return;
+            }
+
+            Text = number.ToString();
+        }
+
         private Int32 _number;
         public Int32 Number
         {
@@ -23,31 +36,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
                 _number = value;
                 var en = new NumberArgs(_number);
-                
-                //Sometimes, this method gets called in "Not-a-UI-Thread" context, throwing an exception about cross-threading.
-                //So we prevent this by passing the action to the invoker to take care of it.
-                MethodInvoker methInvoker = delegate {
-                                                         Text = _number.ToString(CultureInfo.InvariantCulture);
-                };
 
-                try
-                {
-                    if (Handle != IntPtr.Zero)
-                    Invoke(methInvoker);
-                }
-
-                //Like the Window Handle isn't initiated
-                catch (InvalidOperationException)
-                {
-                    //We can't really allows cross-calling so we just swallow this exception
-                    //Text = _number.ToString(CultureInfo.InvariantCulture);
-                }
-
-                //Ignore all  the other errors
-                catch
-                {
-                    
-                }
+                SetNumberTextboxText(_number);
 
                 //Call the Event
                 OnNumberChange(this, en);

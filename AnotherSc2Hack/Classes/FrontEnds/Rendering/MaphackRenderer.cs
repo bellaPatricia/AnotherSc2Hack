@@ -25,10 +25,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
         {
-            GInformation.CAccessPlayers = true;
-            GInformation.CAccessMapInfo = true;
-            GInformation.CAccessUnits = true;
-
             try
             {
                 if (GInformation.Unit == null ||
@@ -128,18 +124,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         {
                             if (
                                 GInformation.Player[tmpUnit.Owner].Type.Equals(
-                                    PredefinedData.PlayerType.Ai))
+                                    PlayerType.Ai))
                                 continue;
                         }
 
                         /* Allie */
                         if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                         {
-                            if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
+                            if (Player.LocalPlayer != null)
                             {
                                 if (GInformation.Player[tmpUnit.Owner].Team ==
-                                    GInformation.Player[GInformation.Player[0].Localplayer].Team &&
-                                    !GInformation.Player[tmpUnit.Owner].IsLocalplayer)
+                                    Player.LocalPlayer.Team &&
+                                    GInformation.Player[tmpUnit.Owner] != Player.LocalPlayer)
                                     continue;
                             }
                         }
@@ -147,7 +143,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         /* Localplayer Units */
                         if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                         {
-                            if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
+                            if (tmpUnit.Owner == Player.LocalPlayer.Index)
                                 continue;
                         }
 
@@ -156,12 +152,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         {
                             if (
                                 GInformation.Player[tmpUnit.Owner].Type.Equals(
-                                    PredefinedData.PlayerType.Neutral))
+                                    PlayerType.Neutral))
                                 continue;
                         }
 
                         /* Dead Units */
-                        if ((tmpUnit.TargetFilter & (ulong)PredefinedData.TargetFilterFlag.Dead) > 0)
+                        if ((tmpUnit.TargetFilter & (ulong)TargetFilterFlag.Dead) > 0)
                             continue;
 
 
@@ -226,7 +222,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Ai */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                     {
-                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Ai))
+                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Ai))
                             continue; //clUnitBoundBorder = Color.Transparent;
 
                     }
@@ -234,11 +230,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Allie */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                     {
-                        if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
+                        if (Player.LocalPlayer != null)
                         {
                             if (GInformation.Player[tmpUnit.Owner].Team ==
-                                GInformation.Player[GInformation.Player[0].Localplayer].Team &&
-                                !GInformation.Player[tmpUnit.Owner].IsLocalplayer)
+                                Player.LocalPlayer.Team &&
+                                GInformation.Player[tmpUnit.Owner] != Player.LocalPlayer)
                                 continue; //clUnitBoundBorder = Color.Transparent;
 
                         }
@@ -247,7 +243,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Localplayer Units */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                     {
-                        if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
+                        if (tmpUnit.Owner == Player.LocalPlayer.Index)
                             continue; //clUnitBoundBorder = Color.Transparent;
 
                     }
@@ -255,13 +251,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Neutral Units */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                     {
-                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Neutral))
+                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Neutral))
                             continue; //clUnitBoundBorder = Color.Transparent;
 
                     }
 
                     /* Dead Units */
-                    if ((tmpUnit.TargetFilter & (ulong)PredefinedData.TargetFilterFlag.Dead) > 0)
+                    if ((tmpUnit.TargetFilter & (ulong)TargetFilterFlag.Dead) > 0)
                         continue;
 
                     #endregion
@@ -269,10 +265,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Actual Drawing
 
 
-                    if (tmpUnit.Id == PredefinedData.UnitId.ZbCreeptumor ||
-                        tmpUnit.Id == PredefinedData.UnitId.ZbCreepTumorBuilding ||
-                        tmpUnit.Id == PredefinedData.UnitId.ZbCreepTumorMissle ||
-                        tmpUnit.Id == PredefinedData.UnitId.ZbCreeptumorBurrowed)
+                    if (tmpUnit.Id == UnitId.ZbCreeptumor ||
+                        tmpUnit.Id == UnitId.ZbCreepTumorBuilding ||
+                        tmpUnit.Id == UnitId.ZbCreepTumorMissle ||
+                        tmpUnit.Id == UnitId.ZbCreeptumorBurrowed)
                     {
 
                         #region Scalling (Unitposition)
@@ -325,18 +321,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Ai */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                     {
-                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Ai))
+                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Ai))
                             continue;
                     }
 
                     /* Allie */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                     {
-                        if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
+                        if (Player.LocalPlayer != null)
                         {
                             if (GInformation.Player[tmpUnit.Owner].Team ==
-                                GInformation.Player[GInformation.Player[0].Localplayer].Team &&
-                                !GInformation.Player[tmpUnit.Owner].IsLocalplayer)
+                                Player.LocalPlayer.Team &&
+                                GInformation.Player[tmpUnit.Owner] != Player.LocalPlayer)
                                 continue;
                         }
                     }
@@ -344,25 +340,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Localplayer Units */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                     {
-                        if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
+                        if (tmpUnit.Owner == Player.LocalPlayer.Index)
                             continue;
                     }
 
                     /* Neutral Units */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                     {
-                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Neutral))
+                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Neutral))
                             continue;
                     }
 
 
                     /* Dead Units */
-                    if ((tmpUnit.TargetFilter & (ulong)PredefinedData.TargetFilterFlag.Dead) > 0)
+                    if ((tmpUnit.TargetFilter & (ulong)TargetFilterFlag.Dead) > 0)
                         continue;
 
                     /* Creep tumor */
                     if (tmpUnit.Id ==
-                        PredefinedData.UnitId.ZbCreeptumorBurrowed)
+                        UnitId.ZbCreeptumorBurrowed)
                         continue;
 
 
@@ -414,7 +410,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     g.Graphics.CompositingQuality = CompositingQuality.HighSpeed;
 
                     if (tmpUnit.IsCloaked &&
-                        tmpUnit.Id != PredefinedData.UnitId.ZbCreeptumorBurrowed)
+                        tmpUnit.Id != UnitId.ZbCreeptumorBurrowed)
                     {
                         g.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.Gray)), iUnitPosX - size / 2,
                                                  iUnitPosY - size / 2, size, size);
@@ -477,18 +473,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Ai */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                     {
-                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Ai))
+                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Ai))
                             continue;
                     }
 
                     /* Allie */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                     {
-                        if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
+                        if (Player.LocalPlayer != null)
                         {
                             if (GInformation.Player[tmpUnit.Owner].Team ==
-                                GInformation.Player[GInformation.Player[0].Localplayer].Team &&
-                                !GInformation.Player[tmpUnit.Owner].IsLocalplayer)
+                                Player.LocalPlayer.Team &&
+                                GInformation.Player[tmpUnit.Owner] != Player.LocalPlayer)
                                 continue;
                         }
                     }
@@ -496,25 +492,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Localplayer Units */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                     {
-                        if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
+                        if (tmpUnit.Owner == Player.LocalPlayer.Index)
                             continue;
                     }
 
                     /* Neutral Units */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                     {
-                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Neutral))
+                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Neutral))
                             continue;
                     }
 
 
                     /* Dead Units */
-                    if ((tmpUnit.TargetFilter & (ulong)PredefinedData.TargetFilterFlag.Dead) > 0)
+                    if ((tmpUnit.TargetFilter & (ulong)TargetFilterFlag.Dead) > 0)
                         continue;
 
                     /* Creep tumor */
                     if (tmpUnit.Id ==
-                         PredefinedData.UnitId.ZbCreeptumorBurrowed)
+                         UnitId.ZbCreeptumorBurrowed)
                         continue;
 
 
@@ -588,7 +584,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Ai */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                     {
-                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Ai))
+                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Ai))
                             continue; //clUnitBoundBorder = Color.Transparent;
 
                     }
@@ -596,11 +592,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Allie */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                     {
-                        if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
+                        if (Player.LocalPlayer != null)
                         {
                             if (GInformation.Player[tmpUnit.Owner].Team ==
-                                GInformation.Player[GInformation.Player[0].Localplayer].Team &&
-                                !GInformation.Player[tmpUnit.Owner].IsLocalplayer)
+                                Player.LocalPlayer.Team &&
+                                GInformation.Player[tmpUnit.Owner] != Player.LocalPlayer)
                                 continue; //clUnitBoundBorder = Color.Transparent;
 
                         }
@@ -609,22 +605,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Localplayer Units */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                     {
-                        if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
-                            continue; //clUnitBoundBorder = Color.Transparent;
-
+                        if (tmpUnit.Owner == Player.LocalPlayer.Index)
+                            continue; 
                     }
 
                     /* Neutral Units */
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                     {
-                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PredefinedData.PlayerType.Neutral))
+                        if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Neutral))
                             continue; //clUnitBoundBorder = Color.Transparent;
 
                     }
 
 
                     /* Dead Units */
-                    if ((tmpUnit.TargetFilter & (ulong)PredefinedData.TargetFilterFlag.Dead) > 0)
+                    if ((tmpUnit.TargetFilter & (ulong)TargetFilterFlag.Dead) > 0)
                         continue;
 
 
@@ -665,14 +660,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             var tmpSettingsId = PSettings.PreferenceAll.OverlayMaphack.UnitIds[j];
                             var bExpression = false;
 
-                            if (tmpSettingsId == PredefinedData.UnitId.ZuChangeling)
+                            if (tmpSettingsId == UnitId.ZuChangeling)
                             {
-                                if (tmpUnit.Id == PredefinedData.UnitId.ZuChangeling ||
-                                    tmpUnit.Id == PredefinedData.UnitId.ZuChangelingMarine ||
-                                    tmpUnit.Id == PredefinedData.UnitId.ZuChangelingMarineShield ||
-                                    tmpUnit.Id == PredefinedData.UnitId.ZuChangelingSpeedling ||
-                                    tmpUnit.Id == PredefinedData.UnitId.ZuChangelingZealot ||
-                                    tmpUnit.Id == PredefinedData.UnitId.ZuChangelingZergling)
+                                if (tmpUnit.Id == UnitId.ZuChangeling ||
+                                    tmpUnit.Id == UnitId.ZuChangelingMarine ||
+                                    tmpUnit.Id == UnitId.ZuChangelingMarineShield ||
+                                    tmpUnit.Id == UnitId.ZuChangelingSpeedling ||
+                                    tmpUnit.Id == UnitId.ZuChangelingZealot ||
+                                    tmpUnit.Id == UnitId.ZuChangelingZergling)
                                     bExpression = true;
                             }
 
@@ -690,7 +685,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                                     {
                                         if (tmpUnit.Owner ==
-                                            GInformation.Player[0].Localplayer)
+                                            Player.LocalPlayer.Index)
                                             continue;
                                     }
 
@@ -745,25 +740,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (PSettings.PreferenceAll.OverlayMaphack.ColorDefensiveStructures)
                     {
-                        if (tmpUnit.Id == PredefinedData.UnitId.TbTurret ||
-                            tmpUnit.Id == PredefinedData.UnitId.TbBunker ||
-                            tmpUnit.Id == PredefinedData.UnitId.TbPlanetary ||
-                            tmpUnit.Id == PredefinedData.UnitId.ZbSpineCrawler ||
-                            tmpUnit.Id == PredefinedData.UnitId.ZbSpineCrawlerUnrooted ||
-                            tmpUnit.Id == PredefinedData.UnitId.ZbSporeCrawler ||
-                            tmpUnit.Id == PredefinedData.UnitId.ZbSporeCrawlerUnrooted ||
-                            tmpUnit.Id == PredefinedData.UnitId.PbCannon)
+                        if (tmpUnit.Id == UnitId.TbTurret ||
+                            tmpUnit.Id == UnitId.TbBunker ||
+                            tmpUnit.Id == UnitId.TbPlanetary ||
+                            tmpUnit.Id == UnitId.ZbSpineCrawler ||
+                            tmpUnit.Id == UnitId.ZbSpineCrawlerUnrooted ||
+                            tmpUnit.Id == UnitId.ZbSporeCrawler ||
+                            tmpUnit.Id == UnitId.ZbSporeCrawlerUnrooted ||
+                            tmpUnit.Id == UnitId.PbCannon)
                         {
                             var clUnitBound = Color.Yellow;
 
 
-                            if ((tmpUnit.TargetFilter & (UInt64)PredefinedData.TargetFilterFlag.Dead) > 0)
+                            if ((tmpUnit.TargetFilter & (UInt64)TargetFilterFlag.Dead) > 0)
                                 continue;
 
 
                             if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                             {
-                                if (tmpUnit.Owner == GInformation.Player[0].Localplayer)
+                                if (tmpUnit.Owner == Player.LocalPlayer.Index)
                                     continue;
 
                             }
@@ -821,14 +816,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         if (GInformation.Gameinfo.IsTeamcolor)
                         {
-                            if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
+                            if (Player.LocalPlayer != null)
                             {
-                                if (GInformation.Player[i].IsLocalplayer)
+                                if (GInformation.Player[i] == Player.LocalPlayer)
                                     clPlayercolor = Color.Green;
 
                                 else if (GInformation.Player[i].Team ==
-                                         GInformation.Player[GInformation.Player[0].Localplayer].Team &&
-                                         !GInformation.Player[i].IsLocalplayer)
+                                         Player.LocalPlayer.Team &&
+                                         GInformation.Player[i] != Player.LocalPlayer)
                                     clPlayercolor = Color.Yellow;
 
                                 else
@@ -843,25 +838,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         /* Ai - Works */
                         if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
                         {
-                            if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
+                            if (GInformation.Player[i].Type.Equals(PlayerType.Ai))
                                 continue;
                         }
 
                         /* Localplayer - Works */
                         if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                         {
-                            if (GInformation.Player[i].IsLocalplayer)
+                            if (GInformation.Player[i] == Player.LocalPlayer)
                                 continue;
                         }
 
                         /* Allie */
                         if (PSettings.PreferenceAll.OverlayMaphack.RemoveAllie)
                         {
-                            if (GInformation.Player[0].Localplayer < GInformation.Player.Count)
+                            if (Player.LocalPlayer != null)
                             {
                                 if (GInformation.Player[i].Team ==
-                                    GInformation.Player[GInformation.Player[i].Localplayer].Team &&
-                                    !GInformation.Player[i].IsLocalplayer)
+                                    Player.LocalPlayer.Team &&
+                                    GInformation.Player[i] != Player.LocalPlayer)
                                     continue;
                             }
                         }
@@ -869,17 +864,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         /* Neutral */
                         if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                         {
-                            if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
+                            if (GInformation.Player[i].Type.Equals(PlayerType.Neutral))
                                 continue;
                         }
 
-                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
+                        if (GInformation.Player[i].Type.Equals(PlayerType.Hostile))
                             continue;
 
-                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
+                        if (GInformation.Player[i].Type.Equals(PlayerType.Observer))
                             continue;
 
-                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
+                        if (GInformation.Player[i].Type.Equals(PlayerType.Referee))
                             continue;
 
                         if (float.IsInfinity(fScale))

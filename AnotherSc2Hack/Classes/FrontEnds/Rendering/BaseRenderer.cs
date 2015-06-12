@@ -58,80 +58,80 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Terran
 
-        protected List<PredefinedData.UnitCount> _lTbCommandCenter = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbPlanetaryFortress = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbOrbitalCommand = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbBarracks = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbSupply = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbEbay = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbRefinery = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbBunker = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbTurrent = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbSensorTower = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbFactory = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbStarport = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbArmory = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbGhostAcademy = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbFusionCore = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbTechlab = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbReactor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTbAutoTurret = new List<PredefinedData.UnitCount>();
+        protected List<UnitCount> _lTbCommandCenter = new List<UnitCount>();
+        protected List<UnitCount> _lTbPlanetaryFortress = new List<UnitCount>();
+        protected List<UnitCount> _lTbOrbitalCommand = new List<UnitCount>();
+        protected List<UnitCount> _lTbBarracks = new List<UnitCount>();
+        protected List<UnitCount> _lTbSupply = new List<UnitCount>();
+        protected List<UnitCount> _lTbEbay = new List<UnitCount>();
+        protected List<UnitCount> _lTbRefinery = new List<UnitCount>();
+        protected List<UnitCount> _lTbBunker = new List<UnitCount>();
+        protected List<UnitCount> _lTbTurrent = new List<UnitCount>();
+        protected List<UnitCount> _lTbSensorTower = new List<UnitCount>();
+        protected List<UnitCount> _lTbFactory = new List<UnitCount>();
+        protected List<UnitCount> _lTbStarport = new List<UnitCount>();
+        protected List<UnitCount> _lTbArmory = new List<UnitCount>();
+        protected List<UnitCount> _lTbGhostAcademy = new List<UnitCount>();
+        protected List<UnitCount> _lTbFusionCore = new List<UnitCount>();
+        protected List<UnitCount> _lTbTechlab = new List<UnitCount>();
+        protected List<UnitCount> _lTbReactor = new List<UnitCount>();
+        protected List<UnitCount> _lTbAutoTurret = new List<UnitCount>();
 
 
-        protected List<PredefinedData.UnitCount> _lTuScv = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuMule = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuMarine = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuMarauder = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuReaper = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuGhost = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuWidowMine = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuSiegetank = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuHellion = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuHellbat = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuThor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuViking = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuBanshee = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuMedivac = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuBattlecruiser = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuRaven = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuPointDefenseDrone = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTuNuke = new List<PredefinedData.UnitCount>();
+        protected List<UnitCount> _lTuScv = new List<UnitCount>();
+        protected List<UnitCount> _lTuMule = new List<UnitCount>();
+        protected List<UnitCount> _lTuMarine = new List<UnitCount>();
+        protected List<UnitCount> _lTuMarauder = new List<UnitCount>();
+        protected List<UnitCount> _lTuReaper = new List<UnitCount>();
+        protected List<UnitCount> _lTuGhost = new List<UnitCount>();
+        protected List<UnitCount> _lTuWidowMine = new List<UnitCount>();
+        protected List<UnitCount> _lTuSiegetank = new List<UnitCount>();
+        protected List<UnitCount> _lTuHellion = new List<UnitCount>();
+        protected List<UnitCount> _lTuHellbat = new List<UnitCount>();
+        protected List<UnitCount> _lTuThor = new List<UnitCount>();
+        protected List<UnitCount> _lTuViking = new List<UnitCount>();
+        protected List<UnitCount> _lTuBanshee = new List<UnitCount>();
+        protected List<UnitCount> _lTuMedivac = new List<UnitCount>();
+        protected List<UnitCount> _lTuBattlecruiser = new List<UnitCount>();
+        protected List<UnitCount> _lTuRaven = new List<UnitCount>();
+        protected List<UnitCount> _lTuPointDefenseDrone = new List<UnitCount>();
+        protected List<UnitCount> _lTuNuke = new List<UnitCount>();
 
 
-        protected List<PredefinedData.UnitCount> _lTupInfantryWeapon1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupInfantryWeapon2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupInfantryWeapon3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupInfantryArmor1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupInfantryArmor2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupInfantryArmor3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupVehicleWeapon1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupVehicleWeapon2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupVehicleWeapon3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupShipWeapon1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupShipWeapon2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupShipWeapon3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupVehicleShipPlanting1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupVehicleShipPlanting2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupVehicleShipPlanting3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupNeosteelFrame = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupStructureArmor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupHighSecAutoTracking = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupConcussiveShells = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupCombatShields = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupStim = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupBlueFlame = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupDrillingClaws = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupTransformationServos = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupCloakingField = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupCaduceusReactor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupDurableMaterials = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupCorvidReactor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupWeaponRefit = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupBehemothReactor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupPersonalCloak = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupMoebiusReactor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupPlanetaryFortress = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lTupOrbitalCommand = new List<PredefinedData.UnitCount>();
+        protected List<UnitCount> _lTupInfantryWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> _lTupInfantryWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> _lTupInfantryWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> _lTupInfantryArmor1 = new List<UnitCount>();
+        protected List<UnitCount> _lTupInfantryArmor2 = new List<UnitCount>();
+        protected List<UnitCount> _lTupInfantryArmor3 = new List<UnitCount>();
+        protected List<UnitCount> _lTupVehicleWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> _lTupVehicleWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> _lTupVehicleWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> _lTupShipWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> _lTupShipWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> _lTupShipWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> _lTupVehicleShipPlanting1 = new List<UnitCount>();
+        protected List<UnitCount> _lTupVehicleShipPlanting2 = new List<UnitCount>();
+        protected List<UnitCount> _lTupVehicleShipPlanting3 = new List<UnitCount>();
+        protected List<UnitCount> _lTupNeosteelFrame = new List<UnitCount>();
+        protected List<UnitCount> _lTupStructureArmor = new List<UnitCount>();
+        protected List<UnitCount> _lTupHighSecAutoTracking = new List<UnitCount>();
+        protected List<UnitCount> _lTupConcussiveShells = new List<UnitCount>();
+        protected List<UnitCount> _lTupCombatShields = new List<UnitCount>();
+        protected List<UnitCount> _lTupStim = new List<UnitCount>();
+        protected List<UnitCount> _lTupBlueFlame = new List<UnitCount>();
+        protected List<UnitCount> _lTupDrillingClaws = new List<UnitCount>();
+        protected List<UnitCount> _lTupTransformationServos = new List<UnitCount>();
+        protected List<UnitCount> _lTupCloakingField = new List<UnitCount>();
+        protected List<UnitCount> _lTupCaduceusReactor = new List<UnitCount>();
+        protected List<UnitCount> _lTupDurableMaterials = new List<UnitCount>();
+        protected List<UnitCount> _lTupCorvidReactor = new List<UnitCount>();
+        protected List<UnitCount> _lTupWeaponRefit = new List<UnitCount>();
+        protected List<UnitCount> _lTupBehemothReactor = new List<UnitCount>();
+        protected List<UnitCount> _lTupPersonalCloak = new List<UnitCount>();
+        protected List<UnitCount> _lTupMoebiusReactor = new List<UnitCount>();
+        protected List<UnitCount> _lTupPlanetaryFortress = new List<UnitCount>();
+        protected List<UnitCount> _lTupOrbitalCommand = new List<UnitCount>();
 
 
 
@@ -139,140 +139,140 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Protoss
 
-        protected List<PredefinedData.UnitCount> _lPbNexus = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbPylon = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbGateway = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbForge = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbCybercore = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbWarpgate = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbCannon = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbAssimilator = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbTwilight = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbStargate = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbRobotics = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbRoboticsSupport = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbFleetbeacon = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbTemplarArchives = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPbDarkshrine = new List<PredefinedData.UnitCount>();
+        protected List<UnitCount> _lPbNexus = new List<UnitCount>();
+        protected List<UnitCount> _lPbPylon = new List<UnitCount>();
+        protected List<UnitCount> _lPbGateway = new List<UnitCount>();
+        protected List<UnitCount> _lPbForge = new List<UnitCount>();
+        protected List<UnitCount> _lPbCybercore = new List<UnitCount>();
+        protected List<UnitCount> _lPbWarpgate = new List<UnitCount>();
+        protected List<UnitCount> _lPbCannon = new List<UnitCount>();
+        protected List<UnitCount> _lPbAssimilator = new List<UnitCount>();
+        protected List<UnitCount> _lPbTwilight = new List<UnitCount>();
+        protected List<UnitCount> _lPbStargate = new List<UnitCount>();
+        protected List<UnitCount> _lPbRobotics = new List<UnitCount>();
+        protected List<UnitCount> _lPbRoboticsSupport = new List<UnitCount>();
+        protected List<UnitCount> _lPbFleetbeacon = new List<UnitCount>();
+        protected List<UnitCount> _lPbTemplarArchives = new List<UnitCount>();
+        protected List<UnitCount> _lPbDarkshrine = new List<UnitCount>();
 
-        protected List<PredefinedData.UnitCount> _lPuProbe = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuStalker = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuZealot = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuSentry = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuDt = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuHt = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuMothership = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuMothershipcore = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuArchon = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuWarpprism = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuObserver = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuColossus = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuImmortal = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuPhoenix = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuVoidray = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuOracle = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuTempest = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuCarrier = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPuForcefield = new List<PredefinedData.UnitCount>();
+        protected List<UnitCount> _lPuProbe = new List<UnitCount>();
+        protected List<UnitCount> _lPuStalker = new List<UnitCount>();
+        protected List<UnitCount> _lPuZealot = new List<UnitCount>();
+        protected List<UnitCount> _lPuSentry = new List<UnitCount>();
+        protected List<UnitCount> _lPuDt = new List<UnitCount>();
+        protected List<UnitCount> _lPuHt = new List<UnitCount>();
+        protected List<UnitCount> _lPuMothership = new List<UnitCount>();
+        protected List<UnitCount> _lPuMothershipcore = new List<UnitCount>();
+        protected List<UnitCount> _lPuArchon = new List<UnitCount>();
+        protected List<UnitCount> _lPuWarpprism = new List<UnitCount>();
+        protected List<UnitCount> _lPuObserver = new List<UnitCount>();
+        protected List<UnitCount> _lPuColossus = new List<UnitCount>();
+        protected List<UnitCount> _lPuImmortal = new List<UnitCount>();
+        protected List<UnitCount> _lPuPhoenix = new List<UnitCount>();
+        protected List<UnitCount> _lPuVoidray = new List<UnitCount>();
+        protected List<UnitCount> _lPuOracle = new List<UnitCount>();
+        protected List<UnitCount> _lPuTempest = new List<UnitCount>();
+        protected List<UnitCount> _lPuCarrier = new List<UnitCount>();
+        protected List<UnitCount> _lPuForcefield = new List<UnitCount>();
 
-        protected List<PredefinedData.UnitCount> _lPupGroundWeapon1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupGroundWeapon2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupGroundWeapon3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupGroundArmor1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupGroundArmor2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupGroundArmor3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupShield1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupShield2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupShield3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupAirWeapon1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupAirWeapon2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupAirWeapon3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupAirArmor1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupAirArmor2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupAirArmor3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupStorm = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupWarpGate = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupBlink = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupCharge = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupAnionPulseCrystal = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupGraviticBooster = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupGraviticDrive = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupGravitonCatapult = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lPupExtendedThermalLance = new List<PredefinedData.UnitCount>();
+        protected List<UnitCount> _lPupGroundWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> _lPupGroundWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> _lPupGroundWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> _lPupGroundArmor1 = new List<UnitCount>();
+        protected List<UnitCount> _lPupGroundArmor2 = new List<UnitCount>();
+        protected List<UnitCount> _lPupGroundArmor3 = new List<UnitCount>();
+        protected List<UnitCount> _lPupShield1 = new List<UnitCount>();
+        protected List<UnitCount> _lPupShield2 = new List<UnitCount>();
+        protected List<UnitCount> _lPupShield3 = new List<UnitCount>();
+        protected List<UnitCount> _lPupAirWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> _lPupAirWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> _lPupAirWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> _lPupAirArmor1 = new List<UnitCount>();
+        protected List<UnitCount> _lPupAirArmor2 = new List<UnitCount>();
+        protected List<UnitCount> _lPupAirArmor3 = new List<UnitCount>();
+        protected List<UnitCount> _lPupStorm = new List<UnitCount>();
+        protected List<UnitCount> _lPupWarpGate = new List<UnitCount>();
+        protected List<UnitCount> _lPupBlink = new List<UnitCount>();
+        protected List<UnitCount> _lPupCharge = new List<UnitCount>();
+        protected List<UnitCount> _lPupAnionPulseCrystal = new List<UnitCount>();
+        protected List<UnitCount> _lPupGraviticBooster = new List<UnitCount>();
+        protected List<UnitCount> _lPupGraviticDrive = new List<UnitCount>();
+        protected List<UnitCount> _lPupGravitonCatapult = new List<UnitCount>();
+        protected List<UnitCount> _lPupExtendedThermalLance = new List<UnitCount>();
 
         #endregion
 
         #region Zerg
 
-        protected List<PredefinedData.UnitCount> _lZbHatchery = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbLair = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbHive = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbSpawningpool = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbRoachwarren = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbCreepTumor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbEvochamber = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbSpine = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbSpore = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbBanelingnest = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbExtractor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbHydraden = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbSpire = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbNydusbegin = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbNydusend = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbUltracavern = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbGreaterspire = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZbInfestationpit = new List<PredefinedData.UnitCount>();
+        protected List<UnitCount> _lZbHatchery = new List<UnitCount>();
+        protected List<UnitCount> _lZbLair = new List<UnitCount>();
+        protected List<UnitCount> _lZbHive = new List<UnitCount>();
+        protected List<UnitCount> _lZbSpawningpool = new List<UnitCount>();
+        protected List<UnitCount> _lZbRoachwarren = new List<UnitCount>();
+        protected List<UnitCount> _lZbCreepTumor = new List<UnitCount>();
+        protected List<UnitCount> _lZbEvochamber = new List<UnitCount>();
+        protected List<UnitCount> _lZbSpine = new List<UnitCount>();
+        protected List<UnitCount> _lZbSpore = new List<UnitCount>();
+        protected List<UnitCount> _lZbBanelingnest = new List<UnitCount>();
+        protected List<UnitCount> _lZbExtractor = new List<UnitCount>();
+        protected List<UnitCount> _lZbHydraden = new List<UnitCount>();
+        protected List<UnitCount> _lZbSpire = new List<UnitCount>();
+        protected List<UnitCount> _lZbNydusbegin = new List<UnitCount>();
+        protected List<UnitCount> _lZbNydusend = new List<UnitCount>();
+        protected List<UnitCount> _lZbUltracavern = new List<UnitCount>();
+        protected List<UnitCount> _lZbGreaterspire = new List<UnitCount>();
+        protected List<UnitCount> _lZbInfestationpit = new List<UnitCount>();
 
-        protected List<PredefinedData.UnitCount> _lZuLarva = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuDrone = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuOverlord = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuZergling = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuBaneling = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuBanelingCocoon = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuBroodlordCocoon = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuRoach = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuHydra = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuInfestor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuQueen = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuOverseer = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuOverseerCocoon = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuMutalisk = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuCorruptor = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuBroodlord = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuUltralisk = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuSwarmhost = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuViper = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZuLocust = new List<PredefinedData.UnitCount>();
+        protected List<UnitCount> _lZuLarva = new List<UnitCount>();
+        protected List<UnitCount> _lZuDrone = new List<UnitCount>();
+        protected List<UnitCount> _lZuOverlord = new List<UnitCount>();
+        protected List<UnitCount> _lZuZergling = new List<UnitCount>();
+        protected List<UnitCount> _lZuBaneling = new List<UnitCount>();
+        protected List<UnitCount> _lZuBanelingCocoon = new List<UnitCount>();
+        protected List<UnitCount> _lZuBroodlordCocoon = new List<UnitCount>();
+        protected List<UnitCount> _lZuRoach = new List<UnitCount>();
+        protected List<UnitCount> _lZuHydra = new List<UnitCount>();
+        protected List<UnitCount> _lZuInfestor = new List<UnitCount>();
+        protected List<UnitCount> _lZuQueen = new List<UnitCount>();
+        protected List<UnitCount> _lZuOverseer = new List<UnitCount>();
+        protected List<UnitCount> _lZuOverseerCocoon = new List<UnitCount>();
+        protected List<UnitCount> _lZuMutalisk = new List<UnitCount>();
+        protected List<UnitCount> _lZuCorruptor = new List<UnitCount>();
+        protected List<UnitCount> _lZuBroodlord = new List<UnitCount>();
+        protected List<UnitCount> _lZuUltralisk = new List<UnitCount>();
+        protected List<UnitCount> _lZuSwarmhost = new List<UnitCount>();
+        protected List<UnitCount> _lZuViper = new List<UnitCount>();
+        protected List<UnitCount> _lZuLocust = new List<UnitCount>();
 
-        protected List<PredefinedData.UnitCount> _lZupAirWeapon1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupAirWeapon2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupAirWeapon3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupAirArmor1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupAirArmor2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupAirArmor3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGroundWeapon1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGroundWeapon2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGroundWeapon3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGroundArmor1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGroundArmor2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGroundArmor3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGroundMelee1 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGroundMelee2 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGroundMelee3 = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupMetabolicBoost = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupAdrenalGlands = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupCentrifugalHooks = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupChitinousPlating = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupEnduringLocusts = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGlialReconstruction = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupGroovedSpines = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupMuscularAugments = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupNeutralParasite = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupPathoglenGlands = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupPneumatizedCarapace = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupTunnnelingClaws = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupVentralSacs = new List<PredefinedData.UnitCount>();
-        protected List<PredefinedData.UnitCount> _lZupBurrow = new List<PredefinedData.UnitCount>();
+        protected List<UnitCount> _lZupAirWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> _lZupAirWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> _lZupAirWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> _lZupAirArmor1 = new List<UnitCount>();
+        protected List<UnitCount> _lZupAirArmor2 = new List<UnitCount>();
+        protected List<UnitCount> _lZupAirArmor3 = new List<UnitCount>();
+        protected List<UnitCount> _lZupGroundWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> _lZupGroundWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> _lZupGroundWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> _lZupGroundArmor1 = new List<UnitCount>();
+        protected List<UnitCount> _lZupGroundArmor2 = new List<UnitCount>();
+        protected List<UnitCount> _lZupGroundArmor3 = new List<UnitCount>();
+        protected List<UnitCount> _lZupGroundMelee1 = new List<UnitCount>();
+        protected List<UnitCount> _lZupGroundMelee2 = new List<UnitCount>();
+        protected List<UnitCount> _lZupGroundMelee3 = new List<UnitCount>();
+        protected List<UnitCount> _lZupMetabolicBoost = new List<UnitCount>();
+        protected List<UnitCount> _lZupAdrenalGlands = new List<UnitCount>();
+        protected List<UnitCount> _lZupCentrifugalHooks = new List<UnitCount>();
+        protected List<UnitCount> _lZupChitinousPlating = new List<UnitCount>();
+        protected List<UnitCount> _lZupEnduringLocusts = new List<UnitCount>();
+        protected List<UnitCount> _lZupGlialReconstruction = new List<UnitCount>();
+        protected List<UnitCount> _lZupGroovedSpines = new List<UnitCount>();
+        protected List<UnitCount> _lZupMuscularAugments = new List<UnitCount>();
+        protected List<UnitCount> _lZupNeutralParasite = new List<UnitCount>();
+        protected List<UnitCount> _lZupPathoglenGlands = new List<UnitCount>();
+        protected List<UnitCount> _lZupPneumatizedCarapace = new List<UnitCount>();
+        protected List<UnitCount> _lZupTunnnelingClaws = new List<UnitCount>();
+        protected List<UnitCount> _lZupVentralSacs = new List<UnitCount>();
+        protected List<UnitCount> _lZupBurrow = new List<UnitCount>();
 
 
 
@@ -592,7 +592,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         public Boolean IsDestroyed { get; set; }
-        public PredefinedData.CustomWindowStyles SetWindowStyle { get; set; }
+        public CustomWindowStyles SetWindowStyle { get; set; }
         
         public Boolean IsAllowedToClose { get; set; }
         public GameInfo GInformation { get; set; }
@@ -614,8 +614,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             GInformation = gInformation;
             PSettings = pSettings;
             PSc2Process = sc2Process;
-
-            GInformation.CAccessGameinfo = true;
 
             InitCode();
         }
@@ -675,7 +673,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="e"></param>
         private void BaseRenderer_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 var mousePos = MousePosition;
                 mousePos.Offset(-_ptMousePosition.X, -_ptMousePosition.Y);
@@ -804,20 +802,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         private void ChangeWindowStyle()
         {
-            if (SetWindowStyle.Equals(PredefinedData.CustomWindowStyles.Clickable))
+            if (SetWindowStyle.Equals(CustomWindowStyles.Clickable))
             {
                 BChangingPosition = true;
                 BSurpressForeground = true;
-                HelpFunctions.SetWindowStyle(Handle, PredefinedData.CustomWindowStyles.Clickable);
+                HelpFunctions.SetWindowStyle(Handle, CustomWindowStyles.Clickable);
             }
 
-            else if (SetWindowStyle.Equals(PredefinedData.CustomWindowStyles.NotClickable))
+            else if (SetWindowStyle.Equals(CustomWindowStyles.NotClickable))
             {
                 BSurpressForeground = false;
 
                 if (!BMouseDown)
                     BChangingPosition = false;
-                HelpFunctions.SetWindowStyle(Handle, PredefinedData.CustomWindowStyles.NotClickable);
+                HelpFunctions.SetWindowStyle(Handle, CustomWindowStyles.NotClickable);
             }
         }
 
@@ -838,14 +836,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
             if (HelpFunctions.HotkeysPressed(PSettings.PreferenceAll.Global.ChangeSizeAndPosition))
-                SetWindowStyle = PredefinedData.CustomWindowStyles.Clickable;
+                SetWindowStyle = CustomWindowStyles.Clickable;
 
             else if (FormBorderStyle != FormBorderStyle.None)
-                SetWindowStyle = PredefinedData.CustomWindowStyles.Clickable;
+                SetWindowStyle = CustomWindowStyles.Clickable;
 
 
             else
-                SetWindowStyle = PredefinedData.CustomWindowStyles.NotClickable;
+                SetWindowStyle = CustomWindowStyles.NotClickable;
 
             ChangeWindowStyle();
 
@@ -969,10 +967,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         /// <param name="p">The player</param>
         /// <returns>Is the player is gameheartish.</returns>
-        protected Boolean CheckIfGameheart(PredefinedData.PlayerStruct p)
+        protected Boolean CheckIfGameheart(Player p)
         {
             if (p.CurrentBuildings == 0 &&
-                p.Status.Equals(PredefinedData.PlayerStatus.Playing) &&
+                p.Status.Equals(PlayerStatus.Playing) &&
                 p.SupplyMax == 0 &&
                 p.SupplyMin == 0 &&
                 p.Worker == 0 &&
@@ -1087,7 +1085,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// Sorts the Construction- states of a unit- List. (Units in production)
         /// </summary>
         /// <param name="lCounter"></param>
-        protected void SortConstructionStates(ref List<PredefinedData.UnitCount> lCounter)
+        protected void SortConstructionStates(ref List<UnitCount> lCounter)
         {
             for (var i = 0; i < lCounter.Count; i++)
             {
@@ -1099,7 +1097,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// Sorts the AliveSince- states of a unit- List. (e.g. Mules, Forces, Locusts)
         /// </summary>
         /// <param name="lCounter"></param>
-        protected void SortAliveSinceStates(ref List<PredefinedData.UnitCount> lCounter)
+        protected void SortAliveSinceStates(ref List<UnitCount> lCounter)
         {
             for (var i = 0; i < lCounter.Count; i++)
             {
@@ -1117,13 +1115,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public new void Hide()
         {
             IsHidden = true;
-
-            GInformation.CAccessGroups = false;
-            GInformation.CAccessMapInfo = false;
-            GInformation.CAccessPlayers = false;
-            GInformation.CAccessSelection = false;
-            GInformation.CAccessUnitCommands = false;
-            GInformation.CAccessUnits = false;
 
             IterationsPerSeconds = 99999;
 
@@ -2249,86 +2240,86 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Units
 
-                    _lTuScv.Add(new PredefinedData.UnitCount());
-                    _lTuBanshee.Add(new PredefinedData.UnitCount());
-                    _lTuBattlecruiser.Add(new PredefinedData.UnitCount());
-                    _lTuGhost.Add(new PredefinedData.UnitCount());
-                    _lTuHellbat.Add(new PredefinedData.UnitCount());
-                    _lTuHellion.Add(new PredefinedData.UnitCount());
-                    _lTuMarauder.Add(new PredefinedData.UnitCount());
-                    _lTuMarine.Add(new PredefinedData.UnitCount());
-                    _lTuMedivac.Add(new PredefinedData.UnitCount());
-                    _lTuMule.Add(new PredefinedData.UnitCount());
-                    _lTuNuke.Add(new PredefinedData.UnitCount());
-                    _lTuPointDefenseDrone.Add(new PredefinedData.UnitCount());
-                    _lTuRaven.Add(new PredefinedData.UnitCount());
-                    _lTuReaper.Add(new PredefinedData.UnitCount());
-                    _lTuSiegetank.Add(new PredefinedData.UnitCount());
-                    _lTuThor.Add(new PredefinedData.UnitCount());
-                    _lTuViking.Add(new PredefinedData.UnitCount());
-                    _lTuWidowMine.Add(new PredefinedData.UnitCount());
+                    _lTuScv.Add(new UnitCount());
+                    _lTuBanshee.Add(new UnitCount());
+                    _lTuBattlecruiser.Add(new UnitCount());
+                    _lTuGhost.Add(new UnitCount());
+                    _lTuHellbat.Add(new UnitCount());
+                    _lTuHellion.Add(new UnitCount());
+                    _lTuMarauder.Add(new UnitCount());
+                    _lTuMarine.Add(new UnitCount());
+                    _lTuMedivac.Add(new UnitCount());
+                    _lTuMule.Add(new UnitCount());
+                    _lTuNuke.Add(new UnitCount());
+                    _lTuPointDefenseDrone.Add(new UnitCount());
+                    _lTuRaven.Add(new UnitCount());
+                    _lTuReaper.Add(new UnitCount());
+                    _lTuSiegetank.Add(new UnitCount());
+                    _lTuThor.Add(new UnitCount());
+                    _lTuViking.Add(new UnitCount());
+                    _lTuWidowMine.Add(new UnitCount());
 
                     #endregion
 
                     #region Buildings
 
-                    _lTbArmory.Add(new PredefinedData.UnitCount());
-                    _lTbAutoTurret.Add(new PredefinedData.UnitCount());
-                    _lTbBarracks.Add(new PredefinedData.UnitCount());
-                    _lTbBunker.Add(new PredefinedData.UnitCount());
-                    _lTbCommandCenter.Add(new PredefinedData.UnitCount());
-                    _lTbEbay.Add(new PredefinedData.UnitCount());
-                    _lTbFactory.Add(new PredefinedData.UnitCount());
-                    _lTbFusionCore.Add(new PredefinedData.UnitCount());
-                    _lTbGhostAcademy.Add(new PredefinedData.UnitCount());
-                    _lTbOrbitalCommand.Add(new PredefinedData.UnitCount());
-                    _lTbPlanetaryFortress.Add(new PredefinedData.UnitCount());
-                    _lTbReactor.Add(new PredefinedData.UnitCount());
-                    _lTbRefinery.Add(new PredefinedData.UnitCount());
-                    _lTbSensorTower.Add(new PredefinedData.UnitCount());
-                    _lTbStarport.Add(new PredefinedData.UnitCount());
-                    _lTbSupply.Add(new PredefinedData.UnitCount());
-                    _lTbTechlab.Add(new PredefinedData.UnitCount());
-                    _lTbTurrent.Add(new PredefinedData.UnitCount());
+                    _lTbArmory.Add(new UnitCount());
+                    _lTbAutoTurret.Add(new UnitCount());
+                    _lTbBarracks.Add(new UnitCount());
+                    _lTbBunker.Add(new UnitCount());
+                    _lTbCommandCenter.Add(new UnitCount());
+                    _lTbEbay.Add(new UnitCount());
+                    _lTbFactory.Add(new UnitCount());
+                    _lTbFusionCore.Add(new UnitCount());
+                    _lTbGhostAcademy.Add(new UnitCount());
+                    _lTbOrbitalCommand.Add(new UnitCount());
+                    _lTbPlanetaryFortress.Add(new UnitCount());
+                    _lTbReactor.Add(new UnitCount());
+                    _lTbRefinery.Add(new UnitCount());
+                    _lTbSensorTower.Add(new UnitCount());
+                    _lTbStarport.Add(new UnitCount());
+                    _lTbSupply.Add(new UnitCount());
+                    _lTbTechlab.Add(new UnitCount());
+                    _lTbTurrent.Add(new UnitCount());
 
                     #endregion
 
                     #region Upgrades
 
-                    _lTupBehemothReactor.Add(new PredefinedData.UnitCount());
-                    _lTupBlueFlame.Add(new PredefinedData.UnitCount());
-                    _lTupCaduceusReactor.Add(new PredefinedData.UnitCount());
-                    _lTupCloakingField.Add(new PredefinedData.UnitCount());
-                    _lTupCombatShields.Add(new PredefinedData.UnitCount());
-                    _lTupConcussiveShells.Add(new PredefinedData.UnitCount());
-                    _lTupCorvidReactor.Add(new PredefinedData.UnitCount());
-                    _lTupDrillingClaws.Add(new PredefinedData.UnitCount());
-                    _lTupDurableMaterials.Add(new PredefinedData.UnitCount());
-                    _lTupHighSecAutoTracking.Add(new PredefinedData.UnitCount());
-                    _lTupInfantryArmor1.Add(new PredefinedData.UnitCount());
-                    _lTupInfantryArmor2.Add(new PredefinedData.UnitCount());
-                    _lTupInfantryArmor3.Add(new PredefinedData.UnitCount());
-                    _lTupInfantryWeapon1.Add(new PredefinedData.UnitCount());
-                    _lTupInfantryWeapon2.Add(new PredefinedData.UnitCount());
-                    _lTupInfantryWeapon3.Add(new PredefinedData.UnitCount());
-                    _lTupMoebiusReactor.Add(new PredefinedData.UnitCount());
-                    _lTupNeosteelFrame.Add(new PredefinedData.UnitCount());
-                    _lTupOrbitalCommand.Add(new PredefinedData.UnitCount());
-                    _lTupPersonalCloak.Add(new PredefinedData.UnitCount());
-                    _lTupPlanetaryFortress.Add(new PredefinedData.UnitCount());
-                    _lTupShipWeapon1.Add(new PredefinedData.UnitCount());
-                    _lTupShipWeapon2.Add(new PredefinedData.UnitCount());
-                    _lTupShipWeapon3.Add(new PredefinedData.UnitCount());
-                    _lTupStim.Add(new PredefinedData.UnitCount());
-                    _lTupStructureArmor.Add(new PredefinedData.UnitCount());
-                    _lTupTransformationServos.Add(new PredefinedData.UnitCount());
-                    _lTupVehicleShipPlanting1.Add(new PredefinedData.UnitCount());
-                    _lTupVehicleShipPlanting2.Add(new PredefinedData.UnitCount());
-                    _lTupVehicleShipPlanting3.Add(new PredefinedData.UnitCount());
-                    _lTupVehicleWeapon1.Add(new PredefinedData.UnitCount());
-                    _lTupVehicleWeapon2.Add(new PredefinedData.UnitCount());
-                    _lTupVehicleWeapon3.Add(new PredefinedData.UnitCount());
-                    _lTupWeaponRefit.Add(new PredefinedData.UnitCount());
+                    _lTupBehemothReactor.Add(new UnitCount());
+                    _lTupBlueFlame.Add(new UnitCount());
+                    _lTupCaduceusReactor.Add(new UnitCount());
+                    _lTupCloakingField.Add(new UnitCount());
+                    _lTupCombatShields.Add(new UnitCount());
+                    _lTupConcussiveShells.Add(new UnitCount());
+                    _lTupCorvidReactor.Add(new UnitCount());
+                    _lTupDrillingClaws.Add(new UnitCount());
+                    _lTupDurableMaterials.Add(new UnitCount());
+                    _lTupHighSecAutoTracking.Add(new UnitCount());
+                    _lTupInfantryArmor1.Add(new UnitCount());
+                    _lTupInfantryArmor2.Add(new UnitCount());
+                    _lTupInfantryArmor3.Add(new UnitCount());
+                    _lTupInfantryWeapon1.Add(new UnitCount());
+                    _lTupInfantryWeapon2.Add(new UnitCount());
+                    _lTupInfantryWeapon3.Add(new UnitCount());
+                    _lTupMoebiusReactor.Add(new UnitCount());
+                    _lTupNeosteelFrame.Add(new UnitCount());
+                    _lTupOrbitalCommand.Add(new UnitCount());
+                    _lTupPersonalCloak.Add(new UnitCount());
+                    _lTupPlanetaryFortress.Add(new UnitCount());
+                    _lTupShipWeapon1.Add(new UnitCount());
+                    _lTupShipWeapon2.Add(new UnitCount());
+                    _lTupShipWeapon3.Add(new UnitCount());
+                    _lTupStim.Add(new UnitCount());
+                    _lTupStructureArmor.Add(new UnitCount());
+                    _lTupTransformationServos.Add(new UnitCount());
+                    _lTupVehicleShipPlanting1.Add(new UnitCount());
+                    _lTupVehicleShipPlanting2.Add(new UnitCount());
+                    _lTupVehicleShipPlanting3.Add(new UnitCount());
+                    _lTupVehicleWeapon1.Add(new UnitCount());
+                    _lTupVehicleWeapon2.Add(new UnitCount());
+                    _lTupVehicleWeapon3.Add(new UnitCount());
+                    _lTupWeaponRefit.Add(new UnitCount());
 
                     #endregion
 
@@ -2338,74 +2329,74 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Units
 
-                    _lPuArchon.Add(new PredefinedData.UnitCount());
-                    _lPuCarrier.Add(new PredefinedData.UnitCount());
-                    _lPuColossus.Add(new PredefinedData.UnitCount());
-                    _lPuDt.Add(new PredefinedData.UnitCount());
-                    _lPuHt.Add(new PredefinedData.UnitCount());
-                    _lPuImmortal.Add(new PredefinedData.UnitCount());
-                    _lPuMothership.Add(new PredefinedData.UnitCount());
-                    _lPuMothershipcore.Add(new PredefinedData.UnitCount());
-                    _lPuObserver.Add(new PredefinedData.UnitCount());
-                    _lPuOracle.Add(new PredefinedData.UnitCount());
-                    _lPuPhoenix.Add(new PredefinedData.UnitCount());
-                    _lPuProbe.Add(new PredefinedData.UnitCount());
-                    _lPuSentry.Add(new PredefinedData.UnitCount());
-                    _lPuStalker.Add(new PredefinedData.UnitCount());
-                    _lPuTempest.Add(new PredefinedData.UnitCount());
-                    _lPuVoidray.Add(new PredefinedData.UnitCount());
-                    _lPuWarpprism.Add(new PredefinedData.UnitCount());
-                    _lPuZealot.Add(new PredefinedData.UnitCount());
-                    _lPuForcefield.Add(new PredefinedData.UnitCount());
+                    _lPuArchon.Add(new UnitCount());
+                    _lPuCarrier.Add(new UnitCount());
+                    _lPuColossus.Add(new UnitCount());
+                    _lPuDt.Add(new UnitCount());
+                    _lPuHt.Add(new UnitCount());
+                    _lPuImmortal.Add(new UnitCount());
+                    _lPuMothership.Add(new UnitCount());
+                    _lPuMothershipcore.Add(new UnitCount());
+                    _lPuObserver.Add(new UnitCount());
+                    _lPuOracle.Add(new UnitCount());
+                    _lPuPhoenix.Add(new UnitCount());
+                    _lPuProbe.Add(new UnitCount());
+                    _lPuSentry.Add(new UnitCount());
+                    _lPuStalker.Add(new UnitCount());
+                    _lPuTempest.Add(new UnitCount());
+                    _lPuVoidray.Add(new UnitCount());
+                    _lPuWarpprism.Add(new UnitCount());
+                    _lPuZealot.Add(new UnitCount());
+                    _lPuForcefield.Add(new UnitCount());
 
                     #endregion
 
                     #region Buildings
 
-                    _lPbAssimilator.Add(new PredefinedData.UnitCount());
-                    _lPbCannon.Add(new PredefinedData.UnitCount());
-                    _lPbCybercore.Add(new PredefinedData.UnitCount());
-                    _lPbDarkshrine.Add(new PredefinedData.UnitCount());
-                    _lPbFleetbeacon.Add(new PredefinedData.UnitCount());
-                    _lPbForge.Add(new PredefinedData.UnitCount());
-                    _lPbGateway.Add(new PredefinedData.UnitCount());
-                    _lPbNexus.Add(new PredefinedData.UnitCount());
-                    _lPbPylon.Add(new PredefinedData.UnitCount());
-                    _lPbRobotics.Add(new PredefinedData.UnitCount());
-                    _lPbRoboticsSupport.Add(new PredefinedData.UnitCount());
-                    _lPbStargate.Add(new PredefinedData.UnitCount());
-                    _lPbTemplarArchives.Add(new PredefinedData.UnitCount());
-                    _lPbTwilight.Add(new PredefinedData.UnitCount());
-                    _lPbWarpgate.Add(new PredefinedData.UnitCount());
+                    _lPbAssimilator.Add(new UnitCount());
+                    _lPbCannon.Add(new UnitCount());
+                    _lPbCybercore.Add(new UnitCount());
+                    _lPbDarkshrine.Add(new UnitCount());
+                    _lPbFleetbeacon.Add(new UnitCount());
+                    _lPbForge.Add(new UnitCount());
+                    _lPbGateway.Add(new UnitCount());
+                    _lPbNexus.Add(new UnitCount());
+                    _lPbPylon.Add(new UnitCount());
+                    _lPbRobotics.Add(new UnitCount());
+                    _lPbRoboticsSupport.Add(new UnitCount());
+                    _lPbStargate.Add(new UnitCount());
+                    _lPbTemplarArchives.Add(new UnitCount());
+                    _lPbTwilight.Add(new UnitCount());
+                    _lPbWarpgate.Add(new UnitCount());
 
                     #endregion
 
                     #region Upgrades
 
-                    _lPupBlink.Add(new PredefinedData.UnitCount());
-                    _lPupCharge.Add(new PredefinedData.UnitCount());
-                    _lPupExtendedThermalLance.Add(new PredefinedData.UnitCount());
-                    _lPupGraviticBooster.Add(new PredefinedData.UnitCount());
-                    _lPupGraviticDrive.Add(new PredefinedData.UnitCount());
-                    _lPupGravitonCatapult.Add(new PredefinedData.UnitCount());
-                    _lPupGroundArmor1.Add(new PredefinedData.UnitCount());
-                    _lPupGroundArmor2.Add(new PredefinedData.UnitCount());
-                    _lPupGroundArmor3.Add(new PredefinedData.UnitCount());
-                    _lPupGroundWeapon1.Add(new PredefinedData.UnitCount());
-                    _lPupGroundWeapon2.Add(new PredefinedData.UnitCount());
-                    _lPupGroundWeapon3.Add(new PredefinedData.UnitCount());
-                    _lPupShield1.Add(new PredefinedData.UnitCount());
-                    _lPupShield2.Add(new PredefinedData.UnitCount());
-                    _lPupShield3.Add(new PredefinedData.UnitCount());
-                    _lPupStorm.Add(new PredefinedData.UnitCount());
-                    _lPupWarpGate.Add(new PredefinedData.UnitCount());
-                    _lPupAirArmor1.Add(new PredefinedData.UnitCount());
-                    _lPupAirArmor2.Add(new PredefinedData.UnitCount());
-                    _lPupAirArmor3.Add(new PredefinedData.UnitCount());
-                    _lPupAirWeapon1.Add(new PredefinedData.UnitCount());
-                    _lPupAirWeapon2.Add(new PredefinedData.UnitCount());
-                    _lPupAirWeapon3.Add(new PredefinedData.UnitCount());
-                    _lPupAnionPulseCrystal.Add(new PredefinedData.UnitCount());
+                    _lPupBlink.Add(new UnitCount());
+                    _lPupCharge.Add(new UnitCount());
+                    _lPupExtendedThermalLance.Add(new UnitCount());
+                    _lPupGraviticBooster.Add(new UnitCount());
+                    _lPupGraviticDrive.Add(new UnitCount());
+                    _lPupGravitonCatapult.Add(new UnitCount());
+                    _lPupGroundArmor1.Add(new UnitCount());
+                    _lPupGroundArmor2.Add(new UnitCount());
+                    _lPupGroundArmor3.Add(new UnitCount());
+                    _lPupGroundWeapon1.Add(new UnitCount());
+                    _lPupGroundWeapon2.Add(new UnitCount());
+                    _lPupGroundWeapon3.Add(new UnitCount());
+                    _lPupShield1.Add(new UnitCount());
+                    _lPupShield2.Add(new UnitCount());
+                    _lPupShield3.Add(new UnitCount());
+                    _lPupStorm.Add(new UnitCount());
+                    _lPupWarpGate.Add(new UnitCount());
+                    _lPupAirArmor1.Add(new UnitCount());
+                    _lPupAirArmor2.Add(new UnitCount());
+                    _lPupAirArmor3.Add(new UnitCount());
+                    _lPupAirWeapon1.Add(new UnitCount());
+                    _lPupAirWeapon2.Add(new UnitCount());
+                    _lPupAirWeapon3.Add(new UnitCount());
+                    _lPupAnionPulseCrystal.Add(new UnitCount());
 
                     #endregion
 
@@ -2415,83 +2406,83 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Units
 
-                    _lZuBaneling.Add(new PredefinedData.UnitCount());
-                    _lZuBanelingCocoon.Add(new PredefinedData.UnitCount());
-                    _lZuBroodlord.Add(new PredefinedData.UnitCount());
-                    _lZuBroodlordCocoon.Add(new PredefinedData.UnitCount());
-                    _lZuCorruptor.Add(new PredefinedData.UnitCount());
-                    _lZuDrone.Add(new PredefinedData.UnitCount());
-                    _lZuHydra.Add(new PredefinedData.UnitCount());
-                    _lZuInfestor.Add(new PredefinedData.UnitCount());
-                    _lZuLarva.Add(new PredefinedData.UnitCount());
-                    _lZuMutalisk.Add(new PredefinedData.UnitCount());
-                    _lZuOverlord.Add(new PredefinedData.UnitCount());
-                    _lZuOverseer.Add(new PredefinedData.UnitCount());
-                    _lZuOverseerCocoon.Add(new PredefinedData.UnitCount());
-                    _lZuQueen.Add(new PredefinedData.UnitCount());
-                    _lZuRoach.Add(new PredefinedData.UnitCount());
-                    _lZuSwarmhost.Add(new PredefinedData.UnitCount());
-                    _lZuUltralisk.Add(new PredefinedData.UnitCount());
-                    _lZuViper.Add(new PredefinedData.UnitCount());
-                    _lZuZergling.Add(new PredefinedData.UnitCount());
-                    _lZuLocust.Add(new PredefinedData.UnitCount());
+                    _lZuBaneling.Add(new UnitCount());
+                    _lZuBanelingCocoon.Add(new UnitCount());
+                    _lZuBroodlord.Add(new UnitCount());
+                    _lZuBroodlordCocoon.Add(new UnitCount());
+                    _lZuCorruptor.Add(new UnitCount());
+                    _lZuDrone.Add(new UnitCount());
+                    _lZuHydra.Add(new UnitCount());
+                    _lZuInfestor.Add(new UnitCount());
+                    _lZuLarva.Add(new UnitCount());
+                    _lZuMutalisk.Add(new UnitCount());
+                    _lZuOverlord.Add(new UnitCount());
+                    _lZuOverseer.Add(new UnitCount());
+                    _lZuOverseerCocoon.Add(new UnitCount());
+                    _lZuQueen.Add(new UnitCount());
+                    _lZuRoach.Add(new UnitCount());
+                    _lZuSwarmhost.Add(new UnitCount());
+                    _lZuUltralisk.Add(new UnitCount());
+                    _lZuViper.Add(new UnitCount());
+                    _lZuZergling.Add(new UnitCount());
+                    _lZuLocust.Add(new UnitCount());
 
                     #endregion
 
                     #region Buildings
 
-                    _lZbBanelingnest.Add(new PredefinedData.UnitCount());
-                    _lZbCreepTumor.Add(new PredefinedData.UnitCount());
-                    _lZbEvochamber.Add(new PredefinedData.UnitCount());
-                    _lZbExtractor.Add(new PredefinedData.UnitCount());
-                    _lZbGreaterspire.Add(new PredefinedData.UnitCount());
-                    _lZbHatchery.Add(new PredefinedData.UnitCount());
-                    _lZbHive.Add(new PredefinedData.UnitCount());
-                    _lZbHydraden.Add(new PredefinedData.UnitCount());
-                    _lZbInfestationpit.Add(new PredefinedData.UnitCount());
-                    _lZbLair.Add(new PredefinedData.UnitCount());
-                    _lZbNydusbegin.Add(new PredefinedData.UnitCount());
-                    _lZbNydusend.Add(new PredefinedData.UnitCount());
-                    _lZbRoachwarren.Add(new PredefinedData.UnitCount());
-                    _lZbSpawningpool.Add(new PredefinedData.UnitCount());
-                    _lZbSpine.Add(new PredefinedData.UnitCount());
-                    _lZbSpire.Add(new PredefinedData.UnitCount());
-                    _lZbSpore.Add(new PredefinedData.UnitCount());
-                    _lZbUltracavern.Add(new PredefinedData.UnitCount());
+                    _lZbBanelingnest.Add(new UnitCount());
+                    _lZbCreepTumor.Add(new UnitCount());
+                    _lZbEvochamber.Add(new UnitCount());
+                    _lZbExtractor.Add(new UnitCount());
+                    _lZbGreaterspire.Add(new UnitCount());
+                    _lZbHatchery.Add(new UnitCount());
+                    _lZbHive.Add(new UnitCount());
+                    _lZbHydraden.Add(new UnitCount());
+                    _lZbInfestationpit.Add(new UnitCount());
+                    _lZbLair.Add(new UnitCount());
+                    _lZbNydusbegin.Add(new UnitCount());
+                    _lZbNydusend.Add(new UnitCount());
+                    _lZbRoachwarren.Add(new UnitCount());
+                    _lZbSpawningpool.Add(new UnitCount());
+                    _lZbSpine.Add(new UnitCount());
+                    _lZbSpire.Add(new UnitCount());
+                    _lZbSpore.Add(new UnitCount());
+                    _lZbUltracavern.Add(new UnitCount());
 
                     #endregion
 
                     #region Upgrades
 
-                    _lZupAdrenalGlands.Add(new PredefinedData.UnitCount());
-                    _lZupAirArmor1.Add(new PredefinedData.UnitCount());
-                    _lZupAirArmor2.Add(new PredefinedData.UnitCount());
-                    _lZupAirArmor3.Add(new PredefinedData.UnitCount());
-                    _lZupAirWeapon1.Add(new PredefinedData.UnitCount());
-                    _lZupAirWeapon2.Add(new PredefinedData.UnitCount());
-                    _lZupAirWeapon3.Add(new PredefinedData.UnitCount());
-                    _lZupBurrow.Add(new PredefinedData.UnitCount());
-                    _lZupCentrifugalHooks.Add(new PredefinedData.UnitCount());
-                    _lZupChitinousPlating.Add(new PredefinedData.UnitCount());
-                    _lZupEnduringLocusts.Add(new PredefinedData.UnitCount());
-                    _lZupGlialReconstruction.Add(new PredefinedData.UnitCount());
-                    _lZupGroovedSpines.Add(new PredefinedData.UnitCount());
-                    _lZupGroundArmor1.Add(new PredefinedData.UnitCount());
-                    _lZupGroundArmor2.Add(new PredefinedData.UnitCount());
-                    _lZupGroundArmor3.Add(new PredefinedData.UnitCount());
-                    _lZupGroundMelee1.Add(new PredefinedData.UnitCount());
-                    _lZupGroundMelee2.Add(new PredefinedData.UnitCount());
-                    _lZupGroundMelee3.Add(new PredefinedData.UnitCount());
-                    _lZupGroundWeapon1.Add(new PredefinedData.UnitCount());
-                    _lZupGroundWeapon2.Add(new PredefinedData.UnitCount());
-                    _lZupGroundWeapon3.Add(new PredefinedData.UnitCount());
-                    _lZupMetabolicBoost.Add(new PredefinedData.UnitCount());
-                    _lZupMuscularAugments.Add(new PredefinedData.UnitCount());
-                    _lZupNeutralParasite.Add(new PredefinedData.UnitCount());
-                    _lZupPathoglenGlands.Add(new PredefinedData.UnitCount());
-                    _lZupPneumatizedCarapace.Add(new PredefinedData.UnitCount());
-                    _lZupTunnnelingClaws.Add(new PredefinedData.UnitCount());
-                    _lZupVentralSacs.Add(new PredefinedData.UnitCount());
+                    _lZupAdrenalGlands.Add(new UnitCount());
+                    _lZupAirArmor1.Add(new UnitCount());
+                    _lZupAirArmor2.Add(new UnitCount());
+                    _lZupAirArmor3.Add(new UnitCount());
+                    _lZupAirWeapon1.Add(new UnitCount());
+                    _lZupAirWeapon2.Add(new UnitCount());
+                    _lZupAirWeapon3.Add(new UnitCount());
+                    _lZupBurrow.Add(new UnitCount());
+                    _lZupCentrifugalHooks.Add(new UnitCount());
+                    _lZupChitinousPlating.Add(new UnitCount());
+                    _lZupEnduringLocusts.Add(new UnitCount());
+                    _lZupGlialReconstruction.Add(new UnitCount());
+                    _lZupGroovedSpines.Add(new UnitCount());
+                    _lZupGroundArmor1.Add(new UnitCount());
+                    _lZupGroundArmor2.Add(new UnitCount());
+                    _lZupGroundArmor3.Add(new UnitCount());
+                    _lZupGroundMelee1.Add(new UnitCount());
+                    _lZupGroundMelee2.Add(new UnitCount());
+                    _lZupGroundMelee3.Add(new UnitCount());
+                    _lZupGroundWeapon1.Add(new UnitCount());
+                    _lZupGroundWeapon2.Add(new UnitCount());
+                    _lZupGroundWeapon3.Add(new UnitCount());
+                    _lZupMetabolicBoost.Add(new UnitCount());
+                    _lZupMuscularAugments.Add(new UnitCount());
+                    _lZupNeutralParasite.Add(new UnitCount());
+                    _lZupPathoglenGlands.Add(new UnitCount());
+                    _lZupPneumatizedCarapace.Add(new UnitCount());
+                    _lZupTunnnelingClaws.Add(new UnitCount());
+                    _lZupVentralSacs.Add(new UnitCount());
 
                     #endregion
 
@@ -2499,7 +2490,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 }
 
                 /* Forcefield.. */
-                _lPuForcefield.Add(new PredefinedData.UnitCount());
+                _lPuForcefield.Add(new UnitCount());
 
                 #endregion
 
@@ -2519,85 +2510,85 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         #region Units
 
-                        if (tmpUnit.Id == PredefinedData.UnitId.TuScv)
+                        if (tmpUnit.Id == UnitId.TuScv)
                             _lTuScv[tmpUnit.Owner].UnitAmount += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TuMule)
+                        else if (tmpUnit.Id == UnitId.TuMule)
                         {
                             _lTuMule[tmpUnit.Owner].UnitAmount += 1;
-                            _lTuMule[tmpUnit.Owner].Id = PredefinedData.UnitId.TuMule;
+                            _lTuMule[tmpUnit.Owner].Id = UnitId.TuMule;
                             _lTuMule[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/387328.0f));
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuMarine)
+                                 UnitId.TuMarine)
                             _lTuMarine[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuMarauder)
+                                 UnitId.TuMarauder)
                             _lTuMarauder[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuReaper)
+                                 UnitId.TuReaper)
                             _lTuReaper[tmpUnit.Owner].UnitAmount += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TuGhost)
+                        else if (tmpUnit.Id == UnitId.TuGhost)
                         {
                             _lTuGhost[tmpUnit.Owner].UnitAmount += 1;
-                            _lTuGhost[tmpUnit.Owner].Id = PredefinedData.UnitId.TuGhost;
+                            _lTuGhost[tmpUnit.Owner].Id = UnitId.TuGhost;
                             _lTuGhost[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lTuGhost[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuWidowMine ||
+                                 UnitId.TuWidowMine ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuWidowMineBurrow)
+                                 UnitId.TuWidowMineBurrow)
                             _lTuWidowMine[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuSiegetank ||
+                                 UnitId.TuSiegetank ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuSiegetankSieged)
+                                 UnitId.TuSiegetankSieged)
                             _lTuSiegetank[tmpUnit.Owner].UnitAmount += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TuThor)
+                        else if (tmpUnit.Id == UnitId.TuThor)
                             _lTuThor[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuHellbat)
+                                 UnitId.TuHellbat)
                             _lTuHellbat[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuNuke)
+                                 UnitId.TuNuke)
                             _lTuNuke[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuHellion)
+                                 UnitId.TuHellion)
                             _lTuHellion[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuBanshee)
+                                 UnitId.TuBanshee)
                             _lTuBanshee[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuBattlecruiser)
+                                 UnitId.TuBattlecruiser)
                             _lTuBattlecruiser[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuMedivac)
+                                 UnitId.TuMedivac)
                             _lTuMedivac[tmpUnit.Owner].UnitAmount += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TuRaven)
+                        else if (tmpUnit.Id == UnitId.TuRaven)
                             _lTuRaven[tmpUnit.Owner].UnitAmount += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TuPdd)
+                        else if (tmpUnit.Id == UnitId.TuPdd)
                             _lTuPointDefenseDrone[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuVikingAir ||
+                                 UnitId.TuVikingAir ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TuVikingGround)
+                                 UnitId.TuVikingGround)
                             _lTuViking[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -2607,8 +2598,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Command Center (Air/ Ground/ Unit Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbCcGround ||
-                                 tmpUnit.Id == PredefinedData.UnitId.TbCcAir)
+                                 UnitId.TbCcGround ||
+                                 tmpUnit.Id == UnitId.TbCcAir)
                         {
                             _lTbCommandCenter[tmpUnit.Owner].UnitAmount += 1;
 
@@ -2628,7 +2619,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     {
                                         if (
                                             tmpUnit.ProdUnitProductionId[k].Equals(
-                                                PredefinedData.UnitId.TupUpgradeToOrbital))
+                                                UnitId.TupUpgradeToOrbital))
                                         {
                                             _lTbOrbitalCommand[tmpUnit.Owner].UnitUnderConstruction += 1;
                                             _lTbOrbitalCommand[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2636,7 +2627,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                         else if (
                                             tmpUnit.ProdUnitProductionId[k].Equals(
-                                                PredefinedData.UnitId.TupUpgradeToPlanetary))
+                                                UnitId.TupUpgradeToPlanetary))
                                             {
                                                 _lTbPlanetaryFortress[tmpUnit.Owner].UnitUnderConstruction += 1;
                                                 _lTbPlanetaryFortress[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2651,14 +2642,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Orbital Command (Air/ Ground/ Unit Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbOrbitalAir ||
+                                 UnitId.TbOrbitalAir ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbOrbitalGround)
+                                 UnitId.TbOrbitalGround)
                         {
                             _lTbOrbitalCommand[tmpUnit.Owner].UnitAmount += 1;
                             _lTbOrbitalCommand[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lTbOrbitalCommand[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
-                            _lTbOrbitalCommand[tmpUnit.Owner].Id = PredefinedData.UnitId.TbOrbitalGround;
+                            _lTbOrbitalCommand[tmpUnit.Owner].Id = UnitId.TbOrbitalGround;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -2675,9 +2666,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Barracks (Air/ Ground/ Unit Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbRaxAir ||
+                                 UnitId.TbRaxAir ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbBarracksGround)
+                                 UnitId.TbBarracksGround)
                         {
                             _lTbBarracks[tmpUnit.Owner].UnitAmount += 1;
 
@@ -2688,7 +2679,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuMarine))
+                                            UnitId.TuMarine))
                                     {
                                         _lTuMarine[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuMarine[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2696,7 +2687,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuMarauder))
+                                            UnitId.TuMarauder))
                                     {
                                         _lTuMarauder[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuMarauder[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2704,7 +2695,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuReaper))
+                                            UnitId.TuReaper))
                                     {
                                         _lTuReaper[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuReaper[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2712,7 +2703,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuGhost))
+                                            UnitId.TuGhost))
                                     {
                                         _lTuGhost[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuGhost[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2726,7 +2717,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Bunker
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbBunker)
+                                 UnitId.TbBunker)
                             _lTbBunker[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -2734,7 +2725,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Turret
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbTurret)
+                                 UnitId.TbTurret)
                             _lTbTurrent[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -2742,7 +2733,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Refinery
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbRefinery)
+                                 UnitId.TbRefinery)
                             _lTbRefinery[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -2750,7 +2741,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Sensor Tower
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbSensortower)
+                                 UnitId.TbSensortower)
                             _lTbSensorTower[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -2758,7 +2749,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Planetary (Unit Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbPlanetary)
+                                 UnitId.TbPlanetary)
                         {
                             _lTbPlanetaryFortress[tmpUnit.Owner].UnitAmount += 1;
 
@@ -2776,7 +2767,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             #region Engineering Bay (Upgrade Production)
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TbEbay)
+                        else if (tmpUnit.Id == UnitId.TbEbay)
                         {
                             _lTbEbay[tmpUnit.Owner].UnitAmount += 1;
 
@@ -2786,7 +2777,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupInfantryArmor1))
+                                            UnitId.TupInfantryArmor1))
                                     {
                                         _lTupInfantryArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupInfantryArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2794,7 +2785,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupInfantryArmor2))
+                                            UnitId.TupInfantryArmor2))
                                     {
                                         _lTupInfantryArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupInfantryArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2802,7 +2793,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupInfantryArmor3))
+                                            UnitId.TupInfantryArmor3))
                                     {
                                         _lTupInfantryArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupInfantryArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2810,7 +2801,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupInfantryWeapon1))
+                                            UnitId.TupInfantryWeapon1))
                                     {
                                         _lTupInfantryWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupInfantryWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2818,7 +2809,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupInfantryWeapon2))
+                                            UnitId.TupInfantryWeapon2))
                                     {
                                         _lTupInfantryWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupInfantryWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2826,7 +2817,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupInfantryWeapon3))
+                                            UnitId.TupInfantryWeapon3))
                                     {
                                         _lTupInfantryWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupInfantryWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2834,7 +2825,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupHighSecAutoTracking))
+                                            UnitId.TupHighSecAutoTracking))
                                     {
                                         _lTupHighSecAutoTracking[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupHighSecAutoTracking[tmpUnit.Owner].ConstructionState.Add(
@@ -2843,7 +2834,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupNeosteelFrame))
+                                            UnitId.TupNeosteelFrame))
                                     {
                                         _lTupNeosteelFrame[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupNeosteelFrame[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2851,7 +2842,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupStructureArmor))
+                                            UnitId.TupStructureArmor))
                                     {
                                         _lTupStructureArmor[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupStructureArmor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2865,9 +2856,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Factory (Air/ Ground/ Unit Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbFactoryAir ||
+                                 UnitId.TbFactoryAir ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbFactoryGround)
+                                 UnitId.TbFactoryGround)
                         {
                             _lTbFactory[tmpUnit.Owner].UnitAmount += 1;
 
@@ -2878,7 +2869,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuHellion))
+                                            UnitId.TuHellion))
                                     {
                                         _lTuHellion[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuHellion[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2886,7 +2877,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuHellbat))
+                                            UnitId.TuHellbat))
                                     {
                                         _lTuHellbat[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuHellbat[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2894,7 +2885,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuWidowMine))
+                                            UnitId.TuWidowMine))
                                     {
 
                                         _lTuWidowMine[tmpUnit.Owner].UnitUnderConstruction += 1;
@@ -2903,7 +2894,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuSiegetank))
+                                            UnitId.TuSiegetank))
                                     {
                                         _lTuSiegetank[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuSiegetank[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2911,7 +2902,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuThor))
+                                            UnitId.TuThor))
                                     {
                                         _lTuThor[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuThor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2925,9 +2916,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Starport (Air/ Ground/ Unit Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbStarportAir ||
+                                 UnitId.TbStarportAir ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbStarportGround)
+                                 UnitId.TbStarportGround)
                         {
                             _lTbStarport[tmpUnit.Owner].UnitAmount += 1;
 
@@ -2939,7 +2930,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuVikingAir))
+                                            UnitId.TuVikingAir))
                                     {
                                         _lTuViking[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuViking[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2947,7 +2938,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuBanshee))
+                                            UnitId.TuBanshee))
                                     {
                                         _lTuBanshee[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuBanshee[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2955,7 +2946,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuMedivac))
+                                            UnitId.TuMedivac))
                                     {
                                         _lTuMedivac[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuMedivac[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2963,7 +2954,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuRaven))
+                                            UnitId.TuRaven))
                                     {
                                         _lTuRaven[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuRaven[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2971,7 +2962,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuBattlecruiser))
+                                            UnitId.TuBattlecruiser))
                                     {
                                         _lTuBattlecruiser[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuBattlecruiser[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -2985,9 +2976,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Supply (Hidden/ Normal)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbSupplyGround ||
+                                 UnitId.TbSupplyGround ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbSupplyHidden)
+                                 UnitId.TbSupplyHidden)
                             _lTbSupply[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -2995,7 +2986,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Ghost Academy (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbGhostacademy)
+                                 UnitId.TbGhostacademy)
                         {
                             _lTbGhostAcademy[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3005,7 +2996,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupPersonalCloak))
+                                            UnitId.TupPersonalCloak))
                                     {
                                         _lTupPersonalCloak[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupPersonalCloak[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3013,7 +3004,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupMoebiusReactor))
+                                            UnitId.TupMoebiusReactor))
                                     {
                                         _lTupMoebiusReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupMoebiusReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3021,7 +3012,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TuNuke))
+                                            UnitId.TuNuke))
                                     {
                                         _lTuNuke[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuNuke[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3035,7 +3026,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Fucion Core (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbFusioncore)
+                                 UnitId.TbFusioncore)
                         {
                             _lTbFusionCore[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3045,7 +3036,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupWeaponRefit))
+                                            UnitId.TupWeaponRefit))
                                     {
                                         _lTupWeaponRefit[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupWeaponRefit[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3053,7 +3044,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupBehemothReactor))
+                                            UnitId.TupBehemothReactor))
                                     {
                                         _lTupBehemothReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupBehemothReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3067,7 +3058,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Armory (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbArmory)
+                                 UnitId.TbArmory)
                         {
                             _lTbArmory[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3077,7 +3068,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupVehicleShipPlanting1))
+                                            UnitId.TupVehicleShipPlanting1))
                                     {
                                         _lTupVehicleShipPlanting1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupVehicleShipPlanting1[tmpUnit.Owner].ConstructionState.Add(
@@ -3086,7 +3077,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupVehicleShipPlanting2))
+                                            UnitId.TupVehicleShipPlanting2))
                                     {
                                         _lTupVehicleShipPlanting2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupVehicleShipPlanting2[tmpUnit.Owner].ConstructionState.Add(
@@ -3095,7 +3086,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupVehicleShipPlanting3))
+                                            UnitId.TupVehicleShipPlanting3))
                                     {
                                         _lTupVehicleShipPlanting3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupVehicleShipPlanting3[tmpUnit.Owner].ConstructionState.Add(
@@ -3104,7 +3095,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupVehicleWeapon1))
+                                            UnitId.TupVehicleWeapon1))
                                     {
                                         _lTupVehicleWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupVehicleWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3112,7 +3103,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupVehicleWeapon2))
+                                            UnitId.TupVehicleWeapon2))
                                     {
                                         _lTupVehicleWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupVehicleWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3120,7 +3111,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupVehicleWeapon3))
+                                            UnitId.TupVehicleWeapon3))
                                     {
                                         _lTupVehicleWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupVehicleWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3128,7 +3119,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupShipWeapon1))
+                                            UnitId.TupShipWeapon1))
                                     {
                                         _lTupShipWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupShipWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3136,7 +3127,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupShipWeapon2))
+                                            UnitId.TupShipWeapon2))
                                     {
                                         _lTupShipWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupShipWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3144,7 +3135,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupShipWeapon3))
+                                            UnitId.TupShipWeapon3))
                                     {
                                         _lTupShipWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupShipWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3158,7 +3149,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region AutoTurret
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbAutoTurret)
+                                 UnitId.TbAutoTurret)
                             _lTbAutoTurret[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -3166,7 +3157,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Techlab Barracks (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbTechlabRax)
+                                 UnitId.TbTechlabRax)
                         {
                             _lTbTechlab[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3177,7 +3168,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupStim))
+                                            UnitId.TupStim))
                                     {
                                         _lTupStim[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupStim[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3185,7 +3176,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupCombatShields))
+                                            UnitId.TupCombatShields))
                                     {
                                         _lTupCombatShields[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupCombatShields[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3193,7 +3184,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupConcussiveShells))
+                                            UnitId.TupConcussiveShells))
                                     {
                                         _lTupConcussiveShells[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupConcussiveShells[tmpUnit.Owner].ConstructionState.Add(
@@ -3208,7 +3199,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Techlab Factory (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbTechlabFactory)
+                                 UnitId.TbTechlabFactory)
                         {
                             _lTbTechlab[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3218,7 +3209,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupBlueFlame))
+                                            UnitId.TupBlueFlame))
                                     {
                                         _lTupBlueFlame[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupBlueFlame[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3226,7 +3217,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupDrillingClaws))
+                                            UnitId.TupDrillingClaws))
                                     {
                                         _lTupDrillingClaws[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupDrillingClaws[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3234,7 +3225,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupTransformatorServos))
+                                            UnitId.TupTransformatorServos))
                                     {
                                         _lTupTransformationServos[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupTransformationServos[tmpUnit.Owner].ConstructionState.Add(
@@ -3249,7 +3240,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Techlab Starport (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbTechlabStarport)
+                                 UnitId.TbTechlabStarport)
                         {
                             _lTbTechlab[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3259,7 +3250,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupCloakingField))
+                                            UnitId.TupCloakingField))
                                     {
                                         _lTupCloakingField[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupCloakingField[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3267,7 +3258,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupCorvidReactor))
+                                            UnitId.TupCorvidReactor))
                                     {
                                         _lTupCorvidReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupCorvidReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3275,7 +3266,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupCaduceusReactor))
+                                            UnitId.TupCaduceusReactor))
                                     {
                                         _lTupCaduceusReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupCaduceusReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3283,7 +3274,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.TupDurableMeterials))
+                                            UnitId.TupDurableMeterials))
                                     {
                                         _lTupDurableMaterials[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTupDurableMaterials[tmpUnit.Owner].ConstructionState.Add(
@@ -3298,13 +3289,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Reactor (Normal, Starport, Factory, Barracks COMBINED)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbReactor ||
+                                 UnitId.TbReactor ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbReactorFactory ||
+                                 UnitId.TbReactorFactory ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbReactorRax ||
+                                 UnitId.TbReactorRax ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.TbReactorStarport)
+                                 UnitId.TbReactorStarport)
                             _lTbReactor[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -3319,18 +3310,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Units
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuForceField)
+                                 UnitId.PuForceField)
                         {
                             _lPuForcefield[GInformation.Player.Count].UnitAmount += 1;
                             _lPuForcefield[GInformation.Player.Count].Id =
-                                PredefinedData.UnitId.PuForceField;
+                                UnitId.PuForceField;
                             _lPuForcefield[GInformation.Player.Count].AliveSince.Add(1 -
                                                                                                   (tmpUnit.AliveSince/
                                                                                                    62208.0f));
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuArchon)
+                                 UnitId.PuArchon)
                         {
                             _lPuArchon[tmpUnit.Owner].UnitAmount += 1;
                             
@@ -3347,44 +3338,44 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuCarrier)
+                                 UnitId.PuCarrier)
                             _lPuCarrier[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuColossus)
+                                 UnitId.PuColossus)
                             _lPuColossus[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuDarktemplar)
+                                 UnitId.PuDarktemplar)
                             _lPuDt[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuHightemplar)
+                                 UnitId.PuHightemplar)
                         {
                             _lPuHt[tmpUnit.Owner].UnitAmount += 1;
-                            _lPuHt[tmpUnit.Owner].Id = PredefinedData.UnitId.PuHightemplar;
+                            _lPuHt[tmpUnit.Owner].Id = UnitId.PuHightemplar;
                             _lPuHt[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lPuHt[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuImmortal)
+                                 UnitId.PuImmortal)
                             _lPuImmortal[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuMothership)
+                                 UnitId.PuMothership)
                         {
                             _lPuMothership[tmpUnit.Owner].UnitAmount += 1;
-                            _lPuMothership[tmpUnit.Owner].Id = PredefinedData.UnitId.PuMothership;
+                            _lPuMothership[tmpUnit.Owner].Id = UnitId.PuMothership;
                             _lPuMothership[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lPuMothership[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuMothershipCore)
+                                 UnitId.PuMothershipCore)
                         {
                             _lPuMothershipcore[tmpUnit.Owner].UnitAmount += 1;
-                            _lPuMothershipcore[tmpUnit.Owner].Id = PredefinedData.UnitId.PuMothershipCore;
+                            _lPuMothershipcore[tmpUnit.Owner].Id = UnitId.PuMothershipCore;
                             _lPuMothershipcore[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lPuMothershipcore[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
 
@@ -3395,7 +3386,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupUpgradeToMothership))
+                                            UnitId.PupUpgradeToMothership))
                                     {
                                         _lPuMothership[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuMothership[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3408,49 +3399,49 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuObserver)
+                                 UnitId.PuObserver)
                             _lPuObserver[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuOracle)
+                                 UnitId.PuOracle)
                             _lPuOracle[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuPhoenix)
+                                 UnitId.PuPhoenix)
                             _lPuPhoenix[tmpUnit.Owner].UnitAmount += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.PuProbe)
+                        else if (tmpUnit.Id == UnitId.PuProbe)
                             _lPuProbe[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuSentry)
+                                 UnitId.PuSentry)
                         {
                             _lPuSentry[tmpUnit.Owner].UnitAmount += 1;
-                            _lPuSentry[tmpUnit.Owner].Id = PredefinedData.UnitId.PuSentry;
+                            _lPuSentry[tmpUnit.Owner].Id = UnitId.PuSentry;
                             _lPuSentry[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lPuSentry[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuStalker)
+                                 UnitId.PuStalker)
                             _lPuStalker[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuTempest)
+                                 UnitId.PuTempest)
                             _lPuTempest[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuVoidray)
+                                 UnitId.PuVoidray)
                             _lPuVoidray[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuWarpprismPhase ||
+                                 UnitId.PuWarpprismPhase ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuWarpprismTransport)
+                                 UnitId.PuWarpprismTransport)
                             _lPuWarpprism[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PuZealot)
+                                 UnitId.PuZealot)
                             _lPuZealot[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -3459,7 +3450,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             #region Nexus (Unit Production)
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.PbNexus)
+                        else if (tmpUnit.Id == UnitId.PbNexus)
                         {
                             _lPbNexus[tmpUnit.Owner].UnitAmount += 1;
                             _lPbNexus[tmpUnit.Owner].Id = tmpUnit.Id;
@@ -3472,7 +3463,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PuProbe))
+                                            UnitId.PuProbe))
                                     {
                                         _lPuProbe[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuProbe[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3480,7 +3471,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuMothershipCore))
+                                        UnitId.PuMothershipCore))
                                     {
                                         _lPuMothershipcore[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuMothershipcore[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3494,7 +3485,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             #region Pylon
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.PbPylon)
+                        else if (tmpUnit.Id == UnitId.PbPylon)
                             _lPbPylon[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -3502,7 +3493,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Assimilator
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbAssimilator)
+                                 UnitId.PbAssimilator)
                             _lPbAssimilator[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -3510,7 +3501,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Cannon
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbCannon)
+                                 UnitId.PbCannon)
                             _lPbCannon[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -3518,7 +3509,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region CyberCore (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbCybercore)
+                                 UnitId.PbCybercore)
                         {
                             _lPbCybercore[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3529,7 +3520,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupAirA1))
+                                            UnitId.PupAirA1))
                                     {
                                         _lPupAirArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupAirArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3538,7 +3529,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupAirA2))
+                                            UnitId.PupAirA2))
                                     {
                                         _lPupAirArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupAirArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3547,7 +3538,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupAirA3))
+                                            UnitId.PupAirA3))
                                     {
                                         _lPupAirArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupAirArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3556,7 +3547,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupAirW1))
+                                            UnitId.PupAirW1))
                                     {
                                         _lPupAirWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupAirWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3565,7 +3556,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupAirW2))
+                                            UnitId.PupAirW2))
                                     {
                                         _lPupAirWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupAirWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3574,7 +3565,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupAirW3))
+                                            UnitId.PupAirW3))
                                     {
                                         _lPupAirWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupAirWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3583,12 +3574,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupWarpGate))
+                                            UnitId.PupWarpGate))
                                     {
                                         _lPupWarpGate[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupWarpGate[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                         _lPupWarpGate[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
-                                        _lPupWarpGate[tmpUnit.Owner].Id = PredefinedData.UnitId.PupWarpGate;
+                                        _lPupWarpGate[tmpUnit.Owner].Id = UnitId.PupWarpGate;
                                     }
                                 }
                             }
@@ -3599,7 +3590,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Dark Shrine
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbDarkshrine)
+                                 UnitId.PbDarkshrine)
                             _lPbDarkshrine[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -3607,7 +3598,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Fleet Beacon (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbFleetbeacon)
+                                 UnitId.PbFleetbeacon)
                         {
                             _lPbFleetbeacon[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3617,7 +3608,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupAnionPulseCrystals))
+                                            UnitId.PupAnionPulseCrystals))
                                     {
                                         _lPupAnionPulseCrystal[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupAnionPulseCrystal[tmpUnit.Owner].ConstructionState.Add(
@@ -3628,7 +3619,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupGravitonCatapult))
+                                            UnitId.PupGravitonCatapult))
                                     {
                                         _lPupGravitonCatapult[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupGravitonCatapult[tmpUnit.Owner].ConstructionState.Add(
@@ -3643,7 +3634,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             #region Forge (Upgrade Production)
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.PbForge)
+                        else if (tmpUnit.Id == UnitId.PbForge)
                         {
                             _lPbForge[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3653,7 +3644,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupGroundA1))
+                                            UnitId.PupGroundA1))
                                     {
                                         _lPupGroundArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupGroundArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3662,7 +3653,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupGroundA2))
+                                            UnitId.PupGroundA2))
                                     {
                                         _lPupGroundArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupGroundArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3671,7 +3662,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupGroundA3))
+                                            UnitId.PupGroundA3))
                                     {
                                         _lPupGroundArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupGroundArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3680,7 +3671,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupGroundW1))
+                                            UnitId.PupGroundW1))
                                     {
                                         _lPupGroundWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupGroundWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3689,7 +3680,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupGroundW2))
+                                            UnitId.PupGroundW2))
                                     {
                                         _lPupGroundWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupGroundWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3698,7 +3689,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupGroundW3))
+                                            UnitId.PupGroundW3))
                                     {
                                         _lPupGroundWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupGroundWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3707,7 +3698,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupS1))
+                                            UnitId.PupS1))
                                     {
                                         _lPupShield1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupShield1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3716,7 +3707,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupS2))
+                                            UnitId.PupS2))
                                     {
                                         _lPupShield2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupShield2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3725,7 +3716,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupS3))
+                                            UnitId.PupS3))
                                     {
                                         _lPupShield3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupShield3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3740,7 +3731,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Gateway (Unit Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbGateway)
+                                 UnitId.PbGateway)
                         {
                             _lPbGateway[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3750,7 +3741,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PuZealot))
+                                            UnitId.PuZealot))
                                     {
                                         _lPuZealot[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuZealot[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3758,7 +3749,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuStalker))
+                                        UnitId.PuStalker))
                                     {
                                         _lPuStalker[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuStalker[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3766,7 +3757,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuSentry))
+                                        UnitId.PuSentry))
                                     {
                                         _lPuSentry[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuSentry[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3774,7 +3765,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuHightemplar))
+                                        UnitId.PuHightemplar))
                                     {
                                         _lPuHt[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuHt[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3782,7 +3773,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuDarktemplar))
+                                        UnitId.PuDarktemplar))
                                     {
                                         _lPuDt[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuDt[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3797,7 +3788,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Robotics Bay (Unit Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbRoboticsbay)
+                                 UnitId.PbRoboticsbay)
                         {
                             _lPbRobotics[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3808,7 +3799,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PuObserver))
+                                            UnitId.PuObserver))
                                     {
                                         _lPuObserver[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuObserver[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3816,7 +3807,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuWarpprismTransport))
+                                        UnitId.PuWarpprismTransport))
                                     {
                                         _lPuWarpprism[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuWarpprism[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3824,7 +3815,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuImmortal))
+                                        UnitId.PuImmortal))
                                     {
                                         _lPuImmortal[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuImmortal[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3832,7 +3823,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuColossus))
+                                        UnitId.PuColossus))
                                     {
                                         _lPuColossus[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuColossus[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3847,7 +3838,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Robotics Support Bay (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbRoboticssupportbay)
+                                 UnitId.PbRoboticssupportbay)
                         {
                             _lPbRoboticsSupport[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3857,7 +3848,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupExtendedThermalLance))
+                                            UnitId.PupExtendedThermalLance))
                                     {
                                         _lPupExtendedThermalLance[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupExtendedThermalLance[tmpUnit.Owner].ConstructionState.Add(
@@ -3868,7 +3859,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupGraviticBooster))
+                                            UnitId.PupGraviticBooster))
                                     {
                                         _lPupGraviticBooster[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupGraviticBooster[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3877,7 +3868,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupGraviticDrive))
+                                            UnitId.PupGraviticDrive))
                                     {
                                         _lPupGraviticDrive[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupGraviticDrive[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3892,7 +3883,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Stargate (Unit Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbStargate)
+                                 UnitId.PbStargate)
                         {
                             _lPbStargate[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3902,7 +3893,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PuPhoenix))
+                                            UnitId.PuPhoenix))
                                     {
                                         _lPuPhoenix[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuPhoenix[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3910,7 +3901,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuOracle))
+                                        UnitId.PuOracle))
                                     {
                                         _lPuOracle[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuOracle[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3918,7 +3909,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuVoidray))
+                                        UnitId.PuVoidray))
                                     {
                                         _lPuVoidray[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuVoidray[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3926,7 +3917,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuCarrier))
+                                        UnitId.PuCarrier))
                                     {
                                         _lPuCarrier[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuCarrier[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3934,7 +3925,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.PuTempest))
+                                        UnitId.PuTempest))
                                     {
                                         _lPuTempest[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuTempest[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3949,7 +3940,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Templar Archives (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbTemplararchives)
+                                 UnitId.PbTemplararchives)
                         {
                             _lPbTemplarArchives[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3959,7 +3950,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupStorm))
+                                            UnitId.PupStorm))
                                     {
                                         _lPupStorm[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupStorm[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3974,7 +3965,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Twilight Council (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbTwilightcouncil)
+                                 UnitId.PbTwilightcouncil)
                         {
                             _lPbTwilight[tmpUnit.Owner].UnitAmount += 1;
 
@@ -3984,7 +3975,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupBlink))
+                                            UnitId.PupBlink))
                                     {
                                         _lPupBlink[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupBlink[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -3993,7 +3984,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.PupCharge))
+                                            UnitId.PupCharge))
                                     {
                                         _lPupCharge[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPupCharge[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4008,7 +3999,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region WarpGate (Unit Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.PbWarpgate)
+                                 UnitId.PbWarpgate)
                             _lPbWarpgate[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -4022,7 +4013,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Units
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuEgg)
+                                 UnitId.ZuEgg)
                         {
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4030,77 +4021,77 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZuDrone))
+                                            UnitId.ZuDrone))
                                     {
                                         _lZuDrone[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuDrone[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZuOverlord))
+                                        UnitId.ZuOverlord))
                                     {
                                         _lZuOverlord[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuOverlord[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZuZergling))
+                                        UnitId.ZuZergling))
                                     {
                                         _lZuZergling[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuZergling[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZuRoach))
+                                        UnitId.ZuRoach))
                                     {
                                         _lZuRoach[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuRoach[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZuHydralisk))
+                                        UnitId.ZuHydralisk))
                                     {
                                         _lZuHydra[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuHydra[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZuMutalisk))
+                                        UnitId.ZuMutalisk))
                                     {
                                         _lZuMutalisk[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuMutalisk[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZuInfestor))
+                                        UnitId.ZuInfestor))
                                     {
                                         _lZuInfestor[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuInfestor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZuUltra))
+                                        UnitId.ZuUltra))
                                     {
                                         _lZuUltralisk[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuUltralisk[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZuCorruptor))
+                                        UnitId.ZuCorruptor))
                                     {
                                         _lZuCorruptor[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuCorruptor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZuViper))
+                                        UnitId.ZuViper))
                                     {
                                         _lZuViper[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuViper[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZuSwarmHost))
+                                        UnitId.ZuSwarmHost))
                                     {
                                         _lZuSwarmhost[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuSwarmhost[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4110,16 +4101,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuBaneling ||
+                                 UnitId.ZuBaneling ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuBanelingBurrow)
+                                 UnitId.ZuBanelingBurrow)
                             _lZuBaneling[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuLocust)
+                                 UnitId.ZuLocust)
                         {
                             _lZuLocust[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuLocust[tmpUnit.Owner].Id = PredefinedData.UnitId.ZuLocust;
+                            _lZuLocust[tmpUnit.Owner].Id = UnitId.ZuLocust;
 
                             if (tmpUnit.AliveSince > 73216f)
                                 _lZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/113920f));
@@ -4130,7 +4121,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuBanelingCocoon)
+                                 UnitId.ZuBanelingCocoon)
                         {
                             _lZuBanelingCocoon[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4141,7 +4132,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZuBaneling))
+                                            UnitId.ZuBaneling))
                                     {
                                         _lZuBaneling[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuBaneling[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4151,11 +4142,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuBroodlord)
+                                 UnitId.ZuBroodlord)
                             _lZuBroodlord[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuBroodlordCocoon)
+                                 UnitId.ZuBroodlordCocoon)
                         {
                             _lZuBroodlordCocoon[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4165,7 +4156,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupUpgradeToBroodlord))
+                                            UnitId.ZupUpgradeToBroodlord))
                                     {
                                         _lZuBroodlord[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuBroodlord[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4175,48 +4166,48 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuCorruptor)
+                                 UnitId.ZuCorruptor)
                             _lZuCorruptor[tmpUnit.Owner].UnitAmount += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuDrone ||
+                        else if (tmpUnit.Id == UnitId.ZuDrone ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuDroneBurrow)
+                                 UnitId.ZuDroneBurrow)
                             _lZuDrone[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuHydraBurrow ||
+                                 UnitId.ZuHydraBurrow ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuHydralisk)
+                                 UnitId.ZuHydralisk)
                             _lZuHydra[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuInfestor ||
+                                 UnitId.ZuInfestor ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuInfestorBurrow)
+                                 UnitId.ZuInfestorBurrow)
                         {
                             _lZuInfestor[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuInfestor[tmpUnit.Owner].Id = PredefinedData.UnitId.ZuInfestor;
+                            _lZuInfestor[tmpUnit.Owner].Id = UnitId.ZuInfestor;
                             _lZuInfestor[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lZuInfestor[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuLarva)
+                        else if (tmpUnit.Id == UnitId.ZuLarva)
                             _lZuLarva[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuMutalisk)
+                                 UnitId.ZuMutalisk)
                             _lZuMutalisk[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuOverlord)
+                                 UnitId.ZuOverlord)
                             _lZuOverlord[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuOverseer)
+                                 UnitId.ZuOverseer)
                             _lZuOverseer[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuOverseerCocoon)
+                                 UnitId.ZuOverseerCocoon)
                         {
                             _lZuOverseerCocoon[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4226,7 +4217,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupUpgradeToOverseer))
+                                            UnitId.ZupUpgradeToOverseer))
                                     {
                                         _lZuOverseer[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuOverseer[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4235,44 +4226,44 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuQueen ||
+                        else if (tmpUnit.Id == UnitId.ZuQueen ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuQueenBurrow)
+                                 UnitId.ZuQueenBurrow)
                         {
                             _lZuQueen[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuQueen[tmpUnit.Owner].Id = PredefinedData.UnitId.ZuQueen;
+                            _lZuQueen[tmpUnit.Owner].Id = UnitId.ZuQueen;
                             _lZuQueen[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lZuQueen[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuRoach ||
+                        else if (tmpUnit.Id == UnitId.ZuRoach ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuRoachBurrow)
+                                 UnitId.ZuRoachBurrow)
                             _lZuRoach[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuSwarmHost ||
+                                 UnitId.ZuSwarmHost ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuSwarmHostBurrow)
+                                 UnitId.ZuSwarmHostBurrow)
                             _lZuSwarmhost[tmpUnit.Owner].UnitAmount += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuUltra ||
+                        else if (tmpUnit.Id == UnitId.ZuUltra ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuUltraBurrow)
+                                 UnitId.ZuUltraBurrow)
                             _lZuUltralisk[tmpUnit.Owner].UnitAmount += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuViper)
+                        else if (tmpUnit.Id == UnitId.ZuViper)
                         {
                             _lZuViper[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuViper[tmpUnit.Owner].Id = PredefinedData.UnitId.ZuViper;
+                            _lZuViper[tmpUnit.Owner].Id = UnitId.ZuViper;
                             _lZuViper[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lZuViper[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuZergling ||
+                                 UnitId.ZuZergling ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZuZerglingBurrow)
+                                 UnitId.ZuZerglingBurrow)
                             _lZuZergling[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -4282,7 +4273,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Baneling Nest (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbBanelingNest)
+                                 UnitId.ZbBanelingNest)
                         {
                             _lZbBanelingnest[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4292,7 +4283,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupCentrifugalHooks))
+                                            UnitId.ZupCentrifugalHooks))
                                     {
                                         _lZupCentrifugalHooks[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupCentrifugalHooks[tmpUnit.Owner].ConstructionState.Add(
@@ -4307,13 +4298,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Creeptumor
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbCreeptumor ||
+                                 UnitId.ZbCreeptumor ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbCreeptumorBurrowed ||
+                                 UnitId.ZbCreeptumorBurrowed ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbCreepTumorMissle ||
+                                 UnitId.ZbCreepTumorMissle ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbCreepTumorBuilding)
+                                 UnitId.ZbCreepTumorBuilding)
                             _lZbCreepTumor[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -4321,7 +4312,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Evolution Chamber (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbEvolutionChamber)
+                                 UnitId.ZbEvolutionChamber)
                         {
                             _lZbEvochamber[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4331,7 +4322,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupGroundA1))
+                                            UnitId.ZupGroundA1))
                                     {
                                         _lZupGroundArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGroundArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4339,7 +4330,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupGroundA2))
+                                            UnitId.ZupGroundA2))
                                     {
                                         _lZupGroundArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGroundArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4347,7 +4338,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupGroundA3))
+                                            UnitId.ZupGroundA3))
                                     {
                                         _lZupGroundArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGroundArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4355,7 +4346,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupGroundW1))
+                                            UnitId.ZupGroundW1))
                                     {
                                         _lZupGroundWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGroundWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4363,7 +4354,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupGroundW2))
+                                            UnitId.ZupGroundW2))
                                     {
                                         _lZupGroundWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGroundWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4371,7 +4362,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupGroundW3))
+                                            UnitId.ZupGroundW3))
                                     {
                                         _lZupGroundWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGroundWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4379,7 +4370,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupGroundM1))
+                                            UnitId.ZupGroundM1))
                                     {
                                         _lZupGroundMelee1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGroundMelee1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4387,7 +4378,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupGroundM2))
+                                            UnitId.ZupGroundM2))
                                     {
                                         _lZupGroundMelee2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGroundMelee2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4395,7 +4386,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupGroundM3))
+                                            UnitId.ZupGroundM3))
                                     {
                                         _lZupGroundMelee3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGroundMelee3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4409,7 +4400,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Extractor
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbExtractor)
+                                 UnitId.ZbExtractor)
                             _lZbExtractor[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -4417,7 +4408,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Greater Spire (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbGreaterspire)
+                                 UnitId.ZbGreaterspire)
                         {
                             _lZbGreaterspire[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4428,7 +4419,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirA1))
+                                            UnitId.ZupAirA1))
                                     {
                                         _lZupAirArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4436,7 +4427,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirA2))
+                                            UnitId.ZupAirA2))
                                     {
                                         _lZupAirArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4444,7 +4435,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirA3))
+                                            UnitId.ZupAirA3))
                                     {
                                         _lZupAirArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4452,7 +4443,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirW1))
+                                            UnitId.ZupAirW1))
                                     {
                                         _lZupAirWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4460,7 +4451,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirW2))
+                                            UnitId.ZupAirW2))
                                     {
                                         _lZupAirWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4468,7 +4459,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirW3))
+                                            UnitId.ZupAirW3))
                                     {
                                         _lZupAirWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4482,7 +4473,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Hatchery (Unit Production, Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbHatchery)
+                                 UnitId.ZbHatchery)
                         {
                             _lZbHatchery[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4492,28 +4483,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZuQueen))
+                                            UnitId.ZuQueen))
                                     {
                                         _lZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuQueen[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupVentralSacs))
+                                        UnitId.ZupVentralSacs))
                                     {
                                         _lZupVentralSacs[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupVentralSacs[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupBurrow))
+                                        UnitId.ZupBurrow))
                                     {
                                         _lZupBurrow[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupBurrow[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupPneumatizedCarapace))
+                                        UnitId.ZupPneumatizedCarapace))
                                     {
                                         _lZupPneumatizedCarapace[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupPneumatizedCarapace[tmpUnit.Owner].ConstructionState.Add(
@@ -4529,7 +4520,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupUpgradeToLair))
+                                            UnitId.ZupUpgradeToLair))
                                     {
                                         _lZbLair[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZbLair[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4542,7 +4533,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             #region Hive (Unit Production, Upgrade Production)
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZbHive)
+                        else if (tmpUnit.Id == UnitId.ZbHive)
                         {
                             _lZbHive[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4552,28 +4543,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZuQueen))
+                                            UnitId.ZuQueen))
                                     {
                                         _lZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuQueen[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupVentralSacs))
+                                        UnitId.ZupVentralSacs))
                                     {
                                         _lZupVentralSacs[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupVentralSacs[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupBurrow))
+                                        UnitId.ZupBurrow))
                                     {
                                         _lZupBurrow[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupBurrow[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupPneumatizedCarapace))
+                                        UnitId.ZupPneumatizedCarapace))
                                     {
                                         _lZupPneumatizedCarapace[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupPneumatizedCarapace[tmpUnit.Owner].ConstructionState.Add(
@@ -4588,7 +4579,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Hydra Den (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbHydraDen)
+                                 UnitId.ZbHydraDen)
                         {
                             _lZbHydraden[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4599,14 +4590,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupGroovedSpines))
+                                            UnitId.ZupGroovedSpines))
                                     {
                                         _lZupGroovedSpines[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGroovedSpines[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupMuscularAugments))
+                                        UnitId.ZupMuscularAugments))
                                     {
                                         _lZupMuscularAugments[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupMuscularAugments[tmpUnit.Owner].ConstructionState.Add(
@@ -4623,7 +4614,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Infestation Pit (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbInfestationPit)
+                                 UnitId.ZbInfestationPit)
                         {
                             _lZbInfestationpit[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4633,21 +4624,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupNeutralParasite))
+                                            UnitId.ZupNeutralParasite))
                                     {
                                         _lZupNeutralParasite[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupNeutralParasite[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupEnduringLocusts))
+                                        UnitId.ZupEnduringLocusts))
                                     {
                                         _lZupEnduringLocusts[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupEnduringLocusts[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupPathoglenGlands))
+                                        UnitId.ZupPathoglenGlands))
                                     {
                                         _lZupPathoglenGlands[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupPathoglenGlands[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4660,7 +4651,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             #region Liar (Unit Production, Upgrade Production)
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZbLiar)
+                        else if (tmpUnit.Id == UnitId.ZbLiar)
                         {
                             _lZbLair[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4670,28 +4661,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZuQueen))
+                                            UnitId.ZuQueen))
                                     {
                                         _lZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZuQueen[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupVentralSacs))
+                                        UnitId.ZupVentralSacs))
                                     {
                                         _lZupVentralSacs[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupVentralSacs[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupBurrow))
+                                        UnitId.ZupBurrow))
                                     {
                                         _lZupBurrow[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupBurrow[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupPneumatizedCarapace))
+                                        UnitId.ZupPneumatizedCarapace))
                                     {
                                         _lZupPneumatizedCarapace[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupPneumatizedCarapace[tmpUnit.Owner].ConstructionState.Add(
@@ -4707,7 +4698,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupUpgradeToHive))
+                                            UnitId.ZupUpgradeToHive))
                                     {
                                         _lZbHive[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZbHive[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4721,7 +4712,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Nydus Network
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbNydusNetwork)
+                                 UnitId.ZbNydusNetwork)
                             _lZbNydusbegin[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -4729,7 +4720,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Nydus Worm
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbNydusWorm)
+                                 UnitId.ZbNydusWorm)
                             _lZbNydusend[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -4737,7 +4728,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Roach Warran (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbRoachWarren)
+                                 UnitId.ZbRoachWarren)
                         {
                             _lZbRoachwarren[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4747,14 +4738,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupTunnelingClaws))
+                                            UnitId.ZupTunnelingClaws))
                                     {
                                         _lZupTunnnelingClaws[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupTunnnelingClaws[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupGlialReconstruction))
+                                        UnitId.ZupGlialReconstruction))
                                     {
                                         _lZupGlialReconstruction[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupGlialReconstruction[tmpUnit.Owner].ConstructionState.Add(
@@ -4769,7 +4760,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Spawning Pool (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbSpawningPool)
+                                 UnitId.ZbSpawningPool)
                         {
                             _lZbSpawningpool[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4779,14 +4770,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupMetabolicBoost))
+                                            UnitId.ZupMetabolicBoost))
                                     {
                                         _lZupMetabolicBoost[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupMetabolicBoost[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
-                                        PredefinedData.UnitId.ZupAdrenalGlands))
+                                        UnitId.ZupAdrenalGlands))
                                     {
                                         _lZupAdrenalGlands[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAdrenalGlands[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4800,16 +4791,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Spine Crawler
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbSpineCrawler ||
+                                 UnitId.ZbSpineCrawler ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbSpineCrawlerUnrooted)
+                                 UnitId.ZbSpineCrawlerUnrooted)
                             _lZbSpine[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
                             #region Spire (Upgrade Production)
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZbSpire)
+                        else if (tmpUnit.Id == UnitId.ZbSpire)
                         {
                             _lZbSpire[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4819,7 +4810,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirA1))
+                                            UnitId.ZupAirA1))
                                     {
                                         _lZupAirArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4827,7 +4818,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirA2))
+                                            UnitId.ZupAirA2))
                                     {
                                         _lZupAirArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4835,7 +4826,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirA3))
+                                            UnitId.ZupAirA3))
                                     {
                                         _lZupAirArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4843,7 +4834,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirW1))
+                                            UnitId.ZupAirW1))
                                     {
                                         _lZupAirWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4851,7 +4842,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirW2))
+                                            UnitId.ZupAirW2))
                                     {
                                         _lZupAirWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4859,7 +4850,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupAirW3))
+                                            UnitId.ZupAirW3))
                                     {
                                         _lZupAirWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupAirWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4874,7 +4865,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupUpgradeToGreaterSpire))
+                                            UnitId.ZupUpgradeToGreaterSpire))
                                     {
                                         _lZbGreaterspire[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZbGreaterspire[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
@@ -4888,9 +4879,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Spore Crawler
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbSporeCrawler ||
+                                 UnitId.ZbSporeCrawler ||
                                  tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbSporeCrawlerUnrooted)
+                                 UnitId.ZbSporeCrawlerUnrooted)
                             _lZbSpore[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
@@ -4898,7 +4889,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Ultra Cavern (Upgrade Production)
 
                         else if (tmpUnit.Id ==
-                                 PredefinedData.UnitId.ZbUltraCavern)
+                                 UnitId.ZbUltraCavern)
                         {
                             _lZbUltracavern[tmpUnit.Owner].UnitAmount += 1;
 
@@ -4909,7 +4900,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 {
                                     if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
-                                            PredefinedData.UnitId.ZupChitinousPlating))
+                                            UnitId.ZupChitinousPlating))
                                     {
                                         _lZupChitinousPlating[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupChitinousPlating[tmpUnit.Owner].ConstructionState.Add(
@@ -4938,8 +4929,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         #region Structures
 
                         if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbCcGround ||
-                            tmpUnit.Id == PredefinedData.UnitId.TbCcAir)
+                            UnitId.TbCcGround ||
+                            tmpUnit.Id == UnitId.TbCcAir)
                         {
                             _lTbCommandCenter[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -4953,9 +4944,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbOrbitalAir ||
+                            UnitId.TbOrbitalAir ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbOrbitalGround)
+                            UnitId.TbOrbitalGround)
                         {
                             _lTbOrbitalCommand[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -4969,9 +4960,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbRaxAir ||
+                            UnitId.TbRaxAir ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbBarracksGround)
+                            UnitId.TbBarracksGround)
                         {
                             _lTbBarracks[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -4985,7 +4976,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbBunker)
+                            UnitId.TbBunker)
                         {
                             _lTbBunker[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -4999,7 +4990,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbTurret)
+                            UnitId.TbTurret)
                         {
                             _lTbTurrent[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5013,7 +5004,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbRefinery)
+                            UnitId.TbRefinery)
                         {
                             _lTbRefinery[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5027,7 +5018,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbSensortower)
+                            UnitId.TbSensortower)
                         {
                             _lTbSensorTower[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5041,7 +5032,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbPlanetary)
+                            UnitId.TbPlanetary)
                         {
                             _lTbPlanetaryFortress[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5064,7 +5055,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
                         }
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TbEbay)
+                        else if (tmpUnit.Id == UnitId.TbEbay)
                         {
                             _lTbEbay[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5078,9 +5069,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbFactoryAir ||
+                            UnitId.TbFactoryAir ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbFactoryGround)
+                            UnitId.TbFactoryGround)
                         {
                             _lTbFactory[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5094,9 +5085,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbStarportAir ||
+                            UnitId.TbStarportAir ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbStarportGround)
+                            UnitId.TbStarportGround)
                         {
                             _lTbStarport[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5110,9 +5101,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbSupplyGround ||
+                            UnitId.TbSupplyGround ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbSupplyHidden)
+                            UnitId.TbSupplyHidden)
                         {
                             _lTbSupply[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5126,7 +5117,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbGhostacademy)
+                            UnitId.TbGhostacademy)
                         {
                             _lTbGhostAcademy[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5140,7 +5131,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbFusioncore)
+                            UnitId.TbFusioncore)
                         {
                             _lTbFusionCore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5154,7 +5145,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbArmory)
+                            UnitId.TbArmory)
                         {
                             _lTbArmory[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5168,13 +5159,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbTechlab ||
+                            UnitId.TbTechlab ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbTechlabFactory ||
+                            UnitId.TbTechlabFactory ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbTechlabRax ||
+                            UnitId.TbTechlabRax ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbTechlabStarport)
+                            UnitId.TbTechlabStarport)
                         {
                             _lTbTechlab[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5188,13 +5179,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TbReactor ||
+                            UnitId.TbReactor ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbReactorFactory ||
+                            UnitId.TbReactorFactory ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbReactorRax ||
+                            UnitId.TbReactorRax ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TbReactorStarport)
+                            UnitId.TbReactorStarport)
                         {
                             _lTbReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5211,69 +5202,69 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         #region Units
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TuScv)
+                        else if (tmpUnit.Id == UnitId.TuScv)
                             _lTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TuMule)
+                        else if (tmpUnit.Id == UnitId.TuMule)
                             _lTuMule[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuMarine)
+                            UnitId.TuMarine)
                             _lTuMarine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuMarauder)
+                            UnitId.TuMarauder)
                             _lTuMarauder[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuReaper)
+                            UnitId.TuReaper)
                             _lTuReaper[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TuGhost)
+                        else if (tmpUnit.Id == UnitId.TuGhost)
                             _lTuGhost[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuWidowMine ||
+                            UnitId.TuWidowMine ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TuWidowMineBurrow)
+                            UnitId.TuWidowMineBurrow)
                             _lTuWidowMine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuSiegetank ||
+                            UnitId.TuSiegetank ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TuSiegetankSieged)
+                            UnitId.TuSiegetankSieged)
                             _lTuSiegetank[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TuThor)
+                        else if (tmpUnit.Id == UnitId.TuThor)
                             _lTuThor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuHellbat)
+                            UnitId.TuHellbat)
                             _lTuHellbat[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuHellion)
+                            UnitId.TuHellion)
                             _lTuHellion[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuBanshee)
+                            UnitId.TuBanshee)
                             _lTuBanshee[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuBattlecruiser)
+                            UnitId.TuBattlecruiser)
                             _lTuBattlecruiser[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuMedivac)
+                            UnitId.TuMedivac)
                             _lTuMedivac[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.TuRaven)
+                        else if (tmpUnit.Id == UnitId.TuRaven)
                             _lTuRaven[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.TuVikingAir ||
+                            UnitId.TuVikingAir ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.TuVikingGround)
+                            UnitId.TuVikingGround)
                             _lTuViking[tmpUnit.Owner].UnitUnderConstruction += 1;
 
 
@@ -5286,7 +5277,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         #region Structures
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.PbNexus)
+                        else if (tmpUnit.Id == UnitId.PbNexus)
                         {
                             _lPbNexus[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5299,7 +5290,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lPbNexus[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.PbPylon)
+                        else if (tmpUnit.Id == UnitId.PbPylon)
                         {
                             _lPbPylon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5313,7 +5304,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbAssimilator)
+                            UnitId.PbAssimilator)
                         {
                             _lPbAssimilator[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5327,7 +5318,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbCannon)
+                            UnitId.PbCannon)
                         {
                             _lPbCannon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5341,7 +5332,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbCybercore)
+                            UnitId.PbCybercore)
                         {
                             _lPbCybercore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5355,7 +5346,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbDarkshrine)
+                            UnitId.PbDarkshrine)
                         {
                             _lPbDarkshrine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5370,7 +5361,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbFleetbeacon)
+                            UnitId.PbFleetbeacon)
                         {
                             _lPbFleetbeacon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5383,7 +5374,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lPbFleetbeacon[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.PbForge)
+                        else if (tmpUnit.Id == UnitId.PbForge)
                         {
                             _lPbForge[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5397,7 +5388,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbGateway)
+                            UnitId.PbGateway)
                         {
                             _lPbGateway[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5411,7 +5402,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbRoboticsbay)
+                            UnitId.PbRoboticsbay)
                         {
                             _lPbRobotics[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5425,7 +5416,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbRoboticssupportbay)
+                            UnitId.PbRoboticssupportbay)
                         {
                             _lPbRoboticsSupport[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5439,7 +5430,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbStargate)
+                            UnitId.PbStargate)
                         {
                             _lPbStargate[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5453,7 +5444,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbTemplararchives)
+                            UnitId.PbTemplararchives)
                         {
                             _lPbTemplarArchives[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5467,7 +5458,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbTwilightcouncil)
+                            UnitId.PbTwilightcouncil)
                         {
                             _lPbTwilight[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5481,7 +5472,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PbWarpgate)
+                            UnitId.PbWarpgate)
                         {
                             _lPbWarpgate[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5499,76 +5490,76 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         #region Units
 
                         /*else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuArchon)
+                            UnitId.PuArchon)
                             _lPuArchon[tmpUnit.Owner].UnitUnderConstruction += 1;*/
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuCarrier)
+                            UnitId.PuCarrier)
                             _lPuCarrier[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuColossus)
+                            UnitId.PuColossus)
                             _lPuColossus[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuDarktemplar)
+                            UnitId.PuDarktemplar)
                             _lPuDt[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuHightemplar)
+                            UnitId.PuHightemplar)
                             _lPuHt[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuImmortal)
+                            UnitId.PuImmortal)
                             _lPuImmortal[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuMothership)
+                            UnitId.PuMothership)
                             _lPuMothership[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuMothershipCore)
+                            UnitId.PuMothershipCore)
                             _lPuMothershipcore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuObserver)
+                            UnitId.PuObserver)
                             _lPuObserver[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuOracle)
+                            UnitId.PuOracle)
                             _lPuOracle[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuPhoenix)
+                            UnitId.PuPhoenix)
                             _lPuPhoenix[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.PuProbe)
+                        else if (tmpUnit.Id == UnitId.PuProbe)
                             _lPuProbe[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuSentry)
+                            UnitId.PuSentry)
                             _lPuSentry[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuStalker)
+                            UnitId.PuStalker)
                             _lPuStalker[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuTempest)
+                            UnitId.PuTempest)
                             _lPuTempest[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuVoidray)
+                            UnitId.PuVoidray)
                             _lPuVoidray[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuWarpprismPhase ||
+                            UnitId.PuWarpprismPhase ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.PuWarpprismTransport)
+                            UnitId.PuWarpprismTransport)
                             _lPuWarpprism[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.PuZealot)
+                            UnitId.PuZealot)
                             _lPuZealot[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         #endregion
@@ -5580,7 +5571,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         #region Structures
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbBanelingNest)
+                            UnitId.ZbBanelingNest)
                         {
                             _lZbBanelingnest[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5595,13 +5586,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbCreeptumor ||
+                            UnitId.ZbCreeptumor ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbCreeptumorBurrowed ||
+                            UnitId.ZbCreeptumorBurrowed ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbCreepTumorMissle ||
+                            UnitId.ZbCreepTumorMissle ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbCreepTumorBuilding)
+                            UnitId.ZbCreepTumorBuilding)
                         {
                             _lZbCreepTumor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5615,7 +5606,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbEvolutionChamber)
+                            UnitId.ZbEvolutionChamber)
                         {
                             _lZbEvochamber[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5629,7 +5620,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbExtractor)
+                            UnitId.ZbExtractor)
                         {
                             _lZbExtractor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5643,7 +5634,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbGreaterspire)
+                            UnitId.ZbGreaterspire)
                         {
                             _lZbGreaterspire[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5657,7 +5648,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbHatchery)
+                            UnitId.ZbHatchery)
                         {
                             _lZbHatchery[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5670,7 +5661,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lZbHatchery[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZbHive)
+                        else if (tmpUnit.Id == UnitId.ZbHive)
                         {
                             _lZbHive[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5684,7 +5675,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbHydraDen)
+                            UnitId.ZbHydraDen)
                         {
                             _lZbHydraden[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5698,7 +5689,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbInfestationPit)
+                            UnitId.ZbInfestationPit)
                         {
                             _lZbInfestationpit[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5711,7 +5702,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lZbInfestationpit[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZbLiar)
+                        else if (tmpUnit.Id == UnitId.ZbLiar)
                         {
                             _lZbLair[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5725,7 +5716,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbNydusNetwork)
+                            UnitId.ZbNydusNetwork)
                         {
                             _lZbNydusbegin[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5739,7 +5730,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbNydusWorm)
+                            UnitId.ZbNydusWorm)
                         {
                             _lZbNydusend[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5753,7 +5744,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbRoachWarren)
+                            UnitId.ZbRoachWarren)
                         {
                             _lZbRoachwarren[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5767,7 +5758,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbSpawningPool)
+                            UnitId.ZbSpawningPool)
                         {
                             _lZbSpawningpool[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5781,9 +5772,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbSpineCrawler ||
+                            UnitId.ZbSpineCrawler ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbSpineCrawlerUnrooted)
+                            UnitId.ZbSpineCrawlerUnrooted)
                         {
                             _lZbSpine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5796,7 +5787,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lZbSpine[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZbSpire)
+                        else if (tmpUnit.Id == UnitId.ZbSpire)
                         {
                             _lZbSpire[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5810,9 +5801,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbSporeCrawler ||
+                            UnitId.ZbSporeCrawler ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbSporeCrawlerUnrooted)
+                            UnitId.ZbSporeCrawlerUnrooted)
                         {
                             _lZbSpore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5826,7 +5817,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZbUltraCavern)
+                            UnitId.ZbUltraCavern)
                         {
                             _lZbUltracavern[tmpUnit.Owner].UnitUnderConstruction += 1;
 
@@ -5846,91 +5837,91 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         #region Units
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuBaneling ||
+                            UnitId.ZuBaneling ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuBanelingBurrow)
+                            UnitId.ZuBanelingBurrow)
                             _lZuBaneling[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuBanelingCocoon)
+                            UnitId.ZuBanelingCocoon)
                             _lZuBanelingCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuBroodlord)
+                            UnitId.ZuBroodlord)
                             _lZuBroodlord[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuBroodlordCocoon)
+                            UnitId.ZuBroodlordCocoon)
                             _lZuBroodlordCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuCorruptor)
+                            UnitId.ZuCorruptor)
                             _lZuCorruptor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuDrone ||
+                        else if (tmpUnit.Id == UnitId.ZuDrone ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuDroneBurrow)
+                            UnitId.ZuDroneBurrow)
                             _lZuDrone[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuHydraBurrow ||
+                            UnitId.ZuHydraBurrow ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuHydralisk)
+                            UnitId.ZuHydralisk)
                             _lZuHydra[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuInfestor ||
+                            UnitId.ZuInfestor ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuInfestorBurrow)
+                            UnitId.ZuInfestorBurrow)
                             _lZuInfestor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuLarva)
+                        else if (tmpUnit.Id == UnitId.ZuLarva)
                             _lZuLarva[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuMutalisk)
+                            UnitId.ZuMutalisk)
                             _lZuMutalisk[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuOverlord)
+                            UnitId.ZuOverlord)
                             _lZuOverlord[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuOverseer)
+                            UnitId.ZuOverseer)
                             _lZuOverseer[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuOverseerCocoon)
+                            UnitId.ZuOverseerCocoon)
                             _lZuOverseerCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuQueen ||
+                        else if (tmpUnit.Id == UnitId.ZuQueen ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuQueenBurrow)
+                            UnitId.ZuQueenBurrow)
                             _lZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuRoach ||
+                        else if (tmpUnit.Id == UnitId.ZuRoach ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuRoachBurrow)
+                            UnitId.ZuRoachBurrow)
                             _lZuRoach[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuSwarmHost ||
+                            UnitId.ZuSwarmHost ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuSwarmHostBurrow)
+                            UnitId.ZuSwarmHostBurrow)
                             _lZuSwarmhost[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuUltra ||
+                        else if (tmpUnit.Id == UnitId.ZuUltra ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuUltraBurrow)
+                            UnitId.ZuUltraBurrow)
                             _lZuUltralisk[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        else if (tmpUnit.Id == PredefinedData.UnitId.ZuViper)
+                        else if (tmpUnit.Id == UnitId.ZuViper)
                             _lZuViper[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuZergling ||
+                            UnitId.ZuZergling ||
                             tmpUnit.Id ==
-                            PredefinedData.UnitId.ZuZerglingBurrow)
+                            UnitId.ZuZerglingBurrow)
                             _lZuZergling[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         #endregion
