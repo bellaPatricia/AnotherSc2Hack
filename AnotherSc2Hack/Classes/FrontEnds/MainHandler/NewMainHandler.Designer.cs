@@ -120,8 +120,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.btnDebugPlayerForward = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
             this.btnDebugPlayerBack = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
             this.lblDebugPlayerdata = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
-            this.pnlOverlayMaphack = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayMaphack();
-            this.pnlOverlayWorker = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayWorker();
             this.pnlOverlayArmy = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
             this.pnlOverlayApm = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
             this.pnlOverlayIncome = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayBasics();
@@ -136,6 +134,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.cpnlOverlaysResources = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.pnlOverlayProductiontab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayProductiontab();
             this.pnlOverlayUnittab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayUnittab();
+            this.pnlOverlayMaphack = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayMaphack();
+            this.pnlOverlayWorker = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayWorker();
             this.ntxtVariousWorkerCoachDisableAfter = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.NumberTextBox();
             this.lblVariousDisableAfter = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
             this.aChBxVariousWorkerCoach = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherCheckbox();
@@ -455,8 +455,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlOverlays.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlOverlays.Controls.Add(this.pnlOverlayMaphack);
-            this.pnlOverlays.Controls.Add(this.pnlOverlayWorker);
             this.pnlOverlays.Controls.Add(this.pnlOverlayArmy);
             this.pnlOverlays.Controls.Add(this.pnlOverlayApm);
             this.pnlOverlays.Controls.Add(this.pnlOverlayIncome);
@@ -464,6 +462,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlOverlays.Controls.Add(this.pnlPanelContainer);
             this.pnlOverlays.Controls.Add(this.pnlOverlayProductiontab);
             this.pnlOverlays.Controls.Add(this.pnlOverlayUnittab);
+            this.pnlOverlays.Controls.Add(this.pnlOverlayMaphack);
+            this.pnlOverlays.Controls.Add(this.pnlOverlayWorker);
             this.pnlOverlays.Location = new System.Drawing.Point(0, 80);
             this.pnlOverlays.Name = "pnlOverlays";
             this.pnlOverlays.Size = new System.Drawing.Size(1029, 450);
@@ -1360,20 +1360,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.lblDebugPlayerdata.TabIndex = 4;
             this.lblDebugPlayerdata.Text = "Playerdata";
             // 
-            // pnlOverlayMaphack
-            // 
-            this.pnlOverlayMaphack.Location = new System.Drawing.Point(19, 75);
-            this.pnlOverlayMaphack.Name = "pnlOverlayMaphack";
-            this.pnlOverlayMaphack.Size = new System.Drawing.Size(958, 274);
-            this.pnlOverlayMaphack.TabIndex = 6;
-            // 
-            // pnlOverlayWorker
-            // 
-            this.pnlOverlayWorker.Location = new System.Drawing.Point(19, 75);
-            this.pnlOverlayWorker.Name = "pnlOverlayWorker";
-            this.pnlOverlayWorker.Size = new System.Drawing.Size(451, 262);
-            this.pnlOverlayWorker.TabIndex = 5;
-            // 
             // pnlOverlayArmy
             // 
             this.pnlOverlayArmy.Location = new System.Drawing.Point(19, 75);
@@ -1607,6 +1593,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlOverlayUnittab.Name = "pnlOverlayUnittab";
             this.pnlOverlayUnittab.Size = new System.Drawing.Size(905, 348);
             this.pnlOverlayUnittab.TabIndex = 7;
+            // 
+            // pnlOverlayMaphack
+            // 
+            this.pnlOverlayMaphack.Location = new System.Drawing.Point(19, 75);
+            this.pnlOverlayMaphack.Name = "pnlOverlayMaphack";
+            this.pnlOverlayMaphack.Size = new System.Drawing.Size(958, 274);
+            this.pnlOverlayMaphack.TabIndex = 6;
+            // 
+            // pnlOverlayWorker
+            // 
+            this.pnlOverlayWorker.Location = new System.Drawing.Point(19, 75);
+            this.pnlOverlayWorker.Name = "pnlOverlayWorker";
+            this.pnlOverlayWorker.Size = new System.Drawing.Size(451, 262);
+            this.pnlOverlayWorker.TabIndex = 5;
             // 
             // ntxtVariousWorkerCoachDisableAfter
             // 
