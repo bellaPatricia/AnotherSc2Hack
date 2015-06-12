@@ -52,7 +52,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected Boolean BTogglePosition;
         protected String StrBackupChatbox = String.Empty;
         protected String StrBackupSizeChatbox = String.Empty;
-
+        protected Stopwatch _swMainWatch = new Stopwatch();
 
         #region UnitCounter - Count all objects per player
 
