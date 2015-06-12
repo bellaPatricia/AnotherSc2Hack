@@ -620,6 +620,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     Close();
                 }
             }
+
+            _strUpdateFiles = String.Empty;
         }
 
         #region Event methods
@@ -759,7 +761,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
 
             
-            _strUpdateFiles = String.Empty;
+            
         }
 
         #endregion
@@ -2832,7 +2834,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnHelpMeLocalize_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Some cool file HERE");
+            Process.Start(
+                "http://www.d3scene.com/forum/starcraft-2-hacks/65535-anothersc2hack-wol-hots-2-1-10-35237-a-163.html#post733195");
         }
 
         private void btnHelpMeCopyBitcoin_Click(object sender, EventArgs e)
