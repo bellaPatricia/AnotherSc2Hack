@@ -7,7 +7,6 @@ using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using System.Drawing;
 using PredefinedTypes;
-using PredefinedTypes = PredefinedTypes.PredefinedData;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -130,17 +129,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
             if (GInformation.Player != null &&
-                GInformation.Player.HasLocalplayer)
+                Player.LocalPlayer != null)
             {
-                var player = GInformation.Player[GInformation.Player.LocalplayerIndex];
+                var player = Player.LocalPlayer;
 
-                if (player.PlayerRace == PredefinedData.PlayerRace.Terran)
+                if (player.PlayerRace == PlayerRace.Terran)
                 {
                     _imgWorker = Properties.Resources.trans_tu_scv;
                     _imgSpecial = Properties.Resources.trans_tu_mule;
                 }
 
-                else if (player.PlayerRace == PredefinedData.PlayerRace.Protoss)
+                else if (player.PlayerRace == PlayerRace.Protoss)
                 {
                     _imgWorker = Properties.Resources.trans_pu_probe;
                     _imgSpecial = Properties.Resources.pup_chrono;
@@ -203,10 +202,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     GInformation.Unit.Count <= 0)
                     return;
 
-                if (!GInformation.Player.HasLocalplayer)
+                if (Player.LocalPlayer == null)
                     return;
 
-                if (GInformation.Player.LocalplayerIndex == 16)
+                if (Player.LocalPlayer.Index == 16)
                     return;
 
 
@@ -221,7 +220,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #endregion
 
-                var localPlayer = GInformation.Player[GInformation.Player.LocalplayerIndex];
+                var localPlayer = Player.LocalPlayer;
 
                 var iUnusedWorkers = 0;
                 var iUnusedEnergy = 0;
@@ -235,20 +234,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (localPlayer.SupplyMin == localPlayer.SupplyMax)
                         return;
 
-                    if (unit.Id.Equals(PredefinedData.UnitId.TbCcGround) ||
-                        unit.Id.Equals(PredefinedData.UnitId.TbPlanetary) ||
-                        unit.Id.Equals(PredefinedData.UnitId.TbOrbitalGround))
+                    if (unit.Id.Equals(UnitId.TbCcGround) ||
+                        unit.Id.Equals(UnitId.TbPlanetary) ||
+                        unit.Id.Equals(UnitId.TbOrbitalGround))
                     {
                         if (!unit.IsUnderConstruction &&
                             unit.ProdNumberOfQueuedUnits <= 0)
                         {
-                            if (!unit.ProdUnitProductionId.Contains(PredefinedData.UnitId.TupUpgradeToOrbital) &&
-                                !unit.ProdUnitProductionId.Contains(PredefinedData.UnitId.TupUpgradeToPlanetary))
+                            if (!unit.ProdUnitProductionId.Contains(UnitId.TupUpgradeToOrbital) &&
+                                !unit.ProdUnitProductionId.Contains(UnitId.TupUpgradeToPlanetary))
                                 iUnusedWorkers += 1;
                         }
 
-                        if (unit.Id.Equals(PredefinedData.UnitId.TbOrbitalGround) ||
-                            unit.Id.Equals(PredefinedData.UnitId.TbOrbitalAir))
+                        if (unit.Id.Equals(UnitId.TbOrbitalGround) ||
+                            unit.Id.Equals(UnitId.TbOrbitalAir))
                         {
                             var tmp = (double)(unit.Energy >> 12) / 50;
                             tmp = Math.Floor(tmp);
@@ -256,7 +255,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
                     }
 
-                    if (unit.Id.Equals(PredefinedData.UnitId.PbNexus))
+                    if (unit.Id.Equals(UnitId.PbNexus))
                     {
                         if (!unit.IsUnderConstruction &&
                             unit.ProdNumberOfQueuedUnits <= 0)

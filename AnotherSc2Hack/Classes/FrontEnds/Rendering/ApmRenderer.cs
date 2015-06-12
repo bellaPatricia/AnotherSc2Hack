@@ -63,13 +63,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (GInformation.Player[i].Name.StartsWith("\0") || GInformation.Player[i].NameLength <= 0)
                         continue;
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Hostile))
                         continue;
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Observer))
                         continue;
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Referee))
                         continue;
 
                     if (CheckIfGameheart(GInformation.Player[i]))
@@ -80,19 +80,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (PSettings.PreferenceAll.OverlayApm.RemoveAi)
                     {
-                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Ai))
+                        if (GInformation.Player[i].Type.Equals(PlayerType.Ai))
                             continue;
                     }
 
                     if (PSettings.PreferenceAll.OverlayApm.RemoveNeutral)
                     {
-                        if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Neutral))
+                        if (GInformation.Player[i].Type.Equals(PlayerType.Neutral))
                             continue;
                     }
 
                     if (PSettings.PreferenceAll.OverlayApm.RemoveAllie)
                     {
-                        if (GInformation.Player[0].Localplayer == 16)
+                        if (Player.LocalPlayer.Index == 16)
                         {
                             //Do nothing
                         }
@@ -100,15 +100,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else
                         {
                             if (GInformation.Player[i].Team ==
-                                GInformation.Player[GInformation.Player[i].Localplayer].Team &&
-                                !GInformation.Player[i].IsLocalplayer)
+                                Player.LocalPlayer.Team &&
+                                GInformation.Player[i].Index != Player.LocalPlayer.Index)
                                 continue;
                         }
                     }
 
                     if (PSettings.PreferenceAll.OverlayApm.RemoveLocalplayer)
                     {
-                        if (GInformation.Player[i].IsLocalplayer)
+                        if (Player.LocalPlayer == GInformation.Player[i])
                             continue;
                     }
 

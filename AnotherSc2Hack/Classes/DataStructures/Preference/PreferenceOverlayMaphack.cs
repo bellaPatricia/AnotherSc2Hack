@@ -29,7 +29,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public bool RemoveVisionArea { get; set; }
         public bool RemoveCamera { get; set; }
         public List<XmlColor> UnitColors { get; set; }
-        public List<PredefinedData.UnitId> UnitIds { get; set; }
+        public List<UnitId> UnitIds { get; set; }
         public double Opacity { get; set; }
 
 
@@ -49,7 +49,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             DestinationLine = Color.Yellow;
             ElementName = "OverlayMaphack";
             UnitColors = new List<XmlColor>();
-            UnitIds = new List<PredefinedData.UnitId>();
+            UnitIds = new List<UnitId>();
             Opacity = 1;
         }
     }

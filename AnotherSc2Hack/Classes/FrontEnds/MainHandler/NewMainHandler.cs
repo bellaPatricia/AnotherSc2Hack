@@ -2416,7 +2416,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             }
 
-            txtDebugPlayerMemory.Text = PredefinedData.PlayerStruct.ClassObjectCount.ToString();
+            txtDebugPlayerMemory.Text = Player.ClassObjectCount.ToString();
         }
 
         private void DebugUnitRefresh()
@@ -2464,7 +2464,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             }
 
-            txtDebugUnitMemory.Text = PredefinedData.Unit.ClassObjectCount.ToString();
+            txtDebugUnitMemory.Text = Unit.ClassObjectCount.ToString();
         }
 
         private void DebugMapRefresh()
@@ -2472,7 +2472,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (Gameinfo == null)
                 return;
 
-            var fields = typeof(PredefinedData.Map).GetFields(BindingFlags.Public | BindingFlags.Instance);
+            var fields = typeof(Map).GetFields(BindingFlags.Public | BindingFlags.Instance);
 
             if (lstvDebugMapdata.Items.Count > 0)
             {
@@ -3076,8 +3076,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             for (var i = 0; i < PSettings.PreferenceAll.OverlayMaphack.UnitIds.Count; i++)
             {
                 var id =
-               (PredefinedData.UnitId)
-                   Enum.Parse(typeof(PredefinedData.UnitId), PSettings.PreferenceAll.OverlayMaphack.UnitIds[i].ToString());
+               (UnitId)
+                   Enum.Parse(typeof(UnitId), PSettings.PreferenceAll.OverlayMaphack.UnitIds[i].ToString());
 
                 pnlOverlayMaphack.LUnitFilter.Add(id, PSettings.PreferenceAll.OverlayMaphack.UnitColors[i]);
             }

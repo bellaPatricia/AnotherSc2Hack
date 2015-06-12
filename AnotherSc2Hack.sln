@@ -24,8 +24,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherSc2Hack", "AnotherSc
 		{F5FA0AD3-E5D0-4050-8094-1839A950D47A} = {F5FA0AD3-E5D0-4050-8094-1839A950D47A}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginWorkerTrainer", "PluginWorkerTrainer\PluginWorkerTrainer.csproj", "{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginSupply", "PluginSupply\PluginSupply.csproj", "{51549DDB-F342-4346-82EF-BF62B9B754A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherSc2Hack DownloadManager", "AnotherSc2Hack DownloadManager\AnotherSc2Hack DownloadManager.csproj", "{290CF3CB-6046-4B18-991D-FD4FCF645BD6}"
@@ -64,10 +62,6 @@ Global
 		{8A39F9D3-359A-4A0D-AF04-F1F642A21CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A39F9D3-359A-4A0D-AF04-F1F642A21CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A39F9D3-359A-4A0D-AF04-F1F642A21CC2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B2A4C3F-4D76-4F76-8FDA-0E0FEB08B69F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{51549DDB-F342-4346-82EF-BF62B9B754A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{51549DDB-F342-4346-82EF-BF62B9B754A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51549DDB-F342-4346-82EF-BF62B9B754A1}.Release|Any CPU.ActiveCfg = Release|Any CPU

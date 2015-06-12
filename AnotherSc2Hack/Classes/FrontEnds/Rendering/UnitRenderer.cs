@@ -105,15 +105,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (GInformation.Gameinfo.IsTeamcolor)
                     {
-                        if (GInformation.Player[i].Localplayer < GInformation.Player.Count)
+                        if (Player.LocalPlayer != null)
                         {
-                            if (GInformation.Player[i].IsLocalplayer)
+                            if (GInformation.Player[i] == Player.LocalPlayer)
                                 clPlayercolor = Color.Green;
 
                             else if (GInformation.Player[i].Team ==
-                                     GInformation.Player[GInformation.Player[0].Localplayer]
-                                         .Team &&
-                                     !GInformation.Player[i].IsLocalplayer)
+                                     Player.LocalPlayer.Team &&
+                                     GInformation.Player[i] != Player.LocalPlayer)
                                 clPlayercolor = Color.Yellow;
 
                             else
@@ -128,7 +127,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Ai - Works */
                     if (PSettings.PreferenceAll.OverlayUnits.RemoveAi)
                     {
-                        if (tmpPlayer.Type == PredefinedData.PlayerType.Ai)
+                        if (tmpPlayer.Type == PlayerType.Ai)
                         {
                             continue;
                         }
@@ -137,7 +136,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Neutral - Works */
                     if (PSettings.PreferenceAll.OverlayUnits.RemoveNeutral)
                     {
-                        if (tmpPlayer.Type == PredefinedData.PlayerType.Neutral)
+                        if (tmpPlayer.Type == PlayerType.Neutral)
                         {
                             continue;
                         }
@@ -146,30 +145,29 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     /* Remove Localplayer - Works */
                     if (PSettings.PreferenceAll.OverlayUnits.RemoveLocalplayer)
                     {
-                        if (tmpPlayer.IsLocalplayer)
-                        {
+                        if (tmpPlayer == Player.LocalPlayer)
                             continue;
-                        }
+                        
                     }
 
                     /* Remove Allie - Works */
                     if (PSettings.PreferenceAll.OverlayUnits.RemoveAllie)
                     {
                         if (tmpPlayer.Team ==
-                            GInformation.Player[GInformation.Player[i].Localplayer].Team &&
-                            !tmpPlayer.IsLocalplayer)
+                            Player.LocalPlayer.Team &&
+                            tmpPlayer != Player.LocalPlayer)
                         {
                             continue;
                         }
                     }
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Hostile))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Hostile))
                         continue;
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Observer))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Observer))
                         continue;
 
-                    if (GInformation.Player[i].Type.Equals(PredefinedData.PlayerType.Referee))
+                    if (GInformation.Player[i].Type.Equals(PlayerType.Referee))
                         continue;
 
 
@@ -345,7 +343,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         var iHavetoadd = 0; //Adds +1 when a neutral player is on position 0
 
 
-                        if (GInformation.Player[0].Type == PredefinedData.PlayerType.Neutral)
+                        if (GInformation.Player[0].Type == PlayerType.Neutral)
                             iHavetoadd += 1;
 
                         if (i == iHavetoadd)
@@ -737,7 +735,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /* Draw the units */
-        private void Helper_DrawUnits(PredefinedData.UnitCount unit, ref Int32 posX, Int32 posY, Int32 size, Image img,
+        private void Helper_DrawUnits(UnitCount unit, ref Int32 posX, Int32 posY, Int32 size, Image img,
                                       BufferedGraphics g, Color clPlayercolor, Font font, Boolean isStructure)
         {
             Boolean bSpaceForPercentage = false;
@@ -813,7 +811,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Protoss
 
-                if (unit.Id.Equals(PredefinedData.UnitId.PbNexus))
+                if (unit.Id.Equals(UnitId.PbNexus))
                 {
                     foreach (var energy in unit.Energy)
                     {
@@ -824,7 +822,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
                 }
 
-                else if (unit.Id.Equals(PredefinedData.UnitId.PuHightemplar))
+                else if (unit.Id.Equals(UnitId.PuHightemplar))
                 {
                     foreach (var energy in unit.Energy)
                     {
@@ -835,7 +833,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
                 }
 
-                else if (unit.Id.Equals(PredefinedData.UnitId.PuSentry))
+                else if (unit.Id.Equals(UnitId.PuSentry))
                 {
                     foreach (var energy in unit.Energy)
                     {
@@ -846,7 +844,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
                 }
 
-                else if (unit.Id.Equals(PredefinedData.UnitId.PuMothershipCore))
+                else if (unit.Id.Equals(UnitId.PuMothershipCore))
                 {
                     foreach (var energy in unit.Energy)
                     {
@@ -857,7 +855,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
                 }
 
-                else if (unit.Id.Equals(PredefinedData.UnitId.PuMothership))
+                else if (unit.Id.Equals(UnitId.PuMothership))
                 {
                     foreach (var energy in unit.Energy)
                     {
@@ -872,7 +870,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Terran
 
-                else if (unit.Id.Equals(PredefinedData.UnitId.TuGhost))
+                else if (unit.Id.Equals(UnitId.TuGhost))
                 {
                     foreach (var energy in unit.Energy)
                     {
@@ -883,7 +881,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
                 }
 
-                else if (unit.Id.Equals(PredefinedData.UnitId.TbOrbitalGround))
+                else if (unit.Id.Equals(UnitId.TbOrbitalGround))
                 {
                     foreach (var energy in unit.Energy)
                     {
@@ -898,7 +896,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Zerg
 
-                else if (unit.Id.Equals(PredefinedData.UnitId.ZuViper))
+                else if (unit.Id.Equals(UnitId.ZuViper))
                 {
                     foreach (var energy in unit.Energy)
                     {
@@ -909,7 +907,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
                 }
 
-                else if (unit.Id.Equals(PredefinedData.UnitId.ZuInfestor))
+                else if (unit.Id.Equals(UnitId.ZuInfestor))
                 {
                     foreach (var energy in unit.Energy)
                     {
@@ -920,8 +918,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
                 }
 
-                else if (unit.Id.Equals(PredefinedData.UnitId.ZuQueen) ||
-                    unit.Id.Equals(PredefinedData.UnitId.ZuQueenBurrow))
+                else if (unit.Id.Equals(UnitId.ZuQueen) ||
+                    unit.Id.Equals(UnitId.ZuQueenBurrow))
                 {
                     foreach (var energy in unit.Energy)
                     {
@@ -1090,7 +1088,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }
 
 
-            if ((unit.Id.Equals(PredefinedData.UnitId.TuMule) || unit.Id.Equals(PredefinedData.UnitId.PuForceField)) &&
+            if ((unit.Id.Equals(UnitId.TuMule) || unit.Id.Equals(UnitId.PuForceField)) &&
                 !PSettings.PreferenceAll.OverlayUnits.RemoveProductionLine)
             {
 

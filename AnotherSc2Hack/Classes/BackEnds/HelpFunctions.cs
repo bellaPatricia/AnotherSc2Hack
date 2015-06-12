@@ -32,9 +32,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
             }
         }
 
-        public static void CheckIfWindowStyleIsFullscreen(PredefinedData.WindowStyle w)
+        public static void CheckIfWindowStyleIsFullscreen(WindowStyle w)
         {
-            if (w.Equals(PredefinedData.WindowStyle.Fullscreen))
+            if (w.Equals(WindowStyle.Fullscreen))
                 MessageBox.Show("Your windowstyle seems to be \"Fullscreen\".\n" +
                                 "If you want to use this tool, change the\n" +
                                 "Windowstyle to \"Windowed\" or \"Windowed Fullscreen\"\n" +
@@ -53,7 +53,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return blResult;
         }
 
-        public static Int32 GetValidPlayerCount(List<PredefinedData.PlayerStruct> lPlayer)
+        public static Int32 GetValidPlayerCount(List<Player> lPlayer)
         {
             var iValidSize = 0;
 
@@ -63,23 +63,23 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             for (var i = 0; i < lPlayer.Count; i++)
             {
-                if (!lPlayer[i].Name.StartsWith("\0") && !(lPlayer[i].NameLength <= 0) && !lPlayer[i].Type.Equals(PredefinedData.PlayerType.Hostile))
+                if (!lPlayer[i].Name.StartsWith("\0") && !(lPlayer[i].NameLength <= 0) && !lPlayer[i].Type.Equals(PlayerType.Hostile))
                     iValidSize += 1;
             }
 
             return iValidSize;
         }
 
-        public static void SetWindowStyle(IntPtr handle, PredefinedData.CustomWindowStyles wndStyle)
+        public static void SetWindowStyle(IntPtr handle, CustomWindowStyles wndStyle)
         {
-            if (wndStyle.Equals(PredefinedData.CustomWindowStyles.Clickable))
+            if (wndStyle.Equals(CustomWindowStyles.Clickable))
             {
                 var initial = InteropCalls.GetWindowLong(handle, (Int32)InteropCalls.Gwl.ExStyle);
                 InteropCalls.SetWindowLong(handle, (Int32)InteropCalls.Gwl.ExStyle,
                                             (IntPtr)(initial & ~(Int32)InteropCalls.Ws.ExTransparent));
             }
 
-            else if (wndStyle.Equals(PredefinedData.CustomWindowStyles.NotClickable))
+            else if (wndStyle.Equals(CustomWindowStyles.NotClickable))
             {
                 var initial = InteropCalls.GetWindowLong(handle, (Int32)InteropCalls.Gwl.ExStyle);
                 InteropCalls.SetWindowLong(handle, (Int32)InteropCalls.Gwl.ExStyle,
@@ -124,7 +124,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var rnd = new Random();
 
             var iNum = rnd.Next(0xFFF, 0xFFFFFFF);
-            
+
 
             return iNum.ToString();
         }
@@ -564,7 +564,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (txtBox.Text.Length <= 0)
                 return;
-            
+
             if (txtBox.Text.StartsWith("\0"))
                 return;
 
@@ -579,209 +579,209 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* As the actual max- health of units is lost, I map them manually.. */
-        public static Int32 GetMaximumHealth(PredefinedData.UnitId id)
+        public static Int32 GetMaximumHealth(UnitId id)
         {
             switch (id)
             {
-                case PredefinedData.UnitId.PbAssimilator:
+                case UnitId.PbAssimilator:
                     return 450;
 
-                case PredefinedData.UnitId.PbCannon:
+                case UnitId.PbCannon:
                     return 150;
 
-                case PredefinedData.UnitId.PbCybercore:
+                case UnitId.PbCybercore:
                     return 550;
 
-                case PredefinedData.UnitId.PbDarkshrine:
+                case UnitId.PbDarkshrine:
                     return 500;
 
-                case PredefinedData.UnitId.PbFleetbeacon:
+                case UnitId.PbFleetbeacon:
                     return 500;
 
-                case PredefinedData.UnitId.PbForge:
+                case UnitId.PbForge:
                     return 400;
 
-                case PredefinedData.UnitId.PbGateway:
+                case UnitId.PbGateway:
                     return 500;
 
-                case PredefinedData.UnitId.PbNexus:
+                case UnitId.PbNexus:
                     return 1000;
 
-                case PredefinedData.UnitId.PbPylon:
+                case UnitId.PbPylon:
                     return 200;
 
-                case PredefinedData.UnitId.PbRoboticsbay:
+                case UnitId.PbRoboticsbay:
                     return 450;
 
-                case PredefinedData.UnitId.PbRoboticssupportbay:
+                case UnitId.PbRoboticssupportbay:
                     return 500;
 
-                case PredefinedData.UnitId.PbStargate:
+                case UnitId.PbStargate:
                     return 600;
 
-                case PredefinedData.UnitId.PbTemplararchives:
+                case UnitId.PbTemplararchives:
                     return 500;
 
-                case PredefinedData.UnitId.PbTwilightcouncil:
+                case UnitId.PbTwilightcouncil:
                     return 500;
 
-                case PredefinedData.UnitId.PbWarpgate:
+                case UnitId.PbWarpgate:
                     return 500;
 
 
 
-                case PredefinedData.UnitId.TbArmory:
+                case UnitId.TbArmory:
                     return 750;
 
-                case PredefinedData.UnitId.TbAutoTurret:
+                case UnitId.TbAutoTurret:
                     return 150;
 
-                case PredefinedData.UnitId.TbBarracksGround:
+                case UnitId.TbBarracksGround:
                     return 1000;
 
-                case PredefinedData.UnitId.TbBunker:
+                case UnitId.TbBunker:
                     return 400;
 
-                case PredefinedData.UnitId.TbCcAir:
+                case UnitId.TbCcAir:
                     return 1500;
 
-                case PredefinedData.UnitId.TbCcGround:
+                case UnitId.TbCcGround:
                     return 1500;
 
-                case PredefinedData.UnitId.TbEbay:
+                case UnitId.TbEbay:
                     return 850;
 
-                case PredefinedData.UnitId.TbFactoryAir:
+                case UnitId.TbFactoryAir:
                     return 1250;
 
-                case PredefinedData.UnitId.TbFactoryGround:
+                case UnitId.TbFactoryGround:
                     return 1250;
 
-                case PredefinedData.UnitId.TbFusioncore:
+                case UnitId.TbFusioncore:
                     return 750;
 
-                case PredefinedData.UnitId.TbGhostacademy:
+                case UnitId.TbGhostacademy:
                     return 1250;
 
-                case PredefinedData.UnitId.TbOrbitalAir:
+                case UnitId.TbOrbitalAir:
                     return 1500;
 
-                case PredefinedData.UnitId.TbOrbitalGround:
+                case UnitId.TbOrbitalGround:
                     return 1500;
 
-                case PredefinedData.UnitId.TbPlanetary:
+                case UnitId.TbPlanetary:
                     return 1500;
 
-                case PredefinedData.UnitId.TbRaxAir:
+                case UnitId.TbRaxAir:
                     return 1000;
 
-                case PredefinedData.UnitId.TbReactor:
+                case UnitId.TbReactor:
                     return 400;
 
-                case PredefinedData.UnitId.TbReactorFactory:
+                case UnitId.TbReactorFactory:
                     return 400;
 
-                case PredefinedData.UnitId.TbReactorRax:
+                case UnitId.TbReactorRax:
                     return 400;
 
-                case PredefinedData.UnitId.TbReactorStarport:
+                case UnitId.TbReactorStarport:
                     return 400;
 
-                case PredefinedData.UnitId.TbRefinery:
+                case UnitId.TbRefinery:
                     return 500;
 
-                case PredefinedData.UnitId.TbSensortower:
+                case UnitId.TbSensortower:
                     return 200;
 
-                case PredefinedData.UnitId.TbStarportAir:
+                case UnitId.TbStarportAir:
                     return 1300;
 
-                case PredefinedData.UnitId.TbStarportGround:
+                case UnitId.TbStarportGround:
                     return 1300;
 
-                case PredefinedData.UnitId.TbSupplyGround:
+                case UnitId.TbSupplyGround:
                     return 400;
 
-                case PredefinedData.UnitId.TbSupplyHidden:
+                case UnitId.TbSupplyHidden:
                     return 400;
 
-                case PredefinedData.UnitId.TbTechlab:
+                case UnitId.TbTechlab:
                     return 400;
 
-                case PredefinedData.UnitId.TbTechlabFactory:
+                case UnitId.TbTechlabFactory:
                     return 400;
 
-                case PredefinedData.UnitId.TbTechlabRax:
+                case UnitId.TbTechlabRax:
                     return 400;
 
-                case PredefinedData.UnitId.TbTechlabStarport:
+                case UnitId.TbTechlabStarport:
                     return 400;
 
-                case PredefinedData.UnitId.TbTurret:
+                case UnitId.TbTurret:
                     return 250;
 
 
-                case PredefinedData.UnitId.ZbBanelingNest:
+                case UnitId.ZbBanelingNest:
                     return 850;
 
-                case PredefinedData.UnitId.ZbCreeptumor:
+                case UnitId.ZbCreeptumor:
                     return 50;
 
-                case PredefinedData.UnitId.ZbCreepTumorBuilding:
+                case UnitId.ZbCreepTumorBuilding:
                     return 50;
 
-                case PredefinedData.UnitId.ZbCreepTumorMissle:
+                case UnitId.ZbCreepTumorMissle:
                     return 50;
 
-                case PredefinedData.UnitId.ZbCreeptumorBurrowed:
+                case UnitId.ZbCreeptumorBurrowed:
                     return 50;
 
-                case PredefinedData.UnitId.ZbEvolutionChamber:
+                case UnitId.ZbEvolutionChamber:
                     return 750;
 
-                case PredefinedData.UnitId.ZbExtractor:
+                case UnitId.ZbExtractor:
                     return 500;
 
-                case PredefinedData.UnitId.ZbGreaterspire:
+                case UnitId.ZbGreaterspire:
                     return 1000;
 
-                case PredefinedData.UnitId.ZbHatchery:
+                case UnitId.ZbHatchery:
                     return 1500;
 
-                case PredefinedData.UnitId.ZbHive:
+                case UnitId.ZbHive:
                     return 2500;
 
-                case PredefinedData.UnitId.ZbHydraDen:
+                case UnitId.ZbHydraDen:
                     return 850;
 
-                case PredefinedData.UnitId.ZbInfestationPit:
+                case UnitId.ZbInfestationPit:
                     return 850;
 
-                case PredefinedData.UnitId.ZbLiar:
+                case UnitId.ZbLiar:
                     return 2000;
 
-                case PredefinedData.UnitId.ZbNydusNetwork:
+                case UnitId.ZbNydusNetwork:
                     return 850;
 
-                case PredefinedData.UnitId.ZbNydusWorm:
+                case UnitId.ZbNydusWorm:
                     return 200;
 
-                case PredefinedData.UnitId.ZbRoachWarren:
+                case UnitId.ZbRoachWarren:
                     return 850;
 
-                case PredefinedData.UnitId.ZbSpawningPool:
+                case UnitId.ZbSpawningPool:
                     return 1000;
 
-                case PredefinedData.UnitId.ZbSpineCrawler:
+                case UnitId.ZbSpineCrawler:
                     return 300;
 
-                case PredefinedData.UnitId.ZbSpire:
+                case UnitId.ZbSpire:
                     return 850;
 
-                case PredefinedData.UnitId.ZbSporeCrawler:
+                case UnitId.ZbSporeCrawler:
                     return 400;
 
-                case PredefinedData.UnitId.ZbUltraCavern:
+                case UnitId.ZbUltraCavern:
                     return 850;
 
                 default:
@@ -813,7 +813,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 g.CompositingQuality = CompositingQuality.HighQuality;
                 g.SmoothingMode = SmoothingMode.HighQuality;
-                g.PixelOffsetMode = PixelOffsetMode.HighQuality; 
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 var gp = new GraphicsPath();
 
                 gp.AddLine(x + radius, y, x + width - (radius * 2), y); // Line
@@ -831,7 +831,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                 g.CompositingQuality = CompositingQuality.HighSpeed;
                 g.SmoothingMode = SmoothingMode.HighSpeed;
-                g.PixelOffsetMode = PixelOffsetMode.HighSpeed; 
+                g.PixelOffsetMode = PixelOffsetMode.HighSpeed;
             }
 
             /// The following is from Arun Reginald Zaheeruddin
@@ -941,15 +941,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
                 return path;
-            } 
+            }
 
-            
+
         }
 
-        public static PredefinedData.UnitId GetUnitIdFromLogicalId(PredefinedData.UnitId structureBuildFrom, Int32 logicalId, Int32 maximumTime, Int32 mineralCost, Int32 vespineCost)
+        public static UnitId GetUnitIdFromLogicalId(UnitId structureBuildFrom, Int32 logicalId, Int32 maximumTime, Int32 mineralCost, Int32 vespineCost)
         {
             if (logicalId.Equals(0))
-                return PredefinedData.UnitId.NbXelNagaTower;
+                return UnitId.NbXelNagaTower;
 
             if (!logicalId.Equals(-1))
             {
@@ -962,36 +962,36 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 logicalId = inumber;
             }
 
-            #region Terran 
+            #region Terran
 
             #region CC - Orbital - PF
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.TbCcGround))
+            if (structureBuildFrom.Equals(UnitId.TbCcGround))
             {
                 //E.G. Upgrade to Lair/ Hive
                 if (logicalId == -1)
                 {
                     if (mineralCost == 150 && vespineCost == 0)
-                        return PredefinedData.UnitId.TupUpgradeToOrbital;
+                        return UnitId.TupUpgradeToOrbital;
 
                     if (mineralCost == 150 && vespineCost == 150)
-                        return PredefinedData.UnitId.TupUpgradeToPlanetary;
+                        return UnitId.TupUpgradeToPlanetary;
                 }
 
-                return PredefinedData.UnitId.TuScv;
+                return UnitId.TuScv;
             }
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.TbPlanetary))
-                return PredefinedData.UnitId.TuScv;
+            if (structureBuildFrom.Equals(UnitId.TbPlanetary))
+                return UnitId.TuScv;
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.TbOrbitalGround))
-                return PredefinedData.UnitId.TuScv;
+            if (structureBuildFrom.Equals(UnitId.TbOrbitalGround))
+                return UnitId.TuScv;
 
             #endregion
 
             #region Barracks
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.TbBarracksGround))
+            if (structureBuildFrom.Equals(UnitId.TbBarracksGround))
             {
                 /* Database for the units from the Barracks
                  * Unit         |   Time    |   Min |   Ves |   Sup
@@ -1005,16 +1005,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 switch (maximumTime)
                 {
                     case 1638400:
-                        return PredefinedData.UnitId.TuMarine;
+                        return UnitId.TuMarine;
 
                     case 2949120:
-                        return PredefinedData.UnitId.TuReaper;
+                        return UnitId.TuReaper;
 
                     case 2621440:
-                        return PredefinedData.UnitId.TuGhost;
+                        return UnitId.TuGhost;
 
                     case 1966080:
-                        return PredefinedData.UnitId.TuMarauder;
+                        return UnitId.TuMarauder;
                 }
             }
 
@@ -1022,7 +1022,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #region Factory
 
-            else if (structureBuildFrom.Equals(PredefinedData.UnitId.TbFactoryGround))
+            else if (structureBuildFrom.Equals(UnitId.TbFactoryGround))
             {
                 /* Database for the units from the Barracks
                 * Unit         |   Time    |   Min |   Ves |   Sup
@@ -1035,21 +1035,21 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 * */
 
                 if (logicalId.Equals(65541))
-                    return PredefinedData.UnitId.TuHellion;
+                    return UnitId.TuHellion;
 
                 if (logicalId.Equals(65542))
-                    return PredefinedData.UnitId.TuHellbat;
+                    return UnitId.TuHellbat;
 
                 switch (maximumTime)
                 {
                     case 3932160:
-                        return PredefinedData.UnitId.TuThor;
+                        return UnitId.TuThor;
 
                     case 2621440:
-                        return PredefinedData.UnitId.TuWidowMine;
+                        return UnitId.TuWidowMine;
 
                     case 2949120:
-                        return PredefinedData.UnitId.TuSiegetank;
+                        return UnitId.TuSiegetank;
                 }
             }
 
@@ -1057,7 +1057,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #region Starport
 
-            else if (structureBuildFrom.Equals(PredefinedData.UnitId.TbStarportGround))
+            else if (structureBuildFrom.Equals(UnitId.TbStarportGround))
             {
                 /* Database for the units from the Barracks
                 * Unit         |   Time    |   Min |   Ves |   Sup
@@ -1071,23 +1071,23 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                 if (mineralCost.Equals(150) &&
                     vespineCost.Equals(75))
-                    return PredefinedData.UnitId.TuVikingAir;
+                    return UnitId.TuVikingAir;
 
                 if (mineralCost.Equals(100) &&
                     vespineCost.Equals(100))
-                    return PredefinedData.UnitId.TuMedivac;
+                    return UnitId.TuMedivac;
 
                 if (mineralCost.Equals(100) &&
                     vespineCost.Equals(200))
-                    return PredefinedData.UnitId.TuRaven;
+                    return UnitId.TuRaven;
 
                 if (mineralCost.Equals(150) &&
                     vespineCost.Equals(100))
-                    return PredefinedData.UnitId.TuBanshee;
+                    return UnitId.TuBanshee;
 
                 if (mineralCost.Equals(400) &&
                     vespineCost.Equals(300))
-                    return PredefinedData.UnitId.TuBattlecruiser;
+                    return UnitId.TuBattlecruiser;
             }
 
             #endregion
@@ -1096,184 +1096,184 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #region Engineering Bay
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.TbEbay))
+            if (structureBuildFrom.Equals(UnitId.TbEbay))
             {
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.TupInfantryWeapon1;
+                    return UnitId.TupInfantryWeapon1;
 
                 if (logicalId.Equals(0x10003))
-                    return PredefinedData.UnitId.TupInfantryWeapon2;
+                    return UnitId.TupInfantryWeapon2;
 
                 if (logicalId.Equals(0x10004))
-                    return PredefinedData.UnitId.TupInfantryWeapon3;
+                    return UnitId.TupInfantryWeapon3;
 
                 if (logicalId.Equals(0x10006))
-                    return PredefinedData.UnitId.TupInfantryArmor1;
+                    return UnitId.TupInfantryArmor1;
 
                 if (logicalId.Equals(0x10007))
-                    return PredefinedData.UnitId.TupInfantryArmor2;
+                    return UnitId.TupInfantryArmor2;
 
                 if (logicalId.Equals(0x10008))
-                    return PredefinedData.UnitId.TupInfantryArmor3;
+                    return UnitId.TupInfantryArmor3;
 
                 if (mineralCost.Equals(100) &&
                     vespineCost.Equals(100) &&
                     maximumTime.Equals(5242880))
-                    return PredefinedData.UnitId.TupHighSecAutoTracking;
+                    return UnitId.TupHighSecAutoTracking;
 
                 if (mineralCost.Equals(100) &&
                     vespineCost.Equals(100) &&
                     maximumTime.Equals(7208960))
-                    return PredefinedData.UnitId.TupNeosteelFrame;
+                    return UnitId.TupNeosteelFrame;
 
                 if (mineralCost.Equals(150) &&
                     vespineCost.Equals(150) &&
                     maximumTime.Equals(9175040))
-                    return PredefinedData.UnitId.TupStructureArmor;
+                    return UnitId.TupStructureArmor;
             }
 
             #endregion
 
             #region GhostAcademy
 
-            else if (structureBuildFrom.Equals(PredefinedData.UnitId.TbGhostacademy))
+            else if (structureBuildFrom.Equals(UnitId.TbGhostacademy))
             {
                 if (mineralCost.Equals(150))
-                    return PredefinedData.UnitId.TupPersonalCloak;
+                    return UnitId.TupPersonalCloak;
 
                 if (mineralCost.Equals(100))
                 {
                     if (logicalId.Equals(0x10000))
-                        return PredefinedData.UnitId.TuNuke;
+                        return UnitId.TuNuke;
 
-                    return PredefinedData.UnitId.TupMoebiusReactor;
+                    return UnitId.TupMoebiusReactor;
                 }
-                    
+
             }
 
             #endregion
 
             #region FusionCore
 
-            else if (structureBuildFrom.Equals(PredefinedData.UnitId.TbFusioncore))
+            else if (structureBuildFrom.Equals(UnitId.TbFusioncore))
             {
                 if (maximumTime.Equals(3932160))
-                    return PredefinedData.UnitId.TupWeaponRefit;
+                    return UnitId.TupWeaponRefit;
 
                 if (maximumTime.Equals(5242880))
-                    return PredefinedData.UnitId.TupBehemothReactor;
+                    return UnitId.TupBehemothReactor;
             }
 
             #endregion
 
             #region Armory
 
-            else if (structureBuildFrom.Equals(PredefinedData.UnitId.TbArmory))
+            else if (structureBuildFrom.Equals(UnitId.TbArmory))
             {
                 if (mineralCost.Equals(100) &&
                     vespineCost.Equals(100) &&
                     maximumTime.Equals(10485760) &&
                     logicalId.Equals(65536))
-                    return PredefinedData.UnitId.TupVehicleWeapon1;
+                    return UnitId.TupVehicleWeapon1;
 
                 if (mineralCost.Equals(175) &&
                     vespineCost.Equals(175) &&
                     maximumTime.Equals(12451840) &&
                     logicalId.Equals(65537))
-                    return PredefinedData.UnitId.TupVehicleWeapon2;
+                    return UnitId.TupVehicleWeapon2;
 
                 if (mineralCost.Equals(250) &&
                     vespineCost.Equals(250) &&
                     maximumTime.Equals(14417920) &&
                     logicalId.Equals(65538))
-                    return PredefinedData.UnitId.TupVehicleWeapon3;
+                    return UnitId.TupVehicleWeapon3;
 
                 if (mineralCost.Equals(100) &&
                     vespineCost.Equals(100) &&
                     maximumTime.Equals(10485760) &&
                     logicalId.Equals(65547))
-                    return PredefinedData.UnitId.TupShipWeapon1;
+                    return UnitId.TupShipWeapon1;
 
                 if (mineralCost.Equals(175) &&
                     vespineCost.Equals(175) &&
                     maximumTime.Equals(12451840) &&
                     logicalId.Equals(65548))
-                    return PredefinedData.UnitId.TupShipWeapon2;
+                    return UnitId.TupShipWeapon2;
 
                 if (mineralCost.Equals(250) &&
                     vespineCost.Equals(250) &&
                     maximumTime.Equals(14417920) &&
                     logicalId.Equals(65549))
-                    return PredefinedData.UnitId.TupShipWeapon3;
+                    return UnitId.TupShipWeapon3;
 
                 if (mineralCost.Equals(100) &&
                     vespineCost.Equals(100) &&
                     maximumTime.Equals(10485760) &&
                     logicalId.Equals(65539))
-                    return PredefinedData.UnitId.TupVehicleShipPlanting1;
+                    return UnitId.TupVehicleShipPlanting1;
 
                 if (mineralCost.Equals(175) &&
                     vespineCost.Equals(175) &&
                     maximumTime.Equals(12451840) &&
                     logicalId.Equals(65540))
-                    return PredefinedData.UnitId.TupVehicleShipPlanting2;
+                    return UnitId.TupVehicleShipPlanting2;
 
                 if (mineralCost.Equals(250) &&
                     vespineCost.Equals(250) &&
                     maximumTime.Equals(14417920) &&
                     logicalId.Equals(65541))
-                    return PredefinedData.UnitId.TupVehicleShipPlanting3;
+                    return UnitId.TupVehicleShipPlanting3;
             }
 
             #endregion
 
             #region Techlab Barracks
 
-            else if (structureBuildFrom.Equals(PredefinedData.UnitId.TbTechlabRax))
+            else if (structureBuildFrom.Equals(UnitId.TbTechlabRax))
             {
                 if (maximumTime.Equals(11141120))
-                    return PredefinedData.UnitId.TupStim;
+                    return UnitId.TupStim;
 
                 if (maximumTime.Equals(7208960))
-                    return PredefinedData.UnitId.TupCombatShields;
+                    return UnitId.TupCombatShields;
 
                 if (maximumTime.Equals(3932160))
-                    return PredefinedData.UnitId.TupConcussiveShells;
+                    return UnitId.TupConcussiveShells;
             }
 
             #endregion
 
             #region Techlab Factory
 
-            else if (structureBuildFrom.Equals(PredefinedData.UnitId.TbTechlabFactory))
+            else if (structureBuildFrom.Equals(UnitId.TbTechlabFactory))
             {
                 if (logicalId.Equals(65537))
-                    return PredefinedData.UnitId.TupBlueFlame;
+                    return UnitId.TupBlueFlame;
 
                 if (logicalId.Equals(65539))
-                    return PredefinedData.UnitId.TupTransformatorServos;
+                    return UnitId.TupTransformatorServos;
 
                 if (logicalId.Equals(65540))
-                    return PredefinedData.UnitId.TupDrillingClaws;
+                    return UnitId.TupDrillingClaws;
             }
 
             #endregion
 
             #region Techlab Starport
 
-            else if (structureBuildFrom.Equals(PredefinedData.UnitId.TbTechlabStarport))
+            else if (structureBuildFrom.Equals(UnitId.TbTechlabStarport))
             {
                 if (logicalId.Equals(65536))
-                    return PredefinedData.UnitId.TupCloakingField;
+                    return UnitId.TupCloakingField;
 
                 if (logicalId.Equals(65539))
-                    return PredefinedData.UnitId.TupCorvidReactor;
+                    return UnitId.TupCorvidReactor;
 
                 if (logicalId.Equals(65543))
-                    return PredefinedData.UnitId.TupDurableMeterials;
+                    return UnitId.TupDurableMeterials;
 
                 if (logicalId.Equals(65538))
-                    return PredefinedData.UnitId.TupCaduceusReactor;
+                    return UnitId.TupCaduceusReactor;
             }
 
             #endregion
@@ -1282,13 +1282,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #region Protoss
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.PuMothershipCore))
+            if (structureBuildFrom.Equals(UnitId.PuMothershipCore))
             {
                 //E.G. Upgrade to Lair/ Hive
                 if (logicalId == -1)
                 {
                     if (mineralCost == 300 && vespineCost == 300)
-                        return PredefinedData.UnitId.PupUpgradeToMothership;
+                        return UnitId.PupUpgradeToMothership;
                 }
             }
 
@@ -1296,15 +1296,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #region Nexus
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.PbNexus))
+            if (structureBuildFrom.Equals(UnitId.PbNexus))
             {
                 switch (maximumTime)
                 {
                     case 1114112:
-                        return PredefinedData.UnitId.PuProbe;
+                        return UnitId.PuProbe;
 
                     case 1966080:
-                        return PredefinedData.UnitId.PuMothershipCore;
+                        return UnitId.PuMothershipCore;
                 }
             }
 
@@ -1312,7 +1312,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #region Gateway
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.PbGateway))
+            if (structureBuildFrom.Equals(UnitId.PbGateway))
             {
                 /* Database for the units from the Gateway
                 * Unit         |   Time    |   Min |   Ves |   Sup
@@ -1324,30 +1324,30 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 * DT           |3604480    |   125 |   125 |   2
                 * */
                 if (mineralCost.Equals(100))
-                    return PredefinedData.UnitId.PuZealot;
+                    return UnitId.PuZealot;
 
                 if (mineralCost.Equals(125) &&
                     vespineCost.Equals(50))
-                    return PredefinedData.UnitId.PuStalker;
+                    return UnitId.PuStalker;
 
                 if (mineralCost.Equals(50) &&
                     vespineCost.Equals(100))
-                    return PredefinedData.UnitId.PuSentry;
+                    return UnitId.PuSentry;
 
                 if (mineralCost.Equals(50) &&
                     vespineCost.Equals(150))
-                    return PredefinedData.UnitId.PuHightemplar;
+                    return UnitId.PuHightemplar;
 
                 if (mineralCost.Equals(125) &&
                     vespineCost.Equals(125))
-                    return PredefinedData.UnitId.PuDarktemplar;
+                    return UnitId.PuDarktemplar;
             }
 
             #endregion
 
             #region Stargate
 
-            else if (structureBuildFrom.Equals(PredefinedData.UnitId.PbStargate))
+            else if (structureBuildFrom.Equals(UnitId.PbStargate))
             {
                 /* Database for the units from the Gateway
                 * Unit         |   Time    |   Min |   Ves |   Sup
@@ -1361,30 +1361,30 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                 if (mineralCost.Equals(150) &&
                     vespineCost.Equals(100))
-                    return PredefinedData.UnitId.PuPhoenix;
+                    return UnitId.PuPhoenix;
 
                 if (mineralCost.Equals(150) &&
                     vespineCost.Equals(150))
-                    return PredefinedData.UnitId.PuOracle;
+                    return UnitId.PuOracle;
 
                 if (mineralCost.Equals(250) &&
                     vespineCost.Equals(150))
-                    return PredefinedData.UnitId.PuVoidray;
+                    return UnitId.PuVoidray;
 
                 if (mineralCost.Equals(300) &&
                     vespineCost.Equals(200))
-                    return PredefinedData.UnitId.PuTempest;
+                    return UnitId.PuTempest;
 
                 if (mineralCost.Equals(350) &&
                     vespineCost.Equals(250))
-                    return PredefinedData.UnitId.PuCarrier;
+                    return UnitId.PuCarrier;
             }
 
             #endregion
 
             #region Robotics
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.PbRoboticsbay))
+            if (structureBuildFrom.Equals(UnitId.PbRoboticsbay))
             {
                 /* Database for the units from the Gateway
                 * Unit         |   Time    |   Min |   Ves |   Sup
@@ -1396,16 +1396,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 * */
 
                 if (mineralCost.Equals(25))
-                    return PredefinedData.UnitId.PuObserver;
+                    return UnitId.PuObserver;
 
                 if (mineralCost.Equals(200))
-                    return PredefinedData.UnitId.PuWarpprismTransport;
+                    return UnitId.PuWarpprismTransport;
 
                 if (mineralCost.Equals(300))
-                    return PredefinedData.UnitId.PuColossus;
+                    return UnitId.PuColossus;
 
                 if (mineralCost.Equals(250))
-                    return PredefinedData.UnitId.PuImmortal;
+                    return UnitId.PuImmortal;
             }
 
             #endregion
@@ -1416,114 +1416,114 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #region Forge
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.PbForge))
+            if (structureBuildFrom.Equals(UnitId.PbForge))
             {
                 if (logicalId.Equals(0x10000))
-                    return PredefinedData.UnitId.PupGroundW1;
+                    return UnitId.PupGroundW1;
 
                 if (logicalId.Equals(0x10001))
-                    return PredefinedData.UnitId.PupGroundW2;
+                    return UnitId.PupGroundW2;
 
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.PupGroundW3;
+                    return UnitId.PupGroundW3;
 
                 if (logicalId.Equals(0x10003))
-                    return PredefinedData.UnitId.PupGroundA1;
+                    return UnitId.PupGroundA1;
 
                 if (logicalId.Equals(0x10004))
-                    return PredefinedData.UnitId.PupGroundA2;
+                    return UnitId.PupGroundA2;
 
                 if (logicalId.Equals(0x10005))
-                    return PredefinedData.UnitId.PupGroundA3;
+                    return UnitId.PupGroundA3;
 
                 if (logicalId.Equals(0x10006))
-                    return PredefinedData.UnitId.PupS1;
+                    return UnitId.PupS1;
 
                 if (logicalId.Equals(0x10007))
-                    return PredefinedData.UnitId.PupS2;
+                    return UnitId.PupS2;
 
                 if (logicalId.Equals(0x10008))
-                    return PredefinedData.UnitId.PupS3;
+                    return UnitId.PupS3;
             }
 
             #endregion
 
             #region CyberCore
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.PbCybercore))
+            if (structureBuildFrom.Equals(UnitId.PbCybercore))
             {
                 if (logicalId.Equals(0x10000))
-                    return PredefinedData.UnitId.PupAirW1;
+                    return UnitId.PupAirW1;
 
                 if (logicalId.Equals(0x10001))
-                    return PredefinedData.UnitId.PupAirW2;
+                    return UnitId.PupAirW2;
 
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.PupAirW3;
+                    return UnitId.PupAirW3;
 
                 if (logicalId.Equals(0x10003))
-                    return PredefinedData.UnitId.PupAirA1;
+                    return UnitId.PupAirA1;
 
                 if (logicalId.Equals(0x10004))
-                    return PredefinedData.UnitId.PupAirA2;
+                    return UnitId.PupAirA2;
 
                 if (logicalId.Equals(0x10005))
-                    return PredefinedData.UnitId.PupAirA3;
+                    return UnitId.PupAirA3;
 
                 if (logicalId.Equals(0x10006))
-                    return PredefinedData.UnitId.PupWarpGate;
+                    return UnitId.PupWarpGate;
             }
 
             #endregion
 
             #region Robotics Support Bay
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.PbRoboticssupportbay))
+            if (structureBuildFrom.Equals(UnitId.PbRoboticssupportbay))
             {
                 if (logicalId.Equals(0x10001))
-                    return PredefinedData.UnitId.PupGraviticBooster;
+                    return UnitId.PupGraviticBooster;
 
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.PupGraviticDrive;
+                    return UnitId.PupGraviticDrive;
 
                 if (logicalId.Equals(0x10005))
-                    return PredefinedData.UnitId.PupExtendedThermalLance;   
+                    return UnitId.PupExtendedThermalLance;
             }
 
             #endregion
 
             #region Twilight Council
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.PbTwilightcouncil))
+            if (structureBuildFrom.Equals(UnitId.PbTwilightcouncil))
             {
                 if (logicalId.Equals(0x10000))
-                    return PredefinedData.UnitId.PupCharge;
+                    return UnitId.PupCharge;
 
                 if (logicalId.Equals(0x10001))
-                    return PredefinedData.UnitId.PupBlink;
+                    return UnitId.PupBlink;
             }
 
             #endregion
 
             #region Fleet Beacon
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.PbFleetbeacon))
+            if (structureBuildFrom.Equals(UnitId.PbFleetbeacon))
             {
                 if (logicalId.Equals(0x10000))
-                    return PredefinedData.UnitId.PupGravitonCatapult;
+                    return UnitId.PupGravitonCatapult;
 
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.PupAnionPulseCrystals;
+                    return UnitId.PupAnionPulseCrystals;
             }
 
             #endregion
 
             #region Templar Archives
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.PbTemplararchives))
+            if (structureBuildFrom.Equals(UnitId.PbTemplararchives))
             {
                 if (logicalId.Equals(0x10004))
-                    return PredefinedData.UnitId.PupStorm;
+                    return UnitId.PupStorm;
             }
 
             #endregion
@@ -1538,73 +1538,73 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZbHatchery) ||
-                structureBuildFrom.Equals(PredefinedData.UnitId.ZbLiar) ||
-                structureBuildFrom.Equals(PredefinedData.UnitId.ZbHive))
+            if (structureBuildFrom.Equals(UnitId.ZbHatchery) ||
+                structureBuildFrom.Equals(UnitId.ZbLiar) ||
+                structureBuildFrom.Equals(UnitId.ZbHive))
             {
                 if (logicalId.Equals(0x10001))
-                    return PredefinedData.UnitId.ZupPneumatizedCarapace;
+                    return UnitId.ZupPneumatizedCarapace;
 
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.ZupVentralSacs;
+                    return UnitId.ZupVentralSacs;
 
                 if (logicalId.Equals(0x10003))
-                    return PredefinedData.UnitId.ZupBurrow;
+                    return UnitId.ZupBurrow;
 
                 //E.G. Upgrade to Lair/ Hive
                 if (logicalId == -1)
                 {
                     if (mineralCost == 150 && vespineCost == 100)
-                        return PredefinedData.UnitId.ZupUpgradeToLair;
+                        return UnitId.ZupUpgradeToLair;
 
                     if (mineralCost == 200 && vespineCost == 150)
-                        return PredefinedData.UnitId.ZupUpgradeToHive;
+                        return UnitId.ZupUpgradeToHive;
                 }
 
-                return PredefinedData.UnitId.ZuQueen;
+                return UnitId.ZuQueen;
             }
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZbSpire))
+            if (structureBuildFrom.Equals(UnitId.ZbSpire))
             {
                 //E.G. Upgrade to Lair/ Hive
                 if (logicalId == -1)
                 {
                     if (mineralCost == 100 && vespineCost == 150)
-                        return PredefinedData.UnitId.ZupUpgradeToGreaterSpire;
+                        return UnitId.ZupUpgradeToGreaterSpire;
                 }
             }
 
             #region Units
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZuBanelingCocoon))
+            if (structureBuildFrom.Equals(UnitId.ZuBanelingCocoon))
             {
                 if (maximumTime.Equals(1310720))
-                    return PredefinedData.UnitId.ZuBaneling;
+                    return UnitId.ZuBaneling;
             }
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZuBroodlordCocoon))
+            if (structureBuildFrom.Equals(UnitId.ZuBroodlordCocoon))
             {
                 //E.G. Upgrade to Lair/ Hive
                 if (logicalId == -1)
                 {
                     if (mineralCost == 150 && vespineCost == 150)
-                        return PredefinedData.UnitId.ZupUpgradeToBroodlord;
+                        return UnitId.ZupUpgradeToBroodlord;
                 }
             }
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZuOverseerCocoon))
+            if (structureBuildFrom.Equals(UnitId.ZuOverseerCocoon))
             {
                 //E.G. Upgrade to Lair/ Hive
                 if (logicalId == -1)
                 {
                     if (mineralCost == 50 && vespineCost == 50)
-                        return PredefinedData.UnitId.ZupUpgradeToOverseer;
+                        return UnitId.ZupUpgradeToOverseer;
                 }
             }
 
             /* For the eggs, we have to cchack using other values.. 
              Player 2 has the Type waay different. */
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZuEgg))
+            if (structureBuildFrom.Equals(UnitId.ZuEgg))
             {
                 /* Database for the units from the egg
                  * Unit         |   Time    |   Min |   Ves |   Sup
@@ -1623,42 +1623,42 @@ namespace AnotherSc2Hack.Classes.BackEnds
                  * */
 
                 if (maximumTime.Equals(1114112))
-                    return PredefinedData.UnitId.ZuDrone;
+                    return UnitId.ZuDrone;
 
                 if (maximumTime.Equals(1572864))
-                    return PredefinedData.UnitId.ZuZergling;
+                    return UnitId.ZuZergling;
 
                 if (maximumTime.Equals(1638400))
-                    return PredefinedData.UnitId.ZuOverlord;
+                    return UnitId.ZuOverlord;
 
                 if (maximumTime.Equals(1769472))
-                    return PredefinedData.UnitId.ZuRoach;
+                    return UnitId.ZuRoach;
 
                 if (maximumTime.Equals(2162688))
                 {
                     if (vespineCost.Equals(50))
-                        return PredefinedData.UnitId.ZuHydralisk;
+                        return UnitId.ZuHydralisk;
 
-                        return PredefinedData.UnitId.ZuMutalisk;
+                    return UnitId.ZuMutalisk;
                 }
 
                 if (maximumTime.Equals(2621440))
                 {
                     if (mineralCost.Equals(150))
-                        return PredefinedData.UnitId.ZuCorruptor;
+                        return UnitId.ZuCorruptor;
 
                     if (mineralCost.Equals(200))
-                        return PredefinedData.UnitId.ZuSwarmHost;
+                        return UnitId.ZuSwarmHost;
 
                     if (mineralCost.Equals(100))
-                        return PredefinedData.UnitId.ZuViper;
+                        return UnitId.ZuViper;
                 }
 
                 if (maximumTime.Equals(3276800))
-                    return PredefinedData.UnitId.ZuInfestor;
+                    return UnitId.ZuInfestor;
 
                 if (maximumTime.Equals(3604480))
-                    return PredefinedData.UnitId.ZuUltra;
+                    return UnitId.ZuUltra;
 
 
 
@@ -1670,135 +1670,135 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #region Evolution Chamber
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZbEvolutionChamber))
+            if (structureBuildFrom.Equals(UnitId.ZbEvolutionChamber))
             {
                 if (logicalId.Equals(0x10000))
-                    return PredefinedData.UnitId.ZupGroundM1;
+                    return UnitId.ZupGroundM1;
 
                 if (logicalId.Equals(0x10001))
-                    return PredefinedData.UnitId.ZupGroundM2;
+                    return UnitId.ZupGroundM2;
 
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.ZupGroundM3;
+                    return UnitId.ZupGroundM3;
 
                 if (logicalId.Equals(0x10003))
-                    return PredefinedData.UnitId.ZupGroundA1;
+                    return UnitId.ZupGroundA1;
 
                 if (logicalId.Equals(0x10004))
-                    return PredefinedData.UnitId.ZupGroundA2;
+                    return UnitId.ZupGroundA2;
 
                 if (logicalId.Equals(0x10005))
-                    return PredefinedData.UnitId.ZupGroundA3;
+                    return UnitId.ZupGroundA3;
 
                 if (logicalId.Equals(0x10006))
-                    return PredefinedData.UnitId.ZupGroundW1;
+                    return UnitId.ZupGroundW1;
 
                 if (logicalId.Equals(0x10007))
-                    return PredefinedData.UnitId.ZupGroundW2;
+                    return UnitId.ZupGroundW2;
 
                 if (logicalId.Equals(0x10008))
-                    return PredefinedData.UnitId.ZupGroundW3;
+                    return UnitId.ZupGroundW3;
             }
 
             #endregion
 
             #region Spire/ Greater Spire
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZbSpire) ||
-                structureBuildFrom.Equals(PredefinedData.UnitId.ZbGreaterspire))
+            if (structureBuildFrom.Equals(UnitId.ZbSpire) ||
+                structureBuildFrom.Equals(UnitId.ZbGreaterspire))
             {
                 if (logicalId.Equals(0x10000))
-                    return PredefinedData.UnitId.ZupAirW1;
+                    return UnitId.ZupAirW1;
 
                 if (logicalId.Equals(0x10001))
-                    return PredefinedData.UnitId.ZupAirW2;
+                    return UnitId.ZupAirW2;
 
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.ZupAirW3;
+                    return UnitId.ZupAirW3;
 
                 if (logicalId.Equals(0x10003))
-                    return PredefinedData.UnitId.ZupAirA1;
+                    return UnitId.ZupAirA1;
 
                 if (logicalId.Equals(0x10004))
-                    return PredefinedData.UnitId.ZupAirA2;
+                    return UnitId.ZupAirA2;
 
                 if (logicalId.Equals(0x10005))
-                    return PredefinedData.UnitId.ZupAirA3;
+                    return UnitId.ZupAirA3;
             }
 
             #endregion
 
             #region Hydra Den
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZbHydraDen))
+            if (structureBuildFrom.Equals(UnitId.ZbHydraDen))
             {
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.ZupGroovedSpines;
+                    return UnitId.ZupGroovedSpines;
 
                 if (logicalId.Equals(0x10003))
-                    return PredefinedData.UnitId.ZupMuscularAugments;
+                    return UnitId.ZupMuscularAugments;
             }
 
             #endregion
 
             #region Roach Warran
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZbRoachWarren))
+            if (structureBuildFrom.Equals(UnitId.ZbRoachWarren))
             {
                 if (logicalId.Equals(0x10001))
-                    return PredefinedData.UnitId.ZupGlialReconstruction;
+                    return UnitId.ZupGlialReconstruction;
 
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.ZupTunnelingClaws;
+                    return UnitId.ZupTunnelingClaws;
             }
 
             #endregion
 
             #region Infestation Pit
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZbInfestationPit))
+            if (structureBuildFrom.Equals(UnitId.ZbInfestationPit))
             {
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.ZupPathoglenGlands;
+                    return UnitId.ZupPathoglenGlands;
 
                 if (logicalId.Equals(0x10003))
-                    return PredefinedData.UnitId.ZupNeutralParasite;
+                    return UnitId.ZupNeutralParasite;
 
                 if (logicalId.Equals(0x10004))
-                    return PredefinedData.UnitId.ZupEnduringLocusts;
+                    return UnitId.ZupEnduringLocusts;
             }
 
             #endregion
 
             #region Spawning Pool
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZbSpawningPool))
+            if (structureBuildFrom.Equals(UnitId.ZbSpawningPool))
             {
                 if (logicalId.Equals(0x10000))
-                    return PredefinedData.UnitId.ZupAdrenalGlands;
+                    return UnitId.ZupAdrenalGlands;
 
                 if (logicalId.Equals(0x10001))
-                    return PredefinedData.UnitId.ZupMetabolicBoost;
+                    return UnitId.ZupMetabolicBoost;
             }
 
             #endregion
 
             #region Baneling Nest
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZbBanelingNest))
+            if (structureBuildFrom.Equals(UnitId.ZbBanelingNest))
             {
                 if (logicalId.Equals(0x10000))
-                    return PredefinedData.UnitId.ZupCentrifugalHooks;
+                    return UnitId.ZupCentrifugalHooks;
             }
 
             #endregion
 
             #region Ultra Cavern
 
-            if (structureBuildFrom.Equals(PredefinedData.UnitId.ZbUltraCavern))
+            if (structureBuildFrom.Equals(UnitId.ZbUltraCavern))
             {
                 if (logicalId.Equals(0x10002))
-                    return PredefinedData.UnitId.ZupChitinousPlating;
+                    return UnitId.ZupChitinousPlating;
             }
 
             #endregion
@@ -1809,7 +1809,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             /* Missing: Broodlord Cocoon and Overseer Cocoon - Cant be found.. */
             #endregion
 
-            return PredefinedData.UnitId.NbXelNagaTower;
+            return UnitId.NbXelNagaTower;
         }
 
         public static Int32 GetMaximumInteger(params Int32[] valInput)
@@ -1822,10 +1822,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     iValue = valInput[i];
             }
 
-                return iValue;
+            return iValue;
         }
 
-        public static Int32 CountUnitTypePerPlayer(List<PredefinedData.Unit> lUnit, PredefinedData.UnitId id, Int32 playerNumber)
+        public static Int32 CountUnitTypePerPlayer(List<Unit> lUnit, UnitId id, Int32 playerNumber)
         {
             var iBuildingCount = 0;
             for (var i = 0; i < lUnit.Count; i++)

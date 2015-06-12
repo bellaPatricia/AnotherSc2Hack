@@ -45,8 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameinfoData.cs" />
+    <Compile Include="GroupData.cs" />
+    <Compile Include="MapData.cs" />
+    <Compile Include="PlayerData.cs" />
     <Compile Include="PredefinedTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectionData.cs" />
+    <Compile Include="UnitData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

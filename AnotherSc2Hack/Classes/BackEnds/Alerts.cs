@@ -73,7 +73,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return al;
         }
 
-        //public static bool SupplyWarning(PredefinedTypes.PlayerStruct player)
+        //public static bool SupplyWarning(PredefinedTypes.Player player)
         //{
             
         //}
