@@ -244,13 +244,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             LoadContributers();
             LaunchOnStartup();
 
-            
+            CenterToScreen();
         }
 
-        void Gameinfo_ProcessFound(object sender, ProcessFoundArgs e)
-        {
-            PSc2Process = e.Process;
-        }
+      
 
         #endregion
 
@@ -3287,6 +3284,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         void Gameinfo_IterationPerSecondChanged(object sender, NumberArgs e)
         {
             ntxtBenchmarkDataIterations.Number = e.Number;
+        }
+
+        void Gameinfo_ProcessFound(object sender, ProcessFoundArgs e)
+        {
+            PSc2Process = e.Process;
         }
 
         #endregion
