@@ -2387,8 +2387,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void DebugPlayerRefresh()
         {
-            if (Gameinfo == null || Gameinfo.Player == null)
+            if (Gameinfo == null || Gameinfo.Player == null || Gameinfo.Player.Count <= 0)
+            {
+                lstvDebugPlayderdata.Enabled = false;
                 return;
+            }
+
+            lstvDebugPlayderdata.Enabled = true;
 
             if (IDebugPlayerIndex > Gameinfo.Player.Count)
                 IDebugPlayerIndex = Gameinfo.Player.Count - 1;
@@ -2435,7 +2440,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void DebugUnitRefresh()
         {
             if (Gameinfo == null || Gameinfo.Unit == null || Gameinfo.Unit.Count <= 0)
+            {
+                lstvDebugUnitdata.Enabled = false;
                 return;
+            }
+
+            lstvDebugUnitdata.Enabled = true;
 
             if (IDebugUnitIndex > Gameinfo.Unit.Count)
                 IDebugUnitIndex = Gameinfo.Unit.Count - 1;
