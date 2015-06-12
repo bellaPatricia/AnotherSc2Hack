@@ -22,6 +22,7 @@ namespace UpdateChecker
         #region Properties
 
         public UpdateState BUpdatesAvailable { get; private set; }
+        public string ApplicationChangesUrl { get; private set; }
         public List<PluginDatastore> PluginDatastoresOnline { get; private set; }
         public List<PluginDatastore> PluginDatastoresOffline { get; private set; }
 
@@ -135,6 +136,9 @@ namespace UpdateChecker
             
             _onlineApplicationVersioning.ParseOnlineApplicationVersioning(StrApplicationDatastore);
             _offlineApplicationVersioning.ParseOfflineApplicationVersioning(_onlineApplicationVersioning);
+
+            ApplicationChangesUrl = _onlineApplicationVersioning.ApplicationChanges;
+            
 
             if (_onlineApplicationVersioning.ApplicationVersion > _offlineApplicationVersioning.ApplicationVersion)
             {

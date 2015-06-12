@@ -254,6 +254,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
+        #region Delegates to handle multithreaded UI calls
+
+        private delegate void ShowAvailableUpdatesDelegate();
+
+        #endregion
+
         private void Init()
         {
             PSettings = new PreferenceManager();
@@ -600,6 +606,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
+        private void ShowAvailableUpdates()
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new ShowAvailableUpdatesDelegate(ShowAvailableUpdates));
+                return;
+            }
+
+            var result = new AnotherMessageBox().Show(_strUpdateFiles + "\n" + _lstrApplicationDoYouWishToUpdate, _lstrApplicationUpdateTitle.Text, MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                if (File.Exists(Constants.StrDownloadManager))
+                {
+                    _bLaunchDownloadManager = true;
+                    Close();
+                }
+            }
+        }
+
         #region Event methods
 
         private void ntxtMemoryRefresh_NumberChanged(object sender, NumberArgs e)
@@ -733,19 +758,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             if (dm.BUpdatesAvailable == UpdateState.Available)
             {
-                var result = new AnotherMessageBox().Show(_strUpdateFiles + "\n" + _lstrApplicationDoYouWishToUpdate, _lstrApplicationUpdateTitle.Text, MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    if (File.Exists(Constants.StrDownloadManager))
-                    {
-                        _bLaunchDownloadManager = true;
-                        MethodInvoker invoker = Close;
-
-                        Invoke(invoker);
-                    }
-                }
+                ShowAvailableUpdates();   
             }
 
+            
             _strUpdateFiles = String.Empty;
         }
 
@@ -3266,9 +3282,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             pbMainProgress.Value = e.ProgressPercentage;
             Console.WriteLine("We are at the ProgressChanged!");
-        }
-
-        
+        }        
 
         void Gameinfo_IterationPerSecondChanged(object sender, NumberArgs e)
         {
@@ -3276,7 +3290,5 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #endregion
-
-       
     } 
 }
