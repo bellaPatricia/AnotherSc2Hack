@@ -61,8 +61,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 var iPosX = 0;
 
                 var iMaximumWidth = 0;
-                var fsize = (float)(iSize / 3.5);
-                var iPosXAfterName = (Int32)(fsize * 14);
+                var fsize = (float) (iSize/3.5);
+                var iPosXAfterName = (Int32) (fsize*14);
                 /* We take the fontsize times the (probably) with a common String- lenght*/
 
                 var iWidthUnits = 0;
@@ -147,7 +147,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         if (tmpPlayer == Player.LocalPlayer)
                             continue;
-                        
+
                     }
 
                     /* Remove Allie - Works */
@@ -209,7 +209,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         /* Terran */
                         Helper_DrawUnits(_lTuScv[i], ref iPosX, iPosY, iSize, _imgTuScv, g, clPlayercolor,
                             fStringFont, false);
-
                         Helper_DrawUnits(_lTuMarine[i], ref iPosX, iPosY, iSize, _imgTuMarine, g, clPlayercolor,
                             fStringFont, false);
                         Helper_DrawUnits(_lTuMarauder[i], ref iPosX, iPosY, iSize, _imgTuMarauder, g,
@@ -545,6 +544,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     _iUnitPanelWidthWithoutName = _iUnitPanelWidth - iPosXAfterName;
                     _iUnitPosAfterName = iPosXAfterName;
                 }
+            }
+
+            catch (IndexOutOfRangeException)
+            {
+                //This will get thrown if a list with unitinformation is empty.
+                //For now we can't do anything about it.
             }
 
             catch (Exception ex)
