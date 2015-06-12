@@ -53,19 +53,18 @@
   <PropertyGroup />
   <PropertyGroup />
   <PropertyGroup>
-    <ApplicationIcon>Resources\StarCraft_Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icon_Kerrigan.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PluginInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="PluginInterface, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Release\PluginInterface.dll</HintPath>
+      <HintPath>..\PluginInterface\bin\Release\PluginInterface.dll</HintPath>
     </Reference>
-    <Reference Include="PredefinedTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Release\PredefinedTypes.dll</HintPath>
+    <Reference Include="PredefinedTypes">
+      <HintPath>..\PredefinedTypes\bin\Release\PredefinedTypes.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -748,6 +747,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="!ToDo.txt" />
+    <Content Include="Kerrigan.ico" />
     <Content Include="Research.txt" />
     <None Include="Resources\StarCraft_Icon.ico" />
     <None Include="Resources\pu_mothershipcore.png" />
@@ -1009,6 +1009,8 @@
     <None Include="Resources\icon_helpme.png" />
     <None Include="Resources\WorkerCoach.png" />
     <None Include="Resources\pup_chrono.png" />
+    <None Include="Resources\Icon_Kerrigan.png" />
+    <None Include="Resources\Icon_Kerrigan.ico" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />

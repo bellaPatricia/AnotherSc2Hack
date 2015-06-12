@@ -2397,6 +2397,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.Controls.Add(this.pnlMainArea);
             this.Controls.Add(this.pnlLeftSelection);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1196, 630);
             this.Name = "NewMainHandler";
             this.Text = "NewMainHandler";

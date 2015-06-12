@@ -183,6 +183,26 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Icon_Kerrigan {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Kerrigan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+        /// </summary>
+        public static System.Drawing.Icon Icon_Kerrigan1 {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Kerrigan1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icon_overlays {
             get {
                 object obj = ResourceManager.GetObject("icon_overlays", resourceCulture);

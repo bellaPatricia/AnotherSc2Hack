@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sc2Hack UpdateManager", "Sc2Hack UpdateManager\Sc2Hack UpdateManager\Sc2Hack UpdateManager.csproj", "{7970248B-3E79-4C0E-AFF3-632535FE99C9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginInterface", "PluginInterface\PluginInterface.csproj", "{DCA4E026-F889-42AE-AF51-F8628C6A076B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}
@@ -46,10 +44,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7970248B-3E79-4C0E-AFF3-632535FE99C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7970248B-3E79-4C0E-AFF3-632535FE99C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7970248B-3E79-4C0E-AFF3-632535FE99C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7970248B-3E79-4C0E-AFF3-632535FE99C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DCA4E026-F889-42AE-AF51-F8628C6A076B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DCA4E026-F889-42AE-AF51-F8628C6A076B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCA4E026-F889-42AE-AF51-F8628C6A076B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -83,6 +77,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{DCA4E026-F889-42AE-AF51-F8628C6A076B} = {FF7C9281-7326-4811-B43D-0F14DD0BE178}
+		{F5FA0AD3-E5D0-4050-8094-1839A950D47A} = {FF7C9281-7326-4811-B43D-0F14DD0BE178}
 		{AF4C8A2C-42A4-4583-838D-C6D570953719} = {FF7C9281-7326-4811-B43D-0F14DD0BE178}
 		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {FF7C9281-7326-4811-B43D-0F14DD0BE178}
 	EndGlobalSection
