@@ -1,10 +1,8 @@
-AnotherSc2Hack
-==============
+# AnotherSc2Hack #
 Hacking Blizzard Entertainment's Game "StarCraft II" with external methods<br>
 
 
-Features
---------
+## Features ##
 <ul>
 <li><b>Resource</b>- Panel<br>
 		Shows the current Minerals, Vespene and Supply for each player.<br>
@@ -28,6 +26,12 @@ Features
 		Build your own plugins depending on your need!<br>
 		Sample Plugins are available!<br>
 </ul>
+
+
+## Screenshots ##
+### The User Interface ###
+#### Application area ####
+![application] (/docs/pics/application.png)
 
 
 Requirements to compile:
