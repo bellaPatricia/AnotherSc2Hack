@@ -33,6 +33,34 @@ Hacking Blizzard Entertainment's Game "StarCraft II" with external methods<br>
 #### Application area ####
 ![application] (/docs/pics/application.png)
 
+#### Overlay area ####
+![overlays_resource] (/docs/pics/overlays_resource.png)
+![overlays_income] (/docs/pics/overlays_income.png)
+![overlays_worker] (/docs/pics/overlays_worker.png)
+![overlays_apm] (/docs/pics/overlays_apm.png)
+![overlays_army] (/docs/pics/overlays_army.png)
+![overlays_maphack] (/docs/pics/overlays_maphack.png)
+![overlays_units] (/docs/pics/overlays_units.png)
+![overlays_production] (/docs/pics/overlays_production.png)
+
+#### Various area ####
+![overlay] (/docs/pics/various.png)
+
+#### Plugin area ####
+![overlay] (/docs/pics/plugins.png)
+
+#### Debug area ####
+![overlay] (/docs/pics/debug.png)
+
+#### Credits area ####
+![overlay] (/docs/pics/credits.png)
+
+#### Benchmark area ####
+![overlay] (/docs/pics/benchmark.png)
+
+#### Helpme area ####
+![overlay] (/docs/pics/helpme.png)
+
 
 Requirements to compile:
 ------------------------
