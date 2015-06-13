@@ -31,35 +31,63 @@ Hacking Blizzard Entertainment's Game "StarCraft II" with external methods<br>
 ## Screenshots ##
 ### The User Interface ###
 #### Application area ####
-![application] (/docs/pics/application.png)
+![application] (/docs/pics/ui/application.png)
 
 #### Overlay area ####
-![overlays_resource] (/docs/pics/overlays_resource.png)
-![overlays_income] (/docs/pics/overlays_income.png)
-![overlays_worker] (/docs/pics/overlays_worker.png)
-![overlays_apm] (/docs/pics/overlays_apm.png)
-![overlays_army] (/docs/pics/overlays_army.png)
-![overlays_maphack] (/docs/pics/overlays_maphack.png)
-![overlays_units] (/docs/pics/overlays_units.png)
-![overlays_production] (/docs/pics/overlays_production.png)
+![overlays_resource] (/docs/pics/ui/overlays_resource.png)
+![overlays_income] (/docs/pics/ui/overlays_income.png)
+![overlays_worker] (/docs/pics/ui/overlays_worker.png)
+![overlays_army] (/docs/pics/ui/overlays_army.png)
+![overlays_apm] (/docs/pics/ui/overlays_apm.png)
+![overlays_maphack] (/docs/pics/ui/overlays_maphack.png)
+![overlays_units] (/docs/pics/ui/overlays_units.png)
+![overlays_production] (/docs/pics/ui/overlays_production.png)
 
 #### Various area ####
-![overlay] (/docs/pics/various.png)
+![overlay] (/docs/pics/ui/various.png)
 
 #### Plugin area ####
-![overlay] (/docs/pics/plugins.png)
+![overlay] (/docs/pics/ui/plugins.png)
 
 #### Debug area ####
-![overlay] (/docs/pics/debug.png)
+![overlay] (/docs/pics/ui/debug.png)
 
 #### Credits area ####
-![overlay] (/docs/pics/credits.png)
+![overlay] (/docs/pics/ui/credits.png)
 
 #### Benchmark area ####
-![overlay] (/docs/pics/benchmark.png)
+![overlay] (/docs/pics/ui/benchmark.png)
 
 #### Helpme area ####
-![overlay] (/docs/pics/helpme.png)
+![overlay] (/docs/pics/ui/helpme.png)
+
+### The Overlays ###
+#### APM ####
+![apm] (/docs/pics/overlays/apm.png)
+
+#### Army ####
+![army] (/docs/pics/overlays/army.png)
+
+#### Income ####
+![income] (/docs/pics/overlays/income.png)
+
+#### Maphack ####
+![maphack] (/docs/pics/overlays/maphack.png)
+
+#### Personal Apm ####
+![personal_apm] (/docs/pics/overlays/personal_apm.png)
+
+#### Personal Clock ####
+![personal_clock] (/docs/pics/overlays/personal_clock.png)
+
+#### Production ####
+![production] (/docs/pics/overlays/production.png)
+
+#### Units ####
+![units] (/docs/pics/overlays/units.png)
+
+#### Worker Coach ####
+![worker_coach] (/docs/pics/overlays/worker_coach.png)
 
 
 Requirements to compile:
