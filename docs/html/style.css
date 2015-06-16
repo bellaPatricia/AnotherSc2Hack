@@ -1,0 +1,62 @@
+* {
+	font-family: Segoe UI, Calibri, Verdana, Arial, sans-serif;
+}
+
+h3 {
+	color: #424f5a;
+	font-size: 24px;
+}
+
+body {
+	background-color: #F2F2F2;
+	margin: 0 15px 15px 15px;
+}
+
+.header {
+	font-size: 2em;
+	text-align: center;
+	color: #333;
+	padding: 10px;
+	margin-bottom: 15px;
+}
+
+.menu {
+	background-color: #FBFBFB;
+	border-top: 1px solid #C1C1C1;
+	border-bottom: 1px solid #C1C1C1;
+	text-align: center;
+}
+
+.menuEntry {
+	display: inline-block;
+	text-decoration: none;
+	color: #C1C1C1;
+	padding: 12px 20px;
+	margin: 0;
+}
+
+.menuEntry:hover {
+	background-color: #EBEBEB;
+}
+
+.entry {
+	margin: 15px 0;
+}
+
+.entry > .text {
+	margin-left: 10px;
+}
+
+.text {
+	color: #333;
+}
+
+.green {
+	background-color: #74BF43;
+	color: #FBFBFB;
+	border-radius: 3px;
+}
+
+.green:hover {
+	background-color: #6CB23E;
+}

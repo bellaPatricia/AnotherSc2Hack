@@ -255,6 +255,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private delegate void ShowAvailableUpdatesDelegate();
 
+        private delegate void CheckWebbrowserUrlDelegate(string strUrl);
+
         #endregion
 
         private void Init()
@@ -603,6 +605,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
+        private void CheckWebbrowserUrl(string strUrl)
+        {
+            if (!PSettings.PreferenceAll.Global.ApplicationShowWebContent || strUrl == null || strUrl.Length <= 0)
+                return;
+
+            if (InvokeRequired)
+            {
+                BeginInvoke(new CheckWebbrowserUrlDelegate(CheckWebbrowserUrl), new object[] {strUrl});
+                return;
+            }
+
+            var req = (HttpWebRequest)WebRequest.Create(strUrl);
+            var res = (HttpWebResponse)req.GetResponse();
+
+            if (res.StatusCode == HttpStatusCode.OK)
+            {
+                wbNews.Url = new Uri(strUrl);
+                wbNews.Visible = true;
+            }
+
+        }
+
         private void ShowAvailableUpdates()
         {
             if (InvokeRequired)
@@ -705,6 +729,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.PreferenceAll.Global.DrawOnlyInForeground = o.Checked;
         }
 
+        private void aChBxShowWebContent_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.Global.ApplicationShowWebContent = o.Checked;
+
+            if (o.Checked)
+                CheckWebbrowserUrl(_ucDownloadManager.ApplicationChangesUrl);
+
+            else
+            {
+                wbNews.Visible = false;
+                wbNews.Url = null;
+            }
+        }
+
         private void btnRestoreSettings_Click(object sender, EventArgs e)
         {
             var result = new AnotherMessageBox().Show(_lstrApplicationRestoreSettingsText.Text, _lstrApplicationRestoreSettingsHeader.Text, MessageBoxButtons.YesNo
@@ -757,8 +795,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             if (dm.BUpdatesAvailable == UpdateState.Available)
             {
-                ShowAvailableUpdates();   
+                ShowAvailableUpdates();
             }
+
+            CheckWebbrowserUrl(dm.ApplicationChangesUrl);
 
             
             
@@ -2930,6 +2970,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ntxtGraphicsRefresh.Number = PSettings.PreferenceAll.Global.DrawingRefresh;
             ktxtReposition.Text = PSettings.PreferenceAll.Global.ChangeSizeAndPosition.ToString();
             aChBxOnlyDrawInForeground.Checked = PSettings.PreferenceAll.Global.DrawOnlyInForeground;
+            aChBxShowWebContent.Checked = PSettings.PreferenceAll.Global.ApplicationShowWebContent;
 
             InitializeLanguageFiles();
             InitializeResources();
@@ -3305,5 +3346,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #endregion
+
+        
     } 
 }
