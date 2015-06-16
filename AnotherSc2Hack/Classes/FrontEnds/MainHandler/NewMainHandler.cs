@@ -43,8 +43,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private string _strUpdateFiles = String.Empty;
         private bool _bLaunchDownloadManager;
 
-        private Boolean _bProcessSet;
-
         #region LanguageString
 
         private readonly LanguageString _lstrChCreditsContributer = new LanguageString("lstrChCreditsContributer", "Contributor");
@@ -64,6 +62,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly LanguageString _lstrCreditsReasonD3Scene = new LanguageString("lstrCreditsReasonD3Scene", "Good environment with a lot helpful people");
         private readonly LanguageString _lstrCreditsReasonVariousPeople = new LanguageString("lstrCreditsReasonVariousPeople", "...that gave ideas, suggestions and critism - thank you!");
         private readonly LanguageString _lstrCreditsReasonDonators = new LanguageString("lstrCreditsReasonDonators", "Because you people make me buy some candy :3");
+        private readonly LanguageString _lstrCreditsTranslators = new LanguageString("lstrCreditsTranslators", "kk321010 (Chinese), ironer1 (Korean)");
 
         private readonly LanguageString _lstrApplicationRestoreSettingsText = new LanguageString("lstrApplicationRestoreSettingsText", "Do you really want to reset your settings?");
         private readonly LanguageString _lstrApplicationRestoreSettingsHeader = new LanguageString("lstrApplicationRestoreSettingsHeader", "Are you sure?");
@@ -757,11 +756,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private void NewMainHandler_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (_bLaunchDownloadManager)
-                Process.Start(Constants.StrDownloadManager);
-        }
+        
 
         private void NewMainHandler_Load(object sender, EventArgs e)
         {
@@ -2259,7 +2254,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     Path.Combine(Application.StartupPath, Constants.StrPluginFolder, strLocalPath));*/
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Couldn't install Plugin!", "Something went wrong!");
             }
@@ -2413,7 +2408,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 }
             }
 
-            catch (AppDomainUnloadedException un)
+            catch (AppDomainUnloadedException)
             {
                 MessageBox.Show("I am sorry you read this!\n\nCouldn't uninstall plugin.\nRemove by hand!");
             }
@@ -2909,6 +2904,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             var dict = new Dictionary<string, string>();
 
+            dict.Add("D3Scene", _lstrCreditsReasonD3Scene.Text);
+            dict.Add("Translators", _lstrCreditsTranslators.Text);
+            dict.Add("Donators", _lstrCreditsReasonDonators.Text);
             dict.Add("RHCP (D3Scene)", _lstrCreditsReasonRhcp.Text);
             dict.Add("Beaving (D3Scene)", _lstrCreditsReasonBeaving.Text);
             dict.Add("Mr Nukealizer (D3Scene)", _lstrCreditsReasonMrnukealizer.Text);
@@ -2916,9 +2914,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             dict.Add("mischa (D3Scene)", _lstrCreditsReasonMischa.Text);
             dict.Add("mr_ice (D3Scene)", _lstrCreditsReasonMrice.Text);
             dict.Add("Tracky (D3Scene)", _lstrCreditsReasonTracky.Text);
-            dict.Add("D3Scene", _lstrCreditsReasonD3Scene.Text);
             dict.Add("Various people", _lstrCreditsReasonVariousPeople.Text);
-            dict.Add("Donators", _lstrCreditsReasonDonators.Text);
+            
 
 
             foreach (KeyValuePair<string, string> keyValuePair in dict)
@@ -3301,7 +3298,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void NewMainHandler_FormClosing(object sender, FormClosingEventArgs e)
         {
-            PSettings.Write();
+            if (!PSettings.Write())
+            {
+                e.Cancel = true;
+                return;
+            }
 
             foreach (var plugin in _lPlugins)
             {
@@ -3315,6 +3316,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             _tmrMainTick.Enabled = false;
             Gameinfo.HandleThread(false);
+        }
+
+        private void NewMainHandler_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (_bLaunchDownloadManager)
+                Process.Start(Constants.StrDownloadManager);
         }
 
         void _wcMainWebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
@@ -3346,7 +3353,5 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #endregion
-
-        
     } 
 }

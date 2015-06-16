@@ -621,7 +621,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 // Pattern was not found.
                 return 0;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return 0;
             }

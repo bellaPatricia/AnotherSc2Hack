@@ -302,7 +302,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

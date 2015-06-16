@@ -1,5 +1,10 @@
-* {
+﻿* {
 	font-family: Segoe UI, Calibri, Verdana, Arial, sans-serif;
+}
+
+h2 {
+	color: #424f5a;
+	font-size: 32px;
 }
 
 h3 {

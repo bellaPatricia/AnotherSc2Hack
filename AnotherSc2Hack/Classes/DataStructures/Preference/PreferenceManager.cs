@@ -1,5 +1,5 @@
-﻿using System.IO;
-using System.Runtime.InteropServices;
+﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using AnotherSc2Hack.Classes.BackEnds;
@@ -11,6 +11,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
     {
         private readonly LanguageString _lstrContributionTitle = new LanguageString("lstrContributionTitle", "Contribution");
         private readonly LanguageString _lstrContributionText = new LanguageString("lstrContributionText", "Looks like you've been using this tool\nfor quite a while. If you like it you can\ncontribute to the project by translations,\ndonations or bug reports.\n\nDo you want to contribute?");
+        private readonly LanguageString _lstrWriteErrorTitle = new LanguageString("lstrWriteErrorTitle", "Write error");
+        private readonly LanguageString _lstrWriteErrorText = new LanguageString("lstrWriteErrorText", "Couldn't write the settings properly.\nPlease try again!");
 
         public PreferenceAll PreferenceAll { get; private set; }
         private readonly XmlSerializer _xmlSerializer;
@@ -34,14 +36,33 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             PreferenceAll = (PreferenceAll)_xmlSerializer.Deserialize(new StreamReader(Constants.StrXmlPreferences));
         }
 
-        public void Write()
+        public bool Write()
         {
             PreferenceAll.Global.ApplicationCallCounter += 1;
 
-            _xmlSerializer.Serialize(new StreamWriter(Constants.StrXmlPreferences), PreferenceAll);
+            try
+            {
+                _xmlSerializer.Serialize(new StreamWriter(Constants.StrXmlPreferences), PreferenceAll);
+            }
 
+            catch (IOException)
+            {
+                //Get's called when two instances close at once
+                new AnotherMessageBox().Show(_lstrWriteErrorText.Text, _lstrWriteErrorTitle.Text);
+                return false;
+            }
+
+            catch (Exception ex)
+            {
+                //This shouldn't happen
+                throw ex;
+            }
+
+            //Remove legacy settings
             if (File.Exists(Constants.StrDummyPref))
                 File.Delete(Constants.StrDummyPref);
+
+            return true;
         }
 
         public void Restore()

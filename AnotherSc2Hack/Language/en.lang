@@ -1,4 +1,4 @@
-﻿;1.0.0.0
+﻿;1.0.1.0
 ;Translate file for the English Language
 ;Created by bellaPatricia
 ;Language Name (natively written)
@@ -45,6 +45,7 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Read Memo
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Restore Settings
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Restore Panelposition and -Size
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Only draw when SCII is in foreground
+NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: Show Web Content
 lstrApplicationRestoreSettingsText: Do you really want to reset your settings?
 lstrApplicationRestoreSettingsHeader: Are you sure?
 lstrApplicationRestorePanelPositionText: Panel's size and position\nwere adjusted successfully!
@@ -53,6 +54,8 @@ lstrApplicationDoYouWishToUpdate: Do you wish to update?
 lstrApplicationUpdateTitle: Updates available!
 lstrContributionTitle: Contribution
 lstrContributionText: Looks like you've been using this tool\nfor quite a while. If you like it you can\ncontribute to the project by translations,\ndonations or bug reports.\n\nDo you want to contribute?
+lstrWriteErrorTitle: Write error
+lstrWriteErrorText: Couldn't write the settings properly.\nPlease try again!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterations / sec.

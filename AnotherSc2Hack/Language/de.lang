@@ -1,4 +1,4 @@
-﻿;1.0.0.0
+﻿;1.0.1.0
 ;Translate file for the German Language
 ;Created by bellaPatricia
 ;Language Name (natively written)
@@ -45,6 +45,7 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Speicher 
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Einstellungen zurücksetzen
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Panelposition und -größe zurücksetzen
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Nur zeichnen, wenn SCII im Vordergrund
+NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: Zeige Webinhalt
 lstrApplicationRestoreSettingsText: Möchtest Du wirklich Deine Einstellungen zurück setzen?
 lstrApplicationRestoreSettingsHeader: Bist Du sicher?
 lstrApplicationRestorePanelPositionText: Größe und Position der Panels\nwurden erfolgreich angepasst!
@@ -53,6 +54,8 @@ lstrApplicationDoYouWishToUpdate: Möchten Sie wirklich updaten?
 lstrApplicationUpdateTitle: Updates verfügbar!
 lstrContributionTitle: Mitwirken
 lstrContributionText: Es sieht so aus, als würdest Du dieses Tool\nschon länger benutzen. Wenn Du einen\nBeitrag lesten möchtest, kannst Du mit\nÜbersetzungen, Spenden oder Bug Reports helfen.\n\nMöchtest Du mitwirken?
+lstrWriteErrorTitle: Schreibfehler
+lstrWriteErrorText: Konnte Einstellungen nicht abspeichern. Bittes versuche es erneut!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterationen / sek.
