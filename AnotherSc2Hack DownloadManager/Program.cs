@@ -38,9 +38,23 @@ namespace AnotherSc2Hack_DownloadManager
             dm.LaunchApplication();
         }
 
+        private static string _strLastFilename = String.Empty;
+        private static int _iConsoleLine = 0;
         static void dm_DownloadManagerProgressChanged(object sender, DownloadManagerProgressChangedEventArgs e)
         {
-            Console.WriteLine("{0}: {1}%", e.FileName, e.PercentageCompleted);
+            if (_strLastFilename == e.FileName)
+                Console.SetCursorPosition(0, _iConsoleLine);
+
+            else
+            {
+                if (_strLastFilename.Length > 0)
+                {
+                    _iConsoleLine += 1;
+                }
+            }
+
+            Console.Write("\n{0}: {1}%", e.FileName, e.PercentageCompleted);
+            _strLastFilename = e.FileName;
         }
 
         private static void dm_CheckComplete(object sender, EventArgs eventArgs)
@@ -52,12 +66,13 @@ namespace AnotherSc2Hack_DownloadManager
 
             if (dm.BUpdatesAvailable == UpdateState.Available)
             {
-                Console.WriteLine("- Updates will be installed now -");
+                Console.Write("\n- Updates will be installed now -");
+                _iConsoleLine = Console.CursorTop;
                 dm.InstallApplicationUpdates();
                 dm.InstallPluginUpdates();
             }
 
-            Console.WriteLine("Press any key to exit and launch AnotherSc2Hack!");
+            Console.Write("\nPress any key to exit and launch AnotherSc2Hack!");
             
         }
 
