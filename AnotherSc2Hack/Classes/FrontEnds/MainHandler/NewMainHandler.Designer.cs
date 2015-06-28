@@ -68,6 +68,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.btnLaunchMaphack = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
             this.btnLaunchApm = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
             this.lblTabname = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
+            this.btnAdjustPanels = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
             this.aChBxShowWebContent = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherCheckbox();
             this.lblApplicationGlobalSettings = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
             this.lblApplicationMemoryReading = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
@@ -434,6 +435,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             // 
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.panel1.Controls.Add(this.btnAdjustPanels);
             this.panel1.Controls.Add(this.aChBxShowWebContent);
             this.panel1.Controls.Add(this.lblApplicationGlobalSettings);
             this.panel1.Controls.Add(this.lblApplicationMemoryReading);
@@ -449,7 +451,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(15);
-            this.panel1.Size = new System.Drawing.Size(320, 279);
+            this.panel1.Size = new System.Drawing.Size(320, 315);
             this.panel1.TabIndex = 13;
             // 
             // chBxLanguage
@@ -752,6 +754,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.lblTabname.Size = new System.Drawing.Size(118, 30);
             this.lblTabname.TabIndex = 1;
             this.lblTabname.Text = "Application";
+            // 
+            // btnAdjustPanels
+            // 
+            this.btnAdjustPanels.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdjustPanels.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnAdjustPanels.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnAdjustPanels.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdjustPanels.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdjustPanels.ForeColor = System.Drawing.Color.Red;
+            this.btnAdjustPanels.LanguageFile = "";
+            this.btnAdjustPanels.Location = new System.Drawing.Point(19, 268);
+            this.btnAdjustPanels.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAdjustPanels.Name = "btnAdjustPanels";
+            this.btnAdjustPanels.Size = new System.Drawing.Size(284, 32);
+            this.btnAdjustPanels.TabIndex = 13;
+            this.btnAdjustPanels.Text = "Adjust Panels";
+            this.btnAdjustPanels.UseVisualStyleBackColor = false;
+            this.btnAdjustPanels.Click += new System.EventHandler(this.btnAdjustPanels_Click);
             // 
             // aChBxShowWebContent
             // 
@@ -2631,6 +2652,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.WebBrowser wbNews;
         private AnotherCheckbox aChBxShowWebContent;
+        private LanguageButton btnAdjustPanels;
 
     }
 }

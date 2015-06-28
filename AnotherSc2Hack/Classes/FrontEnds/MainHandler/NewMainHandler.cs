@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,6 +43,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly DownloadManager _ucDownloadManager = new DownloadManager();
         private string _strUpdateFiles = String.Empty;
         private bool _bLaunchDownloadManager;
+        private bool _bAdjustPanels;
 
         #region LanguageString
 
@@ -244,6 +246,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             LaunchOnStartup();
 
             CenterToScreen();
+
+            //ts.Show();
         }
 
       
@@ -3001,7 +3005,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     var strLanguageName = String.Empty;
                     var strLanguageFile = String.Empty;
 
-                    var strSource = File.ReadAllLines(file);
+                    var strSource = File.ReadAllLines(file, Encoding.UTF8);
                     foreach (var strLine in strSource)
                     {
                         if (strLine.StartsWith("LanguageName:"))
@@ -3353,5 +3357,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #endregion
+
+        private void btnAdjustPanels_Click(object sender, EventArgs e)
+        {
+            _bAdjustPanels ^= true;
+
+            btnAdjustPanels.ForeColor = _bAdjustPanels ? Color.ForestGreen : Color.Red;
+            TogglePanelBorders();
+        }
+
+        private void TogglePanelBorders()
+        {
+            foreach (var renderer in _lContainer)
+            {
+                renderer.FormBorderStyle = _bAdjustPanels ? FormBorderStyle.Sizable : FormBorderStyle.None;
+            }
+        }
     } 
 }
