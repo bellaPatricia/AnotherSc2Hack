@@ -244,10 +244,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             
             LoadContributers();
             LaunchOnStartup();
-
-            CenterToScreen();
-
-            //ts.Show();
         }
 
       
@@ -266,9 +262,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             PSettings = new PreferenceManager();
 
-            
-
-            cpnlApplication.PerformClick();
+            //Find clickable Panel and perform click
+            ClickablePanel.Instances.Find(x => x.Name == PSettings.PreferenceAll.Global.ApplicationLastOpenedPanel).PerformClick();
             cpnlOverlaysResources.PerformClick();
 
             _tmrMainTick.Interval = PSettings.PreferenceAll.Global.DataRefresh;
@@ -537,6 +532,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var panel = sender as ClickablePanel;
             if (panel != null)
             {
+                PSettings.PreferenceAll.Global.ApplicationLastOpenedPanel = panel.Name;
                 lblTabname.Text = panel.DisplayText;
 
                 if (panel.SettingsPanel != null)
@@ -652,6 +648,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         }
 
         #region Event methods
+
+        private void btnAdjustPanels_Click(object sender, EventArgs e)
+        {
+            _bAdjustPanels ^= true;
+
+            btnAdjustPanels.ForeColor = _bAdjustPanels ? Color.ForestGreen : Color.Red;
+            TogglePanelBorders();
+        }
 
         private void ntxtMemoryRefresh_NumberChanged(object sender, NumberArgs e)
         {
@@ -2748,10 +2752,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /// <param name="e"></param>
         private void renderer_IterationPerSecondChanged(object sender, NumberArgs e)
         {
+            var fExpectedIterations = (float)1000/PSettings.PreferenceAll.Global.DrawingRefresh;
+            var fPercentageReached = (e.Number/fExpectedIterations) * 100;
+            var clForeground = Color.Black;
+            if (fPercentageReached > 80)
+                clForeground = Color.ForestGreen;
+
+            else if (fPercentageReached > 50)
+                clForeground = Color.DarkOrange;
+
+            else
+                clForeground = Color.Red;
+
             var resourcesRenderer = sender as ResourcesRenderer;
             if (resourcesRenderer != null)
             {
                 ntxtBenchmarkResourceIterations.Number = e.Number;
+                ntxtBenchmarkResourceIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2759,6 +2776,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (incomeRenderer != null)
             {
                 ntxtBenchmarkIncomeIterations.Number = e.Number;
+                ntxtBenchmarkIncomeIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2766,6 +2784,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (workerRenderer != null)
             {
                 ntxtBenchmarkWorkerIterations.Number = e.Number;
+                ntxtBenchmarkWorkerIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2773,6 +2792,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (armyRenderer != null)
             {
                 ntxtBenchmarkArmyIterations.Number = e.Number;
+                ntxtBenchmarkArmyIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2780,6 +2800,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (apmRenderer != null)
             {
                 ntxtBenchmarkApmIterations.Number = e.Number;
+                ntxtBenchmarkApmIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2787,6 +2808,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (unitRenderer != null)
             {
                 ntxtBenchmarkUnitTabIterations.Number = e.Number;
+                ntxtBenchmarkUnitTabIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2794,6 +2816,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (productionRenderer != null)
             {
                 ntxtBenchmarkProductionTabIterations.Number = e.Number;
+                ntxtBenchmarkProductionTabIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2801,6 +2824,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (maphackRenderer != null)
             {
                 ntxtBenchmarkMaphackIterations.Number = e.Number;
+                ntxtBenchmarkMaphackIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2972,6 +2996,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ktxtReposition.Text = PSettings.PreferenceAll.Global.ChangeSizeAndPosition.ToString();
             aChBxOnlyDrawInForeground.Checked = PSettings.PreferenceAll.Global.DrawOnlyInForeground;
             aChBxShowWebContent.Checked = PSettings.PreferenceAll.Global.ApplicationShowWebContent;
+
+            if (!PSettings.PreferenceAll.Global.ApplicationSize.Equals(new Size(0, 0)))
+                Size = PSettings.PreferenceAll.Global.ApplicationSize;
+
+            else
+                Size = new Size(1196, 630);
+
+            if (!PSettings.PreferenceAll.Global.ApplicationLocation.Equals(new Point(0, 0)))
+                Location = PSettings.PreferenceAll.Global.ApplicationLocation;
+
+            else 
+                CenterToScreen();
 
             InitializeLanguageFiles();
             InitializeResources();
@@ -3280,6 +3316,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PluginDataRefresh();
         }
 
+        private void NewMainHandler_LocationChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.Global.ApplicationLocation = Location;
+        }
+
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(200, 200, 200))), new Point(15, 60),
@@ -3289,6 +3330,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void NewMainHandler_Resize(object sender, EventArgs e)
         {
             pnlMainArea.Invalidate();
+            PSettings.PreferenceAll.Global.ApplicationSize = Size;
         }
 
         //Draw a new border on the top and bottom of the panel
@@ -3348,7 +3390,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         void Gameinfo_IterationPerSecondChanged(object sender, NumberArgs e)
         {
+            var fExpectedIterations = (float)1000 / PSettings.PreferenceAll.Global.DrawingRefresh;
+            var fPercentageReached = (e.Number / fExpectedIterations) * 100;
+            var clForeground = Color.Black;
+            if (fPercentageReached > 80)
+                clForeground = Color.ForestGreen;
+
+            else if (fPercentageReached > 50)
+                clForeground = Color.DarkOrange;
+
+            else
+                clForeground = Color.Red;
+
+
             ntxtBenchmarkDataIterations.Number = e.Number;
+            ntxtBenchmarkDataIterations.ForeColor = clForeground;
         }
 
         void Gameinfo_ProcessFound(object sender, ProcessFoundArgs e)
@@ -3358,13 +3414,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
-        private void btnAdjustPanels_Click(object sender, EventArgs e)
-        {
-            _bAdjustPanels ^= true;
+        
 
-            btnAdjustPanels.ForeColor = _bAdjustPanels ? Color.ForestGreen : Color.Red;
-            TogglePanelBorders();
-        }
+        
 
         private void TogglePanelBorders()
         {
@@ -3373,5 +3425,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 renderer.FormBorderStyle = _bAdjustPanels ? FormBorderStyle.Sizable : FormBorderStyle.None;
             }
         }
+
+        
     } 
 }
