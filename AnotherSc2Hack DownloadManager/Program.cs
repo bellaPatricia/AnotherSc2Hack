@@ -16,6 +16,8 @@
 
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 using UpdateChecker;
 using Utilities.Events;
 
@@ -38,23 +40,55 @@ namespace AnotherSc2Hack_DownloadManager
             dm.LaunchApplication();
         }
 
-        private static string _strLastFilename = String.Empty;
-        private static int _iConsoleLine = 0;
+        private static int _iConsoleCursorTop = 0;
+        private static readonly Dictionary<String, int> _dFilenames = new Dictionary<string, int>(); 
+
         static void dm_DownloadManagerProgressChanged(object sender, DownloadManagerProgressChangedEventArgs e)
         {
-            if (_strLastFilename == e.FileName)
-                Console.SetCursorPosition(0, _iConsoleLine);
+            if (!_dFilenames.ContainsKey(e.FileName))
+                //The directory doesn't seem to be threadsafe.
+                //So we'll just put it into the try-catch and ignore the exception
+                try
+                {
+                    _dFilenames.Add(e.FileName, e.PercentageCompleted);
+                }
+                catch (ArgumentException)
+                {
+                    //Ignore - Will say there's a key already available
+                }
 
             else
+                _dFilenames[e.FileName] = e.PercentageCompleted;
+
+            DrawConsoleOutput();   
+        }
+
+        private static void DrawConsoleOutput()
+        {
+            //The directory doesn't seem to be threadsafe.
+            //So we'll just put it into the try-catch and ignore the exception
+            Dictionary<string, int> localDict = null;
+            try
             {
-                if (_strLastFilename.Length > 0)
-                {
-                    _iConsoleLine += 1;
-                }
+                localDict = new Dictionary<string, int>(_dFilenames);
             }
 
-            Console.Write("\n{0}: {1}%", e.FileName, e.PercentageCompleted);
-            _strLastFilename = e.FileName;
+            catch (ArgumentException)
+            {
+                //Ignore - Will say there's a key already available
+            }
+
+            if (localDict == null)
+                return;
+
+            var iIndex = 0;            
+            foreach (var localDic in localDict)
+            {
+                Console.SetCursorPosition(0, _iConsoleCursorTop + iIndex);
+                Console.Write("\n{0}: {1} %\0", localDic.Key, localDic.Value);
+
+                iIndex += 1;
+            }            
         }
 
         private static void dm_CheckComplete(object sender, EventArgs eventArgs)
@@ -67,7 +101,7 @@ namespace AnotherSc2Hack_DownloadManager
             if (dm.BUpdatesAvailable == UpdateState.Available)
             {
                 Console.Write("\n- Updates will be installed now -");
-                _iConsoleLine = Console.CursorTop;
+                _iConsoleCursorTop = Console.CursorTop;
                 dm.InstallApplicationUpdates();
                 dm.InstallPluginUpdates();
             }

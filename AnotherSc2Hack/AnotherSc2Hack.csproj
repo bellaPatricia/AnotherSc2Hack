@@ -1011,6 +1011,7 @@
     <None Include="Resources\pup_chrono.png" />
     <None Include="Resources\Icon_Kerrigan.png" />
     <None Include="Resources\Icon_Kerrigan.ico" />
+    <None Include="Resources\ReadOnly.png" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />
