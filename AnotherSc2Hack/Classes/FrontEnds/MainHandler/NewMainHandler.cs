@@ -21,6 +21,7 @@ using PluginInterface;
 using PredefinedTypes;
 using UpdateChecker;
 using Utilities.Events;
+using Utilities.Logger;
 using Utilities.VariousClasses.Hashes;
 using Timer = System.Windows.Forms.Timer;
 
@@ -3424,6 +3425,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             {
                 renderer.FormBorderStyle = _bAdjustPanels ? FormBorderStyle.Sizable : FormBorderStyle.None;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Logger.Emit("Cool Test title", new Exception("kek"));
         }
 
         

@@ -38,6 +38,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateChecker", "UpdateChec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_TestSlave", "_TestSlave\_TestSlave.csproj", "{065C489F-FEC2-4053-A2B9-B8F6BC6ECA59}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +77,10 @@ Global
 		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{065C489F-FEC2-4053-A2B9-B8F6BC6ECA59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{065C489F-FEC2-4053-A2B9-B8F6BC6ECA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{065C489F-FEC2-4053-A2B9-B8F6BC6ECA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{065C489F-FEC2-4053-A2B9-B8F6BC6ECA59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
