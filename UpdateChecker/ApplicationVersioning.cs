@@ -53,8 +53,21 @@ namespace UpdateChecker
                 strSource = wc.DownloadString(strApplicationUrl);
             }
 
-            catch
+            catch (ArgumentException ex)
             {
+                Console.WriteLine(ex);
+                return;
+            }
+
+            catch (WebException ex)
+            {
+                Console.WriteLine(ex);
+                return;
+            }
+
+            catch (NotSupportedException ex)
+            {
+                Console.WriteLine(ex);
                 return;
             }
 

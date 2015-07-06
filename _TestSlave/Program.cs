@@ -12,21 +12,11 @@ namespace _TestSlave
     {
         static void Main(string[] args)
         {
-            var strline = Console.ReadLine();
+            Logger.LogFile = "file.dump";
+            Logger.LogToFile = true;
 
-            try
-            {
-                var iNumber = int.Parse(strline);
-
-                var result = 55/iNumber;
-
-                Console.WriteLine("Result: {0}", result);
-            }
-
-            catch (Exception ex)
-            {
-                Logger.Emit(ex);
-            }
+            for (var i = 0; i < 100000; i++)
+                Logger.Emit(new LogMessage("TestTitle", new Exception("kek")));
 
 
         }

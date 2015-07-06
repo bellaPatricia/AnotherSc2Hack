@@ -18,6 +18,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Mime;
 using UpdateChecker;
 using Utilities.Events;
 
@@ -28,6 +29,8 @@ namespace AnotherSc2Hack_DownloadManager
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to {0}. Downloading process will start shortly. Hang in tight!", System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
+
             var dm = new DownloadManager();
             dm.UpdateAvailable += dm_UpdateAvailable;
             dm.NoUpdateAvailable += dm_NoUpdateAvailable;

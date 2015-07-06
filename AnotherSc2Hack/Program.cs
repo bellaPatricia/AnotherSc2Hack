@@ -4,6 +4,7 @@ using AnotherSc2Hack.Classes.FrontEnds;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+using Utilities.Logger;
 
 namespace AnotherSc2Hack
 {
@@ -15,6 +16,9 @@ namespace AnotherSc2Hack
         [STAThread]
         static void Main(string[] args)
         {
+            Logger.LogFile = Constants.StrLogFile;
+            Logger.LogToFile = true;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MaphackFilter());

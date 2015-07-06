@@ -7,6 +7,7 @@ using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using PredefinedTypes;
 using Utilities.ExtensionMethods;
+using Utilities.Logger;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -196,7 +197,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             catch (Exception ex)
             {
-                Messages.LogFile("Over all", ex);
+                Logger.Emit(ex);
             }
 
         }
