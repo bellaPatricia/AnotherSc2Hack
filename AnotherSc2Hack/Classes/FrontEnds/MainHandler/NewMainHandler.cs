@@ -2871,6 +2871,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
         }
+
+        private void aChBxVariousShowAlerts_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayAlert.ShowAlert = e.Value;
+        }
+
+        private void aChBxVariousAlertSoundNotification_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayAlert.SoundNotification = e.Value;
+        }
+
+        private void ntxtVariousAlertShowDuration_NumberChanged(object sender, NumberArgs e)
+        {
+            PSettings.PreferenceAll.OverlayAlert.Time = e.Number;
+        }
   
 
         #endregion
@@ -3279,6 +3294,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             aChBxVariousWorkerCoach.Checked = PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach;
             ntxtVariousWorkerCoachDisableAfter.Number = PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter;
+
+            aChBxVariousShowAlerts.Checked = PSettings.PreferenceAll.OverlayAlert.ShowAlert;
+            aChBxVariousAlertSoundNotification.Checked = PSettings.PreferenceAll.OverlayAlert.SoundNotification;
+            ntxtVariousAlertShowDuration.Number = PSettings.PreferenceAll.OverlayAlert.Time;
         }
 
         #endregion
@@ -3431,6 +3450,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             Logger.Emit("Cool Test title", new Exception("kek"));
         }
+
+        
 
         
     } 
