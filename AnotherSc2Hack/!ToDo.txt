@@ -7,6 +7,7 @@
 ################################
 # Those really should be added #
 ################################
+├ [OPEN]	Add alert (If a Dark Shrin is being built, show that building with a colored border)
 ├ [OPEN]	Add preview panels for the overlays. Additionally display the size and position
 ├ [OPEN]	Proxy for updates
 ├ [OPEN]	Proper Unitfilter to exclude a unit and unitgroups for maphack, production- and unittab

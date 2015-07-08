@@ -10,11 +10,28 @@ namespace Utilities.Logger
     {
         public static string LogFile { get; set; }
         public static bool LogToConsole { get; set; }
-        public static bool LogToFile { get; set; }
+
+        private static bool _logToFile = true;
+
+        public static bool LogToFile
+        {
+            get { return _logToFile; }
+            set { _logToFile = value; }
+        }
 
         private Logger()
         {
             
+        }
+
+        public static void Emit(string errorTitle, string error)
+        {
+            Emit(new LogMessage(errorTitle, new Exception(error)));
+        }
+
+        public static void Emit(string error)
+        {
+            Emit(new LogMessage(String.Empty, new Exception(error)));
         }
 
         public static void Emit(LogMessage message)
