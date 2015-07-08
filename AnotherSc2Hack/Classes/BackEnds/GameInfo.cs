@@ -1560,16 +1560,18 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 4 Bytes */
         private Int32 GetGTimer()
         {
-            //Console.WriteLine("Timer (RAW): " + Memory.ReadInt32(MyOffsets.TimerData));
-            return Memory.ReadInt32(MyOffsets.TimerData) >> 12;
-            //(BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.TimerData, sizeof (Int32)), 0) >> 12);
+            var iGameTimeRaw = Memory.ReadInt32(MyOffsets.TimerData);
+            var iGameTime = iGameTimeRaw >> 12;
+
+            //Console.WriteLine("Gametime Raw: {0}", iGameTimeRaw);
+            //Console.WriteLine("Gametime: {0}", iGameTime);
+
+            return iGameTime;
         }
 
         /* Gathered from Timerdata */
         private Boolean GetGIngame()
         {
-
-
             return (GetGTimer() != 0);
         }
 
