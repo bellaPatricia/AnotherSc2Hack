@@ -29,18 +29,28 @@ namespace Utilities.Logger
             Emit(new LogMessage(errorTitle, new Exception(error)));
         }
 
-        public static void Emit(string error)
+        public static void Emit(string error, ConsoleColor foregroundColor = ConsoleColor.Gray, ConsoleColor backgroundColor = ConsoleColor.Black)
         {
-            Emit(new LogMessage(String.Empty, new Exception(error)));
+            Emit(new LogMessage(error, foregroundColor, backgroundColor));
         }
 
         public static void Emit(LogMessage message)
         {
-            if (LogToConsole)
-                ToConsole(message);
+            if (message.Error == null)
+            {
+                if (ApplicationStartOptions.ApplicationStartOptions.Logging)
+                ToConsoleSimple(message);
+            }
 
-            if (LogToFile)
-                ToFile(message);
+            else
+            {
+
+                if (LogToConsole)
+                    ToConsole(message);
+
+                if (LogToFile)
+                    ToFile(message);
+            }
         }
 
         public static void Emit(string errorTitle, Exception error)
@@ -51,6 +61,13 @@ namespace Utilities.Logger
         public static void Emit(Exception error)
         {
             Emit(new LogMessage(String.Empty, error));
+        }
+
+        private static void ToConsoleSimple(LogMessage message)
+        {
+            Console.ForegroundColor = message.ConsoleForegroundColor;
+            Console.BackgroundColor = message.ConsoleBackgroundColor;
+            Console.WriteLine(message.ErrorTitle);
         }
 
         private static void ToConsole(LogMessage message)

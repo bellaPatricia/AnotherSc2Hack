@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationStartOptions\ApplicationStartOptions.cs" />
     <Compile Include="Events\DownloadManagerProgressChangedEventArgs.cs" />
     <Compile Include="Events\NumberArgs.cs" />
     <Compile Include="Events\ProcessFoundArgs.cs" />

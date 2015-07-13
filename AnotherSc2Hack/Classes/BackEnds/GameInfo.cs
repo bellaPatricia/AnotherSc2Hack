@@ -50,7 +50,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public readonly Memory Memory = new Memory();
         public event NewMatchHandler NewMatch;
         private readonly List<PlayerRace> _lRace = new List<PlayerRace>();
-        private ApplicationStartOptions _startOptions;
 
 
         public event NumberChangeHandler IterationPerSecondChanged;
@@ -258,16 +257,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
             Init();
             
             CSleepTime = 33;
-
-            HandleThread(true);
-        }
-
-        public GameInfo(Int32 cSleepTime, ApplicationStartOptions startOptions)
-        {
-            Init();
-
-            CSleepTime = cSleepTime;
-            _startOptions = startOptions;
 
             HandleThread(true);
         }

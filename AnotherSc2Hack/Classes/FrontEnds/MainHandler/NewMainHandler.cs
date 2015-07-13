@@ -213,15 +213,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
-        #region Other Properties
-
-        public ApplicationStartOptions ApplicationOptions { get; private set; }
-
-        #endregion
-
         #region Constructors
 
-        public NewMainHandler(ApplicationStartOptions app)
+        public NewMainHandler()
         {
             InitializeComponent();
 
@@ -235,10 +229,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             LanguageStringEventMapping();
             ControlsFill();
             
-            
-
-            ApplicationOptions = app;
-
             
 
             PluginsLocalLoadPlugins();
