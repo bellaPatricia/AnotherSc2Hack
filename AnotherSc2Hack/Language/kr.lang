@@ -1,4 +1,4 @@
-﻿;1.0.0.0
+﻿;1.0.1.0
 ;Translate file for the Korean Language
 ;Created by ironer1(ironer01@naver.com)
 ;Language Name (natively written)
@@ -45,6 +45,7 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: 메모리
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: 설정 초기화
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: 판넬 위치와 크기 초기화
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: 스타2 플레이중에만 핵 표시
+NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: 웹 내용 보이기
 lstrApplicationRestoreSettingsText: 설정을 초기화 하시겠습니까?
 lstrApplicationRestoreSettingsHeader: 확실하세요?
 lstrApplicationRestorePanelPositionText: 판넬의 위치와 크기가 성공적으로 초기화되었습니다.
@@ -53,6 +54,8 @@ lstrApplicationDoYouWishToUpdate: 당신은 업데이트 하시겠습니까?
 lstrApplicationUpdateTitle: 업데이트 가능합니다!
 lstrContributionTitle: 도와주세요!
 lstrContributionText: 이 스타2 툴을 사용하신지 꽤 되신것 같네요! \n 만약 영어나 컴퓨터에 뛰어나셔서\n오번역을 수정하시거나,\n버그 리포팅을(기부도 환영입니다!).\n\n도와주실수 있으세요?
+lstrWriteErrorTitle: 쓰기작업 실패
+lstrWriteErrorText: 설정 파일 작성에 실패하었습니다.\n다시 시도해 주세요!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: 맵핵 반복 / 초.

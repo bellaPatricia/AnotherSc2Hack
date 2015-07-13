@@ -1,4 +1,4 @@
-﻿;1.0.0.0
+﻿;1.0.1.0
 ;Translate file for the Traditional Chinese Language
 ;Created by kk321010
 ;Language Name (natively written)
@@ -45,6 +45,7 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: 讀取記
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: 恢復預設設定
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: 恢復面板位置與大小
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: 只有 SCII 在最前面才會顯示
+NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: 顯示web內容
 lstrApplicationRestoreSettingsText: 你真的想要重置你的設定嗎?
 lstrApplicationRestoreSettingsHeader: 你確定嗎?
 lstrApplicationRestorePanelPositionText: 你的面板尺寸與位置已調整成功!
@@ -53,6 +54,8 @@ lstrApplicationDoYouWishToUpdate: 難道你想更新？
 lstrApplicationUpdateTitle: 更新可用！
 lstrContributionTitle: 貢獻
 lstrContributionText: 看起來你使用這軟體\n有一段時間。如果你喜歡\n你可以透過翻譯\n捐贈或是回報bug。\n\n你想要 參與嗎?
+lstrWriteErrorTitle: 寫入錯誤
+lstrWriteErrorText: 無法寫入正確的設定。\n請重試!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack 刷新率 / sec.
