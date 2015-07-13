@@ -7,41 +7,78 @@ using System.Linq;
 using System.Text;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
+using PredefinedTypes;
 using Utilities.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     class AlertRenderer : BaseRenderer
     {
+        private List<List<Unit>> _lListedPlayerUnits = new List<List<Unit>>(); 
+ 
         public AlertRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
+            gInformation.NewMatch += gInformation_NewMatch;
+        }
 
+        void gInformation_NewMatch(object sender, EventArgs e)
+        {
+            _lListedPlayerUnits.Clear();
         }
 
         protected override void Draw(BufferedGraphics g)
         {
+            if (GInformation == null)
+                return;
+
+            if (GInformation.Gameinfo == null)
+                return;
+
             if (!GInformation.Gameinfo.IsIngame)
                 return;
 
-            var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
-
-            if (iValidPlayerCount == 0)
+            if (PSettings.PreferenceAll.OverlayAlert.UnitIds.Count <= 0)
                 return;
 
             if (GInformation.Player.Count <= 0)
                 return;
 
-            if (PredefinedTypes.Player.LocalPlayer == null)
+            if (GInformation.Unit.Count <= 0)
                 return;
 
-            var iSingleHeight = Height;
-            var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
+            for (int index = 0; index < GInformation.Player.Count; index++)
+            {
+                if (_lListedPlayerUnits.Count <= index)
+                    _lListedPlayerUnits.Add(new List<Unit>());
+
+                var player = GInformation.Player[index];
+                if (player == Player.LocalPlayer)
+                    continue;
+
+                if (player.Team == Player.LocalPlayer.Team)
+                    continue;
+
+                if (player.Type != PlayerType.Ai &&
+                    player.Type != PlayerType.Human)
+                    continue;
+
+                foreach (var unitId in PSettings.PreferenceAll.OverlayAlert.UnitIds)
+                {
+                    if (_lListedPlayerUnits[index].FindIndex(x => x.Id == unitId) > -1)
+                        continue;
+                    
 
 
-           
+                    var unit = player.Units.Find(x => x.Id == (UnitId)unitId);
+                    if (unit == null)
+                        continue;
 
-            BackgroundImage = Properties.Resources.trans_tu_banshee;
+                    g.Graphics.DrawImage(Properties.Resources.trans_tu_banshee, 10, 10, ClientRectangle.Width - 20, ClientRectangle.Height - 20);
+                }
+            }       
+            
+            
         }
 
         protected override void LoadSpecificData()

@@ -294,6 +294,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _lContainer.Add(new PersonalApmRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new PersonalClockRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new WorkerCoachRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new AlertRenderer(Gameinfo, PSettings, PSc2Process));
 
             BaseRendererEventMapping();
 
@@ -2875,6 +2876,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void aChBxVariousShowAlerts_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
             PSettings.PreferenceAll.OverlayAlert.ShowAlert = e.Value;
+            LaunchRenderer(typeof(AlertRenderer));
         }
 
         private void aChBxVariousAlertSoundNotification_CheckedChanged(AnotherCheckbox o, EventChecked e)
@@ -3445,12 +3447,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 renderer.FormBorderStyle = _bAdjustPanels ? FormBorderStyle.Sizable : FormBorderStyle.None;
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Logger.Emit("Cool Test title", new Exception("kek"));
-        }
-
         
 
         

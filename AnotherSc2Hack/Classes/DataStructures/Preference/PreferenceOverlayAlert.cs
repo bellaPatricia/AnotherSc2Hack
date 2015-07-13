@@ -1,4 +1,7 @@
-﻿namespace AnotherSc2Hack.Classes.DataStructures.Preference
+﻿using System.Collections.Generic;
+using PredefinedTypes;
+
+namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
     public class PreferenceOverlayAlert : PreferenceBase
     {
@@ -12,6 +15,8 @@
             Time = 5;
             SoundNotification = true;
             ElementName = "ShowAlert";
+            UnitIds = new List<UnitId>();
+
         }
 
         public int X { get; set; }
@@ -21,5 +26,6 @@
         public bool ShowAlert { get; set; }
         public int Time { get; set; }
         public bool SoundNotification { get; set; }
+        public List<UnitId> UnitIds { get; set; }
     }
 }
