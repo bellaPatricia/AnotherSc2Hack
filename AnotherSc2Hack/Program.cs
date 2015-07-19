@@ -17,7 +17,7 @@ namespace AnotherSc2Hack
         static void Main(string[] args)
         {
             Logger.LogFile = Constants.StrLogFile;
-            Logger.LogToFile = true;
+            Logger.LogToConsole = true;
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
