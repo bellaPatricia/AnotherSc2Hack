@@ -15,7 +15,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             Time = 5;
             SoundNotification = true;
             ElementName = "ShowAlert";
-            UnitIds = new List<UnitId>();
+            UnitIds = new HashSet<UnitId>();
+            UnitIds.Add(UnitId.PuProbe);
 
         }
 
@@ -26,6 +27,6 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public bool ShowAlert { get; set; }
         public int Time { get; set; }
         public bool SoundNotification { get; set; }
-        public List<UnitId> UnitIds { get; set; }
+        public HashSet<UnitId> UnitIds { get; set; }
     }
 }
