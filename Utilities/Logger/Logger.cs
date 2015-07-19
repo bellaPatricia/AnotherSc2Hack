@@ -24,6 +24,11 @@ namespace Utilities.Logger
             
         }
 
+        public static void RawEmit(string message)
+        {
+            Console.WriteLine("{0} ({1})", message, DateTime.Now);
+        }
+
         public static void Emit(string errorTitle, string error)
         {
             Emit(new LogMessage(errorTitle, new Exception(error)));
