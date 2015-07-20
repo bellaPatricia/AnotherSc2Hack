@@ -716,10 +716,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnReposition_Click(object sender, EventArgs e)
         {
-            var tmpPreferences = PSettings;
-
-            HelpFunctions.InitResolution(ref tmpPreferences, _lstrApplicationRestorePanelPositionText.Text, _lstrApplicationRestorePanelPositionHeader.Text);
-            PSettings = tmpPreferences;
+            RestorePanelPositionAndSize();
         }
 
         private void chBxOnlyDrawInForeground_CheckedChanged(AnotherCheckbox o, EventChecked e)
@@ -751,6 +748,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (result == DialogResult.Yes)
             {
                 PSettings.Restore();
+                RestorePanelPositionAndSize();
                 ControlsFill();
             }
         }
@@ -3422,6 +3420,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Logger.Emit("Cool Test title", new Exception("kek"));
         }
 
+        private void RestorePanelPositionAndSize()
+        {
+            var tmpPreferences = PSettings;
+
+            HelpFunctions.InitResolution(ref tmpPreferences, _lstrApplicationRestorePanelPositionText.Text, _lstrApplicationRestorePanelPositionHeader.Text);
+            PSettings = tmpPreferences;
+
+            foreach (var renderer in _lContainer)
+            {
+                renderer.ReloadPreferencesIntoControls();
+            }
+        }
         
     } 
 }
