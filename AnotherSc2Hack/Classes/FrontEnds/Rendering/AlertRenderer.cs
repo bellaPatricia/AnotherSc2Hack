@@ -28,6 +28,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             gInformation.NewMatch += gInformation_NewMatch;
 
             FillDictionary();
+
+            
         }
 
         void gInformation_NewMatch(object sender, EventArgs e)
@@ -221,59 +223,59 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 var players = new List<PlayerStore>(_playerStores);
 
-                for (var index = 0; index < GInformation.Player.Count; index++)
+            for (var index = 0; index < GInformation.Player.Count; index++)
+            {
+                var player = GInformation.Player[index];
+                if (index >= players.Count)
                 {
-                    var player = GInformation.Player[index];
-                    if (index >= players.Count)
-                    {
-                        players.Add(new PlayerStore(player.Name));
-                        players[index].Color = player.Color;
-                    }
+                    players.Add(new PlayerStore(player.Name));
+                    players[index].Color = player.Color;
+                }
 
-                    #region Exceptions 
-                    
-                    if (player == Player.LocalPlayer)
+                #region Exceptions 
+
+                /*   if (player == Player.LocalPlayer)
                         continue;
 
                     if (player.Team == Player.LocalPlayer.Team)
-                        continue;
+                        continue;*/
 
-                    if (player.Type != PlayerType.Ai &&
-                        player.Type != PlayerType.Human)
-                        continue;
+                if (player.Type != PlayerType.Ai &&
+                    player.Type != PlayerType.Human)
+                    continue;
 
-                    #endregion
-
+                #endregion
+                
+                
+                var buildings = player.Units.FindAll(x => x.IsStructure);
+                foreach (var building in buildings)
+                {                    
                     foreach (var unitId in PSettings.PreferenceAll.OverlayAlert.UnitIds)
                     {
-                        DateTime initDate;
-
-                        try
+                        //Buildings
+                        if (building.Id == unitId)
                         {
-
-                            initDate = players[index].Units[unitId];
-
-                            
+                            if (!players[index].Units.ContainsKey(unitId))
+                                players[index].Units.Add(unitId, DateTime.Now);
                         }
 
-                        catch (KeyNotFoundException ex)
+                        //Units being produced
+                        var unitsInProduction = building.ProdUnitProductionId.FindAll(x => x == unitId);
+                        foreach (var unitInProduction in unitsInProduction)
                         {
-                            //Console.WriteLine(unitId);
-                            //var unit = player.Units.Find(x => x.Id == unitId);
-                            players[index].Units.Add(unitId, DateTime.Now);
-
-                        }
-
-                        catch (Exception ex)
-                        {
-                            //Console.WriteLine(ex);
-                            Logger.Emit("UnitWorker (Iterate Units of player)", ex);
+                            if (!players[index].Units.ContainsKey(unitInProduction))
+                                players[index].Units.Add(unitId, DateTime.Now);
                         }
                     }
 
+                    
                 }
 
-                _playerStores = players;
+                
+
+            }
+
+            _playerStores = players;
         }
 
         protected override void Draw(BufferedGraphics g)
@@ -284,8 +286,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             Console.WriteLine(_playerStores.Count);
 
-            var fPosX = fPenWidth;
-            var fPosY = fPenWidth;
+            var iPosX = (int)fPenWidth;
+            var iPosY = (int)fPenWidth;
 
             foreach (var playerStore in _playerStores)
             {
@@ -294,13 +296,62 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if ((DateTime.Now - playerUnit.Value).Seconds >= PSettings.PreferenceAll.OverlayAlert.Time)
                         continue;
 
+                    //var targetBrush = new SolidBrush(Color.FromArgb(255, playerStore.Color));
+                    var targetBrush = new HatchBrush(HatchStyle.ForwardDiagonal, playerStore.Color, Color.WhiteSmoke);
+                    var targetRectangle = new Rectangle(iPosX,
+                        iPosY,
+                        PSettings.PreferenceAll.OverlayAlert.IconWidth,
+                        PSettings.PreferenceAll.OverlayAlert.IconHeight);
+
+                    var cutRectangle = new Rectangle(iPosX - 5,
+                        iPosY - 5,
+                        PSettings.PreferenceAll.OverlayAlert.IconWidth + 10,
+                        PSettings.PreferenceAll.OverlayAlert.IconHeight + 10);
+
                     try
                     {
-                        g.Graphics.DrawImage(_dictionaryUnits[playerUnit.Key],
-                            fPosX,
-                            fPosY,
-                            PSettings.PreferenceAll.OverlayAlert.IconWidth,
-                            PSettings.PreferenceAll.OverlayAlert.IconHeight);
+                        g.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                        g.Graphics.CompositingQuality = CompositingQuality.HighQuality;
+                        g.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+
+                        g.Graphics.FillEllipse(targetBrush,
+                            (int) (iPosX - (fPenWidth/2)),
+                            (int) (iPosY - (fPenWidth/2)),
+                            (int) (PSettings.PreferenceAll.OverlayAlert.IconWidth + fPenWidth),
+                            (int) (PSettings.PreferenceAll.OverlayAlert.IconHeight + fPenWidth));
+
+                        using (var gfxPath = new GraphicsPath())
+                        {
+                            gfxPath.AddEllipse(targetRectangle);
+
+                            using (var region = new Region(targetRectangle))
+                            {
+                                region.Exclude(gfxPath);
+
+                                g.Graphics.ExcludeClip(region);
+
+                                g.Graphics.DrawImage(_dictionaryUnits[playerUnit.Key], targetRectangle);
+                            }
+                        }
+                        
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Logger.Emit(ex);
+                    }
+                    /*
+
+                    try
+                    {
+                        g.Graphics.FillEllipse(targetBrush,
+                            (int)(iPosX - (fPenWidth / 2)),
+                            (int)(iPosY - (fPenWidth / 2)),
+                            (int)(PSettings.PreferenceAll.OverlayAlert.IconWidth + fPenWidth),
+                            (int)(PSettings.PreferenceAll.OverlayAlert.IconHeight + fPenWidth));
+
+                        g.Graphics.DrawImageUnscaledAndClipped(_dictionaryUnits[playerUnit.Key], targetRectangle);
                     }
 
                     catch (KeyNotFoundException ex)
@@ -308,16 +359,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         Logger.Emit("Draw Alert", ex);
                     }
 
+                    */
+
+                    /*
                     g.Graphics.DrawRectangle(new Pen(playerStore.Color, fPenWidth), fPosX - (fPenWidth / 2), fPosY - (fPenWidth / 2),
                         PSettings.PreferenceAll.OverlayAlert.IconWidth + fPenWidth,
-                        PSettings.PreferenceAll.OverlayAlert.IconHeight + fPenWidth);
+                        PSettings.PreferenceAll.OverlayAlert.IconHeight + fPenWidth);*/
 
                     //Set position for the next panel
-                    fPosX += PSettings.PreferenceAll.OverlayAlert.IconWidth + (int)fPenWidth * 2;
+                    iPosX += PSettings.PreferenceAll.OverlayAlert.IconWidth + (int)fPenWidth * 2;
 
                     //Resize properly
-                    if (fPosX >= ClientSize.Width)
-                        ClientSize = new Size((int)fPosX - (int)(fPenWidth), (int)fPosY + PSettings.PreferenceAll.OverlayAlert.IconHeight + (int)fPenWidth * 2);
+                    if (iPosX >= ClientSize.Width)
+                        ClientSize = new Size((int)iPosX - (int)(fPenWidth), (int)iPosY + PSettings.PreferenceAll.OverlayAlert.IconHeight + (int)fPenWidth * 2);
                 }
             }
         }
@@ -365,14 +419,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         {
             if (e.Delta.Equals(120))
             {
-                Width += 1;
-                Height += 1;
+                PSettings.PreferenceAll.OverlayAlert.IconWidth += 1;
+                PSettings.PreferenceAll.OverlayAlert.IconHeight += 1;
             }
 
             else if (e.Delta.Equals(-120))
             {
-                Width -= 1;
-                Height -= 1;
+                PSettings.PreferenceAll.OverlayAlert.IconWidth -= 1;
+                PSettings.PreferenceAll.OverlayAlert.IconHeight -= 1;
             }
         }
     }
