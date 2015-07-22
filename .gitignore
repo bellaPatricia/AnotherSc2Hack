@@ -17,8 +17,6 @@ bin/
 
 ### VS crap
 *.pdb
-*.suo
 
 ### ReSharper settings
-*.user
 /AnotherSc2Hack/bin
