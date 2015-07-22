@@ -11,6 +11,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             Y = 50;
             Width = 200;
             Height = 200;
+            IconHeight = 50;
+            IconWidth = 50;
             ShowAlert = true;
             Time = 5;
             SoundNotification = true;
@@ -24,6 +26,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public int Y { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
+        public int IconWidth { get; set; }
+        public int IconHeight { get; set; }
         public bool ShowAlert { get; set; }
         public int Time { get; set; }
         public bool SoundNotification { get; set; }
