@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using PredefinedTypes;
@@ -29,7 +30,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             FillDictionary();
 
-            
+            ShowCalled += AlertRenderer_ShowCalled;
+            HideCalled += AlertRenderer_HideCalled;
+        }
+
+        private void AlertRenderer_HideCalled(object sender, EventArgs e)
+        {
+            _bWorkerState = false;
+        }
+
+        private void AlertRenderer_ShowCalled(object sender, EventArgs e)
+        {
+            _bWorkerState = true;
+
+            new Thread(UnitWorker)
+            {
+                Name = "AlertRenderer > UnitWorker"
+            }.Start();
         }
 
         void gInformation_NewMatch(object sender, EventArgs e)
@@ -48,8 +65,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             _dictionaryUnits.Add(UnitId.PbGateway, Properties.Resources.trans_pb_gateway);
             _dictionaryUnits.Add(UnitId.PbNexus, Properties.Resources.trans_pb_nexus);
             _dictionaryUnits.Add(UnitId.PbPylon, Properties.Resources.trans_pb_pylon);
-            _dictionaryUnits.Add(UnitId.PbRoboticsbay, Properties.Resources.trans_pb_roboticsbay);                  //ToDo: Check this!
-            _dictionaryUnits.Add(UnitId.PbRoboticssupportbay, Properties.Resources.trans_pb_roboticsfacility);
+            _dictionaryUnits.Add(UnitId.PbRoboticsbay, Properties.Resources.trans_pb_roboticsfacility);                  //ToDo: Check this!
+            _dictionaryUnits.Add(UnitId.PbRoboticssupportbay, Properties.Resources.trans_pb_roboticsbay);
             _dictionaryUnits.Add(UnitId.PbStargate, Properties.Resources.trans_pb_stargate);
             _dictionaryUnits.Add(UnitId.PbTemplararchives, Properties.Resources.trans_pb_templararchive);
             _dictionaryUnits.Add(UnitId.PbTwilightcouncil, Properties.Resources.trans_pb_twilightcouncil);
@@ -191,109 +208,247 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             _dictionaryUnits.Add(UnitId.ZuZergling, Properties.Resources.trans_zu_zergling);
             _dictionaryUnits.Add(UnitId.ZuZerglingBurrow, Properties.Resources.trans_zu_zergling);
 
+            _dictionaryUnits.Add(UnitId.TupBehemothReactor, Properties.Resources.trans_BehemothReactor);
+            _dictionaryUnits.Add(UnitId.TupBlueFlame, Properties.Resources.trans_Tup_BlueFlame);
+            _dictionaryUnits.Add(UnitId.TupCaduceusReactor, Properties.Resources.trans_Tup_CaduceusReactor);
+            _dictionaryUnits.Add(UnitId.TupCloakingField, Properties.Resources.trans_Tup_CloakingField);
+            _dictionaryUnits.Add(UnitId.TupCombatShields, Properties.Resources.trans_Tup_CombatShields);
+            _dictionaryUnits.Add(UnitId.TupConcussiveShells, Properties.Resources.trans_Tup_ConcussiveShells);
+            _dictionaryUnits.Add(UnitId.TupCorvidReactor, Properties.Resources.trans_Tup_CorvidReactor);
+            _dictionaryUnits.Add(UnitId.TupDrillingClaws, Properties.Resources.trans_Tup_DrillingClaws);
+            _dictionaryUnits.Add(UnitId.TupDurableMeterials, Properties.Resources.trans_Tup_DurableMaterials);
+            _dictionaryUnits.Add(UnitId.TupHighSecAutoTracking, Properties.Resources.trans_Tup_HighSecAutotracking);
+            _dictionaryUnits.Add(UnitId.TupInfantryArmor1, Properties.Resources.trans_Tup_InfantyArmor1);
+            _dictionaryUnits.Add(UnitId.TupInfantryArmor2, Properties.Resources.trans_Tup_InfantyArmor2);
+            _dictionaryUnits.Add(UnitId.TupInfantryArmor3, Properties.Resources.trans_Tup_InfantyArmor3);
+            _dictionaryUnits.Add(UnitId.TupInfantryWeapon1, Properties.Resources.trans_Tup_InfantyWeapon1);
+            _dictionaryUnits.Add(UnitId.TupInfantryWeapon2, Properties.Resources.trans_Tup_InfantyWeapon2);
+            _dictionaryUnits.Add(UnitId.TupInfantryWeapon3, Properties.Resources.trans_Tup_InfantyWeapon3);
+            _dictionaryUnits.Add(UnitId.TupMoebiusReactor, Properties.Resources.trans_Tup_MoebiusReactor);
+            _dictionaryUnits.Add(UnitId.TupNeosteelFrame, Properties.Resources.trans_Tup_NeosteelFrame);
+            _dictionaryUnits.Add(UnitId.TupPersonalCloak, Properties.Resources.trans_Tup_PersonalCloak);
+            _dictionaryUnits.Add(UnitId.TupShipWeapon1, Properties.Resources.trans_Tup_ShipWeapon1);
+            _dictionaryUnits.Add(UnitId.TupShipWeapon2, Properties.Resources.trans_Tup_ShipWeapon2);
+            _dictionaryUnits.Add(UnitId.TupShipWeapon3, Properties.Resources.trans_Tup_ShipWeapon3);
+            _dictionaryUnits.Add(UnitId.TupStim, Properties.Resources.trans_Tup_Stim);
+            _dictionaryUnits.Add(UnitId.TupStructureArmor, Properties.Resources.trans_Tup_StructureArmor);
+            _dictionaryUnits.Add(UnitId.TupTransformatorServos, Properties.Resources.trans_Tup_TransformationServos);
+            _dictionaryUnits.Add(UnitId.TupUpgradeToOrbital, Properties.Resources.trans_Tup_OrbitalCommand);
+            _dictionaryUnits.Add(UnitId.TupUpgradeToPlanetary, Properties.Resources.trans_Tup_PlanetaryFortress);
+            _dictionaryUnits.Add(UnitId.TupVehicleShipPlanting1, Properties.Resources.trans_Tup_VehicleShipPlanting1);
+            _dictionaryUnits.Add(UnitId.TupVehicleShipPlanting2, Properties.Resources.trans_Tup_VehicleShipPlanting2);
+            _dictionaryUnits.Add(UnitId.TupVehicleShipPlanting3, Properties.Resources.trans_Tup_VehicleShipPlanting3);
+            _dictionaryUnits.Add(UnitId.TupVehicleWeapon1, Properties.Resources.trans_Tup_VehicleWeapon1);
+            _dictionaryUnits.Add(UnitId.TupVehicleWeapon2, Properties.Resources.trans_Tup_VehicleWeapon2);
+            _dictionaryUnits.Add(UnitId.TupVehicleWeapon3, Properties.Resources.trans_Tup_VehicleWeapon3);
+            _dictionaryUnits.Add(UnitId.TupWeaponRefit, Properties.Resources.trans_Tup_WeaponRefit);
+
+            _dictionaryUnits.Add(UnitId.PupAirA1, Properties.Resources.trans_Pup_AirA1);
+            _dictionaryUnits.Add(UnitId.PupAirA2, Properties.Resources.trans_Pup_AirA2);
+            _dictionaryUnits.Add(UnitId.PupAirA3, Properties.Resources.trans_Pup_AirA3);
+            _dictionaryUnits.Add(UnitId.PupAirW1, Properties.Resources.trans_Pup_AirW1);
+            _dictionaryUnits.Add(UnitId.PupAirW2, Properties.Resources.trans_Pup_AirW2);
+            _dictionaryUnits.Add(UnitId.PupAirW3, Properties.Resources.trans_Pup_AirW3);
+            _dictionaryUnits.Add(UnitId.PupAnionPulseCrystals, Properties.Resources.trans_Pup_AnionPulseCrystals);
+            _dictionaryUnits.Add(UnitId.PupBlink, Properties.Resources.trans_Pup_Blink);
+            _dictionaryUnits.Add(UnitId.PupCharge, Properties.Resources.trans_Pup_Charge);
+            _dictionaryUnits.Add(UnitId.PupExtendedThermalLance, Properties.Resources.trans_Pup_ExtendedThermalLance);
+            _dictionaryUnits.Add(UnitId.PupGraviticBooster, Properties.Resources.trans_Pup_GraviticBoosters);
+            _dictionaryUnits.Add(UnitId.PupGraviticDrive, Properties.Resources.trans_Pup_GraviticDrive);
+            _dictionaryUnits.Add(UnitId.PupGravitonCatapult, Properties.Resources.trans_Pup_GravitonCatapult);
+            _dictionaryUnits.Add(UnitId.PupGroundA1, Properties.Resources.trans_Pup_GroundA1);
+            _dictionaryUnits.Add(UnitId.PupGroundA2, Properties.Resources.trans_Pup_GroundA2);
+            _dictionaryUnits.Add(UnitId.PupGroundA3, Properties.Resources.trans_Pup_GroundA3);
+            _dictionaryUnits.Add(UnitId.PupGroundW1, Properties.Resources.trans_Pup_GroundW1);
+            _dictionaryUnits.Add(UnitId.PupGroundW2, Properties.Resources.trans_Pup_GroundW2);
+            _dictionaryUnits.Add(UnitId.PupGroundW3, Properties.Resources.trans_Pup_GroundW3);
+            _dictionaryUnits.Add(UnitId.PupS1, Properties.Resources.trans_Pup_S1);
+            _dictionaryUnits.Add(UnitId.PupS2, Properties.Resources.trans_Pup_S2);
+            _dictionaryUnits.Add(UnitId.PupS3, Properties.Resources.trans_Pup_S3);
+            _dictionaryUnits.Add(UnitId.PupStorm, Properties.Resources.trans_Pup_Storm);
+            _dictionaryUnits.Add(UnitId.PupWarpGate, Properties.Resources.trans_Pup_Warpgate);
+
+            _dictionaryUnits.Add(UnitId.ZupAdrenalGlands, Properties.Resources.trans_Zup_AdrenalGlands);
+            _dictionaryUnits.Add(UnitId.ZupAirA1, Properties.Resources.trans_Zup_AirA1);
+            _dictionaryUnits.Add(UnitId.ZupAirA2, Properties.Resources.trans_Zup_AirA2);
+            _dictionaryUnits.Add(UnitId.ZupAirA3, Properties.Resources.trans_Zup_AirA3);
+            _dictionaryUnits.Add(UnitId.ZupAirW1, Properties.Resources.trans_Zup_AirW1);
+            _dictionaryUnits.Add(UnitId.ZupAirW2, Properties.Resources.trans_Zup_AirW2);
+            _dictionaryUnits.Add(UnitId.ZupAirW3, Properties.Resources.trans_Zup_AirW3);
+            _dictionaryUnits.Add(UnitId.ZupBurrow, Properties.Resources.trans_Zup_Burrow);
+            _dictionaryUnits.Add(UnitId.ZupChitinousPlating, Properties.Resources.trans_Zup_ChitinousPlating);
+            _dictionaryUnits.Add(UnitId.ZupCentrifugalHooks, Properties.Resources.trans_Zup_CentrifugalHooks);
+            _dictionaryUnits.Add(UnitId.ZupGlialReconstruction, Properties.Resources.trans_Zup_GlialReconstruction);
+            _dictionaryUnits.Add(UnitId.ZupEnduringLocusts, Properties.Resources.trans_Zup_EnduringLocusts);
+            _dictionaryUnits.Add(UnitId.ZupGroovedSpines, Properties.Resources.trans_Zup_GroovedSpines);
+            _dictionaryUnits.Add(UnitId.ZupGroundA1, Properties.Resources.trans_Zup_GroundA1);
+            _dictionaryUnits.Add(UnitId.ZupGroundA2, Properties.Resources.trans_Zup_GroundA2);
+            _dictionaryUnits.Add(UnitId.ZupGroundA3, Properties.Resources.trans_Zup_GroundA3);
+            _dictionaryUnits.Add(UnitId.ZupGroundM1, Properties.Resources.trans_Zup_GroundM1);
+            _dictionaryUnits.Add(UnitId.ZupGroundM2, Properties.Resources.trans_Zup_GroundM2);
+            _dictionaryUnits.Add(UnitId.ZupGroundM3, Properties.Resources.trans_Zup_GroundM3);
+            _dictionaryUnits.Add(UnitId.ZupGroundW1, Properties.Resources.trans_Zup_GroundW1);
+            _dictionaryUnits.Add(UnitId.ZupGroundW2, Properties.Resources.trans_Zup_GroundW2);
+            _dictionaryUnits.Add(UnitId.ZupGroundW3, Properties.Resources.trans_Zup_GroundW3);
+            _dictionaryUnits.Add(UnitId.ZupMetabolicBoost, Properties.Resources.trans_Zup_MetabolicBoost);
+            _dictionaryUnits.Add(UnitId.ZupMuscularAugments, Properties.Resources.trans_Zup_MuscularAugments);
+            _dictionaryUnits.Add(UnitId.ZupNeutralParasite, Properties.Resources.trans_Zup_NeutralParasite);
+            _dictionaryUnits.Add(UnitId.ZupPathoglenGlands, Properties.Resources.trans_Zup_PathogenGlands);
+            _dictionaryUnits.Add(UnitId.ZupPneumatizedCarapace, Properties.Resources.trans_Zup_PneumatizedCarapace);
+            _dictionaryUnits.Add(UnitId.ZupTunnelingClaws, Properties.Resources.trans_Zup_TunnelingClaws);
+            _dictionaryUnits.Add(UnitId.ZupUpgradeToBroodlord, Properties.Resources.trans_zu_BroodLordCocoon);
+            _dictionaryUnits.Add(UnitId.ZupUpgradeToGreaterSpire, Properties.Resources.trans_zb_greaterspire);
+            _dictionaryUnits.Add(UnitId.ZupUpgradeToHive, Properties.Resources.trans_zb_hive);
+            _dictionaryUnits.Add(UnitId.ZupUpgradeToLair, Properties.Resources.trans_zb_lair);
+            _dictionaryUnits.Add(UnitId.ZupUpgradeToOverseer, Properties.Resources.trans_zu_OverlordCocoon);
         }
 
         private bool _bWorkerState = true;
 
         private void UnitWorker()
         {
-           
+
+            while (_bWorkerState)
+            {
+
                 #region Exceptions
 
                 if (GInformation == null)
-                    return;
+                    continue;
 
                 if (GInformation.Gameinfo == null)
-                    return;
+                    continue;
 
                 if (!GInformation.Gameinfo.IsIngame)
-                    return;
+                    continue;
 
                 if (PSettings.PreferenceAll.OverlayAlert.UnitIds.Count <= 0)
-                    return;
+                    continue;
 
                 if (GInformation.Player.Count <= 0)
-                    return;
+                    continue;
 
                 if (GInformation.Unit.Count <= 0)
-                    return;
+                    continue;
 
                 #endregion
 
 
                 var players = new List<PlayerStore>(_playerStores);
 
-            for (var index = 0; index < GInformation.Player.Count; index++)
-            {
-                var player = GInformation.Player[index];
-                if (index >= players.Count)
+                for (var index = 0; index < GInformation.Player.Count; index++)
                 {
-                    players.Add(new PlayerStore(player.Name));
-                    players[index].Color = player.Color;
-                }
+                    #region Add missing player elements
 
-                #region Exceptions 
+                    var player = GInformation.Player[index];
+                    if (index >= players.Count)
+                    {
+                        players.Add(new PlayerStore(player.Name));
+                        players[index].Color = player.Color;
+                    }
 
-                /*   if (player == Player.LocalPlayer)
+                    #endregion
+
+                    #region Exceptions 
+
+                    if (player.Type != PlayerType.Human)
                         continue;
 
-                    if (player.Team == Player.LocalPlayer.Team)
-                        continue;*/
+                    #endregion
 
-                if (player.Type != PlayerType.Ai &&
-                    player.Type != PlayerType.Human)
-                    continue;
+                    #region Add Units to the list
 
-                #endregion
-                
-                
-                var buildings = player.Units.FindAll(x => x.IsStructure);
-                foreach (var building in buildings)
-                {                    
-                    foreach (var unitId in PSettings.PreferenceAll.OverlayAlert.UnitIds)
+                    var units = new List<Unit>(player.Units);
+                    foreach (var unit in units)
                     {
-                        //Buildings
-                        if (building.Id == unitId)
+                        try
                         {
-                            if (!players[index].Units.ContainsKey(unitId))
-                                players[index].Units.Add(unitId, DateTime.Now);
+                            foreach (var unitId in PSettings.PreferenceAll.OverlayAlert.UnitIds)
+                            {
+                                //Buildings
+                                if (unit.Id == unitId)
+                                {
+                                    if (unit.IsUnderConstruction)
+                                        AddNewUnit(players[index], unitId);
+                                }
+
+                                //Units being produced
+                                var unitsInProduction = unit.ProdUnitProductionId.FindAll(x => x == unitId);
+                                foreach (var unitInProduction in unitsInProduction)
+                                {
+                                    AddNewUnit(players[index], unitInProduction);
+                                }
+                            }
                         }
 
-                        //Units being produced
-                        var unitsInProduction = building.ProdUnitProductionId.FindAll(x => x == unitId);
-                        foreach (var unitInProduction in unitsInProduction)
+                        catch (InvalidOperationException ex)
                         {
-                            if (!players[index].Units.ContainsKey(unitInProduction))
-                                players[index].Units.Add(unitId, DateTime.Now);
+                            //Ignore this?
                         }
                     }
 
-                    
+                    #endregion
+
+                    #region Remove stuck entries
+
+                    var toManipulate = new List<UnitId>();
+                    foreach (var unitListData in players[index].Units)
+                    {
+                        if (!unitListData.Value.IsValid)
+                            continue;
+
+                        if ((DateTime.Now - unitListData.Value.InitDate).Seconds >
+                            PSettings.PreferenceAll.OverlayAlert.Time)
+                            toManipulate.Add(unitListData.Key);
+                    }
+
+                    foreach (var unitId in toManipulate)
+                    {
+                        players[index].Units[unitId] = new UnitListData(DateTime.Now, false);
+                    }
+
+                    #endregion
                 }
 
-                
 
+
+                _playerStores = players;
+
+                Thread.Sleep(PSettings.PreferenceAll.Global.DrawingRefresh);
             }
+        }
 
-            _playerStores = players;
+        private void AddNewUnit(PlayerStore playerStore, UnitId unitId)
+        {
+            try
+            {
+                var time = playerStore.Units[unitId].InitDate;
+
+                if ((DateTime.Now - time).Seconds > PSettings.PreferenceAll.OverlayAlert.Time)
+                    playerStore.Units[unitId] = new UnitListData(time, false);
+            }
+            catch (KeyNotFoundException)
+            {                
+                playerStore.Units.Add(unitId, new UnitListData(DateTime.Now, true));
+            }
         }
 
         protected override void Draw(BufferedGraphics g)
         {
             var fPenWidth = 3f;
 
-            UnitWorker();
-
-            Console.WriteLine(_playerStores.Count);
-
             var iPosX = (int)fPenWidth;
             var iPosY = (int)fPenWidth;
 
-            foreach (var playerStore in _playerStores)
+            var tempPlayerStores = new List<PlayerStore>(_playerStores);
+
+            //ToDo: Fix code here.
+            //Somehow breaks.-..
+            foreach (var playerStore in tempPlayerStores)
             {
                 foreach (var playerUnit in playerStore.Units)
                 {
-                    if ((DateTime.Now - playerUnit.Value).Seconds >= PSettings.PreferenceAll.OverlayAlert.Time)
+                    if (!playerUnit.Value.IsValid)
                         continue;
 
                     //var targetBrush = new SolidBrush(Color.FromArgb(255, playerStore.Color));
@@ -341,30 +496,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         Logger.Emit(ex);
                     }
-                    /*
-
-                    try
-                    {
-                        g.Graphics.FillEllipse(targetBrush,
-                            (int)(iPosX - (fPenWidth / 2)),
-                            (int)(iPosY - (fPenWidth / 2)),
-                            (int)(PSettings.PreferenceAll.OverlayAlert.IconWidth + fPenWidth),
-                            (int)(PSettings.PreferenceAll.OverlayAlert.IconHeight + fPenWidth));
-
-                        g.Graphics.DrawImageUnscaledAndClipped(_dictionaryUnits[playerUnit.Key], targetRectangle);
-                    }
-
-                    catch (KeyNotFoundException ex)
-                    {
-                        Logger.Emit("Draw Alert", ex);
-                    }
-
-                    */
-
-                    /*
-                    g.Graphics.DrawRectangle(new Pen(playerStore.Color, fPenWidth), fPosX - (fPenWidth / 2), fPosY - (fPenWidth / 2),
-                        PSettings.PreferenceAll.OverlayAlert.IconWidth + fPenWidth,
-                        PSettings.PreferenceAll.OverlayAlert.IconHeight + fPenWidth);*/
 
                     //Set position for the next panel
                     iPosX += PSettings.PreferenceAll.OverlayAlert.IconWidth + (int)fPenWidth * 2;
@@ -433,16 +564,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
     internal class PlayerStore
     {
-        public Dictionary<UnitId, DateTime> Units { get; set; }
+        public Dictionary<UnitId, UnitListData> Units { get; set; }
         public string PlayerName { get; set; }
         public Color Color { get; set; }
 
         public PlayerStore(string playerName)
         {
-            Units = new Dictionary<UnitId, DateTime>();
+            Units = new Dictionary<UnitId, UnitListData>();
             PlayerName = playerName;
             Color = Color.Red;
             
+        }
+    }
+
+    internal struct UnitListData
+    {
+        public DateTime InitDate { get; set; }
+        public bool IsValid { get; set; }
+
+        public UnitListData(DateTime initDate, bool isValid)
+        {
+            InitDate = initDate;
+            IsValid = isValid;
         }
     }
 }

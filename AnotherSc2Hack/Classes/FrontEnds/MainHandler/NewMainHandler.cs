@@ -3382,6 +3382,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 AppDomain.Unload(appDomain);
             }
 
+
+            foreach (var renderer in _lContainer)
+            {
+                renderer.Close();
+            }
+
             _tmrMainTick.Enabled = false;
             Gameinfo.HandleThread(false);
         }

@@ -549,6 +549,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         #region Events
 
         public event EventHandler IsHiddenChanged;
+        public event EventHandler ShowCalled;
+        public event EventHandler HideCalled;
+        public event EventHandler CloseCalled;
 
         #endregion
 
@@ -1077,6 +1080,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (!IsAllowedToClose)
                 e.Cancel = true;
 
+            OnCloseCalled();
             
             base.OnFormClosing(e);
         }
@@ -1120,6 +1124,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             tmrRefreshGraphic.Enabled = false;
 
+            OnHideCalled();
+
             base.Hide();
 
             //Thread.Sleep(100);
@@ -1133,6 +1139,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             IsHidden = false;
 
             tmrRefreshGraphic.Enabled = true;
+
+            OnShowCalled();
 
             base.Show();
 
@@ -6163,6 +6171,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             }
 #endif
+        }
+
+        protected virtual void OnShowCalled()
+        {
+            ShowCalled?.Invoke(this, new EventArgs());
+        }
+
+        protected virtual void OnHideCalled()
+        {
+            HideCalled?.Invoke(this, new EventArgs());
+        }
+
+        protected virtual void OnCloseCalled()
+        {
+            CloseCalled?.Invoke(this, new EventArgs());
         }
     }
 }
