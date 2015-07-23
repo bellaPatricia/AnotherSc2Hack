@@ -1809,7 +1809,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             /* Missing: Broodlord Cocoon and Overseer Cocoon - Cant be found.. */
             #endregion
 
-            return UnitId.NbXelNagaTower;
+            return UnitId.None;
         }
 
         public static Int32 GetMaximumInteger(params Int32[] valInput)

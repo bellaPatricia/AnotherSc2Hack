@@ -729,5 +729,7 @@ namespace PredefinedTypes
         ZupUpgradeToBroodlord,
         ZupUpgradeToOverseer,
 
+        None,
+
     };
 }
