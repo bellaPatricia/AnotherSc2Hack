@@ -3,17 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using PredefinedTypes;
-using Utilities.ExtensionMethods;
 using Utilities.Logger;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
@@ -21,7 +14,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
     class AlertRenderer : BaseRenderer
     {
         private List<PlayerStore> _playerStores = new List<PlayerStore>(16);
-        private Dictionary<UnitId, Image> _dictionaryUnits = new Dictionary<UnitId, Image>();
+        private readonly Dictionary<UnitId, Image> _dictionaryUnits = new Dictionary<UnitId, Image>();
 
         public AlertRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
@@ -351,18 +344,27 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Exceptions 
 
-                    if (player.Type != PlayerType.Human)
+                    if (player.Type != PlayerType.Human &&
+                        player.Type != PlayerType.Ai)
+                        continue;
+                    
+                    if (player == Player.LocalPlayer)
+                        continue;
+                    
+                    if (player.Team == Player.LocalPlayer.Team)
                         continue;
 
                     #endregion
 
                     #region Add Units to the list
 
-                    var units = new List<Unit>(player.Units);
-                    foreach (var unit in units)
+                    try
                     {
-                        try
+
+                        var units = new List<Unit>(player.Units);
+                        foreach (var unit in units)
                         {
+
                             foreach (var unitId in PSettings.PreferenceAll.OverlayAlert.UnitIds)
                             {
                                 //Buildings
@@ -379,12 +381,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     AddNewUnit(players[index], unitInProduction);
                                 }
                             }
-                        }
 
-                        catch (InvalidOperationException ex)
-                        {
-                            //Ignore this?
+
+
                         }
+                    }
+
+                    catch
+                        (InvalidOperationException ex)
+                    {
+                        Logger.Emit(ex);
+                    }
+
+                    catch (ArgumentException ex)
+                    {
+                        Logger.Emit(ex);
                     }
 
                     #endregion
@@ -392,14 +403,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Remove stuck entries
 
                     var toManipulate = new List<UnitId>();
-                    foreach (var unitListData in players[index].Units)
-                    {
-                        if (!unitListData.Value.IsValid)
-                            continue;
 
-                        if ((DateTime.Now - unitListData.Value.InitDate).Seconds >
-                            PSettings.PreferenceAll.OverlayAlert.Time)
-                            toManipulate.Add(unitListData.Key);
+                    if (players[index].Units != null)
+                    {
+                        foreach (var unitListData in players[index].Units)
+                        {
+                            if (!unitListData.Value.IsValid)
+                                continue;
+
+                            if ((DateTime.Now - unitListData.Value.InitDate).Seconds >
+                                PSettings.PreferenceAll.OverlayAlert.Time)
+                                toManipulate.Add(unitListData.Key);
+                        }
                     }
 
                     foreach (var unitId in toManipulate)
@@ -442,11 +457,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var tempPlayerStores = new List<PlayerStore>(_playerStores);
 
-            //ToDo: Fix code here.
-            //Somehow breaks.-..
             foreach (var playerStore in tempPlayerStores)
             {
-                foreach (var playerUnit in playerStore.Units)
+                var tempDictionary = new Dictionary<UnitId, UnitListData>(playerStore.Units);
+
+                foreach (var playerUnit in tempDictionary)
                 {
                     if (!playerUnit.Value.IsValid)
                         continue;
@@ -457,11 +472,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         iPosY,
                         PSettings.PreferenceAll.OverlayAlert.IconWidth,
                         PSettings.PreferenceAll.OverlayAlert.IconHeight);
-
-                    var cutRectangle = new Rectangle(iPosX - 5,
-                        iPosY - 5,
-                        PSettings.PreferenceAll.OverlayAlert.IconWidth + 10,
-                        PSettings.PreferenceAll.OverlayAlert.IconHeight + 10);
 
                     try
                     {
