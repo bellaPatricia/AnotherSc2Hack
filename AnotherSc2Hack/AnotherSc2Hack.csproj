@@ -189,6 +189,12 @@
     <Compile Include="Classes\FrontEnds\Container\PanelSettingsSpecialUnittab.Designer.cs">
       <DependentUpon>PanelSettingsSpecialUnittab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\AlertConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\AlertConfiguration.Designer.cs">
+      <DependentUpon>AlertConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\FrontEnds\Custom Controls\AnotherCheckbox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -332,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Container\PanelSettingsSpecialUnittab.resx">
       <DependentUpon>PanelSettingsSpecialUnittab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\AlertConfiguration.resx">
+      <DependentUpon>AlertConfiguration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classes\FrontEnds\Custom Controls\AnotherMessageBox.resx">
       <DependentUpon>AnotherMessageBox.cs</DependentUpon>

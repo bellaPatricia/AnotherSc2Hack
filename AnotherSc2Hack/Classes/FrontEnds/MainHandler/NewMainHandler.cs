@@ -3453,8 +3453,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 renderer.FormBorderStyle = _bAdjustPanels ? FormBorderStyle.Sizable : FormBorderStyle.None;
             }
         }
-        
 
-        
+        private void btnVariousOpenAlerts_Click(object sender, EventArgs e)
+        {
+            var aConf = new AlertConfiguration(PSettings);
+            var result = aConf.ShowDialog();
+
+            if (result != DialogResult.Cancel)
+            {
+                PSettings = aConf.PSettings;
+            }
+        }
     } 
 }
