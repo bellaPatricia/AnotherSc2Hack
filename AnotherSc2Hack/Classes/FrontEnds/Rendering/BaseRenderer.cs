@@ -1039,7 +1039,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         _bDraw = true;
 
                         if (PSc2Process == null)
+                        {
                             _bDraw = false;
+                            PSc2Process = GInformation.CStarcraft2;
+                        }
 
                         else if (InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
                         {
