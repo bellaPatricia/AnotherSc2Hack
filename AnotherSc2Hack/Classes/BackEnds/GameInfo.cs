@@ -1357,9 +1357,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 var iVespineCost2 = BitConverter.ToInt32(productionChunk2, 0x78);
                 var iUnitIndexBuiltFrom2 = BitConverter.ToUInt16(productionChunk2, 0x5E) / 4;
 
+                Console.WriteLine("Supply Raw: " + iSupplyRaw2);
+
                 var prd2 = new UnitProduction();
                 prd2.ProductionStatus = 100 - (iTimeLeft2 / iTimeMax2) * 100;
-                prd2.Id = HelpFunctions.GetUnitIdFromLogicalId(structureId, iType2, (Int32)iTimeMax2, iMineralCost2, iVespineCost2);
+                prd2.Id = HelpFunctions.GetUnitIdFromLogicalId(structureId, iType2, (Int32)iTimeMax2, iMineralCost2, iVespineCost2, iSupplyRaw2 >> 12);
                 prd2.ReactorAttached = bReactorAttached;
                 prd2.UnitsInProduction = iNumberOfQueuedUnits;
                 prd2.MineralCost = iMineralCost2;
@@ -1407,7 +1409,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         {
                             Id =
                                 HelpFunctions.GetUnitIdFromLogicalId(structureId, iType2, (Int32)iTimeMax2,
-                                    iMineralCost2, iVespineCost2),
+                                    iMineralCost2, iVespineCost2, 0),
                             MineralCost = iMineralCost2,
                             ProductionStatus = 100 - (iTimeLeft2 / iTimeMax2) * 100,
                             ProductionTimeLeft = iTimeLeft2 / 65536,
@@ -1497,7 +1499,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var prd = new UnitProduction();
             prd.ProductionStatus = 100 - (iTimeLeft / iTimeMax) * 100;
-            prd.Id = HelpFunctions.GetUnitIdFromLogicalId(structureId, iType, (Int32)iTimeMax, iMineralCost, iVespineCost);
+            prd.Id = HelpFunctions.GetUnitIdFromLogicalId(structureId, iType, (Int32)iTimeMax, iMineralCost, iVespineCost, iSupplyRaw >> 12);
             prd.ReactorAttached = bReactorAttached;
             prd.UnitsInProduction = iNumberOfQueuedUnits;
             prd.MineralCost = iMineralCost;
