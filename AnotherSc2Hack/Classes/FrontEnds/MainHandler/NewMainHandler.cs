@@ -77,10 +77,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly LanguageString _lstrPluginContextInstallPlugin = new LanguageString("lstrPluginContextInstallPlugin", "Install plugin");
         private readonly LanguageString _lstrPluginContextRemovePlugin = new LanguageString("lstrPluginContextRemovePlugin", "Remove plugin");
 
-        
-
-
-
         #endregion
 
         #endregion
@@ -3457,6 +3453,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void btnVariousOpenAlerts_Click(object sender, EventArgs e)
         {
             var aConf = new AlertConfiguration(PSettings);
+            aConf.Icon = Icon;
             var result = aConf.ShowDialog();
 
             if (result != DialogResult.Cancel)
