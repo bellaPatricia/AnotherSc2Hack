@@ -514,8 +514,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     p.Team = playerChunk[MyOffsets.RawPlayerTeam + (i * MyOffsets.PlayerStructSize)];
                     p.Index = i;
 
-                    if (p.Type == PlayerType.Human ||
-                        p.Type == PlayerType.Ai)
+                    if ((p.Type == PlayerType.Human ||
+                        p.Type == PlayerType.Ai) && 
+                        _lRace.Count > iRaceCounter)
                     {
                         p.PlayerRace = _lRace[iRaceCounter];
                         iRaceCounter++;

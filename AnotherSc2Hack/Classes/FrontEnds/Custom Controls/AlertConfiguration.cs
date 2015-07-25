@@ -43,6 +43,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             tsmRemoveItems.Click += TsmRemoveItems_Click;
 
             AddUnitsToListview();
+
+            Text = "Alert";
+        }
+
+        public override sealed string Text
+        {
+            get { return base.Text; }
+            set { base.Text = value; }
         }
 
         private void TsmRemoveItems_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Threading;
+using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using PredefinedTypes;
@@ -14,6 +15,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
     class AlertRenderer : BaseRenderer
     {
         private List<PlayerStore> _playerStores = new List<PlayerStore>(16);
+        private bool _bWorkerState = true;
         private readonly Dictionary<UnitId, Image> _dictionaryUnits = new Dictionary<UnitId, Image>();
 
         public AlertRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
@@ -42,7 +44,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }.Start();
         }
 
-        void gInformation_NewMatch(object sender, EventArgs e)
+        private void gInformation_NewMatch(object sender, EventArgs e)
         {
             _playerStores.Clear();
         }
@@ -296,33 +298,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             _dictionaryUnits.Add(UnitId.ZupUpgradeToOverseer, Properties.Resources.trans_zu_OverlordCocoon);
         }
 
-        private bool _bWorkerState = true;
-
         private void UnitWorker()
         {
-
             while (_bWorkerState)
             {
+                Thread.Sleep(PSettings.PreferenceAll.Global.DrawingRefresh);
 
                 #region Exceptions
 
-                if (GInformation == null)
+                if (GInformation == null ||
+                    GInformation.Gameinfo == null ||
+                    !GInformation.Gameinfo.IsIngame ||
+                    PSettings.PreferenceAll.OverlayAlert.UnitIds.Count <= 0 ||
+                    GInformation.Player.Count <= 0 ||
+                    GInformation.Unit.Count <= 0)
+                {
+                    Thread.Sleep(Constants.IdleRefreshRate);
                     continue;
-
-                if (GInformation.Gameinfo == null)
-                    continue;
-
-                if (!GInformation.Gameinfo.IsIngame)
-                    continue;
-
-                if (PSettings.PreferenceAll.OverlayAlert.UnitIds.Count <= 0)
-                    continue;
-
-                if (GInformation.Player.Count <= 0)
-                    continue;
-
-                if (GInformation.Unit.Count <= 0)
-                    continue;
+                }
 
                 #endregion
 
@@ -402,7 +395,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Remove stuck entries
 
-                    var toManipulate = new List<UnitId>();
+                    var toManipulate = new Dictionary<UnitId, UnitListData>();
 
                     if (players[index].Units != null)
                     {
@@ -411,15 +404,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             if (!unitListData.Value.IsValid)
                                 continue;
 
+                            var bSoundPlayed = unitListData.Value.SoundPlayed;
+                            var bIsValid = true;
+                            if (!unitListData.Value.SoundPlayed && PSettings.PreferenceAll.OverlayAlert.SoundNotification)
+                            {
+                                PlaySound();
+                                bSoundPlayed = true;
+                            }
+
                             if ((DateTime.Now - unitListData.Value.InitDate).Seconds >
                                 PSettings.PreferenceAll.OverlayAlert.Time)
-                                toManipulate.Add(unitListData.Key);
+                                bIsValid = false;
+
+                            toManipulate.Add(unitListData.Key, new UnitListData(unitListData.Value.InitDate, bIsValid, bSoundPlayed));
                         }
                     }
 
-                    foreach (var unitId in toManipulate)
+                    foreach (var unitData in toManipulate)
                     {
-                        players[index].Units[unitId] = new UnitListData(DateTime.Now, false);
+                        players[index].Units[unitData.Key] = unitData.Value;
+                        
                     }
 
                     #endregion
@@ -428,8 +432,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                 _playerStores = players;
-
-                Thread.Sleep(PSettings.PreferenceAll.Global.DrawingRefresh);
             }
         }
 
@@ -440,14 +442,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 var time = playerStore.Units[unitId].InitDate;
 
                 if ((DateTime.Now - time).Seconds > PSettings.PreferenceAll.OverlayAlert.Time)
-                    playerStore.Units[unitId] = new UnitListData(time, false);
+                    playerStore.Units[unitId] = new UnitListData(time, false, true);
             }
             catch (KeyNotFoundException)
             {                
-                playerStore.Units.Add(unitId, new UnitListData(DateTime.Now, true));
+                playerStore.Units.Add(unitId, new UnitListData(DateTime.Now, true, false));
             }
         }
 
+        private void PlaySound()
+        {
+            System.Media.SystemSounds.Asterisk.Play();
+        }
+        
         protected override void Draw(BufferedGraphics g)
         {
             var fPenWidth = 3f;
@@ -591,11 +598,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
     {
         public DateTime InitDate { get; set; }
         public bool IsValid { get; set; }
+        public bool SoundPlayed { get; set; }
 
-        public UnitListData(DateTime initDate, bool isValid)
+        public UnitListData(DateTime initDate, bool isValid, bool soundPlayed)
         {
             InitDate = initDate;
             IsValid = isValid;
+            SoundPlayed = soundPlayed;
+        }
+
+        public override string ToString()
+        {
+            return $"Init Date: {InitDate}, IsValid: {IsValid}, SoundPlayed: {SoundPlayed}";
         }
     }
 }
