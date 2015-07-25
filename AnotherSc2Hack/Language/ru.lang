@@ -1,0 +1,180 @@
+﻿;1.0.0.0
+;Translate file for the Russian Language
+;Created by ???
+;Language Name (natively written)
+LanguageName: Русский
+
+;HelpMe tab
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePaypal: Paypal
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeLocalize: Получить файл и перевести!
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeGithubIssues: Github проблемы
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMeEmailMe: Hаписать мне на E-Mail
+NewMainHandler#pnlMainArea#pnlHelpMe#btnHelpMePostOnD3scene: Разместить на D3Scene
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpCash: Оплата денег
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpLocalize: Прошу помочь в локализации
+NewMainHandler#pnlMainArea#pnlHelpMe#lblHelpSuggestionsBug: Опубликовать предложения или ошибки
+
+;Debug tab
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMatchdata: Соответствие данных
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugMapdata: Данные по карте
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitObjects: Объекты боевой единицы:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitname: Название боевой единицы:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugUnitdata: Данные боевой единицы
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerObjects: Объекты игрока:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayername: Имя игрока:
+NewMainHandler#pnlMainArea#pnlDebug#lblDebugPlayerdata: Данные игрока
+lstrChDebugAttribute: Атрибут
+lstrChDebugValue: Значение
+
+;Various tab
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousDisableAfter: Деактивировать после:
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousWorkerCoach: Тренер рабочих
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalClock: Персональные часы
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousPersonalApm: Персональный АПМ
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: Показывать тренер рабочих
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: Показывать персональные часы
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Апм предупреждение
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: Показывать персональный апм
+
+;Application tab 
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: Глобальные настройки
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationLanguage: Язык:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationReposition: Клавиша-позиции:
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: Обновление графики (мс):
+NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Чтение памяти (мс):
+NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Восстановить настройки
+NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Восстановить позицию и размер панелей
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: Adjust Panels
+NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Убирать панели когда SC2 в свернутом режиме
+lstrApplicationRestoreSettingsText: Вы точно хотите сбросить настройки?
+lstrApplicationRestoreSettingsHeader: Вы уверены?
+lstrApplicationRestorePanelPositionText: Размер панели и позиция\nбыли успешно установлены!
+lstrApplicationRestorePanelPositionHeader: Позиция панели изменена!
+lstrApplicationDoYouWishToUpdate: Вы желаете обновить?
+lstrApplicationUpdateTitle: Доступны обновления!
+lstrContributionTitle: Взнос
+lstrContributionText: Похоже что вы используете эту программу\nуже долгое время. Если Вам она понравилась вы можете\nпоучаствовать в проекте как переводчики,\nвнести пожертвования или сообщить об ошибках.\n\nВы хотите внести свой вклад?
+
+;Benchmark tab
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Обновление мапхака / сек.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkProductiontabIterations: Обновление панели производства / сек.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkUnittabIterations: Обновление панели боевых единиц / сек.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkApmIterations: Обновление Апм / сек.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkArmyIterations: Обновление армии / сек.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkWorkerIterations: Обновление рабочих / сек.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkIncomeIterations: Обновление дохода / сек.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkResourceIterations: Обновление ресурсов / сек.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawingInterval: Интервал (мс)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDrawing: Обновление панелей
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataIterations: Обновление / сек.
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkDataInterval: Интервал (мс)
+NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkData: Получить данные
+
+;Plugin tab
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginImages: Иконки
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginDescription: Описание
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginAvailablePlugins: Доступные плагины
+NewMainHandler#pnlMainArea#pnlPlugins#lblPluginLoadedPlugins: Загруженные плагины
+NewMainHandler#pnlMainArea#pnlPlugins#btnPluginsInstallPlugin: Установить
+lstrChPluginsPluginName: Плагин
+lstrChPluginsPluginVersion: Версия
+lstrPluginContextInstallPlugin: Установить плагин
+lstrPluginContextRemovePlugin: Удалить плагин
+
+;Left application panels
+NewMainHandler#pnlLeftSelection#cpnlVarious: Разное
+NewMainHandler#pnlLeftSelection#cpnlHelpMe: Ваша помощь!
+NewMainHandler#pnlLeftSelection#cpnlBenchmark: Бенчмарк
+NewMainHandler#pnlLeftSelection#cpnlCredits: Кредиты
+NewMainHandler#pnlLeftSelection#cpnlDebug: Отладить
+NewMainHandler#pnlLeftSelection#cpnlApplication: Приложение
+NewMainHandler#pnlLeftSelection#cpnlOverlays: Оверлеи
+NewMainHandler#pnlLeftSelection#cpnlPlugins: Плагины
+
+;Overlays
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysProduction: Производство
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysUnits: Войска
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysMaphack: Мапхак
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysApm: АПМ
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysArmy: Армия
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysWorker: Рабочие
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysIncome: Доход
+NewMainHandler#pnlMainArea#pnlOverlays#pnlPanelContainer#cpnlOverlaysResources: Ресурсы
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveDestinationLine: Без линии назначения
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxDefensiveStructures: Цвет защитных единиц
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveCamera: Удалить камеру
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#pnlBasics#aChBxRemoveVisionArea: Удалить зону видения
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayMaphack#lblMaphackFilter: Фильтр мапхака
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayProductiontab#pnlBasics#aChBxDisplayUpgrades: Показывать апгрейды
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveProductionstatus: Удалить статус производства
+NewMainHandler#pnlMainArea#pnlOverlays#pnlOverlayUnittab#pnlBasics#aChBxRemoveSpellcounter: Удалить энергосчетчик
+
+;Bottom launcher
+NewMainHandler#pnlBottomStrip#btnLaunchResource: Ресурсы
+NewMainHandler#pnlBottomStrip#btnLaunchProduction: Производство
+NewMainHandler#pnlBottomStrip#btnLaunchIncome: Доход
+NewMainHandler#pnlBottomStrip#btnLaunchUnit: Войска
+NewMainHandler#pnlBottomStrip#btnLaunchWorker: Рабочие
+NewMainHandler#pnlBottomStrip#btnLaunchArmy: Армия
+NewMainHandler#pnlBottomStrip#btnLaunchMaphack: Мапхак
+NewMainHandler#pnlBottomStrip#btnLaunchApm: АПМ
+
+;General text (overlays)
+lblHotkey1: Горячая клавиша 1:
+lblHotkey2: Горячая клавиша 2:
+lblHotkey3: Горячая клавиша 3:
+lblToggle: Панель триггеров:
+lblResize: Размер панели:
+lblReposition: Позиция панели:
+lblChat: Использовать внутриигровой чат
+lblHotkeys: Использовать горячие клавишы
+lblBasics: Основное
+lblSpecial: Специальное
+lblSize: Размер:
+lblPreview: Превью:
+aChBxRemoveAi: Удалить ИИ
+aChBxRemoveAllie: Без союзников
+aChBxRemoveNeutral: Без нейтральных
+aChBxRemoveYourself: Удалить себя
+aChBxDrawBackground: Обновить фон
+aChBxRemoveClantags: Удалить кланы
+aChBxRemoveChronoboost: Удалить хронобуст
+aChBxSplitUnitsBuildings: Делить здания/войска
+aChBxDisplayBuildings: Показывать здания
+aChBxDisplayUnits: Показывать войска
+aChBxTransparentImages: Прозрачные иконки
+lstrOpacity: Прозрачность:
+
+;Credits
+lstrChCreditsContributer: Участник
+lstrChCreditsReason: По.. Причинам?
+lstrCreditsReasonRhcp: Открытый источник МХ, игровое взаимодействие, чертеж миникарты и чрезвычайно полезен
+lstrCreditsReasonBeaving: Различная информация по взлому, идеи, предложения и чаты
+lstrCreditsReasonMrnukealizer: Открытый источник МХ, идеи и концепции
+lstrCreditsReasonMyteewun: Тег-производства (Боевых единиц и апгрейдов) и детальное исследование памяти SC2
+lstrCreditsReasonMischa: Отличное исследование памяти SC2 c апгрейдами, производства и списка боевых единиц
+lstrCreditsReasonMrice: Помощь по графике
+lstrCreditsReasonTracky: Предложения и идеи
+lstrCreditsReasonD3Scene: Отличное окружение с полезными людьми
+lstrCreditsReasonVariousPeople: ...дали идеи, предложения и критику - спасибо!
+lstrCreditsReasonDonators: Потому что вы помогаете мне покупать различные сладости! :3
+
+;Messagebox (Also used in VariousAlert)
+lstrAnotherMessageBoxOk: Ок
+lstrAnotherMessageBoxCancel: Отмена
+lstrAnotherMessageBoxAbort: Прервать
+lstrAnotherMessageBoxRetry: Перезапустить
+lstrAnotherMessageBoxIgnore: Игнорировать
+lstrAnotherMessageBoxYes: Да
+lstrAnotherMessageBoxNo: Нет
+
+;Maphack tab (Also used in Various Alerts)
+lstrChMaphackFilterUnit: Боевая единица
+lstrMaphackFilterRemoveItem: Снять выбор
+lstrMaphackFilterMessageAddUnitText: Боевая единица уже используется!
+lstrMaphackFilterMessageAddUnitHeader: Ауч!
+
+;VariousAlerts
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: Show Alerts
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: Sound  Notification
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: Display for (sec.)
