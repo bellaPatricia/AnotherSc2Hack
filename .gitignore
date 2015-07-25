@@ -8,6 +8,7 @@
 obj/
 Plugins/
 bin/
+.vs/
 
 ### Binaries
 *.dat
@@ -20,5 +21,7 @@ bin/
 *.suo
 
 ### ReSharper settings
-*.user
 /AnotherSc2Hack/bin
+*.suo
+.vs/AnotherSc2Hack/v14/.suo
+.vs/AnotherSc2Hack/v14/.suo

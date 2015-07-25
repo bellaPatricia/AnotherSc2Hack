@@ -36,6 +36,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlLeftSelection = new System.Windows.Forms.Panel();
             this.pnlVarious = new System.Windows.Forms.Panel();
             this.tlpVariousContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpVariousAlertContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tlpVariousWorkerCoachContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tlpVariousPersonalApmContainer = new System.Windows.Forms.TableLayoutPanel();
             this.pnlHelpMe = new System.Windows.Forms.Panel();
@@ -144,6 +145,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlOverlayUnittab = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayUnittab();
             this.pnlOverlayMaphack = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayMaphack();
             this.pnlOverlayWorker = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelOverlayWorker();
+            this.btnVariousOpenAlerts = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
+            this.lblVariousShowAlert = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
+            this.ntxtVariousAlertShowDuration = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.NumberTextBox();
+            this.aChBxVariousAlertSoundNotification = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherCheckbox();
+            this.aChBxVariousShowAlerts = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherCheckbox();
             this.lblVariousDisableAfter = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
             this.ntxtVariousWorkerCoachDisableAfter = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.NumberTextBox();
             this.aChBxVariousPersonalApmAlert = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherCheckbox();
@@ -154,6 +160,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.lblVariousWorkerCoach = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
             this.lblVariousPersonalClock = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
             this.aChBxVariousShowPersonalClock = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherCheckbox();
+            this.lblVariousAlerts = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
             this.btnHelpMeCopyEmail = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
             this.btnHelpMeCopyBitcoin = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
             this.lblHelpMeBitcoin = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageLabel();
@@ -201,10 +208,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.cpnlApplication = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlOverlays = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
             this.cpnlPlugins = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.ClickablePanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlVarious.SuspendLayout();
             this.tlpVariousContainer.SuspendLayout();
+            this.tlpVariousAlertContainer.SuspendLayout();
             this.tlpVariousWorkerCoachContainer.SuspendLayout();
             this.tlpVariousPersonalApmContainer.SuspendLayout();
             this.pnlHelpMe.SuspendLayout();
@@ -261,9 +268,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             // 
             this.tlpVariousContainer.AutoSize = true;
             this.tlpVariousContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpVariousContainer.ColumnCount = 1;
+            this.tlpVariousContainer.ColumnCount = 2;
             this.tlpVariousContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpVariousContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpVariousContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpVariousContainer.Controls.Add(this.btnVariousOpenAlerts, 1, 12);
+            this.tlpVariousContainer.Controls.Add(this.tlpVariousAlertContainer, 0, 14);
+            this.tlpVariousContainer.Controls.Add(this.aChBxVariousAlertSoundNotification, 0, 13);
+            this.tlpVariousContainer.Controls.Add(this.aChBxVariousShowAlerts, 0, 12);
             this.tlpVariousContainer.Controls.Add(this.tlpVariousWorkerCoachContainer, 0, 9);
             this.tlpVariousContainer.Controls.Add(this.tlpVariousPersonalApmContainer, 0, 2);
             this.tlpVariousContainer.Controls.Add(this.lblVariousPersonalApm, 0, 0);
@@ -272,10 +283,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.tlpVariousContainer.Controls.Add(this.lblVariousWorkerCoach, 0, 7);
             this.tlpVariousContainer.Controls.Add(this.lblVariousPersonalClock, 0, 4);
             this.tlpVariousContainer.Controls.Add(this.aChBxVariousShowPersonalClock, 0, 5);
+            this.tlpVariousContainer.Controls.Add(this.lblVariousAlerts, 0, 11);
             this.tlpVariousContainer.Location = new System.Drawing.Point(15, 15);
             this.tlpVariousContainer.Margin = new System.Windows.Forms.Padding(0);
             this.tlpVariousContainer.Name = "tlpVariousContainer";
-            this.tlpVariousContainer.RowCount = 10;
+            this.tlpVariousContainer.RowCount = 15;
             this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -286,8 +298,30 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpVariousContainer.Size = new System.Drawing.Size(181, 277);
+            this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpVariousContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpVariousContainer.Size = new System.Drawing.Size(231, 424);
             this.tlpVariousContainer.TabIndex = 21;
+            // 
+            // tlpVariousAlertContainer
+            // 
+            this.tlpVariousAlertContainer.AutoSize = true;
+            this.tlpVariousAlertContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlpVariousAlertContainer.ColumnCount = 2;
+            this.tlpVariousAlertContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpVariousAlertContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpVariousAlertContainer.Controls.Add(this.lblVariousShowAlert, 0, 0);
+            this.tlpVariousAlertContainer.Controls.Add(this.ntxtVariousAlertShowDuration, 1, 0);
+            this.tlpVariousAlertContainer.Location = new System.Drawing.Point(0, 394);
+            this.tlpVariousAlertContainer.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tlpVariousAlertContainer.Name = "tlpVariousAlertContainer";
+            this.tlpVariousAlertContainer.RowCount = 1;
+            this.tlpVariousAlertContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpVariousAlertContainer.Size = new System.Drawing.Size(166, 27);
+            this.tlpVariousAlertContainer.TabIndex = 24;
             // 
             // tlpVariousWorkerCoachContainer
             // 
@@ -303,7 +337,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.tlpVariousWorkerCoachContainer.Name = "tlpVariousWorkerCoachContainer";
             this.tlpVariousWorkerCoachContainer.RowCount = 1;
             this.tlpVariousWorkerCoachContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpVariousWorkerCoachContainer.Size = new System.Drawing.Size(144, 27);
+            this.tlpVariousWorkerCoachContainer.Size = new System.Drawing.Size(180, 27);
             this.tlpVariousWorkerCoachContainer.TabIndex = 23;
             // 
             // tlpVariousPersonalApmContainer
@@ -523,7 +557,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlApplication.Controls.Add(this.button1);
             this.pnlApplication.Controls.Add(this.wbNews);
             this.pnlApplication.Controls.Add(this.panel1);
             this.pnlApplication.Controls.Add(this.btnRestoreSettings);
@@ -1778,6 +1811,75 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlOverlayWorker.Size = new System.Drawing.Size(451, 262);
             this.pnlOverlayWorker.TabIndex = 5;
             // 
+            // btnVariousOpenAlerts
+            // 
+            this.btnVariousOpenAlerts.AutoSize = true;
+            this.btnVariousOpenAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnVariousOpenAlerts.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnVariousOpenAlerts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVariousOpenAlerts.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVariousOpenAlerts.LanguageFile = "";
+            this.btnVariousOpenAlerts.Location = new System.Drawing.Point(186, 320);
+            this.btnVariousOpenAlerts.Name = "btnVariousOpenAlerts";
+            this.btnVariousOpenAlerts.Size = new System.Drawing.Size(42, 32);
+            this.btnVariousOpenAlerts.TabIndex = 21;
+            this.btnVariousOpenAlerts.Text = "...";
+            this.btnVariousOpenAlerts.UseVisualStyleBackColor = false;
+            this.btnVariousOpenAlerts.Click += new System.EventHandler(this.btnVariousOpenAlerts_Click);
+            // 
+            // lblVariousShowAlert
+            // 
+            this.lblVariousShowAlert.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblVariousShowAlert.AutoSize = true;
+            this.lblVariousShowAlert.LanguageFile = "";
+            this.lblVariousShowAlert.Location = new System.Drawing.Point(0, 3);
+            this.lblVariousShowAlert.Margin = new System.Windows.Forms.Padding(0);
+            this.lblVariousShowAlert.Name = "lblVariousShowAlert";
+            this.lblVariousShowAlert.Size = new System.Drawing.Size(119, 20);
+            this.lblVariousShowAlert.TabIndex = 19;
+            this.lblVariousShowAlert.Text = "Display for (sec.)";
+            // 
+            // ntxtVariousAlertShowDuration
+            // 
+            this.ntxtVariousAlertShowDuration.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ntxtVariousAlertShowDuration.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ntxtVariousAlertShowDuration.Location = new System.Drawing.Point(119, 0);
+            this.ntxtVariousAlertShowDuration.Margin = new System.Windows.Forms.Padding(0);
+            this.ntxtVariousAlertShowDuration.Name = "ntxtVariousAlertShowDuration";
+            this.ntxtVariousAlertShowDuration.Number = 1;
+            this.ntxtVariousAlertShowDuration.Size = new System.Drawing.Size(47, 27);
+            this.ntxtVariousAlertShowDuration.TabIndex = 20;
+            this.ntxtVariousAlertShowDuration.Text = "1";
+            this.ntxtVariousAlertShowDuration.NumberChanged += new Utilities.Events.NumberChangeHandler(this.ntxtVariousAlertShowDuration_NumberChanged);
+            // 
+            // aChBxVariousAlertSoundNotification
+            // 
+            this.aChBxVariousAlertSoundNotification.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.aChBxVariousAlertSoundNotification.Checked = false;
+            this.aChBxVariousAlertSoundNotification.Clickable = true;
+            this.aChBxVariousAlertSoundNotification.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxVariousAlertSoundNotification.DisplayText = "Sound Notification";
+            this.aChBxVariousAlertSoundNotification.Location = new System.Drawing.Point(3, 358);
+            this.aChBxVariousAlertSoundNotification.Name = "aChBxVariousAlertSoundNotification";
+            this.aChBxVariousAlertSoundNotification.Size = new System.Drawing.Size(164, 30);
+            this.aChBxVariousAlertSoundNotification.TabIndex = 23;
+            this.aChBxVariousAlertSoundNotification.TextAlign = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxVariousAlertSoundNotification.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.CheckedChangeHandler(this.aChBxVariousAlertSoundNotification_CheckedChanged);
+            // 
+            // aChBxVariousShowAlerts
+            // 
+            this.aChBxVariousShowAlerts.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.aChBxVariousShowAlerts.Checked = false;
+            this.aChBxVariousShowAlerts.Clickable = true;
+            this.aChBxVariousShowAlerts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxVariousShowAlerts.DisplayText = "Show Alerts";
+            this.aChBxVariousShowAlerts.Location = new System.Drawing.Point(3, 321);
+            this.aChBxVariousShowAlerts.Name = "aChBxVariousShowAlerts";
+            this.aChBxVariousShowAlerts.Size = new System.Drawing.Size(117, 30);
+            this.aChBxVariousShowAlerts.TabIndex = 22;
+            this.aChBxVariousShowAlerts.TextAlign = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherCheckbox.TextAlignment.Right;
+            this.aChBxVariousShowAlerts.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.CheckedChangeHandler(this.aChBxVariousShowAlerts_CheckedChanged);
+            // 
             // lblVariousDisableAfter
             // 
             this.lblVariousDisableAfter.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -1786,15 +1888,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.lblVariousDisableAfter.Location = new System.Drawing.Point(0, 3);
             this.lblVariousDisableAfter.Margin = new System.Windows.Forms.Padding(0);
             this.lblVariousDisableAfter.Name = "lblVariousDisableAfter";
-            this.lblVariousDisableAfter.Size = new System.Drawing.Size(97, 20);
+            this.lblVariousDisableAfter.Size = new System.Drawing.Size(133, 20);
             this.lblVariousDisableAfter.TabIndex = 19;
-            this.lblVariousDisableAfter.Text = "Disable after:";
+            this.lblVariousDisableAfter.Text = "Disable after (min)";
             // 
             // ntxtVariousWorkerCoachDisableAfter
             // 
             this.ntxtVariousWorkerCoachDisableAfter.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ntxtVariousWorkerCoachDisableAfter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ntxtVariousWorkerCoachDisableAfter.Location = new System.Drawing.Point(97, 0);
+            this.ntxtVariousWorkerCoachDisableAfter.Location = new System.Drawing.Point(133, 0);
             this.ntxtVariousWorkerCoachDisableAfter.Margin = new System.Windows.Forms.Padding(0);
             this.ntxtVariousWorkerCoachDisableAfter.Name = "ntxtVariousWorkerCoachDisableAfter";
             this.ntxtVariousWorkerCoachDisableAfter.Number = 1;
@@ -1911,6 +2013,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.aChBxVariousShowPersonalClock.TabIndex = 15;
             this.aChBxVariousShowPersonalClock.TextAlign = AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.AnotherCheckbox.TextAlignment.Right;
             this.aChBxVariousShowPersonalClock.CheckedChanged += new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.CheckedChangeHandler(this.chBxVariousShowPersonalClock_CheckedChanged);
+            // 
+            // lblVariousAlerts
+            // 
+            this.lblVariousAlerts.AutoSize = true;
+            this.lblVariousAlerts.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVariousAlerts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblVariousAlerts.LanguageFile = "";
+            this.lblVariousAlerts.Location = new System.Drawing.Point(0, 297);
+            this.lblVariousAlerts.Margin = new System.Windows.Forms.Padding(0);
+            this.lblVariousAlerts.Name = "lblVariousAlerts";
+            this.lblVariousAlerts.Size = new System.Drawing.Size(51, 20);
+            this.lblVariousAlerts.TabIndex = 24;
+            this.lblVariousAlerts.Text = "Alerts";
             // 
             // btnHelpMeCopyEmail
             // 
@@ -2619,16 +2734,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.cpnlPlugins.TextSize = 11F;
             this.cpnlPlugins.Click += new System.EventHandler(this.cpnl_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(193, 349);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // NewMainHandler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2652,6 +2757,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlVarious.PerformLayout();
             this.tlpVariousContainer.ResumeLayout(false);
             this.tlpVariousContainer.PerformLayout();
+            this.tlpVariousAlertContainer.ResumeLayout(false);
+            this.tlpVariousAlertContainer.PerformLayout();
             this.tlpVariousWorkerCoachContainer.ResumeLayout(false);
             this.tlpVariousWorkerCoachContainer.PerformLayout();
             this.tlpVariousPersonalApmContainer.ResumeLayout(false);
@@ -2857,7 +2964,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private System.Windows.Forms.TableLayoutPanel tlpVariousWorkerCoachContainer;
         private System.Windows.Forms.TableLayoutPanel tlpBenchmarkDrawingContainer;
         private System.Windows.Forms.TableLayoutPanel tlpBenchmarkDataContainer;
-        private System.Windows.Forms.Button button1;
-
+        private AnotherCheckbox aChBxVariousShowAlerts;
+        private LanguageLabel lblVariousAlerts;
+        private System.Windows.Forms.TableLayoutPanel tlpVariousAlertContainer;
+        private LanguageLabel lblVariousShowAlert;
+        private NumberTextBox ntxtVariousAlertShowDuration;
+        private AnotherCheckbox aChBxVariousAlertSoundNotification;
+        private LanguageButton btnVariousOpenAlerts;
     }
 }

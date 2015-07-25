@@ -44,6 +44,7 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: Обн�
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Чтение памяти (мс):
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Восстановить настройки
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Восстановить позицию и размер панелей
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: Adjust Panels
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Убирать панели когда SC2 в свернутом режиме
 lstrApplicationRestoreSettingsText: Вы точно хотите сбросить настройки?
 lstrApplicationRestoreSettingsHeader: Вы уверены?
@@ -158,7 +159,7 @@ lstrCreditsReasonD3Scene: Отличное окружение с полезны�
 lstrCreditsReasonVariousPeople: ...дали идеи, предложения и критику - спасибо!
 lstrCreditsReasonDonators: Потому что вы помогаете мне покупать различные сладости! :3
 
-;Messagebox
+;Messagebox (Also used in VariousAlert)
 lstrAnotherMessageBoxOk: Ок
 lstrAnotherMessageBoxCancel: Отмена
 lstrAnotherMessageBoxAbort: Прервать
@@ -167,8 +168,13 @@ lstrAnotherMessageBoxIgnore: Игнорировать
 lstrAnotherMessageBoxYes: Да
 lstrAnotherMessageBoxNo: Нет
 
-;Maphack tab
+;Maphack tab (Also used in Various Alerts)
 lstrChMaphackFilterUnit: Боевая единица
 lstrMaphackFilterRemoveItem: Снять выбор
 lstrMaphackFilterMessageAddUnitText: Боевая единица уже используется!
 lstrMaphackFilterMessageAddUnitHeader: Ауч!
+
+;VariousAlerts
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: Show Alerts
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: Sound  Notification
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: Display for (sec.)

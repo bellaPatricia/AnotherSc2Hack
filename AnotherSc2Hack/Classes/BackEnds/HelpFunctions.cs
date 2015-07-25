@@ -946,7 +946,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         }
 
-        public static UnitId GetUnitIdFromLogicalId(UnitId structureBuildFrom, Int32 logicalId, Int32 maximumTime, Int32 mineralCost, Int32 vespineCost)
+        public static UnitId GetUnitIdFromLogicalId(UnitId structureBuildFrom, Int32 logicalId, Int32 maximumTime, Int32 mineralCost, Int32 vespineCost, int supply)
         {
             if (logicalId.Equals(0))
                 return UnitId.NbXelNagaTower;
@@ -1647,10 +1647,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     if (mineralCost.Equals(150))
                         return UnitId.ZuCorruptor;
 
-                    if (mineralCost.Equals(200))
+                    if (mineralCost.Equals(100) &&
+                        vespineCost == 200 &&
+                        supply == 4)
                         return UnitId.ZuSwarmHost;
 
-                    if (mineralCost.Equals(100))
+                    if (mineralCost.Equals(100) &&
+                        vespineCost == 200 &&
+                        supply == 3)
                         return UnitId.ZuViper;
                 }
 
@@ -1809,7 +1813,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             /* Missing: Broodlord Cocoon and Overseer Cocoon - Cant be found.. */
             #endregion
 
-            return UnitId.NbXelNagaTower;
+            return UnitId.None;
         }
 
         public static Int32 GetMaximumInteger(params Int32[] valInput)

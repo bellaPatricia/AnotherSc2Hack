@@ -44,6 +44,7 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: Ré-aff
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Lecture Mémoire (ms):
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Rétablir les paramètres
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Rétablir position et taille des panneaux
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: Adjust Panels
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: N'afficher que si SCII est au premier plan
 NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: Afficher le contenu Web
 lstrApplicationRestoreSettingsText: Voulez-vous vraiment remettre à zéro les paramètres ?
@@ -161,7 +162,7 @@ lstrCreditsReasonD3Scene: Bon environnement avec beaucoup de personnes aidantes
 lstrCreditsReasonVariousPeople: ...qui fait part de leurs idées, suggestions et critiques - merci !
 lstrCreditsReasonDonators: Parce que vous m'avez fait acheter des bonbons :3
 
-;Messagebox
+;Messagebox (Also used in VariousAlert)
 lstrAnotherMessageBoxOk: Ok
 lstrAnotherMessageBoxCancel: Annuler
 lstrAnotherMessageBoxAbort: Interrompre
@@ -170,8 +171,13 @@ lstrAnotherMessageBoxIgnore: Ignorer
 lstrAnotherMessageBoxYes: Oui
 lstrAnotherMessageBoxNo: Non
 
-;Maphack tab
+;Maphack tab (Also used in Various Alerts)
 lstrChMaphackFilterUnit: Unité
 lstrMaphackFilterRemoveItem: Rétirer la sélection
 lstrMaphackFilterMessageAddUnitText: L'unité est déjà utilisée!
 lstrMaphackFilterMessageAddUnitHeader: Aïe!
+
+;VariousAlerts
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: Show Alerts
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: Sound  Notification
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: Display for (sec.)
