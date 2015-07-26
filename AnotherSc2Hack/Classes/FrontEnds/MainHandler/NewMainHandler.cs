@@ -2859,7 +2859,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
         }
-  
+
+        private void aChBxVariousShowAlerts_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayAlert.ShowAlert = e.Value;
+            LaunchRenderer(typeof(AlertRenderer));
+        }
+
+        private void aChBxVariousAlertSoundNotification_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayAlert.SoundNotification = e.Value;
+        }
+
+        private void ntxtVariousAlertShowDuration_NumberChanged(object sender, NumberArgs e)
+        {
+            PSettings.PreferenceAll.OverlayAlert.Time = e.Number;
+        }
+
+        private void btnVariousOpenAlerts_Click(object sender, EventArgs e)
+        {
+            var aConf = new AlertConfiguration(PSettings);
+            aConf.Icon = Icon;
+            var result = aConf.ShowDialog();
+
+            if (result != DialogResult.Cancel)
+            {
+                PSettings = aConf.PSettings;
+            }
+        }
+
 
         #endregion
 
@@ -3432,6 +3460,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 renderer.ReloadPreferencesIntoControls();
             }
         }
+
         
     } 
 }
