@@ -82,7 +82,8 @@
     <Reference Include="UpdateChecker">
       <HintPath>..\UpdateChecker\bin\Release\UpdateChecker.dll</HintPath>
     </Reference>
-    <Reference Include="Utilities">
+    <Reference Include="Utilities, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Utilities\bin\Release\Utilities.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />

@@ -33,6 +33,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                 return;
             }
 
+            PreferenceAll.OverlayAlert.UnitIds.Clear();
             PreferenceAll = (PreferenceAll)_xmlSerializer.Deserialize(new StreamReader(Constants.StrXmlPreferences));
         }
 
@@ -68,6 +69,22 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public void Restore()
         {
             PreferenceAll = new PreferenceAll();
+
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PbDarkshrine);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PuDarktemplar);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PuOracle);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PuVoidray);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PuWarpprismTransport);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.TuBanshee);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.TuReaper);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.TuWidowMine);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.TuMedivac);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZbBanelingNest);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZuBaneling);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZuMutalisk);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZbSpire);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZuInfestor);
+            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZbHive);
         }
 
         public bool AskForDonation()

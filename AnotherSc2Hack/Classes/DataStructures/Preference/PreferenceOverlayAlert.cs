@@ -18,7 +18,6 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             SoundNotification = true;
             ElementName = "ShowAlert";
             UnitIds = new HashSet<UnitId>();
-
         }
 
         public int X { get; set; }
