@@ -165,14 +165,14 @@ namespace IncrementVersionNumber
     {
         static string assemblyVersion = "[assembly: AssemblyVersion(";
         static string assemblyFileVersion = "[assembly: AssemblyFileVersion(";
-        static readonly CustomVersioning customVersioning = new CustomVersioning();
+        static readonly CustomVersioning CustomVersioning = new CustomVersioning();
 
         /// <summary>
         /// The main entry point
-        /// </summary>
+        /// </summary>  
         /// <param name="args">
-        /// args [0] => $(ProjectDir)
-        /// args [1] => AutoIncrementPaths.txt
+        /// args [0] => $(SolutionDir)
+        /// args [1] => $(ProjectDir)
         /// args [2] => AutoIncrementPattern.txt
         /// </param>
         static int Main(string[] args)
@@ -180,25 +180,28 @@ namespace IncrementVersionNumber
             if (args.Length != 3)
             {
                 Console.WriteLine(">> No arguments set, existing!");
+                Console.WriteLine("Argument:");
+                foreach (var arg in args)
+                {
+                    Console.WriteLine(arg);
+                }
                 return 1;
             }
             
 
-            var projectDir = args[0];
-            var autoIncrementPaths = projectDir + args[1];
-            var autoIncrementPattern = projectDir + args[2];
+            var solutionDir = args[0];
+            var assembly = args[1] + "Properties\\AssemblyInfo.cs";
+            var autoIncrementPattern = solutionDir + args[2];
 
-            var assemblies = ReadAssemblies(autoIncrementPaths, projectDir);
-            if (!customVersioning.Parse(autoIncrementPattern))
+            if (!CustomVersioning.Parse(autoIncrementPattern))
             {
                 Console.WriteLine(">> Couldn't read pattern file, existing!");
                 return 1;
             }
 
-            foreach (var assembly in assemblies)
-            {
-                IncrementAssemblyVersion(assembly);
-            }
+            
+            IncrementAssemblyVersion(assembly);
+            
 
             return 0;
         }
@@ -272,32 +275,32 @@ namespace IncrementVersionNumber
 
                         #region Assign new version information
 
-                        if (customVersioning.MajorSettings == CustomVersioning.VersioningSettings.Increment)
+                        if (CustomVersioning.MajorSettings == CustomVersioning.VersioningSettings.Increment)
                             major += 1;
 
-                        else if (customVersioning.MajorSettings == CustomVersioning.VersioningSettings.Change)
-                            major = customVersioning.Major;
+                        else if (CustomVersioning.MajorSettings == CustomVersioning.VersioningSettings.Change)
+                            major = CustomVersioning.Major;
 
 
-                        if (customVersioning.MinorSettings == CustomVersioning.VersioningSettings.Increment)
+                        if (CustomVersioning.MinorSettings == CustomVersioning.VersioningSettings.Increment)
                             minor += 1;
 
-                        else if (customVersioning.MinorSettings == CustomVersioning.VersioningSettings.Change)
-                            minor = customVersioning.Minor;
+                        else if (CustomVersioning.MinorSettings == CustomVersioning.VersioningSettings.Change)
+                            minor = CustomVersioning.Minor;
 
 
-                        if (customVersioning.BuildSettings == CustomVersioning.VersioningSettings.Increment)
+                        if (CustomVersioning.BuildSettings == CustomVersioning.VersioningSettings.Increment)
                             build += 1;
 
-                        else if (customVersioning.BuildSettings == CustomVersioning.VersioningSettings.Change)
-                            build = customVersioning.Build;
+                        else if (CustomVersioning.BuildSettings == CustomVersioning.VersioningSettings.Change)
+                            build = CustomVersioning.Build;
 
 
-                        if (customVersioning.RevisionSettings == CustomVersioning.VersioningSettings.Increment)
+                        if (CustomVersioning.RevisionSettings == CustomVersioning.VersioningSettings.Increment)
                             revision += 1;
 
-                        else if (customVersioning.RevisionSettings == CustomVersioning.VersioningSettings.Change)
-                            revision = customVersioning.Revision;
+                        else if (CustomVersioning.RevisionSettings == CustomVersioning.VersioningSettings.Change)
+                            revision = CustomVersioning.Revision;
 
                         #endregion
 

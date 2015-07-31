@@ -53,7 +53,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>$(SolutionDir)\IncrementVersionNumber\bin\Release\IncrementVersionNumber.exe $(SolutionDir) AutoIncrementPaths.txt AutoIncrementPattern.txt</PreBuildEvent>
+    <PreBuildEvent>$(SolutionDir)IncrementVersionNumber\bin\Release\IncrementVersionNumber.exe $(SolutionDir) $(ProjectDir) AutoIncrementPattern.txt</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

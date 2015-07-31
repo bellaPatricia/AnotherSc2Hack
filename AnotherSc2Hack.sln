@@ -5,12 +5,14 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginInterface", "PluginInterface\PluginInterface.csproj", "{DCA4E026-F889-42AE-AF51-F8628C6A076B}"
 	ProjectSection(ProjectDependencies) = postProject
+		{F733E552-2848-4DF3-8552-FAC2967BE287} = {F733E552-2848-4DF3-8552-FAC2967BE287}
 		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}
 		{F5FA0AD3-E5D0-4050-8094-1839A950D47A} = {F5FA0AD3-E5D0-4050-8094-1839A950D47A}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredefinedTypes", "PredefinedTypes\PredefinedTypes.csproj", "{F5FA0AD3-E5D0-4050-8094-1839A950D47A}"
 	ProjectSection(ProjectDependencies) = postProject
+		{F733E552-2848-4DF3-8552-FAC2967BE287} = {F733E552-2848-4DF3-8552-FAC2967BE287}
 		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}
 	EndProjectSection
 EndProject
@@ -34,10 +36,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateChecker", "UpdateChecker\UpdateChecker.csproj", "{AF4C8A2C-42A4-4583-838D-C6D570953719}"
 	ProjectSection(ProjectDependencies) = postProject
+		{F733E552-2848-4DF3-8552-FAC2967BE287} = {F733E552-2848-4DF3-8552-FAC2967BE287}
 		{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02} = {DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{DC3A508B-9C4A-4C7C-A449-56AEDA2D8D02}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F733E552-2848-4DF3-8552-FAC2967BE287} = {F733E552-2848-4DF3-8552-FAC2967BE287}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncrementVersionNumber", "IncrementVersionNumber\IncrementVersionNumber.csproj", "{F733E552-2848-4DF3-8552-FAC2967BE287}"
 EndProject

@@ -1,3 +1,0 @@
-# This all is in the scope of the $(ProjectDir)
-# Please supply the paths relatively!
-AnotherSc2Hack\\Properties\\AssemblyInfo.cs
