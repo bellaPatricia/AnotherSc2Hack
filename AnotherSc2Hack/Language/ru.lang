@@ -1,4 +1,4 @@
-﻿;1.0.0.0
+﻿;1.0.1.0
 ;Translate file for the Russian Language
 ;Created by ???
 ;Language Name (natively written)
@@ -46,6 +46,7 @@ NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Восстанов
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Восстановить позицию и размер панелей
 NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: Настроить панели
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Убирать панели когда SC2 в свернутом режиме
+NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: Показывать Веб-Контент
 lstrApplicationRestoreSettingsText: Вы точно хотите сбросить настройки?
 lstrApplicationRestoreSettingsHeader: Вы уверены?
 lstrApplicationRestorePanelPositionText: Размер панели и позиция\nбыли успешно установлены!
@@ -54,6 +55,8 @@ lstrApplicationDoYouWishToUpdate: Вы желаете обновить?
 lstrApplicationUpdateTitle: Доступны обновления!
 lstrContributionTitle: Взнос
 lstrContributionText: Похоже что вы используете эту программу\nуже долгое время. Если Вам она понравилась вы можете\nпоучаствовать в проекте как переводчики,\nвнести пожертвования или сообщить об ошибках.\n\nВы хотите внести свой вклад?
+lstrWriteErrorTitle: Опишите ошибку
+lstrWriteErrorText: Ошибка в параметрах.\nПопробуйте снова!   
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Обновление мапхака / сек.
