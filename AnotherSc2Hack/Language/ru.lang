@@ -44,7 +44,7 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: Обн�
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Чтение памяти (мс):
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Восстановить настройки
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Восстановить позицию и размер панелей
-NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: Adjust Panels
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: Настроить панели
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Убирать панели когда SC2 в свернутом режиме
 lstrApplicationRestoreSettingsText: Вы точно хотите сбросить настройки?
 lstrApplicationRestoreSettingsHeader: Вы уверены?
@@ -175,6 +175,6 @@ lstrMaphackFilterMessageAddUnitText: Боевая единица уже испо
 lstrMaphackFilterMessageAddUnitHeader: Ауч!
 
 ;VariousAlerts
-NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: Show Alerts
-NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: Sound  Notification
-NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: Display for (sec.)
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: Показывать угрозы
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: Звуковые сообщения
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: Дисплей (сек.)
