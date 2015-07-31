@@ -195,9 +195,7 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\AlertConfiguration.Designer.cs">
       <DependentUpon>AlertConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\AnotherCheckbox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\AnotherCheckbox.cs" />
     <Compile Include="Classes\FrontEnds\Custom Controls\AnotherListview.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -225,9 +223,7 @@
     <Compile Include="Classes\FrontEnds\Custom Controls\MaphackFilter.Designer.cs">
       <DependentUpon>MaphackFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\FrontEnds\Custom Controls\KeyTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Classes\FrontEnds\Custom Controls\KeyTextBox.cs" />
     <Compile Include="Classes\FrontEnds\Custom Controls\LanguageButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1144,6 +1140,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>$(SolutionDir)\IncrementVersionNumber\bin\Release\IncrementVersionNumber.exe $(SolutionDir)</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
