@@ -1,0 +1,12 @@
+#############################################################################
+# This all is in the scope of the $(ProjectDir)                             #
+# Please use one of the following datatypes to define your version:         #
+# [ ! ] => Don't change the previous number                                 #
+# [ # ] => Use the entered number                                           #
+# [ + ] => Autoincrement the previous number                                #
+#                                                                           #
+#############################################################################
+Major		[99]
+Minor		[5]
+Build		[+]
+Revision	[+]

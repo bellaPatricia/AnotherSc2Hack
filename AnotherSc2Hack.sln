@@ -41,6 +41,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Util
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncrementVersionNumber", "IncrementVersionNumber\IncrementVersionNumber.csproj", "{F733E552-2848-4DF3-8552-FAC2967BE287}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8B56576A-23A1-46D3-9EA0-DE7414D08C0D}"
+	ProjectSection(SolutionItems) = preProject
+		AutoIncrementPaths.txt = AutoIncrementPaths.txt
+		AutoIncrementPattern.txt = AutoIncrementPattern.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
