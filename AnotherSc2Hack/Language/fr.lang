@@ -1,4 +1,4 @@
-﻿;1.0.0.0
+﻿;1.0.1.0
 ;Translate file for the French Language
 ;Created by 
 ;Language Name (natively written)
@@ -44,7 +44,7 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: Ré-aff
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Lecture Mémoire (ms):
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Rétablir les paramètres
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Rétablir position et taille des panneaux
-NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: Adjust Panels
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: Ajuster les panneaux
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: N'afficher que si SCII est au premier plan
 NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: Afficher le contenu Web
 lstrApplicationRestoreSettingsText: Voulez-vous vraiment remettre à zéro les paramètres ?
@@ -178,6 +178,6 @@ lstrMaphackFilterMessageAddUnitText: L'unité est déjà utilisée!
 lstrMaphackFilterMessageAddUnitHeader: Aïe!
 
 ;VariousAlerts
-NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: Show Alerts
-NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: Sound  Notification
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: Montrer les alertes
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: Notification sonore
 NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: Display for (sec.)

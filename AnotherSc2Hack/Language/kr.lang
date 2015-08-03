@@ -1,4 +1,4 @@
-﻿;1.0.2.0
+﻿;1.0.3.0
 ;Translate file for the Korean Language
 ;Created by ironer1(ironer01@naver.com)
 ;Language Name (natively written)
@@ -44,7 +44,7 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: 랜더�
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: 메모리 읽기 (ms):
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: 설정 초기화
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: 판넬 위치와 크기 초기화
-NewMainHandler#pnlMainArea#pnlApplication#btnAdjus tPanels: 판넬 조정
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: 판넬 조정
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: 스타2 플레이중에만 핵 표시
 NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: 웹 내용 보이기
 lstrApplicationRestoreSettingsText: 설정을 초기화 하시겠습니까?
@@ -178,6 +178,6 @@ lstrMaphackFilterMessageAddUnitText: 해당 유닛은 이미 추가되어 있습
 lstrMaphackFilterMessageAddUnitHeader: 이런!
 
 ;VariousAlerts
-NewMainHandler#pnlMainArea#pnlVarious#aChBxVarious ShowAlerts: 경고 보이기
-NewMainHandler#pnlMainArea#pnlVarious#aChBxVarious AlertSoundNotification: 알림 소리 활성화
-NewMainHandler#pnlMainArea#pnlVarious#lblVariousSh owAlert: (초)동안 화면에 띄웁니다
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: 경고 보이기
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: 알림 소리 활성화
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: (초)동안 화면에 띄웁니다

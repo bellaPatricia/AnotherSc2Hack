@@ -1,4 +1,4 @@
-﻿;1.0.1.0
+﻿;1.0.2.0
 ;Translate file for the Traditional Chinese Language
 ;Created by kk321010
 ;Language Name (natively written)
@@ -44,7 +44,7 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: 刷新�
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: 讀取記憶體 (ms):
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: 恢復預設設定
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: 恢復面板位置與大小
-NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: Adjust Panels
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: 調整面板
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: 只有 SCII 在最前面才會顯示
 NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: 顯示web內容
 lstrApplicationRestoreSettingsText: 你真的想要重置你的設定嗎?
@@ -176,6 +176,6 @@ lstrChMaphackFilterUnit: 單位
 lstrMaphackFilterRemoveItem: 選擇刪除
 
 ;VariousAlerts
-NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: Show Alerts
-NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: Sound  Notification
-NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: Display for (sec.)
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: 顯示訊息
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: 聲音提醒
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: 顯示(秒)
