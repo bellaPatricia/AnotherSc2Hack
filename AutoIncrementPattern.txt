@@ -6,7 +6,7 @@
 # [ + ] => Autoincrement the previous number                                #
 #                                                                           #
 #############################################################################
-Major		[!]
-Minor		[!]
-Build		[+]
+Major		[1]
+Minor		[2]
+Build		[0]
 Revision	[0]

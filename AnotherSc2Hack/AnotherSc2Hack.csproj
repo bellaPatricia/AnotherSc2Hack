@@ -59,13 +59,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PluginInterface, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PluginInterface\bin\Release\PluginInterface.dll</HintPath>
-    </Reference>
-    <Reference Include="PredefinedTypes">
-      <HintPath>..\PredefinedTypes\bin\Release\PredefinedTypes.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -79,13 +72,6 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
-    <Reference Include="UpdateChecker">
-      <HintPath>..\UpdateChecker\bin\Release\UpdateChecker.dll</HintPath>
-    </Reference>
-    <Reference Include="Utilities, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Utilities\bin\Release\Utilities.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
@@ -1138,6 +1124,24 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PluginInterface\PluginInterface.csproj">
+      <Project>{dca4e026-f889-42ae-af51-f8628c6a076b}</Project>
+      <Name>PluginInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PredefinedTypes\PredefinedTypes.csproj">
+      <Project>{f5fa0ad3-e5d0-4050-8094-1839a950d47a}</Project>
+      <Name>PredefinedTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UpdateChecker\UpdateChecker.csproj">
+      <Project>{af4c8a2c-42a4-4583-838d-c6d570953719}</Project>
+      <Name>UpdateChecker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{dc3a508b-9c4a-4c7c-a449-56aeda2d8d02}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
