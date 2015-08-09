@@ -5790,12 +5790,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         {
                             _lZbNydusend[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                            var tmp =
-                                (float)
-                                    Math.Round(
-                                        ((tmpUnit.MaximumHealth -
-                                          tmpUnit.DamageTaken)/
-                                         (float) tmpUnit.MaximumHealth)*100, 1);
+                            var tmp = tmpUnit.AliveSince/81920f * 100;
                             _lZbNydusend[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
