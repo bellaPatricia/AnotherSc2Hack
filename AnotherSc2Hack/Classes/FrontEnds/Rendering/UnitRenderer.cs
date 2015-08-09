@@ -319,6 +319,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             fStringFont, false);
                         Helper_DrawUnits(_lZuChangeling, i, ref iPosX, iPosY, iSize, _imgZuChangeling, g, clPlayercolor,
                             fStringFont, false);
+                        Helper_DrawUnits(_lZuInfestedTerran, i, ref iPosX, iPosY, iSize, _imgInfestedTerran, g, clPlayercolor,
+                            fStringFont, false);
 
                         /* Maximum for the units */
                         iWidthUnits = iPosX;
@@ -1074,10 +1076,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }
 
 
-            if ((unit.Id.Equals(UnitId.TuMule) || unit.Id.Equals(UnitId.PuForceField) ||
+            if ((unit.Id.Equals(UnitId.TuMule) ||
+                unit.Id.Equals(UnitId.PuForceField) ||
                 unit.Id.Equals(UnitId.ZuLocust) ||
                 unit.Id.Equals(UnitId.ZuFlyingLocust) ||
-                unit.Id.Equals(UnitId.ZuChangeling)) &&
+                unit.Id.Equals(UnitId.ZuChangeling) ||
+                unit.Id.Equals(UnitId.ZuInfestedTerran)) &&
                 !PSettings.PreferenceAll.OverlayUnits.RemoveProductionLine)
             {
                 float ftemp = size - 4;

@@ -252,6 +252,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected List<UnitCount> _lZuRoach = new List<UnitCount>();
         protected List<UnitCount> _lZuHydra = new List<UnitCount>();
         protected List<UnitCount> _lZuInfestor = new List<UnitCount>();
+        protected List<UnitCount> _lZuInfestedTerran = new List<UnitCount>();
         protected List<UnitCount> _lZuQueen = new List<UnitCount>();
         protected List<UnitCount> _lZuOverseer = new List<UnitCount>();
         protected List<UnitCount> _lZuOverseerCocoon = new List<UnitCount>();
@@ -481,6 +482,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             _imgZuViper = Resources.zu_viper,
             _imgZuSwarmhost = Resources.zu_swarmhost,
             _imgZuInfestor = Resources.zu_infestor,
+            _imgInfestedTerran = Resources.zu_infestedterran,
             _imgZuCorruptor = Resources.zu_corruptor,
             _imgZuChangeling = Resources.zu_changeling,
             _imgZuBroodlord = Resources.zu_broodlord,
@@ -1334,6 +1336,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgZuViper = Resources.zu_viper;
                 _imgZuSwarmhost = Resources.zu_swarmhost;
                 _imgZuInfestor = Resources.zu_infestor;
+                _imgInfestedTerran = Resources.zu_infestedterran;
                 _imgZuCorruptor = Resources.zu_corruptor;
                 _imgZuBroodlord = Resources.zu_broodlord;
                 _imgZuBroodlordCocoon = Resources.zu_broodlordcocoon;
@@ -1554,6 +1557,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgZuViper = Resources.trans_zu_viper;
                 _imgZuSwarmhost = Resources.trans_zu_swarmhost;
                 _imgZuInfestor = Resources.trans_zu_infestor;
+                _imgInfestedTerran = Resources.trans_zu_InfestedTerran;
                 _imgZuCorruptor = Resources.trans_zu_corruptor;
                 _imgZuBroodlord = Resources.trans_zu_broodlord;
                 _imgZuBroodlordCocoon = Resources.trans_zu_BroodLordCocoon;
@@ -2112,6 +2116,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (_lZuInfestor.Count > 0)
                     _lZuInfestor.Clear();
 
+                if (_lZuInfestedTerran.Count > 0)
+                    _lZuInfestedTerran.Clear();
+
                 if (_lZuLarva.Count > 0)
                     _lZuLarva.Clear();
 
@@ -2431,6 +2438,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     _lZuDrone.Add(new UnitCount());
                     _lZuHydra.Add(new UnitCount());
                     _lZuInfestor.Add(new UnitCount());
+                    _lZuInfestedTerran.Add(new UnitCount());
                     _lZuLarva.Add(new UnitCount());
                     _lZuMutalisk.Add(new UnitCount());
                     _lZuOverlord.Add(new UnitCount());
@@ -4212,6 +4220,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lZuInfestor[tmpUnit.Owner].Id = UnitId.ZuInfestor;
                             _lZuInfestor[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lZuInfestor[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                        }
+
+                        else if (tmpUnit.Id ==
+                                 UnitId.ZuInfestedTerran ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZuInfestedTerran2)
+                        {
+                            _lZuInfestedTerran[tmpUnit.Owner].UnitAmount += 1;
+                            _lZuInfestedTerran[tmpUnit.Owner].Id = UnitId.ZuInfestedTerran;
+                            _lZuInfestedTerran[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 143360f));
                         }
 
                         else if (tmpUnit.Id == UnitId.ZuLarva)
@@ -6152,10 +6170,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 SortConstructionStates(ref _lZuSwarmhost);
                 SortConstructionStates(ref _lZuUltralisk);
                 SortConstructionStates(ref _lZuViper);
+                SortConstructionStates(ref _lZuZergling);
                 SortAliveSinceStates(ref _lZuLocust);
                 SortAliveSinceStates(ref _lZuFlyingLocust);
                 SortAliveSinceStates(ref _lZuChangeling);
-                SortConstructionStates(ref _lZuZergling);
+                SortAliveSinceStates(ref _lZuInfestedTerran);
+                
 
                 SortConstructionStates(ref _lZupAdrenalGlands);
                 SortConstructionStates(ref _lZupAirArmor1);
