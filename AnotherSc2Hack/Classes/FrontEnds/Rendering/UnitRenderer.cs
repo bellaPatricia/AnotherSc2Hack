@@ -317,6 +317,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             fStringFont, false);
                         Helper_DrawUnits(_lZuLarva, i, ref iPosX, iPosY, iSize, _imgZuLarva, g, clPlayercolor,
                             fStringFont, false);
+                        Helper_DrawUnits(_lZuChangeling, i, ref iPosX, iPosY, iSize, _imgZuChangeling, g, clPlayercolor,
+                            fStringFont, false);
 
                         /* Maximum for the units */
                         iWidthUnits = iPosX;
@@ -1074,11 +1076,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             if ((unit.Id.Equals(UnitId.TuMule) || unit.Id.Equals(UnitId.PuForceField) ||
                 unit.Id.Equals(UnitId.ZuLocust) ||
-                unit.Id.Equals(UnitId.ZuFlyingLocust)) &&
+                unit.Id.Equals(UnitId.ZuFlyingLocust) ||
+                unit.Id.Equals(UnitId.ZuChangeling)) &&
                 !PSettings.PreferenceAll.OverlayUnits.RemoveProductionLine)
             {
                 float ftemp = size - 4;
                 ftemp *= (unit.AliveSince[0]);
+                ftemp = (float)Math.Ceiling(ftemp);
 
                 /* Draw status- line */
                 var iOffset = 5;
@@ -1088,7 +1092,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                 g.Graphics.DrawLine(new Pen(Brushes.Yellow, 2), posX + 2, posY + size - 3 + iOffset,
-                    posX + 2 + (int) ftemp,
+                    posX + 3 + (int)ftemp,
                     posY + size - 3 + iOffset);
                 g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);
             }
