@@ -570,6 +570,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (_lZuLocust.Count > 0)
                     _lZuLocust.Clear();
 
+                if (_lZuFlyingLocust.Count > 0)
+                    _lZuFlyingLocust.Clear();
+
                 if (_lZuZergling.Count > 0)
                     _lZuZergling.Clear();
 
@@ -865,6 +868,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     _lZuViper.Add(new UnitCount());
                     _lZuZergling.Add(new UnitCount());
                     _lZuLocust.Add(new UnitCount());
+                    _lZuFlyingLocust.Add(new UnitCount());
 
                     #endregion
 
@@ -2547,6 +2551,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             else
                                 _lZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/73216f));
+                        }
+
+                        else if (tmpUnit.Id ==
+                                 UnitId.ZuFlyingLocust)
+                        {
+                            _lZuFlyingLocust[tmpUnit.Owner].UnitAmount += 1;
+                            _lZuFlyingLocust[tmpUnit.Owner].Id = UnitId.ZuFlyingLocust;
+
+                            if (tmpUnit.AliveSince > 73216f)
+                                _lZuFlyingLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 113920f));
+
+                            else
+                                _lZuFlyingLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 73216f));
                         }
 
 
@@ -4548,6 +4565,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 SortConstructionStates(ref _lZuUltralisk);
                 SortConstructionStates(ref _lZuViper);
                 SortAliveSinceStates(ref _lZuLocust);
+                SortAliveSinceStates(ref _lZuFlyingLocust);
                 SortConstructionStates(ref _lZuZergling);
 
                 SortConstructionStates(ref _lZupAdrenalGlands);
@@ -4821,6 +4839,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected List<UnitCount> _lZuSwarmhost = new List<UnitCount>();
         protected List<UnitCount> _lZuViper = new List<UnitCount>();
         protected List<UnitCount> _lZuLocust = new List<UnitCount>();
+        protected List<UnitCount> _lZuFlyingLocust = new List<UnitCount>();
 
         protected List<UnitCount> _lZupAirWeapon1 = new List<UnitCount>();
         protected List<UnitCount> _lZupAirWeapon2 = new List<UnitCount>();
@@ -5044,7 +5063,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             _imgZuOverlord = Resources.zu_overlord,
             _imgZuOverseer = Resources.zu_overseer,
             _imgZuOvserseerCocoon = Resources.zu_overseercocoon,
-            _imgZuLocust = Resources.zu_locust;
+            _imgZuLocust = Resources.zu_locust,
+            _imgZuFlyingLocust = Resources.zup_flying_locust;
 
         #endregion
 
@@ -5896,6 +5916,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgZuOverseer = Resources.zu_overseer;
                 _imgZuOvserseerCocoon = Resources.zu_overseercocoon;
                 _imgZuLocust = Resources.zu_locust;
+                _imgZuFlyingLocust = Resources.zup_flying_locust;
 
                 _imgZbHatchery = Resources.zb_hatchery;
                 _imgZbLair = Resources.zb_lair;
@@ -6114,6 +6135,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgZuOverseer = Resources.trans_zu_overseer;
                 _imgZuOvserseerCocoon = Resources.trans_zu_OverlordCocoon;
                 _imgZuLocust = Resources.trans_zu_locust;
+                _imgZuFlyingLocust = Resources.trans_Zup_flying_locust;
 
                 _imgZbHatchery = Resources.trans_zb_hatchery;
                 _imgZbLair = Resources.trans_zb_lair;
