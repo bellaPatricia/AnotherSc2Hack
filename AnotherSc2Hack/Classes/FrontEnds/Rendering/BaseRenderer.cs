@@ -253,6 +253,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected List<UnitCount> _lZuHydra = new List<UnitCount>();
         protected List<UnitCount> _lZuInfestor = new List<UnitCount>();
         protected List<UnitCount> _lZuInfestedTerran = new List<UnitCount>();
+        protected List<UnitCount> _lZuInfestedTerranEgg = new List<UnitCount>();
         protected List<UnitCount> _lZuQueen = new List<UnitCount>();
         protected List<UnitCount> _lZuOverseer = new List<UnitCount>();
         protected List<UnitCount> _lZuOverseerCocoon = new List<UnitCount>();
@@ -483,6 +484,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             _imgZuSwarmhost = Resources.zu_swarmhost,
             _imgZuInfestor = Resources.zu_infestor,
             _imgInfestedTerran = Resources.zu_infestedterran,
+            _imgInfestedTerranEgg = Resources.zu_infestedterran,
             _imgZuCorruptor = Resources.zu_corruptor,
             _imgZuChangeling = Resources.zu_changeling,
             _imgZuBroodlord = Resources.zu_broodlord,
@@ -1337,6 +1339,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgZuSwarmhost = Resources.zu_swarmhost;
                 _imgZuInfestor = Resources.zu_infestor;
                 _imgInfestedTerran = Resources.zu_infestedterran;
+                _imgInfestedTerranEgg = Resources.zu_infestedterran;
                 _imgZuCorruptor = Resources.zu_corruptor;
                 _imgZuBroodlord = Resources.zu_broodlord;
                 _imgZuBroodlordCocoon = Resources.zu_broodlordcocoon;
@@ -1558,6 +1561,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgZuSwarmhost = Resources.trans_zu_swarmhost;
                 _imgZuInfestor = Resources.trans_zu_infestor;
                 _imgInfestedTerran = Resources.trans_zu_InfestedTerran;
+                _imgInfestedTerranEgg = Resources.trans_zu_InfestedTerran;
                 _imgZuCorruptor = Resources.trans_zu_corruptor;
                 _imgZuBroodlord = Resources.trans_zu_broodlord;
                 _imgZuBroodlordCocoon = Resources.trans_zu_BroodLordCocoon;
@@ -2119,6 +2123,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (_lZuInfestedTerran.Count > 0)
                     _lZuInfestedTerran.Clear();
 
+                if (_lZuInfestedTerranEgg.Count > 0)
+                    _lZuInfestedTerranEgg.Clear();
+
                 if (_lZuLarva.Count > 0)
                     _lZuLarva.Clear();
 
@@ -2439,6 +2446,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     _lZuHydra.Add(new UnitCount());
                     _lZuInfestor.Add(new UnitCount());
                     _lZuInfestedTerran.Add(new UnitCount());
+                    _lZuInfestedTerranEgg.Add(new UnitCount());
                     _lZuLarva.Add(new UnitCount());
                     _lZuMutalisk.Add(new UnitCount());
                     _lZuOverlord.Add(new UnitCount());
@@ -4230,6 +4238,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lZuInfestedTerran[tmpUnit.Owner].UnitAmount += 1;
                             _lZuInfestedTerran[tmpUnit.Owner].Id = UnitId.ZuInfestedTerran;
                             _lZuInfestedTerran[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 143360f));
+                        }
+
+                        else if (tmpUnit.Id == UnitId.ZuInfestedSwarmEgg)
+                        {
+                            _lZuInfestedTerranEgg[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            _lZuInfestedTerranEgg[tmpUnit.Owner].Id = UnitId.ZuInfestedSwarmEgg;
+                            _lZuInfestedTerranEgg[tmpUnit.Owner].ConstructionState.Add(tmpUnit.AliveSince/20480f * 100);
+
                         }
 
                         else if (tmpUnit.Id == UnitId.ZuLarva)
@@ -6155,6 +6171,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 SortConstructionStates(ref _lZuDrone);
                 SortConstructionStates(ref _lZuHydra);
                 SortConstructionStates(ref _lZuInfestor);
+                SortConstructionStates(ref _lZuInfestedTerranEgg);
                 SortConstructionStates(ref _lZuLarva);
                 SortConstructionStates(ref _lZuMutalisk);
                 SortConstructionStates(ref _lZuOverlord);

@@ -321,6 +321,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             fStringFont, false);
                         Helper_DrawUnits(_lZuInfestedTerran, i, ref iPosX, iPosY, iSize, _imgInfestedTerran, g, clPlayercolor,
                             fStringFont, false);
+                        Helper_DrawUnits(_lZuInfestedTerranEgg, i, ref iPosX, iPosY, iSize, _imgInfestedTerranEgg, g, clPlayercolor,
+                           fStringFont, false);
 
                         /* Maximum for the units */
                         iWidthUnits = iPosX;
@@ -1001,7 +1003,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }
 
 
-            if (unit.UnitUnderConstruction > 0)
+            if (unit.UnitUnderConstruction > 0 || unit.Id == UnitId.ZuInfestedSwarmEgg)
             {
                 var bDraw = false;
 
@@ -1095,7 +1097,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     iOffset = 0;
 
 
-                g.Graphics.DrawLine(new Pen(Brushes.Yellow, 2), posX + 2, posY + size - 3 + iOffset,
+                g.Graphics.DrawLine(new Pen(Brushes.LimeGreen, 2), posX + 2, posY + size - 3 + iOffset,
                     posX + 3 + (int)ftemp,
                     posY + size - 3 + iOffset);
                 g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);

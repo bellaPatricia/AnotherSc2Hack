@@ -307,6 +307,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         Helper_DrawUnitsProduction(_lZuBroodlordCocoon, i, ref iPosX, iPosY, iSize,
                             _imgZuBroodlordCocoon,
                             g, clPlayercolor, fStringFont, false);
+                        Helper_DrawUnitsProduction(_lZuInfestedTerran, i, ref iPosX, iPosY, iSize,
+                           _imgInfestedTerran,
+                           g, clPlayercolor, fStringFont, false);
+                        Helper_DrawUnitsProduction(_lZuInfestedTerranEgg, i, ref iPosX, iPosY, iSize,
+                           _imgInfestedTerranEgg,
+                           g, clPlayercolor, fStringFont, false);
 
                         /* Maximum for the units */
                         iWidthUnits = iPosX;
