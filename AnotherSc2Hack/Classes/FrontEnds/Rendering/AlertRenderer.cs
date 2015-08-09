@@ -463,62 +463,75 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var tempPlayerStores = new List<PlayerStore>(_playerStores);
 
-            foreach (var playerStore in tempPlayerStores)
+            try
             {
-                var tempDictionary = new Dictionary<UnitId, UnitListData>(playerStore.Units);
-
-                foreach (var playerUnit in tempDictionary)
+                foreach (var playerStore in tempPlayerStores)
                 {
-                    if (!playerUnit.Value.IsValid)
-                        continue;
+                    var tempDictionary = new Dictionary<UnitId, UnitListData>(playerStore.Units);
 
-                    //var targetBrush = new SolidBrush(Color.FromArgb(255, playerStore.Color));
-                    var targetBrush = new HatchBrush(HatchStyle.ForwardDiagonal, playerStore.Color, Color.WhiteSmoke);
-                    var targetRectangle = new Rectangle(iPosX,
-                        iPosY,
-                        PSettings.PreferenceAll.OverlayAlert.IconWidth,
-                        PSettings.PreferenceAll.OverlayAlert.IconHeight);
-
-                    try
+                    foreach (var playerUnit in tempDictionary)
                     {
-                        g.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                        g.Graphics.CompositingQuality = CompositingQuality.HighQuality;
-                        g.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+                        if (!playerUnit.Value.IsValid)
+                            continue;
 
-                        g.Graphics.FillEllipse(targetBrush,
-                            (int) (iPosX - (fPenWidth/2)),
-                            (int) (iPosY - (fPenWidth/2)),
-                            (int) (PSettings.PreferenceAll.OverlayAlert.IconWidth + fPenWidth),
-                            (int) (PSettings.PreferenceAll.OverlayAlert.IconHeight + fPenWidth));
+                        //var targetBrush = new SolidBrush(Color.FromArgb(255, playerStore.Color));
+                        var targetBrush = new HatchBrush(HatchStyle.ForwardDiagonal, playerStore.Color, Color.WhiteSmoke);
+                        var targetRectangle = new Rectangle(iPosX,
+                            iPosY,
+                            PSettings.PreferenceAll.OverlayAlert.IconWidth,
+                            PSettings.PreferenceAll.OverlayAlert.IconHeight);
 
-                        using (var gfxPath = new GraphicsPath())
+                        try
                         {
-                            gfxPath.AddEllipse(targetRectangle);
+                            g.Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                            g.Graphics.CompositingQuality = CompositingQuality.HighQuality;
+                            g.Graphics.SmoothingMode = SmoothingMode.HighQuality;
 
-                            using (var region = new Region(targetRectangle))
+                            g.Graphics.FillEllipse(targetBrush,
+                                (int) (iPosX - (fPenWidth/2)),
+                                (int) (iPosY - (fPenWidth/2)),
+                                (int) (PSettings.PreferenceAll.OverlayAlert.IconWidth + fPenWidth),
+                                (int) (PSettings.PreferenceAll.OverlayAlert.IconHeight + fPenWidth));
+
+                            using (var gfxPath = new GraphicsPath())
                             {
-                                region.Exclude(gfxPath);
+                                gfxPath.AddEllipse(targetRectangle);
 
-                                g.Graphics.ExcludeClip(region);
+                                using (var region = new Region(targetRectangle))
+                                {
+                                    region.Exclude(gfxPath);
 
-                                g.Graphics.DrawImage(_dictionaryUnits[playerUnit.Key], targetRectangle);
+                                    g.Graphics.ExcludeClip(region);
+
+                                    g.Graphics.DrawImage(_dictionaryUnits[playerUnit.Key], targetRectangle);
+                                }
                             }
                         }
+
+                        catch (Exception ex)
+                        {
+                            Logger.Emit(ex);
+                        }
+
+                        //Set position for the next panel
+                        iPosX += PSettings.PreferenceAll.OverlayAlert.IconWidth + (int) fPenWidth*2;
+
+                        //Resize properly
+                        if (iPosX >= ClientSize.Width)
+                            ClientSize = new Size(iPosX - (int) (fPenWidth),
+                                iPosY + PSettings.PreferenceAll.OverlayAlert.IconHeight + (int) fPenWidth*2);
                     }
-
-                    catch (Exception ex)
-                    {
-                        Logger.Emit(ex);
-                    }
-
-                    //Set position for the next panel
-                    iPosX += PSettings.PreferenceAll.OverlayAlert.IconWidth + (int) fPenWidth*2;
-
-                    //Resize properly
-                    if (iPosX >= ClientSize.Width)
-                        ClientSize = new Size(iPosX - (int) (fPenWidth),
-                            iPosY + PSettings.PreferenceAll.OverlayAlert.IconHeight + (int) fPenWidth*2);
                 }
+            }
+
+            catch (InvalidOperationException ex)
+            {
+                //Swallow this
+            }
+
+            catch (Exception ex)
+            {
+                Logger.Emit(ex);
             }
         }
 
