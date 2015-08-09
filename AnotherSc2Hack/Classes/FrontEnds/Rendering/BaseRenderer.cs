@@ -20,6 +20,7 @@ using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Properties;
 using PredefinedTypes;
 using Utilities.Events;
+using Utilities.ExtensionMethods;
 using MouseButtons = System.Windows.Forms.MouseButtons;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
@@ -385,6 +386,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             _imgTupHighSecAutoTracking = Resources.Tup_HighSecAutotracking,
             _imgTupStructureArmor = Resources.Tup_StructureArmor,
             _imgTupNeosteelFrame = Resources.Tup_NeosteelFrame;
+
+        
 
         #endregion
 
@@ -883,25 +886,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (!BChangingPosition && !BSetPosition && !BSetSize)
                 return;
 
-            // Simple border 
-            buffer.Graphics.DrawRectangle(Constants.PYellowGreen2,
-                1,
-                1,
-                Width - 2,
-                Height - 2);
+            var targetBrush = new HatchBrush(HatchStyle.ForwardDiagonal, Color.YellowGreen, Color.WhiteSmoke);
+            var targetPen = new Pen(targetBrush, 10);
 
-            // Draw some filled frectangles to make the resizing easier 
-            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                Width - SizeOfRectangle, 0, SizeOfRectangle,
-                SizeOfRectangle);
-
-            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                0, Height - SizeOfRectangle, SizeOfRectangle,
-                SizeOfRectangle);
-
-            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                Width - SizeOfRectangle, Height - SizeOfRectangle,
-                SizeOfRectangle, SizeOfRectangle);
+            buffer.Graphics.DrawRectangle(targetPen, 0 + (targetPen.Width/2), 0 + (targetPen.Width / 2),
+                ClientSize.Width - (targetPen.Width), ClientSize.Height - (targetPen.Width));
 
             // Draw current size 
             buffer.Graphics.DrawString(
@@ -909,7 +898,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 Height.ToString(CultureInfo.InvariantCulture) + " - [X=" +
                 Location.X.ToString(CultureInfo.InvariantCulture) + "; Y=" +
                 Location.Y.ToString(CultureInfo.InvariantCulture) + "]",
-                new Font("Arial", 8, FontStyle.Regular), Brushes.YellowGreen, 2, 2);
+                Font, Brushes.WhiteSmoke, Brushes.Black, targetPen.Width, targetPen.Width, 1, 1, true);
+        }
+
+        /// <summary>
+        /// Redraw if you resize (with the form event)
+        /// </summary>
+        /// <param name="sender">The source</param>
+        /// <param name="e">Simple Event Args</param>
+        private void BaseRenderer_Resize(object sender, EventArgs e)
+        {
+            Invalidate();
         }
 
         #endregion
