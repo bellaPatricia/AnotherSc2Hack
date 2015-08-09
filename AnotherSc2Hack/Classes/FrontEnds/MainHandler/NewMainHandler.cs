@@ -284,6 +284,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _lContainer.Add(new PersonalApmRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new PersonalClockRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new WorkerCoachRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new AlertRenderer(Gameinfo, PSettings, PSc2Process));
 
             BaseRendererEventMapping();
 
@@ -3295,6 +3296,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             aChBxVariousWorkerCoach.Checked = PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach;
             ntxtVariousWorkerCoachDisableAfter.Number = PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter;
+
+            aChBxVariousAlertSoundNotification.Checked = PSettings.PreferenceAll.OverlayAlert.SoundNotification;
+            aChBxVariousShowAlerts.Checked = PSettings.PreferenceAll.OverlayAlert.ShowAlert;
+            ntxtVariousAlertShowDuration.Number = PSettings.PreferenceAll.OverlayAlert.Time;
         }
 
         #endregion
