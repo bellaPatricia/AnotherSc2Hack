@@ -1432,4 +1432,10 @@
   <data name="Icon_Kerrigan1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Kerrigan.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="trans_Zup_flying_locust" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_Zup_flying_locust.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zup_flying_locust" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zup_flying_locust.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

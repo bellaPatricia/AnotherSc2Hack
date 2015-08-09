@@ -273,6 +273,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected List<UnitCount> _lZupTunnnelingClaws = new List<UnitCount>();
         protected List<UnitCount> _lZupVentralSacs = new List<UnitCount>();
         protected List<UnitCount> _lZupBurrow = new List<UnitCount>();
+        protected List<UnitCount> _lZupFlyingLocust = new List<UnitCount>();
 
 
 
@@ -501,34 +502,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         #region Upgrades
 
         protected Image _imgZupAirWeapon1 = Properties.Resources.Zup_AirW1,
-                               _imgZupAirWeapon2 = Properties.Resources.Zup_AirW2,
-                               _imgZupAirWeapon3 = Properties.Resources.Zup_AirW3,
-                               _imgZupAirArmor1 = Properties.Resources.Zup_AirA1,
-                               _imgZupAirArmor2 = Properties.Resources.Zup_AirA2,
-                               _imgZupAirArmor3 = Properties.Resources.Zup_AirA3,
-                               _imgZupGroundWeapon1 = Properties.Resources.Zup_GroundW1,
-                               _imgZupGroundWeapon2 = Properties.Resources.Zup_GroundW2,
-                               _imgZupGroundWeapon3 = Properties.Resources.Zup_GroundW3,
-                               _imgZupGroundArmor1 = Properties.Resources.Zup_GroundA1,
-                               _imgZupGroundArmor2 = Properties.Resources.Zup_GroundA2,
-                               _imgZupGroundArmor3 = Properties.Resources.Zup_GroundA3,
-                               _imgZupGroundMelee1 = Properties.Resources.Zup_GroundM1,
-                               _imgZupGroundMelee2 = Properties.Resources.Zup_GroundM2,
-                               _imgZupGroundMelee3 = Properties.Resources.Zup_GroundM3,
-                               _imgZupBurrow = Properties.Resources.Zup_Burrow,
-                               _imgZupAdrenalGlands = Properties.Resources.Zup_AdrenalGlands,
-                               _imgZupCentrifugalHooks = Properties.Resources.Zup_CentrifugalHooks,
-                               _imgZupChitinousPlating = Properties.Resources.Zup_ChitinousPlating,
-                               _imgZupEnduringLocusts = Properties.Resources.Zup_EnduringLocusts,
-                               _imgZupGlialReconstruction = Properties.Resources.Zup_GlialReconstruction,
-                               _imgZupGroovedSpines = Properties.Resources.Zup_GroovedSpines,
-                               _imgZupMetabolicBoost = Properties.Resources.Zup_MetabolicBoost,
-                               _imgZupMuscularAugments = Properties.Resources.Zup_MuscularAugments,
-                               _imgZupNeutralParasite = Properties.Resources.Zup_NeutralParasite,
-                               _imgZupPathoglenGlands = Properties.Resources.Zup_PathogenGlands,
-                               _imgZupPneumatizedCarapace = Properties.Resources.Zup_PneumatizedCarapace,
-                               _imgZupTunnelingClaws = Properties.Resources.Zup_TunnelingClaws,
-                               _imgZupVentrallSacs = Properties.Resources.Zup_VentralSacs;
+            _imgZupAirWeapon2 = Properties.Resources.Zup_AirW2,
+            _imgZupAirWeapon3 = Properties.Resources.Zup_AirW3,
+            _imgZupAirArmor1 = Properties.Resources.Zup_AirA1,
+            _imgZupAirArmor2 = Properties.Resources.Zup_AirA2,
+            _imgZupAirArmor3 = Properties.Resources.Zup_AirA3,
+            _imgZupGroundWeapon1 = Properties.Resources.Zup_GroundW1,
+            _imgZupGroundWeapon2 = Properties.Resources.Zup_GroundW2,
+            _imgZupGroundWeapon3 = Properties.Resources.Zup_GroundW3,
+            _imgZupGroundArmor1 = Properties.Resources.Zup_GroundA1,
+            _imgZupGroundArmor2 = Properties.Resources.Zup_GroundA2,
+            _imgZupGroundArmor3 = Properties.Resources.Zup_GroundA3,
+            _imgZupGroundMelee1 = Properties.Resources.Zup_GroundM1,
+            _imgZupGroundMelee2 = Properties.Resources.Zup_GroundM2,
+            _imgZupGroundMelee3 = Properties.Resources.Zup_GroundM3,
+            _imgZupBurrow = Properties.Resources.Zup_Burrow,
+            _imgZupAdrenalGlands = Properties.Resources.Zup_AdrenalGlands,
+            _imgZupCentrifugalHooks = Properties.Resources.Zup_CentrifugalHooks,
+            _imgZupChitinousPlating = Properties.Resources.Zup_ChitinousPlating,
+            _imgZupEnduringLocusts = Properties.Resources.Zup_EnduringLocusts,
+            _imgZupGlialReconstruction = Properties.Resources.Zup_GlialReconstruction,
+            _imgZupGroovedSpines = Properties.Resources.Zup_GroovedSpines,
+            _imgZupMetabolicBoost = Properties.Resources.Zup_MetabolicBoost,
+            _imgZupMuscularAugments = Properties.Resources.Zup_MuscularAugments,
+            _imgZupNeutralParasite = Properties.Resources.Zup_NeutralParasite,
+            _imgZupPathoglenGlands = Properties.Resources.Zup_PathogenGlands,
+            _imgZupPneumatizedCarapace = Properties.Resources.Zup_PneumatizedCarapace,
+            _imgZupTunnelingClaws = Properties.Resources.Zup_TunnelingClaws,
+            _imgZupVentrallSacs = Properties.Resources.Zup_VentralSacs,
+            _imgZupFlyingLocust = Properties.Resources.zup_flying_locust;
 
         #endregion
 
@@ -1398,6 +1400,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgZupPneumatizedCarapace = Properties.Resources.Zup_PneumatizedCarapace;
                 _imgZupTunnelingClaws = Properties.Resources.Zup_TunnelingClaws;
                 _imgZupVentrallSacs = Properties.Resources.Zup_VentralSacs;
+                _imgZupFlyingLocust = Properties.Resources.zup_flying_locust;
 
                 #endregion
             }
@@ -1615,6 +1618,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgZupPneumatizedCarapace = Properties.Resources.trans_Zup_PneumatizedCarapace;
                 _imgZupTunnelingClaws = Properties.Resources.trans_Zup_TunnelingClaws;
                 _imgZupVentrallSacs = Properties.Resources.trans_Zup_VentralSacs;
+                _imgZupFlyingLocust = Properties.Resources.trans_Zup_flying_locust;
 
                 #endregion
             }
@@ -2239,11 +2243,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (_lZupVentralSacs.Count > 0)
                     _lZupVentralSacs.Clear();
 
-                #endregion
+                if (_lZupFlyingLocust.Count > 0)
+                    _lZupFlyingLocust.Clear();
 
                 #endregion
 
-                #region Setup for the dummy- values
+                    #endregion
+
+                    #region Setup for the dummy- values
 
                 for (var i = 0; i < GInformation.Player.Count; i++)
                 {
@@ -2494,6 +2501,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     _lZupPneumatizedCarapace.Add(new UnitCount());
                     _lZupTunnnelingClaws.Add(new UnitCount());
                     _lZupVentralSacs.Add(new UnitCount());
+                    _lZupFlyingLocust.Add(new UnitCount());
 
                     #endregion
 
@@ -4653,6 +4661,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     {
                                         _lZupPathoglenGlands[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupPathoglenGlands[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    }
+
+                                    else if (tmpUnit.ProdUnitProductionId[k].Equals(UnitId.ZupFlyingLocust))
+                                    {
+                                        _lZupFlyingLocust[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        _lZupFlyingLocust[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }

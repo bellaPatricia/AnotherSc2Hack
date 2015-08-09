@@ -728,6 +728,7 @@ namespace PredefinedTypes
         ZupUpgradeToGreaterSpire,
         ZupUpgradeToBroodlord,
         ZupUpgradeToOverseer,
+        ZupFlyingLocust,
 
         None,
 

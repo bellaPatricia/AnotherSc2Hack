@@ -1770,6 +1770,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                 if (logicalId.Equals(0x10004))
                     return UnitId.ZupEnduringLocusts;
+
+                if (logicalId.Equals(0x10005))
+                    return UnitId.ZupFlyingLocust;
             }
 
             #endregion

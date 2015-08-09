@@ -705,6 +705,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         Helper_DrawUnitsProduction(_lZupEnduringLocusts, i, ref iPosX, iPosY, iSize,
                             _imgZupEnduringLocusts, g,
                             clPlayercolor, fStringFont, false);
+                        Helper_DrawUnitsProduction(_lZupFlyingLocust, i, ref iPosX, iPosY, iSize,
+                            _imgZupFlyingLocust, g,
+                            clPlayercolor, fStringFont, false);
                         Helper_DrawUnitsProduction(_lZupGlialReconstruction, i, ref iPosX, iPosY, iSize,
                             _imgZupGlialReconstruction, g,
                             clPlayercolor, fStringFont, false);
