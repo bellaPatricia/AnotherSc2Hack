@@ -3384,6 +3384,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             _tmrMainTick.Enabled = false;
             Gameinfo.HandleThread(false);
+            _lContainer.CloseNicely();
         }
 
         private void NewMainHandler_FormClosed(object sender, FormClosedEventArgs e)
