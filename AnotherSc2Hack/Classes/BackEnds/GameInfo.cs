@@ -1309,9 +1309,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
             /*   BitConverter.ToInt32(
                InteropCalls.Help_ReadProcessMemory(HStarcraft, (Int32) iContentOfPointer + 0x28, 4), 0);*/
 
-            if (iNumberOfQueuedUnits <= 0)
-                return lUnitIds;
-
             //Check if an addon is beeing added
             var bAddOnAttaching = Memory.ReadInt32(iContentOfPointer + 0x9C) == 260;
 
@@ -1326,8 +1323,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var iTempPtr = Memory.ReadInt32(iArrayOfBytes);
             /*BitConverter.ToInt32(
                 InteropCalls.Help_ReadProcessMemory(HStarcraft, iArrayOfBytes , 4), 0);*/
-
-
 
             /* Because it's possible that a Reactor builds two different units, we have to check that! */
             if (bReactorAttached && iNumberOfQueuedUnits > 1)
