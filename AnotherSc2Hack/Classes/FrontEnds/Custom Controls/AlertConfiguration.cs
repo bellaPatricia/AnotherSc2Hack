@@ -210,5 +210,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(193, 193, 193))), 0, 0, Width, 0);
             e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(193, 193, 193))), 0, send.Height - 1, Width, send.Height - 1);
         }
+
+        private void AlertConfiguration_SizeChanged(object sender, EventArgs e)
+        {
+            chAlertConfigurationFilterUnit.Width = -2;
+        }
     }
 }

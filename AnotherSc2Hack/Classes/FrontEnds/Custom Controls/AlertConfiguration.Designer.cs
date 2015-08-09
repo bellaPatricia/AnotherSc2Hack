@@ -154,6 +154,7 @@
             this.Controls.Add(this.pnlBottomStrip);
             this.Name = "AlertConfiguration";
             this.Text = "AlertConfiguration";
+            this.SizeChanged += new System.EventHandler(this.AlertConfiguration_SizeChanged);
             this.pnlBottomStrip.ResumeLayout(false);
             this.pnlBottomStrip.PerformLayout();
             this.cmsListviewContext.ResumeLayout(false);
