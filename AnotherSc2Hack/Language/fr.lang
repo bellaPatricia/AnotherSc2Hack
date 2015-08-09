@@ -1,4 +1,4 @@
-﻿;1.0.1.0
+﻿;1.0.1.1
 ;Translate file for the French Language
 ;Created by 
 ;Language Name (natively written)
@@ -35,6 +35,7 @@ NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: Afficher le Coach
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: Afficher mon horloge
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Alarme Apm
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: Afficher mes Apm
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousAlerts: [Alerts]
 
 ;Application tab 
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: Paramètre généraux

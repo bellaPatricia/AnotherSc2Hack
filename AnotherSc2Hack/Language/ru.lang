@@ -1,4 +1,4 @@
-﻿;1.0.1.0
+﻿;1.0.1.1
 ;Translate file for the Russian Language
 ;Created by ???
 ;Language Name (natively written)
@@ -35,6 +35,7 @@ NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: Показыва�
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: Показывать персональные часы
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Апм предупреждение
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: Показывать персональный апм
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousAlerts: Угрозы
 
 ;Application tab 
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: Глобальные настройки

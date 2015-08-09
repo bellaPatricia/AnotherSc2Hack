@@ -1,4 +1,4 @@
-﻿;1.0.2.0
+﻿;1.0.2.1
 ;Translate file for the English Language
 ;Created by bellaPatricia
 ;Language Name (natively written)
@@ -35,6 +35,7 @@ NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: Show Worker Coach
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: Show Personal Clock
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Apm Alarm
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: Show Personal Apm
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousAlerts: Alerts
 
 ;Application tab 
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: Global Settings

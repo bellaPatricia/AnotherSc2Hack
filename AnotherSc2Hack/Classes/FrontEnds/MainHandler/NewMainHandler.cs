@@ -65,7 +65,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly LanguageString _lstrCreditsReasonD3Scene = new LanguageString("lstrCreditsReasonD3Scene", "Good environment with a lot helpful people");
         private readonly LanguageString _lstrCreditsReasonVariousPeople = new LanguageString("lstrCreditsReasonVariousPeople", "...that gave ideas, suggestions and critism - thank you!");
         private readonly LanguageString _lstrCreditsReasonDonators = new LanguageString("lstrCreditsReasonDonators", "Because you people make me buy some candy :3");
-        private readonly LanguageString _lstrCreditsTranslators = new LanguageString("lstrCreditsTranslators", "kk321010 (Chinese), ironer1 (Korean)");
+        private readonly LanguageString _lstrCreditsTranslators = new LanguageString("lstrCreditsTranslators", "kk321010 (Chinese), ironer1 (Korean), B.T. (French), O.Ж. (Russian)");
 
         private readonly LanguageString _lstrApplicationRestoreSettingsText = new LanguageString("lstrApplicationRestoreSettingsText", "Do you really want to reset your settings?");
         private readonly LanguageString _lstrApplicationRestoreSettingsHeader = new LanguageString("lstrApplicationRestoreSettingsHeader", "Are you sure?");

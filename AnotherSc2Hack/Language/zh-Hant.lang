@@ -1,4 +1,4 @@
-﻿;1.0.2.0
+﻿;1.0.2.1
 ;Translate file for the Traditional Chinese Language
 ;Created by kk321010
 ;Language Name (natively written)
@@ -35,6 +35,7 @@ NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: 顯示工作單�
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: 顯示時鐘
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: APM 警告
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: 顯示 APM
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousAlerts: [Alerts]
 
 ;Application tab 
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: 主要設定
