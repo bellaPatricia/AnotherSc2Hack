@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
@@ -16,10 +15,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
     public class ProductionRenderer : BaseRenderer
     {
         /* Size for Unit/ Productionsize */
-        private Int32 _iProdPanelWidth;
-        private Int32 _iProdPanelWidthWithoutName;
-        private Int32 _iProdPosAfterName;
-
+        private int _iProdPanelWidth;
+        private int _iProdPanelWidthWithoutName;
+        private int _iProdPosAfterName;
 
         public ProductionRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
@@ -28,14 +26,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Draws the panelspecific data.
+        ///     Draws the panelspecific data.
         /// </summary>
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
         {
             try
             {
-
                 if (!GInformation.Gameinfo.IsIngame)
                     return;
 
@@ -49,14 +46,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 CountUnits();
 
                 var iHavetoadd = 0; //Adds +1 when a neutral player is on position 0
-                Int32 iSize = PSettings.PreferenceAll.OverlayProduction.PictureSize;
+                var iSize = PSettings.PreferenceAll.OverlayProduction.PictureSize;
                 var iPosY = 0;
                 var iPosX = 0;
                 var iPosYName = 0;
 
                 var iMaximumWidth = 0;
-                var fsize = (float)(iSize / 3.5);
-                var iPosXAfterName = (Int32)(fsize * 14);    /* We take the fontsize times the (probably) with a common String- lenght*/
+                var fsize = (float) (iSize/3.5);
+                var iPosXAfterName = (int) (fsize*14);
+                    /* We take the fontsize times the (probably) with a common String- lenght*/
                 var iPosYInitial = iPosY;
 
                 var iWidthUnits = 0;
@@ -71,12 +69,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 /* Define the startposition of the picture drawing
                  * using the longest name as reference */
-                var strPlayerName = String.Empty;
+                var strPlayerName = string.Empty;
                 for (var i = 0; i < GInformation.Player.Count; i++)
                 {
-                    var strTemp = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.PreferenceAll.OverlayProduction.RemoveClanTag)
-                                             ? GInformation.Player[i].Name
-                                             : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
+                    var strTemp = (GInformation.Player[i].ClanTag.StartsWith("\0") ||
+                                   PSettings.PreferenceAll.OverlayProduction.RemoveClanTag)
+                        ? GInformation.Player[i].Name
+                        : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
                     if (strTemp.Length >= strPlayerName.Length)
                         strPlayerName = strTemp;
@@ -138,7 +137,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         if (tmpPlayer == Player.LocalPlayer)
                             continue;
-                        
                     }
 
                     /* Remove Allie - Works */
@@ -160,7 +158,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (GInformation.Player[i].Type.Equals(PlayerType.Referee))
                         continue;
 
-
                     #endregion
 
                     if (GInformation.Player[i].Name.Length <= 0 ||
@@ -174,9 +171,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     iPosX = 0;
 
                     /* Draw Name in front of Icons */
-                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.PreferenceAll.OverlayProduction.RemoveClanTag)
-                                         ? GInformation.Player[i].Name
-                                         : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
+                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") ||
+                                   PSettings.PreferenceAll.OverlayProduction.RemoveClanTag)
+                        ? GInformation.Player[i].Name
+                        : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
                     //Name gets drawn after the icon- drawing is done!
 
@@ -187,7 +185,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (PSettings.PreferenceAll.OverlayProduction.ShowUnits)
                     {
-
                         /* Terran */
                         Helper_DrawUnitsProduction(_lTuScv, i, ref iPosX, iPosY, iSize, _imgTuScv, g, clPlayercolor,
                             fStringFont, false);
@@ -313,7 +310,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         /* Maximum for the units */
                         iWidthUnits = iPosX;
-
                     }
 
                     #endregion
@@ -356,7 +352,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (PSettings.PreferenceAll.OverlayProduction.ShowBuildings)
                     {
-
                         /* Terran */
                         Helper_DrawUnitsProduction(_lTbCommandCenter, i,
                             ref iPosX, iPosY, iSize, _imgTbCc, g,
@@ -477,7 +472,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             clPlayercolor, fStringFont, true);
 
                         iWidthBuildings = iPosX;
-
                     }
 
                     #endregion
@@ -520,7 +514,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (PSettings.PreferenceAll.OverlayProduction.ShowUpgrades)
                     {
-
                         #region Terran
 
                         Helper_DrawUnitsProduction(_lTupStim, i, ref iPosX, iPosY, iSize, _imgTupStim, g,
@@ -756,7 +749,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         Helper_DrawUnitsProduction(_lZupVentralSacs, i, ref iPosX, iPosY, iSize, _imgZupVentrallSacs, g,
                             clPlayercolor, fStringFont, false);
 
-
                         #endregion
 
                         iWidthUpgrades = iPosX;
@@ -767,13 +759,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (iPosX > iPosXAfterName)
                     {
                         iPosY += iSize + 2;
-                        
+
                         if (PSettings.PreferenceAll.OverlayProduction.UseTransparentImages)
                             iPosY += 5;
-                    
                     }
-
-                    
 
 
                     /* Check which width is bigger */
@@ -818,7 +807,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (iHavetoadd > 0)
                         iMaximumWidth += iSize;
 
-                    
+
                     if (iWidthMax > iPosXAfterName)
                     {
                         g.Graphics.DrawString(
@@ -831,7 +820,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     iPosYName = iPosY;
-
                 }
 
                 if (FormBorderStyle == FormBorderStyle.None)
@@ -846,7 +834,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     _iProdPanelWidthWithoutName = _iProdPanelWidth - iPosXAfterName;
                     _iProdPosAfterName = iPosXAfterName;
                 }
-
             }
 
             catch (Exception ex)
@@ -856,7 +843,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseUpTransferData()
         {
@@ -866,12 +853,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             PSettings.PreferenceAll.OverlayProduction.X = Location.X;
             PSettings.PreferenceAll.OverlayProduction.Y = Location.Y;
             PSettings.PreferenceAll.OverlayProduction.Width = Width;
-            PSettings.PreferenceAll.OverlayProduction.Height = Height / iValidPlayerCount;
+            PSettings.PreferenceAll.OverlayProduction.Height = Height/iValidPlayerCount;
             PSettings.PreferenceAll.OverlayProduction.Opacity = Opacity;
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseWheelTransferData(MouseEventArgs e)
         {
@@ -887,8 +874,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Size directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Size directly!
         /// </summary>
         protected override void AdjustPanelSize()
         {
@@ -907,7 +894,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupSizeChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -935,18 +922,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads the settings of the specific Form into the controls (Location, Size)
+        ///     Loads the settings of the specific Form into the controls (Location, Size)
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
             Location = new Point(PSettings.PreferenceAll.OverlayProduction.X,
-                                     PSettings.PreferenceAll.OverlayProduction.Y);
+                PSettings.PreferenceAll.OverlayProduction.Y);
             Opacity = PSettings.PreferenceAll.OverlayProduction.Opacity;
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Position directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Position directly!
         /// </summary>
         protected override void AdjustPanelPosition()
         {
@@ -961,7 +948,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -987,20 +974,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads some specific data into the Form.
+        ///     Loads some specific data into the Form.
         /// </summary>
         protected override void LoadSpecificData()
         {
-            
         }
 
-        void ProductionRenderer_IsHiddenChanged(object sender, EventArgs e)
+        private void ProductionRenderer_IsHiddenChanged(object sender, EventArgs e)
         {
             PSettings.PreferenceAll.OverlayProduction.LaunchStatus = !IsHidden;
         }
 
         /// <summary>
-        /// Changes settings for a specific Form.
+        ///     Changes settings for a specific Form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1011,9 +997,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             FormBorderStyle = FormBorderStyle.None;
 
             /* Calculate amount of unitpictures - width */
-            Int32 iAmount = _iProdPanelWidthWithoutName / PSettings.PreferenceAll.OverlayProduction.PictureSize;
-            PSettings.PreferenceAll.OverlayProduction.PictureSize = (Width - (_iProdPosAfterName + 1)) /
-                                                      iAmount;
+            var iAmount = _iProdPanelWidthWithoutName/PSettings.PreferenceAll.OverlayProduction.PictureSize;
+            PSettings.PreferenceAll.OverlayProduction.PictureSize = (Width - (_iProdPosAfterName + 1))/
+                                                                    iAmount;
 
 
             FormBorderStyle = tmpOld;
@@ -1030,15 +1016,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /* Draw the units */
-        private void Helper_DrawUnitsProduction(List<UnitCount> units, int index, ref Int32 posX, Int32 posY, Int32 size, Image img,
-                                      BufferedGraphics g, Color clPlayercolor, Font font, Boolean isStructure)
+
+        private void Helper_DrawUnitsProduction(List<UnitCount> units, int index, ref int posX, int posY, int size,
+            Image img,
+            BufferedGraphics g, Color clPlayercolor, Font font, bool isStructure)
         {
             if (units == null ||
                 units.Count <= 0)
                 return;
 
             var unit = units[index];
-            
+
 
             /* Unitamount defines all buildings*/
             if (isStructure)
@@ -1082,9 +1070,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (bDraw && !PSettings.PreferenceAll.OverlayProduction.RemoveChronoboost)
                 {
                     HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
-                    new SolidBrush(Color.FromArgb(100, Color.White)),
-                    posX + size - 22,
-                    posY + 3, 19, 19, 5);
+                        new SolidBrush(Color.FromArgb(100, Color.White)),
+                        posX + size - 22,
+                        posY + 3, 19, 19, 5);
                     g.Graphics.DrawImage(_imgSpeedArrow, new Rectangle(posX + size - 20, posY + 5, 15, 15));
                 }
 
@@ -1092,10 +1080,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 float fWidth;
 
                 if (unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length == 1)
-                    fWidth = unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length * (font.Size + 4);
+                    fWidth = unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length*(font.Size + 4);
 
                 else
-                    fWidth = unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length * (font.Size);
+                    fWidth = unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length*(font.Size);
 
                 HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
                     new SolidBrush(Color.FromArgb(100, Color.Black)),
@@ -1107,22 +1095,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     posY + font.Size + 9);
 
 
-
                 /* Adjust relative size */
                 float ftemp = size - 4;
-                ftemp *= (unit.ConstructionState[0] / 100);
+                ftemp *= (unit.ConstructionState[0]/100);
 
                 var iOffset = 5;
 
                 if (!PSettings.PreferenceAll.OverlayProduction.UseTransparentImages)
                     iOffset = 0;
-                    
 
 
                 /* Draw status- line */
                 g.Graphics.DrawLine(new Pen(Brushes.Yellow, 2), posX + 2, posY + size - 3 + iOffset,
-                            posX + 2 + (Int32)ftemp,
-                            posY + size - 3 + iOffset);
+                    posX + 2 + (int) ftemp,
+                    posY + size - 3 + iOffset);
                 g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);
             }
 

@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
+using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
+using PredefinedTypes;
 using Utilities.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
-    class PersonalApmRenderer : BaseRenderer
+    internal class PersonalApmRenderer : BaseRenderer
     {
         public PersonalApmRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-
         }
 
         protected override void Draw(BufferedGraphics g)
@@ -32,31 +30,31 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (GInformation.Player.Count <= 0)
                 return;
 
-            if (PredefinedTypes.Player.LocalPlayer == null)
+            if (Player.LocalPlayer == null)
                 return;
 
             var iSingleHeight = Height;
-            var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
+            var fNewFontSize = (float) ((29.0/100)*iSingleHeight);
 
 
             var clApmColor = Brushes.Green;
             if (PSettings.PreferenceAll.OverlayPersonalApm.EnableAlert)
             {
-                if (PredefinedTypes.Player.LocalPlayer.Apm <
+                if (Player.LocalPlayer.Apm <
                     PSettings.PreferenceAll.OverlayPersonalApm.ApmAlertLimit)
                     clApmColor = Brushes.Red;
             }
 
             g.Graphics.DrawString(
                 "APM: " +
-                PredefinedTypes.Player.LocalPlayer.ApmAverage.ToString(
+                Player.LocalPlayer.ApmAverage.ToString(
                     CultureInfo.InvariantCulture) + " [" +
-                PredefinedTypes.Player.LocalPlayer.Apm.ToString(
+                Player.LocalPlayer.Apm.ToString(
                     CultureInfo.InvariantCulture) + "]",
                 new Font("Century Gothic", fNewFontSize, FontStyle.Regular),
                 clApmColor,
-                Brushes.Black, (float)((13.67 / 100) * Width),
-                (float)((24.0 / 100) * iSingleHeight),
+                Brushes.Black, (float) ((13.67/100)*Width),
+                (float) ((24.0/100)*iSingleHeight),
                 1f, 1f, true);
         }
 
@@ -86,9 +84,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected override void LoadPreferencesIntoControls()
         {
             Location = new Point(PSettings.PreferenceAll.OverlayPersonalApm.X,
-                                     PSettings.PreferenceAll.OverlayPersonalApm.Y);
+                PSettings.PreferenceAll.OverlayPersonalApm.Y);
             Size = new Size(PSettings.PreferenceAll.OverlayPersonalApm.Width,
-                            PSettings.PreferenceAll.OverlayPersonalApm.Height);
+                PSettings.PreferenceAll.OverlayPersonalApm.Height);
         }
 
         protected override void MouseUpTransferData()
@@ -96,10 +94,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             PSettings.PreferenceAll.OverlayPersonalApm.X = Location.X;
             PSettings.PreferenceAll.OverlayPersonalApm.Y = Location.Y;
             PSettings.PreferenceAll.OverlayPersonalApm.Width = Width;
-            PSettings.PreferenceAll.OverlayPersonalApm.Height = Height; 
+            PSettings.PreferenceAll.OverlayPersonalApm.Height = Height;
         }
 
-        protected override void MouseWheelTransferData(System.Windows.Forms.MouseEventArgs e)
+        protected override void MouseWheelTransferData(MouseEventArgs e)
         {
             if (e.Delta.Equals(120))
             {

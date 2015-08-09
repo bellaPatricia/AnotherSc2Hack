@@ -1,28 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
-using System.Drawing;
+using AnotherSc2Hack.Properties;
 using PredefinedTypes;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     public class WorkerCoachRenderer : BaseRenderer
     {
+        #region Constructor
+
+        public WorkerCoachRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
+            : base(gInformation, pSettings, sc2Process)
+        {
+        }
+
+        #endregion
+
         #region Private Variables
 
-        private Int32 _iWorkerBegin;
-        private Int32 _iWorkerEnd;
-        private Int32 _iEnergyBegin;
-        private Int32 _iEnergyEnd;
-        
+        private int _iWorkerBegin;
+        private int _iWorkerEnd;
+        private int _iEnergyBegin;
+        private int _iEnergyEnd;
+
         private readonly List<int> _lWorkerIdle = new List<int>();
-        private readonly List<int> _lEnergyIdle = new List<int>(); 
-        private Image _imgWorker = Properties.Resources.trans_tu_scv;
-        private Image _imgSpecial = Properties.Resources.trans_tu_mule;
+        private readonly List<int> _lEnergyIdle = new List<int>();
+        private Image _imgWorker = Resources.trans_tu_scv;
+        private Image _imgSpecial = Resources.trans_tu_mule;
         private Font _bFont;
 
         #endregion
@@ -40,7 +50,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     return;
 
 
-
                 if (!_bWorkerJustGotInactive &&
                     value)
                     OnWorkerProductionIdle(this, new EventArgs());
@@ -54,6 +63,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
         private bool _bEnergyJustGotInactive;
+
         public bool BEnergyJustGotInactive
         {
             get { return _bEnergyJustGotInactive; }
@@ -61,7 +71,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 if (_bEnergyJustGotInactive == value)
                     return;
-
 
 
                 if (!_bEnergyJustGotInactive &&
@@ -86,40 +95,31 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #endregion
 
-        #region Constructor
-
-        public WorkerCoachRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
-            : base(gInformation, pSettings, sc2Process)
-        {
-        }
-
-        #endregion
-
         #region Private Methods
 
-        void WorkerCoachRenderer_EnergyActive(object sender, EventArgs e)
+        private void WorkerCoachRenderer_EnergyActive(object sender, EventArgs e)
         {
             _lEnergyIdle.Add(_iEnergyEnd - _iEnergyBegin);
         }
 
-        void WorkerCoachRenderer_EnergyIdle(object sender, EventArgs e)
+        private void WorkerCoachRenderer_EnergyIdle(object sender, EventArgs e)
         {
             if (GInformation.Gameinfo != null)
                 _iEnergyBegin = GInformation.Gameinfo.Timer;
         }
 
-        void WorkerCoachRenderer_WorkerProductionActive(object sender, EventArgs e)
+        private void WorkerCoachRenderer_WorkerProductionActive(object sender, EventArgs e)
         {
             _lWorkerIdle.Add(_iWorkerEnd - _iWorkerBegin);
         }
 
-        void WorkerCoachRenderer_WorkerProductionIdle(object sender, EventArgs e)
+        private void WorkerCoachRenderer_WorkerProductionIdle(object sender, EventArgs e)
         {
             if (GInformation.Gameinfo != null)
                 _iWorkerBegin = GInformation.Gameinfo.Timer;
         }
 
-        void GInformation_NewMatch(object sender, EventArgs e)
+        private void GInformation_NewMatch(object sender, EventArgs e)
         {
             _iWorkerBegin = 0;
             _lWorkerIdle.Clear();
@@ -135,14 +135,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 if (player.PlayerRace == PlayerRace.Terran)
                 {
-                    _imgWorker = Properties.Resources.trans_tu_scv;
-                    _imgSpecial = Properties.Resources.trans_tu_mule;
+                    _imgWorker = Resources.trans_tu_scv;
+                    _imgSpecial = Resources.trans_tu_mule;
                 }
 
                 else if (player.PlayerRace == PlayerRace.Protoss)
                 {
-                    _imgWorker = Properties.Resources.trans_pu_probe;
-                    _imgSpecial = Properties.Resources.pup_chrono;
+                    _imgWorker = Resources.trans_pu_probe;
+                    _imgSpecial = Resources.pup_chrono;
                 }
             }
         }
@@ -215,8 +215,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 }
 
                 Opacity = 0.8;
-                
-
 
                 #endregion
 
@@ -249,9 +247,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         if (unit.Id.Equals(UnitId.TbOrbitalGround) ||
                             unit.Id.Equals(UnitId.TbOrbitalAir))
                         {
-                            var tmp = (double)(unit.Energy >> 12) / 50;
+                            var tmp = (double) (unit.Energy >> 12)/50;
                             tmp = Math.Floor(tmp);
-                            iUnusedEnergy += (int)tmp;
+                            iUnusedEnergy += (int) tmp;
                         }
                     }
 
@@ -261,16 +259,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             unit.ProdNumberOfQueuedUnits <= 0)
                             iUnusedWorkers += 1;
 
-                        var tmp = (double)(unit.Energy >> 12) / 25;
+                        var tmp = (double) (unit.Energy >> 12)/25;
                         tmp = Math.Floor(tmp);
-                        iUnusedEnergy += (int)tmp;
+                        iUnusedEnergy += (int) tmp;
                     }
                 }
 
                 //Draw the background image manually
                 if (iUnusedEnergy > 0 ||
                     iUnusedWorkers > 0)
-                    g.Graphics.DrawImage(Properties.Resources.WorkerCoach, 0, 0, Width - 1, Height - 1);
+                    g.Graphics.DrawImage(Resources.WorkerCoach, 0, 0, Width - 1, Height - 1);
 
 
                 if (iUnusedWorkers > 0)
@@ -297,38 +295,36 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     BEnergyJustGotInactive = false;
                 }
-
-
-
             }
 
             catch (Exception)
             {
-
             }
         }
 
         private void DrawWorker(int iUnusedWorkers, BufferedGraphics g)
         {
             _iWorkerEnd = GInformation.Gameinfo.Timer;
-            var strCurrentIdleTime = ((_iWorkerEnd - _iWorkerBegin) / 60) + ":" + (_iWorkerEnd - _iWorkerBegin) % 60;
+            var strCurrentIdleTime = ((_iWorkerEnd - _iWorkerBegin)/60) + ":" + (_iWorkerEnd - _iWorkerBegin)%60;
             var iSumIdleTime = _lWorkerIdle.Sum() + (_iWorkerEnd - _iWorkerBegin);
-            var strSumIdleTime = iSumIdleTime / 60 + ":" + iSumIdleTime % 60;
+            var strSumIdleTime = iSumIdleTime/60 + ":" + iSumIdleTime%60;
 
             g.Graphics.DrawImage(_imgWorker, new Rectangle(33, 28, 36, 36));
-            g.Graphics.DrawString(strCurrentIdleTime + " [" + strSumIdleTime + "]", _bFont, Brushes.DarkOrange, new PointF(75 + 33 + 20, 28));
+            g.Graphics.DrawString(strCurrentIdleTime + " [" + strSumIdleTime + "]", _bFont, Brushes.DarkOrange,
+                new PointF(75 + 33 + 20, 28));
             g.Graphics.DrawString(iUnusedWorkers.ToString(), _bFont, Brushes.DarkOrange, new PointF(41 + 33, 28));
         }
 
         private void DrawSpecial(int iUnusedEnergy, BufferedGraphics g)
         {
             _iEnergyEnd = GInformation.Gameinfo.Timer;
-            var strCurrentIdleTime = ((_iEnergyEnd - _iEnergyBegin) / 60) + ":" + (_iEnergyEnd - _iEnergyBegin) % 60;
+            var strCurrentIdleTime = ((_iEnergyEnd - _iEnergyBegin)/60) + ":" + (_iEnergyEnd - _iEnergyBegin)%60;
             var iSumIdleTime = _lEnergyIdle.Sum() + (_iEnergyEnd - _iEnergyBegin);
-            var strSumIdleTime = iSumIdleTime / 60 + ":" + iSumIdleTime % 60;
+            var strSumIdleTime = iSumIdleTime/60 + ":" + iSumIdleTime%60;
 
             g.Graphics.DrawImage(_imgSpecial, new Rectangle(33, 28 + 36, 36, 36));
-            g.Graphics.DrawString(strCurrentIdleTime + " [" + strSumIdleTime + "]", _bFont, Brushes.DarkOrange, new PointF(75 + 33 + 20, 28 + 40));
+            g.Graphics.DrawString(strCurrentIdleTime + " [" + strSumIdleTime + "]", _bFont, Brushes.DarkOrange,
+                new PointF(75 + 33 + 20, 28 + 40));
             g.Graphics.DrawString(iUnusedEnergy.ToString(), _bFont, Brushes.DarkOrange,
                 new PointF(41 + 33, 28 + 40));
         }
@@ -365,9 +361,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected override void LoadPreferencesIntoControls()
         {
             Location = new Point(PSettings.PreferenceAll.OverlayWorkerCoach.X,
-                                     PSettings.PreferenceAll.OverlayWorkerCoach.Y);
+                PSettings.PreferenceAll.OverlayWorkerCoach.Y);
             Size = new Size(PSettings.PreferenceAll.OverlayWorkerCoach.Width,
-                            PSettings.PreferenceAll.OverlayWorkerCoach.Height);
+                PSettings.PreferenceAll.OverlayWorkerCoach.Height);
         }
 
         protected override void MouseUpTransferData()

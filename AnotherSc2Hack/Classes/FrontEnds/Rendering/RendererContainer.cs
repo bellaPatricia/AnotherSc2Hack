@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
@@ -14,7 +11,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 renderer.ToggleShowHide();
         }
 
-        public void SetDrawingInterval(Int32 interval)
+        public void SetDrawingInterval(int interval)
         {
             foreach (var renderer in this)
                 renderer.tmrRefreshGraphic.Interval = interval;

@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
@@ -16,11 +15,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
     public class UnitRenderer : BaseRenderer
     {
         /* Size for Unit/ Productionsize */
-        private Int32 _iUnitPanelWidth;
-        private Int32 _iUnitPanelWidthWithoutName;
-        private Int32 _iUnitPosAfterName;
-        
-
+        private int _iUnitPanelWidth;
+        private int _iUnitPanelWidthWithoutName;
+        private int _iUnitPosAfterName;
 
         public UnitRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
@@ -29,14 +26,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Draws the panelspecific data.
+        ///     Draws the panelspecific data.
         /// </summary>
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
         {
             try
             {
-
                 if (!GInformation.Gameinfo.IsIngame)
                     return;
 
@@ -49,13 +45,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 //_swMainWatch.Reset();
                 //_swMainWatch.Start();
-                
+
                 CountUnits();
 
                 //_swMainWatch.Stop();
                 //Console.WriteLine(Math.Round(1000000.0 * _swMainWatch.ElapsedTicks / Stopwatch.Frequency, 2) + " µs");
-
-
 
 
                 var iSize = PSettings.PreferenceAll.OverlayUnits.PictureSize;
@@ -64,7 +58,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 var iMaximumWidth = 0;
                 var fsize = (float) (iSize/3.5);
-                var iPosXAfterName = (Int32) (fsize*14);
+                var iPosXAfterName = (int) (fsize*14);
                 /* We take the fontsize times the (probably) with a common String- lenght*/
 
                 var iWidthUnits = 0;
@@ -78,7 +72,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 /* Define the startposition of the picture drawing
                  * using the longest name as reference */
-                var strPlayerName = String.Empty;
+                var strPlayerName = string.Empty;
                 for (var i = 0; i < GInformation.Player.Count; i++)
                 {
                     var strTemp = (GInformation.Player[i].ClanTag.StartsWith("\0") ||
@@ -96,7 +90,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 /* Fix the size of the icons to 25x25 */
                 for (var i = 0; i < GInformation.Player.Count; i++)
                 {
-
                     //_swMainWatch.Reset();
                     //_swMainWatch.Start();
 
@@ -149,7 +142,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         if (tmpPlayer == Player.LocalPlayer)
                             continue;
-
                     }
 
                     /* Remove Allie - Works */
@@ -172,10 +164,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (GInformation.Player[i].Type.Equals(PlayerType.Referee))
                         continue;
 
-
-
                     #endregion
-
 
                     if (GInformation.Player[i].Name.Length <= 0 ||
                         GInformation.Player[i].Name.StartsWith("\0"))
@@ -207,7 +196,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (PSettings.PreferenceAll.OverlayUnits.ShowUnits)
                     {
-
                         /* Terran */
                         Helper_DrawUnits(_lTuScv, i, ref iPosX, iPosY, iSize, _imgTuScv, g, clPlayercolor,
                             fStringFont, false);
@@ -330,12 +318,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         /* Maximum for the units */
                         iWidthUnits = iPosX;
-
                     }
 
                     #endregion
-
-
 
                     #region - Split Units and Buildings -
 
@@ -370,8 +355,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     #endregion
-
-
 
                     #region Draw Buildings
 
@@ -498,12 +481,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             clPlayercolor, fStringFont, true);
 
                         iWidthBuildings = iPosX;
-
                     }
 
                     #endregion
-
-
 
                     if (iPosX > iPosXAfterName)
                     {
@@ -558,12 +538,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 Messages.LogFile("Over all", ex);
             }
-
-
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseUpTransferData()
         {
@@ -573,12 +551,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             PSettings.PreferenceAll.OverlayUnits.X = Location.X;
             PSettings.PreferenceAll.OverlayUnits.Y = Location.Y;
             PSettings.PreferenceAll.OverlayUnits.Width = Width;
-            PSettings.PreferenceAll.OverlayUnits.Height = Height / iValidPlayerCount;
+            PSettings.PreferenceAll.OverlayUnits.Height = Height/iValidPlayerCount;
             PSettings.PreferenceAll.OverlayUnits.Opacity = Opacity;
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseWheelTransferData(MouseEventArgs e)
         {
@@ -594,8 +572,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Size directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Size directly!
         /// </summary>
         protected override void AdjustPanelSize()
         {
@@ -614,7 +592,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupSizeChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -642,18 +620,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads the settings of the specific Form into the controls (Location, Size)
+        ///     Loads the settings of the specific Form into the controls (Location, Size)
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
             Location = new Point(PSettings.PreferenceAll.OverlayUnits.X,
-                                     PSettings.PreferenceAll.OverlayUnits.Y);
+                PSettings.PreferenceAll.OverlayUnits.Y);
             Opacity = PSettings.PreferenceAll.OverlayUnits.Opacity;
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Position directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Position directly!
         /// </summary>
         protected override void AdjustPanelPosition()
         {
@@ -668,7 +646,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -694,20 +672,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads some specific data into the Form.
+        ///     Loads some specific data into the Form.
         /// </summary>
         protected override void LoadSpecificData()
         {
-            
         }
 
-        void UnitRenderer_IsHiddenChanged(object sender, EventArgs e)
+        private void UnitRenderer_IsHiddenChanged(object sender, EventArgs e)
         {
             PSettings.PreferenceAll.OverlayUnits.LaunchStatus = !IsHidden;
         }
 
         /// <summary>
-        /// Changes settings for a specific Form.
+        ///     Changes settings for a specific Form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -723,9 +700,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             FormBorderStyle = FormBorderStyle.None;
 
             /* Calculate amount of unitpictures - width */
-            Int32 iAmount = _iUnitPanelWidthWithoutName / PSettings.PreferenceAll.OverlayUnits.PictureSize;
-            PSettings.PreferenceAll.OverlayUnits.PictureSize = (Width - (_iUnitPosAfterName + 1)) /
-                                                      iAmount;
+            var iAmount = _iUnitPanelWidthWithoutName/PSettings.PreferenceAll.OverlayUnits.PictureSize;
+            PSettings.PreferenceAll.OverlayUnits.PictureSize = (Width - (_iUnitPosAfterName + 1))/
+                                                               iAmount;
 
 
             FormBorderStyle = tmpOld;
@@ -742,8 +719,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /* Draw the units */
-        private void Helper_DrawUnits(List<UnitCount> units, int index, ref Int32 posX, Int32 posY, Int32 size, Image img,
-                                      BufferedGraphics g, Color clPlayercolor, Font font, Boolean isStructure)
+
+        private void Helper_DrawUnits(List<UnitCount> units, int index, ref int posX, int posY, int size, Image img,
+            BufferedGraphics g, Color clPlayercolor, Font font, bool isStructure)
         {
             if (units == null ||
                 units.Count <= 0)
@@ -751,9 +729,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var unit = units[index];
 
-            Boolean bSpaceForPercentage = false;
-            Int32 result = 0;
-            float fWidthSize = 0f;
+            var bSpaceForPercentage = false;
+            var result = 0;
+            var fWidthSize = 0f;
 
             //Unitamount defines all buildings (applied to buildings actually placed on the map, not Upgrade To Lair and such..
             if (isStructure)
@@ -772,25 +750,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 float fWidth;
 
                 if (unit.UnitAmount.ToString(CultureInfo.InvariantCulture).Length == 1)
-                    fWidth = unit.UnitAmount.ToString(CultureInfo.InvariantCulture).Length * (font.Size + 4);
+                    fWidth = unit.UnitAmount.ToString(CultureInfo.InvariantCulture).Length*(font.Size + 4);
 
                 else
-                    fWidth = unit.UnitAmount.ToString(CultureInfo.InvariantCulture).Length * (font.Size);
+                    fWidth = unit.UnitAmount.ToString(CultureInfo.InvariantCulture).Length*(font.Size);
 
                 fWidthSize = fWidth;
 
                 #region Amount of Units
 
-
-
                 HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
-                                                               new SolidBrush(Color.FromArgb(100, Color.Gray)),
-                                                               posX + 1, posY + 1 - 1, fWidth, font.Size + 9, 5);
+                    new SolidBrush(Color.FromArgb(100, Color.Gray)),
+                    posX + 1, posY + 1 - 1, fWidth, font.Size + 9, 5);
 
 
                 g.Graphics.DrawString(unit.UnitAmount.ToString(CultureInfo.InvariantCulture), font, Brushes.White,
-                                      posX + 2,
-                                      posY + 2 - 1);
+                    posX + 2,
+                    posY + 2 - 1);
 
                 #endregion
 
@@ -798,16 +774,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 if (unit.Energy.Count == 1)
                 {
-
-                    var fLenght = unit.Energy[0]/(float)unit.MaximumEnergy[0];
+                    var fLenght = unit.Energy[0]/(float) unit.MaximumEnergy[0];
                     fLenght *= size;
 
-                    g.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Black)), posX + size, posY, 16, fLenght);
+                    g.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Black)), posX + size, posY, 16,
+                        fLenght);
 
                     if (PSettings.PreferenceAll.OverlayUnits.UseTransparentImages)
                         g.Graphics.DrawRectangle(new Pen(Brushes.Gray), posX + size, posY, 16, size);
 
-                    string text = (unit.Energy[0] >> 12).ToString(CultureInfo.InvariantCulture);
+                    var text = (unit.Energy[0] >> 12).ToString(CultureInfo.InvariantCulture);
 
                     var pt = new PointF(posX + size, posY);
 
@@ -815,9 +791,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     g.Graphics.TranslateTransform(pt.X, pt.Y); // Set rotation point
                     g.Graphics.RotateTransform(90); // Rotate text
                     g.Graphics.TranslateTransform(-pt.X, -pt.Y); // Reset translate transform
-                    SizeF sz = g.Graphics.MeasureString(text, Font); // Get size of rotated text (bounding box)
-                    g.Graphics.DrawString(text, Font, Brushes.Cyan, new PointF(pt.X, pt.Y - sz.Height)); // Draw string centered in x, y
-                    g.Graphics.ResetTransform(); // Only needed if you reuse the Graphics object for multiple calls to DrawString
+                    var sz = g.Graphics.MeasureString(text, Font); // Get size of rotated text (bounding box)
+                    g.Graphics.DrawString(text, Font, Brushes.Cyan, new PointF(pt.X, pt.Y - sz.Height));
+                    // Draw string centered in x, y
+                    g.Graphics.ResetTransform();
+                    // Only needed if you reuse the Graphics object for multiple calls to DrawString
 
                     bSpaceForPercentage = true;
                 }
@@ -828,8 +806,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     foreach (var energy in unit.Energy)
                     {
-                        var tmp = energy / 4096;
-                        var tmpRes = tmp / 25;
+                        var tmp = energy/4096;
+                        var tmpRes = tmp/25;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
@@ -839,8 +817,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     foreach (var energy in unit.Energy)
                     {
-                        var tmp = energy / 4096;
-                        var tmpRes = tmp / 75;
+                        var tmp = energy/4096;
+                        var tmpRes = tmp/75;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
@@ -850,8 +828,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     foreach (var energy in unit.Energy)
                     {
-                        var tmp = energy / 4096;
-                        var tmpRes = tmp / 50;
+                        var tmp = energy/4096;
+                        var tmpRes = tmp/50;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
@@ -861,8 +839,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     foreach (var energy in unit.Energy)
                     {
-                        var tmp = energy / 4096;
-                        var tmpRes = tmp / 100;
+                        var tmp = energy/4096;
+                        var tmpRes = tmp/100;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
@@ -872,23 +850,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     foreach (var energy in unit.Energy)
                     {
-                        var tmp = energy / 4096;
-                        var tmpRes = tmp / 100;
+                        var tmp = energy/4096;
+                        var tmpRes = tmp/100;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
                 }
 
-                #endregion
+                    #endregion
 
-                #region Terran
+                    #region Terran
 
                 else if (unit.Id.Equals(UnitId.TuGhost))
                 {
                     foreach (var energy in unit.Energy)
                     {
-                        var tmp = energy / 4096;
-                        var tmpRes = tmp / 75;
+                        var tmp = energy/4096;
+                        var tmpRes = tmp/75;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
@@ -898,23 +876,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     foreach (var energy in unit.Energy)
                     {
-                        var tmp = energy / 4096;
-                        var tmpRes = tmp / 50;
+                        var tmp = energy/4096;
+                        var tmpRes = tmp/50;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
                 }
 
-                #endregion
+                    #endregion
 
-                #region Zerg
+                    #region Zerg
 
                 else if (unit.Id.Equals(UnitId.ZuViper))
                 {
                     foreach (var energy in unit.Energy)
                     {
-                        var tmp = energy / 4096;
-                        var tmpRes = tmp / 75;
+                        var tmp = energy/4096;
+                        var tmpRes = tmp/75;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
@@ -924,28 +902,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     foreach (var energy in unit.Energy)
                     {
-                        var tmp = energy / 4096;
-                        var tmpRes = tmp / 75;
+                        var tmp = energy/4096;
+                        var tmpRes = tmp/75;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
                 }
 
                 else if (unit.Id.Equals(UnitId.ZuQueen) ||
-                    unit.Id.Equals(UnitId.ZuQueenBurrow))
+                         unit.Id.Equals(UnitId.ZuQueenBurrow))
                 {
                     foreach (var energy in unit.Energy)
                     {
-                        var tmp = energy / 4096;
-                        var tmpRes = tmp / 25;
+                        var tmp = energy/4096;
+                        var tmpRes = tmp/25;
                         if (tmpRes >= 1)
                             result += tmpRes;
                     }
                 }
 
                 #endregion
-
-                
 
                 #endregion
             }
@@ -973,26 +949,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         Brushes.Cyan,
                         posX + size - fWidth + 5 - 2,
                         posY + size - fHeight);
-                        
 
-                   /* HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
+
+                    /* HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
                         new SolidBrush(Color.FromArgb(100, Color.Black)),
                         posX + size -
                         TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Width,
                         posY + font.Size + 10, fWidthSize, font.Size + 9, 5);*/
 
 
-                  /*  g.Graphics.DrawString(result.ToString(CultureInfo.InvariantCulture), font,
+                    /*  g.Graphics.DrawString(result.ToString(CultureInfo.InvariantCulture), font,
                         Brushes.DeepPink,
                         posX + size -
                         TextRenderer.MeasureText(result.ToString(CultureInfo.InvariantCulture), font).Width,
                         posY + font.Size + 9);*/
 
-                    newWidth = fWidth -5;
+                    newWidth = fWidth - 5;
                     newHeight = fHeight;
                     newPosX = posX + size - fWidth + 5;
                     newPosY = posY + size - fHeight;
-
                 }
 
                 else
@@ -1004,7 +979,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 //TODO: Clean this up/ fix it<
                 if (unit.Energy.Count > 0)
                 {
-
 #if DEBUG
                     throw new Exception("THIS PART NEEDS SOME CORRECTION!!");
 #endif
@@ -1039,14 +1013,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 }
 
 
-
-
                 if (bDraw && !PSettings.PreferenceAll.OverlayUnits.RemoveChronoboost)
                 {
                     HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
-                    new SolidBrush(Color.FromArgb(100, Color.White)),
-                    posX + size - 22,
-                    posY + 3, 19, 19, 5);
+                        new SolidBrush(Color.FromArgb(100, Color.White)),
+                        posX + size - 22,
+                        posY + 3, 19, 19, 5);
                     g.Graphics.DrawImage(_imgSpeedArrow, new Rectangle(posX + size - 20, posY + 5, 15, 15));
                 }
 
@@ -1054,19 +1026,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 float fWidth;
 
                 if (unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length == 1)
-                    fWidth = unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length * (font.Size + 4);
+                    fWidth = unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length*(font.Size + 4);
 
                 else
-                    fWidth = unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length * (font.Size);
+                    fWidth = unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture).Length*(font.Size);
 
                 HelpFunctions.HelpGraphics.FillRoundRectangle(g.Graphics,
-                                                               new SolidBrush(Color.FromArgb(100, Color.Gray)),
-                                                               posX + 1, posY + font.Size + 10, fWidth, font.Size + 9, 5);
+                    new SolidBrush(Color.FromArgb(100, Color.Gray)),
+                    posX + 1, posY + font.Size + 10, fWidth, font.Size + 9, 5);
 
 
                 g.Graphics.DrawString(unit.UnitUnderConstruction.ToString(CultureInfo.InvariantCulture), font,
-                                      Brushes.Orange, posX + 2,
-                                      posY + font.Size + 9);
+                    Brushes.Orange, posX + 2,
+                    posY + font.Size + 9);
 
 
                 if (!PSettings.PreferenceAll.OverlayUnits.RemoveProductionLine)
@@ -1075,11 +1047,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     float ftemp = size - 4;
 
                     if (unit.ConstructionState.Count > 0)
-                        ftemp *= (unit.ConstructionState[0] / 100);
+                        ftemp *= (unit.ConstructionState[0]/100);
 
                     else
                         ftemp = 0;
-
 
 
                     /* Draw status- line */
@@ -1089,24 +1060,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (!PSettings.PreferenceAll.OverlayUnits.UseTransparentImages)
                         iOffset = 0;
-                    
+
 
                     g.Graphics.DrawLine(new Pen(Brushes.Yellow, 2), posX + 2, posY + size - 3 + iOffset,
-                            posX + 2 + (Int32)ftemp,
-                            posY + size - 3 + iOffset);
+                        posX + 2 + (int) ftemp,
+                        posY + size - 3 + iOffset);
                     g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);
                 }
-
-
             }
 
 
             if ((unit.Id.Equals(UnitId.TuMule) || unit.Id.Equals(UnitId.PuForceField)) &&
                 !PSettings.PreferenceAll.OverlayUnits.RemoveProductionLine)
             {
-
-
-
                 float ftemp = size - 4;
                 ftemp *= (unit.AliveSince[0]);
 
@@ -1118,11 +1084,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                 g.Graphics.DrawLine(new Pen(Brushes.Yellow, 2), posX + 2, posY + size - 3 + iOffset,
-                        posX + 2 + (Int32)ftemp,
-                        posY + size - 3 + iOffset);
+                    posX + 2 + (int) ftemp,
+                    posY + size - 3 + iOffset);
                 g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);
             }
-
 
 
             if (!PSettings.PreferenceAll.OverlayUnits.UseTransparentImages)
@@ -1130,7 +1095,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (bSpaceForPercentage)
                     g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size + 16, size);
 
-                else 
+                else
                     g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), posX, posY, size, size);
             }
 
