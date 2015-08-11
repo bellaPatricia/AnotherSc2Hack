@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
+using AnotherSc2Hack.Properties;
 using PredefinedTypes;
 using Utilities.ExtensionMethods;
 
@@ -13,12 +14,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     public class ArmyRenderer : BaseRenderer
     {
-
-        private Image _imgMinerals = Properties.Resources.Mineral_Protoss,
-                      _imgGas = Properties.Resources.Gas_Protoss,
-                      _imgSupply = Properties.Resources.Supply_Protoss,
-                      _imgWorker = Properties.Resources.P_Probe;
-
+        private Image _imgMinerals = Resources.Mineral_Protoss,
+            _imgGas = Resources.Gas_Protoss,
+            _imgSupply = Resources.Supply_Protoss,
+            _imgWorker = Resources.P_Probe;
 
         public ArmyRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
@@ -27,14 +26,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Draws the panelspecific data.
+        ///     Draws the panelspecific data.
         /// </summary>
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
         {
             try
             {
-
                 if (!GInformation.Gameinfo.IsIngame)
                     return;
 
@@ -44,14 +42,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     return;
 
                 Opacity = PSettings.PreferenceAll.OverlayArmy.Opacity;
-                var iSingleHeight = Height / iValidPlayerCount;
-                var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
+                var iSingleHeight = Height/iValidPlayerCount;
+                var fNewFontSize = (float) ((29.0/100)*iSingleHeight);
                 var fInternalFont = new Font(PSettings.PreferenceAll.OverlayArmy.FontName, fNewFontSize, FontStyle.Bold);
                 var fInternalFontNormal = new Font(fInternalFont.Name, fNewFontSize, FontStyle.Regular);
 
                 if (!BChangingPosition)
                 {
-                    Height = PSettings.PreferenceAll.OverlayArmy.Height * iValidPlayerCount;
+                    Height = PSettings.PreferenceAll.OverlayArmy.Height*iValidPlayerCount;
                     Width = PSettings.PreferenceAll.OverlayArmy.Width;
                 }
 
@@ -63,7 +61,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Teamcolor
 
                     RendererHelper.TeamColor(GInformation.Player, i,
-                                              GInformation.Gameinfo.IsTeamcolor, ref clPlayercolor);
+                        GInformation.Gameinfo.IsTeamcolor, ref clPlayercolor);
 
                     #endregion
 
@@ -124,26 +122,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (GInformation.Player[i].PlayerRace.Equals(PlayerRace.Terran))
                     {
-                        _imgMinerals = Properties.Resources.Mineral_Terran;
-                        _imgGas = Properties.Resources.Gas_Terran;
-                        _imgSupply = Properties.Resources.Supply_Terran;
-                        _imgWorker = Properties.Resources.T_SCV;
+                        _imgMinerals = Resources.Mineral_Terran;
+                        _imgGas = Resources.Gas_Terran;
+                        _imgSupply = Resources.Supply_Terran;
+                        _imgWorker = Resources.T_SCV;
                     }
 
                     else if (GInformation.Player[i].PlayerRace.Equals(PlayerRace.Protoss))
                     {
-                        _imgMinerals = Properties.Resources.Mineral_Protoss;
-                        _imgGas = Properties.Resources.Gas_Protoss;
-                        _imgSupply = Properties.Resources.Supply_Protoss;
-                        _imgWorker = Properties.Resources.P_Probe;
+                        _imgMinerals = Resources.Mineral_Protoss;
+                        _imgGas = Resources.Gas_Protoss;
+                        _imgSupply = Resources.Supply_Protoss;
+                        _imgWorker = Resources.P_Probe;
                     }
 
                     else
                     {
-                        _imgMinerals = Properties.Resources.Mineral_Zerg;
-                        _imgGas = Properties.Resources.Gas_Zerg;
-                        _imgSupply = Properties.Resources.Supply_Zerg;
-                        _imgWorker = Properties.Resources.Z_Drone;
+                        _imgMinerals = Resources.Mineral_Zerg;
+                        _imgGas = Resources.Gas_Zerg;
+                        _imgSupply = Resources.Supply_Zerg;
+                        _imgWorker = Resources.Z_Drone;
                     }
 
                     #endregion
@@ -153,13 +151,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (PSettings.PreferenceAll.OverlayArmy.DrawBackground)
                     {
                         /* Background */
-                        g.Graphics.FillRectangle(Brushes.Gray, 1, 1 + (iSingleHeight * iCounter), Width - 2,
-                                                 iSingleHeight - 2);
+                        g.Graphics.FillRectangle(Brushes.Gray, 1, 1 + (iSingleHeight*iCounter), Width - 2,
+                            iSingleHeight - 2);
 
                         /* Border */
                         g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), 1,
-                                                 1 + (iSingleHeight * iCounter),
-                                                 Width - 2, iSingleHeight - 2);
+                            1 + (iSingleHeight*iCounter),
+                            Width - 2, iSingleHeight - 2);
                     }
 
                     #endregion
@@ -168,16 +166,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Name
 
-                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.PreferenceAll.OverlayArmy.RemoveClanTag)
-                                         ? GInformation.Player[i].Name
-                                         : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
+                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") ||
+                                   PSettings.PreferenceAll.OverlayArmy.RemoveClanTag)
+                        ? GInformation.Player[i].Name
+                        : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
                     g.Graphics.DrawString(
                         strName,
                         fInternalFont,
                         new SolidBrush(clPlayercolor),
-                        Brushes.Black, (float)((1.67 / 100) * Width),
-                        (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        Brushes.Black, (float) ((1.67/100)*Width),
+                        (float) ((24.0/100)*iSingleHeight) + iSingleHeight*iCounter,
                         1f, 1f, true);
 
                     #endregion
@@ -187,8 +186,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     g.Graphics.DrawString(
                         "#" + GInformation.Player[i].Team, fInternalFontNormal,
                         Brushes.White,
-                        Brushes.Black, (float)((29.67 / 100) * Width),
-                        (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        Brushes.Black, (float) ((29.67/100)*Width),
+                        (float) ((24.0/100)*iSingleHeight) + iSingleHeight*iCounter,
                         1f, 1f, true);
 
                     #endregion
@@ -196,16 +195,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Minerals
 
                     /* Icon */
-                    g.Graphics.DrawImage(_imgMinerals, (float)((37.0 / 100) * Width),
-                                         (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
-                                         (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
+                    g.Graphics.DrawImage(_imgMinerals, (float) ((37.0/100)*Width),
+                        (float) ((14.0/100)*iSingleHeight) + (Height/iValidPlayerCount)*iCounter,
+                        (float) ((70.0/100)*iSingleHeight), (float) ((70.0/100)*iSingleHeight));
 
                     /* Mineral Count */
                     g.Graphics.DrawString(
                         GInformation.Player[i].MineralsArmy.ToString(CultureInfo.InvariantCulture), fInternalFontNormal,
                         Brushes.White,
-                        Brushes.Black, (float)((43.67 / 100) * Width),
-                                          (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        Brushes.Black, (float) ((43.67/100)*Width),
+                        (float) ((24.0/100)*iSingleHeight) + iSingleHeight*iCounter,
                         1f, 1f, true);
 
                     #endregion
@@ -213,16 +212,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Gas
 
                     /* Icon */
-                    g.Graphics.DrawImage(_imgGas, (float)((57.0 / 100) * Width),
-                                         (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
-                                         (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
+                    g.Graphics.DrawImage(_imgGas, (float) ((57.0/100)*Width),
+                        (float) ((14.0/100)*iSingleHeight) + (Height/iValidPlayerCount)*iCounter,
+                        (float) ((70.0/100)*iSingleHeight), (float) ((70.0/100)*iSingleHeight));
 
                     /* Gas Count */
                     g.Graphics.DrawString(
                         GInformation.Player[i].GasArmy.ToString(CultureInfo.InvariantCulture), fInternalFontNormal,
                         Brushes.White,
-                        Brushes.Black, (float)((63.67 / 100) * Width),
-                                          (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        Brushes.Black, (float) ((63.67/100)*Width),
+                        (float) ((24.0/100)*iSingleHeight) + iSingleHeight*iCounter,
                         1f, 1f, true);
 
                     #endregion
@@ -230,23 +229,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Supply
 
                     /* Icon */
-                    g.Graphics.DrawImage(_imgSupply, (float)((75.0 / 100) * Width),
-                                         (float)((14.0 / 100) * iSingleHeight) + (Height / iValidPlayerCount) * iCounter,
-                                         (float)((70.0 / 100) * iSingleHeight), (float)((70.0 / 100) * iSingleHeight));
+                    g.Graphics.DrawImage(_imgSupply, (float) ((75.0/100)*Width),
+                        (float) ((14.0/100)*iSingleHeight) + (Height/iValidPlayerCount)*iCounter,
+                        (float) ((70.0/100)*iSingleHeight), (float) ((70.0/100)*iSingleHeight));
 
                     /* Mineral Count */
                     g.Graphics.DrawString(
                         (GInformation.Player[i].ArmySupply).ToString(CultureInfo.InvariantCulture) + " / " +
                         GInformation.Player[i].SupplyMax, fInternalFontNormal,
                         Brushes.White,
-                        Brushes.Black, (float)((81.67 / 100) * Width),
-                        (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        Brushes.Black, (float) ((81.67/100)*Width),
+                        (float) ((24.0/100)*iSingleHeight) + iSingleHeight*iCounter,
                         1f, 1f, true);
 
                     #endregion
 
                     #endregion
-
 
                     iCounter++;
                 }
@@ -259,7 +257,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseUpTransferData()
         {
@@ -269,12 +267,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             PSettings.PreferenceAll.OverlayArmy.X = Location.X;
             PSettings.PreferenceAll.OverlayArmy.Y = Location.Y;
             PSettings.PreferenceAll.OverlayArmy.Width = Width;
-            PSettings.PreferenceAll.OverlayArmy.Height = Height / iValidPlayerCount;
+            PSettings.PreferenceAll.OverlayArmy.Height = Height/iValidPlayerCount;
             PSettings.PreferenceAll.OverlayArmy.Opacity = Opacity;
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseWheelTransferData(MouseEventArgs e)
         {
@@ -292,8 +290,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Size directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Size directly!
         /// </summary>
         protected override void AdjustPanelSize()
         {
@@ -307,10 +305,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (PSettings.PreferenceAll.OverlayArmy.RemoveNeutral)
                     iValidPlayerCount -= 1;
 
-                if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
+                if ((Cursor.Position.Y - Top)/iValidPlayerCount >= 5)
                 {
-                    PSettings.PreferenceAll.OverlayArmy.Height = (Cursor.Position.Y - Top) /
-                                                        iValidPlayerCount;
+                    PSettings.PreferenceAll.OverlayArmy.Height = (Cursor.Position.Y - Top)/
+                                                                 iValidPlayerCount;
                 }
 
                 else
@@ -319,7 +317,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupSizeChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -347,19 +345,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads the settings of the specific Form into the controls (Location, Size)
+        ///     Loads the settings of the specific Form into the controls (Location, Size)
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
             Location = new Point(PSettings.PreferenceAll.OverlayArmy.X,
-                                     PSettings.PreferenceAll.OverlayArmy.Y);
+                PSettings.PreferenceAll.OverlayArmy.Y);
             Size = new Size(PSettings.PreferenceAll.OverlayArmy.Width, PSettings.PreferenceAll.OverlayArmy.Height);
             Opacity = PSettings.PreferenceAll.OverlayArmy.Opacity;
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Position directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Position directly!
         /// </summary>
         protected override void AdjustPanelPosition()
         {
@@ -374,7 +372,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -400,20 +398,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads some specific data into the Form.
+        ///     Loads some specific data into the Form.
         /// </summary>
         protected override void LoadSpecificData()
         {
-            
         }
 
-        void ArmyRenderer_IsHiddenChanged(object sender, EventArgs e)
+        private void ArmyRenderer_IsHiddenChanged(object sender, EventArgs e)
         {
             PSettings.PreferenceAll.OverlayArmy.LaunchStatus = !IsHidden;
         }
 
         /// <summary>
-        /// Changes settings for a specific Form.
+        ///     Changes settings for a specific Form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -424,7 +421,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var iRealPlayerCount = iValidPlayerCount == 0 ? 1 : iValidPlayerCount;
 
-            PSettings.PreferenceAll.OverlayArmy.Height = (Height / iRealPlayerCount);
+            PSettings.PreferenceAll.OverlayArmy.Height = (Height/iRealPlayerCount);
             PSettings.PreferenceAll.OverlayArmy.Width = Width;
             PSettings.PreferenceAll.OverlayArmy.X = Location.X;
             PSettings.PreferenceAll.OverlayArmy.Y = Location.Y;

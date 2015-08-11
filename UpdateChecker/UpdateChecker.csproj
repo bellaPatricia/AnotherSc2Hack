@@ -39,9 +39,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Utilities">
-      <HintPath>..\Utilities\bin\Release\Utilities.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDatastore.cs" />
@@ -51,7 +48,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DownloadManager.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{dc3a508b-9c4a-4c7c-a449-56aeda2d8d02}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>$(SolutionDir)IncrementVersionNumber\bin\Release\IncrementVersionNumber.exe $(SolutionDir) $(ProjectDir) AutoIncrementPattern.txt</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

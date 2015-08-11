@@ -40,5 +40,15 @@ namespace Utilities.ExtensionMethods
                 return null;
             }
         }
+
+        public static Image ResizeImage(this Image imgToResize, int width, int height)
+        {
+            return ResizeImage(imgToResize, new Size(width, height));
+        }
+
+        public static Image ResizeImage(this Image imgToResize, Size size)
+        {
+            return new Bitmap(imgToResize, size);
+        }
     }
 }

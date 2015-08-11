@@ -14,45 +14,67 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
-using System.Threading;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
-using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
+using AnotherSc2Hack.Properties;
 using PredefinedTypes;
 using Utilities.Events;
+using Utilities.ExtensionMethods;
+using MouseButtons = System.Windows.Forms.MouseButtons;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     /// <summary>
-    /// Baseclass which handles everything around the drawing of the content.
-    /// Does the dirty work so you don't have to care about the basic "fuck up"
+    ///     Baseclass which handles everything around the drawing of the content.
+    ///     Does the dirty work so you don't have to care about the basic "fuck up"
     /// </summary>
     public abstract partial class BaseRenderer : Form
     {
+        #region Constructor
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="BaseRenderer" /> class.
+        /// </summary>
+        /// <param name="gInformation">The GameInfo reference to access the gamedata</param>
+        /// <param name="pSettings">The Preference reference to get the information which data will be drawn</param>
+        /// <param name="sc2Process">The Process- handle to check whenever a process is available or not</param>
+        protected BaseRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
+        {
+            GInformation = gInformation;
+            PSettings = pSettings;
+            PSc2Process = sc2Process;
+
+            InitCode();
+        }
+
+        #endregion
+
         #region Variables
 
-        
         public event NumberChangeHandler IterationPerSecondChanged;
 
-        private int _iTimesRefreshed;                                           //Dunno.. :D
-        private Point _ptMousePosition = new Point(0, 0);                       //Position for the Moving of the Panel
-        private Boolean _bDraw = true;
-        private const Int32 SizeOfRectangle = 10;                               //Size for the corner- rectangles (when changing position)
+        private int _iTimesRefreshed; //Dunno.. :D
+        private Point _ptMousePosition = new Point(0, 0); //Position for the Moving of the Panel
+        private bool _bDraw = true;
+        private const int SizeOfRectangle = 10; //Size for the corner- rectangles (when changing position)
 
-        protected Stopwatch SwMainWatch = new Stopwatch();                      //Stopwatch for Debugging and speed- tests
-        protected DateTime DtBegin = DateTime.Now;                              //First Datetime to get the Delta between the begin and end [TopMost]
-        protected DateTime DtSecond = DateTime.Now;                             //Second Datetime to get the Delta between the begin and end [TopMost]
-        protected Boolean BSurpressForeground;
-        protected Boolean BChangingPosition;
-        protected Boolean BMouseDown;
-        protected Boolean BSetSize;
-        protected Boolean BToggleSize;
-        protected Boolean BSetPosition;
-        protected Boolean BTogglePosition;
-        protected String StrBackupChatbox = String.Empty;
-        protected String StrBackupSizeChatbox = String.Empty;
+        protected Stopwatch SwMainWatch = new Stopwatch(); //Stopwatch for Debugging and speed- tests
+        protected DateTime DtBegin = DateTime.Now; //First Datetime to get the Delta between the begin and end [TopMost]
 
+        protected DateTime DtSecond = DateTime.Now;
+        //Second Datetime to get the Delta between the begin and end [TopMost]
+
+        protected bool BSurpressForeground;
+        protected bool BChangingPosition;
+        protected bool BMouseDown;
+        protected bool BSetSize;
+        protected bool BToggleSize;
+        protected bool BSetPosition;
+        protected bool BTogglePosition;
+        protected string StrBackupChatbox = string.Empty;
+        protected string StrBackupSizeChatbox = string.Empty;
+        protected Stopwatch _swMainWatch = new Stopwatch();
 
         #region UnitCounter - Count all objects per player
 
@@ -132,8 +154,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected List<UnitCount> _lTupMoebiusReactor = new List<UnitCount>();
         protected List<UnitCount> _lTupPlanetaryFortress = new List<UnitCount>();
         protected List<UnitCount> _lTupOrbitalCommand = new List<UnitCount>();
-
-
 
         #endregion
 
@@ -233,6 +253,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected List<UnitCount> _lZuRoach = new List<UnitCount>();
         protected List<UnitCount> _lZuHydra = new List<UnitCount>();
         protected List<UnitCount> _lZuInfestor = new List<UnitCount>();
+        protected List<UnitCount> _lZuInfestedTerran = new List<UnitCount>();
+        protected List<UnitCount> _lZuInfestedTerranEgg = new List<UnitCount>();
         protected List<UnitCount> _lZuQueen = new List<UnitCount>();
         protected List<UnitCount> _lZuOverseer = new List<UnitCount>();
         protected List<UnitCount> _lZuOverseerCocoon = new List<UnitCount>();
@@ -243,6 +265,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected List<UnitCount> _lZuSwarmhost = new List<UnitCount>();
         protected List<UnitCount> _lZuViper = new List<UnitCount>();
         protected List<UnitCount> _lZuLocust = new List<UnitCount>();
+        protected List<UnitCount> _lZuFlyingLocust = new List<UnitCount>();
+        protected List<UnitCount> _lZuChangeling = new List<UnitCount>();
+
 
         protected List<UnitCount> _lZupAirWeapon1 = new List<UnitCount>();
         protected List<UnitCount> _lZupAirWeapon2 = new List<UnitCount>();
@@ -273,8 +298,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected List<UnitCount> _lZupTunnnelingClaws = new List<UnitCount>();
         protected List<UnitCount> _lZupVentralSacs = new List<UnitCount>();
         protected List<UnitCount> _lZupBurrow = new List<UnitCount>();
-
-
+        protected List<UnitCount> _lZupFlyingLocust = new List<UnitCount>();
 
         #endregion
 
@@ -284,85 +308,86 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Units
 
-
-        protected Image _imgTuScv = Properties.Resources.tu_scv,
-                               _imgTuMule = Properties.Resources.tu_Mule,
-                               _imgTuMarine = Properties.Resources.tu_marine,
-                               _imgTuMarauder = Properties.Resources.tu_marauder,
-                               _imgTuReaper = Properties.Resources.tu_reaper,
-                               _imgTuGhost = Properties.Resources.tu_ghost,
-                               _imgTuHellion = Properties.Resources.tu_hellion,
-                               _imgTuHellbat = Properties.Resources.tu_battlehellion,
-                               _imgTuSiegetank = Properties.Resources.tu_tank,
-                               _imgTuThor = Properties.Resources.tu_thor,
-                               _imgTuWidowMine = Properties.Resources.tu_widowmine,
-                               _imgTuViking = Properties.Resources.tu_vikingAir,
-                               _imgTuRaven = Properties.Resources.tu_raven,
-                               _imgTuMedivac = Properties.Resources.tu_medivac,
-                               _imgTuBattlecruiser = Properties.Resources.tu_battlecruiser,
-                               _imgTuBanshee = Properties.Resources.tu_banshee,
-                               _imgTuPointDefenseDrone = Properties.Resources.tu_pdd,
-                               _imgTuNuke = Properties.Resources.Tu_Nuke;
+        protected Image _imgTuScv = Resources.tu_scv,
+            _imgTuMule = Resources.tu_Mule,
+            _imgTuMarine = Resources.tu_marine,
+            _imgTuMarauder = Resources.tu_marauder,
+            _imgTuReaper = Resources.tu_reaper,
+            _imgTuGhost = Resources.tu_ghost,
+            _imgTuHellion = Resources.tu_hellion,
+            _imgTuHellbat = Resources.tu_battlehellion,
+            _imgTuSiegetank = Resources.tu_tank,
+            _imgTuThor = Resources.tu_thor,
+            _imgTuWidowMine = Resources.tu_widowmine,
+            _imgTuViking = Resources.tu_vikingAir,
+            _imgTuRaven = Resources.tu_raven,
+            _imgTuMedivac = Resources.tu_medivac,
+            _imgTuBattlecruiser = Resources.tu_battlecruiser,
+            _imgTuBanshee = Resources.tu_banshee,
+            _imgTuPointDefenseDrone = Resources.tu_pdd,
+            _imgTuNuke = Resources.Tu_Nuke;
 
         #endregion
 
         #region Buildings
 
-        protected Image _imgTbCc = Properties.Resources.tb_cc,
-                               _imgTbOc = Properties.Resources.tb_oc,
-                               _imgTbPf = Properties.Resources.tb_pf,
-                               _imgTbSupply = Properties.Resources.tb_supply,
-                               _imgTbRefinery = Properties.Resources.tb_refinery,
-                               _imgTbBarracks = Properties.Resources.tb_rax,
-                               _imgTbEbay = Properties.Resources.tb_ebay,
-                               _imgTbTurrent = Properties.Resources.tb_turret,
-                               _imgTbSensorTower = Properties.Resources.tb_sensor,
-                               _imgTbFactory = Properties.Resources.tb_fax,
-                               _imgTbStarport = Properties.Resources.tb_starport,
-                               _imgTbGhostacademy = Properties.Resources.tb_ghostacademy,
-                               _imgTbArmory = Properties.Resources.tb_Armory,
-                               _imgTbBunker = Properties.Resources.tb_bunker,
-                               _imgTbFusioncore = Properties.Resources.tb_fusioncore,
-                               _imgTbTechlab = Properties.Resources.tb_techlab,
-                               _imgTbReactor = Properties.Resources.tb_reactor,
-                               _imgTbAutoTurret = Properties.Resources.tb_autoturret;
+        protected Image _imgTbCc = Resources.tb_cc,
+            _imgTbOc = Resources.tb_oc,
+            _imgTbPf = Resources.tb_pf,
+            _imgTbSupply = Resources.tb_supply,
+            _imgTbRefinery = Resources.tb_refinery,
+            _imgTbBarracks = Resources.tb_rax,
+            _imgTbEbay = Resources.tb_ebay,
+            _imgTbTurrent = Resources.tb_turret,
+            _imgTbSensorTower = Resources.tb_sensor,
+            _imgTbFactory = Resources.tb_fax,
+            _imgTbStarport = Resources.tb_starport,
+            _imgTbGhostacademy = Resources.tb_ghostacademy,
+            _imgTbArmory = Resources.tb_Armory,
+            _imgTbBunker = Resources.tb_bunker,
+            _imgTbFusioncore = Resources.tb_fusioncore,
+            _imgTbTechlab = Resources.tb_techlab,
+            _imgTbReactor = Resources.tb_reactor,
+            _imgTbAutoTurret = Resources.tb_autoturret;
 
         #endregion
 
         #region Upgrades
 
-        protected Image _imgTupStim = Properties.Resources.Tup_Stim,
-                               _imgTupConcussiveShells = Properties.Resources.Tup_ConcussiveShells,
-                               _imgTupCombatShields = Properties.Resources.Tup_CombatShields,
-                               _imgTupPersonalCloak = Properties.Resources.Tup_PersonalCloak,
-                               _imgTupMoebiusReactor = Properties.Resources.Tup_MoebiusReactor,
-                               _imgTupBlueFlame = Properties.Resources.Tup_BlueFlame,
-                               _imgTupTransformatorServos = Properties.Resources.Tup_TransformationServos,
-                               _imgTupDrillingClaws = Properties.Resources.Tup_DrillingClaws,
-                               _imgTupCloakingField = Properties.Resources.Tup_CloakingField,
-                               _imgTupDurableMaterials = Properties.Resources.Tup_DurableMaterials,
-                               _imgTupCaduceusReactor = Properties.Resources.Tup_CaduceusReactor,
-                               _imgTupCorvidReactor = Properties.Resources.Tup_CorvidReactor,
-                               _imgTupBehemothReacot = Properties.Resources.Tup_BehemothReactor,
-                               _imgTupWeaponRefit = Properties.Resources.Tup_WeaponRefit,
-                               _imgTupInfantryWeapon1 = Properties.Resources.Tup_InfantyWeapon1,
-                               _imgTupInfantryWeapon2 = Properties.Resources.Tup_InfantyWeapon2,
-                               _imgTupInfantryWeapon3 = Properties.Resources.Tup_InfantyWeapon3,
-                               _imgTupInfantryArmor1 = Properties.Resources.Tup_InfantyArmor1,
-                               _imgTupInfantryArmor2 = Properties.Resources.Tup_InfantyArmor2,
-                               _imgTupInfantryArmor3 = Properties.Resources.Tup_InfantyArmor3,
-                               _imgTupVehicleWeapon1 = Properties.Resources.Tup_VehicleWeapon1,
-                               _imgTupVehicleWeapon2 = Properties.Resources.Tup_VehicleWeapon2,
-                               _imgTupVehicleWeapon3 = Properties.Resources.Tup_VehicleWeapon3,
-                               _imgTupShipWeapon1 = Properties.Resources.Tup_ShipWeapon1,
-                               _imgTupShipWeapon2 = Properties.Resources.Tup_ShipWeapon2,
-                               _imgTupShipWeapon3 = Properties.Resources.Tup_ShipWeapon3,
-                               _imgTupVehicleShipPlanting1 = Properties.Resources.Tup_VehicleShipPlanting1,
-                               _imgTupVehicleShipPlanting2 = Properties.Resources.Tup_VehicleShipPlanting2,
-                               _imgTupVehicleShipPlanting3 = Properties.Resources.Tup_VehicleShipPlanting3,
-                               _imgTupHighSecAutoTracking = Properties.Resources.Tup_HighSecAutotracking,
-                               _imgTupStructureArmor = Properties.Resources.Tup_StructureArmor,
-                               _imgTupNeosteelFrame = Properties.Resources.Tup_NeosteelFrame;
+        protected Image _imgTupStim = Resources.Tup_Stim,
+            _imgTupConcussiveShells = Resources.Tup_ConcussiveShells,
+            _imgTupCombatShields = Resources.Tup_CombatShields,
+            _imgTupPersonalCloak = Resources.Tup_PersonalCloak,
+            _imgTupMoebiusReactor = Resources.Tup_MoebiusReactor,
+            _imgTupBlueFlame = Resources.Tup_BlueFlame,
+            _imgTupTransformatorServos = Resources.Tup_TransformationServos,
+            _imgTupDrillingClaws = Resources.Tup_DrillingClaws,
+            _imgTupCloakingField = Resources.Tup_CloakingField,
+            _imgTupDurableMaterials = Resources.Tup_DurableMaterials,
+            _imgTupCaduceusReactor = Resources.Tup_CaduceusReactor,
+            _imgTupCorvidReactor = Resources.Tup_CorvidReactor,
+            _imgTupBehemothReacot = Resources.Tup_BehemothReactor,
+            _imgTupWeaponRefit = Resources.Tup_WeaponRefit,
+            _imgTupInfantryWeapon1 = Resources.Tup_InfantyWeapon1,
+            _imgTupInfantryWeapon2 = Resources.Tup_InfantyWeapon2,
+            _imgTupInfantryWeapon3 = Resources.Tup_InfantyWeapon3,
+            _imgTupInfantryArmor1 = Resources.Tup_InfantyArmor1,
+            _imgTupInfantryArmor2 = Resources.Tup_InfantyArmor2,
+            _imgTupInfantryArmor3 = Resources.Tup_InfantyArmor3,
+            _imgTupVehicleWeapon1 = Resources.Tup_VehicleWeapon1,
+            _imgTupVehicleWeapon2 = Resources.Tup_VehicleWeapon2,
+            _imgTupVehicleWeapon3 = Resources.Tup_VehicleWeapon3,
+            _imgTupShipWeapon1 = Resources.Tup_ShipWeapon1,
+            _imgTupShipWeapon2 = Resources.Tup_ShipWeapon2,
+            _imgTupShipWeapon3 = Resources.Tup_ShipWeapon3,
+            _imgTupVehicleShipPlanting1 = Resources.Tup_VehicleShipPlanting1,
+            _imgTupVehicleShipPlanting2 = Resources.Tup_VehicleShipPlanting2,
+            _imgTupVehicleShipPlanting3 = Resources.Tup_VehicleShipPlanting3,
+            _imgTupHighSecAutoTracking = Resources.Tup_HighSecAutotracking,
+            _imgTupStructureArmor = Resources.Tup_StructureArmor,
+            _imgTupNeosteelFrame = Resources.Tup_NeosteelFrame;
+
+        
 
         #endregion
 
@@ -372,77 +397,74 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Units
 
-       
-       protected Image _imgPuProbe = Properties.Resources.pu_probe,
-                               _imgPuZealot = Properties.Resources.pu_Zealot,
-                               _imgPuStalker = Properties.Resources.pu_Stalker,
-                               _imgPuSentry = Properties.Resources.pu_sentry,
-                               _imgPuDarkTemplar = Properties.Resources.pu_DarkTemplar,
-                               _imgPuHighTemplar = Properties.Resources.pu_ht,
-                               _imgPuColossus = Properties.Resources.pu_Colossus,
-                               _imgPuImmortal = Properties.Resources.pu_immortal,
-                               _imgPuWapprism = Properties.Resources.pu_warpprism,
-                               _imgPuObserver = Properties.Resources.pu_Observer,
-                               _imgPuOracle = Properties.Resources.pu_oracle,
-                               _imgPuTempest = Properties.Resources.pu_tempest,
-                               _imgPuPhoenix = Properties.Resources.pu_pheonix,
-                               _imgPuVoidray = Properties.Resources.pu_Voidray,
-                               _imgPuCarrier = Properties.Resources.pu_carrier,
-                               _imgPuMothershipcore = Properties.Resources.pu_mothershipcore,
-                               _imgPuMothership = Properties.Resources.pu_Mothership,
-                               _imgPuArchon = Properties.Resources.pu_Archon,
-                               _imgPuForceField = Properties.Resources.PuForceField;
-        
-        
+        protected Image _imgPuProbe = Resources.pu_probe,
+            _imgPuZealot = Resources.pu_Zealot,
+            _imgPuStalker = Resources.pu_Stalker,
+            _imgPuSentry = Resources.pu_sentry,
+            _imgPuDarkTemplar = Resources.pu_DarkTemplar,
+            _imgPuHighTemplar = Resources.pu_ht,
+            _imgPuColossus = Resources.pu_Colossus,
+            _imgPuImmortal = Resources.pu_immortal,
+            _imgPuWapprism = Resources.pu_warpprism,
+            _imgPuObserver = Resources.pu_Observer,
+            _imgPuOracle = Resources.pu_oracle,
+            _imgPuTempest = Resources.pu_tempest,
+            _imgPuPhoenix = Resources.pu_pheonix,
+            _imgPuVoidray = Resources.pu_Voidray,
+            _imgPuCarrier = Resources.pu_carrier,
+            _imgPuMothershipcore = Resources.pu_mothershipcore,
+            _imgPuMothership = Resources.pu_Mothership,
+            _imgPuArchon = Resources.pu_Archon,
+            _imgPuForceField = Resources.PuForceField;
 
         #endregion
 
         #region Buildings
 
-        protected Image _imgPbNexus = Properties.Resources.pb_Nexus,
-                               _imgPbPylon = Properties.Resources.pb_Pylon,
-                               _imgPbGateway = Properties.Resources.pb_gateway,
-                               _imgPbWarpgate = Properties.Resources.pb_warpgate,
-                               _imgPbAssimilator = Properties.Resources.pb_Assimilator,
-                               _imgPbForge = Properties.Resources.pb_forge,
-                               _imgPbCannon = Properties.Resources.pb_Cannon,
-                               _imgPbCybercore = Properties.Resources.pb_cybercore,
-                               _imgPbStargate = Properties.Resources.pb_stargate,
-                               _imgPbRobotics = Properties.Resources.pb_robotics,
-                               _imgPbRoboticsSupport = Properties.Resources.pb_roboticssupport,
-                               _imgPbTwillightCouncil = Properties.Resources.pb_twillightCouncil,
-                               _imgPbDarkShrine = Properties.Resources.pb_DarkShrine,
-                               _imgPbTemplarArchives = Properties.Resources.pb_templararchives,
-                               _imgPbFleetBeacon = Properties.Resources.pb_FleetBeacon;
+        protected Image _imgPbNexus = Resources.pb_Nexus,
+            _imgPbPylon = Resources.pb_Pylon,
+            _imgPbGateway = Resources.pb_gateway,
+            _imgPbWarpgate = Resources.pb_warpgate,
+            _imgPbAssimilator = Resources.pb_Assimilator,
+            _imgPbForge = Resources.pb_forge,
+            _imgPbCannon = Resources.pb_Cannon,
+            _imgPbCybercore = Resources.pb_cybercore,
+            _imgPbStargate = Resources.pb_stargate,
+            _imgPbRobotics = Resources.pb_robotics,
+            _imgPbRoboticsSupport = Resources.pb_roboticssupport,
+            _imgPbTwillightCouncil = Resources.pb_twillightCouncil,
+            _imgPbDarkShrine = Resources.pb_DarkShrine,
+            _imgPbTemplarArchives = Resources.pb_templararchives,
+            _imgPbFleetBeacon = Resources.pb_FleetBeacon;
 
         #endregion
 
         #region Upgrades
 
-        protected Image _imgPupGroundWeapon1 = Properties.Resources.Pup_GroundW1,
-                               _imgPupGroundWeapon2 = Properties.Resources.Pup_GroundW2,
-                               _imgPupGroundWeapon3 = Properties.Resources.Pup_GroundW3,
-                               _imgPupGroundArmor1 = Properties.Resources.Pup_GroundA1,
-                               _imgPupGroundArmor2 = Properties.Resources.Pup_GroundA2,
-                               _imgPupGroundArmor3 = Properties.Resources.Pup_GroundA3,
-                               _imgPupShield1 = Properties.Resources.Pup_S1,
-                               _imgPupShield2 = Properties.Resources.Pup_S2,
-                               _imgPupShield3 = Properties.Resources.Pup_S3,
-                               _imgPupAirWeapon1 = Properties.Resources.Pup_AirW1,
-                               _imgPupAirWeapon2 = Properties.Resources.Pup_AirW2,
-                               _imgPupAirWeapon3 = Properties.Resources.Pup_AirW3,
-                               _imgPupAirArmor1 = Properties.Resources.Pup_AirA1,
-                               _imgPupAirArmor2 = Properties.Resources.Pup_AirA2,
-                               _imgPupAirArmor3 = Properties.Resources.Pup_AirA3,
-                               _imgPupBlink = Properties.Resources.Pup_Blink,
-                               _imgPupCharge = Properties.Resources.Pup_Charge,
-                               _imgPupGraviticBooster = Properties.Resources.Pup_GraviticBoosters,
-                               _imgPupGraviticDrive = Properties.Resources.Pup_GraviticDrive,
-                               _imgPupExtendedThermalLance = Properties.Resources.Pup_ExtendedThermalLance,
-                               _imgPupAnionPulseCrystals = Properties.Resources.Pup_AnionPulseCrystals,
-                               _imgPupGravitonCatapult = Properties.Resources.Pup_GravitonCatapult,
-                               _imgPupWarpGate = Properties.Resources.Pup_Warpgate,
-                               _imgPupStorm = Properties.Resources.Pup_Storm;
+        protected Image _imgPupGroundWeapon1 = Resources.Pup_GroundW1,
+            _imgPupGroundWeapon2 = Resources.Pup_GroundW2,
+            _imgPupGroundWeapon3 = Resources.Pup_GroundW3,
+            _imgPupGroundArmor1 = Resources.Pup_GroundA1,
+            _imgPupGroundArmor2 = Resources.Pup_GroundA2,
+            _imgPupGroundArmor3 = Resources.Pup_GroundA3,
+            _imgPupShield1 = Resources.Pup_S1,
+            _imgPupShield2 = Resources.Pup_S2,
+            _imgPupShield3 = Resources.Pup_S3,
+            _imgPupAirWeapon1 = Resources.Pup_AirW1,
+            _imgPupAirWeapon2 = Resources.Pup_AirW2,
+            _imgPupAirWeapon3 = Resources.Pup_AirW3,
+            _imgPupAirArmor1 = Resources.Pup_AirA1,
+            _imgPupAirArmor2 = Resources.Pup_AirA2,
+            _imgPupAirArmor3 = Resources.Pup_AirA3,
+            _imgPupBlink = Resources.Pup_Blink,
+            _imgPupCharge = Resources.Pup_Charge,
+            _imgPupGraviticBooster = Resources.Pup_GraviticBoosters,
+            _imgPupGraviticDrive = Resources.Pup_GraviticDrive,
+            _imgPupExtendedThermalLance = Resources.Pup_ExtendedThermalLance,
+            _imgPupAnionPulseCrystals = Resources.Pup_AnionPulseCrystals,
+            _imgPupGravitonCatapult = Resources.Pup_GravitonCatapult,
+            _imgPupWarpGate = Resources.Pup_Warpgate,
+            _imgPupStorm = Resources.Pup_Storm;
 
         #endregion
 
@@ -452,83 +474,88 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Units
 
-        protected Image _imgZuDrone = Properties.Resources.zu_drone,
-                               _imgZuLarva = Properties.Resources.zu_larva,
-                               _imgZuZergling = Properties.Resources.zu_zergling,
-                               _imgZuBaneling = Properties.Resources.zu_baneling,
-                               _imgZuBanelingCocoon = Properties.Resources.zu_banelingcocoon,
-                               _imgZuRoach = Properties.Resources.zu_roach,
-                               _imgZuHydra = Properties.Resources.zu_hydra,
-                               _imgZuMutalisk = Properties.Resources.zu_mutalisk,
-                               _imgZuUltra = Properties.Resources.zu_ultra,
-                               _imgZuViper = Properties.Resources.zu_viper,
-                               _imgZuSwarmhost = Properties.Resources.zu_swarmhost,
-                               _imgZuInfestor = Properties.Resources.zu_infestor,
-                               _imgZuCorruptor = Properties.Resources.zu_corruptor,
-                               _imgZuBroodlord = Properties.Resources.zu_broodlord,
-                               _imgZuBroodlordCocoon = Properties.Resources.zu_broodlordcocoon,
-                               _imgZuQueen = Properties.Resources.zu_queen,
-                               _imgZuOverlord = Properties.Resources.zu_overlord,
-                               _imgZuOverseer = Properties.Resources.zu_overseer,
-                               _imgZuOvserseerCocoon = Properties.Resources.zu_overseercocoon,
-                               _imgZuLocust = Properties.Resources.zu_locust;
+        protected Image _imgZuDrone = Resources.zu_drone,
+            _imgZuLarva = Resources.zu_larva,
+            _imgZuZergling = Resources.zu_zergling,
+            _imgZuBaneling = Resources.zu_baneling,
+            _imgZuBanelingCocoon = Resources.zu_banelingcocoon,
+            _imgZuRoach = Resources.zu_roach,
+            _imgZuHydra = Resources.zu_hydra,
+            _imgZuMutalisk = Resources.zu_mutalisk,
+            _imgZuUltra = Resources.zu_ultra,
+            _imgZuViper = Resources.zu_viper,
+            _imgZuSwarmhost = Resources.zu_swarmhost,
+            _imgZuInfestor = Resources.zu_infestor,
+            _imgInfestedTerran = Resources.zu_infestedterran,
+            _imgInfestedTerranEgg = Resources.zu_infestedterran,
+            _imgZuCorruptor = Resources.zu_corruptor,
+            _imgZuChangeling = Resources.zu_changeling,
+            _imgZuBroodlord = Resources.zu_broodlord,
+            _imgZuBroodlordCocoon = Resources.zu_broodlordcocoon,
+            _imgZuQueen = Resources.zu_queen,
+            _imgZuOverlord = Resources.zu_overlord,
+            _imgZuOverseer = Resources.zu_overseer,
+            _imgZuOvserseerCocoon = Resources.zu_overseercocoon,
+            _imgZuLocust = Resources.zu_locust,
+            _imgZuFlyingLocust = Resources.zup_flying_locust;
 
         #endregion
 
         #region Buildings
 
-        protected Image _imgZbHatchery = Properties.Resources.zb_hatchery,
-                               _imgZbLair = Properties.Resources.zb_lair,
-                               _imgZbHive = Properties.Resources.zb_hive,
-                               _imgZbCreepTumor = Properties.Resources.Zb_Creep_Tumor,
-                               _imgZbSpawningpool = Properties.Resources.zb_spawningpool,
-                               _imgZbExtractor = Properties.Resources.zb_extactor,
-                               _imgZbEvochamber = Properties.Resources.zb_evochamber,
-                               _imgZbSpinecrawler = Properties.Resources.zb_spine,
-                               _imgZbSporecrawler = Properties.Resources.zb_spore,
-                               _imgZbRoachwarren = Properties.Resources.zb_roachwarren,
-                               _imgZbGreaterspire = Properties.Resources.zb_greaterspire,
-                               _imgZbSpire = Properties.Resources.zb_spire,
-                               _imgZbNydusNetwork = Properties.Resources.zb_nydusnetwork,
-                               _imgZbNydusWorm = Properties.Resources.zb_nydusworm,
-                               _imgZbHydraden = Properties.Resources.zb_hydraden,
-                               _imgZbInfestationpit = Properties.Resources.zb_infestationpit,
-                               _imgZbUltracavern = Properties.Resources.zb_ultracavery,
-                               _imgZbBanelingnest = Properties.Resources.zb_banelingnest;
+        protected Image _imgZbHatchery = Resources.zb_hatchery,
+            _imgZbLair = Resources.zb_lair,
+            _imgZbHive = Resources.zb_hive,
+            _imgZbCreepTumor = Resources.Zb_Creep_Tumor,
+            _imgZbSpawningpool = Resources.zb_spawningpool,
+            _imgZbExtractor = Resources.zb_extactor,
+            _imgZbEvochamber = Resources.zb_evochamber,
+            _imgZbSpinecrawler = Resources.zb_spine,
+            _imgZbSporecrawler = Resources.zb_spore,
+            _imgZbRoachwarren = Resources.zb_roachwarren,
+            _imgZbGreaterspire = Resources.zb_greaterspire,
+            _imgZbSpire = Resources.zb_spire,
+            _imgZbNydusNetwork = Resources.zb_nydusnetwork,
+            _imgZbNydusWorm = Resources.zb_nydusworm,
+            _imgZbHydraden = Resources.zb_hydraden,
+            _imgZbInfestationpit = Resources.zb_infestationpit,
+            _imgZbUltracavern = Resources.zb_ultracavery,
+            _imgZbBanelingnest = Resources.zb_banelingnest;
 
         #endregion
 
         #region Upgrades
 
-        protected Image _imgZupAirWeapon1 = Properties.Resources.Zup_AirW1,
-                               _imgZupAirWeapon2 = Properties.Resources.Zup_AirW2,
-                               _imgZupAirWeapon3 = Properties.Resources.Zup_AirW3,
-                               _imgZupAirArmor1 = Properties.Resources.Zup_AirA1,
-                               _imgZupAirArmor2 = Properties.Resources.Zup_AirA2,
-                               _imgZupAirArmor3 = Properties.Resources.Zup_AirA3,
-                               _imgZupGroundWeapon1 = Properties.Resources.Zup_GroundW1,
-                               _imgZupGroundWeapon2 = Properties.Resources.Zup_GroundW2,
-                               _imgZupGroundWeapon3 = Properties.Resources.Zup_GroundW3,
-                               _imgZupGroundArmor1 = Properties.Resources.Zup_GroundA1,
-                               _imgZupGroundArmor2 = Properties.Resources.Zup_GroundA2,
-                               _imgZupGroundArmor3 = Properties.Resources.Zup_GroundA3,
-                               _imgZupGroundMelee1 = Properties.Resources.Zup_GroundM1,
-                               _imgZupGroundMelee2 = Properties.Resources.Zup_GroundM2,
-                               _imgZupGroundMelee3 = Properties.Resources.Zup_GroundM3,
-                               _imgZupBurrow = Properties.Resources.Zup_Burrow,
-                               _imgZupAdrenalGlands = Properties.Resources.Zup_AdrenalGlands,
-                               _imgZupCentrifugalHooks = Properties.Resources.Zup_CentrifugalHooks,
-                               _imgZupChitinousPlating = Properties.Resources.Zup_ChitinousPlating,
-                               _imgZupEnduringLocusts = Properties.Resources.Zup_EnduringLocusts,
-                               _imgZupGlialReconstruction = Properties.Resources.Zup_GlialReconstruction,
-                               _imgZupGroovedSpines = Properties.Resources.Zup_GroovedSpines,
-                               _imgZupMetabolicBoost = Properties.Resources.Zup_MetabolicBoost,
-                               _imgZupMuscularAugments = Properties.Resources.Zup_MuscularAugments,
-                               _imgZupNeutralParasite = Properties.Resources.Zup_NeutralParasite,
-                               _imgZupPathoglenGlands = Properties.Resources.Zup_PathogenGlands,
-                               _imgZupPneumatizedCarapace = Properties.Resources.Zup_PneumatizedCarapace,
-                               _imgZupTunnelingClaws = Properties.Resources.Zup_TunnelingClaws,
-                               _imgZupVentrallSacs = Properties.Resources.Zup_VentralSacs;
+        protected Image _imgZupAirWeapon1 = Resources.Zup_AirW1,
+            _imgZupAirWeapon2 = Resources.Zup_AirW2,
+            _imgZupAirWeapon3 = Resources.Zup_AirW3,
+            _imgZupAirArmor1 = Resources.Zup_AirA1,
+            _imgZupAirArmor2 = Resources.Zup_AirA2,
+            _imgZupAirArmor3 = Resources.Zup_AirA3,
+            _imgZupGroundWeapon1 = Resources.Zup_GroundW1,
+            _imgZupGroundWeapon2 = Resources.Zup_GroundW2,
+            _imgZupGroundWeapon3 = Resources.Zup_GroundW3,
+            _imgZupGroundArmor1 = Resources.Zup_GroundA1,
+            _imgZupGroundArmor2 = Resources.Zup_GroundA2,
+            _imgZupGroundArmor3 = Resources.Zup_GroundA3,
+            _imgZupGroundMelee1 = Resources.Zup_GroundM1,
+            _imgZupGroundMelee2 = Resources.Zup_GroundM2,
+            _imgZupGroundMelee3 = Resources.Zup_GroundM3,
+            _imgZupBurrow = Resources.Zup_Burrow,
+            _imgZupAdrenalGlands = Resources.Zup_AdrenalGlands,
+            _imgZupCentrifugalHooks = Resources.Zup_CentrifugalHooks,
+            _imgZupChitinousPlating = Resources.Zup_ChitinousPlating,
+            _imgZupEnduringLocusts = Resources.Zup_EnduringLocusts,
+            _imgZupGlialReconstruction = Resources.Zup_GlialReconstruction,
+            _imgZupGroovedSpines = Resources.Zup_GroovedSpines,
+            _imgZupMetabolicBoost = Resources.Zup_MetabolicBoost,
+            _imgZupMuscularAugments = Resources.Zup_MuscularAugments,
+            _imgZupNeutralParasite = Resources.Zup_NeutralParasite,
+            _imgZupPathoglenGlands = Resources.Zup_PathogenGlands,
+            _imgZupPneumatizedCarapace = Resources.Zup_PneumatizedCarapace,
+            _imgZupTunnelingClaws = Resources.Zup_TunnelingClaws,
+            _imgZupVentrallSacs = Resources.Zup_VentralSacs,
+            _imgZupFlyingLocust = Resources.zup_flying_locust;
 
         #endregion
 
@@ -536,7 +563,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Other
 
-        protected readonly Image _imgSpeedArrow = Properties.Resources.Speed_Arrow;
+        protected readonly Image _imgSpeedArrow = Resources.Speed_Arrow;
 
         #endregion
 
@@ -549,13 +576,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         #region Events
 
         public event EventHandler IsHiddenChanged;
+        public event EventHandler ShowCalled;
+        public event EventHandler HideCalled;
+        public event EventHandler CloseCalled;
 
         #endregion
 
         #region Getter/ Setter
 
         //Counts the iterations within a second
-        private int _iterationsPerSecond = 0;
+        private int _iterationsPerSecond;
+
         public int IterationsPerSeconds
         {
             get { return _iterationsPerSecond; }
@@ -573,12 +604,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         private bool _isHidden = true;
+
         public bool IsHidden
         {
-            get
-            {
-                return _isHidden;
-            }
+            get { return _isHidden; }
 
             private set
             {
@@ -591,40 +620,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             }
         }
 
-        public Boolean IsDestroyed { get; set; }
+        public bool IsDestroyed { get; set; }
         public CustomWindowStyles SetWindowStyle { get; set; }
-        
-        public Boolean IsAllowedToClose { get; set; }
+
+        public bool IsAllowedToClose { get; set; }
         public GameInfo GInformation { get; set; }
         public PreferenceManager PSettings { get; set; }
         public Process PSc2Process { get; set; }
 
         #endregion
 
-        #region Constructor
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseRenderer"/> class.
-        /// </summary>
-        /// <param name="gInformation">The GameInfo reference to access the gamedata</param>
-        /// <param name="pSettings">The Preference reference to get the information which data will be drawn</param>
-        /// <param name="sc2Process">The Process- handle to check whenever a process is available or not</param>
-        protected BaseRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
-        {
-            GInformation = gInformation;
-            PSettings = pSettings;
-            PSc2Process = sc2Process;
-
-            InitCode();
-        }
-
-
-        #endregion
-
         #region Private Methods
 
         /// <summary>
-        /// Event manager to send the event to the caller
+        ///     Event manager to send the event to the caller
         /// </summary>
         /// <param name="sender">This object</param>
         /// <param name="e">Event Args</param>
@@ -635,8 +644,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Initializes the code.
-        /// It's just there to reduce the amount of codelines. 
+        ///     Initializes the code.
+        ///     It's just there to reduce the amount of codelines.
         /// </summary>
         private void InitCode()
         {
@@ -644,9 +653,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             IsAllowedToClose = false;
 
             SetStyle(ControlStyles.DoubleBuffer |
-            ControlStyles.UserPaint |
-            ControlStyles.OptimizedDoubleBuffer |
-            ControlStyles.AllPaintingInWmPaint, true);
+                     ControlStyles.UserPaint |
+                     ControlStyles.OptimizedDoubleBuffer |
+                     ControlStyles.AllPaintingInWmPaint, true);
 
             InitializeComponent();
 
@@ -656,7 +665,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Simple Event we call when it's time to...
+        ///     Simple Event we call when it's time to...
         /// </summary>
         /// <param name="sender">The reference we use</param>
         /// <param name="e">The Numberargs with the information about the number we pass by</param>
@@ -667,13 +676,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Changes the position of the Form based on mouse- position
+        ///     Changes the position of the Form based on mouse- position
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BaseRenderer_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 var mousePos = MousePosition;
                 mousePos.Offset(-_ptMousePosition.X, -_ptMousePosition.Y);
@@ -682,8 +691,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sets variables to finalize the re- position/ -sizing.
-        /// Also calls MouseUpTransferData()
+        ///     Sets variables to finalize the re- position/ -sizing.
+        ///     Also calls MouseUpTransferData()
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -698,7 +707,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Changes the state of BMouseDown (to allow reposition)
+        ///     Changes the state of BMouseDown (to allow reposition)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -710,8 +719,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Handles the resizing using the mouse- wheel.
-        /// Makes a precheck and finally calls MouseWheelTransferData(e).
+        ///     Handles the resizing using the mouse- wheel.
+        ///     Makes a precheck and finally calls MouseWheelTransferData(e).
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -725,8 +734,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Changes the statte of IsDestroyed to true.
-        /// Also calls ChangeForecolorOfButton(Color.Red) to color the button of a specific Form.
+        ///     Changes the statte of IsDestroyed to true.
+        ///     Also calls ChangeForecolorOfButton(Color.Red) to color the button of a specific Form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -736,7 +745,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// The Form_Load is there to load some basic stuff like Color and Timer- fixures.
+        ///     The Form_Load is there to load some basic stuff like Color and Timer- fixures.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -757,8 +766,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Refreshes the Foreground (in case it failed somehow)
-        /// No idea why I use this, lol.
+        ///     Refreshes the Foreground (in case it failed somehow)
+        ///     No idea why I use this, lol.
         /// </summary>
         /// <param name="hWnd">Handle for this Form</param>
         private void RefreshForeground(IntPtr hWnd)
@@ -777,7 +786,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Gets the Keyboard- input from SC2's chatbox.
+        ///     Gets the Keyboard- input from SC2's chatbox.
         /// </summary>
         private void GetKeyboardInput()
         {
@@ -798,7 +807,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Change the window- style (to make it click- and non-clickable)
+        ///     Change the window- style (to make it click- and non-clickable)
         /// </summary>
         private void ChangeWindowStyle()
         {
@@ -820,7 +829,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// The basic Timermethod to re- draw and gather new data like the Chatbox- strings.
+        ///     The basic Timermethod to re- draw and gather new data like the Chatbox- strings.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -869,40 +878,37 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Draws the border when you resize/resposition/Click the howkey around the panel
+        ///     Draws the border when you resize/resposition/Click the howkey around the panel
         /// </summary>
         /// <param name="buffer">The buffer that helps us to draw the border.</param>
         private void DrawResizeBorder(BufferedGraphics buffer)
         {
-            if (!BChangingPosition && !BSetPosition && !BSetSize) 
+            if (!BChangingPosition && !BSetPosition && !BSetSize)
                 return;
 
-            // Simple border 
-            buffer.Graphics.DrawRectangle(Constants.PYellowGreen2,
-                1,
-                1,
-                Width - 2,
-                Height - 2);
+            var targetBrush = new HatchBrush(HatchStyle.ForwardDiagonal, Color.YellowGreen, Color.WhiteSmoke);
+            var targetPen = new Pen(targetBrush, 10);
 
-            // Draw some filled frectangles to make the resizing easier 
-            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                Width - SizeOfRectangle, 0, SizeOfRectangle,
-                SizeOfRectangle);
-
-            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                0, Height - SizeOfRectangle, SizeOfRectangle,
-                SizeOfRectangle);
-
-            buffer.Graphics.FillRectangle(Brushes.YellowGreen,
-                Width - SizeOfRectangle, Height - SizeOfRectangle,
-                SizeOfRectangle, SizeOfRectangle);
+            buffer.Graphics.DrawRectangle(targetPen, 0 + (targetPen.Width/2), 0 + (targetPen.Width / 2),
+                ClientSize.Width - (targetPen.Width), ClientSize.Height - (targetPen.Width));
 
             // Draw current size 
             buffer.Graphics.DrawString(
                 Width.ToString(CultureInfo.InvariantCulture) + "x" +
                 Height.ToString(CultureInfo.InvariantCulture) + " - [X=" +
-                Location.X.ToString(CultureInfo.InvariantCulture) + "; Y=" + Location.Y.ToString(CultureInfo.InvariantCulture) + "]",
-                new Font("Arial", 8, FontStyle.Regular), Brushes.YellowGreen, 2, 2);
+                Location.X.ToString(CultureInfo.InvariantCulture) + "; Y=" +
+                Location.Y.ToString(CultureInfo.InvariantCulture) + "]",
+                Font, Brushes.WhiteSmoke, Brushes.Black, targetPen.Width, targetPen.Width, 1, 1, true);
+        }
+
+        /// <summary>
+        /// Redraw if you resize (with the form event)
+        /// </summary>
+        /// <param name="sender">The source</param>
+        /// <param name="e">Simple Event Args</param>
+        private void BaseRenderer_Resize(object sender, EventArgs e)
+        {
+            Invalidate();
         }
 
         #endregion
@@ -910,64 +916,62 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         #region Protected abstract Methods (Form specific)
 
         /// <summary>
-        /// Draws the stuff you want to have drawn
-        /// Using this method so you don't need to override the OnPaint- method (cuz that would cause more fuck-up)
+        ///     Draws the stuff you want to have drawn
+        ///     Using this method so you don't need to override the OnPaint- method (cuz that would cause more fuck-up)
         /// </summary>
         /// <param name="g">Prebuffered graphics.. D:</param>
         protected abstract void Draw(BufferedGraphics g);
 
         /// <summary>
-        /// Load Form- specific data in the initialization of the Form.
-        /// This gets called within the Form_Load!
+        ///     Load Form- specific data in the initialization of the Form.
+        ///     This gets called within the Form_Load!
         /// </summary>
         protected abstract void LoadSpecificData();
 
         /// <summary>
-        /// Defines what happens after the resizing.
-        /// Usually some kind of datatransfer with the preferences.
+        ///     Defines what happens after the resizing.
+        ///     Usually some kind of datatransfer with the preferences.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected abstract void BaseRenderer_ResizeEnd(object sender, EventArgs e);
 
         /// <summary>
-        /// Adjust the panelsize and change the settings for Form X.
+        ///     Adjust the panelsize and change the settings for Form X.
         /// </summary>
         protected abstract void AdjustPanelSize();
 
         /// <summary>
-        /// Adjust the panelposition and change the settings for Form X.
+        ///     Adjust the panelposition and change the settings for Form X.
         /// </summary>
         protected abstract void AdjustPanelPosition();
 
         /// <summary>
-        /// Load the preferences for Form X into the Controls (size, size)
+        ///     Load the preferences for Form X into the Controls (size, size)
         /// </summary>
         protected abstract void LoadPreferencesIntoControls();
 
         /// <summary>
-        /// Transfers Mousedata (position) into the specific Form
+        ///     Transfers Mousedata (position) into the specific Form
         /// </summary>
         protected abstract void MouseUpTransferData();
 
         /// <summary>
-        /// Transfers Mousedata (size) into the specific Form
+        ///     Transfers Mousedata (size) into the specific Form
         /// </summary>
         /// <param name="e"></param>
         protected abstract void MouseWheelTransferData(MouseEventArgs e);
-
-
 
         #endregion
 
         #region Protected Methods
 
         /// <summary>
-        /// Checks if gameheart.
+        ///     Checks if gameheart.
         /// </summary>
         /// <param name="p">The player</param>
         /// <returns>Is the player is gameheartish.</returns>
-        protected Boolean CheckIfGameheart(Player p)
+        protected bool CheckIfGameheart(Player p)
         {
             if (p.CurrentBuildings == 0 &&
                 p.Status.Equals(PlayerStatus.Playing) &&
@@ -982,8 +986,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// The override OnPaint- method to draw the content and more imporantly: the basic stuff around the panels.
-        /// Since it's always the same, it won't get overridden!
+        ///     The override OnPaint- method to draw the content and more imporantly: the basic stuff around the panels.
+        ///     Since it's always the same, it won't get overridden!
         /// </summary>
         /// <param name="e">The letter e - huehue</param>
         protected override void OnPaint(PaintEventArgs e)
@@ -999,7 +1003,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             base.OnPaint(e);
 
-            
 
             //_swMainWatch.Reset();
             //_swMainWatch.Start();
@@ -1015,13 +1018,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 buffer.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
                 buffer.Graphics.SmoothingMode = SmoothingMode.HighSpeed;
 
-                
 
                 if (GInformation != null &&
                     GInformation.Gameinfo != null &&
                     GInformation.Gameinfo.IsIngame)
                 {
-                    
                     if (PSettings.PreferenceAll.Global.DrawOnlyInForeground && !BSurpressForeground)
                     {
                         if (PSc2Process == null)
@@ -1036,14 +1037,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         _bDraw = true;
 
                         if (PSc2Process == null)
+                        {
                             _bDraw = false;
+                            PSc2Process = GInformation.CStarcraft2;
+                        }
 
                         else if (InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
                         {
                             InteropCalls.SetActiveWindow(Handle);
                         }
                     }
-                   
+
 
                     if (_bDraw)
                     {
@@ -1051,23 +1055,21 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         DrawResizeBorder(buffer);
                     }
-
                 }
-
 
 
                 buffer.Render();
             }
 
             context.Dispose();
-            
+
             //_swMainWatch.Stop();
             //Debug.WriteLine("Time to execute DrawingMethods:" + 1000000 * _swMainWatch.ElapsedTicks / Stopwatch.Frequency + " µs");
         }
 
         /// <summary>
-        /// Override the FormClosing to stop the user from actually destroying the window.
-        /// The BaseRenderer is designed to never die.
+        ///     Override the FormClosing to stop the user from actually destroying the window.
+        ///     The BaseRenderer is designed to never die.
         /// </summary>
         /// <param name="e"></param>
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -1077,12 +1079,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             if (!IsAllowedToClose)
                 e.Cancel = true;
 
-            
+            OnCloseCalled();
+
             base.OnFormClosing(e);
         }
 
         /// <summary>
-        /// Sorts the Construction- states of a unit- List. (Units in production)
+        ///     Sorts the Construction- states of a unit- List. (Units in production)
         /// </summary>
         /// <param name="lCounter"></param>
         protected void SortConstructionStates(ref List<UnitCount> lCounter)
@@ -1094,7 +1097,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sorts the AliveSince- states of a unit- List. (e.g. Mules, Forces, Locusts)
+        ///     Sorts the AliveSince- states of a unit- List. (e.g. Mules, Forces, Locusts)
         /// </summary>
         /// <param name="lCounter"></param>
         protected void SortAliveSinceStates(ref List<UnitCount> lCounter)
@@ -1110,7 +1113,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         #region Public Methods
 
         /// <summary>
-        /// Override Hide- Method to change the IsHidden property [true].
+        ///     Override Hide- Method to change the IsHidden property [true].
         /// </summary>
         public new void Hide()
         {
@@ -1120,13 +1123,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             tmrRefreshGraphic.Enabled = false;
 
+            OnHideCalled();
+
             base.Hide();
 
             //Thread.Sleep(100);
         }
 
         /// <summary>
-        /// Override Show- Method to change the IsHidden property [false].
+        ///     Override Show- Method to change the IsHidden property [false].
         /// </summary>
         public new void Show()
         {
@@ -1134,13 +1139,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             tmrRefreshGraphic.Enabled = true;
 
+            OnShowCalled();
+
             base.Show();
 
             //Thread.Sleep(100);
         }
 
         /// <summary>
-        /// Toggles the Show/ Hide based on the state of IsHidden
+        ///     Toggles the Show/ Hide based on the state of IsHidden
         /// </summary>
         public void ToggleShowHide()
         {
@@ -1152,10 +1159,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Hide/ Show Form based on a boolean.
+        ///     Hide/ Show Form based on a boolean.
         /// </summary>
         /// <param name="show">Hide or Show</param>
-        public void ToggleShowHide(Boolean show)
+        public void ToggleShowHide(bool show)
         {
             if (show)
                 Show();
@@ -1165,228 +1172,233 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Simply reloads the Preferences and puts them into the controls
+        ///     Simply reloads the Preferences and puts them into the controls
         /// </summary>
         public void ReloadPreferencesIntoControls()
         {
             LoadPreferencesIntoControls();
         }
 
-        public void ChangeImageResources(Boolean useTransparentImages = false)
+        public void ChangeImageResources(bool useTransparentImages = false)
         {
             if (!useTransparentImages)
             {
                 #region Terran
 
-                _imgTuScv = Properties.Resources.tu_scv;
-                _imgTuMule = Properties.Resources.tu_Mule;
-                _imgTuMarine = Properties.Resources.tu_marine;
-                _imgTuMarauder = Properties.Resources.tu_marauder;
-                _imgTuReaper = Properties.Resources.tu_reaper;
-                _imgTuGhost = Properties.Resources.tu_ghost;
-                _imgTuHellion = Properties.Resources.tu_hellion;
-                _imgTuHellbat = Properties.Resources.tu_battlehellion;
-                _imgTuSiegetank = Properties.Resources.tu_tank;
-                _imgTuThor = Properties.Resources.tu_thor;
-                _imgTuWidowMine = Properties.Resources.tu_widowmine;
-                _imgTuViking = Properties.Resources.tu_vikingAir;
-                _imgTuRaven = Properties.Resources.tu_raven;
-                _imgTuMedivac = Properties.Resources.tu_medivac;
-                _imgTuBattlecruiser = Properties.Resources.tu_battlecruiser;
-                _imgTuBanshee = Properties.Resources.tu_banshee;
-                _imgTuPointDefenseDrone = Properties.Resources.tu_pdd;
-                _imgTuNuke = Properties.Resources.Tu_Nuke;
+                _imgTuScv = Resources.tu_scv;
+                _imgTuMule = Resources.tu_Mule;
+                _imgTuMarine = Resources.tu_marine;
+                _imgTuMarauder = Resources.tu_marauder;
+                _imgTuReaper = Resources.tu_reaper;
+                _imgTuGhost = Resources.tu_ghost;
+                _imgTuHellion = Resources.tu_hellion;
+                _imgTuHellbat = Resources.tu_battlehellion;
+                _imgTuSiegetank = Resources.tu_tank;
+                _imgTuThor = Resources.tu_thor;
+                _imgTuWidowMine = Resources.tu_widowmine;
+                _imgTuViking = Resources.tu_vikingAir;
+                _imgTuRaven = Resources.tu_raven;
+                _imgTuMedivac = Resources.tu_medivac;
+                _imgTuBattlecruiser = Resources.tu_battlecruiser;
+                _imgTuBanshee = Resources.tu_banshee;
+                _imgTuPointDefenseDrone = Resources.tu_pdd;
+                _imgTuNuke = Resources.Tu_Nuke;
 
-                _imgTbCc = Properties.Resources.tb_cc;
-                _imgTbOc = Properties.Resources.tb_oc;
-                _imgTbPf = Properties.Resources.tb_pf;
-                _imgTbSupply = Properties.Resources.tb_supply;
-                _imgTbRefinery = Properties.Resources.tb_refinery;
-                _imgTbBarracks = Properties.Resources.tb_rax;
-                _imgTbEbay = Properties.Resources.tb_ebay;
-                _imgTbTurrent = Properties.Resources.tb_turret;
-                _imgTbSensorTower = Properties.Resources.tb_sensor;
-                _imgTbFactory = Properties.Resources.tb_fax;
-                _imgTbStarport = Properties.Resources.tb_starport;
-                _imgTbGhostacademy = Properties.Resources.tb_ghostacademy;
-                _imgTbArmory = Properties.Resources.tb_Armory;
-                _imgTbBunker = Properties.Resources.tb_bunker;
-                _imgTbFusioncore = Properties.Resources.tb_fusioncore;
-                _imgTbTechlab = Properties.Resources.tb_techlab;
-                _imgTbReactor = Properties.Resources.tb_reactor;
-                _imgTbAutoTurret = Properties.Resources.tb_autoturret;
+                _imgTbCc = Resources.tb_cc;
+                _imgTbOc = Resources.tb_oc;
+                _imgTbPf = Resources.tb_pf;
+                _imgTbSupply = Resources.tb_supply;
+                _imgTbRefinery = Resources.tb_refinery;
+                _imgTbBarracks = Resources.tb_rax;
+                _imgTbEbay = Resources.tb_ebay;
+                _imgTbTurrent = Resources.tb_turret;
+                _imgTbSensorTower = Resources.tb_sensor;
+                _imgTbFactory = Resources.tb_fax;
+                _imgTbStarport = Resources.tb_starport;
+                _imgTbGhostacademy = Resources.tb_ghostacademy;
+                _imgTbArmory = Resources.tb_Armory;
+                _imgTbBunker = Resources.tb_bunker;
+                _imgTbFusioncore = Resources.tb_fusioncore;
+                _imgTbTechlab = Resources.tb_techlab;
+                _imgTbReactor = Resources.tb_reactor;
+                _imgTbAutoTurret = Resources.tb_autoturret;
 
-                _imgTupStim = Properties.Resources.Tup_Stim;
-                _imgTupConcussiveShells = Properties.Resources.Tup_ConcussiveShells;
-                _imgTupCombatShields = Properties.Resources.Tup_CombatShields;
-                _imgTupPersonalCloak = Properties.Resources.Tup_PersonalCloak;
-                _imgTupMoebiusReactor = Properties.Resources.Tup_MoebiusReactor;
-                _imgTupBlueFlame = Properties.Resources.Tup_BlueFlame;
-                _imgTupTransformatorServos = Properties.Resources.Tup_TransformationServos;
-                _imgTupDrillingClaws = Properties.Resources.Tup_DrillingClaws;
-                _imgTupCloakingField = Properties.Resources.Tup_CloakingField;
-                _imgTupDurableMaterials = Properties.Resources.Tup_DurableMaterials;
-                _imgTupCaduceusReactor = Properties.Resources.Tup_CaduceusReactor;
-                _imgTupCorvidReactor = Properties.Resources.Tup_CorvidReactor;
-                _imgTupBehemothReacot = Properties.Resources.Tup_BehemothReactor;
-                _imgTupWeaponRefit = Properties.Resources.Tup_WeaponRefit;
-                _imgTupInfantryWeapon1 = Properties.Resources.Tup_InfantyWeapon1;
-                _imgTupInfantryWeapon2 = Properties.Resources.Tup_InfantyWeapon2;
-                _imgTupInfantryWeapon3 = Properties.Resources.Tup_InfantyWeapon3;
-                _imgTupInfantryArmor1 = Properties.Resources.Tup_InfantyArmor1;
-                _imgTupInfantryArmor2 = Properties.Resources.Tup_InfantyArmor2;
-                _imgTupInfantryArmor3 = Properties.Resources.Tup_InfantyArmor3;
-                _imgTupVehicleWeapon1 = Properties.Resources.Tup_VehicleWeapon1;
-                _imgTupVehicleWeapon2 = Properties.Resources.Tup_VehicleWeapon2;
-                _imgTupVehicleWeapon3 = Properties.Resources.Tup_VehicleWeapon3;
-                _imgTupShipWeapon1 = Properties.Resources.Tup_ShipWeapon1;
-                _imgTupShipWeapon2 = Properties.Resources.Tup_ShipWeapon2;
-                _imgTupShipWeapon3 = Properties.Resources.Tup_ShipWeapon3;
-                _imgTupVehicleShipPlanting1 = Properties.Resources.Tup_VehicleShipPlanting1;
-                _imgTupVehicleShipPlanting2 = Properties.Resources.Tup_VehicleShipPlanting2;
-                _imgTupVehicleShipPlanting3 = Properties.Resources.Tup_VehicleShipPlanting3;
-                _imgTupHighSecAutoTracking = Properties.Resources.Tup_HighSecAutotracking;
-                _imgTupStructureArmor = Properties.Resources.Tup_StructureArmor;
-                _imgTupNeosteelFrame = Properties.Resources.Tup_NeosteelFrame;
+                _imgTupStim = Resources.Tup_Stim;
+                _imgTupConcussiveShells = Resources.Tup_ConcussiveShells;
+                _imgTupCombatShields = Resources.Tup_CombatShields;
+                _imgTupPersonalCloak = Resources.Tup_PersonalCloak;
+                _imgTupMoebiusReactor = Resources.Tup_MoebiusReactor;
+                _imgTupBlueFlame = Resources.Tup_BlueFlame;
+                _imgTupTransformatorServos = Resources.Tup_TransformationServos;
+                _imgTupDrillingClaws = Resources.Tup_DrillingClaws;
+                _imgTupCloakingField = Resources.Tup_CloakingField;
+                _imgTupDurableMaterials = Resources.Tup_DurableMaterials;
+                _imgTupCaduceusReactor = Resources.Tup_CaduceusReactor;
+                _imgTupCorvidReactor = Resources.Tup_CorvidReactor;
+                _imgTupBehemothReacot = Resources.Tup_BehemothReactor;
+                _imgTupWeaponRefit = Resources.Tup_WeaponRefit;
+                _imgTupInfantryWeapon1 = Resources.Tup_InfantyWeapon1;
+                _imgTupInfantryWeapon2 = Resources.Tup_InfantyWeapon2;
+                _imgTupInfantryWeapon3 = Resources.Tup_InfantyWeapon3;
+                _imgTupInfantryArmor1 = Resources.Tup_InfantyArmor1;
+                _imgTupInfantryArmor2 = Resources.Tup_InfantyArmor2;
+                _imgTupInfantryArmor3 = Resources.Tup_InfantyArmor3;
+                _imgTupVehicleWeapon1 = Resources.Tup_VehicleWeapon1;
+                _imgTupVehicleWeapon2 = Resources.Tup_VehicleWeapon2;
+                _imgTupVehicleWeapon3 = Resources.Tup_VehicleWeapon3;
+                _imgTupShipWeapon1 = Resources.Tup_ShipWeapon1;
+                _imgTupShipWeapon2 = Resources.Tup_ShipWeapon2;
+                _imgTupShipWeapon3 = Resources.Tup_ShipWeapon3;
+                _imgTupVehicleShipPlanting1 = Resources.Tup_VehicleShipPlanting1;
+                _imgTupVehicleShipPlanting2 = Resources.Tup_VehicleShipPlanting2;
+                _imgTupVehicleShipPlanting3 = Resources.Tup_VehicleShipPlanting3;
+                _imgTupHighSecAutoTracking = Resources.Tup_HighSecAutotracking;
+                _imgTupStructureArmor = Resources.Tup_StructureArmor;
+                _imgTupNeosteelFrame = Resources.Tup_NeosteelFrame;
 
                 #endregion
 
                 #region Protoss
 
-                _imgPuProbe = Properties.Resources.pu_probe;
-                _imgPuZealot = Properties.Resources.pu_Zealot;
-                _imgPuStalker = Properties.Resources.pu_Stalker;
-                _imgPuSentry = Properties.Resources.pu_sentry;
-                _imgPuDarkTemplar = Properties.Resources.pu_DarkTemplar;
-                _imgPuHighTemplar = Properties.Resources.pu_ht;
-                _imgPuColossus = Properties.Resources.pu_Colossus;
-                _imgPuImmortal = Properties.Resources.pu_immortal;
-                _imgPuWapprism = Properties.Resources.pu_warpprism;
-                _imgPuObserver = Properties.Resources.pu_Observer;
-                _imgPuOracle = Properties.Resources.pu_oracle;
-                _imgPuTempest = Properties.Resources.pu_tempest;
-                _imgPuPhoenix = Properties.Resources.pu_pheonix;
-                _imgPuVoidray = Properties.Resources.pu_Voidray;
-                _imgPuCarrier = Properties.Resources.pu_carrier;
-                _imgPuMothershipcore = Properties.Resources.pu_mothershipcore;
-                _imgPuMothership = Properties.Resources.pu_Mothership;
-                _imgPuArchon = Properties.Resources.pu_Archon;
-                _imgPuForceField = Properties.Resources.PuForceField;
+                _imgPuProbe = Resources.pu_probe;
+                _imgPuZealot = Resources.pu_Zealot;
+                _imgPuStalker = Resources.pu_Stalker;
+                _imgPuSentry = Resources.pu_sentry;
+                _imgPuDarkTemplar = Resources.pu_DarkTemplar;
+                _imgPuHighTemplar = Resources.pu_ht;
+                _imgPuColossus = Resources.pu_Colossus;
+                _imgPuImmortal = Resources.pu_immortal;
+                _imgPuWapprism = Resources.pu_warpprism;
+                _imgPuObserver = Resources.pu_Observer;
+                _imgPuOracle = Resources.pu_oracle;
+                _imgPuTempest = Resources.pu_tempest;
+                _imgPuPhoenix = Resources.pu_pheonix;
+                _imgPuVoidray = Resources.pu_Voidray;
+                _imgPuCarrier = Resources.pu_carrier;
+                _imgPuMothershipcore = Resources.pu_mothershipcore;
+                _imgPuMothership = Resources.pu_Mothership;
+                _imgPuArchon = Resources.pu_Archon;
+                _imgPuForceField = Resources.PuForceField;
 
-                _imgPbNexus = Properties.Resources.pb_Nexus;
-                _imgPbPylon = Properties.Resources.pb_Pylon;
-                _imgPbGateway = Properties.Resources.pb_gateway;
-                _imgPbWarpgate = Properties.Resources.pb_warpgate;
-                _imgPbAssimilator = Properties.Resources.pb_Assimilator;
-                _imgPbForge = Properties.Resources.pb_forge;
-                _imgPbCannon = Properties.Resources.pb_Cannon;
-                _imgPbCybercore = Properties.Resources.pb_cybercore;
-                _imgPbStargate = Properties.Resources.pb_stargate;
-                _imgPbRobotics = Properties.Resources.pb_robotics;
-                _imgPbRoboticsSupport = Properties.Resources.pb_roboticssupport;
-                _imgPbTwillightCouncil = Properties.Resources.pb_twillightCouncil;
-                _imgPbDarkShrine = Properties.Resources.pb_DarkShrine;
-                _imgPbTemplarArchives = Properties.Resources.pb_templararchives;
-                _imgPbFleetBeacon = Properties.Resources.pb_FleetBeacon;
+                _imgPbNexus = Resources.pb_Nexus;
+                _imgPbPylon = Resources.pb_Pylon;
+                _imgPbGateway = Resources.pb_gateway;
+                _imgPbWarpgate = Resources.pb_warpgate;
+                _imgPbAssimilator = Resources.pb_Assimilator;
+                _imgPbForge = Resources.pb_forge;
+                _imgPbCannon = Resources.pb_Cannon;
+                _imgPbCybercore = Resources.pb_cybercore;
+                _imgPbStargate = Resources.pb_stargate;
+                _imgPbRobotics = Resources.pb_robotics;
+                _imgPbRoboticsSupport = Resources.pb_roboticssupport;
+                _imgPbTwillightCouncil = Resources.pb_twillightCouncil;
+                _imgPbDarkShrine = Resources.pb_DarkShrine;
+                _imgPbTemplarArchives = Resources.pb_templararchives;
+                _imgPbFleetBeacon = Resources.pb_FleetBeacon;
 
-                _imgPupGroundWeapon1 = Properties.Resources.Pup_GroundW1;
-                _imgPupGroundWeapon2 = Properties.Resources.Pup_GroundW2;
-                _imgPupGroundWeapon3 = Properties.Resources.Pup_GroundW3;
-                _imgPupGroundArmor1 = Properties.Resources.Pup_GroundA1;
-                _imgPupGroundArmor2 = Properties.Resources.Pup_GroundA2;
-                _imgPupGroundArmor3 = Properties.Resources.Pup_GroundA3;
-                _imgPupShield1 = Properties.Resources.Pup_S1;
-                _imgPupShield2 = Properties.Resources.Pup_S2;
-                _imgPupShield3 = Properties.Resources.Pup_S3;
-                _imgPupAirWeapon1 = Properties.Resources.Pup_AirW1;
-                _imgPupAirWeapon2 = Properties.Resources.Pup_AirW2;
-                _imgPupAirWeapon3 = Properties.Resources.Pup_AirW3;
-                _imgPupAirArmor1 = Properties.Resources.Pup_AirA1;
-                _imgPupAirArmor2 = Properties.Resources.Pup_AirA2;
-                _imgPupAirArmor3 = Properties.Resources.Pup_AirA3;
-                _imgPupBlink = Properties.Resources.Pup_Blink;
-                _imgPupCharge = Properties.Resources.Pup_Charge;
-                _imgPupGraviticBooster = Properties.Resources.Pup_GraviticBoosters;
-                _imgPupGraviticDrive = Properties.Resources.Pup_GraviticDrive;
-                _imgPupExtendedThermalLance = Properties.Resources.Pup_ExtendedThermalLance;
-                _imgPupAnionPulseCrystals = Properties.Resources.Pup_AnionPulseCrystals;
-                _imgPupGravitonCatapult = Properties.Resources.Pup_GravitonCatapult;
-                _imgPupWarpGate = Properties.Resources.Pup_Warpgate;
-                _imgPupStorm = Properties.Resources.Pup_Storm;
+                _imgPupGroundWeapon1 = Resources.Pup_GroundW1;
+                _imgPupGroundWeapon2 = Resources.Pup_GroundW2;
+                _imgPupGroundWeapon3 = Resources.Pup_GroundW3;
+                _imgPupGroundArmor1 = Resources.Pup_GroundA1;
+                _imgPupGroundArmor2 = Resources.Pup_GroundA2;
+                _imgPupGroundArmor3 = Resources.Pup_GroundA3;
+                _imgPupShield1 = Resources.Pup_S1;
+                _imgPupShield2 = Resources.Pup_S2;
+                _imgPupShield3 = Resources.Pup_S3;
+                _imgPupAirWeapon1 = Resources.Pup_AirW1;
+                _imgPupAirWeapon2 = Resources.Pup_AirW2;
+                _imgPupAirWeapon3 = Resources.Pup_AirW3;
+                _imgPupAirArmor1 = Resources.Pup_AirA1;
+                _imgPupAirArmor2 = Resources.Pup_AirA2;
+                _imgPupAirArmor3 = Resources.Pup_AirA3;
+                _imgPupBlink = Resources.Pup_Blink;
+                _imgPupCharge = Resources.Pup_Charge;
+                _imgPupGraviticBooster = Resources.Pup_GraviticBoosters;
+                _imgPupGraviticDrive = Resources.Pup_GraviticDrive;
+                _imgPupExtendedThermalLance = Resources.Pup_ExtendedThermalLance;
+                _imgPupAnionPulseCrystals = Resources.Pup_AnionPulseCrystals;
+                _imgPupGravitonCatapult = Resources.Pup_GravitonCatapult;
+                _imgPupWarpGate = Resources.Pup_Warpgate;
+                _imgPupStorm = Resources.Pup_Storm;
 
                 #endregion
 
                 #region Zerg
 
-                _imgZuDrone = Properties.Resources.zu_drone;
-                _imgZuLarva = Properties.Resources.zu_larva;
-                _imgZuZergling = Properties.Resources.zu_zergling;
-                _imgZuBaneling = Properties.Resources.zu_baneling;
-                _imgZuBanelingCocoon = Properties.Resources.zu_banelingcocoon;
-                _imgZuRoach = Properties.Resources.zu_roach;
-                _imgZuHydra = Properties.Resources.zu_hydra;
-                _imgZuMutalisk = Properties.Resources.zu_mutalisk;
-                _imgZuUltra = Properties.Resources.zu_ultra;
-                _imgZuViper = Properties.Resources.zu_viper;
-                _imgZuSwarmhost = Properties.Resources.zu_swarmhost;
-                _imgZuInfestor = Properties.Resources.zu_infestor;
-                _imgZuCorruptor = Properties.Resources.zu_corruptor;
-                _imgZuBroodlord = Properties.Resources.zu_broodlord;
-                _imgZuBroodlordCocoon = Properties.Resources.zu_broodlordcocoon;
-                _imgZuQueen = Properties.Resources.zu_queen;
-                _imgZuOverlord = Properties.Resources.zu_overlord;
-                _imgZuOverseer = Properties.Resources.zu_overseer;
-                _imgZuOvserseerCocoon = Properties.Resources.zu_overseercocoon;
-                _imgZuLocust = Properties.Resources.zu_locust;
+                _imgZuDrone = Resources.zu_drone;
+                _imgZuLarva = Resources.zu_larva;
+                _imgZuZergling = Resources.zu_zergling;
+                _imgZuBaneling = Resources.zu_baneling;
+                _imgZuBanelingCocoon = Resources.zu_banelingcocoon;
+                _imgZuRoach = Resources.zu_roach;
+                _imgZuHydra = Resources.zu_hydra;
+                _imgZuMutalisk = Resources.zu_mutalisk;
+                _imgZuUltra = Resources.zu_ultra;
+                _imgZuViper = Resources.zu_viper;
+                _imgZuSwarmhost = Resources.zu_swarmhost;
+                _imgZuInfestor = Resources.zu_infestor;
+                _imgInfestedTerran = Resources.zu_infestedterran;
+                _imgInfestedTerranEgg = Resources.zu_infestedterran;
+                _imgZuCorruptor = Resources.zu_corruptor;
+                _imgZuBroodlord = Resources.zu_broodlord;
+                _imgZuBroodlordCocoon = Resources.zu_broodlordcocoon;
+                _imgZuQueen = Resources.zu_queen;
+                _imgZuOverlord = Resources.zu_overlord;
+                _imgZuOverseer = Resources.zu_overseer;
+                _imgZuOvserseerCocoon = Resources.zu_overseercocoon;
+                _imgZuLocust = Resources.zu_locust;
+                _imgZuFlyingLocust = Resources.zup_flying_locust;
+                _imgZuChangeling = Resources.zu_changeling;
 
-                _imgZbHatchery = Properties.Resources.zb_hatchery;
-                _imgZbLair = Properties.Resources.zb_lair;
-                _imgZbHive = Properties.Resources.zb_hive;
-                _imgZbCreepTumor = Properties.Resources.Zb_Creep_Tumor;
-                _imgZbSpawningpool = Properties.Resources.zb_spawningpool;
-                _imgZbExtractor = Properties.Resources.zb_extactor;
-                _imgZbEvochamber = Properties.Resources.zb_evochamber;
-                _imgZbSpinecrawler = Properties.Resources.zb_spine;
-                _imgZbSporecrawler = Properties.Resources.zb_spore;
-                _imgZbRoachwarren = Properties.Resources.zb_roachwarren;
-                _imgZbGreaterspire = Properties.Resources.zb_greaterspire;
-                _imgZbSpire = Properties.Resources.zb_spire;
-                _imgZbNydusNetwork = Properties.Resources.zb_nydusnetwork;
-                _imgZbNydusWorm = Properties.Resources.zb_nydusworm;
-                _imgZbHydraden = Properties.Resources.zb_hydraden;
-                _imgZbInfestationpit = Properties.Resources.zb_infestationpit;
-                _imgZbUltracavern = Properties.Resources.zb_ultracavery;
-                _imgZbBanelingnest = Properties.Resources.zb_banelingnest;
+                _imgZbHatchery = Resources.zb_hatchery;
+                _imgZbLair = Resources.zb_lair;
+                _imgZbHive = Resources.zb_hive;
+                _imgZbCreepTumor = Resources.Zb_Creep_Tumor;
+                _imgZbSpawningpool = Resources.zb_spawningpool;
+                _imgZbExtractor = Resources.zb_extactor;
+                _imgZbEvochamber = Resources.zb_evochamber;
+                _imgZbSpinecrawler = Resources.zb_spine;
+                _imgZbSporecrawler = Resources.zb_spore;
+                _imgZbRoachwarren = Resources.zb_roachwarren;
+                _imgZbGreaterspire = Resources.zb_greaterspire;
+                _imgZbSpire = Resources.zb_spire;
+                _imgZbNydusNetwork = Resources.zb_nydusnetwork;
+                _imgZbNydusWorm = Resources.zb_nydusworm;
+                _imgZbHydraden = Resources.zb_hydraden;
+                _imgZbInfestationpit = Resources.zb_infestationpit;
+                _imgZbUltracavern = Resources.zb_ultracavery;
+                _imgZbBanelingnest = Resources.zb_banelingnest;
 
-                _imgZupAirWeapon1 = Properties.Resources.Zup_AirW1;
-                _imgZupAirWeapon2 = Properties.Resources.Zup_AirW2;
-                _imgZupAirWeapon3 = Properties.Resources.Zup_AirW3;
-                _imgZupAirArmor1 = Properties.Resources.Zup_AirA1;
-                _imgZupAirArmor2 = Properties.Resources.Zup_AirA2;
-                _imgZupAirArmor3 = Properties.Resources.Zup_AirA3;
-                _imgZupGroundWeapon1 = Properties.Resources.Zup_GroundW1;
-                _imgZupGroundWeapon2 = Properties.Resources.Zup_GroundW2;
-                _imgZupGroundWeapon3 = Properties.Resources.Zup_GroundW3;
-                _imgZupGroundArmor1 = Properties.Resources.Zup_GroundA1;
-                _imgZupGroundArmor2 = Properties.Resources.Zup_GroundA2;
-                _imgZupGroundArmor3 = Properties.Resources.Zup_GroundA3;
-                _imgZupGroundMelee1 = Properties.Resources.Zup_GroundM1;
-                _imgZupGroundMelee2 = Properties.Resources.Zup_GroundM2;
-                _imgZupGroundMelee3 = Properties.Resources.Zup_GroundM3;
-                _imgZupBurrow = Properties.Resources.Zup_Burrow;
-                _imgZupAdrenalGlands = Properties.Resources.Zup_AdrenalGlands;
-                _imgZupCentrifugalHooks = Properties.Resources.Zup_CentrifugalHooks;
-                _imgZupChitinousPlating = Properties.Resources.Zup_ChitinousPlating;
-                _imgZupEnduringLocusts = Properties.Resources.Zup_EnduringLocusts;
-                _imgZupGlialReconstruction = Properties.Resources.Zup_GlialReconstruction;
-                _imgZupGroovedSpines = Properties.Resources.Zup_GroovedSpines;
-                _imgZupMetabolicBoost = Properties.Resources.Zup_MetabolicBoost;
-                _imgZupMuscularAugments = Properties.Resources.Zup_MuscularAugments;
-                _imgZupNeutralParasite = Properties.Resources.Zup_NeutralParasite;
-                _imgZupPathoglenGlands = Properties.Resources.Zup_PathogenGlands;
-                _imgZupPneumatizedCarapace = Properties.Resources.Zup_PneumatizedCarapace;
-                _imgZupTunnelingClaws = Properties.Resources.Zup_TunnelingClaws;
-                _imgZupVentrallSacs = Properties.Resources.Zup_VentralSacs;
+                _imgZupAirWeapon1 = Resources.Zup_AirW1;
+                _imgZupAirWeapon2 = Resources.Zup_AirW2;
+                _imgZupAirWeapon3 = Resources.Zup_AirW3;
+                _imgZupAirArmor1 = Resources.Zup_AirA1;
+                _imgZupAirArmor2 = Resources.Zup_AirA2;
+                _imgZupAirArmor3 = Resources.Zup_AirA3;
+                _imgZupGroundWeapon1 = Resources.Zup_GroundW1;
+                _imgZupGroundWeapon2 = Resources.Zup_GroundW2;
+                _imgZupGroundWeapon3 = Resources.Zup_GroundW3;
+                _imgZupGroundArmor1 = Resources.Zup_GroundA1;
+                _imgZupGroundArmor2 = Resources.Zup_GroundA2;
+                _imgZupGroundArmor3 = Resources.Zup_GroundA3;
+                _imgZupGroundMelee1 = Resources.Zup_GroundM1;
+                _imgZupGroundMelee2 = Resources.Zup_GroundM2;
+                _imgZupGroundMelee3 = Resources.Zup_GroundM3;
+                _imgZupBurrow = Resources.Zup_Burrow;
+                _imgZupAdrenalGlands = Resources.Zup_AdrenalGlands;
+                _imgZupCentrifugalHooks = Resources.Zup_CentrifugalHooks;
+                _imgZupChitinousPlating = Resources.Zup_ChitinousPlating;
+                _imgZupEnduringLocusts = Resources.Zup_EnduringLocusts;
+                _imgZupGlialReconstruction = Resources.Zup_GlialReconstruction;
+                _imgZupGroovedSpines = Resources.Zup_GroovedSpines;
+                _imgZupMetabolicBoost = Resources.Zup_MetabolicBoost;
+                _imgZupMuscularAugments = Resources.Zup_MuscularAugments;
+                _imgZupNeutralParasite = Resources.Zup_NeutralParasite;
+                _imgZupPathoglenGlands = Resources.Zup_PathogenGlands;
+                _imgZupPneumatizedCarapace = Resources.Zup_PneumatizedCarapace;
+                _imgZupTunnelingClaws = Resources.Zup_TunnelingClaws;
+                _imgZupVentrallSacs = Resources.Zup_VentralSacs;
+                _imgZupFlyingLocust = Resources.zup_flying_locust;
 
                 #endregion
             }
@@ -1395,215 +1407,220 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 #region Terran
 
-                _imgTuScv = Properties.Resources.trans_tu_scv;
-                _imgTuMule = Properties.Resources.trans_tu_mule;
-                _imgTuMarine = Properties.Resources.trans_tu_marine;
-                _imgTuMarauder = Properties.Resources.trans_tu_marauder;
-                _imgTuReaper = Properties.Resources.trans_tu_reaper;
-                _imgTuGhost = Properties.Resources.trans_tu_ghost;
-                _imgTuHellion = Properties.Resources.trans_tu_hellion;
-                _imgTuHellbat = Properties.Resources.trans_tu_hellbat;
-                _imgTuSiegetank = Properties.Resources.trans_tu_siegetank;
-                _imgTuThor = Properties.Resources.trans_tu_thor;
-                _imgTuWidowMine = Properties.Resources.trans_tu_widowmine;
-                _imgTuViking = Properties.Resources.trans_tu_vikingair;
-                _imgTuRaven = Properties.Resources.trans_tu_raven;
-                _imgTuMedivac = Properties.Resources.trans_tu_medivac;
-                _imgTuBattlecruiser = Properties.Resources.trans_tu_battlecruiser;
-                _imgTuBanshee = Properties.Resources.trans_tu_banshee;
-                _imgTuPointDefenseDrone = Properties.Resources.trans_tu_pdd;
-                _imgTuNuke = Properties.Resources.trans_tu_nuke;
+                _imgTuScv = Resources.trans_tu_scv;
+                _imgTuMule = Resources.trans_tu_mule;
+                _imgTuMarine = Resources.trans_tu_marine;
+                _imgTuMarauder = Resources.trans_tu_marauder;
+                _imgTuReaper = Resources.trans_tu_reaper;
+                _imgTuGhost = Resources.trans_tu_ghost;
+                _imgTuHellion = Resources.trans_tu_hellion;
+                _imgTuHellbat = Resources.trans_tu_hellbat;
+                _imgTuSiegetank = Resources.trans_tu_siegetank;
+                _imgTuThor = Resources.trans_tu_thor;
+                _imgTuWidowMine = Resources.trans_tu_widowmine;
+                _imgTuViking = Resources.trans_tu_vikingair;
+                _imgTuRaven = Resources.trans_tu_raven;
+                _imgTuMedivac = Resources.trans_tu_medivac;
+                _imgTuBattlecruiser = Resources.trans_tu_battlecruiser;
+                _imgTuBanshee = Resources.trans_tu_banshee;
+                _imgTuPointDefenseDrone = Resources.trans_tu_pdd;
+                _imgTuNuke = Resources.trans_tu_nuke;
 
-                _imgTbCc = Properties.Resources.trans_tb_commandcenter;
-                _imgTbOc = Properties.Resources.trans_tb_orbitalcommand;
-                _imgTbPf = Properties.Resources.trans_tb_planetaryfortress;
-                _imgTbSupply = Properties.Resources.trans_tb_supplydepot;
-                _imgTbRefinery = Properties.Resources.trans_tb_refinery;
-                _imgTbBarracks = Properties.Resources.trans_tb_barracks;
-                _imgTbEbay = Properties.Resources.trans_tb_engineeringbay;
-                _imgTbTurrent = Properties.Resources.trans_tb_missileturret;
-                _imgTbSensorTower = Properties.Resources.trans_tb_sensortower;
-                _imgTbFactory = Properties.Resources.trans_tb_factory;
-                _imgTbStarport = Properties.Resources.trans_tb_starport;
-                _imgTbGhostacademy = Properties.Resources.trans_tb_ghostacademy;
-                _imgTbArmory = Properties.Resources.trans_tb_armory;
-                _imgTbBunker = Properties.Resources.trans_tb_bunker;
-                _imgTbFusioncore = Properties.Resources.trans_tb_fusioncore;
-                _imgTbTechlab = Properties.Resources.trans_tb_techlab;
-                _imgTbReactor = Properties.Resources.trans_tb_reactor;
-                _imgTbAutoTurret = Properties.Resources.trans_tb_autoturret;
+                _imgTbCc = Resources.trans_tb_commandcenter;
+                _imgTbOc = Resources.trans_tb_orbitalcommand;
+                _imgTbPf = Resources.trans_tb_planetaryfortress;
+                _imgTbSupply = Resources.trans_tb_supplydepot;
+                _imgTbRefinery = Resources.trans_tb_refinery;
+                _imgTbBarracks = Resources.trans_tb_barracks;
+                _imgTbEbay = Resources.trans_tb_engineeringbay;
+                _imgTbTurrent = Resources.trans_tb_missileturret;
+                _imgTbSensorTower = Resources.trans_tb_sensortower;
+                _imgTbFactory = Resources.trans_tb_factory;
+                _imgTbStarport = Resources.trans_tb_starport;
+                _imgTbGhostacademy = Resources.trans_tb_ghostacademy;
+                _imgTbArmory = Resources.trans_tb_armory;
+                _imgTbBunker = Resources.trans_tb_bunker;
+                _imgTbFusioncore = Resources.trans_tb_fusioncore;
+                _imgTbTechlab = Resources.trans_tb_techlab;
+                _imgTbReactor = Resources.trans_tb_reactor;
+                _imgTbAutoTurret = Resources.trans_tb_autoturret;
 
-                _imgTupStim = Properties.Resources.trans_Tup_Stim;
-                _imgTupConcussiveShells = Properties.Resources.trans_Tup_ConcussiveShells;
-                _imgTupCombatShields = Properties.Resources.trans_Tup_CombatShields;
-                _imgTupPersonalCloak = Properties.Resources.trans_Tup_PersonalCloak;
-                _imgTupMoebiusReactor = Properties.Resources.trans_Tup_MoebiusReactor;
-                _imgTupBlueFlame = Properties.Resources.trans_Tup_BlueFlame;
-                _imgTupTransformatorServos = Properties.Resources.trans_Tup_TransformationServos;
-                _imgTupDrillingClaws = Properties.Resources.trans_Tup_DrillingClaws;
-                _imgTupCloakingField = Properties.Resources.trans_Tup_CloakingField;
-                _imgTupDurableMaterials = Properties.Resources.trans_Tup_DurableMaterials;
-                _imgTupCaduceusReactor = Properties.Resources.trans_Tup_CaduceusReactor;
-                _imgTupCorvidReactor = Properties.Resources.trans_Tup_CorvidReactor;
-                _imgTupBehemothReacot = Properties.Resources.trans_BehemothReactor;
-                _imgTupWeaponRefit = Properties.Resources.trans_Tup_WeaponRefit;
-                _imgTupInfantryWeapon1 = Properties.Resources.trans_Tup_InfantyWeapon1;
-                _imgTupInfantryWeapon2 = Properties.Resources.trans_Tup_InfantyWeapon2;
-                _imgTupInfantryWeapon3 = Properties.Resources.trans_Tup_InfantyWeapon3;
-                _imgTupInfantryArmor1 = Properties.Resources.trans_Tup_InfantyArmor1;
-                _imgTupInfantryArmor2 = Properties.Resources.trans_Tup_InfantyArmor2;
-                _imgTupInfantryArmor3 = Properties.Resources.trans_Tup_InfantyArmor3;
-                _imgTupVehicleWeapon1 = Properties.Resources.trans_Tup_VehicleWeapon1;
-                _imgTupVehicleWeapon2 = Properties.Resources.trans_Tup_VehicleWeapon2;
-                _imgTupVehicleWeapon3 = Properties.Resources.trans_Tup_VehicleWeapon3;
-                _imgTupShipWeapon1 = Properties.Resources.trans_Tup_ShipWeapon1;
-                _imgTupShipWeapon2 = Properties.Resources.trans_Tup_ShipWeapon2;
-                _imgTupShipWeapon3 = Properties.Resources.trans_Tup_ShipWeapon3;
-                _imgTupVehicleShipPlanting1 = Properties.Resources.trans_Tup_VehicleShipPlanting1;
-                _imgTupVehicleShipPlanting2 = Properties.Resources.trans_Tup_VehicleShipPlanting2;
-                _imgTupVehicleShipPlanting3 = Properties.Resources.trans_Tup_VehicleShipPlanting3;
-                _imgTupHighSecAutoTracking = Properties.Resources.trans_Tup_HighSecAutotracking;
-                _imgTupStructureArmor = Properties.Resources.trans_Tup_StructureArmor;
-                _imgTupNeosteelFrame = Properties.Resources.trans_Tup_NeosteelFrame;
+                _imgTupStim = Resources.trans_Tup_Stim;
+                _imgTupConcussiveShells = Resources.trans_Tup_ConcussiveShells;
+                _imgTupCombatShields = Resources.trans_Tup_CombatShields;
+                _imgTupPersonalCloak = Resources.trans_Tup_PersonalCloak;
+                _imgTupMoebiusReactor = Resources.trans_Tup_MoebiusReactor;
+                _imgTupBlueFlame = Resources.trans_Tup_BlueFlame;
+                _imgTupTransformatorServos = Resources.trans_Tup_TransformationServos;
+                _imgTupDrillingClaws = Resources.trans_Tup_DrillingClaws;
+                _imgTupCloakingField = Resources.trans_Tup_CloakingField;
+                _imgTupDurableMaterials = Resources.trans_Tup_DurableMaterials;
+                _imgTupCaduceusReactor = Resources.trans_Tup_CaduceusReactor;
+                _imgTupCorvidReactor = Resources.trans_Tup_CorvidReactor;
+                _imgTupBehemothReacot = Resources.trans_BehemothReactor;
+                _imgTupWeaponRefit = Resources.trans_Tup_WeaponRefit;
+                _imgTupInfantryWeapon1 = Resources.trans_Tup_InfantyWeapon1;
+                _imgTupInfantryWeapon2 = Resources.trans_Tup_InfantyWeapon2;
+                _imgTupInfantryWeapon3 = Resources.trans_Tup_InfantyWeapon3;
+                _imgTupInfantryArmor1 = Resources.trans_Tup_InfantyArmor1;
+                _imgTupInfantryArmor2 = Resources.trans_Tup_InfantyArmor2;
+                _imgTupInfantryArmor3 = Resources.trans_Tup_InfantyArmor3;
+                _imgTupVehicleWeapon1 = Resources.trans_Tup_VehicleWeapon1;
+                _imgTupVehicleWeapon2 = Resources.trans_Tup_VehicleWeapon2;
+                _imgTupVehicleWeapon3 = Resources.trans_Tup_VehicleWeapon3;
+                _imgTupShipWeapon1 = Resources.trans_Tup_ShipWeapon1;
+                _imgTupShipWeapon2 = Resources.trans_Tup_ShipWeapon2;
+                _imgTupShipWeapon3 = Resources.trans_Tup_ShipWeapon3;
+                _imgTupVehicleShipPlanting1 = Resources.trans_Tup_VehicleShipPlanting1;
+                _imgTupVehicleShipPlanting2 = Resources.trans_Tup_VehicleShipPlanting2;
+                _imgTupVehicleShipPlanting3 = Resources.trans_Tup_VehicleShipPlanting3;
+                _imgTupHighSecAutoTracking = Resources.trans_Tup_HighSecAutotracking;
+                _imgTupStructureArmor = Resources.trans_Tup_StructureArmor;
+                _imgTupNeosteelFrame = Resources.trans_Tup_NeosteelFrame;
 
                 #endregion
 
                 #region Protoss
 
-                _imgPuProbe = Properties.Resources.trans_pu_probe;
-                _imgPuZealot = Properties.Resources.trans_pu_zealot;
-                _imgPuStalker = Properties.Resources.trans_pu_stalker;
-                _imgPuSentry = Properties.Resources.trans_pu_sentry;
-                _imgPuDarkTemplar = Properties.Resources.trans_pu_darktemplar;
-                _imgPuHighTemplar = Properties.Resources.trans_pu_hightemplar;
-                _imgPuColossus = Properties.Resources.trans_pu_colossus;
-                _imgPuImmortal = Properties.Resources.trans_pu_immortal;
-                _imgPuWapprism = Properties.Resources.trans_pu_warpprism;
-                _imgPuObserver = Properties.Resources.trans_pu_observer;
-                _imgPuOracle = Properties.Resources.trans_pu_oracle;
-                _imgPuTempest = Properties.Resources.trans_pu_tempest;
-                _imgPuPhoenix = Properties.Resources.trans_pu_phoenix;
-                _imgPuVoidray = Properties.Resources.trans_pu_voidray;
-                _imgPuCarrier = Properties.Resources.trans_pu_carrier;
-                _imgPuMothershipcore = Properties.Resources.trans_pu_mothershipcore;
-                _imgPuMothership = Properties.Resources.trans_pu_mothership;
-                _imgPuArchon = Properties.Resources.trans_pu_archon;
-                _imgPuForceField = Properties.Resources.PuForceField;
+                _imgPuProbe = Resources.trans_pu_probe;
+                _imgPuZealot = Resources.trans_pu_zealot;
+                _imgPuStalker = Resources.trans_pu_stalker;
+                _imgPuSentry = Resources.trans_pu_sentry;
+                _imgPuDarkTemplar = Resources.trans_pu_darktemplar;
+                _imgPuHighTemplar = Resources.trans_pu_hightemplar;
+                _imgPuColossus = Resources.trans_pu_colossus;
+                _imgPuImmortal = Resources.trans_pu_immortal;
+                _imgPuWapprism = Resources.trans_pu_warpprism;
+                _imgPuObserver = Resources.trans_pu_observer;
+                _imgPuOracle = Resources.trans_pu_oracle;
+                _imgPuTempest = Resources.trans_pu_tempest;
+                _imgPuPhoenix = Resources.trans_pu_phoenix;
+                _imgPuVoidray = Resources.trans_pu_voidray;
+                _imgPuCarrier = Resources.trans_pu_carrier;
+                _imgPuMothershipcore = Resources.trans_pu_mothershipcore;
+                _imgPuMothership = Resources.trans_pu_mothership;
+                _imgPuArchon = Resources.trans_pu_archon;
+                _imgPuForceField = Resources.PuForceField;
 
-                _imgPbNexus = Properties.Resources.trans_pb_nexus;
-                _imgPbPylon = Properties.Resources.trans_pb_pylon;
-                _imgPbGateway = Properties.Resources.trans_pb_gateway;
-                _imgPbWarpgate = Properties.Resources.trans_pb_warpgate;
-                _imgPbAssimilator = Properties.Resources.trans_pb_assimilator;
-                _imgPbForge = Properties.Resources.trans_pb_forge;
-                _imgPbCannon = Properties.Resources.trans_pb_photoncannon;
-                _imgPbCybercore = Properties.Resources.trans_pb_cyberneticscore;
-                _imgPbStargate = Properties.Resources.trans_pb_stargate;
-                _imgPbRobotics = Properties.Resources.trans_pb_roboticsfacility;
-                _imgPbRoboticsSupport = Properties.Resources.trans_pb_roboticsbay;
-                _imgPbTwillightCouncil = Properties.Resources.trans_pb_twilightcouncil;
-                _imgPbDarkShrine = Properties.Resources.trans_pb_darkshrine;
-                _imgPbTemplarArchives = Properties.Resources.trans_pb_templararchive;
-                _imgPbFleetBeacon = Properties.Resources.trans_pb_fleetbeacon;
+                _imgPbNexus = Resources.trans_pb_nexus;
+                _imgPbPylon = Resources.trans_pb_pylon;
+                _imgPbGateway = Resources.trans_pb_gateway;
+                _imgPbWarpgate = Resources.trans_pb_warpgate;
+                _imgPbAssimilator = Resources.trans_pb_assimilator;
+                _imgPbForge = Resources.trans_pb_forge;
+                _imgPbCannon = Resources.trans_pb_photoncannon;
+                _imgPbCybercore = Resources.trans_pb_cyberneticscore;
+                _imgPbStargate = Resources.trans_pb_stargate;
+                _imgPbRobotics = Resources.trans_pb_roboticsfacility;
+                _imgPbRoboticsSupport = Resources.trans_pb_roboticsbay;
+                _imgPbTwillightCouncil = Resources.trans_pb_twilightcouncil;
+                _imgPbDarkShrine = Resources.trans_pb_darkshrine;
+                _imgPbTemplarArchives = Resources.trans_pb_templararchive;
+                _imgPbFleetBeacon = Resources.trans_pb_fleetbeacon;
 
-                _imgPupGroundWeapon1 = Properties.Resources.trans_Pup_GroundW1;
-                _imgPupGroundWeapon2 = Properties.Resources.trans_Pup_GroundW2;
-                _imgPupGroundWeapon3 = Properties.Resources.trans_Pup_GroundW3;
-                _imgPupGroundArmor1 = Properties.Resources.trans_Pup_GroundA1;
-                _imgPupGroundArmor2 = Properties.Resources.trans_Pup_GroundA2;
-                _imgPupGroundArmor3 = Properties.Resources.trans_Pup_GroundA3;
-                _imgPupShield1 = Properties.Resources.trans_Pup_S1;
-                _imgPupShield2 = Properties.Resources.trans_Pup_S2;
-                _imgPupShield3 = Properties.Resources.trans_Pup_S3;
-                _imgPupAirWeapon1 = Properties.Resources.trans_Pup_AirW1;
-                _imgPupAirWeapon2 = Properties.Resources.trans_Pup_AirW2;
-                _imgPupAirWeapon3 = Properties.Resources.trans_Pup_AirW3;
-                _imgPupAirArmor1 = Properties.Resources.trans_Pup_AirA1;
-                _imgPupAirArmor2 = Properties.Resources.trans_Pup_AirA2;
-                _imgPupAirArmor3 = Properties.Resources.trans_Pup_AirA3;
-                _imgPupBlink = Properties.Resources.trans_Pup_Blink;
-                _imgPupCharge = Properties.Resources.trans_Pup_Charge;
-                _imgPupGraviticBooster = Properties.Resources.trans_Pup_GraviticBoosters;
-                _imgPupGraviticDrive = Properties.Resources.trans_Pup_GraviticDrive;
-                _imgPupExtendedThermalLance = Properties.Resources.trans_Pup_ExtendedThermalLance;
-                _imgPupAnionPulseCrystals = Properties.Resources.trans_Pup_AnionPulseCrystals;
-                _imgPupGravitonCatapult = Properties.Resources.trans_Pup_GravitonCatapult;
-                _imgPupWarpGate = Properties.Resources.trans_Pup_Warpgate;
-                _imgPupStorm = Properties.Resources.trans_Pup_Storm;
+                _imgPupGroundWeapon1 = Resources.trans_Pup_GroundW1;
+                _imgPupGroundWeapon2 = Resources.trans_Pup_GroundW2;
+                _imgPupGroundWeapon3 = Resources.trans_Pup_GroundW3;
+                _imgPupGroundArmor1 = Resources.trans_Pup_GroundA1;
+                _imgPupGroundArmor2 = Resources.trans_Pup_GroundA2;
+                _imgPupGroundArmor3 = Resources.trans_Pup_GroundA3;
+                _imgPupShield1 = Resources.trans_Pup_S1;
+                _imgPupShield2 = Resources.trans_Pup_S2;
+                _imgPupShield3 = Resources.trans_Pup_S3;
+                _imgPupAirWeapon1 = Resources.trans_Pup_AirW1;
+                _imgPupAirWeapon2 = Resources.trans_Pup_AirW2;
+                _imgPupAirWeapon3 = Resources.trans_Pup_AirW3;
+                _imgPupAirArmor1 = Resources.trans_Pup_AirA1;
+                _imgPupAirArmor2 = Resources.trans_Pup_AirA2;
+                _imgPupAirArmor3 = Resources.trans_Pup_AirA3;
+                _imgPupBlink = Resources.trans_Pup_Blink;
+                _imgPupCharge = Resources.trans_Pup_Charge;
+                _imgPupGraviticBooster = Resources.trans_Pup_GraviticBoosters;
+                _imgPupGraviticDrive = Resources.trans_Pup_GraviticDrive;
+                _imgPupExtendedThermalLance = Resources.trans_Pup_ExtendedThermalLance;
+                _imgPupAnionPulseCrystals = Resources.trans_Pup_AnionPulseCrystals;
+                _imgPupGravitonCatapult = Resources.trans_Pup_GravitonCatapult;
+                _imgPupWarpGate = Resources.trans_Pup_Warpgate;
+                _imgPupStorm = Resources.trans_Pup_Storm;
 
                 #endregion
 
                 #region Zerg
 
-                _imgZuDrone = Properties.Resources.trans_zu_drone;
-                _imgZuLarva = Properties.Resources.trans_zu_larva;
-                _imgZuZergling = Properties.Resources.trans_zu_zergling;
-                _imgZuBaneling = Properties.Resources.trans_zu_baneling;
-                _imgZuBanelingCocoon = Properties.Resources.trans_zu_banelingcocoon;
-                _imgZuRoach = Properties.Resources.trans_zu_roach;
-                _imgZuHydra = Properties.Resources.trans_zu_hydralisk;
-                _imgZuMutalisk = Properties.Resources.trans_zu_mutalisk;
-                _imgZuUltra = Properties.Resources.trans_zu_ultralisk;
-                _imgZuViper = Properties.Resources.trans_zu_viper;
-                _imgZuSwarmhost = Properties.Resources.trans_zu_swarmhost;
-                _imgZuInfestor = Properties.Resources.trans_zu_infestor;
-                _imgZuCorruptor = Properties.Resources.trans_zu_corruptor;
-                _imgZuBroodlord = Properties.Resources.trans_zu_broodlord;
-                _imgZuBroodlordCocoon = Properties.Resources.trans_zu_BroodLordCocoon;
-                _imgZuQueen = Properties.Resources.trans_zu_queen;
-                _imgZuOverlord = Properties.Resources.trans_zu_overlord;
-                _imgZuOverseer = Properties.Resources.trans_zu_overseer;
-                _imgZuOvserseerCocoon = Properties.Resources.trans_zu_OverlordCocoon;
-                _imgZuLocust = Properties.Resources.trans_zu_locust;
+                _imgZuDrone = Resources.trans_zu_drone;
+                _imgZuLarva = Resources.trans_zu_larva;
+                _imgZuZergling = Resources.trans_zu_zergling;
+                _imgZuBaneling = Resources.trans_zu_baneling;
+                _imgZuBanelingCocoon = Resources.trans_zu_banelingcocoon;
+                _imgZuRoach = Resources.trans_zu_roach;
+                _imgZuHydra = Resources.trans_zu_hydralisk;
+                _imgZuMutalisk = Resources.trans_zu_mutalisk;
+                _imgZuUltra = Resources.trans_zu_ultralisk;
+                _imgZuViper = Resources.trans_zu_viper;
+                _imgZuSwarmhost = Resources.trans_zu_swarmhost;
+                _imgZuInfestor = Resources.trans_zu_infestor;
+                _imgInfestedTerran = Resources.trans_zu_InfestedTerran;
+                _imgInfestedTerranEgg = Resources.trans_zu_InfestedTerran;
+                _imgZuCorruptor = Resources.trans_zu_corruptor;
+                _imgZuBroodlord = Resources.trans_zu_broodlord;
+                _imgZuBroodlordCocoon = Resources.trans_zu_BroodLordCocoon;
+                _imgZuQueen = Resources.trans_zu_queen;
+                _imgZuOverlord = Resources.trans_zu_overlord;
+                _imgZuOverseer = Resources.trans_zu_overseer;
+                _imgZuOvserseerCocoon = Resources.trans_zu_OverlordCocoon;
+                _imgZuLocust = Resources.trans_zu_locust;
+                _imgZuFlyingLocust = Resources.trans_Zup_flying_locust;
+                _imgZuChangeling = Resources.trans_zu_changeling; 
 
-                _imgZbHatchery = Properties.Resources.trans_zb_hatchery;
-                _imgZbLair = Properties.Resources.trans_zb_lair;
-                _imgZbHive = Properties.Resources.trans_zb_hive;
-                _imgZbCreepTumor = Properties.Resources.trans_zb_creeptumor;
-                _imgZbSpawningpool = Properties.Resources.trans_zb_spawningpool;
-                _imgZbExtractor = Properties.Resources.trans_zb_extractor;
-                _imgZbEvochamber = Properties.Resources.trans_zb_evolutionchamber;
-                _imgZbSpinecrawler = Properties.Resources.trans_zb_spinecrawler;
-                _imgZbSporecrawler = Properties.Resources.trans_zb_sporecrawler;
-                _imgZbRoachwarren = Properties.Resources.trans_zb_roachwarren;
-                _imgZbGreaterspire = Properties.Resources.trans_zb_greaterspire;
-                _imgZbSpire = Properties.Resources.trans_zb_spire;
-                _imgZbNydusNetwork = Properties.Resources.trans_zb_nydusnetwork;
-                _imgZbNydusWorm = Properties.Resources.trans_zb_nyduscanal;
-                _imgZbHydraden = Properties.Resources.trans_zb_hydraliskden;
-                _imgZbInfestationpit = Properties.Resources.trans_zb_infestationpit;
-                _imgZbUltracavern = Properties.Resources.trans_zb_ultraliskcavern;
-                _imgZbBanelingnest = Properties.Resources.trans_zb_banelingnest;
+                _imgZbHatchery = Resources.trans_zb_hatchery;
+                _imgZbLair = Resources.trans_zb_lair;
+                _imgZbHive = Resources.trans_zb_hive;
+                _imgZbCreepTumor = Resources.trans_zb_creeptumor;
+                _imgZbSpawningpool = Resources.trans_zb_spawningpool;
+                _imgZbExtractor = Resources.trans_zb_extractor;
+                _imgZbEvochamber = Resources.trans_zb_evolutionchamber;
+                _imgZbSpinecrawler = Resources.trans_zb_spinecrawler;
+                _imgZbSporecrawler = Resources.trans_zb_sporecrawler;
+                _imgZbRoachwarren = Resources.trans_zb_roachwarren;
+                _imgZbGreaterspire = Resources.trans_zb_greaterspire;
+                _imgZbSpire = Resources.trans_zb_spire;
+                _imgZbNydusNetwork = Resources.trans_zb_nydusnetwork;
+                _imgZbNydusWorm = Resources.trans_zb_nyduscanal;
+                _imgZbHydraden = Resources.trans_zb_hydraliskden;
+                _imgZbInfestationpit = Resources.trans_zb_infestationpit;
+                _imgZbUltracavern = Resources.trans_zb_ultraliskcavern;
+                _imgZbBanelingnest = Resources.trans_zb_banelingnest;
 
-                _imgZupAirWeapon1 = Properties.Resources.trans_Zup_AirW1;
-                _imgZupAirWeapon2 = Properties.Resources.trans_Zup_AirW2;
-                _imgZupAirWeapon3 = Properties.Resources.trans_Zup_AirW3;
-                _imgZupAirArmor1 = Properties.Resources.trans_Zup_AirA1;
-                _imgZupAirArmor2 = Properties.Resources.trans_Zup_AirA2;
-                _imgZupAirArmor3 = Properties.Resources.trans_Zup_AirA3;
-                _imgZupGroundWeapon1 = Properties.Resources.trans_Zup_GroundW1;
-                _imgZupGroundWeapon2 = Properties.Resources.trans_Zup_GroundW2;
-                _imgZupGroundWeapon3 = Properties.Resources.trans_Zup_GroundW3;
-                _imgZupGroundArmor1 = Properties.Resources.trans_Zup_GroundA1;
-                _imgZupGroundArmor2 = Properties.Resources.trans_Zup_GroundA2;
-                _imgZupGroundArmor3 = Properties.Resources.trans_Zup_GroundA3;
-                _imgZupGroundMelee1 = Properties.Resources.trans_Zup_GroundM1;
-                _imgZupGroundMelee2 = Properties.Resources.trans_Zup_GroundM2;
-                _imgZupGroundMelee3 = Properties.Resources.trans_Zup_GroundM3;
-                _imgZupBurrow = Properties.Resources.trans_Zup_Burrow;
-                _imgZupAdrenalGlands = Properties.Resources.trans_Zup_AdrenalGlands;
-                _imgZupCentrifugalHooks = Properties.Resources.trans_Zup_CentrifugalHooks;
-                _imgZupChitinousPlating = Properties.Resources.trans_Zup_ChitinousPlating;
-                _imgZupEnduringLocusts = Properties.Resources.trans_Zup_EnduringLocusts;
-                _imgZupGlialReconstruction = Properties.Resources.trans_Zup_GlialReconstruction;
-                _imgZupGroovedSpines = Properties.Resources.trans_Zup_GroovedSpines;
-                _imgZupMetabolicBoost = Properties.Resources.trans_Zup_MetabolicBoost;
-                _imgZupMuscularAugments = Properties.Resources.trans_Zup_MuscularAugments;
-                _imgZupNeutralParasite = Properties.Resources.trans_Zup_NeutralParasite;
-                _imgZupPathoglenGlands = Properties.Resources.trans_Zup_PathogenGlands;
-                _imgZupPneumatizedCarapace = Properties.Resources.trans_Zup_PneumatizedCarapace;
-                _imgZupTunnelingClaws = Properties.Resources.trans_Zup_TunnelingClaws;
-                _imgZupVentrallSacs = Properties.Resources.trans_Zup_VentralSacs;
+                _imgZupAirWeapon1 = Resources.trans_Zup_AirW1;
+                _imgZupAirWeapon2 = Resources.trans_Zup_AirW2;
+                _imgZupAirWeapon3 = Resources.trans_Zup_AirW3;
+                _imgZupAirArmor1 = Resources.trans_Zup_AirA1;
+                _imgZupAirArmor2 = Resources.trans_Zup_AirA2;
+                _imgZupAirArmor3 = Resources.trans_Zup_AirA3;
+                _imgZupGroundWeapon1 = Resources.trans_Zup_GroundW1;
+                _imgZupGroundWeapon2 = Resources.trans_Zup_GroundW2;
+                _imgZupGroundWeapon3 = Resources.trans_Zup_GroundW3;
+                _imgZupGroundArmor1 = Resources.trans_Zup_GroundA1;
+                _imgZupGroundArmor2 = Resources.trans_Zup_GroundA2;
+                _imgZupGroundArmor3 = Resources.trans_Zup_GroundA3;
+                _imgZupGroundMelee1 = Resources.trans_Zup_GroundM1;
+                _imgZupGroundMelee2 = Resources.trans_Zup_GroundM2;
+                _imgZupGroundMelee3 = Resources.trans_Zup_GroundM3;
+                _imgZupBurrow = Resources.trans_Zup_Burrow;
+                _imgZupAdrenalGlands = Resources.trans_Zup_AdrenalGlands;
+                _imgZupCentrifugalHooks = Resources.trans_Zup_CentrifugalHooks;
+                _imgZupChitinousPlating = Resources.trans_Zup_ChitinousPlating;
+                _imgZupEnduringLocusts = Resources.trans_Zup_EnduringLocusts;
+                _imgZupGlialReconstruction = Resources.trans_Zup_GlialReconstruction;
+                _imgZupGroovedSpines = Resources.trans_Zup_GroovedSpines;
+                _imgZupMetabolicBoost = Resources.trans_Zup_MetabolicBoost;
+                _imgZupMuscularAugments = Resources.trans_Zup_MuscularAugments;
+                _imgZupNeutralParasite = Resources.trans_Zup_NeutralParasite;
+                _imgZupPathoglenGlands = Resources.trans_Zup_PathogenGlands;
+                _imgZupPneumatizedCarapace = Resources.trans_Zup_PneumatizedCarapace;
+                _imgZupTunnelingClaws = Resources.trans_Zup_TunnelingClaws;
+                _imgZupVentrallSacs = Resources.trans_Zup_VentralSacs;
+                _imgZupFlyingLocust = Resources.trans_Zup_flying_locust;
 
                 #endregion
             }
@@ -1622,7 +1639,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     GInformation.Player.Count <= 0 ||
                     GInformation.Unit.Count <= 0)
                     return;
-            
 
                 #region Clear the Lists
 
@@ -2020,7 +2036,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (_lPupWarpGate.Count > 0)
                     _lPupWarpGate.Clear();
 
-
                 #endregion
 
                 #region Zerg
@@ -2104,6 +2119,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (_lZuInfestor.Count > 0)
                     _lZuInfestor.Clear();
 
+                if (_lZuInfestedTerran.Count > 0)
+                    _lZuInfestedTerran.Clear();
+
+                if (_lZuInfestedTerranEgg.Count > 0)
+                    _lZuInfestedTerranEgg.Clear();
+
                 if (_lZuLarva.Count > 0)
                     _lZuLarva.Clear();
 
@@ -2134,12 +2155,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (_lZuLocust.Count > 0)
                     _lZuLocust.Clear();
 
+                if (_lZuFlyingLocust.Count > 0)
+                    _lZuFlyingLocust.Clear();
+
                 if (_lZuZergling.Count > 0)
                     _lZuZergling.Clear();
 
                 if (_lZuOverseerCocoon.Count > 0)
                     _lZuOverseerCocoon.Clear();
 
+                if (_lZuChangeling.Count > 0)
+                    _lZuChangeling.Clear();
+                
 
                 if (_lZupAdrenalGlands.Count > 0)
                     _lZupAdrenalGlands.Clear();
@@ -2227,6 +2254,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 if (_lZupVentralSacs.Count > 0)
                     _lZupVentralSacs.Clear();
+
+                if (_lZupFlyingLocust.Count > 0)
+                    _lZupFlyingLocust.Clear();
 
                 #endregion
 
@@ -2414,6 +2444,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     _lZuDrone.Add(new UnitCount());
                     _lZuHydra.Add(new UnitCount());
                     _lZuInfestor.Add(new UnitCount());
+                    _lZuInfestedTerran.Add(new UnitCount());
+                    _lZuInfestedTerranEgg.Add(new UnitCount());
                     _lZuLarva.Add(new UnitCount());
                     _lZuMutalisk.Add(new UnitCount());
                     _lZuOverlord.Add(new UnitCount());
@@ -2426,6 +2458,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     _lZuViper.Add(new UnitCount());
                     _lZuZergling.Add(new UnitCount());
                     _lZuLocust.Add(new UnitCount());
+                    _lZuFlyingLocust.Add(new UnitCount());
+                    _lZuChangeling.Add(new UnitCount());
 
                     #endregion
 
@@ -2483,6 +2517,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     _lZupPneumatizedCarapace.Add(new UnitCount());
                     _lZupTunnnelingClaws.Add(new UnitCount());
                     _lZupVentralSacs.Add(new UnitCount());
+                    _lZupFlyingLocust.Add(new UnitCount());
 
                     #endregion
 
@@ -2505,7 +2540,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (tmpUnit.IsAlive)
                     {
-
                         #region Terran
 
                         #region Units
@@ -2614,26 +2648,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             else
                             {
-                                
-                                    for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
+                                for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
+                                {
+                                    if (
+                                        tmpUnit.ProdUnitProductionId[k].Equals(
+                                            UnitId.TupUpgradeToOrbital))
                                     {
-                                        if (
-                                            tmpUnit.ProdUnitProductionId[k].Equals(
-                                                UnitId.TupUpgradeToOrbital))
-                                        {
-                                            _lTbOrbitalCommand[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                            _lTbOrbitalCommand[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        }
-
-                                        else if (
-                                            tmpUnit.ProdUnitProductionId[k].Equals(
-                                                UnitId.TupUpgradeToPlanetary))
-                                            {
-                                                _lTbPlanetaryFortress[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                                _lTbPlanetaryFortress[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                            }
+                                        _lTbOrbitalCommand[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        _lTbOrbitalCommand[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
-                                
+
+                                    else if (
+                                        tmpUnit.ProdUnitProductionId[k].Equals(
+                                            UnitId.TupUpgradeToPlanetary))
+                                    {
+                                        _lTbPlanetaryFortress[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        _lTbPlanetaryFortress[tmpUnit.Owner].ConstructionState.Add(
+                                            tmpUnit.ProdProcess[k]);
+                                    }
+                                }
                             }
                         }
 
@@ -2887,7 +2920,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuWidowMine))
                                     {
-
                                         _lTuWidowMine[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lTuWidowMine[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
@@ -2921,7 +2953,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  UnitId.TbStarportGround)
                         {
                             _lTbStarport[tmpUnit.Owner].UnitAmount += 1;
-
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -3163,7 +3194,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
-
                                 for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
                                 {
                                     if (
@@ -3316,15 +3346,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lPuForcefield[GInformation.Player.Count].Id =
                                 UnitId.PuForceField;
                             _lPuForcefield[GInformation.Player.Count].AliveSince.Add(1 -
-                                                                                                  (tmpUnit.AliveSince/
-                                                                                                   62208.0f));
+                                                                                     (tmpUnit.AliveSince/
+                                                                                      62208.0f));
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuArchon)
                         {
                             _lPuArchon[tmpUnit.Owner].UnitAmount += 1;
-                            
+
                             //Archons take 12 seconds to finish morphing
                             //12 secs = 49152 SC2 ticks (* 4096)
                             //Thus AliveSince > 49152 = Ready to roll
@@ -3332,9 +3362,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             if (tmpUnit.AliveSince < 49152)
                             {
                                 _lPuArchon[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                _lPuArchon[tmpUnit.Owner].ConstructionState.Add((tmpUnit.AliveSince/49152f) * 100);
+                                _lPuArchon[tmpUnit.Owner].ConstructionState.Add((tmpUnit.AliveSince/49152f)*100);
                             }
-
                         }
 
                         else if (tmpUnit.Id ==
@@ -3381,7 +3410,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             if (tmpUnit.ProdNumberOfQueuedUnits == 0)
                             {
-
                                 for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
                                 {
                                     if (
@@ -3391,10 +3419,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         _lPuMothership[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lPuMothership[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
-
-
                                 }
-
                             }
                         }
 
@@ -4119,6 +4144,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 _lZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/73216f));
                         }
 
+                        else if (tmpUnit.Id ==
+                                 UnitId.ZuFlyingLocust)
+                        {
+                            _lZuFlyingLocust[tmpUnit.Owner].UnitAmount += 1;
+                            _lZuFlyingLocust[tmpUnit.Owner].Id = UnitId.ZuFlyingLocust;
+
+                            if (tmpUnit.AliveSince > 73216f)
+                                _lZuFlyingLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 113920f));
+
+                            else
+                                _lZuFlyingLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 73216f));
+                        }
+
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuBanelingCocoon)
@@ -4189,6 +4227,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lZuInfestor[tmpUnit.Owner].Id = UnitId.ZuInfestor;
                             _lZuInfestor[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
                             _lZuInfestor[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                        }
+
+                        else if (tmpUnit.Id ==
+                                 UnitId.ZuInfestedTerran ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZuInfestedTerran2)
+                        {
+                            _lZuInfestedTerran[tmpUnit.Owner].UnitAmount += 1;
+                            _lZuInfestedTerran[tmpUnit.Owner].Id = UnitId.ZuInfestedTerran;
+                            _lZuInfestedTerran[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 143360f));
+                        }
+
+                        else if (tmpUnit.Id == UnitId.ZuInfestedSwarmEgg)
+                        {
+                            _lZuInfestedTerranEgg[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            _lZuInfestedTerranEgg[tmpUnit.Owner].Id = UnitId.ZuInfestedSwarmEgg;
+                            _lZuInfestedTerranEgg[tmpUnit.Owner].ConstructionState.Add(tmpUnit.AliveSince/20480f * 100);
+
                         }
 
                         else if (tmpUnit.Id == UnitId.ZuLarva)
@@ -4265,6 +4321,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.ZuZerglingBurrow)
                             _lZuZergling[tmpUnit.Owner].UnitAmount += 1;
+
+                        else if (tmpUnit.Id == UnitId.ZuChangeling ||
+                                 tmpUnit.Id == UnitId.ZuChangelingMarineShield ||
+                                 tmpUnit.Id == UnitId.ZuChangelingMarine ||
+                                 tmpUnit.Id == UnitId.ZuChangelingSpeedling ||
+                                 tmpUnit.Id == UnitId.ZuChangelingZealot ||
+                                 tmpUnit.Id == UnitId.ZuChangelingZergling)
+                        {
+                            _lZuChangeling[tmpUnit.Owner].UnitAmount += 1;
+                            _lZuChangeling[tmpUnit.Owner].Id = UnitId.ZuChangeling;
+                            _lZuChangeling[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 614400f));
+                        }
 
                             #endregion
 
@@ -4513,7 +4581,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 }
                             }
 
-                                //Upgrade To Lair
+                            //Upgrade To Lair
                             else
                             {
                                 for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
@@ -4603,8 +4671,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         _lZupMuscularAugments[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
-
-
                                 }
                             }
                         }
@@ -4642,6 +4708,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     {
                                         _lZupPathoglenGlands[tmpUnit.Owner].UnitUnderConstruction += 1;
                                         _lZupPathoglenGlands[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    }
+
+                                    else if (tmpUnit.ProdUnitProductionId[k].Equals(UnitId.ZupFlyingLocust))
+                                    {
+                                        _lZupFlyingLocust[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        _lZupFlyingLocust[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4691,7 +4763,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 }
                             }
 
-                                //Upgrade To Hive
+                            //Upgrade To Hive
                             else
                             {
                                 for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
@@ -4858,7 +4930,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 }
                             }
 
-                                //Upgrade To Greater Spire
+                            //Upgrade To Greater Spire
                             else
                             {
                                 for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
@@ -4936,112 +5008,112 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbCommandCenter[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbOrbitalAir ||
-                            tmpUnit.Id ==
-                            UnitId.TbOrbitalGround)
+                                 UnitId.TbOrbitalAir ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbOrbitalGround)
                         {
                             _lTbOrbitalCommand[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbOrbitalCommand[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbRaxAir ||
-                            tmpUnit.Id ==
-                            UnitId.TbBarracksGround)
+                                 UnitId.TbRaxAir ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbBarracksGround)
                         {
                             _lTbBarracks[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbBarracks[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbBunker)
+                                 UnitId.TbBunker)
                         {
                             _lTbBunker[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbBunker[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbTurret)
+                                 UnitId.TbTurret)
                         {
                             _lTbTurrent[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbTurrent[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbRefinery)
+                                 UnitId.TbRefinery)
                         {
                             _lTbRefinery[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbRefinery[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbSensortower)
+                                 UnitId.TbSensortower)
                         {
                             _lTbSensorTower[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbSensorTower[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbPlanetary)
+                                 UnitId.TbPlanetary)
                         {
                             _lTbPlanetaryFortress[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbPlanetaryFortress[tmpUnit.Owner].ConstructionState.Add(tmp);
 
 
@@ -5061,146 +5133,146 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbEbay[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbFactoryAir ||
-                            tmpUnit.Id ==
-                            UnitId.TbFactoryGround)
+                                 UnitId.TbFactoryAir ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbFactoryGround)
                         {
                             _lTbFactory[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbFactory[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbStarportAir ||
-                            tmpUnit.Id ==
-                            UnitId.TbStarportGround)
+                                 UnitId.TbStarportAir ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbStarportGround)
                         {
                             _lTbStarport[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbStarport[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbSupplyGround ||
-                            tmpUnit.Id ==
-                            UnitId.TbSupplyHidden)
+                                 UnitId.TbSupplyGround ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbSupplyHidden)
                         {
                             _lTbSupply[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbSupply[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbGhostacademy)
+                                 UnitId.TbGhostacademy)
                         {
                             _lTbGhostAcademy[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbGhostAcademy[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbFusioncore)
+                                 UnitId.TbFusioncore)
                         {
                             _lTbFusionCore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbFusionCore[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbArmory)
+                                 UnitId.TbArmory)
                         {
                             _lTbArmory[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbArmory[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbTechlab ||
-                            tmpUnit.Id ==
-                            UnitId.TbTechlabFactory ||
-                            tmpUnit.Id ==
-                            UnitId.TbTechlabRax ||
-                            tmpUnit.Id ==
-                            UnitId.TbTechlabStarport)
+                                 UnitId.TbTechlab ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbTechlabFactory ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbTechlabRax ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbTechlabStarport)
                         {
                             _lTbTechlab[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbTechlab[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.TbReactor ||
-                            tmpUnit.Id ==
-                            UnitId.TbReactorFactory ||
-                            tmpUnit.Id ==
-                            UnitId.TbReactorRax ||
-                            tmpUnit.Id ==
-                            UnitId.TbReactorStarport)
+                                 UnitId.TbReactor ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbReactorFactory ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbReactorRax ||
+                                 tmpUnit.Id ==
+                                 UnitId.TbReactorStarport)
                         {
                             _lTbReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lTbReactor[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Units
+                            #region Units
 
                         else if (tmpUnit.Id == UnitId.TuScv)
                             _lTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
@@ -5209,73 +5281,73 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _lTuMule[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuMarine)
+                                 UnitId.TuMarine)
                             _lTuMarine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuMarauder)
+                                 UnitId.TuMarauder)
                             _lTuMarauder[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuReaper)
+                                 UnitId.TuReaper)
                             _lTuReaper[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.TuGhost)
                             _lTuGhost[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuWidowMine ||
-                            tmpUnit.Id ==
-                            UnitId.TuWidowMineBurrow)
+                                 UnitId.TuWidowMine ||
+                                 tmpUnit.Id ==
+                                 UnitId.TuWidowMineBurrow)
                             _lTuWidowMine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuSiegetank ||
-                            tmpUnit.Id ==
-                            UnitId.TuSiegetankSieged)
+                                 UnitId.TuSiegetank ||
+                                 tmpUnit.Id ==
+                                 UnitId.TuSiegetankSieged)
                             _lTuSiegetank[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.TuThor)
                             _lTuThor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuHellbat)
+                                 UnitId.TuHellbat)
                             _lTuHellbat[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuHellion)
+                                 UnitId.TuHellion)
                             _lTuHellion[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuBanshee)
+                                 UnitId.TuBanshee)
                             _lTuBanshee[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuBattlecruiser)
+                                 UnitId.TuBattlecruiser)
                             _lTuBattlecruiser[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuMedivac)
+                                 UnitId.TuMedivac)
                             _lTuMedivac[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.TuRaven)
                             _lTuRaven[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.TuVikingAir ||
-                            tmpUnit.Id ==
-                            UnitId.TuVikingGround)
+                                 UnitId.TuVikingAir ||
+                                 tmpUnit.Id ==
+                                 UnitId.TuVikingGround)
                             _lTuViking[tmpUnit.Owner].UnitUnderConstruction += 1;
 
 
 
-                        #endregion
+                            #endregion
 
-                        #endregion
+                            #endregion
 
-                        #region Protoss
+                            #region Protoss
 
-                        #region Structures
+                            #region Structures
 
                         else if (tmpUnit.Id == UnitId.PbNexus)
                         {
@@ -5283,10 +5355,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbNexus[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
@@ -5296,81 +5368,80 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbPylon[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbAssimilator)
+                                 UnitId.PbAssimilator)
                         {
                             _lPbAssimilator[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbAssimilator[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbCannon)
+                                 UnitId.PbCannon)
                         {
                             _lPbCannon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbCannon[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbCybercore)
+                                 UnitId.PbCybercore)
                         {
                             _lPbCybercore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbCybercore[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbDarkshrine)
+                                 UnitId.PbDarkshrine)
                         {
                             _lPbDarkshrine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbDarkshrine[tmpUnit.Owner].ConstructionState.Add(tmp);
-
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbFleetbeacon)
+                                 UnitId.PbFleetbeacon)
                         {
                             _lPbFleetbeacon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbFleetbeacon[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
@@ -5380,284 +5451,284 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbForge[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbGateway)
+                                 UnitId.PbGateway)
                         {
                             _lPbGateway[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbGateway[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbRoboticsbay)
+                                 UnitId.PbRoboticsbay)
                         {
                             _lPbRobotics[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbRobotics[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbRoboticssupportbay)
+                                 UnitId.PbRoboticssupportbay)
                         {
                             _lPbRoboticsSupport[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbRoboticsSupport[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbStargate)
+                                 UnitId.PbStargate)
                         {
                             _lPbStargate[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbStargate[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbTemplararchives)
+                                 UnitId.PbTemplararchives)
                         {
                             _lPbTemplarArchives[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbTemplarArchives[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbTwilightcouncil)
+                                 UnitId.PbTwilightcouncil)
                         {
                             _lPbTwilight[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbTwilight[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.PbWarpgate)
+                                 UnitId.PbWarpgate)
                         {
                             _lPbWarpgate[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lPbWarpgate[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Units
+                            #region Units
 
                         /*else if (tmpUnit.Id ==
                             UnitId.PuArchon)
                             _lPuArchon[tmpUnit.Owner].UnitUnderConstruction += 1;*/
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuCarrier)
+                                 UnitId.PuCarrier)
                             _lPuCarrier[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuColossus)
+                                 UnitId.PuColossus)
                             _lPuColossus[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuDarktemplar)
+                                 UnitId.PuDarktemplar)
                             _lPuDt[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuHightemplar)
+                                 UnitId.PuHightemplar)
                             _lPuHt[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuImmortal)
+                                 UnitId.PuImmortal)
                             _lPuImmortal[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuMothership)
+                                 UnitId.PuMothership)
                             _lPuMothership[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuMothershipCore)
+                                 UnitId.PuMothershipCore)
                             _lPuMothershipcore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuObserver)
+                                 UnitId.PuObserver)
                             _lPuObserver[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuOracle)
+                                 UnitId.PuOracle)
                             _lPuOracle[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuPhoenix)
+                                 UnitId.PuPhoenix)
                             _lPuPhoenix[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.PuProbe)
                             _lPuProbe[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuSentry)
+                                 UnitId.PuSentry)
                             _lPuSentry[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuStalker)
+                                 UnitId.PuStalker)
                             _lPuStalker[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuTempest)
+                                 UnitId.PuTempest)
                             _lPuTempest[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuVoidray)
+                                 UnitId.PuVoidray)
                             _lPuVoidray[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuWarpprismPhase ||
-                            tmpUnit.Id ==
-                            UnitId.PuWarpprismTransport)
+                                 UnitId.PuWarpprismPhase ||
+                                 tmpUnit.Id ==
+                                 UnitId.PuWarpprismTransport)
                             _lPuWarpprism[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.PuZealot)
+                                 UnitId.PuZealot)
                             _lPuZealot[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                        #endregion
+                            #endregion
 
-                        #endregion
+                            #endregion
 
-                        #region Zerg
+                            #region Zerg
 
-                        #region Structures
+                            #region Structures
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbBanelingNest)
+                                 UnitId.ZbBanelingNest)
                         {
                             _lZbBanelingnest[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbBanelingnest[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbCreeptumor ||
-                            tmpUnit.Id ==
-                            UnitId.ZbCreeptumorBurrowed ||
-                            tmpUnit.Id ==
-                            UnitId.ZbCreepTumorMissle ||
-                            tmpUnit.Id ==
-                            UnitId.ZbCreepTumorBuilding)
+                                 UnitId.ZbCreeptumor ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZbCreeptumorBurrowed ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZbCreepTumorMissle ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZbCreepTumorBuilding)
                         {
                             _lZbCreepTumor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbCreepTumor[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbEvolutionChamber)
+                                 UnitId.ZbEvolutionChamber)
                         {
                             _lZbEvochamber[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbEvochamber[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbExtractor)
+                                 UnitId.ZbExtractor)
                         {
                             _lZbExtractor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbExtractor[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbGreaterspire)
+                                 UnitId.ZbGreaterspire)
                         {
                             _lZbGreaterspire[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbGreaterspire[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbHatchery)
+                                 UnitId.ZbHatchery)
                         {
                             _lZbHatchery[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbHatchery[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
@@ -5667,38 +5738,38 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbHive[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbHydraDen)
+                                 UnitId.ZbHydraDen)
                         {
                             _lZbHydraden[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbHydraden[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbInfestationPit)
+                                 UnitId.ZbInfestationPit)
                         {
                             _lZbInfestationpit[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbInfestationpit[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
@@ -5708,82 +5779,77 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbLair[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbNydusNetwork)
+                                 UnitId.ZbNydusNetwork)
                         {
                             _lZbNydusbegin[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbNydusbegin[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbNydusWorm)
+                                 UnitId.ZbNydusWorm)
                         {
                             _lZbNydusend[tmpUnit.Owner].UnitUnderConstruction += 1;
 
-                            var tmp =
-                                (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                            var tmp = tmpUnit.AliveSince/81920f * 100;
                             _lZbNydusend[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbRoachWarren)
+                                 UnitId.ZbRoachWarren)
                         {
                             _lZbRoachwarren[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbRoachwarren[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbSpawningPool)
+                                 UnitId.ZbSpawningPool)
                         {
                             _lZbSpawningpool[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbSpawningpool[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbSpineCrawler ||
-                            tmpUnit.Id ==
-                            UnitId.ZbSpineCrawlerUnrooted)
+                                 UnitId.ZbSpineCrawler ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZbSpineCrawlerUnrooted)
                         {
                             _lZbSpine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbSpine[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
@@ -5793,135 +5859,134 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbSpire[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbSporeCrawler ||
-                            tmpUnit.Id ==
-                            UnitId.ZbSporeCrawlerUnrooted)
+                                 UnitId.ZbSporeCrawler ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZbSporeCrawlerUnrooted)
                         {
                             _lZbSpore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
                             _lZbSpore[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZbUltraCavern)
+                                 UnitId.ZbUltraCavern)
                         {
                             _lZbUltracavern[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
-                                Math.Round(
-                                    ((tmpUnit.MaximumHealth -
-                                      tmpUnit.DamageTaken) /
-                                     (float)tmpUnit.MaximumHealth) * 100, 1);
+                                    Math.Round(
+                                        ((tmpUnit.MaximumHealth -
+                                          tmpUnit.DamageTaken)/
+                                         (float) tmpUnit.MaximumHealth)*100, 1);
 
                             _lZbUltracavern[tmpUnit.Owner].ConstructionState.Add(tmp);
-
                         }
 
-                        #endregion
+                            #endregion
 
-                        #region Units
+                            #region Units
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuBaneling ||
-                            tmpUnit.Id ==
-                            UnitId.ZuBanelingBurrow)
+                                 UnitId.ZuBaneling ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZuBanelingBurrow)
                             _lZuBaneling[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuBanelingCocoon)
+                                 UnitId.ZuBanelingCocoon)
                             _lZuBanelingCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuBroodlord)
+                                 UnitId.ZuBroodlord)
                             _lZuBroodlord[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuBroodlordCocoon)
+                                 UnitId.ZuBroodlordCocoon)
                             _lZuBroodlordCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuCorruptor)
+                                 UnitId.ZuCorruptor)
                             _lZuCorruptor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuDrone ||
-                            tmpUnit.Id ==
-                            UnitId.ZuDroneBurrow)
+                                 tmpUnit.Id ==
+                                 UnitId.ZuDroneBurrow)
                             _lZuDrone[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuHydraBurrow ||
-                            tmpUnit.Id ==
-                            UnitId.ZuHydralisk)
+                                 UnitId.ZuHydraBurrow ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZuHydralisk)
                             _lZuHydra[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuInfestor ||
-                            tmpUnit.Id ==
-                            UnitId.ZuInfestorBurrow)
+                                 UnitId.ZuInfestor ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZuInfestorBurrow)
                             _lZuInfestor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuLarva)
                             _lZuLarva[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuMutalisk)
+                                 UnitId.ZuMutalisk)
                             _lZuMutalisk[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuOverlord)
+                                 UnitId.ZuOverlord)
                             _lZuOverlord[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuOverseer)
+                                 UnitId.ZuOverseer)
                             _lZuOverseer[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuOverseerCocoon)
+                                 UnitId.ZuOverseerCocoon)
                             _lZuOverseerCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuQueen ||
-                            tmpUnit.Id ==
-                            UnitId.ZuQueenBurrow)
+                                 tmpUnit.Id ==
+                                 UnitId.ZuQueenBurrow)
                             _lZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuRoach ||
-                            tmpUnit.Id ==
-                            UnitId.ZuRoachBurrow)
+                                 tmpUnit.Id ==
+                                 UnitId.ZuRoachBurrow)
                             _lZuRoach[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuSwarmHost ||
-                            tmpUnit.Id ==
-                            UnitId.ZuSwarmHostBurrow)
+                                 UnitId.ZuSwarmHost ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZuSwarmHostBurrow)
                             _lZuSwarmhost[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuUltra ||
-                            tmpUnit.Id ==
-                            UnitId.ZuUltraBurrow)
+                                 tmpUnit.Id ==
+                                 UnitId.ZuUltraBurrow)
                             _lZuUltralisk[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuViper)
                             _lZuViper[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
-                            UnitId.ZuZergling ||
-                            tmpUnit.Id ==
-                            UnitId.ZuZerglingBurrow)
+                                 UnitId.ZuZergling ||
+                                 tmpUnit.Id ==
+                                 UnitId.ZuZerglingBurrow)
                             _lZuZergling[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         #endregion
@@ -5930,9 +5995,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     }
 
                     #endregion
-
                 }
-
 
                 #region Sort Construction- states
 
@@ -6107,6 +6170,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 SortConstructionStates(ref _lZuDrone);
                 SortConstructionStates(ref _lZuHydra);
                 SortConstructionStates(ref _lZuInfestor);
+                SortConstructionStates(ref _lZuInfestedTerranEgg);
                 SortConstructionStates(ref _lZuLarva);
                 SortConstructionStates(ref _lZuMutalisk);
                 SortConstructionStates(ref _lZuOverlord);
@@ -6117,8 +6181,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 SortConstructionStates(ref _lZuSwarmhost);
                 SortConstructionStates(ref _lZuUltralisk);
                 SortConstructionStates(ref _lZuViper);
-                SortAliveSinceStates(ref _lZuLocust);
                 SortConstructionStates(ref _lZuZergling);
+                SortAliveSinceStates(ref _lZuLocust);
+                SortAliveSinceStates(ref _lZuFlyingLocust);
+                SortAliveSinceStates(ref _lZuChangeling);
+                SortAliveSinceStates(ref _lZuInfestedTerran);
+                
 
                 SortConstructionStates(ref _lZupAdrenalGlands);
                 SortConstructionStates(ref _lZupAirArmor1);
@@ -6154,15 +6222,30 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #endregion
 
-
 #if !DEBUG
             }
             catch (Exception ex)
             {
                 Messages.LogFile("Over all", ex);
-
             }
 #endif
         }
+
+        protected virtual void OnShowCalled()
+        {
+            ShowCalled?.Invoke(this, new EventArgs());
+        }
+
+        protected virtual void OnHideCalled()
+        {
+            HideCalled?.Invoke(this, new EventArgs());
+        }
+
+        protected virtual void OnCloseCalled()
+        {
+            CloseCalled?.Invoke(this, new EventArgs());
+        }
+
+       
     }
 }

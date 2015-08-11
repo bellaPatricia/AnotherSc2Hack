@@ -1,4 +1,6 @@
 ﻿using System.Windows.Forms;
+using System.Drawing;
+using System.Runtime.Remoting.Messaging;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
@@ -11,6 +13,10 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public bool DrawOnlyInForeground { get; set; }
         public int ApplicationCallCounter { get; set; }
         public bool ApplicationAskedForDonation { get; set; }
+        public bool ApplicationShowWebContent { get; set; }
+        public string ApplicationLastOpenedPanel { get; set; }
+        public Point ApplicationLocation { get; set; }
+        public Size ApplicationSize { get; set; }
 
         public PreferenceGlobal()
         {
@@ -21,6 +27,10 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             ElementName = "Global";
             ApplicationCallCounter = 0;
             ApplicationAskedForDonation = false;
+            ApplicationShowWebContent = true;
+            ApplicationLastOpenedPanel = "cpnlApplication";
+            ApplicationSize = new Size(0,0);
+            ApplicationLocation = new Point(0,0);
         }
     }
 }

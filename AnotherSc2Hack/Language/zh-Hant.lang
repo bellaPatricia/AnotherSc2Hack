@@ -1,4 +1,4 @@
-﻿;1.0.0.0
+﻿;1.0.2.1
 ;Translate file for the Traditional Chinese Language
 ;Created by kk321010
 ;Language Name (natively written)
@@ -35,6 +35,7 @@ NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: 顯示工作單�
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: 顯示時鐘
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: APM 警告
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: 顯示 APM
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousAlerts: [Alerts]
 
 ;Application tab 
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: 主要設定
@@ -44,7 +45,9 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: 刷新�
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: 讀取記憶體 (ms):
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: 恢復預設設定
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: 恢復面板位置與大小
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: 調整面板
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: 只有 SCII 在最前面才會顯示
+NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: 顯示web內容
 lstrApplicationRestoreSettingsText: 你真的想要重置你的設定嗎?
 lstrApplicationRestoreSettingsHeader: 你確定嗎?
 lstrApplicationRestorePanelPositionText: 你的面板尺寸與位置已調整成功!
@@ -53,6 +56,8 @@ lstrApplicationDoYouWishToUpdate: 難道你想更新？
 lstrApplicationUpdateTitle: 更新可用！
 lstrContributionTitle: 貢獻
 lstrContributionText: 看起來你使用這軟體\n有一段時間。如果你喜歡\n你可以透過翻譯\n捐贈或是回報bug。\n\n你想要 參與嗎?
+lstrWriteErrorTitle: 寫入錯誤
+lstrWriteErrorText: 無法寫入正確的設定。\n請重試!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack 刷新率 / sec.
@@ -158,7 +163,7 @@ lstrCreditsReasonD3Scene: 有著優良的環境和許說善心人。
 lstrCreditsReasonVariousPeople: 這給了想法、建議和指教 - 謝謝你!
 lstrCreditsReasonDonators: 因為你們讓我可以買些糖果 :3
 
-;Messagebox
+;Messagebox (Also used in VariousAlert)
 lstrAnotherMessageBoxOk: 好
 lstrAnotherMessageBoxCancel: 取消
 lstrAnotherMessageBoxAbort: 中止
@@ -167,6 +172,11 @@ lstrAnotherMessageBoxIgnore: 忽略
 lstrAnotherMessageBoxYes: 是
 lstrAnotherMessageBoxNo: 不是
 
-;Maphack tab
+;Maphack tab (Also used in Various Alerts)
 lstrChMaphackFilterUnit: 單位
 lstrMaphackFilterRemoveItem: 選擇刪除
+
+;VariousAlerts
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: 顯示訊息
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: 聲音提醒
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: 顯示(秒)

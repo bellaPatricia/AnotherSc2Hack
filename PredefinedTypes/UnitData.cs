@@ -625,6 +625,7 @@ namespace PredefinedTypes
         ZuViper = 428, //Valid
         TuWidowMineBurrow = 429, //Valid
         ZbCreepTumorMissle = 483, //Valid
+        ZuFlyingLocust = 589, //Valid
 
         K5Kerrigan = 1567,
 
@@ -728,6 +729,9 @@ namespace PredefinedTypes
         ZupUpgradeToGreaterSpire,
         ZupUpgradeToBroodlord,
         ZupUpgradeToOverseer,
+        ZupFlyingLocust,
+
+        None,
 
     };
 }

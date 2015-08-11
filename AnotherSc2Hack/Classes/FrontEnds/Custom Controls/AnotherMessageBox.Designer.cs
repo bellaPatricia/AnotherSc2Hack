@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnotherMessageBox));
             this.lblMainText = new System.Windows.Forms.Label();
             this.pnlBottomContainer = new System.Windows.Forms.Panel();
             this.btnIgnore = new System.Windows.Forms.Button();
@@ -62,10 +63,10 @@
             this.pnlBottomContainer.Controls.Add(this.btnOk);
             this.pnlBottomContainer.Controls.Add(this.btnYes);
             this.pnlBottomContainer.Controls.Add(this.btnNo);
-            this.pnlBottomContainer.Location = new System.Drawing.Point(0, 117);
+            this.pnlBottomContainer.Location = new System.Drawing.Point(0, 451);
             this.pnlBottomContainer.Name = "pnlBottomContainer";
             this.pnlBottomContainer.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
-            this.pnlBottomContainer.Size = new System.Drawing.Size(622, 45);
+            this.pnlBottomContainer.Size = new System.Drawing.Size(1071, 45);
             this.pnlBottomContainer.TabIndex = 2;
             this.pnlBottomContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawVerticalBorders);
             // 
@@ -77,7 +78,7 @@
             this.btnIgnore.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnIgnore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIgnore.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIgnore.Location = new System.Drawing.Point(293, 8);
+            this.btnIgnore.Location = new System.Drawing.Point(742, 8);
             this.btnIgnore.Margin = new System.Windows.Forms.Padding(0);
             this.btnIgnore.Name = "btnIgnore";
             this.btnIgnore.Size = new System.Drawing.Size(100, 30);
@@ -93,7 +94,7 @@
             this.btnRetry.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnRetry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRetry.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRetry.Location = new System.Drawing.Point(15, 8);
+            this.btnRetry.Location = new System.Drawing.Point(464, 8);
             this.btnRetry.Margin = new System.Windows.Forms.Padding(0);
             this.btnRetry.Name = "btnRetry";
             this.btnRetry.Size = new System.Drawing.Size(100, 30);
@@ -109,7 +110,7 @@
             this.btnAbort.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnAbort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbort.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbort.Location = new System.Drawing.Point(221, 8);
+            this.btnAbort.Location = new System.Drawing.Point(670, 8);
             this.btnAbort.Margin = new System.Windows.Forms.Padding(0);
             this.btnAbort.Name = "btnAbort";
             this.btnAbort.Size = new System.Drawing.Size(100, 30);
@@ -126,7 +127,7 @@
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(113, 8);
+            this.btnCancel.Location = new System.Drawing.Point(562, 8);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 30);
@@ -143,7 +144,7 @@
             this.btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(165, 8);
+            this.btnOk.Location = new System.Drawing.Point(614, 8);
             this.btnOk.Margin = new System.Windows.Forms.Padding(0);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(100, 30);
@@ -160,7 +161,7 @@
             this.btnYes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYes.Location = new System.Drawing.Point(393, 8);
+            this.btnYes.Location = new System.Drawing.Point(842, 8);
             this.btnYes.Margin = new System.Windows.Forms.Padding(0);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(100, 30);
@@ -177,7 +178,7 @@
             this.btnNo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
             this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNo.Location = new System.Drawing.Point(507, 8);
+            this.btnNo.Location = new System.Drawing.Point(956, 8);
             this.btnNo.Margin = new System.Windows.Forms.Padding(0);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(100, 30);
@@ -191,11 +192,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(622, 162);
+            this.ClientSize = new System.Drawing.Size(1071, 496);
             this.Controls.Add(this.pnlBottomContainer);
             this.Controls.Add(this.lblMainText);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Windows.Forms.VisualStyles;
 
 namespace Utilities.ExtensionMethods
 {
@@ -25,10 +26,10 @@ namespace Utilities.ExtensionMethods
 
         public static String Fill(this string sourceText, string filler, int maxLength)
         {
-            var sb = new StringBuilder(sourceText);
-
             if (sourceText.Length >= maxLength)
-                return sb.ToString();
+                return sourceText;
+
+            var sb = new StringBuilder(sourceText);       
 
             var iCurrentLength = sourceText.Length;
             while ((iCurrentLength) < maxLength)
@@ -38,6 +39,31 @@ namespace Utilities.ExtensionMethods
             }
 
             sb.Remove(maxLength, iCurrentLength - maxLength);
+
+            return sb.ToString();
+        }
+
+        public static String Center(this string sourceText, string filler, int maxLength)
+        {
+            if (sourceText.Length >= maxLength)
+                return sourceText;
+
+            var sb = new StringBuilder(sourceText);
+
+            var iCurrentLength = sourceText.Length;
+            var bToggle = false;
+
+            while (iCurrentLength < maxLength)
+            {
+                bToggle ^= true;
+                iCurrentLength += filler.Length;
+
+                if (bToggle)
+                    sb.Insert(0, filler);
+
+                else
+                    sb.Append(filler);
+            }
 
             return sb.ToString();
         }

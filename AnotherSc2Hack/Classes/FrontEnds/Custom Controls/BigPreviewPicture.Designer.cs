@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BigPreviewPicture));
             this.pcbBigPicture = new System.Windows.Forms.PictureBox();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -115,6 +116,7 @@
             this.ClientSize = new System.Drawing.Size(753, 500);
             this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.pcbBigPicture);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BigPreviewPicture";
             this.Text = "Plugin Preview";
             this.Load += new System.EventHandler(this.BigPreviewPicture_Load);

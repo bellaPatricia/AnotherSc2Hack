@@ -83,6 +83,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static string StrWebPointsTerm = "</span>";
         public static string StrWebRankInDivTerm = "</span>";
 
+        public static int IdleRefreshRate { get; set; } = 1000;
+
         public class TooltipConsts
         {
             public static string StrRefreshrateTitle = "Refreshrate";

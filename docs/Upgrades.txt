@@ -1,4 +1,0 @@
-Basic research of the upgrades
-##############################
-
-Distance between upgrades: 8

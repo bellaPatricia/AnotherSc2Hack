@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationStartOptions\ApplicationStartOptions.cs" />
     <Compile Include="Events\DownloadManagerProgressChangedEventArgs.cs" />
     <Compile Include="Events\NumberArgs.cs" />
     <Compile Include="Events\ProcessFoundArgs.cs" />
@@ -52,8 +53,13 @@
     <Compile Include="ExtensionMethods\ExtentString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VariousClasses\Hashes\Hashes.cs" />
+    <Compile Include="Logger\Logger.cs" />
+    <Compile Include="Logger\LogMessage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>$(SolutionDir)IncrementVersionNumber\bin\Release\IncrementVersionNumber.exe $(SolutionDir) $(ProjectDir) AutoIncrementPattern.txt</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

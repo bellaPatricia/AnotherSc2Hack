@@ -1,4 +1,4 @@
-﻿;1.0.0.0
+﻿;1.0.2.1
 ;Translate file for the German Language
 ;Created by bellaPatricia
 ;Language Name (natively written)
@@ -35,6 +35,7 @@ NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: Arbeiter Coach an
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: Persönliche Uhr anzeigen
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Apm Alarm:
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: Personliche Apm anzeigen
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousAlerts: Meldungen
 
 ;Application tab 
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: Globale Einstellungen
@@ -44,7 +45,9 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: Neuzeic
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Speicher auslesen (ms):
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Einstellungen zurücksetzen
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Panelposition und -größe zurücksetzen
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: Panels anpassen
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Nur zeichnen, wenn SCII im Vordergrund
+NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: Zeige Webinhalt
 lstrApplicationRestoreSettingsText: Möchtest Du wirklich Deine Einstellungen zurück setzen?
 lstrApplicationRestoreSettingsHeader: Bist Du sicher?
 lstrApplicationRestorePanelPositionText: Größe und Position der Panels\nwurden erfolgreich angepasst!
@@ -53,6 +56,8 @@ lstrApplicationDoYouWishToUpdate: Möchten Sie wirklich updaten?
 lstrApplicationUpdateTitle: Updates verfügbar!
 lstrContributionTitle: Mitwirken
 lstrContributionText: Es sieht so aus, als würdest Du dieses Tool\nschon länger benutzen. Wenn Du einen\nBeitrag lesten möchtest, kannst Du mit\nÜbersetzungen, Spenden oder Bug Reports helfen.\n\nMöchtest Du mitwirken?
+lstrWriteErrorTitle: Schreibfehler
+lstrWriteErrorText: Konnte Einstellungen nicht abspeichern. Bittes versuche es erneut!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Maphack Iterationen / sek.
@@ -158,7 +163,7 @@ lstrCreditsReasonD3Scene: Gute Umgebung und viele hilfreiche Leute
 lstrCreditsReasonVariousPeople: ... die Ideen, Vorschläge und Feedback gaben - danke!
 lstrCreditsReasonDonators: Weil ich durch euch Süßigkeiten kaufen kann :3
 
-;Messagebox
+;Messagebox (Also used in VariousAlert)
 lstrAnotherMessageBoxOk: Ok
 lstrAnotherMessageBoxCancel: Abbrechen
 lstrAnotherMessageBoxAbort: Abbrechen
@@ -167,8 +172,13 @@ lstrAnotherMessageBoxIgnore: Ignorieren
 lstrAnotherMessageBoxYes: Ja
 lstrAnotherMessageBoxNo: Nein
 
-;Maphack tab
+;Maphack tab (Also used in Various Alerts)
 lstrChMaphackFilterUnit: Einheit
 lstrMaphackFilterRemoveItem: Entferne Selektion
 lstrMaphackFilterMessageAddUnitText: Einheit ist bereits in Benutzung!
 lstrMaphackFilterMessageAddUnitHeader: Autch!
+
+;VariousAlerts
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: Alerts anzeigen
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: Sound abspielen
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: Anzeige für (sek.)

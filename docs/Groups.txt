@@ -1,8 +1,0 @@
-Playergroups
-============
-
-Beginning with group 0 @ SC2.exe + 0x31CE258
-Amount of units in that group: + 0x00 as 2 Bytes
-
-The first uni starts at + 0x08 and occupies 4 bytes of space
-The unitIndex can be found at 0x02 (or 0x0A from the base) as 2 Bytes and has to be divided by 4!

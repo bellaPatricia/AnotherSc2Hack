@@ -1,12 +1,7 @@
-﻿#############################
-# Add into the next release #
-#############################
-├ [OPEN]	Add preview panels for the overlays. Additionally display the size and position
-├ [OPEN]	Unitcount and Draw fails
-
-################################
+﻿################################
 # Those really should be added #
 ################################
+├ [OPEN]	Add preview panels for the overlays. Additionally display the size and position
 ├ [OPEN]	Proxy for updates
 ├ [OPEN]	Proper Unitfilter to exclude a unit and unitgroups for maphack, production- and unittab
 ├ [OPEN]	Debug-tab: Nodes for lists so you can read them properly
@@ -40,16 +35,3 @@
 # Test purposes #
 #################
 └ [OPEN] Plugins: Make on AppDomain and load the plugins in there. Then try to send controls to the host
-
-############
-# Finished #
-############
-├ [DONE]	[2015-06-11]	Application wont find SC2 if it's started before SC2
-├ [DONE]	[2015-06-10]	Default test in Language String so there's a backup for missing text
-├ [DONE]	[2015-06-08]	Download Counter - open bit.ly for the with a webrequest (GET?) for a download
-└ [DONE]	[2015-06-08]	Integrated Downloadmanager
-							├ Download the needed files like:
-								├ Plugininterface.dll
-								├ PredefinedFiles.dll
-								└ Languagefiles
-							└ Check if the listed files are available, if not, download them.

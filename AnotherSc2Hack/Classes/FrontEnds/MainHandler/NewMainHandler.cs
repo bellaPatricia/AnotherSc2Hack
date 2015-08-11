@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +21,7 @@ using PluginInterface;
 using PredefinedTypes;
 using UpdateChecker;
 using Utilities.Events;
+using Utilities.Logger;
 using Utilities.VariousClasses.Hashes;
 using Timer = System.Windows.Forms.Timer;
 
@@ -42,8 +44,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly DownloadManager _ucDownloadManager = new DownloadManager();
         private string _strUpdateFiles = String.Empty;
         private bool _bLaunchDownloadManager;
-
-        private Boolean _bProcessSet;
+        private bool _bAdjustPanels;
 
         #region LanguageString
 
@@ -64,6 +65,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private readonly LanguageString _lstrCreditsReasonD3Scene = new LanguageString("lstrCreditsReasonD3Scene", "Good environment with a lot helpful people");
         private readonly LanguageString _lstrCreditsReasonVariousPeople = new LanguageString("lstrCreditsReasonVariousPeople", "...that gave ideas, suggestions and critism - thank you!");
         private readonly LanguageString _lstrCreditsReasonDonators = new LanguageString("lstrCreditsReasonDonators", "Because you people make me buy some candy :3");
+        private readonly LanguageString _lstrCreditsTranslators = new LanguageString("lstrCreditsTranslators", "kk321010 (Chinese), ironer1 (Korean), B.T. (French), O.Ж. (Russian)");
 
         private readonly LanguageString _lstrApplicationRestoreSettingsText = new LanguageString("lstrApplicationRestoreSettingsText", "Do you really want to reset your settings?");
         private readonly LanguageString _lstrApplicationRestoreSettingsHeader = new LanguageString("lstrApplicationRestoreSettingsHeader", "Are you sure?");
@@ -211,15 +213,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         #endregion
 
-        #region Other Properties
-
-        public ApplicationStartOptions ApplicationOptions { get; private set; }
-
-        #endregion
-
         #region Constructors
 
-        public NewMainHandler(ApplicationStartOptions app)
+        public NewMainHandler()
         {
             InitializeComponent();
 
@@ -240,9 +236,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             
             LoadContributers();
             LaunchOnStartup();
-
-            
         }
+
+      
+
+        #endregion
+
+        #region Delegates to handle multithreaded UI calls
+
+        private delegate void ShowAvailableUpdatesDelegate();
+
+        private delegate void CheckWebbrowserUrlDelegate(string strUrl);
 
         #endregion
 
@@ -250,9 +254,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             PSettings = new PreferenceManager();
 
-            
-
-            cpnlApplication.PerformClick();
+            //Find clickable Panel and perform click
+            ClickablePanel.Instances.Find(x => x.Name == PSettings.PreferenceAll.Global.ApplicationLastOpenedPanel).PerformClick();
             cpnlOverlaysResources.PerformClick();
 
             _tmrMainTick.Interval = PSettings.PreferenceAll.Global.DataRefresh;
@@ -282,6 +285,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             _lContainer.Add(new PersonalApmRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new PersonalClockRenderer(Gameinfo, PSettings, PSc2Process));
             _lContainer.Add(new WorkerCoachRenderer(Gameinfo, PSettings, PSc2Process));
+            _lContainer.Add(new AlertRenderer(Gameinfo, PSettings, PSc2Process));
 
             BaseRendererEventMapping();
 
@@ -521,6 +525,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             var panel = sender as ClickablePanel;
             if (panel != null)
             {
+                PSettings.PreferenceAll.Global.ApplicationLastOpenedPanel = panel.Name;
                 lblTabname.Text = panel.DisplayText;
 
                 if (panel.SettingsPanel != null)
@@ -592,7 +597,58 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
+        private void CheckWebbrowserUrl(string strUrl)
+        {
+            if (!PSettings.PreferenceAll.Global.ApplicationShowWebContent || strUrl == null || strUrl.Length <= 0)
+                return;
+
+            if (InvokeRequired)
+            {
+                BeginInvoke(new CheckWebbrowserUrlDelegate(CheckWebbrowserUrl), new object[] {strUrl});
+                return;
+            }
+
+            var req = (HttpWebRequest)WebRequest.Create(strUrl);
+            var res = (HttpWebResponse)req.GetResponse();
+
+            if (res.StatusCode == HttpStatusCode.OK)
+            {
+                wbNews.Url = new Uri(strUrl);
+                wbNews.Visible = true;
+            }
+
+        }
+
+        private void ShowAvailableUpdates()
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new ShowAvailableUpdatesDelegate(ShowAvailableUpdates));
+                return;
+            }
+
+            var result = new AnotherMessageBox().Show(_strUpdateFiles + "\n" + _lstrApplicationDoYouWishToUpdate, _lstrApplicationUpdateTitle.Text, MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                if (File.Exists(Constants.StrDownloadManager))
+                {
+                    _bLaunchDownloadManager = true;
+                    Close();
+                }
+            }
+
+            _strUpdateFiles = String.Empty;
+        }
+
         #region Event methods
+
+        private void btnAdjustPanels_Click(object sender, EventArgs e)
+        {
+            _bAdjustPanels ^= true;
+
+            btnAdjustPanels.ForeColor = _bAdjustPanels ? Color.ForestGreen : Color.Red;
+            TogglePanelBorders();
+        }
 
         private void ntxtMemoryRefresh_NumberChanged(object sender, NumberArgs e)
         {
@@ -662,15 +718,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnReposition_Click(object sender, EventArgs e)
         {
-            var tmpPreferences = PSettings;
-
-            HelpFunctions.InitResolution(ref tmpPreferences, _lstrApplicationRestorePanelPositionText.Text, _lstrApplicationRestorePanelPositionHeader.Text);
-            PSettings = tmpPreferences;
+            RestorePanelPositionAndSize();
         }
 
         private void chBxOnlyDrawInForeground_CheckedChanged(AnotherCheckbox o, EventChecked e)
         {
             PSettings.PreferenceAll.Global.DrawOnlyInForeground = o.Checked;
+        }
+
+        private void aChBxShowWebContent_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.Global.ApplicationShowWebContent = o.Checked;
+
+            if (o.Checked)
+                CheckWebbrowserUrl(_ucDownloadManager.ApplicationChangesUrl);
+
+            else
+            {
+                wbNews.Visible = false;
+                wbNews.Url = null;
+            }
         }
 
         private void btnRestoreSettings_Click(object sender, EventArgs e)
@@ -683,15 +750,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (result == DialogResult.Yes)
             {
                 PSettings.Restore();
+                RestorePanelPositionAndSize();
                 ControlsFill();
             }
         }
 
-        private void NewMainHandler_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (_bLaunchDownloadManager)
-                Process.Start(Constants.StrDownloadManager);
-        }
+        
 
         private void NewMainHandler_Load(object sender, EventArgs e)
         {
@@ -725,20 +789,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             if (dm.BUpdatesAvailable == UpdateState.Available)
             {
-                var result = new AnotherMessageBox().Show(_strUpdateFiles + "\n" + _lstrApplicationDoYouWishToUpdate, _lstrApplicationUpdateTitle.Text, MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    if (File.Exists(Constants.StrDownloadManager))
-                    {
-                        _bLaunchDownloadManager = true;
-                        MethodInvoker invoker = Close;
-
-                        Invoke(invoker);
-                    }
-                }
+                ShowAvailableUpdates();
             }
 
-            _strUpdateFiles = String.Empty;
+            CheckWebbrowserUrl(dm.ApplicationChangesUrl);
+
+            
+            
         }
 
         #endregion
@@ -2182,7 +2239,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     Path.Combine(Application.StartupPath, Constants.StrPluginFolder, strLocalPath));*/
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Couldn't install Plugin!", "Something went wrong!");
             }
@@ -2336,7 +2393,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 }
             }
 
-            catch (AppDomainUnloadedException un)
+            catch (AppDomainUnloadedException)
             {
                 MessageBox.Show("I am sorry you read this!\n\nCouldn't uninstall plugin.\nRemove by hand!");
             }
@@ -2352,8 +2409,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void DebugPlayerRefresh()
         {
-            if (Gameinfo == null || Gameinfo.Player == null)
+            if (Gameinfo == null || Gameinfo.Player == null || Gameinfo.Player.Count <= 0)
+            {
+                lstvDebugPlayderdata.Enabled = false;
                 return;
+            }
+
+            lstvDebugPlayderdata.Enabled = true;
 
             if (IDebugPlayerIndex > Gameinfo.Player.Count)
                 IDebugPlayerIndex = Gameinfo.Player.Count - 1;
@@ -2400,7 +2462,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void DebugUnitRefresh()
         {
             if (Gameinfo == null || Gameinfo.Unit == null || Gameinfo.Unit.Count <= 0)
+            {
+                lstvDebugUnitdata.Enabled = false;
                 return;
+            }
+
+            lstvDebugUnitdata.Enabled = true;
 
             if (IDebugUnitIndex > Gameinfo.Unit.Count)
                 IDebugUnitIndex = Gameinfo.Unit.Count - 1;
@@ -2662,10 +2729,23 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /// <param name="e"></param>
         private void renderer_IterationPerSecondChanged(object sender, NumberArgs e)
         {
+            var fExpectedIterations = (float)1000/PSettings.PreferenceAll.Global.DrawingRefresh;
+            var fPercentageReached = (e.Number/fExpectedIterations) * 100;
+            var clForeground = Color.Black;
+            if (fPercentageReached > 80)
+                clForeground = Color.ForestGreen;
+
+            else if (fPercentageReached > 50)
+                clForeground = Color.DarkOrange;
+
+            else
+                clForeground = Color.Red;
+
             var resourcesRenderer = sender as ResourcesRenderer;
             if (resourcesRenderer != null)
             {
                 ntxtBenchmarkResourceIterations.Number = e.Number;
+                ntxtBenchmarkResourceIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2673,6 +2753,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (incomeRenderer != null)
             {
                 ntxtBenchmarkIncomeIterations.Number = e.Number;
+                ntxtBenchmarkIncomeIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2680,6 +2761,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (workerRenderer != null)
             {
                 ntxtBenchmarkWorkerIterations.Number = e.Number;
+                ntxtBenchmarkWorkerIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2687,6 +2769,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (armyRenderer != null)
             {
                 ntxtBenchmarkArmyIterations.Number = e.Number;
+                ntxtBenchmarkArmyIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2694,6 +2777,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (apmRenderer != null)
             {
                 ntxtBenchmarkApmIterations.Number = e.Number;
+                ntxtBenchmarkApmIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2701,6 +2785,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (unitRenderer != null)
             {
                 ntxtBenchmarkUnitTabIterations.Number = e.Number;
+                ntxtBenchmarkUnitTabIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2708,6 +2793,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (productionRenderer != null)
             {
                 ntxtBenchmarkProductionTabIterations.Number = e.Number;
+                ntxtBenchmarkProductionTabIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2715,6 +2801,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (maphackRenderer != null)
             {
                 ntxtBenchmarkMaphackIterations.Number = e.Number;
+                ntxtBenchmarkMaphackIterations.ForeColor = clForeground;
                 return;
             }
 
@@ -2760,7 +2847,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter = e.Number;
         }
-  
+
+        private void aChBxVariousShowAlerts_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayAlert.ShowAlert = e.Value;
+            LaunchRenderer(typeof(AlertRenderer));
+        }
+
+        private void aChBxVariousAlertSoundNotification_CheckedChanged(AnotherCheckbox o, EventChecked e)
+        {
+            PSettings.PreferenceAll.OverlayAlert.SoundNotification = e.Value;
+        }
+
+        private void ntxtVariousAlertShowDuration_NumberChanged(object sender, NumberArgs e)
+        {
+            PSettings.PreferenceAll.OverlayAlert.Time = e.Number;
+        }
+
+        private void btnVariousOpenAlerts_Click(object sender, EventArgs e)
+        {
+            var aConf = new AlertConfiguration(PSettings);
+            aConf.Icon = Icon;
+            var result = aConf.ShowDialog();
+
+            if (result != DialogResult.Cancel)
+            {
+                PSettings = aConf.PSettings;
+            }
+        }
+
 
         #endregion
 
@@ -2787,7 +2902,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void btnHelpMeLocalize_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Some cool file HERE");
+            Process.Start(
+                "http://www.d3scene.com/forum/starcraft-2-hacks/65535-anothersc2hack-wol-hots-2-1-10-35237-a-163.html#post733195");
         }
 
         private void btnHelpMeCopyBitcoin_Click(object sender, EventArgs e)
@@ -2821,6 +2937,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             var dict = new Dictionary<string, string>();
 
+            dict.Add("D3Scene", _lstrCreditsReasonD3Scene.Text);
+            dict.Add("Translators", _lstrCreditsTranslators.Text);
+            dict.Add("Donators", _lstrCreditsReasonDonators.Text);
             dict.Add("RHCP (D3Scene)", _lstrCreditsReasonRhcp.Text);
             dict.Add("Beaving (D3Scene)", _lstrCreditsReasonBeaving.Text);
             dict.Add("Mr Nukealizer (D3Scene)", _lstrCreditsReasonMrnukealizer.Text);
@@ -2828,9 +2947,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             dict.Add("mischa (D3Scene)", _lstrCreditsReasonMischa.Text);
             dict.Add("mr_ice (D3Scene)", _lstrCreditsReasonMrice.Text);
             dict.Add("Tracky (D3Scene)", _lstrCreditsReasonTracky.Text);
-            dict.Add("D3Scene", _lstrCreditsReasonD3Scene.Text);
             dict.Add("Various people", _lstrCreditsReasonVariousPeople.Text);
-            dict.Add("Donators", _lstrCreditsReasonDonators.Text);
+            
 
 
             foreach (KeyValuePair<string, string> keyValuePair in dict)
@@ -2882,6 +3000,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ntxtGraphicsRefresh.Number = PSettings.PreferenceAll.Global.DrawingRefresh;
             ktxtReposition.Text = PSettings.PreferenceAll.Global.ChangeSizeAndPosition.ToString();
             aChBxOnlyDrawInForeground.Checked = PSettings.PreferenceAll.Global.DrawOnlyInForeground;
+            aChBxShowWebContent.Checked = PSettings.PreferenceAll.Global.ApplicationShowWebContent;
+
+            if (!PSettings.PreferenceAll.Global.ApplicationSize.Equals(new Size(0, 0)))
+                Size = PSettings.PreferenceAll.Global.ApplicationSize;
+
+            else
+                Size = new Size(1196, 630);
+
+            if (!PSettings.PreferenceAll.Global.ApplicationLocation.Equals(new Point(0, 0)))
+                Location = PSettings.PreferenceAll.Global.ApplicationLocation;
+
+            else 
+                CenterToScreen();
 
             InitializeLanguageFiles();
             InitializeResources();
@@ -2915,7 +3046,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     var strLanguageName = String.Empty;
                     var strLanguageFile = String.Empty;
 
-                    var strSource = File.ReadAllLines(file);
+                    var strSource = File.ReadAllLines(file, Encoding.UTF8);
                     foreach (var strLine in strSource)
                     {
                         if (strLine.StartsWith("LanguageName:"))
@@ -3047,9 +3178,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             pnlOverlayMaphack.pnlLauncher.ktxtHotkey2.Text = PSettings.PreferenceAll.OverlayMaphack.Hotkey2.ToString();
             pnlOverlayMaphack.pnlLauncher.ktxtHotkey3.Text = PSettings.PreferenceAll.OverlayMaphack.Hotkey3.ToString();
 
-            pnlOverlayResource.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayMaphack.ChangePosition;
-            pnlOverlayResource.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayMaphack.ChangeSize;
-            pnlOverlayResource.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayMaphack.TogglePanel;
+            pnlOverlayMaphack.pnlLauncher.txtReposition.Text = PSettings.PreferenceAll.OverlayMaphack.ChangePosition;
+            pnlOverlayMaphack.pnlLauncher.txtResize.Text = PSettings.PreferenceAll.OverlayMaphack.ChangeSize;
+            pnlOverlayMaphack.pnlLauncher.txtToggle.Text = PSettings.PreferenceAll.OverlayMaphack.TogglePanel;
 
             for (var i = 0; i < PSettings.PreferenceAll.OverlayMaphack.UnitIds.Count; i++)
             {
@@ -3152,6 +3283,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             aChBxVariousWorkerCoach.Checked = PSettings.PreferenceAll.OverlayWorkerCoach.WorkerCoach;
             ntxtVariousWorkerCoachDisableAfter.Number = PSettings.PreferenceAll.OverlayWorkerCoach.DisableAfter;
+
+            aChBxVariousAlertSoundNotification.Checked = PSettings.PreferenceAll.OverlayAlert.SoundNotification;
+            aChBxVariousShowAlerts.Checked = PSettings.PreferenceAll.OverlayAlert.ShowAlert;
+            ntxtVariousAlertShowDuration.Number = PSettings.PreferenceAll.OverlayAlert.Time;
         }
 
         #endregion
@@ -3256,6 +3391,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         }
 
+        private void NewMainHandler_LocationChanged(object sender, EventArgs e)
+        {
+            PSettings.PreferenceAll.Global.ApplicationLocation = Location;
+        }
+
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawLine(new Pen(new SolidBrush(Color.FromArgb(200, 200, 200))), new Point(15, 60),
@@ -3265,6 +3405,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private void NewMainHandler_Resize(object sender, EventArgs e)
         {
             pnlMainArea.Invalidate();
+            PSettings.PreferenceAll.Global.ApplicationSize = Size;
         }
 
         //Draw a new border on the top and bottom of the panel
@@ -3278,7 +3419,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void NewMainHandler_FormClosing(object sender, FormClosingEventArgs e)
         {
-            PSettings.Write();
+            if (!PSettings.Write())
+            {
+                e.Cancel = true;
+                return;
+            }
 
             foreach (var plugin in _lPlugins)
             {
@@ -3292,6 +3437,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             _tmrMainTick.Enabled = false;
             Gameinfo.HandleThread(false);
+            _lContainer.CloseNicely();
+        }
+
+        private void NewMainHandler_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (_bLaunchDownloadManager)
+                Process.Start(Constants.StrDownloadManager);
         }
 
         void _wcMainWebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
@@ -3310,17 +3462,64 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         {
             pbMainProgress.Value = e.ProgressPercentage;
             Console.WriteLine("We are at the ProgressChanged!");
-        }
-
-        
+        }        
 
         void Gameinfo_IterationPerSecondChanged(object sender, NumberArgs e)
         {
+            var fExpectedIterations = (float)1000 / PSettings.PreferenceAll.Global.DrawingRefresh;
+            var fPercentageReached = (e.Number / fExpectedIterations) * 100;
+            var clForeground = Color.Black;
+            if (fPercentageReached > 80)
+                clForeground = Color.ForestGreen;
+
+            else if (fPercentageReached > 50)
+                clForeground = Color.DarkOrange;
+
+            else
+                clForeground = Color.Red;
+
+
             ntxtBenchmarkDataIterations.Number = e.Number;
+            ntxtBenchmarkDataIterations.ForeColor = clForeground;
+        }
+
+        void Gameinfo_ProcessFound(object sender, ProcessFoundArgs e)
+        {
+            PSc2Process = e.Process;
         }
 
         #endregion
 
-       
+        
+
+        
+
+        private void TogglePanelBorders()
+        {
+            foreach (var renderer in _lContainer)
+            {
+                renderer.FormBorderStyle = _bAdjustPanels ? FormBorderStyle.Sizable : FormBorderStyle.None;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Logger.Emit("Cool Test title", new Exception("kek"));
+        }
+
+        private void RestorePanelPositionAndSize()
+        {
+            var tmpPreferences = PSettings;
+
+            HelpFunctions.InitResolution(ref tmpPreferences, _lstrApplicationRestorePanelPositionText.Text, _lstrApplicationRestorePanelPositionHeader.Text);
+            PSettings = tmpPreferences;
+
+            foreach (var renderer in _lContainer)
+            {
+                renderer.ReloadPreferencesIntoControls();
+            }
+        }
+
+        
     } 
 }

@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
+using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using Utilities.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
-    class PersonalClockRenderer : BaseRenderer
+    internal class PersonalClockRenderer : BaseRenderer
     {
         public PersonalClockRenderer(GameInfo gInformation, PreferenceManager pSettings, Process sc2Process)
             : base(gInformation, pSettings, sc2Process)
         {
-
         }
 
         protected override void Draw(BufferedGraphics g)
@@ -34,18 +30,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
             var iSingleHeight = Height;
-            var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
+            var fNewFontSize = (float) ((29.0/100)*iSingleHeight);
 
             var dtTimeStamp = DateTime.Now;
-            
+
             var strTime = dtTimeStamp.ToLongTimeString();
             g.Graphics.DrawString(
-               "Time: " + strTime,
-               new Font("Century Gothic", fNewFontSize, FontStyle.Regular),
-               Brushes.White,
-               Brushes.Black, (float)((13.67 / 100) * Width),
-                (float)((24.0 / 100) * iSingleHeight),
-               1f, 1f, true);
+                "Time: " + strTime,
+                new Font("Century Gothic", fNewFontSize, FontStyle.Regular),
+                Brushes.White,
+                Brushes.Black, (float) ((13.67/100)*Width),
+                (float) ((24.0/100)*iSingleHeight),
+                1f, 1f, true);
         }
 
         protected override void LoadSpecificData()
@@ -74,9 +70,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected override void LoadPreferencesIntoControls()
         {
             Location = new Point(PSettings.PreferenceAll.OverlayPersonalClock.X,
-                                     PSettings.PreferenceAll.OverlayPersonalClock.Y);
+                PSettings.PreferenceAll.OverlayPersonalClock.Y);
             Size = new Size(PSettings.PreferenceAll.OverlayPersonalClock.Width,
-                            PSettings.PreferenceAll.OverlayPersonalClock.Height);
+                PSettings.PreferenceAll.OverlayPersonalClock.Height);
         }
 
         protected override void MouseUpTransferData()
@@ -84,10 +80,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             PSettings.PreferenceAll.OverlayPersonalClock.X = Location.X;
             PSettings.PreferenceAll.OverlayPersonalClock.Y = Location.Y;
             PSettings.PreferenceAll.OverlayPersonalClock.Width = Width;
-            PSettings.PreferenceAll.OverlayPersonalClock.Height = Height; 
+            PSettings.PreferenceAll.OverlayPersonalClock.Height = Height;
         }
 
-        protected override void MouseWheelTransferData(System.Windows.Forms.MouseEventArgs e)
+        protected override void MouseWheelTransferData(MouseEventArgs e)
         {
             if (e.Delta.Equals(120))
             {

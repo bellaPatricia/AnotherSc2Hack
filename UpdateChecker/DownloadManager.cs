@@ -22,6 +22,7 @@ namespace UpdateChecker
         #region Properties
 
         public UpdateState BUpdatesAvailable { get; private set; }
+        public string ApplicationChangesUrl { get; private set; }
         public List<PluginDatastore> PluginDatastoresOnline { get; private set; }
         public List<PluginDatastore> PluginDatastoresOffline { get; private set; }
 
@@ -136,6 +137,9 @@ namespace UpdateChecker
             _onlineApplicationVersioning.ParseOnlineApplicationVersioning(StrApplicationDatastore);
             _offlineApplicationVersioning.ParseOfflineApplicationVersioning(_onlineApplicationVersioning);
 
+            ApplicationChangesUrl = _onlineApplicationVersioning.ApplicationChanges;
+            
+
             if (_onlineApplicationVersioning.ApplicationVersion > _offlineApplicationVersioning.ApplicationVersion)
             {
                 OnUpdateAvailable(this,
@@ -234,7 +238,7 @@ namespace UpdateChecker
 
                 _strDownloadedFileName = Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.ApplicationUrl);
                 _wcDownloader.DownloadFileAsync(new Uri(_onlineApplicationVersioning.ApplicationUrl), _offlineApplicationVersioning.ApplicationUrl);
-                while (_wcDownloader.IsBusy) { Thread.Sleep(10);}
+                while (_wcDownloader.IsBusy) { Thread.Sleep(30);}
 
                 //Increment download couonter
                 var webRequest = WebRequest.Create(_onlineApplicationVersioning.ApplicationCounter);
@@ -257,7 +261,7 @@ namespace UpdateChecker
 
                 _strDownloadedFileName = Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.DownloadManagerUrl);
                 _wcDownloader.DownloadFileAsync(new Uri(_onlineApplicationVersioning.DownloadManagerUrl), _offlineApplicationVersioning.DownloadManagerUrl);
-                while (_wcDownloader.IsBusy) { Thread.Sleep(10); }
+                while (_wcDownloader.IsBusy) { Thread.Sleep(30); }
             }
 
             foreach (var dynamicLinkLibrary in _onlineApplicationVersioning.DynamicLinkLibraries)
@@ -270,7 +274,7 @@ namespace UpdateChecker
                     _strDownloadedFileName = dynamicLinkLibrary.DllName;
                     _wcDownloader.DownloadFileAsync(new Uri(dynamicLinkLibrary.DllDownloadPath),
                         Path.Combine(Application.StartupPath, dynamicLinkLibrary.DllName + ".dll"));
-                    while (_wcDownloader.IsBusy) { Thread.Sleep(10); }
+                    while (_wcDownloader.IsBusy) { Thread.Sleep(30); }
                 }
 
                 else
@@ -282,7 +286,7 @@ namespace UpdateChecker
 
                         _strDownloadedFileName = dynamicLinkLibrary.DllName;
                         _wcDownloader.DownloadFileAsync(new Uri(dynamicLinkLibrary.DllDownloadPath), Path.Combine(Application.StartupPath, dynamicLinkLibrary.DllName + ".dll"));
-                        while (_wcDownloader.IsBusy) { Thread.Sleep(10); }
+                        while (_wcDownloader.IsBusy) { Thread.Sleep(30); }
                     }
                 }
             }

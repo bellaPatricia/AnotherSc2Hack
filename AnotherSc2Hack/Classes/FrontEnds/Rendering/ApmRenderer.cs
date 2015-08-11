@@ -7,6 +7,7 @@ using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using PredefinedTypes;
 using Utilities.ExtensionMethods;
+using Utilities.Logger;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -19,7 +20,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Draws the panelspecific data.
+        ///     Draws the panelspecific data.
         /// </summary>
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
@@ -35,14 +36,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     return;
 
                 Opacity = PSettings.PreferenceAll.OverlayApm.Opacity;
-                var iSingleHeight = Height / iValidPlayerCount;
-                var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
+                var iSingleHeight = Height/iValidPlayerCount;
+                var fNewFontSize = (float) ((29.0/100)*iSingleHeight);
                 var fInternalFont = new Font(PSettings.PreferenceAll.OverlayApm.FontName, fNewFontSize, FontStyle.Bold);
                 var fInternalFontNormal = new Font(fInternalFont.Name, fNewFontSize, FontStyle.Regular);
 
                 if (!BChangingPosition)
                 {
-                    Height = PSettings.PreferenceAll.OverlayApm.Height * iValidPlayerCount;
+                    Height = PSettings.PreferenceAll.OverlayApm.Height*iValidPlayerCount;
                     Width = PSettings.PreferenceAll.OverlayApm.Width;
                 }
 
@@ -54,7 +55,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Teamcolor
 
                     RendererHelper.TeamColor(GInformation.Player, i,
-                                              GInformation.Gameinfo.IsTeamcolor, ref clPlayercolor);
+                        GInformation.Gameinfo.IsTeamcolor, ref clPlayercolor);
 
                     #endregion
 
@@ -74,8 +75,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (CheckIfGameheart(GInformation.Player[i]))
                         continue;
-
-
 
 
                     if (PSettings.PreferenceAll.OverlayApm.RemoveAi)
@@ -112,8 +111,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             continue;
                     }
 
-
-
                     #endregion
 
                     #region Draw Bounds and Background
@@ -121,13 +118,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (PSettings.PreferenceAll.OverlayApm.DrawBackground)
                     {
                         /* Background */
-                        g.Graphics.FillRectangle(Brushes.Gray, 1, 1 + (iSingleHeight * iCounter), Width - 2,
-                                                 iSingleHeight - 2);
+                        g.Graphics.FillRectangle(Brushes.Gray, 1, 1 + (iSingleHeight*iCounter), Width - 2,
+                            iSingleHeight - 2);
 
                         /* Border */
                         g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), 1,
-                                                 1 + (iSingleHeight * iCounter),
-                                                 Width - 2, iSingleHeight - 2);
+                            1 + (iSingleHeight*iCounter),
+                            Width - 2, iSingleHeight - 2);
                     }
 
                     #endregion
@@ -136,16 +133,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Name
 
-                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") || PSettings.PreferenceAll.OverlayApm.RemoveClanTag)
-                                         ? GInformation.Player[i].Name
-                                         : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
+                    var strName = (GInformation.Player[i].ClanTag.StartsWith("\0") ||
+                                   PSettings.PreferenceAll.OverlayApm.RemoveClanTag)
+                        ? GInformation.Player[i].Name
+                        : "[" + GInformation.Player[i].ClanTag + "] " + GInformation.Player[i].Name;
 
                     g.Graphics.DrawString(
                         strName,
                         fInternalFont,
                         new SolidBrush(clPlayercolor),
-                        Brushes.Black, (float)((1.67 / 100) * Width),
-                        (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        Brushes.Black, (float) ((1.67/100)*Width),
+                        (float) ((24.0/100)*iSingleHeight) + iSingleHeight*iCounter,
                         1f, 1f, true);
 
                     #endregion
@@ -155,8 +153,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     g.Graphics.DrawString(
                         "#" + GInformation.Player[i].Team, fInternalFontNormal,
                         Brushes.White,
-                        Brushes.Black, (float)((29.67 / 100) * Width),
-                        (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        Brushes.Black, (float) ((29.67/100)*Width),
+                        (float) ((24.0/100)*iSingleHeight) + iSingleHeight*iCounter,
                         1f, 1f, true);
 
                     #endregion
@@ -167,57 +165,53 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         "APM: " + GInformation.Player[i].ApmAverage +
                         " [" + GInformation.Player[i].Apm + "]", fInternalFontNormal,
                         Brushes.White,
-                        Brushes.Black, (float)((37.0 / 100) * Width),
-                        (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        Brushes.Black, (float) ((37.0/100)*Width),
+                        (float) ((24.0/100)*iSingleHeight) + iSingleHeight*iCounter,
                         1f, 1f, true);
-
 
                     #endregion
 
                     #region Epm
 
                     g.Graphics.DrawString(
-                       "EPM: " + GInformation.Player[i].EpmAverage +
+                        "EPM: " + GInformation.Player[i].EpmAverage +
                         " [" + GInformation.Player[i].Epm + "]", fInternalFontNormal,
                         Brushes.White,
-                        Brushes.Black, (float)((63.67 / 100) * Width),
-                                          (float)((24.0 / 100) * iSingleHeight) + iSingleHeight * iCounter,
+                        Brushes.Black, (float) ((63.67/100)*Width),
+                        (float) ((24.0/100)*iSingleHeight) + iSingleHeight*iCounter,
                         1f, 1f, true);
 
                     #endregion
 
                     #endregion
 
-
                     iCounter++;
                 }
-
             }
 
             catch (Exception ex)
             {
-                Messages.LogFile("Over all", ex);
+                Logger.Emit(ex);
             }
-
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseUpTransferData()
         {
             /* Has to be calculated manually because each panels has it's own Neutral handling.. */
             var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
-            PSettings.PreferenceAll.OverlayApm.X  = Location.X;
-            PSettings.PreferenceAll.OverlayApm.Y  = Location.Y;
+            PSettings.PreferenceAll.OverlayApm.X = Location.X;
+            PSettings.PreferenceAll.OverlayApm.Y = Location.Y;
             PSettings.PreferenceAll.OverlayApm.Width = Width;
-            PSettings.PreferenceAll.OverlayApm.Height = Height / iValidPlayerCount;
+            PSettings.PreferenceAll.OverlayApm.Height = Height/iValidPlayerCount;
             PSettings.PreferenceAll.OverlayApm.Opacity = Opacity;
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseWheelTransferData(MouseEventArgs e)
         {
@@ -235,8 +229,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Size directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Size directly!
         /// </summary>
         protected override void AdjustPanelSize()
         {
@@ -250,10 +244,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (PSettings.PreferenceAll.OverlayApm.RemoveNeutral)
                     iValidPlayerCount -= 1;
 
-                if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
+                if ((Cursor.Position.Y - Top)/iValidPlayerCount >= 5)
                 {
-                    PSettings.PreferenceAll.OverlayApm.Height = (Cursor.Position.Y - Top) /
-                                                        iValidPlayerCount;
+                    PSettings.PreferenceAll.OverlayApm.Height = (Cursor.Position.Y - Top)/
+                                                                iValidPlayerCount;
                 }
 
                 else
@@ -262,7 +256,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupSizeChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -290,19 +284,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads the settings of the specific Form into the controls (Location, Size)
+        ///     Loads the settings of the specific Form into the controls (Location, Size)
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
             Location = new Point(PSettings.PreferenceAll.OverlayApm.X,
-                                     PSettings.PreferenceAll.OverlayApm.Y);
+                PSettings.PreferenceAll.OverlayApm.Y);
             Size = new Size(PSettings.PreferenceAll.OverlayApm.Width, PSettings.PreferenceAll.OverlayApm.Height);
             Opacity = PSettings.PreferenceAll.OverlayApm.Opacity;
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Position directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Position directly!
         /// </summary>
         protected override void AdjustPanelPosition()
         {
@@ -317,7 +311,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -343,20 +337,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads some specific data into the Form.
+        ///     Loads some specific data into the Form.
         /// </summary>
         protected override void LoadSpecificData()
         {
-            
         }
 
-        void ApmRenderer_IsHiddenChanged(object sender, EventArgs e)
+        private void ApmRenderer_IsHiddenChanged(object sender, EventArgs e)
         {
             PSettings.PreferenceAll.OverlayApm.LaunchStatus = !IsHidden;
         }
 
         /// <summary>
-        /// Changes settings for a specific Form.
+        ///     Changes settings for a specific Form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -367,7 +360,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var iRealPlayerCount = iValidPlayerCount == 0 ? 1 : iValidPlayerCount;
 
-            PSettings.PreferenceAll.OverlayApm.Height = (Height / iRealPlayerCount);
+            PSettings.PreferenceAll.OverlayApm.Height = (Height/iRealPlayerCount);
             PSettings.PreferenceAll.OverlayApm.Width = Width;
             PSettings.PreferenceAll.OverlayApm.X = Location.X;
             PSettings.PreferenceAll.OverlayApm.Y = Location.Y;

@@ -1,4 +1,4 @@
-﻿;1.0.0.0
+﻿;1.0.3.1
 ;Translate file for the Korean Language
 ;Created by ironer1(ironer01@naver.com)
 ;Language Name (natively written)
@@ -35,6 +35,7 @@ NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: 일꾼 수 보이
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: 시계 보이기
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: APM 경고
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: APM 보이기
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousAlerts: [Alerts]
 
 ;Application tab 
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: 기본 설정
@@ -44,7 +45,9 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: 랜더�
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: 메모리 읽기 (ms):
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: 설정 초기화
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: 판넬 위치와 크기 초기화
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: 판넬 조정
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: 스타2 플레이중에만 핵 표시
+NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: 웹 내용 보이기
 lstrApplicationRestoreSettingsText: 설정을 초기화 하시겠습니까?
 lstrApplicationRestoreSettingsHeader: 확실하세요?
 lstrApplicationRestorePanelPositionText: 판넬의 위치와 크기가 성공적으로 초기화되었습니다.
@@ -53,6 +56,8 @@ lstrApplicationDoYouWishToUpdate: 당신은 업데이트 하시겠습니까?
 lstrApplicationUpdateTitle: 업데이트 가능합니다!
 lstrContributionTitle: 도와주세요!
 lstrContributionText: 이 스타2 툴을 사용하신지 꽤 되신것 같네요! \n 만약 영어나 컴퓨터에 뛰어나셔서\n오번역을 수정하시거나,\n버그 리포팅을(기부도 환영입니다!).\n\n도와주실수 있으세요?
+lstrWriteErrorTitle: 쓰기작업 실패
+lstrWriteErrorText: 설정 파일 작성에 실패하었습니다.\n다시 시도해 주세요!
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: 맵핵 반복 / 초.
@@ -158,7 +163,7 @@ lstrCreditsReasonD3Scene: 많은 친절한 사람들과 좋은 환경을 조성�
 lstrCreditsReasonVariousPeople: ...아이디어를 주시고 버그를 제보해주셔서 - 매우 감사합니다!
 lstrCreditsReasonDonators: 맥주 한캔 사먹게 기부해주신분들도 다시한번 감사드립니다!  :D
 
-;Messagebox
+;Messagebox (Also used in VariousAlert)
 lstrAnotherMessageBoxOk: 네
 lstrAnotherMessageBoxCancel: 취소
 lstrAnotherMessageBoxAbort: 무르기
@@ -167,8 +172,13 @@ lstrAnotherMessageBoxIgnore: 무시
 lstrAnotherMessageBoxYes: 네
 lstrAnotherMessageBoxNo: 아니요
 
-;Maphack tab
+;Maphack tab (Also used in Various Alerts)
 lstrChMaphackFilterUnit: 유닛
 lstrMaphackFilterRemoveItem: 선택 삭제
 lstrMaphackFilterMessageAddUnitText: 해당 유닛은 이미 추가되어 있습니다!
 lstrMaphackFilterMessageAddUnitHeader: 이런!
+
+;VariousAlerts
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: 경고 보이기
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: 알림 소리 활성화
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: (초)동안 화면에 띄웁니다

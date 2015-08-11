@@ -19,14 +19,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Draws the panelspecific data.
+        ///     Draws the panelspecific data.
         /// </summary>
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
         {
             try
             {
-
                 if (!GInformation.Gameinfo.IsIngame)
                 {
                     g.Graphics.Clear(BackColor);
@@ -39,8 +38,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 Opacity = PSettings.PreferenceAll.OverlayWorker.Opacity;
                 var iSingleHeight = Height;
-                var fNewFontSize = (float)((29.0 / 100) * iSingleHeight);
-                var fInternalFont = new Font(PSettings.PreferenceAll.OverlayWorker.FontName, fNewFontSize, FontStyle.Bold);
+                var fNewFontSize = (float) ((29.0/100)*iSingleHeight);
+                var fInternalFont = new Font(PSettings.PreferenceAll.OverlayWorker.FontName, fNewFontSize,
+                    FontStyle.Bold);
 
                 Color clPlayercolor;
 
@@ -72,7 +72,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     /* Border */
                     g.Graphics.DrawRectangle(new Pen(new SolidBrush(clPlayercolor), 2), 1, 1, Width - 2,
-                                             iSingleHeight - 2);
+                        iSingleHeight - 2);
                 }
 
                 #endregion
@@ -80,15 +80,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 #region Worker
 
                 g.Graphics.DrawString(
-                        Player.LocalPlayer.Worker + "   Workers",
-                        fInternalFont,
-                        new SolidBrush(clPlayercolor),
-                        Brushes.Black, (float)((16.67 / 100) * Width),
-                                      (float)((24.0 / 100) * iSingleHeight),
-                        1f, 1f, true);
+                    Player.LocalPlayer.Worker + "   Workers",
+                    fInternalFont,
+                    new SolidBrush(clPlayercolor),
+                    Brushes.Black, (float) ((16.67/100)*Width),
+                    (float) ((24.0/100)*iSingleHeight),
+                    1f, 1f, true);
 
                 #endregion
-
             }
 
             catch (Exception ex)
@@ -98,7 +97,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseUpTransferData()
         {
@@ -110,7 +109,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseWheelTransferData(MouseEventArgs e)
         {
@@ -128,8 +127,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Size directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Size directly!
         /// </summary>
         protected override void AdjustPanelSize()
         {
@@ -141,10 +140,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 var iValidPlayerCount = GInformation.Gameinfo.ValidPlayerCount;
 
-                if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
+                if ((Cursor.Position.Y - Top)/iValidPlayerCount >= 5)
                 {
-                    PSettings.PreferenceAll.OverlayWorker.Height = (Cursor.Position.Y - Top) /
-                                                        iValidPlayerCount;
+                    PSettings.PreferenceAll.OverlayWorker.Height = (Cursor.Position.Y - Top)/
+                                                                   iValidPlayerCount;
                 }
 
                 else
@@ -153,7 +152,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupSizeChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -181,19 +180,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads the settings of the specific Form into the controls (Location, Size)
+        ///     Loads the settings of the specific Form into the controls (Location, Size)
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
             Location = new Point(PSettings.PreferenceAll.OverlayWorker.X,
-                                     PSettings.PreferenceAll.OverlayWorker.Y);
+                PSettings.PreferenceAll.OverlayWorker.Y);
             Size = new Size(PSettings.PreferenceAll.OverlayWorker.Width, PSettings.PreferenceAll.OverlayWorker.Height);
             Opacity = PSettings.PreferenceAll.OverlayWorker.Opacity;
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Position directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Position directly!
         /// </summary>
         protected override void AdjustPanelPosition()
         {
@@ -208,7 +207,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -234,20 +233,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads some specific data into the Form.
+        ///     Loads some specific data into the Form.
         /// </summary>
         protected override void LoadSpecificData()
         {
-            
         }
 
-        void WorkerRenderer_IsHiddenChanged(object sender, EventArgs e)
+        private void WorkerRenderer_IsHiddenChanged(object sender, EventArgs e)
         {
             PSettings.PreferenceAll.OverlayWorker.LaunchStatus = !IsHidden;
         }
 
         /// <summary>
-        /// Changes settings for a specific Form.
+        ///     Changes settings for a specific Form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

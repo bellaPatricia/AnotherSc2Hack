@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
@@ -20,7 +19,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Draws the panelspecific data.
+        ///     Draws the panelspecific data.
         /// </summary>
         /// <param name="g"></param>
         protected override void Draw(BufferedGraphics g)
@@ -51,36 +50,33 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 var tmpMap = GInformation.Map;
 
-
                 #region Introduction
 
                 #region Variables
 
                 float fScale,
-                      fX,
-                      fY;
+                    fX,
+                    fY;
 
                 #endregion
 
                 #region Get minimap Bounds
 
-                var fa = Height / (float)Width;
-                var fb = ((float)tmpMap.PlayableHeight / tmpMap.PlayableWidth);
+                var fa = Height/(float) Width;
+                var fb = ((float) tmpMap.PlayableHeight/tmpMap.PlayableWidth);
 
                 if (fa >= fb)
                 {
-                    fScale = (float)Width / tmpMap.PlayableWidth;
+                    fScale = (float) Width/tmpMap.PlayableWidth;
                     fX = 0;
-                    fY = (Height - fScale * tmpMap.PlayableHeight) / 2;
+                    fY = (Height - fScale*tmpMap.PlayableHeight)/2;
                 }
                 else
                 {
-                    fScale = (float)Height / tmpMap.PlayableHeight;
+                    fScale = (float) Height/tmpMap.PlayableHeight;
                     fY = 0;
-                    fX = (Width - fScale * tmpMap.PlayableWidth) / 2;
+                    fX = (Width - fScale*tmpMap.PlayableWidth)/2;
                 }
-
-
 
                 #endregion
 
@@ -90,11 +86,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     /* Draw Rectangle */
                     g.Graphics.DrawRectangle(Constants.PBound, 0, 0, Width - Constants.PBound.Width,
-                                             Height - Constants.PBound.Width);
+                        Height - Constants.PBound.Width);
 
                     /* Draw Playable Area */
-                    g.Graphics.DrawRectangle(Constants.PArea, fX, fY, Width - fX * 2 - Constants.PArea.Width,
-                                             Height - fY * 2 - Constants.PArea.Width);
+                    g.Graphics.DrawRectangle(Constants.PArea, fX, fY, Width - fX*2 - Constants.PArea.Width,
+                        Height - fY*2 - Constants.PArea.Width);
                 }
 
                 #endregion
@@ -113,11 +109,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         var tmpUnit = GInformation.Unit[i];
 
-
-
-
                         #region Escape Sequences
-
 
                         /* Ai */
                         if (PSettings.PreferenceAll.OverlayMaphack.RemoveAi)
@@ -157,7 +149,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         /* Dead Units */
-                        if ((tmpUnit.TargetFilter & (ulong)TargetFilterFlag.Dead) > 0)
+                        if ((tmpUnit.TargetFilter & (ulong) TargetFilterFlag.Dead) > 0)
                             continue;
 
 
@@ -165,19 +157,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         if (tmpUnit.Movestate.Equals(0))
                             continue;
 
-
-
-
                         #endregion
 
                         #region Scalling (Unitposition + UnitDestination)
 
-                        var iUnitPosX = (tmpUnit.PositionX - tmpMap.Left) * fScale + fX;
-                        var iUnitPosY = (tmpMap.Top - tmpUnit.PositionY) * fScale + fY;
+                        var iUnitPosX = (tmpUnit.PositionX - tmpMap.Left)*fScale + fX;
+                        var iUnitPosY = (tmpMap.Top - tmpUnit.PositionY)*fScale + fY;
 
-                        var iUnitDestPosX = (tmpUnit.DestinationPositionX - tmpMap.Left) * fScale +
+                        var iUnitDestPosX = (tmpUnit.DestinationPositionX - tmpMap.Left)*fScale +
                                             fX;
-                        var iUnitDestPosY = (tmpMap.Top - tmpUnit.DestinationPositionY) * fScale +
+                        var iUnitDestPosY = (tmpMap.Top - tmpUnit.DestinationPositionY)*fScale +
                                             fY;
 
                         if (float.IsNaN(iUnitPosX) ||
@@ -187,7 +176,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         {
                             continue;
                         }
-
 
                         #endregion
 
@@ -199,13 +187,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         if (tmpUnit.DestinationPositionX > 10 &&
                             tmpUnit.DestinationPositionY > 10)
                             g.Graphics.DrawLine(new Pen(new SolidBrush(clDestination)), iUnitPosX, iUnitPosY,
-                                                iUnitDestPosX,
-                                                iUnitDestPosY);
+                                iUnitDestPosX,
+                                iUnitDestPosY);
 
                         g.Graphics.CompositingQuality = CompositingQuality.HighSpeed;
                         g.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
                         g.Graphics.SmoothingMode = SmoothingMode.HighSpeed;
-
                     }
                 }
 
@@ -224,7 +211,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Ai))
                             continue; //clUnitBoundBorder = Color.Transparent;
-
                     }
 
                     /* Allie */
@@ -236,7 +222,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 Player.LocalPlayer.Team &&
                                 GInformation.Player[tmpUnit.Owner] != Player.LocalPlayer)
                                 continue; //clUnitBoundBorder = Color.Transparent;
-
                         }
                     }
 
@@ -245,7 +230,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         if (tmpUnit.Owner == Player.LocalPlayer.Index)
                             continue; //clUnitBoundBorder = Color.Transparent;
-
                     }
 
                     /* Neutral Units */
@@ -253,28 +237,25 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Neutral))
                             continue; //clUnitBoundBorder = Color.Transparent;
-
                     }
 
                     /* Dead Units */
-                    if ((tmpUnit.TargetFilter & (ulong)TargetFilterFlag.Dead) > 0)
+                    if ((tmpUnit.TargetFilter & (ulong) TargetFilterFlag.Dead) > 0)
                         continue;
 
                     #endregion
 
                     #region Actual Drawing
 
-
                     if (tmpUnit.Id == UnitId.ZbCreeptumor ||
                         tmpUnit.Id == UnitId.ZbCreepTumorBuilding ||
                         tmpUnit.Id == UnitId.ZbCreepTumorMissle ||
                         tmpUnit.Id == UnitId.ZbCreeptumorBurrowed)
                     {
-
                         #region Scalling (Unitposition)
 
-                        var iUnitPosX = (tmpUnit.PositionX - tmpMap.Left) * fScale + fX;
-                        var iUnitPosY = (tmpMap.Top - tmpUnit.PositionY) * fScale + fY;
+                        var iUnitPosX = (tmpUnit.PositionX - tmpMap.Left)*fScale + fX;
+                        var iUnitPosY = (tmpMap.Top - tmpUnit.PositionY)*fScale + fY;
 
                         if (float.IsNaN(iUnitPosX) ||
                             float.IsNaN(iUnitPosY))
@@ -282,25 +263,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             continue;
                         }
 
-
                         #endregion
 
-
-                        const Int32 iRadius = 4;
-
+                        const int iRadius = 4;
 
 
-
-
-                        g.Graphics.DrawLine(Constants.PBlack2, iUnitPosX - iRadius, iUnitPosY - iRadius, iUnitPosX + iRadius, iUnitPosY + iRadius);
-                        g.Graphics.DrawLine(Constants.PBlack2, iUnitPosX + iRadius, iUnitPosY - iRadius, iUnitPosX - iRadius, iUnitPosY + iRadius);
-
-
+                        g.Graphics.DrawLine(Constants.PBlack2, iUnitPosX - iRadius, iUnitPosY - iRadius,
+                            iUnitPosX + iRadius, iUnitPosY + iRadius);
+                        g.Graphics.DrawLine(Constants.PBlack2, iUnitPosX + iRadius, iUnitPosY - iRadius,
+                            iUnitPosX - iRadius, iUnitPosY + iRadius);
                     }
 
-
                     #endregion
-
                 }
 
                 #endregion
@@ -314,7 +288,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     if (tmpUnit.Owner >= (GInformation.Player.Count))
                         continue;
-
 
                     #region Escape Sequences
 
@@ -353,7 +326,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                     /* Dead Units */
-                    if ((tmpUnit.TargetFilter & (ulong)TargetFilterFlag.Dead) > 0)
+                    if ((tmpUnit.TargetFilter & (ulong) TargetFilterFlag.Dead) > 0)
                         continue;
 
                     /* Creep tumor */
@@ -361,15 +334,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         UnitId.ZbCreeptumorBurrowed)
                         continue;
 
-
-
-
                     #endregion
 
                     #region Scalling (Unitposition)
 
-                    var iUnitPosX = (tmpUnit.PositionX - tmpMap.Left) * fScale + fX;
-                    var iUnitPosY = (tmpMap.Top - tmpUnit.PositionY) * fScale + fY;
+                    var iUnitPosX = (tmpUnit.PositionX - tmpMap.Left)*fScale + fX;
+                    var iUnitPosY = (tmpMap.Top - tmpUnit.PositionY)*fScale + fY;
 
                     if (float.IsNaN(iUnitPosX) ||
                         float.IsNaN(iUnitPosY))
@@ -377,10 +347,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         continue;
                     }
 
-
                     #endregion
-
-
 
                     var fUnitSize = tmpUnit.Size;
                     var size = 2.0f;
@@ -402,7 +369,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     size += 0.5f;
 
-
                     #region Actual drawing
 
                     g.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
@@ -412,17 +378,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (tmpUnit.IsCloaked &&
                         tmpUnit.Id != UnitId.ZbCreeptumorBurrowed)
                     {
-                        g.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.Gray)), iUnitPosX - size / 2,
-                                                 iUnitPosY - size / 2, size, size);
+                        g.Graphics.DrawRectangle(new Pen(new SolidBrush(Color.Gray)), iUnitPosX - size/2,
+                            iUnitPosY - size/2, size, size);
 
-                        g.Graphics.DrawRectangle(new Pen(new SolidBrush(clUnitBound)), iUnitPosX - size / 2 - 0.5f,
-                                                 iUnitPosY - size / 2 - 0.5f, size + 1, size + 1);
+                        g.Graphics.DrawRectangle(new Pen(new SolidBrush(clUnitBound)), iUnitPosX - size/2 - 0.5f,
+                            iUnitPosY - size/2 - 0.5f, size + 1, size + 1);
                     }
 
                     else
                     {
-                        g.Graphics.DrawRectangle(new Pen(new SolidBrush(clUnitBound)), iUnitPosX - size / 2,
-                                                 iUnitPosY - size / 2, size, size);
+                        g.Graphics.DrawRectangle(new Pen(new SolidBrush(clUnitBound)), iUnitPosX - size/2,
+                            iUnitPosY - size/2, size, size);
                     }
 
                     g.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
@@ -450,14 +416,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #region Teamcolor
 
                     RendererHelper.TeamColor(GInformation.Player, GInformation.Unit, i,
-                                              GInformation.Gameinfo.IsTeamcolor, ref clUnit);
+                        GInformation.Gameinfo.IsTeamcolor, ref clUnit);
 
                     #endregion
 
                     #region Scalling (Unitposition)
 
-                    var iUnitPosX = (tmpUnit.PositionX - tmpMap.Left) * fScale + fX;
-                    var iUnitPosY = (tmpMap.Top - tmpUnit.PositionY) * fScale + fY;
+                    var iUnitPosX = (tmpUnit.PositionX - tmpMap.Left)*fScale + fX;
+                    var iUnitPosY = (tmpMap.Top - tmpUnit.PositionY)*fScale + fY;
 
 
                     if (float.IsNaN(iUnitPosX) ||
@@ -505,16 +471,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                     /* Dead Units */
-                    if ((tmpUnit.TargetFilter & (ulong)TargetFilterFlag.Dead) > 0)
+                    if ((tmpUnit.TargetFilter & (ulong) TargetFilterFlag.Dead) > 0)
                         continue;
 
                     /* Creep tumor */
                     if (tmpUnit.Id ==
-                         UnitId.ZbCreeptumorBurrowed)
+                        UnitId.ZbCreeptumorBurrowed)
                         continue;
-
-
-
 
                     #endregion
 
@@ -544,12 +507,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     g.Graphics.CompositingQuality = CompositingQuality.HighSpeed;
 
                     /* Draw the Unit (Actual Unit) */
-                    g.Graphics.FillRectangle(new SolidBrush(clUnit), iUnitPosX - size / 2, iUnitPosY - size / 2, size, size);
+                    g.Graphics.FillRectangle(new SolidBrush(clUnit), iUnitPosX - size/2, iUnitPosY - size/2, size, size);
 
                     g.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
                     g.Graphics.SmoothingMode = SmoothingMode.HighSpeed;
                     g.Graphics.CompositingQuality = CompositingQuality.HighSpeed;
-
                 }
 
                 #endregion
@@ -564,11 +526,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (tmpUnit.Owner >= (GInformation.Player.Count))
                         continue;
 
-
                     #region Scalling (Unitposition)
 
-                    var iUnitPosX = (tmpUnit.PositionX - tmpMap.Left) * fScale + fX;
-                    var iUnitPosY = (tmpMap.Top - tmpUnit.PositionY) * fScale + fY;
+                    var iUnitPosX = (tmpUnit.PositionX - tmpMap.Left)*fScale + fX;
+                    var iUnitPosY = (tmpMap.Top - tmpUnit.PositionY)*fScale + fY;
 
 
                     if (float.IsNaN(iUnitPosX) ||
@@ -586,7 +547,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Ai))
                             continue; //clUnitBoundBorder = Color.Transparent;
-
                     }
 
                     /* Allie */
@@ -598,7 +558,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 Player.LocalPlayer.Team &&
                                 GInformation.Player[tmpUnit.Owner] != Player.LocalPlayer)
                                 continue; //clUnitBoundBorder = Color.Transparent;
-
                         }
                     }
 
@@ -606,7 +565,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (PSettings.PreferenceAll.OverlayMaphack.RemoveLocalplayer)
                     {
                         if (tmpUnit.Owner == Player.LocalPlayer.Index)
-                            continue; 
+                            continue;
                     }
 
                     /* Neutral Units */
@@ -614,21 +573,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         if (GInformation.Player[tmpUnit.Owner].Type.Equals(PlayerType.Neutral))
                             continue; //clUnitBoundBorder = Color.Transparent;
-
                     }
 
 
                     /* Dead Units */
-                    if ((tmpUnit.TargetFilter & (ulong)TargetFilterFlag.Dead) > 0)
+                    if ((tmpUnit.TargetFilter & (ulong) TargetFilterFlag.Dead) > 0)
                         continue;
 
-
-
-
-
-
                     #endregion
-
 
                     var fUnitSize = tmpUnit.Size;
                     var size = 2.0f;
@@ -646,7 +598,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         size = 10;
 
                     size += 0.5f;
-
 
                     #region Border special Units
 
@@ -672,7 +623,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
 
                             else
-                                bExpression = tmpUnit.Id == PSettings.PreferenceAll.OverlayMaphack.UnitIds[j] ? true : false;
+                                bExpression = tmpUnit.Id == PSettings.PreferenceAll.OverlayMaphack.UnitIds[j]
+                                    ? true
+                                    : false;
 
                             if (bExpression)
                             {
@@ -691,11 +644,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                                     g.Graphics.DrawRectangle(
                                         new Pen(new SolidBrush(clUnit), 1.5f),
-                                        (iUnitPosX - size / 2), (iUnitPosY - size / 2), size, size);
+                                        (iUnitPosX - size/2), (iUnitPosY - size/2), size, size);
 
                                     g.Graphics.DrawRectangle(new Pen(new SolidBrush(clUnitBoundBorder)),
-                                                             iUnitPosX - ((size / 2) + 0.75f),
-                                                             iUnitPosY - ((size / 2) + 0.75f), size + 1.75f, size + 1.75f);
+                                        iUnitPosX - ((size/2) + 0.75f),
+                                        iUnitPosY - ((size/2) + 0.75f), size + 1.75f, size + 1.75f);
                                 }
                             }
                         }
@@ -752,7 +705,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             var clUnitBound = Color.Yellow;
 
 
-                            if ((tmpUnit.TargetFilter & (UInt64)TargetFilterFlag.Dead) > 0)
+                            if ((tmpUnit.TargetFilter & (ulong) TargetFilterFlag.Dead) > 0)
                                 continue;
 
 
@@ -760,15 +713,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             {
                                 if (tmpUnit.Owner == Player.LocalPlayer.Index)
                                     continue;
-
                             }
 
                             g.Graphics.DrawRectangle(new Pen(new SolidBrush(clUnitBound), 1.5f),
-                                                     (iUnitPosX - size / 2), (iUnitPosY - size / 2), size, size);
+                                (iUnitPosX - size/2), (iUnitPosY - size/2), size, size);
 
                             g.Graphics.DrawRectangle(new Pen(new SolidBrush(clUnitBoundBorder)),
-                                                     iUnitPosX - ((size / 2) + 0.75f),
-                                                     iUnitPosY - ((size / 2) + 0.75f), size + 1.75f, size + 1.75f);
+                                iUnitPosX - ((size/2) + 0.75f),
+                                iUnitPosY - ((size/2) + 0.75f), size + 1.75f, size + 1.75f);
                         }
                     }
 
@@ -779,11 +731,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     #endregion
 
                     var ptPoints = new PointF[3];
-                    var fRadius = size * 2;
+                    var fRadius = size*2;
 
                     if (tmpUnit.IsHallucination)
                     {
-                        ptPoints[0] = new PointF(iUnitPosX + (size / 2), iUnitPosY - fRadius - 1);
+                        ptPoints[0] = new PointF(iUnitPosX + (size/2), iUnitPosY - fRadius - 1);
                         ptPoints[1] = new PointF(iUnitPosX - fRadius, iUnitPosY + fRadius);
                         ptPoints[2] = new PointF(iUnitPosX + fRadius + 1, iUnitPosY + fRadius);
                     }
@@ -797,12 +749,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     g.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
 
                     #endregion
-
                 }
 
                 #endregion
-
-
 
                 #region Draw Player camera
 
@@ -888,8 +837,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         #region Drawing
 
                         //The actrual position of the Cameras
-                        var fPlayerX = (GInformation.Player[i].CameraPositionX - tmpMap.Left) * fScale + fX;
-                        var fPlayerY = (tmpMap.Top - GInformation.Player[i].CameraPositionY) * fScale + fY;
+                        var fPlayerX = (GInformation.Player[i].CameraPositionX - tmpMap.Left)*fScale + fX;
+                        var fPlayerY = (tmpMap.Top - GInformation.Player[i].CameraPositionY)*fScale + fY;
 
 
                         if (fPlayerX <= 0 || fPlayerX >= Width ||
@@ -904,19 +853,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         ptPoints[3] = new PointF(fPlayerX - 24f, fPlayerY + 10f);
 
 
-
-
                         g.Graphics.DrawPolygon(new Pen(new SolidBrush(clPlayercolor), 2), ptPoints);
 
                         #endregion
-
                     }
                 }
 
                 #endregion
 
                 #endregion
-
             }
 
             catch (Exception ex)
@@ -926,7 +871,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseUpTransferData()
         {
@@ -938,7 +883,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
+        ///     Sends the panel specific data into the Form's controls and settings
         /// </summary>
         protected override void MouseWheelTransferData(MouseEventArgs e)
         {
@@ -956,8 +901,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Size directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Size directly!
         /// </summary>
         protected override void AdjustPanelSize()
         {
@@ -971,10 +916,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 if (PSettings.PreferenceAll.OverlayMaphack.RemoveNeutral)
                     iValidPlayerCount -= 1;
 
-                if ((Cursor.Position.Y - Top) / iValidPlayerCount >= 5)
+                if ((Cursor.Position.Y - Top)/iValidPlayerCount >= 5)
                 {
-                    PSettings.PreferenceAll.OverlayMaphack.Height = (Cursor.Position.Y - Top) /
-                                                        iValidPlayerCount;
+                    PSettings.PreferenceAll.OverlayMaphack.Height = (Cursor.Position.Y - Top)/
+                                                                    iValidPlayerCount;
                 }
 
                 else
@@ -983,7 +928,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupSizeChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -1011,19 +956,19 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads the settings of the specific Form into the controls (Location, Size)
+        ///     Loads the settings of the specific Form into the controls (Location, Size)
         /// </summary>
         protected override void LoadPreferencesIntoControls()
         {
             Location = new Point(PSettings.PreferenceAll.OverlayMaphack.X,
-                                     PSettings.PreferenceAll.OverlayMaphack.Y);
+                PSettings.PreferenceAll.OverlayMaphack.Y);
             Size = new Size(PSettings.PreferenceAll.OverlayMaphack.Width, PSettings.PreferenceAll.OverlayMaphack.Height);
             Opacity = PSettings.PreferenceAll.OverlayMaphack.Opacity;
         }
 
         /// <summary>
-        /// Sends the panel specific data into the Form's controls and settings
-        /// Also changes the Position directly!
+        ///     Sends the panel specific data into the Form's controls and settings
+        ///     Also changes the Position directly!
         /// </summary>
         protected override void AdjustPanelPosition()
         {
@@ -1038,7 +983,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
             var strInput = StrBackupChatbox;
 
-            if (String.IsNullOrEmpty(strInput))
+            if (string.IsNullOrEmpty(strInput))
                 return;
 
             if (strInput.Contains('\0'))
@@ -1064,20 +1009,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         }
 
         /// <summary>
-        /// Loads some specific data into the Form.
+        ///     Loads some specific data into the Form.
         /// </summary>
         protected override void LoadSpecificData()
         {
             IsHiddenChanged += MaphackRenderer_IsHiddenChanged;
         }
 
-        void MaphackRenderer_IsHiddenChanged(object sender, EventArgs e)
+        private void MaphackRenderer_IsHiddenChanged(object sender, EventArgs e)
         {
             PSettings.PreferenceAll.OverlayMaphack.LaunchStatus = !IsHidden;
         }
 
         /// <summary>
-        /// Changes settings for a specific Form.
+        ///     Changes settings for a specific Form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

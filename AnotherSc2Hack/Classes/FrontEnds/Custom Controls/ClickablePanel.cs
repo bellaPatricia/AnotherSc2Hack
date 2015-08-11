@@ -214,7 +214,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         private Brush _selectionColor = Brushes.Orange;
         private Boolean _bInitCalled = false;
 
-        private static readonly List<ClickablePanel> Instances = new List<ClickablePanel>();
+        public static readonly List<ClickablePanel> Instances = new List<ClickablePanel>();
 
         ~ClickablePanel()
         {
