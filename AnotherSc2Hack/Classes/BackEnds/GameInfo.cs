@@ -131,7 +131,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         void GameInfo_ProcessFound(object sender, ProcessFoundArgs e)
         {
-            MyOffsets.AssignAddresses(e.Process);
+            MyOffsets.AssignAddresses();
         }
 
 
@@ -141,7 +141,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (Memory.Process == null)
             {
                 Process proc;
-                if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                if (Processing.GetProcess(Constants.StrStarcraft2ProcessNames[0], out proc))
                 {
                     Memory.Process = proc;
                     Memory.DesiredAccess = Memory.VmRead;
@@ -280,7 +280,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 if (Memory.Handle == IntPtr.Zero)
                 {
                     Process proc;
-                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessNames[0], out proc))
                     {
                         Memory.Process = proc;
                         Memory.DesiredAccess = Memory.VmRead;
@@ -333,7 +333,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 if (CStarcraft2 == null || CStarcraft2.HasExited)
                 {
                     Process proc;
-                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessNames[0], out proc))
                     {
                         
 

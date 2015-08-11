@@ -223,11 +223,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             Init();
             OverlaysEventMapping();
             LanguageStringEventMapping();
-            ControlsFill();
-            
-            
-
-            ApplicationOptions = app;
+            ControlsFill();           
 
             Gameinfo.CSleepTime = PSettings.PreferenceAll.Global.DataRefresh;
             Gameinfo.IterationPerSecondChanged += Gameinfo_IterationPerSecondChanged;
@@ -2215,13 +2211,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 plugin.Plugin.SetGameinfo(Gameinfo.Gameinfo);
 
                 /* Set Access values for Gameinfo */
-                Gameinfo.CAccessPlayers |= plugin.Plugin.GetRequiresPlayer();
+              /*  Gameinfo.CAccessPlayers |= plugin.Plugin.GetRequiresPlayer();
                 Gameinfo.CAccessSelection |= plugin.Plugin.GetRequiresSelection();
                 Gameinfo.CAccessUnits |= plugin.Plugin.GetRequiresUnit();
                 Gameinfo.CAccessUnitCommands |= plugin.Plugin.GetRequiresUnit();
                 Gameinfo.CAccessGameinfo |= plugin.Plugin.GetRequiresGameinfo();
                 Gameinfo.CAccessGroups |= plugin.Plugin.GetRequiresGroups();
-                Gameinfo.CAccessMapInfo |= plugin.Plugin.GetRequiresMap();
+                Gameinfo.CAccessMapInfo |= plugin.Plugin.GetRequiresMap();*/
             }
         }
 
@@ -2456,7 +2452,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             }
 
-            txtDebugPlayerMemory.Text = PredefinedData.PlayerStruct.ClassObjectCount.ToString();
+            txtDebugPlayerMemory.Text = PredefinedTypes.Player.ClassObjectCount.ToString();
         }
 
         private void DebugUnitRefresh()
@@ -2509,7 +2505,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             }
 
-            txtDebugUnitMemory.Text = PredefinedData.Unit.ClassObjectCount.ToString();
+            txtDebugUnitMemory.Text = Unit.ClassObjectCount.ToString();
         }
 
         private void DebugMapRefresh()
@@ -2517,7 +2513,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             if (Gameinfo == null)
                 return;
 
-            var fields = typeof(PredefinedData.Map).GetFields(BindingFlags.Public | BindingFlags.Instance);
+            var fields = typeof(Map).GetFields(BindingFlags.Public | BindingFlags.Instance);
 
             if (lstvDebugMapdata.Items.Count > 0)
             {
@@ -3185,8 +3181,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             for (var i = 0; i < PSettings.PreferenceAll.OverlayMaphack.UnitIds.Count; i++)
             {
                 var id =
-               (PredefinedData.UnitId)
-                   Enum.Parse(typeof(PredefinedData.UnitId), PSettings.PreferenceAll.OverlayMaphack.UnitIds[i].ToString());
+               (UnitId)
+                   Enum.Parse(typeof(UnitId), PSettings.PreferenceAll.OverlayMaphack.UnitIds[i].ToString());
 
                 pnlOverlayMaphack.LUnitFilter.Add(id, PSettings.PreferenceAll.OverlayMaphack.UnitColors[i]);
             }
@@ -3300,12 +3296,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 _dtSecond = DateTime.Now;
 
                 if (cpnlDebug.IsClicked)
-                {
+                {/*
                     Gameinfo.CAccessGameinfo = true;
                     Gameinfo.CAccessMapInfo = true;
                     Gameinfo.CAccessPlayers = true;
                     Gameinfo.CAccessUnits = true;
-                    Gameinfo.CAccessUnitCommands = true;
+                    Gameinfo.CAccessUnitCommands = true;*/
 
                     DebugPlayerRefresh();
                     DebugUnitRefresh();
@@ -3323,14 +3319,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
 
             for (var i = 0; i < _lContainer.Count; i++)
-            {
+            {/*
                 Gameinfo.CAccessGameinfo |= _lContainer[i].GInformation.CAccessGameinfo;
                 Gameinfo.CAccessGroups |= _lContainer[i].GInformation.CAccessGroups;
                 Gameinfo.CAccessMapInfo |= _lContainer[i].GInformation.CAccessMapInfo;
                 Gameinfo.CAccessPlayers |= _lContainer[i].GInformation.CAccessPlayers;
                 Gameinfo.CAccessSelection |= _lContainer[i].GInformation.CAccessSelection;
                 Gameinfo.CAccessUnitCommands |= _lContainer[i].GInformation.CAccessUnitCommands;
-                Gameinfo.CAccessUnits |= _lContainer[i].GInformation.CAccessUnits;
+                Gameinfo.CAccessUnits |= _lContainer[i].GInformation.CAccessUnits;*/
             }
 
 
@@ -3338,57 +3334,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             InputManager();
             PluginDataRefresh();
 
-            #region Reset Process and gameinfo if Sc2 is not started
-
-            if (!Processing.GetProcesses(Constants.StrStarcraft2ProcessNames))
-            {
-                ChangeVisibleState(false);
-                _bProcessSet = false;
-                Gameinfo.HandleThread(false);
-
-                _tmrMainTick.Interval = 300;
-                Debug.WriteLine("Process not found - 300ms Delay!");
-            }
-
-
-            else
-            {
-                if (!_bProcessSet)
-                {
-                    _bProcessSet = true;
-
-                    List<Process> procs;
-                    if (Processing.GetProcesses(Constants.StrStarcraft2ProcessNames, out procs))
-                        PSc2Process = procs[0];
-
-
-                    if (Gameinfo == null)
-                    {
-                        Gameinfo = new GameInfo(PSettings.PreferenceAll.Global.DataRefresh, ApplicationOptions)
-                        {
-                            MyOffsets = new Offsets()
-                        };
-                    }
-
-                    else if (Gameinfo != null &&
-                             !Gameinfo.CThreadState)
-                    {
-                        Gameinfo.Memory.Handle = IntPtr.Zero;
-                        Gameinfo.CStarcraft2 = PSc2Process;
-                        Gameinfo.MyOffsets = new Offsets();
-                        Gameinfo.HandleThread(true);
-                    }
-
-
-                    ChangeVisibleState(true);
-                    _tmrMainTick.Interval = PSettings.PreferenceAll.Global.DataRefresh;
-
-                    Debug.WriteLine("Process found - " + PSettings.PreferenceAll.Global.DataRefresh + "ms Delay!");
-                }
-            }
-
-            #endregion
-
+           
         }
 
         private void NewMainHandler_LocationChanged(object sender, EventArgs e)
