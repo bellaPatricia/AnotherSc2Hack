@@ -520,7 +520,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 Helper_DrawUnits(_lPuForcefield, GInformation.Player.Count, ref iPosX, iPosY, iSize,
                     _imgPuForceField, g,
                     Color.White, fStringFont, false);
-                iPosY += iSize + 2;
+                iPosY += iSize + 5;
 
                 if (FormBorderStyle == FormBorderStyle.None)
                 {
@@ -1071,9 +1071,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                     g.Graphics.DrawLine(new Pen(Brushes.Yellow, 2), posX + 2, posY + size - 3 + iOffset,
-                        posX + 2 + (int) ftemp,
+                        posX + 1 + (int) ftemp,
                         posY + size - 3 + iOffset);
-                    g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);
+                    g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 5, 3);
                 }
             }
 
@@ -1098,9 +1098,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
 
                 g.Graphics.DrawLine(new Pen(Brushes.LimeGreen, 2), posX + 2, posY + size - 3 + iOffset,
-                    posX + 3 + (int)ftemp,
+                    posX + 1 + (int)ftemp,
                     posY + size - 3 + iOffset);
-                g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 3, 3);
+                g.Graphics.DrawRectangle(new Pen(Brushes.Black, 1), posX + 2, posY + size - 5 + iOffset, size - 5, 3);
             }
 
 
