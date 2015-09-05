@@ -1,4 +1,4 @@
-﻿;1.0.0.0
+﻿;1.0.0.1
 ;Translate file for the LatAm Language
 ;Created by www.ricebox-fansubs.com
 ;Language Name (natively written)
@@ -35,6 +35,7 @@ NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousWorkerCoach: Mostrar entrenar 
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalClock: Mostrar reloj personal
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousPersonalApmAlert: Alarma de APM
 NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowPersonalApm: Mostrar APM personal
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousAlerts: <<Alerts>>
 
 ;Application tab 
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGlobalSettings: Configuración global
@@ -44,7 +45,9 @@ NewMainHandler#pnlMainArea#pnlApplication#lblApplicationGraphicsRefresh: Volver 
 NewMainHandler#pnlMainArea#pnlApplication#lblApplicationMemoryReading: Leer memoria (ms):
 NewMainHandler#pnlMainArea#pnlApplication#btnRestoreSettings: Restaurar configuración
 NewMainHandler#pnlMainArea#pnlApplication#btnReposition: Restaurar la posición y el tamaño de los paneles
+NewMainHandler#pnlMainArea#pnlApplication#btnAdjustPanels: <<Adjust Panel>>
 NewMainHandler#pnlMainArea#pnlApplication#aChBxOnlyDrawInForeground: Graficar sólo cuando SCII esté en primer plano
+NewMainHandler#pnlMainArea#pnlApplication#aChBxShowWebContent: <<Show Web Content>>
 lstrApplicationRestoreSettingsText: ¿Quieres reiniciar tu configuración?
 lstrApplicationRestoreSettingsHeader: ¿Estás seguro?
 lstrApplicationRestorePanelPositionText: ¡La posición y el tamaño del panel\nse ajustaron satisfactoriamente!
@@ -53,6 +56,8 @@ lstrApplicationDoYouWishToUpdate: ¿Deseas actualizar?
 lstrApplicationUpdateTitle: ¡Actualización disponible!
 lstrContributionTitle: Contribución
 lstrContributionText: Parece que has estado utilizando esta herramienta\nun buen tiempo. Si gustas, puedes\ncontribuir con el proyecto mediante traducciones,\ndonaciones o reportes de errores.\n\n¿Quieres contribuir?
+lstrWriteErrorTitle: <<Write Error>>
+lstrWriteErrorText: <<Couldn't write the settings properly.\nPlease try again!>>
 
 ;Benchmark tab
 NewMainHandler#pnlMainArea#pnlBenchmark#lblBenchmarkMaphackIterations: Iteraciones del Maphack / seg.
@@ -172,3 +177,8 @@ lstrChMaphackFilterUnit: Unidad
 lstrMaphackFilterRemoveItem: Quitar selección
 lstrMaphackFilterMessageAddUnitText: ¡La unidad está lista para usar!
 lstrMaphackFilterMessageAddUnitHeader: ¡Ay!
+
+;VariousAlerts
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousShowAlerts: <<Show Alerts>>
+NewMainHandler#pnlMainArea#pnlVarious#aChBxVariousAlertSoundNotification: <<Sound  Notification>>
+NewMainHandler#pnlMainArea#pnlVarious#lblVariousShowAlert: <<Display for (sec.)>>
