@@ -518,7 +518,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 /* Forcefield */
                 iPosX = iPosXAfterName;
                 Helper_DrawUnits(_lPuForcefield, GInformation.Player.Count, ref iPosX, iPosY, iSize,
-                    _imgPuForceField, g,
+                    _imgPupForcefield, g,
                     Color.White, fStringFont, false);
                 iPosY += iSize + 5;
 

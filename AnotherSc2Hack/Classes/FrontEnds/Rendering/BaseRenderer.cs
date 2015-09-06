@@ -415,7 +415,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             _imgPuMothershipcore = Resources.pu_mothershipcore,
             _imgPuMothership = Resources.pu_Mothership,
             _imgPuArchon = Resources.pu_Archon,
-            _imgPuForceField = Resources.PuForceField;
+            _imgPupForcefield = Resources.PuForceField;
 
         #endregion
 
@@ -1278,7 +1278,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgPuMothershipcore = Resources.pu_mothershipcore;
                 _imgPuMothership = Resources.pu_Mothership;
                 _imgPuArchon = Resources.pu_Archon;
-                _imgPuForceField = Resources.PuForceField;
 
                 _imgPbNexus = Resources.pb_Nexus;
                 _imgPbPylon = Resources.pb_Pylon;
@@ -1320,6 +1319,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgPupGravitonCatapult = Resources.Pup_GravitonCatapult;
                 _imgPupWarpGate = Resources.Pup_Warpgate;
                 _imgPupStorm = Resources.Pup_Storm;
+                _imgPupForcefield = Resources.PuForceField;
 
                 #endregion
 
@@ -1500,7 +1500,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgPuMothershipcore = Resources.trans_pu_mothershipcore;
                 _imgPuMothership = Resources.trans_pu_mothership;
                 _imgPuArchon = Resources.trans_pu_archon;
-                _imgPuForceField = Resources.PuForceField;
 
                 _imgPbNexus = Resources.trans_pb_nexus;
                 _imgPbPylon = Resources.trans_pb_pylon;
@@ -1542,6 +1541,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgPupGravitonCatapult = Resources.trans_Pup_GravitonCatapult;
                 _imgPupWarpGate = Resources.trans_Pup_Warpgate;
                 _imgPupStorm = Resources.trans_Pup_Storm;
+                _imgPupForcefield = Resources.trans_pup_forcefield;
 
                 #endregion
 

@@ -1643,6 +1643,16 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap trans_pup_forcefield {
+            get {
+                object obj = ResourceManager.GetObject("trans_pup_forcefield", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap trans_Pup_GraviticBoosters {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_GraviticBoosters", resourceCulture);
