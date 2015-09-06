@@ -79,13 +79,44 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Worker
 
-                g.Graphics.DrawString(
-                    $"{Player.LocalPlayer.Worker} [+{Player.LocalPlayer.WorkerInConstruction}] Workers",
+                var resultString = $"{Player.LocalPlayer.Worker} [+{Player.LocalPlayer.WorkerInConstruction}]";
+                var calculatedSize = TextRenderer.MeasureText(resultString, fInternalFont);
+                var targetPictureWidth = calculatedSize.Height * 2;
+                var spacerWidth = 10;
+
+                var targetWidth = calculatedSize.Width + spacerWidth + targetPictureWidth;
+                var targetTextPosX = (ClientSize.Width - targetWidth)/2;
+                var targetTextPosY = (ClientSize.Height - calculatedSize.Height)/2;
+                var targetPicturePosX = targetTextPosX + calculatedSize.Width + spacerWidth;
+                var targetPicturePosY = (ClientSize.Height - targetPictureWidth) / 2;
+
+                var targetWorkerPicture = Properties.Resources.trans_pu_probe;
+                if (Player.LocalPlayer.PlayerRace == PlayerRace.Terran)
+                    targetWorkerPicture = Properties.Resources.trans_tu_scv;
+                else
+                    targetWorkerPicture = Properties.Resources.trans_zu_drone;
+
+                Console.WriteLine($"calculatedWidth (Text): {calculatedSize.Width}");
+                Console.WriteLine($"targetWidth: {targetWidth}");
+                Console.WriteLine($"PosX: {targetTextPosX}");
+                Console.WriteLine($"Clientsize.Width: {ClientSize.Width}");
+
+                g.Graphics.DrawString(resultString,
                     fInternalFont,
                     new SolidBrush(clPlayercolor),
-                    Brushes.Black, (float) ((16.67/100)*Width),
-                    (float) ((24.0/100)*iSingleHeight),
-                    1f, 1f, true);
+                    Brushes.Black,
+                    targetTextPosX,
+                    targetTextPosY,
+                    1f,
+                    1f,
+                    true
+                    );
+
+                g.Graphics.DrawImage(targetWorkerPicture,
+                    targetPicturePosX,
+                    targetPicturePosY,
+                    targetPictureWidth,
+                    targetPictureWidth);
 
                 #endregion
             }
