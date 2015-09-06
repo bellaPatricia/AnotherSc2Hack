@@ -1458,7 +1458,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 _imgTupCaduceusReactor = Resources.trans_Tup_CaduceusReactor;
                 _imgTupCorvidReactor = Resources.trans_Tup_CorvidReactor;
                 _imgTupBehemothReacot = Resources.trans_BehemothReactor;
-                _imgTupWeaponRefit = Resources.trans_Tup_WeaponRefit;
+                _imgTupWeaponRefit = Resources.trans_tup_weaponrefit;
                 _imgTupInfantryWeapon1 = Resources.trans_Tup_InfantyWeapon1;
                 _imgTupInfantryWeapon2 = Resources.trans_Tup_InfantyWeapon2;
                 _imgTupInfantryWeapon3 = Resources.trans_Tup_InfantyWeapon3;

@@ -2483,9 +2483,9 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_WeaponRefit {
+        public static System.Drawing.Bitmap trans_tup_weaponrefit {
             get {
-                object obj = ResourceManager.GetObject("trans_Tup_WeaponRefit", resourceCulture);
+                object obj = ResourceManager.GetObject("trans_tup_weaponrefit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

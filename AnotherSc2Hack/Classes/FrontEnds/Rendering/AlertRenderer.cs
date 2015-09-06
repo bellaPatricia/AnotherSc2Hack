@@ -241,7 +241,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             _dictionaryUnits.Add(UnitId.TupVehicleWeapon1, Resources.trans_Tup_VehicleWeapon1);
             _dictionaryUnits.Add(UnitId.TupVehicleWeapon2, Resources.trans_Tup_VehicleWeapon2);
             _dictionaryUnits.Add(UnitId.TupVehicleWeapon3, Resources.trans_Tup_VehicleWeapon3);
-            _dictionaryUnits.Add(UnitId.TupWeaponRefit, Resources.trans_Tup_WeaponRefit);
+            _dictionaryUnits.Add(UnitId.TupWeaponRefit, Resources.trans_tup_weaponrefit);
 
             _dictionaryUnits.Add(UnitId.PupAirA1, Resources.trans_Pup_AirA1);
             _dictionaryUnits.Add(UnitId.PupAirA2, Resources.trans_Pup_AirA2);
