@@ -487,6 +487,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     p.ApmAverage = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerApmAverage + (i * MyOffsets.PlayerStructSize));
                     p.EpmAverage = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerEpmAverage + (i * MyOffsets.PlayerStructSize));
                     p.Worker = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerWorkers + (i * MyOffsets.PlayerStructSize));
+                    p.WorkerInConstruction = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerWorkersInConstruction + (i * MyOffsets.PlayerStructSize));
                     p.AccountId = Encoding.UTF8.GetString(playerChunk, MyOffsets.RawPlayerAccountId + (i * MyOffsets.PlayerStructSize), 16);
                     p.SupplyMaxRaw = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerSupplyMax + (i * MyOffsets.PlayerStructSize));
                     p.SupplyMinRaw = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerSupplyMin + (i * MyOffsets.PlayerStructSize));

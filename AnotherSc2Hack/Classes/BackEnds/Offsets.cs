@@ -13,38 +13,37 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public int UnitStruct = 0;
         public int MapStruct = 0;
 
-        public Int32 RawPlayerCameraX = 0,
-                     RawPlayerCameraY = 0,
-                     RawPlayerCameraRotation = 0,
-                     RawPlayerCameraDistance = 0,
-                     RawPlayerCameraAngle = 0,
-                     RawPlayerPlayertype = 0,
-                     RawPlayerStatus = 0,
-                     RawPlayerDifficulty = 0,
-                     RawPlayerNamelenght = 0,
-                     RawPlayerName = 0,
-                     RawPlayerColor = 0,
-                     RawPlayerAccountId = 0,
-                     RawPlayerClanTag = 0,
-                     RawPlayerClanTagLenght = 0,
-                     RawPlayerApmCurrent = 0,
-                     RawPlayerEpmCurrent = 0,
-                     RawPlayerApmAverage = 0,
-                     RawPlayerEpmAverage = 0,
-                     RawPlayerTeam = 0,
-                     RawPlayerWorkers = 0,
-                     RawPlayerSupplyMin = 0,
-                     RawPlayerSupplyMax = 0,
-                     RawPlayerMinerals = 0,
-                     RawPlayerGas = 0,
-                     RawPlayerMineralsIncome = 0,
-                     RawPlayerGasIncome = 0,
-                     RawPlayerMineralsArmy = 0,
-                     RawPlayerGasArmy = 0,
-                     RawPlayerLocalplayer = 0,
-                     RawPlayerCurrentBuildings = 0;
-
-        
+        public int RawPlayerCameraX = 0;
+        public int RawPlayerCameraY = 0;
+        public int RawPlayerCameraRotation = 0;
+        public int RawPlayerCameraDistance = 0;
+        public int RawPlayerCameraAngle = 0;
+        public int RawPlayerPlayertype = 0;
+        public int RawPlayerStatus = 0;
+        public int RawPlayerDifficulty = 0;
+        public int RawPlayerNamelenght = 0;
+        public int RawPlayerName = 0;
+        public int RawPlayerColor = 0;
+        public int RawPlayerAccountId = 0;
+        public int RawPlayerClanTag = 0;
+        public int RawPlayerClanTagLenght = 0;
+        public int RawPlayerApmCurrent = 0;
+        public int RawPlayerEpmCurrent = 0;
+        public int RawPlayerApmAverage = 0;
+        public int RawPlayerEpmAverage = 0;
+        public int RawPlayerTeam = 0;
+        public int RawPlayerWorkers = 0;
+        public int RawPlayerWorkersInConstruction = 0;
+        public int RawPlayerSupplyMin = 0;
+        public int RawPlayerSupplyMax = 0;
+        public int RawPlayerMinerals = 0;
+        public int RawPlayerGas = 0;
+        public int RawPlayerMineralsIncome = 0;
+        public int RawPlayerGasIncome = 0;
+        public int RawPlayerMineralsArmy = 0;
+        public int RawPlayerGasArmy = 0;
+        public int RawPlayerLocalplayer = 0;
+        public int RawPlayerCurrentBuildings = 0;
 
         public int RawGroupBase = 0x31CE258,
                    RawGroupSize = 0x1b60,
@@ -73,7 +72,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public int Localplayer4 = 0;
 
-        public Int32 RawUnitPosX = 0,
+        public int RawUnitPosX = 0,
             RawUnitPosY = 0,
             RawUnitTargetFilter = 0,
             RawUnitDestinationX = 0,
@@ -105,7 +104,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public int MapIngame = 0,
                    MapFileInfoName = 0;
 
-        public Int32 RawMapTop = 0,
+        public int RawMapTop = 0,
                      RawMapBottom = 0,
                      RawMapRight = 0,
                      RawMapLeft = 0;
@@ -117,7 +116,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                    UiSelectedIndex = 0,
                    UiSize = 0;
 
-        public Int32 UiRawSelectionStruct = 0,
+        public int UiRawSelectionStruct = 0,
                      UiRawTotalSelectedUnits = 0,
                      UiRawTotalSelectedTypes = 0,
                      UiRawSelectedType = 0,
@@ -2574,6 +2573,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             /* 4 Bytes */
             RawPlayerEpmAverage = 0x638;        //ok
+
+            // 4 Bytes
+            RawPlayerWorkersInConstruction = 0x06A0;
 
             /* 4 Bytes 
              * 

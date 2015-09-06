@@ -80,7 +80,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 #region Worker
 
                 g.Graphics.DrawString(
-                    Player.LocalPlayer.Worker + "   Workers",
+                    $"{Player.LocalPlayer.Worker} [+{Player.LocalPlayer.WorkerInConstruction}] Workers",
                     fInternalFont,
                     new SolidBrush(clPlayercolor),
                     Brushes.Black, (float) ((16.67/100)*Width),
