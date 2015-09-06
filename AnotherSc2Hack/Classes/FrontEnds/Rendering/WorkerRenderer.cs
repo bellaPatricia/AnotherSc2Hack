@@ -36,6 +36,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     GInformation.Player.Count <= 0)
                     return;
 
+                if (GInformation.Unit == null ||
+                    GInformation.Unit.Count <= 0)
+                    return;
+
                 Opacity = PSettings.PreferenceAll.OverlayWorker.Opacity;
                 var iSingleHeight = Height;
                 var fNewFontSize = (float) ((29.0/100)*iSingleHeight);
@@ -79,10 +83,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Worker
 
-                var resultString = $"{Player.LocalPlayer.Worker} [+{Player.LocalPlayer.WorkerInConstruction}]";
+                //Apply some cool filter to get the correct buildings
+                var workerBuildings = GInformation.Unit.FindAll((x) =>
+                (x.Id == UnitId.PbNexus ||
+                x.Id == UnitId.TbCcGround ||
+                x.Id == UnitId.TbOrbitalGround ||
+                x.Id == UnitId.TbPlanetary ||
+                x.Id == UnitId.ZuEgg) &&
+                x.Owner == Player.LocalPlayer.Index &&
+                x.ProdNumberOfQueuedUnits > 0);
+
+                var resultString = $"{Player.LocalPlayer.Worker} [+{workerBuildings.Count}]";
                 var calculatedSize = TextRenderer.MeasureText(resultString, fInternalFont);
                 var targetPictureWidth = calculatedSize.Height * 2;
                 var spacerWidth = 10;
+
+                
 
                 var targetWidth = calculatedSize.Width + spacerWidth + targetPictureWidth;
                 var targetTextPosX = (ClientSize.Width - targetWidth)/2;
@@ -90,16 +106,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 var targetPicturePosX = targetTextPosX + calculatedSize.Width + spacerWidth;
                 var targetPicturePosY = (ClientSize.Height - targetPictureWidth) / 2;
 
-                var targetWorkerPicture = Properties.Resources.trans_pu_probe;
+                var targetWorkerPicture = Properties.Resources.Icon_Kerrigan;
                 if (Player.LocalPlayer.PlayerRace == PlayerRace.Terran)
                     targetWorkerPicture = Properties.Resources.trans_tu_scv;
-                else
+                else if (Player.LocalPlayer.PlayerRace == PlayerRace.Zerg)
                     targetWorkerPicture = Properties.Resources.trans_zu_drone;
-
-                Console.WriteLine($"calculatedWidth (Text): {calculatedSize.Width}");
-                Console.WriteLine($"targetWidth: {targetWidth}");
-                Console.WriteLine($"PosX: {targetTextPosX}");
-                Console.WriteLine($"Clientsize.Width: {ClientSize.Width}");
+                else
+                    targetWorkerPicture = Properties.Resources.trans_pu_probe;
 
                 g.Graphics.DrawString(resultString,
                     fInternalFont,

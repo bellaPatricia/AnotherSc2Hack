@@ -32,7 +32,7 @@ namespace PredefinedTypes
         public int ApmAverage { get; set; }
         public int EpmAverage { get; set; }
         public int Worker { get; set; }
-        public int WorkerInConstruction { get; set; }
+        public int UnitsInProduction { get; set; }
         public int SupplyMinRaw { get; set; }
         public int SupplyMaxRaw { get; set; }
         public int SupplyMin { get; set; }

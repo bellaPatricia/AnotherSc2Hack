@@ -33,7 +33,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public int RawPlayerEpmAverage = 0;
         public int RawPlayerTeam = 0;
         public int RawPlayerWorkers = 0;
-        public int RawPlayerWorkersInConstruction = 0;
+        public int RawPlayerUnitsInProduction = 0;
         public int RawPlayerSupplyMin = 0;
         public int RawPlayerSupplyMax = 0;
         public int RawPlayerMinerals = 0;
@@ -2575,7 +2575,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             RawPlayerEpmAverage = 0x638;        //ok
 
             // 4 Bytes
-            RawPlayerWorkersInConstruction = 0x06A0;
+            RawPlayerUnitsInProduction = 0x06A0;
 
             /* 4 Bytes 
              * 
