@@ -2,14 +2,38 @@
 using System.Collections.Generic;
 using Utilities.ExtensionMethods;
 using System.IO;
-using System.Text;
+using System.Runtime.InteropServices;
+using System.Text; 
 
 namespace Utilities.Logger
 {
     public class Logger
     {
+        ~Logger()
+        {
+            if (LogToConsole)
+            {
+                FreeConsole();
+            }    
+        }
+
         public static string LogFile { get; set; }
-        public static bool LogToConsole { get; set; }
+
+        private static bool _logToConsole;
+
+        public static bool LogToConsole
+        {
+            get { return _logToConsole; }
+            set
+            {
+                _logToConsole = value;
+
+                if (value)
+                {
+                    AllocConsole();
+                }
+            }
+        }
 
         private static bool _logToFile = true;
 
@@ -179,5 +203,30 @@ namespace Utilities.Logger
                 }
             }
         }
+
+        /// <summary>
+        /// Allocates a new console for the calling process.
+        /// </summary>
+        /// <returns>nonzero if the function succeeds; otherwise, zero.</returns>
+        /// <remarks>
+        /// A process can be associated with only one console,
+        /// so the function fails if the calling process already has a console.
+        /// </remarks>
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern int AllocConsole();
+
+        // http://msdn.microsoft.com/en-us/library/ms683150(VS.85).aspx
+        /// <summary>
+        /// Detaches the calling process from its console.
+        /// </summary>
+        /// <returns>nonzero if the function succeeds; otherwise, zero.</returns>
+        /// <remarks>
+        /// If the calling process is not already attached to a console,
+        /// the error code returned is ERROR_INVALID_PARAMETER (87).
+        /// </remarks>
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern int FreeConsole();
     }
+
+
 }

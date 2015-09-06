@@ -607,15 +607,37 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                 return;
             }
 
-            var req = (HttpWebRequest)WebRequest.Create(strUrl);
-            var res = (HttpWebResponse)req.GetResponse();
-
-            if (res.StatusCode == HttpStatusCode.OK)
+            try
             {
-                wbNews.Url = new Uri(strUrl);
-                wbNews.Visible = true;
+                var req = (HttpWebRequest) WebRequest.Create(strUrl);
+                var res = (HttpWebResponse) req.GetResponse();
+
+                if (res.StatusCode == HttpStatusCode.OK)
+                {
+                    wbNews.Url = new Uri(strUrl);
+                    wbNews.Visible = true;
+                }
             }
 
+            catch (ProtocolViolationException ex)
+            {
+                Logger.Emit("ProtocolViolationException", ex);
+            }
+
+            catch (InvalidOperationException ex)
+            {
+                Logger.Emit("InvalidOperationException", ex);
+            }
+
+            catch (NotSupportedException ex)
+            {
+                Logger.Emit("NotSupportedException", ex);
+            }
+
+            catch (Exception ex)
+            {
+                Logger.Emit(ex);
+            }
         }
 
         private void ShowAvailableUpdates()
