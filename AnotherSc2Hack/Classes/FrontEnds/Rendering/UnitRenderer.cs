@@ -315,6 +315,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             fStringFont, false);
                         Helper_DrawUnits(_lZuFlyingLocust, i, ref iPosX, iPosY, iSize, _imgZuFlyingLocust, g, clPlayercolor,
                             fStringFont, false);
+                        Helper_DrawUnits(_lZuBroodling, i, ref iPosX, iPosY, iSize, _imgZuBroodling, g, clPlayercolor,
+                            fStringFont, false);
                         Helper_DrawUnits(_lZuLarva, i, ref iPosX, iPosY, iSize, _imgZuLarva, g, clPlayercolor,
                             fStringFont, false);
                         Helper_DrawUnits(_lZuChangeling, i, ref iPosX, iPosY, iSize, _imgZuChangeling, g, clPlayercolor,
@@ -1083,7 +1085,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 unit.Id.Equals(UnitId.ZuLocust) ||
                 unit.Id.Equals(UnitId.ZuFlyingLocust) ||
                 unit.Id.Equals(UnitId.ZuChangeling) ||
-                unit.Id.Equals(UnitId.ZuInfestedTerran)) &&
+                unit.Id.Equals(UnitId.ZuInfestedTerran) ||
+                unit.Id.Equals(UnitId.ZuBroodling)) &&
                 !PSettings.PreferenceAll.OverlayUnits.RemoveProductionLine)
             {
                 float ftemp = size - 4;

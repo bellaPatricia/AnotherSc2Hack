@@ -1010,6 +1010,7 @@
     <None Include="Resources\zup_flying_locust.png" />
     <None Include="Resources\trans_Zup_flying_locust_2.png" />
     <None Include="Resources\trans_pup_forcefield.png" />
+    <None Include="Resources\trans_zu_broodling.png" />
     <Content Include="StarCraft_Icon.ico" />
     <None Include="Resources\Speed_Arrow.png" />
     <None Include="Resources\Mini_Arrow_Speed.png" />

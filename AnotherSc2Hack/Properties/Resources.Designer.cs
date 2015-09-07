@@ -2693,6 +2693,16 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap trans_zu_broodling {
+            get {
+                object obj = ResourceManager.GetObject("trans_zu_broodling", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap trans_zu_broodlord {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_broodlord", resourceCulture);
