@@ -54,9 +54,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Variables
 
-                float fScale,
-                    fX,
-                    fY;
+                float fScale;
+                float fX;
+                float fY;
+                float fHypotenuse;
 
                 #endregion
 
@@ -77,6 +78,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     fY = 0;
                     fX = (Width - fScale*tmpMap.PlayableWidth)/2;
                 }
+
+                #endregion
+
+                #region Calculate Hypotenuse
+
+                fHypotenuse = (float)Math.Sqrt((Math.Pow(ClientSize.Width, 2) + Math.Pow(ClientSize.Height, 2)));
 
                 #endregion
 
@@ -265,13 +272,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         #endregion
 
-                        const int iRadius = 4;
+                        var fRadius = 4f;
+                        var fLocalHypotenuse = 32.25218f;   //Hypotenuse of size 8 
 
+                        var fLocalUnitScale = fHypotenuse / fLocalHypotenuse;
+                        var fSize = (float)Math.Sqrt((Math.Pow(fLocalUnitScale, 2) - Math.Pow((fRadius * 2), 2)));
+                        fSize /= 2;
 
-                        g.Graphics.DrawLine(Constants.PBlack2, iUnitPosX - iRadius, iUnitPosY - iRadius,
-                            iUnitPosX + iRadius, iUnitPosY + iRadius);
-                        g.Graphics.DrawLine(Constants.PBlack2, iUnitPosX + iRadius, iUnitPosY - iRadius,
-                            iUnitPosX - iRadius, iUnitPosY + iRadius);
+                        g.Graphics.DrawLine(Constants.PBlack2, iUnitPosX - fSize, iUnitPosY - fSize,
+                            iUnitPosX + fSize, iUnitPosY + fSize);
+                        g.Graphics.DrawLine(Constants.PBlack2, iUnitPosX + fSize, iUnitPosY - fSize,
+                            iUnitPosX - fSize, iUnitPosY + fSize);
                     }
 
                     #endregion
@@ -351,21 +362,41 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     var fUnitSize = tmpUnit.Size;
                     var size = 2.0f;
+                    var fLocalHypotenuse = 129.0087f;
 
                     if (fUnitSize >= 0.5)
+                    {
                         size = 3;
+                        fLocalHypotenuse = 86.00581f;
+                    }
 
                     if (fUnitSize >= 0.875)
+                    {
                         size = 4;
+                        fLocalHypotenuse = 64.50436f;
+                    }
 
                     if (fUnitSize >= 1.5)
+                    {
                         size = 6;
+                        fLocalHypotenuse = 43.00291f;
+                    }
 
                     if (fUnitSize >= 2.0)
+                    {
                         size = 8;
+                        fLocalHypotenuse = 32.25218f;
+                    }
 
                     if (fUnitSize >= 2.5)
+                    {
                         size = 10;
+                        fLocalHypotenuse = 25.8017f;
+                    }
+
+                    var fLocalUnitScale = fHypotenuse/fLocalHypotenuse;
+                    size = (float) Math.Sqrt((Math.Pow(fLocalUnitScale, 2) - Math.Pow(size, 2)));
+                    
 
                     size += 0.5f;
 
@@ -483,21 +514,41 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     var fUnitSize = tmpUnit.Size;
                     var size = 2.0f;
+                    var fLocalHypotenuse = 129.0087f;
 
-                    if (fUnitSize >= 0.5f)
+                    if (fUnitSize >= 0.5)
+                    {
                         size = 3;
+                        fLocalHypotenuse = 86.00581f;
+                    }
 
                     if (fUnitSize >= 0.875)
+                    {
                         size = 4;
+                        fLocalHypotenuse = 64.50436f;
+                    }
 
                     if (fUnitSize >= 1.5)
+                    {
                         size = 6;
+                        fLocalHypotenuse = 43.00291f;
+                    }
 
                     if (fUnitSize >= 2.0)
+                    {
                         size = 8;
+                        fLocalHypotenuse = 32.25218f;
+                    }
 
                     if (fUnitSize >= 2.5)
+                    {
                         size = 10;
+                        fLocalHypotenuse = 25.8017f;
+                    }
+
+                    var fLocalUnitScale = fHypotenuse / fLocalHypotenuse;
+                    size = (float)Math.Sqrt((Math.Pow(fLocalUnitScale, 2) - Math.Pow(size, 2)));
+
 
                     size -= 0.5f;
 
@@ -537,6 +588,47 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         continue;
                     }
+
+                    var fUnitSize = tmpUnit.Size;
+                    var size = 2.0f;
+                    var fLocalHypotenuse = 129.0087f;
+
+                    if (fUnitSize >= 0.5)
+                    {
+                        size = 3;
+                        fLocalHypotenuse = 86.00581f;
+                    }
+
+                    if (fUnitSize >= 0.875)
+                    {
+                        size = 4;
+                        fLocalHypotenuse = 64.50436f;
+                    }
+
+                    if (fUnitSize >= 1.5)
+                    {
+                        size = 6;
+                        fLocalHypotenuse = 43.00291f;
+                    }
+
+                    if (fUnitSize >= 2.0)
+                    {
+                        size = 8;
+                        fLocalHypotenuse = 32.25218f;
+                    }
+
+                    if (fUnitSize >= 2.5)
+                    {
+                        size = 10;
+                        fLocalHypotenuse = 25.8017f;
+                    }
+
+                    var fLocalUnitScale = fHypotenuse / fLocalHypotenuse;
+                    size = (float)Math.Sqrt((Math.Pow(fLocalUnitScale, 2) - Math.Pow(size, 2)));
+
+
+                    size += 0.5f;
+
 
                     #endregion
 
@@ -581,23 +673,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         continue;
 
                     #endregion
-
-                    var fUnitSize = tmpUnit.Size;
-                    var size = 2.0f;
-
-                    if (fUnitSize >= 0.875)
-                        size = 4;
-
-                    if (fUnitSize >= 1.5)
-                        size = 6;
-
-                    if (fUnitSize >= 2.0)
-                        size = 8;
-
-                    if (fUnitSize >= 2.5)
-                        size = 10;
-
-                    size += 0.5f;
 
                     #region Border special Units
 
@@ -845,12 +920,27 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             fPlayerY <= 0 || fPlayerY >= Height)
                             continue;
 
+                        var size = 48f;
+                        var upper = 35f;
+                        var lower = 10f;
+                        var fLocalHypotenuse = 5.3755f;
+                        var fUpperHypotenuse = 7.3718f;
+                        var fLowerHypotenuse = 25.8016f;
+                        var fLocalSizeScale = fHypotenuse / fLocalHypotenuse;
+                        var fLocalUpperScale = fHypotenuse / fUpperHypotenuse;
+                        var fLocalLowerScale = fHypotenuse / fLowerHypotenuse;
+                        size = (float)Math.Sqrt((Math.Pow(fLocalSizeScale, 2) - Math.Pow(size, 2)));
+                        var upperRadius = (float)Math.Sqrt((Math.Pow(fLocalUpperScale, 2) - Math.Pow(upper, 2)));
+                        var lowerRadius = (float)Math.Sqrt((Math.Pow(fLocalLowerScale, 2) - Math.Pow(lower, 2)));
+                        var radius = size/2;
+
+
 
                         var ptPoints = new PointF[4];
-                        ptPoints[0] = new PointF(fPlayerX - 35f, fPlayerY - 24f);
-                        ptPoints[1] = new PointF(fPlayerX + 35f, fPlayerY - 24f);
-                        ptPoints[2] = new PointF(fPlayerX + 24f, fPlayerY + 10f);
-                        ptPoints[3] = new PointF(fPlayerX - 24f, fPlayerY + 10f);
+                        ptPoints[0] = new PointF(fPlayerX - upperRadius, fPlayerY - radius);
+                        ptPoints[1] = new PointF(fPlayerX + upperRadius, fPlayerY - radius);
+                        ptPoints[2] = new PointF(fPlayerX + radius, fPlayerY + lowerRadius);
+                        ptPoints[3] = new PointF(fPlayerX - radius, fPlayerY + lowerRadius);
 
 
                         g.Graphics.DrawPolygon(new Pen(new SolidBrush(clPlayercolor), 2), ptPoints);
