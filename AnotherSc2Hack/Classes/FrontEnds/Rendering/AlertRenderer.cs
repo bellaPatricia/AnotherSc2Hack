@@ -501,7 +501,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             var elapsedSeconds = (DateTime.Now - playerUnit.Value.InitDate).TotalMilliseconds / 1000f;
                             var percentageComplete = (float)elapsedSeconds / PSettings.PreferenceAll.OverlayAlert.Time;
-                            var startAngle = 0;
+                            var startAngle = 270;
                             var currentAngle = 360 * percentageComplete;
                             var negatedAngle = 360 - currentAngle;
 
@@ -552,12 +552,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         }
 
                         //Set position for the next panel
-                        iPosX += PSettings.PreferenceAll.OverlayAlert.IconWidth + (int) fPenWidth*2;
+                        iPosX += PSettings.PreferenceAll.OverlayAlert.IconWidth + BorderWidth * 2;
 
                         //Resize properly
                         if (iPosX >= ClientSize.Width)
                             ClientSize = new Size(iPosX - (int) (fPenWidth),
-                                iPosY + PSettings.PreferenceAll.OverlayAlert.IconHeight + (int) fPenWidth*2);
+                                iPosY + PSettings.PreferenceAll.OverlayAlert.IconHeight + (int)(fPenWidth * 2));
                     }
                 }
             }
