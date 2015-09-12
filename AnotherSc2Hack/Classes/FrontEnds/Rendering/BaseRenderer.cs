@@ -629,6 +629,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         public GameInfo GInformation { get; set; }
         public PreferenceManager PSettings { get; set; }
         public Process PSc2Process { get; set; }
+        public int BorderWidth { get; private set; }
 
         #endregion
 
@@ -660,6 +661,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                      ControlStyles.AllPaintingInWmPaint, true);
 
             InitializeComponent();
+
+            BorderWidth = 10;
 
             LoadPreferencesIntoControls();
 
@@ -889,7 +892,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 return;
 
             var targetBrush = new HatchBrush(HatchStyle.ForwardDiagonal, Color.YellowGreen, Color.WhiteSmoke);
-            var targetPen = new Pen(targetBrush, 10);
+            var targetPen = new Pen(targetBrush, BorderWidth);
 
             buffer.Graphics.DrawRectangle(targetPen, 0 + (targetPen.Width/2), 0 + (targetPen.Width / 2),
                 ClientSize.Width - (targetPen.Width), ClientSize.Height - (targetPen.Width));

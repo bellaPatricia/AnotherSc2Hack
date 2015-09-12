@@ -344,12 +344,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (player.Type != PlayerType.Human &&
                         player.Type != PlayerType.Ai)
                         continue;
-
+                    /*
                     if (player == Player.LocalPlayer)
                         continue;
 
                     if (player.Team == Player.LocalPlayer.Team)
-                        continue;
+                        continue;*/
 
                     #endregion
 
@@ -412,7 +412,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                 bSoundPlayed = true;
                             }
 
-                            if ((DateTime.Now - unitListData.Value.InitDate).Seconds >
+                            if ((DateTime.Now - unitListData.Value.InitDate).Seconds >=
                                 PSettings.PreferenceAll.OverlayAlert.Time)
                                 bIsValid = false;
 
@@ -458,8 +458,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         {
             var fPenWidth = 3f;
 
-            var iPosX = (int) fPenWidth;
-            var iPosY = (int) fPenWidth;
+            var iPosX = BorderWidth;
+            var iPosY = BorderWidth;
 
             var tempPlayerStores = new List<PlayerStore>(_playerStores);
 
@@ -487,11 +487,45 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             g.Graphics.CompositingQuality = CompositingQuality.HighQuality;
                             g.Graphics.SmoothingMode = SmoothingMode.HighQuality;
 
+                            #region Draw Background
+
                             g.Graphics.FillEllipse(targetBrush,
                                 (int) (iPosX - (fPenWidth/2)),
                                 (int) (iPosY - (fPenWidth/2)),
                                 (int) (PSettings.PreferenceAll.OverlayAlert.IconWidth + fPenWidth),
                                 (int) (PSettings.PreferenceAll.OverlayAlert.IconHeight + fPenWidth));
+
+                            #endregion
+
+                            #region Current Time
+
+                            var elapsedSeconds = (DateTime.Now - playerUnit.Value.InitDate).TotalMilliseconds / 1000f;
+                            var percentageComplete = (float)elapsedSeconds / PSettings.PreferenceAll.OverlayAlert.Time;
+                            var startAngle = 0;
+                            var currentAngle = 360 * percentageComplete;
+                            var negatedAngle = 360 - currentAngle;
+
+                            var outline = new Pen(playerStore.Color, 4);
+
+                            try
+                            {
+                                g.Graphics.DrawArc(outline,
+                                    (iPosX - outline.Width / 2),
+                                    (iPosY - outline.Width / 2),
+                                    (PSettings.PreferenceAll.OverlayAlert.IconWidth + outline.Width),
+                                    (PSettings.PreferenceAll.OverlayAlert.IconHeight + outline.Width),
+                                    startAngle,
+                                    negatedAngle);
+                            }
+                            catch (Exception)
+                            {
+                                //Swallow
+                                //Happens of you make the area smaller than 0 pixel!
+                            }
+
+                            #endregion
+
+                            #region Draw picture
 
                             using (var gfxPath = new GraphicsPath())
                             {
@@ -506,6 +540,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                     g.Graphics.DrawImage(_dictionaryUnits[playerUnit.Key], targetRectangle);
                                 }
                             }
+
+                            #endregion
+
+
                         }
 
                         catch (Exception ex)
