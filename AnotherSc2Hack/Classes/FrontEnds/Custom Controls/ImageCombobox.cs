@@ -250,6 +250,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             Items.Add(new ImageComboItem("Larva", Properties.Resources.trans_zu_larva, UnitId.ZuLarva, imgZerg));
             Items.Add(new ImageComboItem("Queen", Properties.Resources.trans_zu_queen, UnitId.ZuQueen, imgZerg));
             Items.Add(new ImageComboItem("Drone", Properties.Resources.trans_zu_drone, UnitId.ZuDrone, imgZerg));
+            Items.Add(new ImageComboItem("Overlord", Properties.Resources.trans_zu_overlord, UnitId.ZuOverlord, imgZerg));
+            Items.Add(new ImageComboItem("Overseer", Properties.Resources.trans_zu_overseer, UnitId.ZuOverseer, imgZerg));
             Items.Add(new ImageComboItem("Zergling", Properties.Resources.trans_zu_zergling, UnitId.ZuZergling, imgZerg));
             Items.Add(new ImageComboItem("Baneling Cocoon", Properties.Resources.trans_zu_banelingcocoon, UnitId.ZuBanelingCocoon, imgZerg));
             Items.Add(new ImageComboItem("Baneling", Properties.Resources.trans_zu_baneling, UnitId.ZuBaneling, imgZerg));
