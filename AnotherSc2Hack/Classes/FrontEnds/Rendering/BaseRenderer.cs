@@ -21,6 +21,7 @@ using AnotherSc2Hack.Properties;
 using PredefinedTypes;
 using Utilities.Events;
 using Utilities.ExtensionMethods;
+using _ = Utilities.InfoManager.InfoManager;
 using MouseButtons = System.Windows.Forms.MouseButtons;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
@@ -1122,6 +1123,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         public new void Hide()
         {
+            _.Info($"Hide Panel {Name}", _.InfoImportance.Important);
             IsHidden = true;
 
             IterationsPerSeconds = 99999;
@@ -1140,6 +1142,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// </summary>
         public new void Show()
         {
+            _.Info($"Show Panel {Name}", _.InfoImportance.Important);
             IsHidden = false;
 
             tmrRefreshGraphic.Enabled = true;
@@ -1186,6 +1189,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         public void ChangeImageResources(bool useTransparentImages = false)
         {
+            _.Info($"Change Image Resources. Use Transparent: {useTransparentImages} for Panel {Name}", _.InfoImportance.Important);
+
             if (!useTransparentImages)
             {
                 #region Terran

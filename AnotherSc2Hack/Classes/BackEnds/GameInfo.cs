@@ -31,6 +31,7 @@ using System.Diagnostics;
 using System.Threading;
 using PredefinedTypes;
 using Utilities.Events;
+using _ = Utilities.InfoManager.InfoManager;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -99,7 +100,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 _thrWorker.Priority = ThreadPriority.Highest;
                 _thrWorker.Name = "Worker \"RefreshData()\"";
                 _thrWorker.Start();
-                Console.WriteLine("Worker \"RefreshData()\" just started!");
+
+                _.Info($"Launched Worker {_thrWorker.Name}", _.InfoImportance.VeryImportant);
             }
 
             else
@@ -109,7 +111,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     if (_thrWorker.IsAlive)
                     {
                         CThreadState = false;
-                        Console.WriteLine("Worker \"RefreshData()\" was told to close!");
+                        _.Info($"Worker {_thrWorker.Name} Will Stop Any Moment", _.InfoImportance.VeryImportant);
                     }
 
                 }
@@ -118,19 +120,17 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
        
 
-        private void Init()
+        private void AssignEvents()
         {
             NewMatch += GameInfo_NewMatch;
             ProcessFound += GameInfo_ProcessFound;
-
             MyOffsets.OffsetsNotProperlySet += MyOffsets_OffsetsNotProperlySet;
-            
-
-            //MyOffsets.AssignAddresses();
         }
 
         void GameInfo_ProcessFound(object sender, ProcessFoundArgs e)
         {
+            _.Info("Process Found - Assigning Addresses", _.InfoImportance.Important);
+
             MyOffsets.AssignAddresses(e.Process);
         }
 
@@ -138,6 +138,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         //TODO: Finish this
         void MyOffsets_OffsetsNotProperlySet(object sender, EventArgs e)
         {
+            _.Info("Offsets Not Properly Set, Using Signature Scan!", _.InfoImportance.VeryImportant);
+
             if (Memory.Process == null)
             {
                 Process proc;
@@ -233,6 +235,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         void GameInfo_NewMatch(object sender, EventArgs e)
         {
+            _.Info("Found A New Match!", _.InfoImportance.Important);
+
             #region Gather Race-data
 
             _lRace.Clear();
@@ -254,7 +258,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
        
         public GameInfo()
         {
-            Init();
+            _.Info("Initialize GameInfo", _.InfoImportance.VeryImportant);
+
+            AssignEvents();
             
             CSleepTime = 33;
 
@@ -263,7 +269,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public GameInfo(Boolean useThreadedGameInfo)
         {
-            Init();
+            _.Info("Initialize GameInfo", _.InfoImportance.VeryImportant);
+
+            AssignEvents();
 
             if (useThreadedGameInfo)
             {
@@ -327,11 +335,15 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             while (CThreadState)
             {
+                _.Info("RefreshData Still Running", _.InfoImportance.NotImportant);
+
                 #region Exceptions
 
                 /* Check if the Handle is unlocked */
                 if (CStarcraft2 == null || CStarcraft2.HasExited)
                 {
+                    _.Info("Stacraft Not Found, Slow Mode", _.InfoImportance.NotImportant);
+
                     Process proc;
                     if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
                     {
@@ -358,6 +370,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 /* Check if ingame */
                 if (!GetGIngame())
                 {
+                    _.Info("Currently Not In A Game", _.InfoImportance.NotImportant);
+
                     /* if (!Processing.GetProcess(Constants.StrStarcraft2ProcessName))
                      {
                          _memory.Process = null;
@@ -454,6 +468,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (!CAccessPlayers)
                 return;
 
+            _.Info("Fetching Player Data", _.InfoImportance.NotImportant);
+
             // Player Buffer 
             var playerLenght = _maxPlayerAmount * MyOffsets.PlayerStructSize;
             var playerChunk = Memory.ReadMemory(MyOffsets.PlayerStruct, playerLenght);
@@ -548,6 +564,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (!CAccessUnits)
                 return;
+
+            _.Info("Fetching Unit Data", _.InfoImportance.NotImportant);
 
             // Unit Buffer 
             var iAmountOfUnits = GetGUnitReadUnitCount();
@@ -1160,6 +1178,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         private List<UnitProduction> GetGUnitNumberOfQueuedUnit(Int32 iUnitNum, UnitId structureId)
         {
+            _.Info("Assign Special Attributes Of Units", _.InfoImportance.Important);
+
             var lUnitIds = new List<UnitProduction>();
 
             /* Content of Abilities (pAbilities) */
@@ -1627,6 +1647,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 if (_iUnitCalls > 10)
                 {
+                    _.Info("Not Using Units Anymore", _.InfoImportance.NotImportant);
                     _cAccessUnits = false;
                     CAccessUnitCommands = false;
                 }
@@ -1644,6 +1665,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 if (_iPlayerCalls > 10)
                 {
+                    _.Info("Not Using Players Anymore", _.InfoImportance.NotImportant);
                     _cAccessPlayers = false;
                 }
 
@@ -1661,6 +1683,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 if (_iGroupCalls > 10)
                 {
+                    _.Info("Not Using Groups Anymore", _.InfoImportance.NotImportant);
                     _cAccessGroups = false;
                 }
 
@@ -1678,6 +1701,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 if (_iSelectionCalls > 10)
                 {
+                    _.Info("Not Using Selections Anymore", _.InfoImportance.NotImportant);
                     _cAccessSelection = false;
                 }
 
@@ -1695,6 +1719,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 if (_iMapinfoCalls > 10)
                 {
+                    _.Info("Not Using Mapdata Anymore", _.InfoImportance.NotImportant);
                     _cAccessMapInfo = false;
                 }
 
@@ -1712,6 +1737,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 if (_iGameinfoCalls > 10)
                 {
+                    _.Info("Not Using Gameinfo Anymore", _.InfoImportance.NotImportant);
                     _cAccessGameinfo = false;
                 }
 

@@ -218,7 +218,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         public NewMainHandler()
         {
-            _.Info("Initialize The UI");
+            _.Info("Initialize The UI", _.InfoImportance.VeryImportant);
 
             InitializeComponent();
 
@@ -239,7 +239,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             LoadContributers();
             LaunchOnStartup();
 
-            _.Info("UI Initialization Successful");
+            _.Info("UI Initialization Successful", _.InfoImportance.VeryImportant);
         }
 
       
@@ -256,6 +256,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void Init()
         {
+            _.Info("Initialize UI Classes and Renderer", _.InfoImportance.Important);
+
             PSettings = new PreferenceManager();
 
             //Find clickable Panel and perform click
@@ -832,6 +834,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void EventMappingResource()
         {
+            _.Info("Map Events For Resource Events", _.InfoImportance.Important);
+
             pnlOverlayResource.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlaysDrawBackground_CheckedChanged;
             pnlOverlayResource.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
             pnlOverlayResource.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
@@ -851,6 +855,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void EventMappingIncome()
         {
+            _.Info("Map Events For Income Events", _.InfoImportance.Important);
+
             pnlOverlayIncome.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlaysDrawBackground_CheckedChanged;
             pnlOverlayIncome.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
             pnlOverlayIncome.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
@@ -870,6 +876,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void EventMappingWorker()
         {
+            _.Info("Map Events For Worker Events", _.InfoImportance.Important);
+
             pnlOverlayWorker.aChBxDrawBackground.CheckedChanged += aChBxOverlaysDrawBackground_CheckedChanged;
             pnlOverlayWorker.btnSetFont.Click += btnOverlaysSetFont_Click;
             pnlOverlayWorker.OpacityControl.ValueChanged += ocOverlaysOpacity_ValueChanged;
@@ -885,6 +893,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void EventMappingApm()
         {
+            _.Info("Map Events For Apm Events", _.InfoImportance.Important);
+
             pnlOverlayApm.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlaysDrawBackground_CheckedChanged;
             pnlOverlayApm.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
             pnlOverlayApm.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
@@ -904,6 +914,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void EventMappingArmy()
         {
+            _.Info("Map Events For Army Events", _.InfoImportance.Important);
+
             pnlOverlayArmy.pnlBasics.aChBxDrawBackground.CheckedChanged += aChBxOverlaysDrawBackground_CheckedChanged;
             pnlOverlayArmy.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
             pnlOverlayArmy.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
@@ -923,6 +935,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void EventMappingMaphack()
         {
+            _.Info("Map Events For Maphack Events", _.InfoImportance.Important);
+
             pnlOverlayMaphack.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
             pnlOverlayMaphack.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
             pnlOverlayMaphack.pnlBasics.aChBxRemoveNeutral.CheckedChanged += aChBxOverlaysRemoveNeutral_CheckedChanged;
@@ -944,6 +958,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void EventMappingUnittab()
         {
+            _.Info("Map Events For Unittab Events", _.InfoImportance.Important);
+
             pnlOverlayUnittab.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
             pnlOverlayUnittab.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
             pnlOverlayUnittab.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlaysRemoveClantags_CheckedChanged;
@@ -971,6 +987,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         private void EventMappingProductiontab()
         {
+            _.Info("Map Events For Productiontab Events", _.InfoImportance.Important);
+
             pnlOverlayProductiontab.pnlBasics.aChBxRemoveAi.CheckedChanged += aChBxOverlaysRemoveAi_CheckedChanged;
             pnlOverlayProductiontab.pnlBasics.aChBxRemoveAllie.CheckedChanged += aChBxOverlaysRemoveAllie_CheckedChanged;
             pnlOverlayProductiontab.pnlBasics.aChBxRemoveClantags.CheckedChanged += aChBxOverlaysRemoveClantags_CheckedChanged;
@@ -1989,7 +2007,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         /// </summary>
         private void PluginLoadAvailablePlugins()
         {
-            Console.WriteLine("Worker \"PluginLoadAvailablePlugins()\" started!");
+            _.Info("Worker \"PluginLoadAvailablePlugins()\" started!", _.InfoImportance.VeryImportant);
 
             _lOnlinePlugins.Clear();
             foreach (var pluginDatastore in _ucDownloadManager.PluginDatastoresOnline)
@@ -2073,7 +2091,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             
 
-            Console.WriteLine("Worker \"PluginLoadAvailablePlugins()\" finished!");
+            _.Info("Worker \"PluginLoadAvailablePlugins()\" finished!", _.InfoImportance.VeryImportant);
         }
 
         #endregion

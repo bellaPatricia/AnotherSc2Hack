@@ -9,28 +9,26 @@ namespace Utilities.InfoManager
         public enum InfoImportance
         {
             None = 0,
-            NotImportant = 1,
-            Important = 2,
-            VeryImportant = 4,
-
-            Everything = NotImportant |
-                         Important |
-                         VeryImportant
+            NotImportant = 1 | Important,
+            Important = 2 | VeryImportant,
+            VeryImportant = 4
         };
 
         internal InfoManager()
         {
         }
 
-        public static InfoImportance InfoLogImportance { get; set; } = InfoImportance.Everything;
+        public static InfoImportance InfoLogImportance { get; set; } = InfoImportance.Important;
         private static ulong _messageNumber = 0;
 
-        public static void Info(string message = null, InfoImportance infoImportance = InfoImportance.None, bool increment = true)
+        public static void Info(string message, InfoImportance infoImportance)
         {
             if (infoImportance == InfoImportance.None)
                 return;
 
-            Console.WriteLine(infoImportance & InfoLogImportance);
+            if ((infoImportance & InfoLogImportance) != infoImportance)
+                return;
+
 
             var numberChunk = $"[{_messageNumber.ToString("X8")}]";
             string messageChunk;
@@ -42,25 +40,41 @@ namespace Utilities.InfoManager
                 var callerMethod = stackframe.GetMethod();
                 var callerMethodName = callerMethod.Name;
 
-                messageChunk = $" - {callerMethodName}";
+                messageChunk = $"{callerMethodName}";
             }
             else
             {
-                messageChunk = $" - {message}";
+                messageChunk = $"{message}";
             }
 
-            
+
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write(numberChunk);
+
+            if (infoImportance == InfoImportance.VeryImportant)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(" - ### - ");
+            }
+
+            else if (infoImportance == InfoImportance.Important)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.Write(" - ... - ");
+            }
+
+            else if (infoImportance == InfoImportance.NotImportant)
+            {
+                Console.Write(" -     - ");
+            }
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(messageChunk);
 
             Console.Write('\n');
 
-            if (increment)
-                _messageNumber += 1;
+            _messageNumber += 1;
         }
     }
 }

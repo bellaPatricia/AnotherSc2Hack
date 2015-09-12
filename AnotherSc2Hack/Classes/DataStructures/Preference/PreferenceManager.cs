@@ -34,7 +34,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
             if (!File.Exists(Constants.StrXmlPreferences))
             {
-                _.Info("No Existing Settings Found");
+                _.Info("No Existing Settings Found", _.InfoImportance.NotImportant);
                 PreferenceAll.ConvertOldSettings();
                 return;
             }
