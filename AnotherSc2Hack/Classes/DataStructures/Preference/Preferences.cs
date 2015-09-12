@@ -640,7 +640,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
             #endregion
 
-            #region Important part
+            #region NotImportant part
 
             var strKeyword = string.Empty;
             foreach (var t in strSplit)

@@ -23,6 +23,7 @@ using UpdateChecker;
 using Utilities.Events;
 using Utilities.Logger;
 using Utilities.VariousClasses.Hashes;
+using _ = Utilities.InfoManager.InfoManager;
 using Timer = System.Windows.Forms.Timer;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
@@ -217,6 +218,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         public NewMainHandler()
         {
+            _.Info("Initialize The UI");
+
             InitializeComponent();
 
             Gameinfo = new GameInfo();
@@ -235,6 +238,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             
             LoadContributers();
             LaunchOnStartup();
+
+            _.Info("UI Initialization Successful");
         }
 
       

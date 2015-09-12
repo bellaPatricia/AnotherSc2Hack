@@ -1,5 +1,4 @@
-﻿using System.IO;
-using AnotherSc2Hack.Classes.BackEnds;
+﻿using _ = Utilities.InfoManager.InfoManager;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
@@ -22,6 +21,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
         public PreferenceAll()
         {
+            _.Info("Initialize Settings", _.InfoImportance.NotImportant);
+
             Global = new PreferenceGlobal();
             OverlayResources = new PreferenceOverlayResources();
             OverlayIncome = new PreferenceOverlayIncome();
@@ -39,6 +40,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
         public void ConvertOldSettings()
         {
+            _.Info("Convertings legacy settings", _.InfoImportance.NotImportant);
+
             //Init and read
             var oldPreferences = new Preferences();
 

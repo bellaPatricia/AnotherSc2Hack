@@ -20,6 +20,8 @@ namespace AnotherSc2Hack
             Logger.LogFile = Constants.StrLogFile;
             Logger.LogToConsole = true;
 
+            
+
             //ApplicationStartOptions.ParseStartupArguments(args);
 
             Application.EnableVisualStyles();

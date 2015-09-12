@@ -1,4 +1,6 @@
 ﻿using System.Windows.Forms;
+using Utilities.InfoManager;
+using _ = Utilities.InfoManager.InfoManager;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
@@ -6,6 +8,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
     {
         public PreferenceBaseOverlay()
         {
+            _.Info("Initialize Base Settings With Default Values", _.InfoImportance.NotImportant);
+
             Hotkey1 = Keys.ControlKey;
             Hotkey2 = Keys.Menu;
             FontName = "Century Gothic";

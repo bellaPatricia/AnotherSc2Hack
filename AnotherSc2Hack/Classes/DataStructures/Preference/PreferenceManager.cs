@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+using _ = Utilities.InfoManager.InfoManager;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
@@ -19,6 +20,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
         public PreferenceManager()
         {
+            _.Info("Load Preference Manager", _.InfoImportance.Important);
+
             PreferenceAll = new PreferenceAll();
             _xmlSerializer = new XmlSerializer(PreferenceAll.GetType());
 
@@ -27,18 +30,25 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
         public void Read()
         {
+            _.Info("Attempt To Read Existing Settings", _.InfoImportance.Important);
+
             if (!File.Exists(Constants.StrXmlPreferences))
             {
+                _.Info("No Existing Settings Found");
                 PreferenceAll.ConvertOldSettings();
                 return;
             }
 
             PreferenceAll.OverlayAlert.UnitIds.Clear();
             PreferenceAll = (PreferenceAll)_xmlSerializer.Deserialize(new StreamReader(Constants.StrXmlPreferences));
+
+            _.Info("Read Of Existing Settings Successful", _.InfoImportance.Important);
         }
 
         public bool Write()
         {
+            _.Info("Attempt To Write Settings To File", _.InfoImportance.Important);
+
             PreferenceAll.Global.ApplicationCallCounter += 1;
 
             try
@@ -49,6 +59,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             catch (IOException)
             {
                 //Get's called when two instances close at once
+                _.Info("IO Exceptions Found (Do You Try To Close 2 Programs At Once?)", _.InfoImportance.Important);
                 new AnotherMessageBox().Show(_lstrWriteErrorText.Text, _lstrWriteErrorTitle.Text);
                 return false;
             }
@@ -56,6 +67,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             catch (Exception ex)
             {
                 //This shouldn't happen
+                _.Info("Generic Exceptions Found - Nothing is Saved", _.InfoImportance.Important);
                 throw ex;
             }
 
@@ -68,6 +80,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
         public void Restore()
         {
+            _.Info("Restore Default Settings", _.InfoImportance.Important);
+
             PreferenceAll = new PreferenceAll();
 
             PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PbDarkshrine);

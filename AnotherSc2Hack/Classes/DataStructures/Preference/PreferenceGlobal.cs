@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
-using System.Runtime.Remoting.Messaging;
+using _ = Utilities.InfoManager.InfoManager;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Preference
 {
@@ -20,6 +20,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
         public PreferenceGlobal()
         {
+            _.Info("Initialize Global Settings With Default Values", _.InfoImportance.NotImportant);
+
             DataRefresh = 100;
             DrawingRefresh = 100;
             Language = "English";
