@@ -98,7 +98,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                 _thrWorker = new Thread(RefreshData);
                 _thrWorker.Priority = ThreadPriority.Highest;
-                _thrWorker.Name = "Worker \"RefreshData()\"";
+                _thrWorker.Name = "RefreshData()";
                 _thrWorker.Start();
 
                 _.Info($"Launched Worker {_thrWorker.Name}", _.InfoImportance.VeryImportant);
@@ -442,25 +442,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// them correctly and puts themm into the global scope.
         /// </summary>
         public void DoMassiveScan()
-        {
-            
+        {      
             GatherAndMapPlayerData();
-
-            //_swmainwatch.Reset();
-            //_swmainwatch.Start();
-
             GatherAndMapUnitData();
-
-            //_swmainwatch.Stop();
-            //Console.WriteLine(1000000 * _swmainwatch.ElapsedTicks / Stopwatch.Frequency);
-            
             GatherAndMapMapData();
             GatherAndMapSelectionData();
             GatherAndMapGroupData();
             GatherAndMapGameData();
-
-            
-
         }
 
         private void GatherAndMapPlayerData()
@@ -731,6 +719,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (!CAccessMapInfo)
                 return;
 
+            _.Info("Fetching Map Data", _.InfoImportance.NotImportant);
+
             // Map Buffer 
             var mapLength = MyOffsets.RawMapTop + 4;
 
@@ -756,6 +746,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (!CAccessSelection)
                 return;
+
+            _.Info("Fetching Selection Data", _.InfoImportance.NotImportant);
 
             // Selection Buffer 
             var selectionlength = GetGSelectionCount() * 4 + MyOffsets.UiRawSelectedIndex;
@@ -804,6 +796,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (!CAccessGroups)
                 return;
+
+            _.Info("Fetching Group Data", _.InfoImportance.NotImportant);
 
             // Group Buffer 
             var groupLenght = 11 * MyOffsets.RawGroupSize;
@@ -861,6 +855,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (!CAccessGameinfo)
                 return;
 
+            _.Info("Fetching Game Data", _.InfoImportance.NotImportant);
+
             var gInfo = new Gameinformation
             {
                 ChatInput = GetGChatInput(),
@@ -877,9 +873,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             Gameinfo = gInfo;
         }
-
-
-
 
         /* Method to assign the unitcommands (how many units are in queue, how is the 
          * completion percentage of that unit) */

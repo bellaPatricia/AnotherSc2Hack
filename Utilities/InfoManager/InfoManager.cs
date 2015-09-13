@@ -3,8 +3,22 @@ using System.Diagnostics;
 
 namespace Utilities.InfoManager
 {
+    /// <summary>
+    /// A class to handle messages and draw them to the console (if one is attached).
+    /// This is supposed to be some kind of verbosed boot process in Linux/Unix fashion.
+    /// 
+    /// Author: bellaPatricia
+    /// Date: 10-Sep-2015
+    /// </summary>
     public class InfoManager
     {
+        /// <summary>
+        /// Enumeration to distinct between different states.
+        /// None        Nothing will be logged
+        /// NotImportant    Logs everything with loglevel NotImportant or higher
+        /// Important       Logs everything with loglevel Important or higher
+        /// VeryImportant   Logs everything with loglevel VeryImportant
+        /// </summary>
         [Flags]
         public enum InfoImportance
         {
@@ -14,13 +28,24 @@ namespace Utilities.InfoManager
             VeryImportant = 4
         };
 
-        internal InfoManager()
-        {
-        }
+        #region Public Properties
 
         public static InfoImportance InfoLogImportance { get; set; } = InfoImportance.Important;
-        private static ulong _messageNumber = 0;
 
+        #endregion
+
+        #region Private Variables
+
+        private static ulong _messageNumber;
+
+        #endregion
+
+        /// <summary>
+        /// Method that gets called everytime a message should be printed.
+        /// The said message will be printed to the console and is some kind of verbose boot process. 
+        /// </summary>
+        /// <param name="message">The message you want to send to the console.</param>
+        /// <param name="infoImportance">Sets the importance of the informaition to filter it with different filteroptions.</param>
         public static void Info(string message, InfoImportance infoImportance)
         {
             if (infoImportance == InfoImportance.None)
