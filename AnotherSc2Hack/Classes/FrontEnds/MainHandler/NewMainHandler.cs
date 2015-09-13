@@ -24,6 +24,7 @@ using Utilities.Events;
 using Utilities.Logger;
 using Utilities.VariousClasses.Hashes;
 using _ = Utilities.InfoManager.InfoManager;
+using Utilities.ArgumentManager;
 using Timer = System.Windows.Forms.Timer;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
@@ -218,6 +219,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         public NewMainHandler()
         {
+            ArgumentManager.ParseArguments("kek");
+
             _.Info("Initialize The UI", _.InfoImportance.VeryImportant);
 
             InitializeComponent();

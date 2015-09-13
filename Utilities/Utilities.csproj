@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationStartOptions\ApplicationStartOptions.cs" />
+    <Compile Include="ArgumentManager\ArgumentManager.cs" />
+    <Compile Include="ArgumentManager\Arguments.cs" />
     <Compile Include="Events\DownloadManagerProgressChangedEventArgs.cs" />
     <Compile Include="Events\NumberArgs.cs" />
     <Compile Include="Events\ProcessFoundArgs.cs" />
