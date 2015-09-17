@@ -10,6 +10,7 @@
 using System;
 using System.Diagnostics;
 using System.Text;
+using Interop = Utilities.InteropCalls.InteropCalls;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -132,7 +133,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         ~Memory()
         {
-            InteropCalls.CloseHandle(Handle);
+            Interop.CloseHandle(Handle);
         }
 
         /// <summary>
@@ -166,7 +167,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             var adr = CastToIntPtr(address);
 
-            var data = (SByte)InteropCalls.ReadProcessMemoryHelper(Handle, adr, 1)[0];
+            var data = (SByte)Interop.ReadProcessMemoryHelper(Handle, adr, 1)[0];
 
             return data;
         }
@@ -180,7 +181,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             var adr = CastToIntPtr(address);
 
-            var data = InteropCalls.ReadProcessMemoryHelper(Handle, adr, 1)[0];
+            var data = Interop.ReadProcessMemoryHelper(Handle, adr, 1)[0];
 
             return data;
         }
@@ -194,7 +195,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             var adr = CastToIntPtr(address);
 
-            var data = BitConverter.ToInt16(InteropCalls.ReadProcessMemoryHelper(Handle, adr, 2), 0);
+            var data = BitConverter.ToInt16(Interop.ReadProcessMemoryHelper(Handle, adr, 2), 0);
 
             return data;
         }
@@ -208,7 +209,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             var adr = CastToIntPtr(address);
 
-            var data = BitConverter.ToUInt16(InteropCalls.ReadProcessMemoryHelper(Handle, adr, 2), 0);
+            var data = BitConverter.ToUInt16(Interop.ReadProcessMemoryHelper(Handle, adr, 2), 0);
 
             return data;
         }
@@ -222,7 +223,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             var adr = CastToIntPtr(address);
 
-            var data = BitConverter.ToInt32(InteropCalls.ReadProcessMemoryHelper(Handle, adr, 4), 0);
+            var data = BitConverter.ToInt32(Interop.ReadProcessMemoryHelper(Handle, adr, 4), 0);
 
             return data;
         }
@@ -236,7 +237,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             var adr = CastToIntPtr(address);
 
-            var data = BitConverter.ToUInt32(InteropCalls.ReadProcessMemoryHelper(Handle, adr, 4), 0);
+            var data = BitConverter.ToUInt32(Interop.ReadProcessMemoryHelper(Handle, adr, 4), 0);
 
             return data;
         }
@@ -250,7 +251,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             var adr = CastToIntPtr(address);
 
-            var data = BitConverter.ToInt64(InteropCalls.ReadProcessMemoryHelper(Handle, adr, 8), 0);
+            var data = BitConverter.ToInt64(Interop.ReadProcessMemoryHelper(Handle, adr, 8), 0);
 
             return data;
         }
@@ -264,7 +265,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             var adr = CastToIntPtr(address);
 
-            var data = BitConverter.ToUInt64(InteropCalls.ReadProcessMemoryHelper(Handle, adr, 8), 0);
+            var data = BitConverter.ToUInt64(Interop.ReadProcessMemoryHelper(Handle, adr, 8), 0);
 
             return data;
         }
@@ -281,7 +282,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var data = new byte[size];
 
-            data = InteropCalls.ReadProcessMemoryHelper(Handle, adr, size);
+            data = Interop.ReadProcessMemoryHelper(Handle, adr, size);
 
             return data;
         }
@@ -320,7 +321,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var byteBuffer = BitConverter.GetBytes(input);
 
-            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+            return Interop.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
         }
 
         /// <summary>
@@ -336,7 +337,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var byteBuffer = BitConverter.GetBytes(input);
 
-            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+            return Interop.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
         }
 
         /// <summary>
@@ -352,7 +353,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var byteBuffer = BitConverter.GetBytes(input);
 
-            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+            return Interop.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
         }
 
         /// <summary>
@@ -368,7 +369,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var byteBuffer = BitConverter.GetBytes(input);
 
-            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+            return Interop.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
         }
 
         /// <summary>
@@ -384,7 +385,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var byteBuffer = BitConverter.GetBytes(input);
 
-            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+            return Interop.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
         }
 
         /// <summary>
@@ -400,7 +401,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var byteBuffer = BitConverter.GetBytes(input);
 
-            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+            return Interop.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
         }
 
         /// <summary>
@@ -416,7 +417,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var byteBuffer = BitConverter.GetBytes(input);
 
-            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+            return Interop.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
         }
 
         /// <summary>
@@ -432,7 +433,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var byteBuffer = BitConverter.GetBytes(input);
 
-            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+            return Interop.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
         }
 
         /// <summary>
@@ -449,7 +450,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var byteBuffer = enc.GetBytes(input);
 
-            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
+            return Interop.WriteProcessMemoryHelper(Handle, adr, byteBuffer);
         }
 
         /// <summary>
@@ -463,7 +464,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             var adr = CastToIntPtr(address);
 
-            return InteropCalls.WriteProcessMemoryHelper(Handle, adr, input);
+            return Interop.WriteProcessMemoryHelper(Handle, adr, input);
         }
 
         #endregion
@@ -528,7 +529,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (process == null)
                 process = Process;
 
-            Handle = InteropCalls.OpenProcess(desiredAccess, true, process.Id);
+            Handle = Interop.OpenProcess(desiredAccess, true, process.Id);
         }
 
         /// <summary>
@@ -548,9 +549,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 return;
 
             if (Handle != null)
-                InteropCalls.CloseHandle(Handle);
+                Interop.CloseHandle(Handle);
 
-            Handle = InteropCalls.OpenProcess(desiredAccess, true, process.Id);
+            Handle = Interop.OpenProcess(desiredAccess, true, process.Id);
         }
 
         /// <summary>

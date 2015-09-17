@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using PredefinedTypes;
+using Interop = Utilities.InteropCalls.InteropCalls;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -19,14 +20,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (_myMethod.Equals(AutomationMethods.SendMessage))
             {
-                InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)group, IntPtr.Zero);
-                InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keyup, (IntPtr)group, IntPtr.Zero);
+                Interop.SendMessage(_myHandle, (uint)Interop.WMessages.Keydown, (IntPtr)group, IntPtr.Zero);
+                Interop.SendMessage(_myHandle, (uint)Interop.WMessages.Keyup, (IntPtr)group, IntPtr.Zero);
             }
 
             else if (_myMethod.Equals(AutomationMethods.PostMessage))
             {
-                InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)group, IntPtr.Zero);
-                InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keyup, (IntPtr)group, IntPtr.Zero);
+                Interop.PostMessage(_myHandle, (uint)Interop.WMessages.Keydown, (IntPtr)group, IntPtr.Zero);
+                Interop.PostMessage(_myHandle, (uint)Interop.WMessages.Keyup, (IntPtr)group, IntPtr.Zero);
             }
         }
 
@@ -34,18 +35,18 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (_myMethod.Equals(AutomationMethods.SendMessage))
             {
-                InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)Keys.ControlKey, IntPtr.Zero);
-                InteropCalls.SendMessage(_myHandle, (uint) InteropCalls.WMessages.Keydown, (IntPtr) group,
-                                         (IntPtr) InteropCalls.WMessages.Keyup);
-                InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keyup, (IntPtr)Keys.ControlKey, IntPtr.Zero);
+                Interop.SendMessage(_myHandle, (uint)Interop.WMessages.Keydown, (IntPtr)Keys.ControlKey, IntPtr.Zero);
+                Interop.SendMessage(_myHandle, (uint) Interop.WMessages.Keydown, (IntPtr) group,
+                                         (IntPtr) Interop.WMessages.Keyup);
+                Interop.SendMessage(_myHandle, (uint)Interop.WMessages.Keyup, (IntPtr)Keys.ControlKey, IntPtr.Zero);
             }
 
             else if (_myMethod.Equals(AutomationMethods.PostMessage))
             {
-                InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)Keys.ControlKey, IntPtr.Zero);
-                InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)group,
-                                         (IntPtr)InteropCalls.WMessages.Keyup);
-                InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keyup, (IntPtr)Keys.ControlKey, IntPtr.Zero);
+                Interop.PostMessage(_myHandle, (uint)Interop.WMessages.Keydown, (IntPtr)Keys.ControlKey, IntPtr.Zero);
+                Interop.PostMessage(_myHandle, (uint)Interop.WMessages.Keydown, (IntPtr)group,
+                                         (IntPtr)Interop.WMessages.Keyup);
+                Interop.PostMessage(_myHandle, (uint)Interop.WMessages.Keyup, (IntPtr)Keys.ControlKey, IntPtr.Zero);
             }
         }
 
@@ -53,10 +54,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (_myMethod.Equals(AutomationMethods.SendMessage))
             {
-                InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown,
+                Interop.SendMessage(_myHandle, (uint)Interop.WMessages.Keydown,
                                          (IntPtr)key, IntPtr.Zero);
 
-                InteropCalls.SendMessage(_myHandle, (uint)InteropCalls.WMessages.Keyup,
+                Interop.SendMessage(_myHandle, (uint)Interop.WMessages.Keyup,
                                          (IntPtr)key, IntPtr.Zero);
             }
 
@@ -64,10 +65,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             else if (_myMethod.Equals(AutomationMethods.PostMessage))
             {
-                InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keydown,
+                Interop.PostMessage(_myHandle, (uint)Interop.WMessages.Keydown,
                                          (IntPtr)key, IntPtr.Zero);
 
-                InteropCalls.PostMessage(_myHandle, (uint)InteropCalls.WMessages.Keyup,
+                Interop.PostMessage(_myHandle, (uint)Interop.WMessages.Keyup,
                                          (IntPtr)key, IntPtr.Zero);
             }
         }

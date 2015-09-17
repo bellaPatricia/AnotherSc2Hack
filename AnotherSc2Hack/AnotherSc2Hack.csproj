@@ -81,7 +81,6 @@
     <Compile Include="Classes\BackEnds\Constants.cs" />
     <Compile Include="Classes\BackEnds\GameInfo.cs" />
     <Compile Include="Classes\BackEnds\HelpFunctions.cs" />
-    <Compile Include="Classes\BackEnds\InteropCalls.cs" />
     <Compile Include="Classes\BackEnds\LanguageString.cs" />
     <Compile Include="Classes\BackEnds\Memory.cs" />
     <Compile Include="Classes\BackEnds\Messages.cs" />
@@ -105,7 +104,6 @@
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayApm.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayIncome.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayResources.cs" />
-    <Compile Include="Classes\BackEnds\Processing.cs" />
     <Compile Include="Classes\BackEnds\Renderer_Helper.cs" />
     <Compile Include="Classes\BackEnds\Simulation.cs" />
     <Compile Include="Classes\DataStructures\Xml\XmlColor.cs" />

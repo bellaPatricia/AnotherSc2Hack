@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using PredefinedTypes;
+using Interop = Utilities.InteropCalls.InteropCalls;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -17,13 +18,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static void CheckIfDwmIsEnabled()
         {
             if (Environment.OSVersion.Version.Major >= 6 &&
-                InteropCalls.DwmIsCompositionEnabled())
+                Interop.DwmIsCompositionEnabled())
             {
                 //Do nothing
             }
 
             else if (Environment.OSVersion.Version.Major >= 6 &&
-                     !InteropCalls.DwmIsCompositionEnabled())
+                     !Interop.DwmIsCompositionEnabled())
             {
                 MessageBox.Show("It seems like you have DWM (Desktop Window Manager)\n" +
                                 "disabled. It's highly recommended to enable the DWM.\n" +
@@ -47,7 +48,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             for (var i = 0; i < keys.Length; i++)
             {
-                blResult = blResult && InteropCalls.GetAsyncKeyState(keys[i]) <= -32767;
+                blResult = blResult && Interop.GetAsyncKeyState(keys[i]) <= -32767;
             }
 
             return blResult;
@@ -74,16 +75,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (wndStyle.Equals(CustomWindowStyles.Clickable))
             {
-                var initial = InteropCalls.GetWindowLong(handle, (Int32)InteropCalls.Gwl.ExStyle);
-                InteropCalls.SetWindowLong(handle, (Int32)InteropCalls.Gwl.ExStyle,
-                                            (IntPtr)(initial & ~(Int32)InteropCalls.Ws.ExTransparent));
+                var initial = Interop.GetWindowLong(handle, (Int32)Interop.Gwl.ExStyle);
+                Interop.SetWindowLong(handle, (Int32)Interop.Gwl.ExStyle,
+                                            (IntPtr)(initial & ~(Int32)Interop.Ws.ExTransparent));
             }
 
             else if (wndStyle.Equals(CustomWindowStyles.NotClickable))
             {
-                var initial = InteropCalls.GetWindowLong(handle, (Int32)InteropCalls.Gwl.ExStyle);
-                InteropCalls.SetWindowLong(handle, (Int32)InteropCalls.Gwl.ExStyle,
-                                            (IntPtr)(initial | (Int32)InteropCalls.Ws.ExTransparent));
+                var initial = Interop.GetWindowLong(handle, (Int32)Interop.Gwl.ExStyle);
+                Interop.SetWindowLong(handle, (Int32)Interop.Gwl.ExStyle,
+                                            (IntPtr)(initial | (Int32)Interop.Ws.ExTransparent));
             }
         }
 

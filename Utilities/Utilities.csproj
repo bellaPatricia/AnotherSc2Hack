@@ -54,6 +54,8 @@
     <Compile Include="ExtensionMethods\ExtentImage.cs" />
     <Compile Include="ExtensionMethods\ExtentString.cs" />
     <Compile Include="InfoManager\InfoManager.cs" />
+    <Compile Include="InteropCalls\InteropCalls.cs" />
+    <Compile Include="Processing\Processing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VariousClasses\Hashes\Hashes.cs" />
     <Compile Include="Logger\Logger.cs" />

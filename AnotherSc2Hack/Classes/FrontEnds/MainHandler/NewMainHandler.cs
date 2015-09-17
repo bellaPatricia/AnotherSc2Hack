@@ -219,7 +219,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
         public NewMainHandler()
         {
-            ArgumentManager.ParseArguments("kek");
+            
 
             _.Info("Initialize The UI", _.InfoImportance.VeryImportant);
 

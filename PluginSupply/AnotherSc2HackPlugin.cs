@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
-using PredefinedTypes = Predefined.PredefinedData;
+using PredefinedTypes;
 using PluginInterface;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -24,7 +24,7 @@ namespace Plugin.Extensions
     {
         #region Public Accessors
 
-        public PredefinedTypes.PList PList { get; set; }
+        public PredefinedTypes.List<Player> PList { get; set; }
         public PredefinedTypes.Gameinformation GInfo { get; set; }
         public PredefinedTypes.CustomWindowStyles SetWindowStyle { get; set; }
 

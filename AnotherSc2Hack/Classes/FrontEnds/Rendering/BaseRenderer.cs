@@ -23,6 +23,7 @@ using Utilities.Events;
 using Utilities.ExtensionMethods;
 using _ = Utilities.InfoManager.InfoManager;
 using MouseButtons = System.Windows.Forms.MouseButtons;
+using Interop = Utilities.InteropCalls.InteropCalls;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
@@ -704,7 +705,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="e"></param>
         private void BaseRenderer_MouseUp(object sender, MouseEventArgs e)
         {
-            InteropCalls.SetForegroundWindow(PSc2Process.MainWindowHandle);
+            Interop.SetForegroundWindow(PSc2Process.MainWindowHandle);
 
             MouseUpTransferData();
 
@@ -779,7 +780,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         private void RefreshForeground(IntPtr hWnd)
         {
             var z = 0;
-            for (var h = hWnd; h != IntPtr.Zero; h = InteropCalls.GetWindow(h, InteropCalls.GetWindowCmd.GwHwndprev))
+            for (var h = hWnd; h != IntPtr.Zero; h = Interop.GetWindow(h, Interop.GetWindowCmd.GwHwndprev))
                 z++;
 
 
@@ -870,7 +871,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             /* Refresh Top- Most */
             if (
                 PSc2Process != null && PSc2Process.ProcessName.Length > 0 &&
-                InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
+                Interop.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
             {
                 if ((DateTime.Now - DtBegin).Seconds > 1)
                 {
@@ -1035,7 +1036,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             _bDraw = false;
 
                         else
-                            _bDraw = InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle);
+                            _bDraw = Interop.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle);
                     }
 
                     else
@@ -1048,9 +1049,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             PSc2Process = GInformation.CStarcraft2;
                         }
 
-                        else if (InteropCalls.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
+                        else if (Interop.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle))
                         {
-                            InteropCalls.SetActiveWindow(Handle);
+                            Interop.SetActiveWindow(Handle);
                         }
                     }
 

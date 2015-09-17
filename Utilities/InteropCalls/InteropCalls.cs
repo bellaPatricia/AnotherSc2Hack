@@ -19,8 +19,9 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Proc = Utilities.Processing.Processing;
 
-namespace AnotherSc2Hack.Classes.BackEnds
+namespace Utilities.InteropCalls
 {
     public class InteropCalls
     {
@@ -76,6 +77,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </remarks>
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern int FreeConsole();
+
+        [DllImport("kernel32.dll")]
+        public static extern uint GetLastError();
 
         #endregion
 
@@ -383,7 +387,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static IntPtr Help_OpenProcess(int dwDesiredAccess, bool bInheritHandle, string strProcessName)
         {
             Process proc;
-            if (Processing.GetProcess(strProcessName, out proc))
+            if (Proc.GetProcess(strProcessName, out proc))
                 return OpenProcess(dwDesiredAccess, bInheritHandle, proc.Id);
 
             return IntPtr.Zero;

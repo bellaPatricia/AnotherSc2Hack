@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using PredefinedTypes;
+using Interop = Utilities.InteropCalls.InteropCalls;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -25,8 +26,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 foreach (var t in key)
                 {
-                    InteropCalls.SendMessage(handle, (uint) InteropCalls.WMessages.Keydown, (IntPtr) t,
-                        (IntPtr) InteropCalls.WMessages.Keyup);
+                    Interop.SendMessage(handle, (uint) Interop.WMessages.Keydown, (IntPtr) t,
+                        (IntPtr) Interop.WMessages.Keyup);
                 }
             }
 
@@ -43,8 +44,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 {
                     foreach (var t in key)
                     {
-                        InteropCalls.SendMessage(handle, (uint) InteropCalls.WMessages.Keydown, (IntPtr) t,
-                            (IntPtr) InteropCalls.WMessages.Keyup);
+                        Interop.SendMessage(handle, (uint) Interop.WMessages.Keydown, (IntPtr) t,
+                            (IntPtr) Interop.WMessages.Keyup);
                     }
                 }
             }
@@ -60,14 +61,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 foreach (var t in key)
                 {
-                    InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)t,
+                    Interop.SendMessage(handle, (uint)Interop.WMessages.Keydown, (IntPtr)t,
                         IntPtr.Zero);
                 }
 
 
                 foreach (var t in key)
                 {
-                    InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Keyup, (IntPtr)t,
+                    Interop.SendMessage(handle, (uint)Interop.WMessages.Keyup, (IntPtr)t,
                         IntPtr.Zero);
                 }
             }
@@ -83,24 +84,24 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 foreach (var t in key)
                 {
-                    InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Keydown, (IntPtr)t,
+                    Interop.SendMessage(handle, (uint)Interop.WMessages.Keydown, (IntPtr)t,
                         IntPtr.Zero);
                 }
 
                 for (var i = key.Length - 1; i >= 0; i--)
                 {
-                    InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Keyup, (IntPtr)key[i],
+                    Interop.SendMessage(handle, (uint)Interop.WMessages.Keyup, (IntPtr)key[i],
                                              IntPtr.Zero);
                 }
             }
 
             #endregion
 
-            public static void PressKey(IntPtr handle, InteropCalls.WMessages msg, params Keys[] keys)
+            public static void PressKey(IntPtr handle, Interop.WMessages msg, params Keys[] keys)
             {
                 foreach (var k in keys)
                 {
-                    InteropCalls.SendMessage(handle, (uint)msg, (IntPtr)k,
+                    Interop.SendMessage(handle, (uint)msg, (IntPtr)k,
                         IntPtr.Zero);
                 }
             }
@@ -110,10 +111,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 for (var i = 0; i < times; i++)
                 {
                     /* Key Down */
-                    InteropCalls.SendMessage(handle, (uint) InteropCalls.WMessages.Keydown, (IntPtr) key, IntPtr.Zero);
+                    Interop.SendMessage(handle, (uint) Interop.WMessages.Keydown, (IntPtr) key, IntPtr.Zero);
 
                     /* Key Up */
-                    InteropCalls.SendMessage(handle, (uint) InteropCalls.WMessages.Keyup, (IntPtr) key, IntPtr.Zero);
+                    Interop.SendMessage(handle, (uint) Interop.WMessages.Keyup, (IntPtr) key, IntPtr.Zero);
 
                     Thread.Sleep(1);
                 }
@@ -123,18 +124,18 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 /* Key Down */
                 foreach (var t in keys)
-                    InteropCalls.SendMessage(handle, (uint) InteropCalls.WMessages.Keydown, (IntPtr) t,
+                    Interop.SendMessage(handle, (uint) Interop.WMessages.Keydown, (IntPtr) t,
                         IntPtr.Zero);
 
                 /* Key Up */
                 foreach (var t in keys)
-                    InteropCalls.SendMessage(handle, (uint) InteropCalls.WMessages.Keyup, (IntPtr) t, IntPtr.Zero);
+                    Interop.SendMessage(handle, (uint) Interop.WMessages.Keyup, (IntPtr) t, IntPtr.Zero);
             }
 
             public static void Keyboard_SimulateKey(IntPtr handle, Keys key)
             {
-                InteropCalls.SendMessage(handle, (uint) InteropCalls.WMessages.Keydown, (IntPtr) key,
-                                         (IntPtr) InteropCalls.WMessages.Keyup);
+                Interop.SendMessage(handle, (uint) Interop.WMessages.Keydown, (IntPtr) key,
+                                         (IntPtr) Interop.WMessages.Keyup);
             }
         }
 
@@ -157,53 +158,53 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     switch (btn)
                     {
                         case PredefinedTypes.MouseButtons.MouseLeft:
-                            InteropCalls.SendMessage(handle, (uint) InteropCalls.WMessages.Lbuttondown, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint) Interop.WMessages.Lbuttondown, IntPtr.Zero,
                                 (IntPtr) MakeLParam(t));
-                            InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Lbuttonup, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint)Interop.WMessages.Lbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
                         case PredefinedTypes.MouseButtons.MouseRight:
-                            InteropCalls.SendMessage(handle, (uint) InteropCalls.WMessages.Rbuttondown, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint) Interop.WMessages.Rbuttondown, IntPtr.Zero,
                                 (IntPtr) MakeLParam(t));
-                            InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Rbuttonup, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint)Interop.WMessages.Rbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
                         case PredefinedTypes.MouseButtons.MouseMiddle:
-                            InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Mbuttondown, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint)Interop.WMessages.Mbuttondown, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
-                            InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Mbuttonup, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint)Interop.WMessages.Mbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
                         case PredefinedTypes.MouseButtons.MouseLeftDown:
-                            InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Lbuttondown, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint)Interop.WMessages.Lbuttondown, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
                         case PredefinedTypes.MouseButtons.MouseLeftUp:
-                            InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Lbuttonup, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint)Interop.WMessages.Lbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
                         case PredefinedTypes.MouseButtons.MouseRightDown:
-                            InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Rbuttondown, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint)Interop.WMessages.Rbuttondown, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
                         case PredefinedTypes.MouseButtons.MouseRightUp:
-                            InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Rbuttonup, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint)Interop.WMessages.Rbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
                         case PredefinedTypes.MouseButtons.MouseMiddleDown:
-                            InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Mbuttondown, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint)Interop.WMessages.Mbuttondown, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
                         case PredefinedTypes.MouseButtons.MouseMiddleUp:
-                            InteropCalls.SendMessage(handle, (uint)InteropCalls.WMessages.Mbuttonup, IntPtr.Zero,
+                            Interop.SendMessage(handle, (uint)Interop.WMessages.Mbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
                     }

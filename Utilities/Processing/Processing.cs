@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace AnotherSc2Hack.Classes.BackEnds
+namespace Utilities.Processing
 {
     public static class Processing
     {

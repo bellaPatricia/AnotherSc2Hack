@@ -36,12 +36,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PluginInterface">
-      <HintPath>..\AnotherSc2Hack\bin\Release\PluginInterface.dll</HintPath>
-    </Reference>
-    <Reference Include="PredefinedTypes">
-      <HintPath>..\AnotherSc2Hack\bin\Release\PredefinedTypes.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -89,6 +83,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icon_PluginSupply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PluginInterface\PluginInterface.csproj">
+      <Project>{dca4e026-f889-42ae-af51-f8628c6a076b}</Project>
+      <Name>PluginInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PredefinedTypes\PredefinedTypes.csproj">
+      <Project>{f5fa0ad3-e5d0-4050-8094-1839a950d47a}</Project>
+      <Name>PredefinedTypes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

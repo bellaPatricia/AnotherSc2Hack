@@ -31,7 +31,9 @@ using System.Diagnostics;
 using System.Threading;
 using PredefinedTypes;
 using Utilities.Events;
+using Utilities.Processing;
 using _ = Utilities.InfoManager.InfoManager;
+using Interop = Utilities.InteropCalls.InteropCalls;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -1611,7 +1613,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 4 Bytes - No memory read */
         private WindowStyle GetGWindowStyle()
         {
-            var iBuffer = InteropCalls.GetWindowLongPtr(Memory.Process.MainWindowHandle, (Int32)InteropCalls.Gwl.ExStyle);
+            var iBuffer = Interop.GetWindowLongPtr(Memory.Process.MainWindowHandle, (Int32)Interop.Gwl.ExStyle);
 
             return (WindowStyle)iBuffer;
         }

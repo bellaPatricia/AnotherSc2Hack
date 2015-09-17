@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Interop = Utilities.InteropCalls.InteropCalls;
 
 namespace Utilities.InfoManager
 {
@@ -30,7 +31,30 @@ namespace Utilities.InfoManager
 
         #region Public Properties
 
-        public static InfoImportance InfoLogImportance { get; set; } = InfoImportance.Important;
+        private static InfoImportance _infoImportance = InfoImportance.None;
+
+        public static InfoImportance InfoLogImportance
+        {
+            get
+            {
+                return _infoImportance;
+                
+            }
+            set
+            {
+                if ((value & InfoImportance.NotImportant) == InfoImportance.NotImportant)
+                {
+                    Interop.AllocConsole();
+                }
+
+                else if ((value == InfoImportance.None))
+                {
+                    Interop.FreeConsole();
+                }
+
+                _infoImportance = value;
+            }
+        }
 
         #endregion
 
