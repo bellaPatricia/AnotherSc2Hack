@@ -24,7 +24,6 @@ using Utilities.Events;
 using Utilities.Logger;
 using Utilities.VariousClasses.Hashes;
 using _ = Utilities.InfoManager.InfoManager;
-using Utilities.ArgumentManager;
 using Timer = System.Windows.Forms.Timer;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
@@ -606,50 +605,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        private void CheckWebbrowserUrl(string strUrl)
-        {
-            if (!PSettings.PreferenceAll.Global.ApplicationShowWebContent || strUrl == null || strUrl.Length <= 0)
-                return;
-
-            if (InvokeRequired)
-            {
-                BeginInvoke(new CheckWebbrowserUrlDelegate(CheckWebbrowserUrl), new object[] {strUrl});
-                return;
-            }
-
-            try
-            {
-                var req = (HttpWebRequest) WebRequest.Create(strUrl);
-                var res = (HttpWebResponse) req.GetResponse();
-
-                if (res.StatusCode == HttpStatusCode.OK)
-                {
-                    wbNews.Url = new Uri(strUrl);
-                    wbNews.Visible = true;
-                }
-            }
-
-            catch (ProtocolViolationException ex)
-            {
-                Logger.Emit("ProtocolViolationException", ex);
-            }
-
-            catch (InvalidOperationException ex)
-            {
-                Logger.Emit("InvalidOperationException", ex);
-            }
-
-            catch (NotSupportedException ex)
-            {
-                Logger.Emit("NotSupportedException", ex);
-            }
-
-            catch (Exception ex)
-            {
-                Logger.Emit(ex);
-            }
-        }
-
         private void ShowAvailableUpdates()
         {
             if (InvokeRequired)
@@ -757,20 +712,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             PSettings.PreferenceAll.Global.DrawOnlyInForeground = o.Checked;
         }
 
-        private void aChBxShowWebContent_CheckedChanged(AnotherCheckbox o, EventChecked e)
-        {
-            PSettings.PreferenceAll.Global.ApplicationShowWebContent = o.Checked;
-
-            if (o.Checked)
-                CheckWebbrowserUrl(_ucDownloadManager.ApplicationChangesUrl);
-
-            else
-            {
-                wbNews.Visible = false;
-                wbNews.Url = null;
-            }
-        }
-
         private void btnRestoreSettings_Click(object sender, EventArgs e)
         {
             var result = new AnotherMessageBox().Show(_lstrApplicationRestoreSettingsText.Text, _lstrApplicationRestoreSettingsHeader.Text, MessageBoxButtons.YesNo
@@ -822,11 +763,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             {
                 ShowAvailableUpdates();
             }
-
-            CheckWebbrowserUrl(dm.ApplicationChangesUrl);
-
-            
-            
         }
 
         #endregion
@@ -3061,7 +2997,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             ntxtGraphicsRefresh.Number = PSettings.PreferenceAll.Global.DrawingRefresh;
             ktxtReposition.Text = PSettings.PreferenceAll.Global.ChangeSizeAndPosition.ToString();
             aChBxOnlyDrawInForeground.Checked = PSettings.PreferenceAll.Global.DrawOnlyInForeground;
-            aChBxShowWebContent.Checked = PSettings.PreferenceAll.Global.ApplicationShowWebContent;
 
             if (!PSettings.PreferenceAll.Global.ApplicationSize.Equals(new Size(0, 0)))
                 Size = PSettings.PreferenceAll.Global.ApplicationSize;
