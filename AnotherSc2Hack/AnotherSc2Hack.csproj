@@ -85,6 +85,9 @@
     <Compile Include="Classes\BackEnds\Memory.cs" />
     <Compile Include="Classes\BackEnds\Messages.cs" />
     <Compile Include="Classes\BackEnds\Offsets.cs" />
+    <Compile Include="Classes\DataStructures\Game\Game.cs" />
+    <Compile Include="Classes\DataStructures\Game\Mind.cs" />
+    <Compile Include="Classes\DataStructures\Game\Offsets.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayPersonalApm.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayAlert.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayPersonalClock.cs" />
