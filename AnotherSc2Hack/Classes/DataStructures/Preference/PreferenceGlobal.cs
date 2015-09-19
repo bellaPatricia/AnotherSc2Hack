@@ -15,7 +15,6 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public bool ApplicationAskedForDonation { get; set; }
         public bool ApplicationShowWebContent { get; set; }
         public string ApplicationLastOpenedPanel { get; set; }
-        public Point ApplicationLocation { get; set; }
         public Size ApplicationSize { get; set; }
 
         public PreferenceGlobal()
@@ -32,7 +31,6 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             ApplicationShowWebContent = true;
             ApplicationLastOpenedPanel = "cpnlApplication";
             ApplicationSize = new Size(0,0);
-            ApplicationLocation = new Point(0,0);
         }
     }
 }

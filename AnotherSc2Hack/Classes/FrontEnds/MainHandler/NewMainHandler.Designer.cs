@@ -2750,7 +2750,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewMainHandler_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NewMainHandler_FormClosed);
             this.Load += new System.EventHandler(this.NewMainHandler_Load);
-            this.LocationChanged += new System.EventHandler(this.NewMainHandler_LocationChanged);
             this.Resize += new System.EventHandler(this.NewMainHandler_Resize);
             this.pnlLeftSelection.ResumeLayout(false);
             this.pnlVarious.ResumeLayout(false);

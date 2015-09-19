@@ -3069,11 +3069,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             else
                 Size = new Size(1196, 630);
 
-            if (!PSettings.PreferenceAll.Global.ApplicationLocation.Equals(new Point(0, 0)))
-                Location = PSettings.PreferenceAll.Global.ApplicationLocation;
-
-            else 
-                CenterToScreen();
+            CenterToScreen();
 
             InitializeLanguageFiles();
             InitializeResources();
@@ -3384,11 +3380,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
             InputManager();
             PluginDataRefresh();
-        }
-
-        private void NewMainHandler_LocationChanged(object sender, EventArgs e)
-        {
-            PSettings.PreferenceAll.Global.ApplicationLocation = Location;
         }
 
         private void pnlMainArea_Paint(object sender, PaintEventArgs e)
