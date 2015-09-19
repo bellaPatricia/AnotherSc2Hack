@@ -65,11 +65,11 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                 return false;
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
                 //This shouldn't happen
                 _.Info("Generic Exceptions Found - Nothing is Saved", _.InfoImportance.Important);
-                throw ex;
+                throw;
             }
 
             //Remove legacy settings
