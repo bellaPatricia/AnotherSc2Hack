@@ -76,232 +76,232 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         protected bool BTogglePosition;
         protected string StrBackupChatbox = string.Empty;
         protected string StrBackupSizeChatbox = string.Empty;
-        protected Stopwatch _swMainWatch = new Stopwatch();
+        internal Stopwatch _swMainWatch = new Stopwatch();
 
         #region UnitCounter - Count all objects per player
 
         #region Terran
 
-        protected List<UnitCount> _lTbCommandCenter = new List<UnitCount>();
-        protected List<UnitCount> _lTbPlanetaryFortress = new List<UnitCount>();
-        protected List<UnitCount> _lTbOrbitalCommand = new List<UnitCount>();
-        protected List<UnitCount> _lTbBarracks = new List<UnitCount>();
-        protected List<UnitCount> _lTbSupply = new List<UnitCount>();
-        protected List<UnitCount> _lTbEbay = new List<UnitCount>();
-        protected List<UnitCount> _lTbRefinery = new List<UnitCount>();
-        protected List<UnitCount> _lTbBunker = new List<UnitCount>();
-        protected List<UnitCount> _lTbTurrent = new List<UnitCount>();
-        protected List<UnitCount> _lTbSensorTower = new List<UnitCount>();
-        protected List<UnitCount> _lTbFactory = new List<UnitCount>();
-        protected List<UnitCount> _lTbStarport = new List<UnitCount>();
-        protected List<UnitCount> _lTbArmory = new List<UnitCount>();
-        protected List<UnitCount> _lTbGhostAcademy = new List<UnitCount>();
-        protected List<UnitCount> _lTbFusionCore = new List<UnitCount>();
-        protected List<UnitCount> _lTbTechlab = new List<UnitCount>();
-        protected List<UnitCount> _lTbReactor = new List<UnitCount>();
-        protected List<UnitCount> _lTbAutoTurret = new List<UnitCount>();
+        protected List<UnitCount> LTbCommandCenter = new List<UnitCount>();
+        protected List<UnitCount> LTbPlanetaryFortress = new List<UnitCount>();
+        protected List<UnitCount> LTbOrbitalCommand = new List<UnitCount>();
+        protected List<UnitCount> LTbBarracks = new List<UnitCount>();
+        protected List<UnitCount> LTbSupply = new List<UnitCount>();
+        protected List<UnitCount> LTbEbay = new List<UnitCount>();
+        protected List<UnitCount> LTbRefinery = new List<UnitCount>();
+        protected List<UnitCount> LTbBunker = new List<UnitCount>();
+        protected List<UnitCount> LTbTurrent = new List<UnitCount>();
+        protected List<UnitCount> LTbSensorTower = new List<UnitCount>();
+        protected List<UnitCount> LTbFactory = new List<UnitCount>();
+        protected List<UnitCount> LTbStarport = new List<UnitCount>();
+        protected List<UnitCount> LTbArmory = new List<UnitCount>();
+        protected List<UnitCount> LTbGhostAcademy = new List<UnitCount>();
+        protected List<UnitCount> LTbFusionCore = new List<UnitCount>();
+        protected List<UnitCount> LTbTechlab = new List<UnitCount>();
+        protected List<UnitCount> LTbReactor = new List<UnitCount>();
+        protected List<UnitCount> LTbAutoTurret = new List<UnitCount>();
 
 
-        protected List<UnitCount> _lTuScv = new List<UnitCount>();
-        protected List<UnitCount> _lTuMule = new List<UnitCount>();
-        protected List<UnitCount> _lTuMarine = new List<UnitCount>();
-        protected List<UnitCount> _lTuMarauder = new List<UnitCount>();
-        protected List<UnitCount> _lTuReaper = new List<UnitCount>();
-        protected List<UnitCount> _lTuGhost = new List<UnitCount>();
-        protected List<UnitCount> _lTuWidowMine = new List<UnitCount>();
-        protected List<UnitCount> _lTuSiegetank = new List<UnitCount>();
-        protected List<UnitCount> _lTuHellion = new List<UnitCount>();
-        protected List<UnitCount> _lTuHellbat = new List<UnitCount>();
-        protected List<UnitCount> _lTuThor = new List<UnitCount>();
-        protected List<UnitCount> _lTuViking = new List<UnitCount>();
-        protected List<UnitCount> _lTuBanshee = new List<UnitCount>();
-        protected List<UnitCount> _lTuMedivac = new List<UnitCount>();
-        protected List<UnitCount> _lTuBattlecruiser = new List<UnitCount>();
-        protected List<UnitCount> _lTuRaven = new List<UnitCount>();
-        protected List<UnitCount> _lTuPointDefenseDrone = new List<UnitCount>();
-        protected List<UnitCount> _lTuNuke = new List<UnitCount>();
+        protected List<UnitCount> LTuScv = new List<UnitCount>();
+        protected List<UnitCount> LTuMule = new List<UnitCount>();
+        protected List<UnitCount> LTuMarine = new List<UnitCount>();
+        protected List<UnitCount> LTuMarauder = new List<UnitCount>();
+        protected List<UnitCount> LTuReaper = new List<UnitCount>();
+        protected List<UnitCount> LTuGhost = new List<UnitCount>();
+        protected List<UnitCount> LTuWidowMine = new List<UnitCount>();
+        protected List<UnitCount> LTuSiegetank = new List<UnitCount>();
+        protected List<UnitCount> LTuHellion = new List<UnitCount>();
+        protected List<UnitCount> LTuHellbat = new List<UnitCount>();
+        protected List<UnitCount> LTuThor = new List<UnitCount>();
+        protected List<UnitCount> LTuViking = new List<UnitCount>();
+        protected List<UnitCount> LTuBanshee = new List<UnitCount>();
+        protected List<UnitCount> LTuMedivac = new List<UnitCount>();
+        protected List<UnitCount> LTuBattlecruiser = new List<UnitCount>();
+        protected List<UnitCount> LTuRaven = new List<UnitCount>();
+        protected List<UnitCount> LTuPointDefenseDrone = new List<UnitCount>();
+        protected List<UnitCount> LTuNuke = new List<UnitCount>();
 
 
-        protected List<UnitCount> _lTupInfantryWeapon1 = new List<UnitCount>();
-        protected List<UnitCount> _lTupInfantryWeapon2 = new List<UnitCount>();
-        protected List<UnitCount> _lTupInfantryWeapon3 = new List<UnitCount>();
-        protected List<UnitCount> _lTupInfantryArmor1 = new List<UnitCount>();
-        protected List<UnitCount> _lTupInfantryArmor2 = new List<UnitCount>();
-        protected List<UnitCount> _lTupInfantryArmor3 = new List<UnitCount>();
-        protected List<UnitCount> _lTupVehicleWeapon1 = new List<UnitCount>();
-        protected List<UnitCount> _lTupVehicleWeapon2 = new List<UnitCount>();
-        protected List<UnitCount> _lTupVehicleWeapon3 = new List<UnitCount>();
-        protected List<UnitCount> _lTupShipWeapon1 = new List<UnitCount>();
-        protected List<UnitCount> _lTupShipWeapon2 = new List<UnitCount>();
-        protected List<UnitCount> _lTupShipWeapon3 = new List<UnitCount>();
-        protected List<UnitCount> _lTupVehicleShipPlanting1 = new List<UnitCount>();
-        protected List<UnitCount> _lTupVehicleShipPlanting2 = new List<UnitCount>();
-        protected List<UnitCount> _lTupVehicleShipPlanting3 = new List<UnitCount>();
-        protected List<UnitCount> _lTupNeosteelFrame = new List<UnitCount>();
-        protected List<UnitCount> _lTupStructureArmor = new List<UnitCount>();
-        protected List<UnitCount> _lTupHighSecAutoTracking = new List<UnitCount>();
-        protected List<UnitCount> _lTupConcussiveShells = new List<UnitCount>();
-        protected List<UnitCount> _lTupCombatShields = new List<UnitCount>();
-        protected List<UnitCount> _lTupStim = new List<UnitCount>();
-        protected List<UnitCount> _lTupBlueFlame = new List<UnitCount>();
-        protected List<UnitCount> _lTupDrillingClaws = new List<UnitCount>();
-        protected List<UnitCount> _lTupTransformationServos = new List<UnitCount>();
-        protected List<UnitCount> _lTupCloakingField = new List<UnitCount>();
-        protected List<UnitCount> _lTupCaduceusReactor = new List<UnitCount>();
-        protected List<UnitCount> _lTupDurableMaterials = new List<UnitCount>();
-        protected List<UnitCount> _lTupCorvidReactor = new List<UnitCount>();
-        protected List<UnitCount> _lTupWeaponRefit = new List<UnitCount>();
-        protected List<UnitCount> _lTupBehemothReactor = new List<UnitCount>();
-        protected List<UnitCount> _lTupPersonalCloak = new List<UnitCount>();
-        protected List<UnitCount> _lTupMoebiusReactor = new List<UnitCount>();
-        protected List<UnitCount> _lTupPlanetaryFortress = new List<UnitCount>();
-        protected List<UnitCount> _lTupOrbitalCommand = new List<UnitCount>();
+        protected List<UnitCount> LTupInfantryWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> LTupInfantryWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> LTupInfantryWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> LTupInfantryArmor1 = new List<UnitCount>();
+        protected List<UnitCount> LTupInfantryArmor2 = new List<UnitCount>();
+        protected List<UnitCount> LTupInfantryArmor3 = new List<UnitCount>();
+        protected List<UnitCount> LTupVehicleWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> LTupVehicleWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> LTupVehicleWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> LTupShipWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> LTupShipWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> LTupShipWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> LTupVehicleShipPlanting1 = new List<UnitCount>();
+        protected List<UnitCount> LTupVehicleShipPlanting2 = new List<UnitCount>();
+        protected List<UnitCount> LTupVehicleShipPlanting3 = new List<UnitCount>();
+        protected List<UnitCount> LTupNeosteelFrame = new List<UnitCount>();
+        protected List<UnitCount> LTupStructureArmor = new List<UnitCount>();
+        protected List<UnitCount> LTupHighSecAutoTracking = new List<UnitCount>();
+        protected List<UnitCount> LTupConcussiveShells = new List<UnitCount>();
+        protected List<UnitCount> LTupCombatShields = new List<UnitCount>();
+        protected List<UnitCount> LTupStim = new List<UnitCount>();
+        protected List<UnitCount> LTupBlueFlame = new List<UnitCount>();
+        protected List<UnitCount> LTupDrillingClaws = new List<UnitCount>();
+        protected List<UnitCount> LTupTransformationServos = new List<UnitCount>();
+        protected List<UnitCount> LTupCloakingField = new List<UnitCount>();
+        protected List<UnitCount> LTupCaduceusReactor = new List<UnitCount>();
+        protected List<UnitCount> LTupDurableMaterials = new List<UnitCount>();
+        protected List<UnitCount> LTupCorvidReactor = new List<UnitCount>();
+        protected List<UnitCount> LTupWeaponRefit = new List<UnitCount>();
+        protected List<UnitCount> LTupBehemothReactor = new List<UnitCount>();
+        protected List<UnitCount> LTupPersonalCloak = new List<UnitCount>();
+        protected List<UnitCount> LTupMoebiusReactor = new List<UnitCount>();
+        protected List<UnitCount> LTupPlanetaryFortress = new List<UnitCount>();
+        protected List<UnitCount> LTupOrbitalCommand = new List<UnitCount>();
 
         #endregion
 
         #region Protoss
 
-        protected List<UnitCount> _lPbNexus = new List<UnitCount>();
-        protected List<UnitCount> _lPbPylon = new List<UnitCount>();
-        protected List<UnitCount> _lPbGateway = new List<UnitCount>();
-        protected List<UnitCount> _lPbForge = new List<UnitCount>();
-        protected List<UnitCount> _lPbCybercore = new List<UnitCount>();
-        protected List<UnitCount> _lPbWarpgate = new List<UnitCount>();
-        protected List<UnitCount> _lPbCannon = new List<UnitCount>();
-        protected List<UnitCount> _lPbAssimilator = new List<UnitCount>();
-        protected List<UnitCount> _lPbTwilight = new List<UnitCount>();
-        protected List<UnitCount> _lPbStargate = new List<UnitCount>();
-        protected List<UnitCount> _lPbRobotics = new List<UnitCount>();
-        protected List<UnitCount> _lPbRoboticsSupport = new List<UnitCount>();
-        protected List<UnitCount> _lPbFleetbeacon = new List<UnitCount>();
-        protected List<UnitCount> _lPbTemplarArchives = new List<UnitCount>();
-        protected List<UnitCount> _lPbDarkshrine = new List<UnitCount>();
+        protected List<UnitCount> LPbNexus = new List<UnitCount>();
+        protected List<UnitCount> LPbPylon = new List<UnitCount>();
+        protected List<UnitCount> LPbGateway = new List<UnitCount>();
+        protected List<UnitCount> LPbForge = new List<UnitCount>();
+        protected List<UnitCount> LPbCybercore = new List<UnitCount>();
+        protected List<UnitCount> LPbWarpgate = new List<UnitCount>();
+        protected List<UnitCount> LPbCannon = new List<UnitCount>();
+        protected List<UnitCount> LPbAssimilator = new List<UnitCount>();
+        protected List<UnitCount> LPbTwilight = new List<UnitCount>();
+        protected List<UnitCount> LPbStargate = new List<UnitCount>();
+        protected List<UnitCount> LPbRobotics = new List<UnitCount>();
+        protected List<UnitCount> LPbRoboticsSupport = new List<UnitCount>();
+        protected List<UnitCount> LPbFleetbeacon = new List<UnitCount>();
+        protected List<UnitCount> LPbTemplarArchives = new List<UnitCount>();
+        protected List<UnitCount> LPbDarkshrine = new List<UnitCount>();
 
-        protected List<UnitCount> _lPuProbe = new List<UnitCount>();
-        protected List<UnitCount> _lPuStalker = new List<UnitCount>();
-        protected List<UnitCount> _lPuZealot = new List<UnitCount>();
-        protected List<UnitCount> _lPuSentry = new List<UnitCount>();
-        protected List<UnitCount> _lPuDt = new List<UnitCount>();
-        protected List<UnitCount> _lPuHt = new List<UnitCount>();
-        protected List<UnitCount> _lPuMothership = new List<UnitCount>();
-        protected List<UnitCount> _lPuMothershipcore = new List<UnitCount>();
-        protected List<UnitCount> _lPuArchon = new List<UnitCount>();
-        protected List<UnitCount> _lPuWarpprism = new List<UnitCount>();
-        protected List<UnitCount> _lPuObserver = new List<UnitCount>();
-        protected List<UnitCount> _lPuColossus = new List<UnitCount>();
-        protected List<UnitCount> _lPuImmortal = new List<UnitCount>();
-        protected List<UnitCount> _lPuPhoenix = new List<UnitCount>();
-        protected List<UnitCount> _lPuVoidray = new List<UnitCount>();
-        protected List<UnitCount> _lPuOracle = new List<UnitCount>();
-        protected List<UnitCount> _lPuTempest = new List<UnitCount>();
-        protected List<UnitCount> _lPuCarrier = new List<UnitCount>();
-        protected List<UnitCount> _lPuForcefield = new List<UnitCount>();
+        protected List<UnitCount> LPuProbe = new List<UnitCount>();
+        protected List<UnitCount> LPuStalker = new List<UnitCount>();
+        protected List<UnitCount> LPuZealot = new List<UnitCount>();
+        protected List<UnitCount> LPuSentry = new List<UnitCount>();
+        protected List<UnitCount> LPuDt = new List<UnitCount>();
+        protected List<UnitCount> LPuHt = new List<UnitCount>();
+        protected List<UnitCount> LPuMothership = new List<UnitCount>();
+        protected List<UnitCount> LPuMothershipcore = new List<UnitCount>();
+        protected List<UnitCount> LPuArchon = new List<UnitCount>();
+        protected List<UnitCount> LPuWarpprism = new List<UnitCount>();
+        protected List<UnitCount> LPuObserver = new List<UnitCount>();
+        protected List<UnitCount> LPuColossus = new List<UnitCount>();
+        protected List<UnitCount> LPuImmortal = new List<UnitCount>();
+        protected List<UnitCount> LPuPhoenix = new List<UnitCount>();
+        protected List<UnitCount> LPuVoidray = new List<UnitCount>();
+        protected List<UnitCount> LPuOracle = new List<UnitCount>();
+        protected List<UnitCount> LPuTempest = new List<UnitCount>();
+        protected List<UnitCount> LPuCarrier = new List<UnitCount>();
+        protected List<UnitCount> LPuForcefield = new List<UnitCount>();
 
-        protected List<UnitCount> _lPupGroundWeapon1 = new List<UnitCount>();
-        protected List<UnitCount> _lPupGroundWeapon2 = new List<UnitCount>();
-        protected List<UnitCount> _lPupGroundWeapon3 = new List<UnitCount>();
-        protected List<UnitCount> _lPupGroundArmor1 = new List<UnitCount>();
-        protected List<UnitCount> _lPupGroundArmor2 = new List<UnitCount>();
-        protected List<UnitCount> _lPupGroundArmor3 = new List<UnitCount>();
-        protected List<UnitCount> _lPupShield1 = new List<UnitCount>();
-        protected List<UnitCount> _lPupShield2 = new List<UnitCount>();
-        protected List<UnitCount> _lPupShield3 = new List<UnitCount>();
-        protected List<UnitCount> _lPupAirWeapon1 = new List<UnitCount>();
-        protected List<UnitCount> _lPupAirWeapon2 = new List<UnitCount>();
-        protected List<UnitCount> _lPupAirWeapon3 = new List<UnitCount>();
-        protected List<UnitCount> _lPupAirArmor1 = new List<UnitCount>();
-        protected List<UnitCount> _lPupAirArmor2 = new List<UnitCount>();
-        protected List<UnitCount> _lPupAirArmor3 = new List<UnitCount>();
-        protected List<UnitCount> _lPupStorm = new List<UnitCount>();
-        protected List<UnitCount> _lPupWarpGate = new List<UnitCount>();
-        protected List<UnitCount> _lPupBlink = new List<UnitCount>();
-        protected List<UnitCount> _lPupCharge = new List<UnitCount>();
-        protected List<UnitCount> _lPupAnionPulseCrystal = new List<UnitCount>();
-        protected List<UnitCount> _lPupGraviticBooster = new List<UnitCount>();
-        protected List<UnitCount> _lPupGraviticDrive = new List<UnitCount>();
-        protected List<UnitCount> _lPupGravitonCatapult = new List<UnitCount>();
-        protected List<UnitCount> _lPupExtendedThermalLance = new List<UnitCount>();
+        protected List<UnitCount> LPupGroundWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> LPupGroundWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> LPupGroundWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> LPupGroundArmor1 = new List<UnitCount>();
+        protected List<UnitCount> LPupGroundArmor2 = new List<UnitCount>();
+        protected List<UnitCount> LPupGroundArmor3 = new List<UnitCount>();
+        protected List<UnitCount> LPupShield1 = new List<UnitCount>();
+        protected List<UnitCount> LPupShield2 = new List<UnitCount>();
+        protected List<UnitCount> LPupShield3 = new List<UnitCount>();
+        protected List<UnitCount> LPupAirWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> LPupAirWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> LPupAirWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> LPupAirArmor1 = new List<UnitCount>();
+        protected List<UnitCount> LPupAirArmor2 = new List<UnitCount>();
+        protected List<UnitCount> LPupAirArmor3 = new List<UnitCount>();
+        protected List<UnitCount> LPupStorm = new List<UnitCount>();
+        protected List<UnitCount> LPupWarpGate = new List<UnitCount>();
+        protected List<UnitCount> LPupBlink = new List<UnitCount>();
+        protected List<UnitCount> LPupCharge = new List<UnitCount>();
+        protected List<UnitCount> LPupAnionPulseCrystal = new List<UnitCount>();
+        protected List<UnitCount> LPupGraviticBooster = new List<UnitCount>();
+        protected List<UnitCount> LPupGraviticDrive = new List<UnitCount>();
+        protected List<UnitCount> LPupGravitonCatapult = new List<UnitCount>();
+        protected List<UnitCount> LPupExtendedThermalLance = new List<UnitCount>();
 
         #endregion
 
         #region Zerg
 
-        protected List<UnitCount> _lZbHatchery = new List<UnitCount>();
-        protected List<UnitCount> _lZbLair = new List<UnitCount>();
-        protected List<UnitCount> _lZbHive = new List<UnitCount>();
-        protected List<UnitCount> _lZbSpawningpool = new List<UnitCount>();
-        protected List<UnitCount> _lZbRoachwarren = new List<UnitCount>();
-        protected List<UnitCount> _lZbCreepTumor = new List<UnitCount>();
-        protected List<UnitCount> _lZbEvochamber = new List<UnitCount>();
-        protected List<UnitCount> _lZbSpine = new List<UnitCount>();
-        protected List<UnitCount> _lZbSpore = new List<UnitCount>();
-        protected List<UnitCount> _lZbBanelingnest = new List<UnitCount>();
-        protected List<UnitCount> _lZbExtractor = new List<UnitCount>();
-        protected List<UnitCount> _lZbHydraden = new List<UnitCount>();
-        protected List<UnitCount> _lZbSpire = new List<UnitCount>();
-        protected List<UnitCount> _lZbNydusbegin = new List<UnitCount>();
-        protected List<UnitCount> _lZbNydusend = new List<UnitCount>();
-        protected List<UnitCount> _lZbUltracavern = new List<UnitCount>();
-        protected List<UnitCount> _lZbGreaterspire = new List<UnitCount>();
-        protected List<UnitCount> _lZbInfestationpit = new List<UnitCount>();
+        protected List<UnitCount> LZbHatchery = new List<UnitCount>();
+        protected List<UnitCount> LZbLair = new List<UnitCount>();
+        protected List<UnitCount> LZbHive = new List<UnitCount>();
+        protected List<UnitCount> LZbSpawningpool = new List<UnitCount>();
+        protected List<UnitCount> LZbRoachwarren = new List<UnitCount>();
+        protected List<UnitCount> LZbCreepTumor = new List<UnitCount>();
+        protected List<UnitCount> LZbEvochamber = new List<UnitCount>();
+        protected List<UnitCount> LZbSpine = new List<UnitCount>();
+        protected List<UnitCount> LZbSpore = new List<UnitCount>();
+        protected List<UnitCount> LZbBanelingnest = new List<UnitCount>();
+        protected List<UnitCount> LZbExtractor = new List<UnitCount>();
+        protected List<UnitCount> LZbHydraden = new List<UnitCount>();
+        protected List<UnitCount> LZbSpire = new List<UnitCount>();
+        protected List<UnitCount> LZbNydusbegin = new List<UnitCount>();
+        protected List<UnitCount> LZbNydusend = new List<UnitCount>();
+        protected List<UnitCount> LZbUltracavern = new List<UnitCount>();
+        protected List<UnitCount> LZbGreaterspire = new List<UnitCount>();
+        protected List<UnitCount> LZbInfestationpit = new List<UnitCount>();
 
-        protected List<UnitCount> _lZuLarva = new List<UnitCount>();
-        protected List<UnitCount> _lZuDrone = new List<UnitCount>();
-        protected List<UnitCount> _lZuOverlord = new List<UnitCount>();
-        protected List<UnitCount> _lZuZergling = new List<UnitCount>();
-        protected List<UnitCount> _lZuBaneling = new List<UnitCount>();
-        protected List<UnitCount> _lZuBanelingCocoon = new List<UnitCount>();
-        protected List<UnitCount> _lZuBroodlordCocoon = new List<UnitCount>();
-        protected List<UnitCount> _lZuRoach = new List<UnitCount>();
-        protected List<UnitCount> _lZuHydra = new List<UnitCount>();
-        protected List<UnitCount> _lZuInfestor = new List<UnitCount>();
-        protected List<UnitCount> _lZuInfestedTerran = new List<UnitCount>();
-        protected List<UnitCount> _lZuInfestedTerranEgg = new List<UnitCount>();
-        protected List<UnitCount> _lZuQueen = new List<UnitCount>();
-        protected List<UnitCount> _lZuOverseer = new List<UnitCount>();
-        protected List<UnitCount> _lZuOverseerCocoon = new List<UnitCount>();
-        protected List<UnitCount> _lZuMutalisk = new List<UnitCount>();
-        protected List<UnitCount> _lZuCorruptor = new List<UnitCount>();
-        protected List<UnitCount> _lZuBroodlord = new List<UnitCount>();
-        protected List<UnitCount> _lZuUltralisk = new List<UnitCount>();
-        protected List<UnitCount> _lZuSwarmhost = new List<UnitCount>();
-        protected List<UnitCount> _lZuViper = new List<UnitCount>();
-        protected List<UnitCount> _lZuLocust = new List<UnitCount>();
-        protected List<UnitCount> _lZuFlyingLocust = new List<UnitCount>();
-        protected List<UnitCount> _lZuChangeling = new List<UnitCount>();
-        protected List<UnitCount> _lZuBroodling = new List<UnitCount>();
+        protected List<UnitCount> LZuLarva = new List<UnitCount>();
+        protected List<UnitCount> LZuDrone = new List<UnitCount>();
+        protected List<UnitCount> LZuOverlord = new List<UnitCount>();
+        protected List<UnitCount> LZuZergling = new List<UnitCount>();
+        protected List<UnitCount> LZuBaneling = new List<UnitCount>();
+        protected List<UnitCount> LZuBanelingCocoon = new List<UnitCount>();
+        protected List<UnitCount> LZuBroodlordCocoon = new List<UnitCount>();
+        protected List<UnitCount> LZuRoach = new List<UnitCount>();
+        protected List<UnitCount> LZuHydra = new List<UnitCount>();
+        protected List<UnitCount> LZuInfestor = new List<UnitCount>();
+        protected List<UnitCount> LZuInfestedTerran = new List<UnitCount>();
+        protected List<UnitCount> LZuInfestedTerranEgg = new List<UnitCount>();
+        protected List<UnitCount> LZuQueen = new List<UnitCount>();
+        protected List<UnitCount> LZuOverseer = new List<UnitCount>();
+        protected List<UnitCount> LZuOverseerCocoon = new List<UnitCount>();
+        protected List<UnitCount> LZuMutalisk = new List<UnitCount>();
+        protected List<UnitCount> LZuCorruptor = new List<UnitCount>();
+        protected List<UnitCount> LZuBroodlord = new List<UnitCount>();
+        protected List<UnitCount> LZuUltralisk = new List<UnitCount>();
+        protected List<UnitCount> LZuSwarmhost = new List<UnitCount>();
+        protected List<UnitCount> LZuViper = new List<UnitCount>();
+        protected List<UnitCount> LZuLocust = new List<UnitCount>();
+        protected List<UnitCount> LZuFlyingLocust = new List<UnitCount>();
+        protected List<UnitCount> LZuChangeling = new List<UnitCount>();
+        protected List<UnitCount> LZuBroodling = new List<UnitCount>();
 
 
-        protected List<UnitCount> _lZupAirWeapon1 = new List<UnitCount>();
-        protected List<UnitCount> _lZupAirWeapon2 = new List<UnitCount>();
-        protected List<UnitCount> _lZupAirWeapon3 = new List<UnitCount>();
-        protected List<UnitCount> _lZupAirArmor1 = new List<UnitCount>();
-        protected List<UnitCount> _lZupAirArmor2 = new List<UnitCount>();
-        protected List<UnitCount> _lZupAirArmor3 = new List<UnitCount>();
-        protected List<UnitCount> _lZupGroundWeapon1 = new List<UnitCount>();
-        protected List<UnitCount> _lZupGroundWeapon2 = new List<UnitCount>();
-        protected List<UnitCount> _lZupGroundWeapon3 = new List<UnitCount>();
-        protected List<UnitCount> _lZupGroundArmor1 = new List<UnitCount>();
-        protected List<UnitCount> _lZupGroundArmor2 = new List<UnitCount>();
-        protected List<UnitCount> _lZupGroundArmor3 = new List<UnitCount>();
-        protected List<UnitCount> _lZupGroundMelee1 = new List<UnitCount>();
-        protected List<UnitCount> _lZupGroundMelee2 = new List<UnitCount>();
-        protected List<UnitCount> _lZupGroundMelee3 = new List<UnitCount>();
-        protected List<UnitCount> _lZupMetabolicBoost = new List<UnitCount>();
-        protected List<UnitCount> _lZupAdrenalGlands = new List<UnitCount>();
-        protected List<UnitCount> _lZupCentrifugalHooks = new List<UnitCount>();
-        protected List<UnitCount> _lZupChitinousPlating = new List<UnitCount>();
-        protected List<UnitCount> _lZupEnduringLocusts = new List<UnitCount>();
-        protected List<UnitCount> _lZupGlialReconstruction = new List<UnitCount>();
-        protected List<UnitCount> _lZupGroovedSpines = new List<UnitCount>();
-        protected List<UnitCount> _lZupMuscularAugments = new List<UnitCount>();
-        protected List<UnitCount> _lZupNeutralParasite = new List<UnitCount>();
-        protected List<UnitCount> _lZupPathoglenGlands = new List<UnitCount>();
-        protected List<UnitCount> _lZupPneumatizedCarapace = new List<UnitCount>();
-        protected List<UnitCount> _lZupTunnnelingClaws = new List<UnitCount>();
-        protected List<UnitCount> _lZupVentralSacs = new List<UnitCount>();
-        protected List<UnitCount> _lZupBurrow = new List<UnitCount>();
-        protected List<UnitCount> _lZupFlyingLocust = new List<UnitCount>();
+        protected List<UnitCount> LZupAirWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> LZupAirWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> LZupAirWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> LZupAirArmor1 = new List<UnitCount>();
+        protected List<UnitCount> LZupAirArmor2 = new List<UnitCount>();
+        protected List<UnitCount> LZupAirArmor3 = new List<UnitCount>();
+        protected List<UnitCount> LZupGroundWeapon1 = new List<UnitCount>();
+        protected List<UnitCount> LZupGroundWeapon2 = new List<UnitCount>();
+        protected List<UnitCount> LZupGroundWeapon3 = new List<UnitCount>();
+        protected List<UnitCount> LZupGroundArmor1 = new List<UnitCount>();
+        protected List<UnitCount> LZupGroundArmor2 = new List<UnitCount>();
+        protected List<UnitCount> LZupGroundArmor3 = new List<UnitCount>();
+        protected List<UnitCount> LZupGroundMelee1 = new List<UnitCount>();
+        protected List<UnitCount> LZupGroundMelee2 = new List<UnitCount>();
+        protected List<UnitCount> LZupGroundMelee3 = new List<UnitCount>();
+        protected List<UnitCount> LZupMetabolicBoost = new List<UnitCount>();
+        protected List<UnitCount> LZupAdrenalGlands = new List<UnitCount>();
+        protected List<UnitCount> LZupCentrifugalHooks = new List<UnitCount>();
+        protected List<UnitCount> LZupChitinousPlating = new List<UnitCount>();
+        protected List<UnitCount> LZupEnduringLocusts = new List<UnitCount>();
+        protected List<UnitCount> LZupGlialReconstruction = new List<UnitCount>();
+        protected List<UnitCount> LZupGroovedSpines = new List<UnitCount>();
+        protected List<UnitCount> LZupMuscularAugments = new List<UnitCount>();
+        protected List<UnitCount> LZupNeutralParasite = new List<UnitCount>();
+        protected List<UnitCount> LZupPathoglenGlands = new List<UnitCount>();
+        protected List<UnitCount> LZupPneumatizedCarapace = new List<UnitCount>();
+        protected List<UnitCount> LZupTunnnelingClaws = new List<UnitCount>();
+        protected List<UnitCount> LZupVentralSacs = new List<UnitCount>();
+        protected List<UnitCount> LZupBurrow = new List<UnitCount>();
+        protected List<UnitCount> LZupFlyingLocust = new List<UnitCount>();
 
         #endregion
 
@@ -311,84 +311,84 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Units
 
-        protected Image _imgTuScv = Resources.tu_scv,
-            _imgTuMule = Resources.tu_Mule,
-            _imgTuMarine = Resources.tu_marine,
-            _imgTuMarauder = Resources.tu_marauder,
-            _imgTuReaper = Resources.tu_reaper,
-            _imgTuGhost = Resources.tu_ghost,
-            _imgTuHellion = Resources.tu_hellion,
-            _imgTuHellbat = Resources.tu_battlehellion,
-            _imgTuSiegetank = Resources.tu_tank,
-            _imgTuThor = Resources.tu_thor,
-            _imgTuWidowMine = Resources.tu_widowmine,
-            _imgTuViking = Resources.tu_vikingAir,
-            _imgTuRaven = Resources.tu_raven,
-            _imgTuMedivac = Resources.tu_medivac,
-            _imgTuBattlecruiser = Resources.tu_battlecruiser,
-            _imgTuBanshee = Resources.tu_banshee,
-            _imgTuPointDefenseDrone = Resources.tu_pdd,
-            _imgTuNuke = Resources.Tu_Nuke;
+        protected Image ImgTuScv = Resources.tu_scv,
+            ImgTuMule = Resources.tu_Mule,
+            ImgTuMarine = Resources.tu_marine,
+            ImgTuMarauder = Resources.tu_marauder,
+            ImgTuReaper = Resources.tu_reaper,
+            ImgTuGhost = Resources.tu_ghost,
+            ImgTuHellion = Resources.tu_hellion,
+            ImgTuHellbat = Resources.tu_battlehellion,
+            ImgTuSiegetank = Resources.tu_tank,
+            ImgTuThor = Resources.tu_thor,
+            ImgTuWidowMine = Resources.tu_widowmine,
+            ImgTuViking = Resources.tu_vikingAir,
+            ImgTuRaven = Resources.tu_raven,
+            ImgTuMedivac = Resources.tu_medivac,
+            ImgTuBattlecruiser = Resources.tu_battlecruiser,
+            ImgTuBanshee = Resources.tu_banshee,
+            ImgTuPointDefenseDrone = Resources.tu_pdd,
+            ImgTuNuke = Resources.Tu_Nuke;
 
         #endregion
 
         #region Buildings
 
-        protected Image _imgTbCc = Resources.tb_cc,
-            _imgTbOc = Resources.tb_oc,
-            _imgTbPf = Resources.tb_pf,
-            _imgTbSupply = Resources.tb_supply,
-            _imgTbRefinery = Resources.tb_refinery,
-            _imgTbBarracks = Resources.tb_rax,
-            _imgTbEbay = Resources.tb_ebay,
-            _imgTbTurrent = Resources.tb_turret,
-            _imgTbSensorTower = Resources.tb_sensor,
-            _imgTbFactory = Resources.tb_fax,
-            _imgTbStarport = Resources.tb_starport,
-            _imgTbGhostacademy = Resources.tb_ghostacademy,
-            _imgTbArmory = Resources.tb_Armory,
-            _imgTbBunker = Resources.tb_bunker,
-            _imgTbFusioncore = Resources.tb_fusioncore,
-            _imgTbTechlab = Resources.tb_techlab,
-            _imgTbReactor = Resources.tb_reactor,
-            _imgTbAutoTurret = Resources.tb_autoturret;
+        protected Image ImgTbCc = Resources.tb_cc,
+            ImgTbOc = Resources.tb_oc,
+            ImgTbPf = Resources.tb_pf,
+            ImgTbSupply = Resources.tb_supply,
+            ImgTbRefinery = Resources.tb_refinery,
+            ImgTbBarracks = Resources.tb_rax,
+            ImgTbEbay = Resources.tb_ebay,
+            ImgTbTurrent = Resources.tb_turret,
+            ImgTbSensorTower = Resources.tb_sensor,
+            ImgTbFactory = Resources.tb_fax,
+            ImgTbStarport = Resources.tb_starport,
+            ImgTbGhostacademy = Resources.tb_ghostacademy,
+            ImgTbArmory = Resources.tb_Armory,
+            ImgTbBunker = Resources.tb_bunker,
+            ImgTbFusioncore = Resources.tb_fusioncore,
+            ImgTbTechlab = Resources.tb_techlab,
+            ImgTbReactor = Resources.tb_reactor,
+            ImgTbAutoTurret = Resources.tb_autoturret;
 
         #endregion
 
         #region Upgrades
 
-        protected Image _imgTupStim = Resources.Tup_Stim,
-            _imgTupConcussiveShells = Resources.Tup_ConcussiveShells,
-            _imgTupCombatShields = Resources.Tup_CombatShields,
-            _imgTupPersonalCloak = Resources.Tup_PersonalCloak,
-            _imgTupMoebiusReactor = Resources.Tup_MoebiusReactor,
-            _imgTupBlueFlame = Resources.Tup_BlueFlame,
-            _imgTupTransformatorServos = Resources.Tup_TransformationServos,
-            _imgTupDrillingClaws = Resources.Tup_DrillingClaws,
-            _imgTupCloakingField = Resources.Tup_CloakingField,
-            _imgTupDurableMaterials = Resources.Tup_DurableMaterials,
-            _imgTupCaduceusReactor = Resources.Tup_CaduceusReactor,
-            _imgTupCorvidReactor = Resources.Tup_CorvidReactor,
-            _imgTupBehemothReacot = Resources.Tup_BehemothReactor,
-            _imgTupWeaponRefit = Resources.Tup_WeaponRefit,
-            _imgTupInfantryWeapon1 = Resources.Tup_InfantyWeapon1,
-            _imgTupInfantryWeapon2 = Resources.Tup_InfantyWeapon2,
-            _imgTupInfantryWeapon3 = Resources.Tup_InfantyWeapon3,
-            _imgTupInfantryArmor1 = Resources.Tup_InfantyArmor1,
-            _imgTupInfantryArmor2 = Resources.Tup_InfantyArmor2,
-            _imgTupInfantryArmor3 = Resources.Tup_InfantyArmor3,
-            _imgTupVehicleWeapon1 = Resources.Tup_VehicleWeapon1,
-            _imgTupVehicleWeapon2 = Resources.Tup_VehicleWeapon2,
-            _imgTupVehicleWeapon3 = Resources.Tup_VehicleWeapon3,
-            _imgTupShipWeapon1 = Resources.Tup_ShipWeapon1,
-            _imgTupShipWeapon2 = Resources.Tup_ShipWeapon2,
-            _imgTupShipWeapon3 = Resources.Tup_ShipWeapon3,
-            _imgTupVehicleShipPlanting1 = Resources.Tup_VehicleShipPlanting1,
-            _imgTupVehicleShipPlanting2 = Resources.Tup_VehicleShipPlanting2,
-            _imgTupVehicleShipPlanting3 = Resources.Tup_VehicleShipPlanting3,
-            _imgTupHighSecAutoTracking = Resources.Tup_HighSecAutotracking,
-            _imgTupStructureArmor = Resources.Tup_StructureArmor,
-            _imgTupNeosteelFrame = Resources.Tup_NeosteelFrame;
+        protected Image ImgTupStim = Resources.Tup_Stim,
+            ImgTupConcussiveShells = Resources.Tup_ConcussiveShells,
+            ImgTupCombatShields = Resources.Tup_CombatShields,
+            ImgTupPersonalCloak = Resources.Tup_PersonalCloak,
+            ImgTupMoebiusReactor = Resources.Tup_MoebiusReactor,
+            ImgTupBlueFlame = Resources.Tup_BlueFlame,
+            ImgTupTransformatorServos = Resources.Tup_TransformationServos,
+            ImgTupDrillingClaws = Resources.Tup_DrillingClaws,
+            ImgTupCloakingField = Resources.Tup_CloakingField,
+            ImgTupDurableMaterials = Resources.Tup_DurableMaterials,
+            ImgTupCaduceusReactor = Resources.Tup_CaduceusReactor,
+            ImgTupCorvidReactor = Resources.Tup_CorvidReactor,
+            ImgTupBehemothReacot = Resources.Tup_BehemothReactor,
+            ImgTupWeaponRefit = Resources.Tup_WeaponRefit,
+            ImgTupInfantryWeapon1 = Resources.Tup_InfantyWeapon1,
+            ImgTupInfantryWeapon2 = Resources.Tup_InfantyWeapon2,
+            ImgTupInfantryWeapon3 = Resources.Tup_InfantyWeapon3,
+            ImgTupInfantryArmor1 = Resources.Tup_InfantyArmor1,
+            ImgTupInfantryArmor2 = Resources.Tup_InfantyArmor2,
+            ImgTupInfantryArmor3 = Resources.Tup_InfantyArmor3,
+            ImgTupVehicleWeapon1 = Resources.Tup_VehicleWeapon1,
+            ImgTupVehicleWeapon2 = Resources.Tup_VehicleWeapon2,
+            ImgTupVehicleWeapon3 = Resources.Tup_VehicleWeapon3,
+            ImgTupShipWeapon1 = Resources.Tup_ShipWeapon1,
+            ImgTupShipWeapon2 = Resources.Tup_ShipWeapon2,
+            ImgTupShipWeapon3 = Resources.Tup_ShipWeapon3,
+            ImgTupVehicleShipPlanting1 = Resources.Tup_VehicleShipPlanting1,
+            ImgTupVehicleShipPlanting2 = Resources.Tup_VehicleShipPlanting2,
+            ImgTupVehicleShipPlanting3 = Resources.Tup_VehicleShipPlanting3,
+            ImgTupHighSecAutoTracking = Resources.Tup_HighSecAutotracking,
+            ImgTupStructureArmor = Resources.Tup_StructureArmor,
+            ImgTupNeosteelFrame = Resources.Tup_NeosteelFrame;
 
         
 
@@ -400,74 +400,74 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Units
 
-        protected Image _imgPuProbe = Resources.pu_probe,
-            _imgPuZealot = Resources.pu_Zealot,
-            _imgPuStalker = Resources.pu_Stalker,
-            _imgPuSentry = Resources.pu_sentry,
-            _imgPuDarkTemplar = Resources.pu_DarkTemplar,
-            _imgPuHighTemplar = Resources.pu_ht,
-            _imgPuColossus = Resources.pu_Colossus,
-            _imgPuImmortal = Resources.pu_immortal,
-            _imgPuWapprism = Resources.pu_warpprism,
-            _imgPuObserver = Resources.pu_Observer,
-            _imgPuOracle = Resources.pu_oracle,
-            _imgPuTempest = Resources.pu_tempest,
-            _imgPuPhoenix = Resources.pu_pheonix,
-            _imgPuVoidray = Resources.pu_Voidray,
-            _imgPuCarrier = Resources.pu_carrier,
-            _imgPuMothershipcore = Resources.pu_mothershipcore,
-            _imgPuMothership = Resources.pu_Mothership,
-            _imgPuArchon = Resources.pu_Archon,
-            _imgPupForcefield = Resources.PuForceField;
+        protected Image ImgPuProbe = Resources.pu_probe,
+            ImgPuZealot = Resources.pu_Zealot,
+            ImgPuStalker = Resources.pu_Stalker,
+            ImgPuSentry = Resources.pu_sentry,
+            ImgPuDarkTemplar = Resources.pu_DarkTemplar,
+            ImgPuHighTemplar = Resources.pu_ht,
+            ImgPuColossus = Resources.pu_Colossus,
+            ImgPuImmortal = Resources.pu_immortal,
+            ImgPuWapprism = Resources.pu_warpprism,
+            ImgPuObserver = Resources.pu_Observer,
+            ImgPuOracle = Resources.pu_oracle,
+            ImgPuTempest = Resources.pu_tempest,
+            ImgPuPhoenix = Resources.pu_pheonix,
+            ImgPuVoidray = Resources.pu_Voidray,
+            ImgPuCarrier = Resources.pu_carrier,
+            ImgPuMothershipcore = Resources.pu_mothershipcore,
+            ImgPuMothership = Resources.pu_Mothership,
+            ImgPuArchon = Resources.pu_Archon,
+            ImgPupForcefield = Resources.PuForceField;
 
         #endregion
 
         #region Buildings
 
-        protected Image _imgPbNexus = Resources.pb_Nexus,
-            _imgPbPylon = Resources.pb_Pylon,
-            _imgPbGateway = Resources.pb_gateway,
-            _imgPbWarpgate = Resources.pb_warpgate,
-            _imgPbAssimilator = Resources.pb_Assimilator,
-            _imgPbForge = Resources.pb_forge,
-            _imgPbCannon = Resources.pb_Cannon,
-            _imgPbCybercore = Resources.pb_cybercore,
-            _imgPbStargate = Resources.pb_stargate,
-            _imgPbRobotics = Resources.pb_robotics,
-            _imgPbRoboticsSupport = Resources.pb_roboticssupport,
-            _imgPbTwillightCouncil = Resources.pb_twillightCouncil,
-            _imgPbDarkShrine = Resources.pb_DarkShrine,
-            _imgPbTemplarArchives = Resources.pb_templararchives,
-            _imgPbFleetBeacon = Resources.pb_FleetBeacon;
+        protected Image ImgPbNexus = Resources.pb_Nexus,
+            ImgPbPylon = Resources.pb_Pylon,
+            ImgPbGateway = Resources.pb_gateway,
+            ImgPbWarpgate = Resources.pb_warpgate,
+            ImgPbAssimilator = Resources.pb_Assimilator,
+            ImgPbForge = Resources.pb_forge,
+            ImgPbCannon = Resources.pb_Cannon,
+            ImgPbCybercore = Resources.pb_cybercore,
+            ImgPbStargate = Resources.pb_stargate,
+            ImgPbRobotics = Resources.pb_robotics,
+            ImgPbRoboticsSupport = Resources.pb_roboticssupport,
+            ImgPbTwillightCouncil = Resources.pb_twillightCouncil,
+            ImgPbDarkShrine = Resources.pb_DarkShrine,
+            ImgPbTemplarArchives = Resources.pb_templararchives,
+            ImgPbFleetBeacon = Resources.pb_FleetBeacon;
 
         #endregion
 
         #region Upgrades
 
-        protected Image _imgPupGroundWeapon1 = Resources.Pup_GroundW1,
-            _imgPupGroundWeapon2 = Resources.Pup_GroundW2,
-            _imgPupGroundWeapon3 = Resources.Pup_GroundW3,
-            _imgPupGroundArmor1 = Resources.Pup_GroundA1,
-            _imgPupGroundArmor2 = Resources.Pup_GroundA2,
-            _imgPupGroundArmor3 = Resources.Pup_GroundA3,
-            _imgPupShield1 = Resources.Pup_S1,
-            _imgPupShield2 = Resources.Pup_S2,
-            _imgPupShield3 = Resources.Pup_S3,
-            _imgPupAirWeapon1 = Resources.Pup_AirW1,
-            _imgPupAirWeapon2 = Resources.Pup_AirW2,
-            _imgPupAirWeapon3 = Resources.Pup_AirW3,
-            _imgPupAirArmor1 = Resources.Pup_AirA1,
-            _imgPupAirArmor2 = Resources.Pup_AirA2,
-            _imgPupAirArmor3 = Resources.Pup_AirA3,
-            _imgPupBlink = Resources.Pup_Blink,
-            _imgPupCharge = Resources.Pup_Charge,
-            _imgPupGraviticBooster = Resources.Pup_GraviticBoosters,
-            _imgPupGraviticDrive = Resources.Pup_GraviticDrive,
-            _imgPupExtendedThermalLance = Resources.Pup_ExtendedThermalLance,
-            _imgPupAnionPulseCrystals = Resources.Pup_AnionPulseCrystals,
-            _imgPupGravitonCatapult = Resources.Pup_GravitonCatapult,
-            _imgPupWarpGate = Resources.Pup_Warpgate,
-            _imgPupStorm = Resources.Pup_Storm;
+        protected Image ImgPupGroundWeapon1 = Resources.Pup_GroundW1,
+            ImgPupGroundWeapon2 = Resources.Pup_GroundW2,
+            ImgPupGroundWeapon3 = Resources.Pup_GroundW3,
+            ImgPupGroundArmor1 = Resources.Pup_GroundA1,
+            ImgPupGroundArmor2 = Resources.Pup_GroundA2,
+            ImgPupGroundArmor3 = Resources.Pup_GroundA3,
+            ImgPupShield1 = Resources.Pup_S1,
+            ImgPupShield2 = Resources.Pup_S2,
+            ImgPupShield3 = Resources.Pup_S3,
+            ImgPupAirWeapon1 = Resources.Pup_AirW1,
+            ImgPupAirWeapon2 = Resources.Pup_AirW2,
+            ImgPupAirWeapon3 = Resources.Pup_AirW3,
+            ImgPupAirArmor1 = Resources.Pup_AirA1,
+            ImgPupAirArmor2 = Resources.Pup_AirA2,
+            ImgPupAirArmor3 = Resources.Pup_AirA3,
+            ImgPupBlink = Resources.Pup_Blink,
+            ImgPupCharge = Resources.Pup_Charge,
+            ImgPupGraviticBooster = Resources.Pup_GraviticBoosters,
+            ImgPupGraviticDrive = Resources.Pup_GraviticDrive,
+            ImgPupExtendedThermalLance = Resources.Pup_ExtendedThermalLance,
+            ImgPupAnionPulseCrystals = Resources.Pup_AnionPulseCrystals,
+            ImgPupGravitonCatapult = Resources.Pup_GravitonCatapult,
+            ImgPupWarpGate = Resources.Pup_Warpgate,
+            ImgPupStorm = Resources.Pup_Storm;
 
         #endregion
 
@@ -477,89 +477,89 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Units
 
-        protected Image _imgZuDrone = Resources.zu_drone,
-            _imgZuLarva = Resources.zu_larva,
-            _imgZuZergling = Resources.zu_zergling,
-            _imgZuBaneling = Resources.zu_baneling,
-            _imgZuBanelingCocoon = Resources.zu_banelingcocoon,
-            _imgZuRoach = Resources.zu_roach,
-            _imgZuHydra = Resources.zu_hydra,
-            _imgZuMutalisk = Resources.zu_mutalisk,
-            _imgZuUltra = Resources.zu_ultra,
-            _imgZuViper = Resources.zu_viper,
-            _imgZuSwarmhost = Resources.zu_swarmhost,
-            _imgZuInfestor = Resources.zu_infestor,
-            _imgInfestedTerran = Resources.zu_infestedterran,
-            _imgInfestedTerranEgg = Resources.zu_infestedterran,
-            _imgZuCorruptor = Resources.zu_corruptor,
-            _imgZuChangeling = Resources.zu_changeling,
-            _imgZuBroodlord = Resources.zu_broodlord,
-            _imgZuBroodlordCocoon = Resources.zu_broodlordcocoon,
-            _imgZuQueen = Resources.zu_queen,
-            _imgZuOverlord = Resources.zu_overlord,
-            _imgZuOverseer = Resources.zu_overseer,
-            _imgZuOvserseerCocoon = Resources.zu_overseercocoon,
-            _imgZuLocust = Resources.zu_locust,
-            _imgZuFlyingLocust = Resources.zup_flying_locust,
-            _imgZuBroodling = Resources.trans_zu_broodling;
+        protected Image ImgZuDrone = Resources.zu_drone,
+            ImgZuLarva = Resources.zu_larva,
+            ImgZuZergling = Resources.zu_zergling,
+            ImgZuBaneling = Resources.zu_baneling,
+            ImgZuBanelingCocoon = Resources.zu_banelingcocoon,
+            ImgZuRoach = Resources.zu_roach,
+            ImgZuHydra = Resources.zu_hydra,
+            ImgZuMutalisk = Resources.zu_mutalisk,
+            ImgZuUltra = Resources.zu_ultra,
+            ImgZuViper = Resources.zu_viper,
+            ImgZuSwarmhost = Resources.zu_swarmhost,
+            ImgZuInfestor = Resources.zu_infestor,
+            ImgInfestedTerran = Resources.zu_infestedterran,
+            ImgInfestedTerranEgg = Resources.zu_infestedterran,
+            ImgZuCorruptor = Resources.zu_corruptor,
+            ImgZuChangeling = Resources.zu_changeling,
+            ImgZuBroodlord = Resources.zu_broodlord,
+            ImgZuBroodlordCocoon = Resources.zu_broodlordcocoon,
+            ImgZuQueen = Resources.zu_queen,
+            ImgZuOverlord = Resources.zu_overlord,
+            ImgZuOverseer = Resources.zu_overseer,
+            ImgZuOvserseerCocoon = Resources.zu_overseercocoon,
+            ImgZuLocust = Resources.zu_locust,
+            ImgZuFlyingLocust = Resources.zup_flying_locust,
+            ImgZuBroodling = Resources.trans_zu_broodling;
 
         #endregion
 
         #region Buildings
 
-        protected Image _imgZbHatchery = Resources.zb_hatchery,
-            _imgZbLair = Resources.zb_lair,
-            _imgZbHive = Resources.zb_hive,
-            _imgZbCreepTumor = Resources.Zb_Creep_Tumor,
-            _imgZbSpawningpool = Resources.zb_spawningpool,
-            _imgZbExtractor = Resources.zb_extactor,
-            _imgZbEvochamber = Resources.zb_evochamber,
-            _imgZbSpinecrawler = Resources.zb_spine,
-            _imgZbSporecrawler = Resources.zb_spore,
-            _imgZbRoachwarren = Resources.zb_roachwarren,
-            _imgZbGreaterspire = Resources.zb_greaterspire,
-            _imgZbSpire = Resources.zb_spire,
-            _imgZbNydusNetwork = Resources.zb_nydusnetwork,
-            _imgZbNydusWorm = Resources.zb_nydusworm,
-            _imgZbHydraden = Resources.zb_hydraden,
-            _imgZbInfestationpit = Resources.zb_infestationpit,
-            _imgZbUltracavern = Resources.zb_ultracavery,
-            _imgZbBanelingnest = Resources.zb_banelingnest;
+        protected Image ImgZbHatchery = Resources.zb_hatchery,
+            ImgZbLair = Resources.zb_lair,
+            ImgZbHive = Resources.zb_hive,
+            ImgZbCreepTumor = Resources.Zb_Creep_Tumor,
+            ImgZbSpawningpool = Resources.zb_spawningpool,
+            ImgZbExtractor = Resources.zb_extactor,
+            ImgZbEvochamber = Resources.zb_evochamber,
+            ImgZbSpinecrawler = Resources.zb_spine,
+            ImgZbSporecrawler = Resources.zb_spore,
+            ImgZbRoachwarren = Resources.zb_roachwarren,
+            ImgZbGreaterspire = Resources.zb_greaterspire,
+            ImgZbSpire = Resources.zb_spire,
+            ImgZbNydusNetwork = Resources.zb_nydusnetwork,
+            ImgZbNydusWorm = Resources.zb_nydusworm,
+            ImgZbHydraden = Resources.zb_hydraden,
+            ImgZbInfestationpit = Resources.zb_infestationpit,
+            ImgZbUltracavern = Resources.zb_ultracavery,
+            ImgZbBanelingnest = Resources.zb_banelingnest;
 
         #endregion
 
         #region Upgrades
 
-        protected Image _imgZupAirWeapon1 = Resources.Zup_AirW1,
-            _imgZupAirWeapon2 = Resources.Zup_AirW2,
-            _imgZupAirWeapon3 = Resources.Zup_AirW3,
-            _imgZupAirArmor1 = Resources.Zup_AirA1,
-            _imgZupAirArmor2 = Resources.Zup_AirA2,
-            _imgZupAirArmor3 = Resources.Zup_AirA3,
-            _imgZupGroundWeapon1 = Resources.Zup_GroundW1,
-            _imgZupGroundWeapon2 = Resources.Zup_GroundW2,
-            _imgZupGroundWeapon3 = Resources.Zup_GroundW3,
-            _imgZupGroundArmor1 = Resources.Zup_GroundA1,
-            _imgZupGroundArmor2 = Resources.Zup_GroundA2,
-            _imgZupGroundArmor3 = Resources.Zup_GroundA3,
-            _imgZupGroundMelee1 = Resources.Zup_GroundM1,
-            _imgZupGroundMelee2 = Resources.Zup_GroundM2,
-            _imgZupGroundMelee3 = Resources.Zup_GroundM3,
-            _imgZupBurrow = Resources.Zup_Burrow,
-            _imgZupAdrenalGlands = Resources.Zup_AdrenalGlands,
-            _imgZupCentrifugalHooks = Resources.Zup_CentrifugalHooks,
-            _imgZupChitinousPlating = Resources.Zup_ChitinousPlating,
-            _imgZupEnduringLocusts = Resources.Zup_EnduringLocusts,
-            _imgZupGlialReconstruction = Resources.Zup_GlialReconstruction,
-            _imgZupGroovedSpines = Resources.Zup_GroovedSpines,
-            _imgZupMetabolicBoost = Resources.Zup_MetabolicBoost,
-            _imgZupMuscularAugments = Resources.Zup_MuscularAugments,
-            _imgZupNeutralParasite = Resources.Zup_NeutralParasite,
-            _imgZupPathoglenGlands = Resources.Zup_PathogenGlands,
-            _imgZupPneumatizedCarapace = Resources.Zup_PneumatizedCarapace,
-            _imgZupTunnelingClaws = Resources.Zup_TunnelingClaws,
-            _imgZupVentrallSacs = Resources.Zup_VentralSacs,
-            _imgZupFlyingLocust = Resources.zup_flying_locust;
+        protected Image ImgZupAirWeapon1 = Resources.Zup_AirW1,
+            ImgZupAirWeapon2 = Resources.Zup_AirW2,
+            ImgZupAirWeapon3 = Resources.Zup_AirW3,
+            ImgZupAirArmor1 = Resources.Zup_AirA1,
+            ImgZupAirArmor2 = Resources.Zup_AirA2,
+            ImgZupAirArmor3 = Resources.Zup_AirA3,
+            ImgZupGroundWeapon1 = Resources.Zup_GroundW1,
+            ImgZupGroundWeapon2 = Resources.Zup_GroundW2,
+            ImgZupGroundWeapon3 = Resources.Zup_GroundW3,
+            ImgZupGroundArmor1 = Resources.Zup_GroundA1,
+            ImgZupGroundArmor2 = Resources.Zup_GroundA2,
+            ImgZupGroundArmor3 = Resources.Zup_GroundA3,
+            ImgZupGroundMelee1 = Resources.Zup_GroundM1,
+            ImgZupGroundMelee2 = Resources.Zup_GroundM2,
+            ImgZupGroundMelee3 = Resources.Zup_GroundM3,
+            ImgZupBurrow = Resources.Zup_Burrow,
+            ImgZupAdrenalGlands = Resources.Zup_AdrenalGlands,
+            ImgZupCentrifugalHooks = Resources.Zup_CentrifugalHooks,
+            ImgZupChitinousPlating = Resources.Zup_ChitinousPlating,
+            ImgZupEnduringLocusts = Resources.Zup_EnduringLocusts,
+            ImgZupGlialReconstruction = Resources.Zup_GlialReconstruction,
+            ImgZupGroovedSpines = Resources.Zup_GroovedSpines,
+            ImgZupMetabolicBoost = Resources.Zup_MetabolicBoost,
+            ImgZupMuscularAugments = Resources.Zup_MuscularAugments,
+            ImgZupNeutralParasite = Resources.Zup_NeutralParasite,
+            ImgZupPathoglenGlands = Resources.Zup_PathogenGlands,
+            ImgZupPneumatizedCarapace = Resources.Zup_PneumatizedCarapace,
+            ImgZupTunnelingClaws = Resources.Zup_TunnelingClaws,
+            ImgZupVentrallSacs = Resources.Zup_VentralSacs,
+            ImgZupFlyingLocust = Resources.zup_flying_locust;
 
         #endregion
 
@@ -567,7 +567,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         #region Other
 
-        protected readonly Image _imgSpeedArrow = Resources.Speed_Arrow;
+        protected readonly Image ImgSpeedArrow = Resources.Speed_Arrow;
 
         #endregion
 
@@ -1196,221 +1196,221 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 #region Terran
 
-                _imgTuScv = Resources.tu_scv;
-                _imgTuMule = Resources.tu_Mule;
-                _imgTuMarine = Resources.tu_marine;
-                _imgTuMarauder = Resources.tu_marauder;
-                _imgTuReaper = Resources.tu_reaper;
-                _imgTuGhost = Resources.tu_ghost;
-                _imgTuHellion = Resources.tu_hellion;
-                _imgTuHellbat = Resources.tu_battlehellion;
-                _imgTuSiegetank = Resources.tu_tank;
-                _imgTuThor = Resources.tu_thor;
-                _imgTuWidowMine = Resources.tu_widowmine;
-                _imgTuViking = Resources.tu_vikingAir;
-                _imgTuRaven = Resources.tu_raven;
-                _imgTuMedivac = Resources.tu_medivac;
-                _imgTuBattlecruiser = Resources.tu_battlecruiser;
-                _imgTuBanshee = Resources.tu_banshee;
-                _imgTuPointDefenseDrone = Resources.tu_pdd;
-                _imgTuNuke = Resources.Tu_Nuke;
+                ImgTuScv = Resources.tu_scv;
+                ImgTuMule = Resources.tu_Mule;
+                ImgTuMarine = Resources.tu_marine;
+                ImgTuMarauder = Resources.tu_marauder;
+                ImgTuReaper = Resources.tu_reaper;
+                ImgTuGhost = Resources.tu_ghost;
+                ImgTuHellion = Resources.tu_hellion;
+                ImgTuHellbat = Resources.tu_battlehellion;
+                ImgTuSiegetank = Resources.tu_tank;
+                ImgTuThor = Resources.tu_thor;
+                ImgTuWidowMine = Resources.tu_widowmine;
+                ImgTuViking = Resources.tu_vikingAir;
+                ImgTuRaven = Resources.tu_raven;
+                ImgTuMedivac = Resources.tu_medivac;
+                ImgTuBattlecruiser = Resources.tu_battlecruiser;
+                ImgTuBanshee = Resources.tu_banshee;
+                ImgTuPointDefenseDrone = Resources.tu_pdd;
+                ImgTuNuke = Resources.Tu_Nuke;
 
-                _imgTbCc = Resources.tb_cc;
-                _imgTbOc = Resources.tb_oc;
-                _imgTbPf = Resources.tb_pf;
-                _imgTbSupply = Resources.tb_supply;
-                _imgTbRefinery = Resources.tb_refinery;
-                _imgTbBarracks = Resources.tb_rax;
-                _imgTbEbay = Resources.tb_ebay;
-                _imgTbTurrent = Resources.tb_turret;
-                _imgTbSensorTower = Resources.tb_sensor;
-                _imgTbFactory = Resources.tb_fax;
-                _imgTbStarport = Resources.tb_starport;
-                _imgTbGhostacademy = Resources.tb_ghostacademy;
-                _imgTbArmory = Resources.tb_Armory;
-                _imgTbBunker = Resources.tb_bunker;
-                _imgTbFusioncore = Resources.tb_fusioncore;
-                _imgTbTechlab = Resources.tb_techlab;
-                _imgTbReactor = Resources.tb_reactor;
-                _imgTbAutoTurret = Resources.tb_autoturret;
+                ImgTbCc = Resources.tb_cc;
+                ImgTbOc = Resources.tb_oc;
+                ImgTbPf = Resources.tb_pf;
+                ImgTbSupply = Resources.tb_supply;
+                ImgTbRefinery = Resources.tb_refinery;
+                ImgTbBarracks = Resources.tb_rax;
+                ImgTbEbay = Resources.tb_ebay;
+                ImgTbTurrent = Resources.tb_turret;
+                ImgTbSensorTower = Resources.tb_sensor;
+                ImgTbFactory = Resources.tb_fax;
+                ImgTbStarport = Resources.tb_starport;
+                ImgTbGhostacademy = Resources.tb_ghostacademy;
+                ImgTbArmory = Resources.tb_Armory;
+                ImgTbBunker = Resources.tb_bunker;
+                ImgTbFusioncore = Resources.tb_fusioncore;
+                ImgTbTechlab = Resources.tb_techlab;
+                ImgTbReactor = Resources.tb_reactor;
+                ImgTbAutoTurret = Resources.tb_autoturret;
 
-                _imgTupStim = Resources.Tup_Stim;
-                _imgTupConcussiveShells = Resources.Tup_ConcussiveShells;
-                _imgTupCombatShields = Resources.Tup_CombatShields;
-                _imgTupPersonalCloak = Resources.Tup_PersonalCloak;
-                _imgTupMoebiusReactor = Resources.Tup_MoebiusReactor;
-                _imgTupBlueFlame = Resources.Tup_BlueFlame;
-                _imgTupTransformatorServos = Resources.Tup_TransformationServos;
-                _imgTupDrillingClaws = Resources.Tup_DrillingClaws;
-                _imgTupCloakingField = Resources.Tup_CloakingField;
-                _imgTupDurableMaterials = Resources.Tup_DurableMaterials;
-                _imgTupCaduceusReactor = Resources.Tup_CaduceusReactor;
-                _imgTupCorvidReactor = Resources.Tup_CorvidReactor;
-                _imgTupBehemothReacot = Resources.Tup_BehemothReactor;
-                _imgTupWeaponRefit = Resources.Tup_WeaponRefit;
-                _imgTupInfantryWeapon1 = Resources.Tup_InfantyWeapon1;
-                _imgTupInfantryWeapon2 = Resources.Tup_InfantyWeapon2;
-                _imgTupInfantryWeapon3 = Resources.Tup_InfantyWeapon3;
-                _imgTupInfantryArmor1 = Resources.Tup_InfantyArmor1;
-                _imgTupInfantryArmor2 = Resources.Tup_InfantyArmor2;
-                _imgTupInfantryArmor3 = Resources.Tup_InfantyArmor3;
-                _imgTupVehicleWeapon1 = Resources.Tup_VehicleWeapon1;
-                _imgTupVehicleWeapon2 = Resources.Tup_VehicleWeapon2;
-                _imgTupVehicleWeapon3 = Resources.Tup_VehicleWeapon3;
-                _imgTupShipWeapon1 = Resources.Tup_ShipWeapon1;
-                _imgTupShipWeapon2 = Resources.Tup_ShipWeapon2;
-                _imgTupShipWeapon3 = Resources.Tup_ShipWeapon3;
-                _imgTupVehicleShipPlanting1 = Resources.Tup_VehicleShipPlanting1;
-                _imgTupVehicleShipPlanting2 = Resources.Tup_VehicleShipPlanting2;
-                _imgTupVehicleShipPlanting3 = Resources.Tup_VehicleShipPlanting3;
-                _imgTupHighSecAutoTracking = Resources.Tup_HighSecAutotracking;
-                _imgTupStructureArmor = Resources.Tup_StructureArmor;
-                _imgTupNeosteelFrame = Resources.Tup_NeosteelFrame;
+                ImgTupStim = Resources.Tup_Stim;
+                ImgTupConcussiveShells = Resources.Tup_ConcussiveShells;
+                ImgTupCombatShields = Resources.Tup_CombatShields;
+                ImgTupPersonalCloak = Resources.Tup_PersonalCloak;
+                ImgTupMoebiusReactor = Resources.Tup_MoebiusReactor;
+                ImgTupBlueFlame = Resources.Tup_BlueFlame;
+                ImgTupTransformatorServos = Resources.Tup_TransformationServos;
+                ImgTupDrillingClaws = Resources.Tup_DrillingClaws;
+                ImgTupCloakingField = Resources.Tup_CloakingField;
+                ImgTupDurableMaterials = Resources.Tup_DurableMaterials;
+                ImgTupCaduceusReactor = Resources.Tup_CaduceusReactor;
+                ImgTupCorvidReactor = Resources.Tup_CorvidReactor;
+                ImgTupBehemothReacot = Resources.Tup_BehemothReactor;
+                ImgTupWeaponRefit = Resources.Tup_WeaponRefit;
+                ImgTupInfantryWeapon1 = Resources.Tup_InfantyWeapon1;
+                ImgTupInfantryWeapon2 = Resources.Tup_InfantyWeapon2;
+                ImgTupInfantryWeapon3 = Resources.Tup_InfantyWeapon3;
+                ImgTupInfantryArmor1 = Resources.Tup_InfantyArmor1;
+                ImgTupInfantryArmor2 = Resources.Tup_InfantyArmor2;
+                ImgTupInfantryArmor3 = Resources.Tup_InfantyArmor3;
+                ImgTupVehicleWeapon1 = Resources.Tup_VehicleWeapon1;
+                ImgTupVehicleWeapon2 = Resources.Tup_VehicleWeapon2;
+                ImgTupVehicleWeapon3 = Resources.Tup_VehicleWeapon3;
+                ImgTupShipWeapon1 = Resources.Tup_ShipWeapon1;
+                ImgTupShipWeapon2 = Resources.Tup_ShipWeapon2;
+                ImgTupShipWeapon3 = Resources.Tup_ShipWeapon3;
+                ImgTupVehicleShipPlanting1 = Resources.Tup_VehicleShipPlanting1;
+                ImgTupVehicleShipPlanting2 = Resources.Tup_VehicleShipPlanting2;
+                ImgTupVehicleShipPlanting3 = Resources.Tup_VehicleShipPlanting3;
+                ImgTupHighSecAutoTracking = Resources.Tup_HighSecAutotracking;
+                ImgTupStructureArmor = Resources.Tup_StructureArmor;
+                ImgTupNeosteelFrame = Resources.Tup_NeosteelFrame;
 
                 #endregion
 
                 #region Protoss
 
-                _imgPuProbe = Resources.pu_probe;
-                _imgPuZealot = Resources.pu_Zealot;
-                _imgPuStalker = Resources.pu_Stalker;
-                _imgPuSentry = Resources.pu_sentry;
-                _imgPuDarkTemplar = Resources.pu_DarkTemplar;
-                _imgPuHighTemplar = Resources.pu_ht;
-                _imgPuColossus = Resources.pu_Colossus;
-                _imgPuImmortal = Resources.pu_immortal;
-                _imgPuWapprism = Resources.pu_warpprism;
-                _imgPuObserver = Resources.pu_Observer;
-                _imgPuOracle = Resources.pu_oracle;
-                _imgPuTempest = Resources.pu_tempest;
-                _imgPuPhoenix = Resources.pu_pheonix;
-                _imgPuVoidray = Resources.pu_Voidray;
-                _imgPuCarrier = Resources.pu_carrier;
-                _imgPuMothershipcore = Resources.pu_mothershipcore;
-                _imgPuMothership = Resources.pu_Mothership;
-                _imgPuArchon = Resources.pu_Archon;
+                ImgPuProbe = Resources.pu_probe;
+                ImgPuZealot = Resources.pu_Zealot;
+                ImgPuStalker = Resources.pu_Stalker;
+                ImgPuSentry = Resources.pu_sentry;
+                ImgPuDarkTemplar = Resources.pu_DarkTemplar;
+                ImgPuHighTemplar = Resources.pu_ht;
+                ImgPuColossus = Resources.pu_Colossus;
+                ImgPuImmortal = Resources.pu_immortal;
+                ImgPuWapprism = Resources.pu_warpprism;
+                ImgPuObserver = Resources.pu_Observer;
+                ImgPuOracle = Resources.pu_oracle;
+                ImgPuTempest = Resources.pu_tempest;
+                ImgPuPhoenix = Resources.pu_pheonix;
+                ImgPuVoidray = Resources.pu_Voidray;
+                ImgPuCarrier = Resources.pu_carrier;
+                ImgPuMothershipcore = Resources.pu_mothershipcore;
+                ImgPuMothership = Resources.pu_Mothership;
+                ImgPuArchon = Resources.pu_Archon;
 
-                _imgPbNexus = Resources.pb_Nexus;
-                _imgPbPylon = Resources.pb_Pylon;
-                _imgPbGateway = Resources.pb_gateway;
-                _imgPbWarpgate = Resources.pb_warpgate;
-                _imgPbAssimilator = Resources.pb_Assimilator;
-                _imgPbForge = Resources.pb_forge;
-                _imgPbCannon = Resources.pb_Cannon;
-                _imgPbCybercore = Resources.pb_cybercore;
-                _imgPbStargate = Resources.pb_stargate;
-                _imgPbRobotics = Resources.pb_robotics;
-                _imgPbRoboticsSupport = Resources.pb_roboticssupport;
-                _imgPbTwillightCouncil = Resources.pb_twillightCouncil;
-                _imgPbDarkShrine = Resources.pb_DarkShrine;
-                _imgPbTemplarArchives = Resources.pb_templararchives;
-                _imgPbFleetBeacon = Resources.pb_FleetBeacon;
+                ImgPbNexus = Resources.pb_Nexus;
+                ImgPbPylon = Resources.pb_Pylon;
+                ImgPbGateway = Resources.pb_gateway;
+                ImgPbWarpgate = Resources.pb_warpgate;
+                ImgPbAssimilator = Resources.pb_Assimilator;
+                ImgPbForge = Resources.pb_forge;
+                ImgPbCannon = Resources.pb_Cannon;
+                ImgPbCybercore = Resources.pb_cybercore;
+                ImgPbStargate = Resources.pb_stargate;
+                ImgPbRobotics = Resources.pb_robotics;
+                ImgPbRoboticsSupport = Resources.pb_roboticssupport;
+                ImgPbTwillightCouncil = Resources.pb_twillightCouncil;
+                ImgPbDarkShrine = Resources.pb_DarkShrine;
+                ImgPbTemplarArchives = Resources.pb_templararchives;
+                ImgPbFleetBeacon = Resources.pb_FleetBeacon;
 
-                _imgPupGroundWeapon1 = Resources.Pup_GroundW1;
-                _imgPupGroundWeapon2 = Resources.Pup_GroundW2;
-                _imgPupGroundWeapon3 = Resources.Pup_GroundW3;
-                _imgPupGroundArmor1 = Resources.Pup_GroundA1;
-                _imgPupGroundArmor2 = Resources.Pup_GroundA2;
-                _imgPupGroundArmor3 = Resources.Pup_GroundA3;
-                _imgPupShield1 = Resources.Pup_S1;
-                _imgPupShield2 = Resources.Pup_S2;
-                _imgPupShield3 = Resources.Pup_S3;
-                _imgPupAirWeapon1 = Resources.Pup_AirW1;
-                _imgPupAirWeapon2 = Resources.Pup_AirW2;
-                _imgPupAirWeapon3 = Resources.Pup_AirW3;
-                _imgPupAirArmor1 = Resources.Pup_AirA1;
-                _imgPupAirArmor2 = Resources.Pup_AirA2;
-                _imgPupAirArmor3 = Resources.Pup_AirA3;
-                _imgPupBlink = Resources.Pup_Blink;
-                _imgPupCharge = Resources.Pup_Charge;
-                _imgPupGraviticBooster = Resources.Pup_GraviticBoosters;
-                _imgPupGraviticDrive = Resources.Pup_GraviticDrive;
-                _imgPupExtendedThermalLance = Resources.Pup_ExtendedThermalLance;
-                _imgPupAnionPulseCrystals = Resources.Pup_AnionPulseCrystals;
-                _imgPupGravitonCatapult = Resources.Pup_GravitonCatapult;
-                _imgPupWarpGate = Resources.Pup_Warpgate;
-                _imgPupStorm = Resources.Pup_Storm;
-                _imgPupForcefield = Resources.PuForceField;
+                ImgPupGroundWeapon1 = Resources.Pup_GroundW1;
+                ImgPupGroundWeapon2 = Resources.Pup_GroundW2;
+                ImgPupGroundWeapon3 = Resources.Pup_GroundW3;
+                ImgPupGroundArmor1 = Resources.Pup_GroundA1;
+                ImgPupGroundArmor2 = Resources.Pup_GroundA2;
+                ImgPupGroundArmor3 = Resources.Pup_GroundA3;
+                ImgPupShield1 = Resources.Pup_S1;
+                ImgPupShield2 = Resources.Pup_S2;
+                ImgPupShield3 = Resources.Pup_S3;
+                ImgPupAirWeapon1 = Resources.Pup_AirW1;
+                ImgPupAirWeapon2 = Resources.Pup_AirW2;
+                ImgPupAirWeapon3 = Resources.Pup_AirW3;
+                ImgPupAirArmor1 = Resources.Pup_AirA1;
+                ImgPupAirArmor2 = Resources.Pup_AirA2;
+                ImgPupAirArmor3 = Resources.Pup_AirA3;
+                ImgPupBlink = Resources.Pup_Blink;
+                ImgPupCharge = Resources.Pup_Charge;
+                ImgPupGraviticBooster = Resources.Pup_GraviticBoosters;
+                ImgPupGraviticDrive = Resources.Pup_GraviticDrive;
+                ImgPupExtendedThermalLance = Resources.Pup_ExtendedThermalLance;
+                ImgPupAnionPulseCrystals = Resources.Pup_AnionPulseCrystals;
+                ImgPupGravitonCatapult = Resources.Pup_GravitonCatapult;
+                ImgPupWarpGate = Resources.Pup_Warpgate;
+                ImgPupStorm = Resources.Pup_Storm;
+                ImgPupForcefield = Resources.PuForceField;
 
                 #endregion
 
                 #region Zerg
 
-                _imgZuDrone = Resources.zu_drone;
-                _imgZuLarva = Resources.zu_larva;
-                _imgZuZergling = Resources.zu_zergling;
-                _imgZuBaneling = Resources.zu_baneling;
-                _imgZuBanelingCocoon = Resources.zu_banelingcocoon;
-                _imgZuRoach = Resources.zu_roach;
-                _imgZuHydra = Resources.zu_hydra;
-                _imgZuMutalisk = Resources.zu_mutalisk;
-                _imgZuUltra = Resources.zu_ultra;
-                _imgZuViper = Resources.zu_viper;
-                _imgZuSwarmhost = Resources.zu_swarmhost;
-                _imgZuInfestor = Resources.zu_infestor;
-                _imgInfestedTerran = Resources.zu_infestedterran;
-                _imgInfestedTerranEgg = Resources.zu_infestedterran;
-                _imgZuCorruptor = Resources.zu_corruptor;
-                _imgZuBroodlord = Resources.zu_broodlord;
-                _imgZuBroodlordCocoon = Resources.zu_broodlordcocoon;
-                _imgZuQueen = Resources.zu_queen;
-                _imgZuOverlord = Resources.zu_overlord;
-                _imgZuOverseer = Resources.zu_overseer;
-                _imgZuOvserseerCocoon = Resources.zu_overseercocoon;
-                _imgZuLocust = Resources.zu_locust;
-                _imgZuFlyingLocust = Resources.zup_flying_locust;
-                _imgZuChangeling = Resources.zu_changeling;
-                _imgZuBroodling = Resources.trans_zu_broodling;
+                ImgZuDrone = Resources.zu_drone;
+                ImgZuLarva = Resources.zu_larva;
+                ImgZuZergling = Resources.zu_zergling;
+                ImgZuBaneling = Resources.zu_baneling;
+                ImgZuBanelingCocoon = Resources.zu_banelingcocoon;
+                ImgZuRoach = Resources.zu_roach;
+                ImgZuHydra = Resources.zu_hydra;
+                ImgZuMutalisk = Resources.zu_mutalisk;
+                ImgZuUltra = Resources.zu_ultra;
+                ImgZuViper = Resources.zu_viper;
+                ImgZuSwarmhost = Resources.zu_swarmhost;
+                ImgZuInfestor = Resources.zu_infestor;
+                ImgInfestedTerran = Resources.zu_infestedterran;
+                ImgInfestedTerranEgg = Resources.zu_infestedterran;
+                ImgZuCorruptor = Resources.zu_corruptor;
+                ImgZuBroodlord = Resources.zu_broodlord;
+                ImgZuBroodlordCocoon = Resources.zu_broodlordcocoon;
+                ImgZuQueen = Resources.zu_queen;
+                ImgZuOverlord = Resources.zu_overlord;
+                ImgZuOverseer = Resources.zu_overseer;
+                ImgZuOvserseerCocoon = Resources.zu_overseercocoon;
+                ImgZuLocust = Resources.zu_locust;
+                ImgZuFlyingLocust = Resources.zup_flying_locust;
+                ImgZuChangeling = Resources.zu_changeling;
+                ImgZuBroodling = Resources.trans_zu_broodling;
 
-                _imgZbHatchery = Resources.zb_hatchery;
-                _imgZbLair = Resources.zb_lair;
-                _imgZbHive = Resources.zb_hive;
-                _imgZbCreepTumor = Resources.Zb_Creep_Tumor;
-                _imgZbSpawningpool = Resources.zb_spawningpool;
-                _imgZbExtractor = Resources.zb_extactor;
-                _imgZbEvochamber = Resources.zb_evochamber;
-                _imgZbSpinecrawler = Resources.zb_spine;
-                _imgZbSporecrawler = Resources.zb_spore;
-                _imgZbRoachwarren = Resources.zb_roachwarren;
-                _imgZbGreaterspire = Resources.zb_greaterspire;
-                _imgZbSpire = Resources.zb_spire;
-                _imgZbNydusNetwork = Resources.zb_nydusnetwork;
-                _imgZbNydusWorm = Resources.zb_nydusworm;
-                _imgZbHydraden = Resources.zb_hydraden;
-                _imgZbInfestationpit = Resources.zb_infestationpit;
-                _imgZbUltracavern = Resources.zb_ultracavery;
-                _imgZbBanelingnest = Resources.zb_banelingnest;
+                ImgZbHatchery = Resources.zb_hatchery;
+                ImgZbLair = Resources.zb_lair;
+                ImgZbHive = Resources.zb_hive;
+                ImgZbCreepTumor = Resources.Zb_Creep_Tumor;
+                ImgZbSpawningpool = Resources.zb_spawningpool;
+                ImgZbExtractor = Resources.zb_extactor;
+                ImgZbEvochamber = Resources.zb_evochamber;
+                ImgZbSpinecrawler = Resources.zb_spine;
+                ImgZbSporecrawler = Resources.zb_spore;
+                ImgZbRoachwarren = Resources.zb_roachwarren;
+                ImgZbGreaterspire = Resources.zb_greaterspire;
+                ImgZbSpire = Resources.zb_spire;
+                ImgZbNydusNetwork = Resources.zb_nydusnetwork;
+                ImgZbNydusWorm = Resources.zb_nydusworm;
+                ImgZbHydraden = Resources.zb_hydraden;
+                ImgZbInfestationpit = Resources.zb_infestationpit;
+                ImgZbUltracavern = Resources.zb_ultracavery;
+                ImgZbBanelingnest = Resources.zb_banelingnest;
 
-                _imgZupAirWeapon1 = Resources.Zup_AirW1;
-                _imgZupAirWeapon2 = Resources.Zup_AirW2;
-                _imgZupAirWeapon3 = Resources.Zup_AirW3;
-                _imgZupAirArmor1 = Resources.Zup_AirA1;
-                _imgZupAirArmor2 = Resources.Zup_AirA2;
-                _imgZupAirArmor3 = Resources.Zup_AirA3;
-                _imgZupGroundWeapon1 = Resources.Zup_GroundW1;
-                _imgZupGroundWeapon2 = Resources.Zup_GroundW2;
-                _imgZupGroundWeapon3 = Resources.Zup_GroundW3;
-                _imgZupGroundArmor1 = Resources.Zup_GroundA1;
-                _imgZupGroundArmor2 = Resources.Zup_GroundA2;
-                _imgZupGroundArmor3 = Resources.Zup_GroundA3;
-                _imgZupGroundMelee1 = Resources.Zup_GroundM1;
-                _imgZupGroundMelee2 = Resources.Zup_GroundM2;
-                _imgZupGroundMelee3 = Resources.Zup_GroundM3;
-                _imgZupBurrow = Resources.Zup_Burrow;
-                _imgZupAdrenalGlands = Resources.Zup_AdrenalGlands;
-                _imgZupCentrifugalHooks = Resources.Zup_CentrifugalHooks;
-                _imgZupChitinousPlating = Resources.Zup_ChitinousPlating;
-                _imgZupEnduringLocusts = Resources.Zup_EnduringLocusts;
-                _imgZupGlialReconstruction = Resources.Zup_GlialReconstruction;
-                _imgZupGroovedSpines = Resources.Zup_GroovedSpines;
-                _imgZupMetabolicBoost = Resources.Zup_MetabolicBoost;
-                _imgZupMuscularAugments = Resources.Zup_MuscularAugments;
-                _imgZupNeutralParasite = Resources.Zup_NeutralParasite;
-                _imgZupPathoglenGlands = Resources.Zup_PathogenGlands;
-                _imgZupPneumatizedCarapace = Resources.Zup_PneumatizedCarapace;
-                _imgZupTunnelingClaws = Resources.Zup_TunnelingClaws;
-                _imgZupVentrallSacs = Resources.Zup_VentralSacs;
-                _imgZupFlyingLocust = Resources.zup_flying_locust;
+                ImgZupAirWeapon1 = Resources.Zup_AirW1;
+                ImgZupAirWeapon2 = Resources.Zup_AirW2;
+                ImgZupAirWeapon3 = Resources.Zup_AirW3;
+                ImgZupAirArmor1 = Resources.Zup_AirA1;
+                ImgZupAirArmor2 = Resources.Zup_AirA2;
+                ImgZupAirArmor3 = Resources.Zup_AirA3;
+                ImgZupGroundWeapon1 = Resources.Zup_GroundW1;
+                ImgZupGroundWeapon2 = Resources.Zup_GroundW2;
+                ImgZupGroundWeapon3 = Resources.Zup_GroundW3;
+                ImgZupGroundArmor1 = Resources.Zup_GroundA1;
+                ImgZupGroundArmor2 = Resources.Zup_GroundA2;
+                ImgZupGroundArmor3 = Resources.Zup_GroundA3;
+                ImgZupGroundMelee1 = Resources.Zup_GroundM1;
+                ImgZupGroundMelee2 = Resources.Zup_GroundM2;
+                ImgZupGroundMelee3 = Resources.Zup_GroundM3;
+                ImgZupBurrow = Resources.Zup_Burrow;
+                ImgZupAdrenalGlands = Resources.Zup_AdrenalGlands;
+                ImgZupCentrifugalHooks = Resources.Zup_CentrifugalHooks;
+                ImgZupChitinousPlating = Resources.Zup_ChitinousPlating;
+                ImgZupEnduringLocusts = Resources.Zup_EnduringLocusts;
+                ImgZupGlialReconstruction = Resources.Zup_GlialReconstruction;
+                ImgZupGroovedSpines = Resources.Zup_GroovedSpines;
+                ImgZupMetabolicBoost = Resources.Zup_MetabolicBoost;
+                ImgZupMuscularAugments = Resources.Zup_MuscularAugments;
+                ImgZupNeutralParasite = Resources.Zup_NeutralParasite;
+                ImgZupPathoglenGlands = Resources.Zup_PathogenGlands;
+                ImgZupPneumatizedCarapace = Resources.Zup_PneumatizedCarapace;
+                ImgZupTunnelingClaws = Resources.Zup_TunnelingClaws;
+                ImgZupVentrallSacs = Resources.Zup_VentralSacs;
+                ImgZupFlyingLocust = Resources.zup_flying_locust;
 
                 #endregion
             }
@@ -1419,221 +1419,221 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
             {
                 #region Terran
 
-                _imgTuScv = Resources.trans_tu_scv;
-                _imgTuMule = Resources.trans_tu_mule;
-                _imgTuMarine = Resources.trans_tu_marine;
-                _imgTuMarauder = Resources.trans_tu_marauder;
-                _imgTuReaper = Resources.trans_tu_reaper;
-                _imgTuGhost = Resources.trans_tu_ghost;
-                _imgTuHellion = Resources.trans_tu_hellion;
-                _imgTuHellbat = Resources.trans_tu_hellbat;
-                _imgTuSiegetank = Resources.trans_tu_siegetank;
-                _imgTuThor = Resources.trans_tu_thor;
-                _imgTuWidowMine = Resources.trans_tu_widowmine;
-                _imgTuViking = Resources.trans_tu_vikingair;
-                _imgTuRaven = Resources.trans_tu_raven;
-                _imgTuMedivac = Resources.trans_tu_medivac;
-                _imgTuBattlecruiser = Resources.trans_tu_battlecruiser;
-                _imgTuBanshee = Resources.trans_tu_banshee;
-                _imgTuPointDefenseDrone = Resources.trans_tu_pdd;
-                _imgTuNuke = Resources.trans_tu_nuke;
+                ImgTuScv = Resources.trans_tu_scv;
+                ImgTuMule = Resources.trans_tu_mule;
+                ImgTuMarine = Resources.trans_tu_marine;
+                ImgTuMarauder = Resources.trans_tu_marauder;
+                ImgTuReaper = Resources.trans_tu_reaper;
+                ImgTuGhost = Resources.trans_tu_ghost;
+                ImgTuHellion = Resources.trans_tu_hellion;
+                ImgTuHellbat = Resources.trans_tu_hellbat;
+                ImgTuSiegetank = Resources.trans_tu_siegetank;
+                ImgTuThor = Resources.trans_tu_thor;
+                ImgTuWidowMine = Resources.trans_tu_widowmine;
+                ImgTuViking = Resources.trans_tu_vikingair;
+                ImgTuRaven = Resources.trans_tu_raven;
+                ImgTuMedivac = Resources.trans_tu_medivac;
+                ImgTuBattlecruiser = Resources.trans_tu_battlecruiser;
+                ImgTuBanshee = Resources.trans_tu_banshee;
+                ImgTuPointDefenseDrone = Resources.trans_tu_pdd;
+                ImgTuNuke = Resources.trans_tu_nuke;
 
-                _imgTbCc = Resources.trans_tb_commandcenter;
-                _imgTbOc = Resources.trans_tb_orbitalcommand;
-                _imgTbPf = Resources.trans_tb_planetaryfortress;
-                _imgTbSupply = Resources.trans_tb_supplydepot;
-                _imgTbRefinery = Resources.trans_tb_refinery;
-                _imgTbBarracks = Resources.trans_tb_barracks;
-                _imgTbEbay = Resources.trans_tb_engineeringbay;
-                _imgTbTurrent = Resources.trans_tb_missileturret;
-                _imgTbSensorTower = Resources.trans_tb_sensortower;
-                _imgTbFactory = Resources.trans_tb_factory;
-                _imgTbStarport = Resources.trans_tb_starport;
-                _imgTbGhostacademy = Resources.trans_tb_ghostacademy;
-                _imgTbArmory = Resources.trans_tb_armory;
-                _imgTbBunker = Resources.trans_tb_bunker;
-                _imgTbFusioncore = Resources.trans_tb_fusioncore;
-                _imgTbTechlab = Resources.trans_tb_techlab;
-                _imgTbReactor = Resources.trans_tb_reactor;
-                _imgTbAutoTurret = Resources.trans_tb_autoturret;
+                ImgTbCc = Resources.trans_tb_commandcenter;
+                ImgTbOc = Resources.trans_tb_orbitalcommand;
+                ImgTbPf = Resources.trans_tb_planetaryfortress;
+                ImgTbSupply = Resources.trans_tb_supplydepot;
+                ImgTbRefinery = Resources.trans_tb_refinery;
+                ImgTbBarracks = Resources.trans_tb_barracks;
+                ImgTbEbay = Resources.trans_tb_engineeringbay;
+                ImgTbTurrent = Resources.trans_tb_missileturret;
+                ImgTbSensorTower = Resources.trans_tb_sensortower;
+                ImgTbFactory = Resources.trans_tb_factory;
+                ImgTbStarport = Resources.trans_tb_starport;
+                ImgTbGhostacademy = Resources.trans_tb_ghostacademy;
+                ImgTbArmory = Resources.trans_tb_armory;
+                ImgTbBunker = Resources.trans_tb_bunker;
+                ImgTbFusioncore = Resources.trans_tb_fusioncore;
+                ImgTbTechlab = Resources.trans_tb_techlab;
+                ImgTbReactor = Resources.trans_tb_reactor;
+                ImgTbAutoTurret = Resources.trans_tb_autoturret;
 
-                _imgTupStim = Resources.trans_Tup_Stim;
-                _imgTupConcussiveShells = Resources.trans_Tup_ConcussiveShells;
-                _imgTupCombatShields = Resources.trans_Tup_CombatShields;
-                _imgTupPersonalCloak = Resources.trans_Tup_PersonalCloak;
-                _imgTupMoebiusReactor = Resources.trans_Tup_MoebiusReactor;
-                _imgTupBlueFlame = Resources.trans_Tup_BlueFlame;
-                _imgTupTransformatorServos = Resources.trans_Tup_TransformationServos;
-                _imgTupDrillingClaws = Resources.trans_Tup_DrillingClaws;
-                _imgTupCloakingField = Resources.trans_Tup_CloakingField;
-                _imgTupDurableMaterials = Resources.trans_Tup_DurableMaterials;
-                _imgTupCaduceusReactor = Resources.trans_Tup_CaduceusReactor;
-                _imgTupCorvidReactor = Resources.trans_Tup_CorvidReactor;
-                _imgTupBehemothReacot = Resources.trans_BehemothReactor;
-                _imgTupWeaponRefit = Resources.trans_tup_weaponrefit;
-                _imgTupInfantryWeapon1 = Resources.trans_Tup_InfantyWeapon1;
-                _imgTupInfantryWeapon2 = Resources.trans_Tup_InfantyWeapon2;
-                _imgTupInfantryWeapon3 = Resources.trans_Tup_InfantyWeapon3;
-                _imgTupInfantryArmor1 = Resources.trans_Tup_InfantyArmor1;
-                _imgTupInfantryArmor2 = Resources.trans_Tup_InfantyArmor2;
-                _imgTupInfantryArmor3 = Resources.trans_Tup_InfantyArmor3;
-                _imgTupVehicleWeapon1 = Resources.trans_Tup_VehicleWeapon1;
-                _imgTupVehicleWeapon2 = Resources.trans_Tup_VehicleWeapon2;
-                _imgTupVehicleWeapon3 = Resources.trans_Tup_VehicleWeapon3;
-                _imgTupShipWeapon1 = Resources.trans_Tup_ShipWeapon1;
-                _imgTupShipWeapon2 = Resources.trans_Tup_ShipWeapon2;
-                _imgTupShipWeapon3 = Resources.trans_Tup_ShipWeapon3;
-                _imgTupVehicleShipPlanting1 = Resources.trans_Tup_VehicleShipPlanting1;
-                _imgTupVehicleShipPlanting2 = Resources.trans_Tup_VehicleShipPlanting2;
-                _imgTupVehicleShipPlanting3 = Resources.trans_Tup_VehicleShipPlanting3;
-                _imgTupHighSecAutoTracking = Resources.trans_Tup_HighSecAutotracking;
-                _imgTupStructureArmor = Resources.trans_Tup_StructureArmor;
-                _imgTupNeosteelFrame = Resources.trans_Tup_NeosteelFrame;
+                ImgTupStim = Resources.trans_Tup_Stim;
+                ImgTupConcussiveShells = Resources.trans_Tup_ConcussiveShells;
+                ImgTupCombatShields = Resources.trans_Tup_CombatShields;
+                ImgTupPersonalCloak = Resources.trans_Tup_PersonalCloak;
+                ImgTupMoebiusReactor = Resources.trans_Tup_MoebiusReactor;
+                ImgTupBlueFlame = Resources.trans_Tup_BlueFlame;
+                ImgTupTransformatorServos = Resources.trans_Tup_TransformationServos;
+                ImgTupDrillingClaws = Resources.trans_Tup_DrillingClaws;
+                ImgTupCloakingField = Resources.trans_Tup_CloakingField;
+                ImgTupDurableMaterials = Resources.trans_Tup_DurableMaterials;
+                ImgTupCaduceusReactor = Resources.trans_Tup_CaduceusReactor;
+                ImgTupCorvidReactor = Resources.trans_Tup_CorvidReactor;
+                ImgTupBehemothReacot = Resources.trans_BehemothReactor;
+                ImgTupWeaponRefit = Resources.trans_tup_weaponrefit;
+                ImgTupInfantryWeapon1 = Resources.trans_Tup_InfantyWeapon1;
+                ImgTupInfantryWeapon2 = Resources.trans_Tup_InfantyWeapon2;
+                ImgTupInfantryWeapon3 = Resources.trans_Tup_InfantyWeapon3;
+                ImgTupInfantryArmor1 = Resources.trans_Tup_InfantyArmor1;
+                ImgTupInfantryArmor2 = Resources.trans_Tup_InfantyArmor2;
+                ImgTupInfantryArmor3 = Resources.trans_Tup_InfantyArmor3;
+                ImgTupVehicleWeapon1 = Resources.trans_Tup_VehicleWeapon1;
+                ImgTupVehicleWeapon2 = Resources.trans_Tup_VehicleWeapon2;
+                ImgTupVehicleWeapon3 = Resources.trans_Tup_VehicleWeapon3;
+                ImgTupShipWeapon1 = Resources.trans_Tup_ShipWeapon1;
+                ImgTupShipWeapon2 = Resources.trans_Tup_ShipWeapon2;
+                ImgTupShipWeapon3 = Resources.trans_Tup_ShipWeapon3;
+                ImgTupVehicleShipPlanting1 = Resources.trans_Tup_VehicleShipPlanting1;
+                ImgTupVehicleShipPlanting2 = Resources.trans_Tup_VehicleShipPlanting2;
+                ImgTupVehicleShipPlanting3 = Resources.trans_Tup_VehicleShipPlanting3;
+                ImgTupHighSecAutoTracking = Resources.trans_Tup_HighSecAutotracking;
+                ImgTupStructureArmor = Resources.trans_Tup_StructureArmor;
+                ImgTupNeosteelFrame = Resources.trans_Tup_NeosteelFrame;
 
                 #endregion
 
                 #region Protoss
 
-                _imgPuProbe = Resources.trans_pu_probe;
-                _imgPuZealot = Resources.trans_pu_zealot;
-                _imgPuStalker = Resources.trans_pu_stalker;
-                _imgPuSentry = Resources.trans_pu_sentry;
-                _imgPuDarkTemplar = Resources.trans_pu_darktemplar;
-                _imgPuHighTemplar = Resources.trans_pu_hightemplar;
-                _imgPuColossus = Resources.trans_pu_colossus;
-                _imgPuImmortal = Resources.trans_pu_immortal;
-                _imgPuWapprism = Resources.trans_pu_warpprism;
-                _imgPuObserver = Resources.trans_pu_observer;
-                _imgPuOracle = Resources.trans_pu_oracle;
-                _imgPuTempest = Resources.trans_pu_tempest;
-                _imgPuPhoenix = Resources.trans_pu_phoenix;
-                _imgPuVoidray = Resources.trans_pu_voidray;
-                _imgPuCarrier = Resources.trans_pu_carrier;
-                _imgPuMothershipcore = Resources.trans_pu_mothershipcore;
-                _imgPuMothership = Resources.trans_pu_mothership;
-                _imgPuArchon = Resources.trans_pu_archon;
+                ImgPuProbe = Resources.trans_pu_probe;
+                ImgPuZealot = Resources.trans_pu_zealot;
+                ImgPuStalker = Resources.trans_pu_stalker;
+                ImgPuSentry = Resources.trans_pu_sentry;
+                ImgPuDarkTemplar = Resources.trans_pu_darktemplar;
+                ImgPuHighTemplar = Resources.trans_pu_hightemplar;
+                ImgPuColossus = Resources.trans_pu_colossus;
+                ImgPuImmortal = Resources.trans_pu_immortal;
+                ImgPuWapprism = Resources.trans_pu_warpprism;
+                ImgPuObserver = Resources.trans_pu_observer;
+                ImgPuOracle = Resources.trans_pu_oracle;
+                ImgPuTempest = Resources.trans_pu_tempest;
+                ImgPuPhoenix = Resources.trans_pu_phoenix;
+                ImgPuVoidray = Resources.trans_pu_voidray;
+                ImgPuCarrier = Resources.trans_pu_carrier;
+                ImgPuMothershipcore = Resources.trans_pu_mothershipcore;
+                ImgPuMothership = Resources.trans_pu_mothership;
+                ImgPuArchon = Resources.trans_pu_archon;
 
-                _imgPbNexus = Resources.trans_pb_nexus;
-                _imgPbPylon = Resources.trans_pb_pylon;
-                _imgPbGateway = Resources.trans_pb_gateway;
-                _imgPbWarpgate = Resources.trans_pb_warpgate;
-                _imgPbAssimilator = Resources.trans_pb_assimilator;
-                _imgPbForge = Resources.trans_pb_forge;
-                _imgPbCannon = Resources.trans_pb_photoncannon;
-                _imgPbCybercore = Resources.trans_pb_cyberneticscore;
-                _imgPbStargate = Resources.trans_pb_stargate;
-                _imgPbRobotics = Resources.trans_pb_roboticsfacility;
-                _imgPbRoboticsSupport = Resources.trans_pb_roboticsbay;
-                _imgPbTwillightCouncil = Resources.trans_pb_twilightcouncil;
-                _imgPbDarkShrine = Resources.trans_pb_darkshrine;
-                _imgPbTemplarArchives = Resources.trans_pb_templararchive;
-                _imgPbFleetBeacon = Resources.trans_pb_fleetbeacon;
+                ImgPbNexus = Resources.trans_pb_nexus;
+                ImgPbPylon = Resources.trans_pb_pylon;
+                ImgPbGateway = Resources.trans_pb_gateway;
+                ImgPbWarpgate = Resources.trans_pb_warpgate;
+                ImgPbAssimilator = Resources.trans_pb_assimilator;
+                ImgPbForge = Resources.trans_pb_forge;
+                ImgPbCannon = Resources.trans_pb_photoncannon;
+                ImgPbCybercore = Resources.trans_pb_cyberneticscore;
+                ImgPbStargate = Resources.trans_pb_stargate;
+                ImgPbRobotics = Resources.trans_pb_roboticsfacility;
+                ImgPbRoboticsSupport = Resources.trans_pb_roboticsbay;
+                ImgPbTwillightCouncil = Resources.trans_pb_twilightcouncil;
+                ImgPbDarkShrine = Resources.trans_pb_darkshrine;
+                ImgPbTemplarArchives = Resources.trans_pb_templararchive;
+                ImgPbFleetBeacon = Resources.trans_pb_fleetbeacon;
 
-                _imgPupGroundWeapon1 = Resources.trans_Pup_GroundW1;
-                _imgPupGroundWeapon2 = Resources.trans_Pup_GroundW2;
-                _imgPupGroundWeapon3 = Resources.trans_Pup_GroundW3;
-                _imgPupGroundArmor1 = Resources.trans_Pup_GroundA1;
-                _imgPupGroundArmor2 = Resources.trans_Pup_GroundA2;
-                _imgPupGroundArmor3 = Resources.trans_Pup_GroundA3;
-                _imgPupShield1 = Resources.trans_Pup_S1;
-                _imgPupShield2 = Resources.trans_Pup_S2;
-                _imgPupShield3 = Resources.trans_Pup_S3;
-                _imgPupAirWeapon1 = Resources.trans_Pup_AirW1;
-                _imgPupAirWeapon2 = Resources.trans_Pup_AirW2;
-                _imgPupAirWeapon3 = Resources.trans_Pup_AirW3;
-                _imgPupAirArmor1 = Resources.trans_Pup_AirA1;
-                _imgPupAirArmor2 = Resources.trans_Pup_AirA2;
-                _imgPupAirArmor3 = Resources.trans_Pup_AirA3;
-                _imgPupBlink = Resources.trans_Pup_Blink;
-                _imgPupCharge = Resources.trans_Pup_Charge;
-                _imgPupGraviticBooster = Resources.trans_Pup_GraviticBoosters;
-                _imgPupGraviticDrive = Resources.trans_Pup_GraviticDrive;
-                _imgPupExtendedThermalLance = Resources.trans_Pup_ExtendedThermalLance;
-                _imgPupAnionPulseCrystals = Resources.trans_Pup_AnionPulseCrystals;
-                _imgPupGravitonCatapult = Resources.trans_Pup_GravitonCatapult;
-                _imgPupWarpGate = Resources.trans_Pup_Warpgate;
-                _imgPupStorm = Resources.trans_Pup_Storm;
-                _imgPupForcefield = Resources.trans_pup_forcefield;
+                ImgPupGroundWeapon1 = Resources.trans_Pup_GroundW1;
+                ImgPupGroundWeapon2 = Resources.trans_Pup_GroundW2;
+                ImgPupGroundWeapon3 = Resources.trans_Pup_GroundW3;
+                ImgPupGroundArmor1 = Resources.trans_Pup_GroundA1;
+                ImgPupGroundArmor2 = Resources.trans_Pup_GroundA2;
+                ImgPupGroundArmor3 = Resources.trans_Pup_GroundA3;
+                ImgPupShield1 = Resources.trans_Pup_S1;
+                ImgPupShield2 = Resources.trans_Pup_S2;
+                ImgPupShield3 = Resources.trans_Pup_S3;
+                ImgPupAirWeapon1 = Resources.trans_Pup_AirW1;
+                ImgPupAirWeapon2 = Resources.trans_Pup_AirW2;
+                ImgPupAirWeapon3 = Resources.trans_Pup_AirW3;
+                ImgPupAirArmor1 = Resources.trans_Pup_AirA1;
+                ImgPupAirArmor2 = Resources.trans_Pup_AirA2;
+                ImgPupAirArmor3 = Resources.trans_Pup_AirA3;
+                ImgPupBlink = Resources.trans_Pup_Blink;
+                ImgPupCharge = Resources.trans_Pup_Charge;
+                ImgPupGraviticBooster = Resources.trans_Pup_GraviticBoosters;
+                ImgPupGraviticDrive = Resources.trans_Pup_GraviticDrive;
+                ImgPupExtendedThermalLance = Resources.trans_Pup_ExtendedThermalLance;
+                ImgPupAnionPulseCrystals = Resources.trans_Pup_AnionPulseCrystals;
+                ImgPupGravitonCatapult = Resources.trans_Pup_GravitonCatapult;
+                ImgPupWarpGate = Resources.trans_Pup_Warpgate;
+                ImgPupStorm = Resources.trans_Pup_Storm;
+                ImgPupForcefield = Resources.trans_pup_forcefield;
 
                 #endregion
 
                 #region Zerg
 
-                _imgZuDrone = Resources.trans_zu_drone;
-                _imgZuLarva = Resources.trans_zu_larva;
-                _imgZuZergling = Resources.trans_zu_zergling;
-                _imgZuBaneling = Resources.trans_zu_baneling;
-                _imgZuBanelingCocoon = Resources.trans_zu_banelingcocoon;
-                _imgZuRoach = Resources.trans_zu_roach;
-                _imgZuHydra = Resources.trans_zu_hydralisk;
-                _imgZuMutalisk = Resources.trans_zu_mutalisk;
-                _imgZuUltra = Resources.trans_zu_ultralisk;
-                _imgZuViper = Resources.trans_zu_viper;
-                _imgZuSwarmhost = Resources.trans_zu_swarmhost;
-                _imgZuInfestor = Resources.trans_zu_infestor;
-                _imgInfestedTerran = Resources.trans_zu_InfestedTerran;
-                _imgInfestedTerranEgg = Resources.trans_zu_InfestedTerran;
-                _imgZuCorruptor = Resources.trans_zu_corruptor;
-                _imgZuBroodlord = Resources.trans_zu_broodlord;
-                _imgZuBroodlordCocoon = Resources.trans_zu_BroodLordCocoon;
-                _imgZuQueen = Resources.trans_zu_queen;
-                _imgZuOverlord = Resources.trans_zu_overlord;
-                _imgZuOverseer = Resources.trans_zu_overseer;
-                _imgZuOvserseerCocoon = Resources.trans_zu_OverlordCocoon;
-                _imgZuLocust = Resources.trans_zu_locust;
-                _imgZuFlyingLocust = Resources.trans_Zup_flying_locust;
-                _imgZuChangeling = Resources.trans_zu_changeling;
-                _imgZuBroodling = Resources.trans_zu_broodling;
+                ImgZuDrone = Resources.trans_zu_drone;
+                ImgZuLarva = Resources.trans_zu_larva;
+                ImgZuZergling = Resources.trans_zu_zergling;
+                ImgZuBaneling = Resources.trans_zu_baneling;
+                ImgZuBanelingCocoon = Resources.trans_zu_banelingcocoon;
+                ImgZuRoach = Resources.trans_zu_roach;
+                ImgZuHydra = Resources.trans_zu_hydralisk;
+                ImgZuMutalisk = Resources.trans_zu_mutalisk;
+                ImgZuUltra = Resources.trans_zu_ultralisk;
+                ImgZuViper = Resources.trans_zu_viper;
+                ImgZuSwarmhost = Resources.trans_zu_swarmhost;
+                ImgZuInfestor = Resources.trans_zu_infestor;
+                ImgInfestedTerran = Resources.trans_zu_InfestedTerran;
+                ImgInfestedTerranEgg = Resources.trans_zu_InfestedTerran;
+                ImgZuCorruptor = Resources.trans_zu_corruptor;
+                ImgZuBroodlord = Resources.trans_zu_broodlord;
+                ImgZuBroodlordCocoon = Resources.trans_zu_BroodLordCocoon;
+                ImgZuQueen = Resources.trans_zu_queen;
+                ImgZuOverlord = Resources.trans_zu_overlord;
+                ImgZuOverseer = Resources.trans_zu_overseer;
+                ImgZuOvserseerCocoon = Resources.trans_zu_OverlordCocoon;
+                ImgZuLocust = Resources.trans_zu_locust;
+                ImgZuFlyingLocust = Resources.trans_Zup_flying_locust;
+                ImgZuChangeling = Resources.trans_zu_changeling;
+                ImgZuBroodling = Resources.trans_zu_broodling;
 
-                _imgZbHatchery = Resources.trans_zb_hatchery;
-                _imgZbLair = Resources.trans_zb_lair;
-                _imgZbHive = Resources.trans_zb_hive;
-                _imgZbCreepTumor = Resources.trans_zb_creeptumor;
-                _imgZbSpawningpool = Resources.trans_zb_spawningpool;
-                _imgZbExtractor = Resources.trans_zb_extractor;
-                _imgZbEvochamber = Resources.trans_zb_evolutionchamber;
-                _imgZbSpinecrawler = Resources.trans_zb_spinecrawler;
-                _imgZbSporecrawler = Resources.trans_zb_sporecrawler;
-                _imgZbRoachwarren = Resources.trans_zb_roachwarren;
-                _imgZbGreaterspire = Resources.trans_zb_greaterspire;
-                _imgZbSpire = Resources.trans_zb_spire;
-                _imgZbNydusNetwork = Resources.trans_zb_nydusnetwork;
-                _imgZbNydusWorm = Resources.trans_zb_nyduscanal;
-                _imgZbHydraden = Resources.trans_zb_hydraliskden;
-                _imgZbInfestationpit = Resources.trans_zb_infestationpit;
-                _imgZbUltracavern = Resources.trans_zb_ultraliskcavern;
-                _imgZbBanelingnest = Resources.trans_zb_banelingnest;
+                ImgZbHatchery = Resources.trans_zb_hatchery;
+                ImgZbLair = Resources.trans_zb_lair;
+                ImgZbHive = Resources.trans_zb_hive;
+                ImgZbCreepTumor = Resources.trans_zb_creeptumor;
+                ImgZbSpawningpool = Resources.trans_zb_spawningpool;
+                ImgZbExtractor = Resources.trans_zb_extractor;
+                ImgZbEvochamber = Resources.trans_zb_evolutionchamber;
+                ImgZbSpinecrawler = Resources.trans_zb_spinecrawler;
+                ImgZbSporecrawler = Resources.trans_zb_sporecrawler;
+                ImgZbRoachwarren = Resources.trans_zb_roachwarren;
+                ImgZbGreaterspire = Resources.trans_zb_greaterspire;
+                ImgZbSpire = Resources.trans_zb_spire;
+                ImgZbNydusNetwork = Resources.trans_zb_nydusnetwork;
+                ImgZbNydusWorm = Resources.trans_zb_nyduscanal;
+                ImgZbHydraden = Resources.trans_zb_hydraliskden;
+                ImgZbInfestationpit = Resources.trans_zb_infestationpit;
+                ImgZbUltracavern = Resources.trans_zb_ultraliskcavern;
+                ImgZbBanelingnest = Resources.trans_zb_banelingnest;
 
-                _imgZupAirWeapon1 = Resources.trans_Zup_AirW1;
-                _imgZupAirWeapon2 = Resources.trans_Zup_AirW2;
-                _imgZupAirWeapon3 = Resources.trans_Zup_AirW3;
-                _imgZupAirArmor1 = Resources.trans_Zup_AirA1;
-                _imgZupAirArmor2 = Resources.trans_Zup_AirA2;
-                _imgZupAirArmor3 = Resources.trans_Zup_AirA3;
-                _imgZupGroundWeapon1 = Resources.trans_Zup_GroundW1;
-                _imgZupGroundWeapon2 = Resources.trans_Zup_GroundW2;
-                _imgZupGroundWeapon3 = Resources.trans_Zup_GroundW3;
-                _imgZupGroundArmor1 = Resources.trans_Zup_GroundA1;
-                _imgZupGroundArmor2 = Resources.trans_Zup_GroundA2;
-                _imgZupGroundArmor3 = Resources.trans_Zup_GroundA3;
-                _imgZupGroundMelee1 = Resources.trans_Zup_GroundM1;
-                _imgZupGroundMelee2 = Resources.trans_Zup_GroundM2;
-                _imgZupGroundMelee3 = Resources.trans_Zup_GroundM3;
-                _imgZupBurrow = Resources.trans_Zup_Burrow;
-                _imgZupAdrenalGlands = Resources.trans_Zup_AdrenalGlands;
-                _imgZupCentrifugalHooks = Resources.trans_Zup_CentrifugalHooks;
-                _imgZupChitinousPlating = Resources.trans_Zup_ChitinousPlating;
-                _imgZupEnduringLocusts = Resources.trans_Zup_EnduringLocusts;
-                _imgZupGlialReconstruction = Resources.trans_Zup_GlialReconstruction;
-                _imgZupGroovedSpines = Resources.trans_Zup_GroovedSpines;
-                _imgZupMetabolicBoost = Resources.trans_Zup_MetabolicBoost;
-                _imgZupMuscularAugments = Resources.trans_Zup_MuscularAugments;
-                _imgZupNeutralParasite = Resources.trans_Zup_NeutralParasite;
-                _imgZupPathoglenGlands = Resources.trans_Zup_PathogenGlands;
-                _imgZupPneumatizedCarapace = Resources.trans_Zup_PneumatizedCarapace;
-                _imgZupTunnelingClaws = Resources.trans_Zup_TunnelingClaws;
-                _imgZupVentrallSacs = Resources.trans_Zup_VentralSacs;
-                _imgZupFlyingLocust = Resources.trans_Zup_flying_locust;
+                ImgZupAirWeapon1 = Resources.trans_Zup_AirW1;
+                ImgZupAirWeapon2 = Resources.trans_Zup_AirW2;
+                ImgZupAirWeapon3 = Resources.trans_Zup_AirW3;
+                ImgZupAirArmor1 = Resources.trans_Zup_AirA1;
+                ImgZupAirArmor2 = Resources.trans_Zup_AirA2;
+                ImgZupAirArmor3 = Resources.trans_Zup_AirA3;
+                ImgZupGroundWeapon1 = Resources.trans_Zup_GroundW1;
+                ImgZupGroundWeapon2 = Resources.trans_Zup_GroundW2;
+                ImgZupGroundWeapon3 = Resources.trans_Zup_GroundW3;
+                ImgZupGroundArmor1 = Resources.trans_Zup_GroundA1;
+                ImgZupGroundArmor2 = Resources.trans_Zup_GroundA2;
+                ImgZupGroundArmor3 = Resources.trans_Zup_GroundA3;
+                ImgZupGroundMelee1 = Resources.trans_Zup_GroundM1;
+                ImgZupGroundMelee2 = Resources.trans_Zup_GroundM2;
+                ImgZupGroundMelee3 = Resources.trans_Zup_GroundM3;
+                ImgZupBurrow = Resources.trans_Zup_Burrow;
+                ImgZupAdrenalGlands = Resources.trans_Zup_AdrenalGlands;
+                ImgZupCentrifugalHooks = Resources.trans_Zup_CentrifugalHooks;
+                ImgZupChitinousPlating = Resources.trans_Zup_ChitinousPlating;
+                ImgZupEnduringLocusts = Resources.trans_Zup_EnduringLocusts;
+                ImgZupGlialReconstruction = Resources.trans_Zup_GlialReconstruction;
+                ImgZupGroovedSpines = Resources.trans_Zup_GroovedSpines;
+                ImgZupMetabolicBoost = Resources.trans_Zup_MetabolicBoost;
+                ImgZupMuscularAugments = Resources.trans_Zup_MuscularAugments;
+                ImgZupNeutralParasite = Resources.trans_Zup_NeutralParasite;
+                ImgZupPathoglenGlands = Resources.trans_Zup_PathogenGlands;
+                ImgZupPneumatizedCarapace = Resources.trans_Zup_PneumatizedCarapace;
+                ImgZupTunnelingClaws = Resources.trans_Zup_TunnelingClaws;
+                ImgZupVentrallSacs = Resources.trans_Zup_VentralSacs;
+                ImgZupFlyingLocust = Resources.trans_Zup_flying_locust;
 
                 #endregion
             }
@@ -1657,622 +1657,622 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Terran
 
-                if (_lTbCommandCenter.Count > 0)
-                    _lTbCommandCenter.Clear();
+                if (LTbCommandCenter.Count > 0)
+                    LTbCommandCenter.Clear();
 
-                if (_lTbOrbitalCommand.Count > 0)
-                    _lTbOrbitalCommand.Clear();
+                if (LTbOrbitalCommand.Count > 0)
+                    LTbOrbitalCommand.Clear();
 
-                if (_lTbPlanetaryFortress.Count > 0)
-                    _lTbPlanetaryFortress.Clear();
+                if (LTbPlanetaryFortress.Count > 0)
+                    LTbPlanetaryFortress.Clear();
 
-                if (_lTbBarracks.Count > 0)
-                    _lTbBarracks.Clear();
+                if (LTbBarracks.Count > 0)
+                    LTbBarracks.Clear();
 
-                if (_lTbSupply.Count > 0)
-                    _lTbSupply.Clear();
+                if (LTbSupply.Count > 0)
+                    LTbSupply.Clear();
 
-                if (_lTbRefinery.Count > 0)
-                    _lTbRefinery.Clear();
+                if (LTbRefinery.Count > 0)
+                    LTbRefinery.Clear();
 
-                if (_lTbBunker.Count > 0)
-                    _lTbBunker.Clear();
+                if (LTbBunker.Count > 0)
+                    LTbBunker.Clear();
 
-                if (_lTbTurrent.Count > 0)
-                    _lTbTurrent.Clear();
+                if (LTbTurrent.Count > 0)
+                    LTbTurrent.Clear();
 
-                if (_lTbSensorTower.Count > 0)
-                    _lTbSensorTower.Clear();
+                if (LTbSensorTower.Count > 0)
+                    LTbSensorTower.Clear();
 
-                if (_lTbEbay.Count > 0)
-                    _lTbEbay.Clear();
+                if (LTbEbay.Count > 0)
+                    LTbEbay.Clear();
 
-                if (_lTbStarport.Count > 0)
-                    _lTbStarport.Clear();
+                if (LTbStarport.Count > 0)
+                    LTbStarport.Clear();
 
-                if (_lTbFactory.Count > 0)
-                    _lTbFactory.Clear();
+                if (LTbFactory.Count > 0)
+                    LTbFactory.Clear();
 
-                if (_lTbArmory.Count > 0)
-                    _lTbArmory.Clear();
+                if (LTbArmory.Count > 0)
+                    LTbArmory.Clear();
 
-                if (_lTbFusionCore.Count > 0)
-                    _lTbFusionCore.Clear();
+                if (LTbFusionCore.Count > 0)
+                    LTbFusionCore.Clear();
 
-                if (_lTbGhostAcademy.Count > 0)
-                    _lTbGhostAcademy.Clear();
+                if (LTbGhostAcademy.Count > 0)
+                    LTbGhostAcademy.Clear();
 
-                if (_lTbReactor.Count > 0)
-                    _lTbReactor.Clear();
+                if (LTbReactor.Count > 0)
+                    LTbReactor.Clear();
 
-                if (_lTbTechlab.Count > 0)
-                    _lTbTechlab.Clear();
+                if (LTbTechlab.Count > 0)
+                    LTbTechlab.Clear();
 
-                if (_lTbAutoTurret.Count > 0)
-                    _lTbAutoTurret.Clear();
+                if (LTbAutoTurret.Count > 0)
+                    LTbAutoTurret.Clear();
 
 
-                if (_lTuScv.Count > 0)
-                    _lTuScv.Clear();
+                if (LTuScv.Count > 0)
+                    LTuScv.Clear();
 
-                if (_lTuMule.Count > 0)
-                    _lTuMule.Clear();
+                if (LTuMule.Count > 0)
+                    LTuMule.Clear();
 
-                if (_lTuMarine.Count > 0)
-                    _lTuMarine.Clear();
+                if (LTuMarine.Count > 0)
+                    LTuMarine.Clear();
 
-                if (_lTuMarauder.Count > 0)
-                    _lTuMarauder.Clear();
+                if (LTuMarauder.Count > 0)
+                    LTuMarauder.Clear();
 
-                if (_lTuReaper.Count > 0)
-                    _lTuReaper.Clear();
+                if (LTuReaper.Count > 0)
+                    LTuReaper.Clear();
 
-                if (_lTuGhost.Count > 0)
-                    _lTuGhost.Clear();
+                if (LTuGhost.Count > 0)
+                    LTuGhost.Clear();
 
-                if (_lTuWidowMine.Count > 0)
-                    _lTuWidowMine.Clear();
+                if (LTuWidowMine.Count > 0)
+                    LTuWidowMine.Clear();
 
-                if (_lTuSiegetank.Count > 0)
-                    _lTuSiegetank.Clear();
+                if (LTuSiegetank.Count > 0)
+                    LTuSiegetank.Clear();
 
-                if (_lTuHellbat.Count > 0)
-                    _lTuHellbat.Clear();
+                if (LTuHellbat.Count > 0)
+                    LTuHellbat.Clear();
 
-                if (_lTuHellion.Count > 0)
-                    _lTuHellion.Clear();
+                if (LTuHellion.Count > 0)
+                    LTuHellion.Clear();
 
-                if (_lTuThor.Count > 0)
-                    _lTuThor.Clear();
+                if (LTuThor.Count > 0)
+                    LTuThor.Clear();
 
-                if (_lTuBanshee.Count > 0)
-                    _lTuBanshee.Clear();
+                if (LTuBanshee.Count > 0)
+                    LTuBanshee.Clear();
 
-                if (_lTuBattlecruiser.Count > 0)
-                    _lTuBattlecruiser.Clear();
+                if (LTuBattlecruiser.Count > 0)
+                    LTuBattlecruiser.Clear();
 
-                if (_lTuViking.Count > 0)
-                    _lTuViking.Clear();
+                if (LTuViking.Count > 0)
+                    LTuViking.Clear();
 
-                if (_lTuRaven.Count > 0)
-                    _lTuRaven.Clear();
+                if (LTuRaven.Count > 0)
+                    LTuRaven.Clear();
 
-                if (_lTuMedivac.Count > 0)
-                    _lTuMedivac.Clear();
+                if (LTuMedivac.Count > 0)
+                    LTuMedivac.Clear();
 
-                if (_lTuPointDefenseDrone.Count > 0)
-                    _lTuPointDefenseDrone.Clear();
+                if (LTuPointDefenseDrone.Count > 0)
+                    LTuPointDefenseDrone.Clear();
 
-                if (_lTuNuke.Count > 0)
-                    _lTuNuke.Clear();
+                if (LTuNuke.Count > 0)
+                    LTuNuke.Clear();
 
 
-                if (_lTupStim.Count > 0)
-                    _lTupStim.Clear();
+                if (LTupStim.Count > 0)
+                    LTupStim.Clear();
 
-                if (_lTupBehemothReactor.Count > 0)
-                    _lTupBehemothReactor.Clear();
+                if (LTupBehemothReactor.Count > 0)
+                    LTupBehemothReactor.Clear();
 
-                if (_lTupBlueFlame.Count > 0)
-                    _lTupBlueFlame.Clear();
+                if (LTupBlueFlame.Count > 0)
+                    LTupBlueFlame.Clear();
 
-                if (_lTupCaduceusReactor.Count > 0)
-                    _lTupCaduceusReactor.Clear();
+                if (LTupCaduceusReactor.Count > 0)
+                    LTupCaduceusReactor.Clear();
 
-                if (_lTupCloakingField.Count > 0)
-                    _lTupCloakingField.Clear();
+                if (LTupCloakingField.Count > 0)
+                    LTupCloakingField.Clear();
 
-                if (_lTupCombatShields.Count > 0)
-                    _lTupCombatShields.Clear();
+                if (LTupCombatShields.Count > 0)
+                    LTupCombatShields.Clear();
 
-                if (_lTupConcussiveShells.Count > 0)
-                    _lTupConcussiveShells.Clear();
+                if (LTupConcussiveShells.Count > 0)
+                    LTupConcussiveShells.Clear();
 
-                if (_lTupCorvidReactor.Count > 0)
-                    _lTupCorvidReactor.Clear();
+                if (LTupCorvidReactor.Count > 0)
+                    LTupCorvidReactor.Clear();
 
-                if (_lTupDrillingClaws.Count > 0)
-                    _lTupDrillingClaws.Clear();
+                if (LTupDrillingClaws.Count > 0)
+                    LTupDrillingClaws.Clear();
 
-                if (_lTupDurableMaterials.Count > 0)
-                    _lTupDurableMaterials.Clear();
+                if (LTupDurableMaterials.Count > 0)
+                    LTupDurableMaterials.Clear();
 
-                if (_lTupHighSecAutoTracking.Count > 0)
-                    _lTupHighSecAutoTracking.Clear();
+                if (LTupHighSecAutoTracking.Count > 0)
+                    LTupHighSecAutoTracking.Clear();
 
-                if (_lTupInfantryArmor1.Count > 0)
-                    _lTupInfantryArmor1.Clear();
+                if (LTupInfantryArmor1.Count > 0)
+                    LTupInfantryArmor1.Clear();
 
-                if (_lTupInfantryArmor2.Count > 0)
-                    _lTupInfantryArmor2.Clear();
+                if (LTupInfantryArmor2.Count > 0)
+                    LTupInfantryArmor2.Clear();
 
-                if (_lTupInfantryArmor3.Count > 0)
-                    _lTupInfantryArmor3.Clear();
+                if (LTupInfantryArmor3.Count > 0)
+                    LTupInfantryArmor3.Clear();
 
-                if (_lTupInfantryWeapon1.Count > 0)
-                    _lTupInfantryWeapon1.Clear();
+                if (LTupInfantryWeapon1.Count > 0)
+                    LTupInfantryWeapon1.Clear();
 
-                if (_lTupInfantryWeapon2.Count > 0)
-                    _lTupInfantryWeapon2.Clear();
+                if (LTupInfantryWeapon2.Count > 0)
+                    LTupInfantryWeapon2.Clear();
 
-                if (_lTupInfantryWeapon3.Count > 0)
-                    _lTupInfantryWeapon3.Clear();
+                if (LTupInfantryWeapon3.Count > 0)
+                    LTupInfantryWeapon3.Clear();
 
-                if (_lTupMoebiusReactor.Count > 0)
-                    _lTupMoebiusReactor.Clear();
+                if (LTupMoebiusReactor.Count > 0)
+                    LTupMoebiusReactor.Clear();
 
-                if (_lTupNeosteelFrame.Count > 0)
-                    _lTupNeosteelFrame.Clear();
+                if (LTupNeosteelFrame.Count > 0)
+                    LTupNeosteelFrame.Clear();
 
-                if (_lTupOrbitalCommand.Count > 0)
-                    _lTupOrbitalCommand.Clear();
+                if (LTupOrbitalCommand.Count > 0)
+                    LTupOrbitalCommand.Clear();
 
-                if (_lTupPersonalCloak.Count > 0)
-                    _lTupPersonalCloak.Clear();
+                if (LTupPersonalCloak.Count > 0)
+                    LTupPersonalCloak.Clear();
 
-                if (_lTupPlanetaryFortress.Count > 0)
-                    _lTupPlanetaryFortress.Clear();
+                if (LTupPlanetaryFortress.Count > 0)
+                    LTupPlanetaryFortress.Clear();
 
-                if (_lTupShipWeapon1.Count > 0)
-                    _lTupShipWeapon1.Clear();
+                if (LTupShipWeapon1.Count > 0)
+                    LTupShipWeapon1.Clear();
 
-                if (_lTupShipWeapon2.Count > 0)
-                    _lTupShipWeapon2.Clear();
+                if (LTupShipWeapon2.Count > 0)
+                    LTupShipWeapon2.Clear();
 
-                if (_lTupShipWeapon3.Count > 0)
-                    _lTupShipWeapon3.Clear();
+                if (LTupShipWeapon3.Count > 0)
+                    LTupShipWeapon3.Clear();
 
-                if (_lTupStructureArmor.Count > 0)
-                    _lTupStructureArmor.Clear();
+                if (LTupStructureArmor.Count > 0)
+                    LTupStructureArmor.Clear();
 
-                if (_lTupTransformationServos.Count > 0)
-                    _lTupTransformationServos.Clear();
+                if (LTupTransformationServos.Count > 0)
+                    LTupTransformationServos.Clear();
 
-                if (_lTupVehicleShipPlanting1.Count > 0)
-                    _lTupVehicleShipPlanting1.Clear();
+                if (LTupVehicleShipPlanting1.Count > 0)
+                    LTupVehicleShipPlanting1.Clear();
 
-                if (_lTupVehicleShipPlanting2.Count > 0)
-                    _lTupVehicleShipPlanting2.Clear();
+                if (LTupVehicleShipPlanting2.Count > 0)
+                    LTupVehicleShipPlanting2.Clear();
 
-                if (_lTupVehicleShipPlanting3.Count > 0)
-                    _lTupVehicleShipPlanting3.Clear();
+                if (LTupVehicleShipPlanting3.Count > 0)
+                    LTupVehicleShipPlanting3.Clear();
 
-                if (_lTupVehicleWeapon1.Count > 0)
-                    _lTupVehicleWeapon1.Clear();
+                if (LTupVehicleWeapon1.Count > 0)
+                    LTupVehicleWeapon1.Clear();
 
-                if (_lTupVehicleWeapon2.Count > 0)
-                    _lTupVehicleWeapon2.Clear();
+                if (LTupVehicleWeapon2.Count > 0)
+                    LTupVehicleWeapon2.Clear();
 
-                if (_lTupVehicleWeapon3.Count > 0)
-                    _lTupVehicleWeapon3.Clear();
+                if (LTupVehicleWeapon3.Count > 0)
+                    LTupVehicleWeapon3.Clear();
 
-                if (_lTupWeaponRefit.Count > 0)
-                    _lTupWeaponRefit.Clear();
+                if (LTupWeaponRefit.Count > 0)
+                    LTupWeaponRefit.Clear();
 
                 #endregion
 
                 #region Protoss
 
-                if (_lPbAssimilator.Count > 0)
-                    _lPbAssimilator.Clear();
+                if (LPbAssimilator.Count > 0)
+                    LPbAssimilator.Clear();
 
-                if (_lPbNexus.Count > 0)
-                    _lPbNexus.Clear();
+                if (LPbNexus.Count > 0)
+                    LPbNexus.Clear();
 
-                if (_lPbPylon.Count > 0)
-                    _lPbPylon.Clear();
+                if (LPbPylon.Count > 0)
+                    LPbPylon.Clear();
 
-                if (_lPbGateway.Count > 0)
-                    _lPbGateway.Clear();
+                if (LPbGateway.Count > 0)
+                    LPbGateway.Clear();
 
-                if (_lPbWarpgate.Count > 0)
-                    _lPbWarpgate.Clear();
+                if (LPbWarpgate.Count > 0)
+                    LPbWarpgate.Clear();
 
-                if (_lPbForge.Count > 0)
-                    _lPbForge.Clear();
+                if (LPbForge.Count > 0)
+                    LPbForge.Clear();
 
-                if (_lPbCannon.Count > 0)
-                    _lPbCannon.Clear();
+                if (LPbCannon.Count > 0)
+                    LPbCannon.Clear();
 
-                if (_lPbTwilight.Count > 0)
-                    _lPbTwilight.Clear();
+                if (LPbTwilight.Count > 0)
+                    LPbTwilight.Clear();
 
-                if (_lPbTemplarArchives.Count > 0)
-                    _lPbTemplarArchives.Clear();
+                if (LPbTemplarArchives.Count > 0)
+                    LPbTemplarArchives.Clear();
 
-                if (_lPbDarkshrine.Count > 0)
-                    _lPbDarkshrine.Clear();
+                if (LPbDarkshrine.Count > 0)
+                    LPbDarkshrine.Clear();
 
-                if (_lPbRobotics.Count > 0)
-                    _lPbRobotics.Clear();
+                if (LPbRobotics.Count > 0)
+                    LPbRobotics.Clear();
 
-                if (_lPbRoboticsSupport.Count > 0)
-                    _lPbRoboticsSupport.Clear();
+                if (LPbRoboticsSupport.Count > 0)
+                    LPbRoboticsSupport.Clear();
 
-                if (_lPbFleetbeacon.Count > 0)
-                    _lPbFleetbeacon.Clear();
+                if (LPbFleetbeacon.Count > 0)
+                    LPbFleetbeacon.Clear();
 
-                if (_lPbCybercore.Count > 0)
-                    _lPbCybercore.Clear();
+                if (LPbCybercore.Count > 0)
+                    LPbCybercore.Clear();
 
-                if (_lPbStargate.Count > 0)
-                    _lPbStargate.Clear();
-
-
-                if (_lPuArchon.Count > 0)
-                    _lPuArchon.Clear();
-
-                if (_lPuCarrier.Count > 0)
-                    _lPuCarrier.Clear();
-
-                if (_lPuColossus.Count > 0)
-                    _lPuColossus.Clear();
-
-                if (_lPuDt.Count > 0)
-                    _lPuDt.Clear();
-
-                if (_lPuHt.Count > 0)
-                    _lPuHt.Clear();
-
-                if (_lPuForcefield.Count > 0)
-                    _lPuForcefield.Clear();
-
-                if (_lPuImmortal.Count > 0)
-                    _lPuImmortal.Clear();
-
-                if (_lPuMothership.Count > 0)
-                    _lPuMothership.Clear();
-
-                if (_lPuMothershipcore.Count > 0)
-                    _lPuMothershipcore.Clear();
-
-                if (_lPuObserver.Count > 0)
-                    _lPuObserver.Clear();
-
-                if (_lPuOracle.Count > 0)
-                    _lPuOracle.Clear();
-
-                if (_lPuPhoenix.Count > 0)
-                    _lPuPhoenix.Clear();
-
-                if (_lPuProbe.Count > 0)
-                    _lPuProbe.Clear();
-
-                if (_lPuSentry.Count > 0)
-                    _lPuSentry.Clear();
-
-                if (_lPuStalker.Count > 0)
-                    _lPuStalker.Clear();
-
-                if (_lPuTempest.Count > 0)
-                    _lPuTempest.Clear();
-
-                if (_lPuVoidray.Count > 0)
-                    _lPuVoidray.Clear();
-
-                if (_lPuWarpprism.Count > 0)
-                    _lPuWarpprism.Clear();
-
-                if (_lPuZealot.Count > 0)
-                    _lPuZealot.Clear();
+                if (LPbStargate.Count > 0)
+                    LPbStargate.Clear();
 
 
-                if (_lPupAirArmor1.Count > 0)
-                    _lPupAirArmor1.Clear();
+                if (LPuArchon.Count > 0)
+                    LPuArchon.Clear();
 
-                if (_lPupAirArmor2.Count > 0)
-                    _lPupAirArmor2.Clear();
+                if (LPuCarrier.Count > 0)
+                    LPuCarrier.Clear();
 
-                if (_lPupAirArmor3.Count > 0)
-                    _lPupAirArmor3.Clear();
+                if (LPuColossus.Count > 0)
+                    LPuColossus.Clear();
 
-                if (_lPupAirWeapon1.Count > 0)
-                    _lPupAirWeapon1.Clear();
+                if (LPuDt.Count > 0)
+                    LPuDt.Clear();
 
-                if (_lPupAirWeapon2.Count > 0)
-                    _lPupAirWeapon2.Clear();
+                if (LPuHt.Count > 0)
+                    LPuHt.Clear();
 
-                if (_lPupAirWeapon3.Count > 0)
-                    _lPupAirWeapon3.Clear();
+                if (LPuForcefield.Count > 0)
+                    LPuForcefield.Clear();
 
-                if (_lPupAnionPulseCrystal.Count > 0)
-                    _lPupAnionPulseCrystal.Clear();
+                if (LPuImmortal.Count > 0)
+                    LPuImmortal.Clear();
 
-                if (_lPupBlink.Count > 0)
-                    _lPupBlink.Clear();
+                if (LPuMothership.Count > 0)
+                    LPuMothership.Clear();
 
-                if (_lPupCharge.Count > 0)
-                    _lPupCharge.Clear();
+                if (LPuMothershipcore.Count > 0)
+                    LPuMothershipcore.Clear();
 
-                if (_lPupExtendedThermalLance.Count > 0)
-                    _lPupExtendedThermalLance.Clear();
+                if (LPuObserver.Count > 0)
+                    LPuObserver.Clear();
 
-                if (_lPupGraviticBooster.Count > 0)
-                    _lPupGraviticBooster.Clear();
+                if (LPuOracle.Count > 0)
+                    LPuOracle.Clear();
 
-                if (_lPupGraviticDrive.Count > 0)
-                    _lPupGraviticDrive.Clear();
+                if (LPuPhoenix.Count > 0)
+                    LPuPhoenix.Clear();
 
-                if (_lPupGravitonCatapult.Count > 0)
-                    _lPupGravitonCatapult.Clear();
+                if (LPuProbe.Count > 0)
+                    LPuProbe.Clear();
 
-                if (_lPupGroundArmor1.Count > 0)
-                    _lPupGroundArmor1.Clear();
+                if (LPuSentry.Count > 0)
+                    LPuSentry.Clear();
 
-                if (_lPupGroundArmor2.Count > 0)
-                    _lPupGroundArmor2.Clear();
+                if (LPuStalker.Count > 0)
+                    LPuStalker.Clear();
 
-                if (_lPupGroundArmor3.Count > 0)
-                    _lPupGroundArmor3.Clear();
+                if (LPuTempest.Count > 0)
+                    LPuTempest.Clear();
 
-                if (_lPupGroundWeapon1.Count > 0)
-                    _lPupGroundWeapon1.Clear();
+                if (LPuVoidray.Count > 0)
+                    LPuVoidray.Clear();
 
-                if (_lPupGroundWeapon2.Count > 0)
-                    _lPupGroundWeapon2.Clear();
+                if (LPuWarpprism.Count > 0)
+                    LPuWarpprism.Clear();
 
-                if (_lPupGroundWeapon3.Count > 0)
-                    _lPupGroundWeapon3.Clear();
+                if (LPuZealot.Count > 0)
+                    LPuZealot.Clear();
 
-                if (_lPupShield1.Count > 0)
-                    _lPupShield1.Clear();
 
-                if (_lPupShield2.Count > 0)
-                    _lPupShield2.Clear();
+                if (LPupAirArmor1.Count > 0)
+                    LPupAirArmor1.Clear();
 
-                if (_lPupShield3.Count > 0)
-                    _lPupShield3.Clear();
+                if (LPupAirArmor2.Count > 0)
+                    LPupAirArmor2.Clear();
 
-                if (_lPupStorm.Count > 0)
-                    _lPupStorm.Clear();
+                if (LPupAirArmor3.Count > 0)
+                    LPupAirArmor3.Clear();
 
-                if (_lPupWarpGate.Count > 0)
-                    _lPupWarpGate.Clear();
+                if (LPupAirWeapon1.Count > 0)
+                    LPupAirWeapon1.Clear();
+
+                if (LPupAirWeapon2.Count > 0)
+                    LPupAirWeapon2.Clear();
+
+                if (LPupAirWeapon3.Count > 0)
+                    LPupAirWeapon3.Clear();
+
+                if (LPupAnionPulseCrystal.Count > 0)
+                    LPupAnionPulseCrystal.Clear();
+
+                if (LPupBlink.Count > 0)
+                    LPupBlink.Clear();
+
+                if (LPupCharge.Count > 0)
+                    LPupCharge.Clear();
+
+                if (LPupExtendedThermalLance.Count > 0)
+                    LPupExtendedThermalLance.Clear();
+
+                if (LPupGraviticBooster.Count > 0)
+                    LPupGraviticBooster.Clear();
+
+                if (LPupGraviticDrive.Count > 0)
+                    LPupGraviticDrive.Clear();
+
+                if (LPupGravitonCatapult.Count > 0)
+                    LPupGravitonCatapult.Clear();
+
+                if (LPupGroundArmor1.Count > 0)
+                    LPupGroundArmor1.Clear();
+
+                if (LPupGroundArmor2.Count > 0)
+                    LPupGroundArmor2.Clear();
+
+                if (LPupGroundArmor3.Count > 0)
+                    LPupGroundArmor3.Clear();
+
+                if (LPupGroundWeapon1.Count > 0)
+                    LPupGroundWeapon1.Clear();
+
+                if (LPupGroundWeapon2.Count > 0)
+                    LPupGroundWeapon2.Clear();
+
+                if (LPupGroundWeapon3.Count > 0)
+                    LPupGroundWeapon3.Clear();
+
+                if (LPupShield1.Count > 0)
+                    LPupShield1.Clear();
+
+                if (LPupShield2.Count > 0)
+                    LPupShield2.Clear();
+
+                if (LPupShield3.Count > 0)
+                    LPupShield3.Clear();
+
+                if (LPupStorm.Count > 0)
+                    LPupStorm.Clear();
+
+                if (LPupWarpGate.Count > 0)
+                    LPupWarpGate.Clear();
 
                 #endregion
 
                 #region Zerg
 
-                if (_lZbBanelingnest.Count > 0)
-                    _lZbBanelingnest.Clear();
+                if (LZbBanelingnest.Count > 0)
+                    LZbBanelingnest.Clear();
 
-                if (_lZbEvochamber.Count > 0)
-                    _lZbEvochamber.Clear();
+                if (LZbEvochamber.Count > 0)
+                    LZbEvochamber.Clear();
 
-                if (_lZbExtractor.Count > 0)
-                    _lZbExtractor.Clear();
+                if (LZbExtractor.Count > 0)
+                    LZbExtractor.Clear();
 
-                if (_lZbGreaterspire.Count > 0)
-                    _lZbGreaterspire.Clear();
+                if (LZbGreaterspire.Count > 0)
+                    LZbGreaterspire.Clear();
 
-                if (_lZbHatchery.Count > 0)
-                    _lZbHatchery.Clear();
+                if (LZbHatchery.Count > 0)
+                    LZbHatchery.Clear();
 
-                if (_lZbHive.Count > 0)
-                    _lZbHive.Clear();
+                if (LZbHive.Count > 0)
+                    LZbHive.Clear();
 
-                if (_lZbHydraden.Count > 0)
-                    _lZbHydraden.Clear();
+                if (LZbHydraden.Count > 0)
+                    LZbHydraden.Clear();
 
-                if (_lZbInfestationpit.Count > 0)
-                    _lZbInfestationpit.Clear();
+                if (LZbInfestationpit.Count > 0)
+                    LZbInfestationpit.Clear();
 
-                if (_lZbLair.Count > 0)
-                    _lZbLair.Clear();
+                if (LZbLair.Count > 0)
+                    LZbLair.Clear();
 
-                if (_lZbNydusbegin.Count > 0)
-                    _lZbNydusbegin.Clear();
+                if (LZbNydusbegin.Count > 0)
+                    LZbNydusbegin.Clear();
 
-                if (_lZbNydusend.Count > 0)
-                    _lZbNydusend.Clear();
+                if (LZbNydusend.Count > 0)
+                    LZbNydusend.Clear();
 
-                if (_lZbRoachwarren.Count > 0)
-                    _lZbRoachwarren.Clear();
+                if (LZbRoachwarren.Count > 0)
+                    LZbRoachwarren.Clear();
 
-                if (_lZbSpawningpool.Count > 0)
-                    _lZbSpawningpool.Clear();
+                if (LZbSpawningpool.Count > 0)
+                    LZbSpawningpool.Clear();
 
-                if (_lZbSpine.Count > 0)
-                    _lZbSpine.Clear();
+                if (LZbSpine.Count > 0)
+                    LZbSpine.Clear();
 
-                if (_lZbSpire.Count > 0)
-                    _lZbSpire.Clear();
+                if (LZbSpire.Count > 0)
+                    LZbSpire.Clear();
 
-                if (_lZbSpore.Count > 0)
-                    _lZbSpore.Clear();
+                if (LZbSpore.Count > 0)
+                    LZbSpore.Clear();
 
-                if (_lZbUltracavern.Count > 0)
-                    _lZbUltracavern.Clear();
+                if (LZbUltracavern.Count > 0)
+                    LZbUltracavern.Clear();
 
-                if (_lZbCreepTumor.Count > 0)
-                    _lZbCreepTumor.Clear();
+                if (LZbCreepTumor.Count > 0)
+                    LZbCreepTumor.Clear();
 
 
-                if (_lZuBaneling.Count > 0)
-                    _lZuBaneling.Clear();
+                if (LZuBaneling.Count > 0)
+                    LZuBaneling.Clear();
 
-                if (_lZuBroodlord.Count > 0)
-                    _lZuBroodlord.Clear();
+                if (LZuBroodlord.Count > 0)
+                    LZuBroodlord.Clear();
 
-                if (_lZuCorruptor.Count > 0)
-                    _lZuCorruptor.Clear();
+                if (LZuCorruptor.Count > 0)
+                    LZuCorruptor.Clear();
 
-                if (_lZuDrone.Count > 0)
-                    _lZuDrone.Clear();
+                if (LZuDrone.Count > 0)
+                    LZuDrone.Clear();
 
-                if (_lZuHydra.Count > 0)
-                    _lZuHydra.Clear();
+                if (LZuHydra.Count > 0)
+                    LZuHydra.Clear();
 
-                if (_lZuBanelingCocoon.Count > 0)
-                    _lZuBanelingCocoon.Clear();
+                if (LZuBanelingCocoon.Count > 0)
+                    LZuBanelingCocoon.Clear();
 
-                if (_lZuBroodlordCocoon.Count > 0)
-                    _lZuBroodlordCocoon.Clear();
+                if (LZuBroodlordCocoon.Count > 0)
+                    LZuBroodlordCocoon.Clear();
 
-                if (_lZuInfestor.Count > 0)
-                    _lZuInfestor.Clear();
+                if (LZuInfestor.Count > 0)
+                    LZuInfestor.Clear();
 
-                if (_lZuInfestedTerran.Count > 0)
-                    _lZuInfestedTerran.Clear();
+                if (LZuInfestedTerran.Count > 0)
+                    LZuInfestedTerran.Clear();
 
-                if (_lZuInfestedTerranEgg.Count > 0)
-                    _lZuInfestedTerranEgg.Clear();
+                if (LZuInfestedTerranEgg.Count > 0)
+                    LZuInfestedTerranEgg.Clear();
 
-                if (_lZuLarva.Count > 0)
-                    _lZuLarva.Clear();
+                if (LZuLarva.Count > 0)
+                    LZuLarva.Clear();
 
-                if (_lZuMutalisk.Count > 0)
-                    _lZuMutalisk.Clear();
+                if (LZuMutalisk.Count > 0)
+                    LZuMutalisk.Clear();
 
-                if (_lZuOverlord.Count > 0)
-                    _lZuOverlord.Clear();
+                if (LZuOverlord.Count > 0)
+                    LZuOverlord.Clear();
 
-                if (_lZuOverseer.Count > 0)
-                    _lZuOverseer.Clear();
+                if (LZuOverseer.Count > 0)
+                    LZuOverseer.Clear();
 
-                if (_lZuQueen.Count > 0)
-                    _lZuQueen.Clear();
+                if (LZuQueen.Count > 0)
+                    LZuQueen.Clear();
 
-                if (_lZuRoach.Count > 0)
-                    _lZuRoach.Clear();
+                if (LZuRoach.Count > 0)
+                    LZuRoach.Clear();
 
-                if (_lZuSwarmhost.Count > 0)
-                    _lZuSwarmhost.Clear();
+                if (LZuSwarmhost.Count > 0)
+                    LZuSwarmhost.Clear();
 
-                if (_lZuUltralisk.Count > 0)
-                    _lZuUltralisk.Clear();
+                if (LZuUltralisk.Count > 0)
+                    LZuUltralisk.Clear();
 
-                if (_lZuViper.Count > 0)
-                    _lZuViper.Clear();
+                if (LZuViper.Count > 0)
+                    LZuViper.Clear();
 
-                if (_lZuLocust.Count > 0)
-                    _lZuLocust.Clear();
+                if (LZuLocust.Count > 0)
+                    LZuLocust.Clear();
 
-                if (_lZuFlyingLocust.Count > 0)
-                    _lZuFlyingLocust.Clear();
+                if (LZuFlyingLocust.Count > 0)
+                    LZuFlyingLocust.Clear();
 
-                if (_lZuZergling.Count > 0)
-                    _lZuZergling.Clear();
+                if (LZuZergling.Count > 0)
+                    LZuZergling.Clear();
 
-                if (_lZuOverseerCocoon.Count > 0)
-                    _lZuOverseerCocoon.Clear();
+                if (LZuOverseerCocoon.Count > 0)
+                    LZuOverseerCocoon.Clear();
 
-                if (_lZuChangeling.Count > 0)
-                    _lZuChangeling.Clear();
+                if (LZuChangeling.Count > 0)
+                    LZuChangeling.Clear();
 
-                if (_lZuBroodling.Count > 0)
-                    _lZuBroodling.Clear();
+                if (LZuBroodling.Count > 0)
+                    LZuBroodling.Clear();
                 
 
-                if (_lZupAdrenalGlands.Count > 0)
-                    _lZupAdrenalGlands.Clear();
+                if (LZupAdrenalGlands.Count > 0)
+                    LZupAdrenalGlands.Clear();
 
-                if (_lZupAirArmor1.Count > 0)
-                    _lZupAirArmor1.Clear();
+                if (LZupAirArmor1.Count > 0)
+                    LZupAirArmor1.Clear();
 
-                if (_lZupAirArmor2.Count > 0)
-                    _lZupAirArmor2.Clear();
+                if (LZupAirArmor2.Count > 0)
+                    LZupAirArmor2.Clear();
 
-                if (_lZupAirArmor3.Count > 0)
-                    _lZupAirArmor3.Clear();
+                if (LZupAirArmor3.Count > 0)
+                    LZupAirArmor3.Clear();
 
-                if (_lZupAirWeapon1.Count > 0)
-                    _lZupAirWeapon1.Clear();
+                if (LZupAirWeapon1.Count > 0)
+                    LZupAirWeapon1.Clear();
 
-                if (_lZupAirWeapon2.Count > 0)
-                    _lZupAirWeapon2.Clear();
+                if (LZupAirWeapon2.Count > 0)
+                    LZupAirWeapon2.Clear();
 
-                if (_lZupAirWeapon3.Count > 0)
-                    _lZupAirWeapon3.Clear();
+                if (LZupAirWeapon3.Count > 0)
+                    LZupAirWeapon3.Clear();
 
-                if (_lZupBurrow.Count > 0)
-                    _lZupBurrow.Clear();
+                if (LZupBurrow.Count > 0)
+                    LZupBurrow.Clear();
 
-                if (_lZupCentrifugalHooks.Count > 0)
-                    _lZupCentrifugalHooks.Clear();
+                if (LZupCentrifugalHooks.Count > 0)
+                    LZupCentrifugalHooks.Clear();
 
-                if (_lZupChitinousPlating.Count > 0)
-                    _lZupChitinousPlating.Clear();
+                if (LZupChitinousPlating.Count > 0)
+                    LZupChitinousPlating.Clear();
 
-                if (_lZupEnduringLocusts.Count > 0)
-                    _lZupEnduringLocusts.Clear();
+                if (LZupEnduringLocusts.Count > 0)
+                    LZupEnduringLocusts.Clear();
 
-                if (_lZupGlialReconstruction.Count > 0)
-                    _lZupGlialReconstruction.Clear();
+                if (LZupGlialReconstruction.Count > 0)
+                    LZupGlialReconstruction.Clear();
 
-                if (_lZupGroovedSpines.Count > 0)
-                    _lZupGroovedSpines.Clear();
+                if (LZupGroovedSpines.Count > 0)
+                    LZupGroovedSpines.Clear();
 
-                if (_lZupGroundArmor1.Count > 0)
-                    _lZupGroundArmor1.Clear();
+                if (LZupGroundArmor1.Count > 0)
+                    LZupGroundArmor1.Clear();
 
-                if (_lZupGroundArmor2.Count > 0)
-                    _lZupGroundArmor2.Clear();
+                if (LZupGroundArmor2.Count > 0)
+                    LZupGroundArmor2.Clear();
 
-                if (_lZupGroundArmor3.Count > 0)
-                    _lZupGroundArmor3.Clear();
+                if (LZupGroundArmor3.Count > 0)
+                    LZupGroundArmor3.Clear();
 
-                if (_lZupGroundWeapon1.Count > 0)
-                    _lZupGroundWeapon1.Clear();
+                if (LZupGroundWeapon1.Count > 0)
+                    LZupGroundWeapon1.Clear();
 
-                if (_lZupGroundWeapon2.Count > 0)
-                    _lZupGroundWeapon2.Clear();
+                if (LZupGroundWeapon2.Count > 0)
+                    LZupGroundWeapon2.Clear();
 
-                if (_lZupGroundWeapon3.Count > 0)
-                    _lZupGroundWeapon3.Clear();
+                if (LZupGroundWeapon3.Count > 0)
+                    LZupGroundWeapon3.Clear();
 
-                if (_lZupGroundMelee1.Count > 0)
-                    _lZupGroundMelee1.Clear();
+                if (LZupGroundMelee1.Count > 0)
+                    LZupGroundMelee1.Clear();
 
-                if (_lZupGroundMelee2.Count > 0)
-                    _lZupGroundMelee2.Clear();
+                if (LZupGroundMelee2.Count > 0)
+                    LZupGroundMelee2.Clear();
 
-                if (_lZupGroundMelee3.Count > 0)
-                    _lZupGroundMelee3.Clear();
+                if (LZupGroundMelee3.Count > 0)
+                    LZupGroundMelee3.Clear();
 
-                if (_lZupMetabolicBoost.Count > 0)
-                    _lZupMetabolicBoost.Clear();
+                if (LZupMetabolicBoost.Count > 0)
+                    LZupMetabolicBoost.Clear();
 
-                if (_lZupMuscularAugments.Count > 0)
-                    _lZupMuscularAugments.Clear();
+                if (LZupMuscularAugments.Count > 0)
+                    LZupMuscularAugments.Clear();
 
-                if (_lZupNeutralParasite.Count > 0)
-                    _lZupNeutralParasite.Clear();
+                if (LZupNeutralParasite.Count > 0)
+                    LZupNeutralParasite.Clear();
 
-                if (_lZupPathoglenGlands.Count > 0)
-                    _lZupPathoglenGlands.Clear();
+                if (LZupPathoglenGlands.Count > 0)
+                    LZupPathoglenGlands.Clear();
 
-                if (_lZupPneumatizedCarapace.Count > 0)
-                    _lZupPneumatizedCarapace.Clear();
+                if (LZupPneumatizedCarapace.Count > 0)
+                    LZupPneumatizedCarapace.Clear();
 
-                if (_lZupTunnnelingClaws.Count > 0)
-                    _lZupTunnnelingClaws.Clear();
+                if (LZupTunnnelingClaws.Count > 0)
+                    LZupTunnnelingClaws.Clear();
 
-                if (_lZupVentralSacs.Count > 0)
-                    _lZupVentralSacs.Clear();
+                if (LZupVentralSacs.Count > 0)
+                    LZupVentralSacs.Clear();
 
-                if (_lZupFlyingLocust.Count > 0)
-                    _lZupFlyingLocust.Clear();
+                if (LZupFlyingLocust.Count > 0)
+                    LZupFlyingLocust.Clear();
 
                 #endregion
 
@@ -2286,86 +2286,86 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Units
 
-                    _lTuScv.Add(new UnitCount());
-                    _lTuBanshee.Add(new UnitCount());
-                    _lTuBattlecruiser.Add(new UnitCount());
-                    _lTuGhost.Add(new UnitCount());
-                    _lTuHellbat.Add(new UnitCount());
-                    _lTuHellion.Add(new UnitCount());
-                    _lTuMarauder.Add(new UnitCount());
-                    _lTuMarine.Add(new UnitCount());
-                    _lTuMedivac.Add(new UnitCount());
-                    _lTuMule.Add(new UnitCount());
-                    _lTuNuke.Add(new UnitCount());
-                    _lTuPointDefenseDrone.Add(new UnitCount());
-                    _lTuRaven.Add(new UnitCount());
-                    _lTuReaper.Add(new UnitCount());
-                    _lTuSiegetank.Add(new UnitCount());
-                    _lTuThor.Add(new UnitCount());
-                    _lTuViking.Add(new UnitCount());
-                    _lTuWidowMine.Add(new UnitCount());
+                    LTuScv.Add(new UnitCount());
+                    LTuBanshee.Add(new UnitCount());
+                    LTuBattlecruiser.Add(new UnitCount());
+                    LTuGhost.Add(new UnitCount());
+                    LTuHellbat.Add(new UnitCount());
+                    LTuHellion.Add(new UnitCount());
+                    LTuMarauder.Add(new UnitCount());
+                    LTuMarine.Add(new UnitCount());
+                    LTuMedivac.Add(new UnitCount());
+                    LTuMule.Add(new UnitCount());
+                    LTuNuke.Add(new UnitCount());
+                    LTuPointDefenseDrone.Add(new UnitCount());
+                    LTuRaven.Add(new UnitCount());
+                    LTuReaper.Add(new UnitCount());
+                    LTuSiegetank.Add(new UnitCount());
+                    LTuThor.Add(new UnitCount());
+                    LTuViking.Add(new UnitCount());
+                    LTuWidowMine.Add(new UnitCount());
 
                     #endregion
 
                     #region Buildings
 
-                    _lTbArmory.Add(new UnitCount());
-                    _lTbAutoTurret.Add(new UnitCount());
-                    _lTbBarracks.Add(new UnitCount());
-                    _lTbBunker.Add(new UnitCount());
-                    _lTbCommandCenter.Add(new UnitCount());
-                    _lTbEbay.Add(new UnitCount());
-                    _lTbFactory.Add(new UnitCount());
-                    _lTbFusionCore.Add(new UnitCount());
-                    _lTbGhostAcademy.Add(new UnitCount());
-                    _lTbOrbitalCommand.Add(new UnitCount());
-                    _lTbPlanetaryFortress.Add(new UnitCount());
-                    _lTbReactor.Add(new UnitCount());
-                    _lTbRefinery.Add(new UnitCount());
-                    _lTbSensorTower.Add(new UnitCount());
-                    _lTbStarport.Add(new UnitCount());
-                    _lTbSupply.Add(new UnitCount());
-                    _lTbTechlab.Add(new UnitCount());
-                    _lTbTurrent.Add(new UnitCount());
+                    LTbArmory.Add(new UnitCount());
+                    LTbAutoTurret.Add(new UnitCount());
+                    LTbBarracks.Add(new UnitCount());
+                    LTbBunker.Add(new UnitCount());
+                    LTbCommandCenter.Add(new UnitCount());
+                    LTbEbay.Add(new UnitCount());
+                    LTbFactory.Add(new UnitCount());
+                    LTbFusionCore.Add(new UnitCount());
+                    LTbGhostAcademy.Add(new UnitCount());
+                    LTbOrbitalCommand.Add(new UnitCount());
+                    LTbPlanetaryFortress.Add(new UnitCount());
+                    LTbReactor.Add(new UnitCount());
+                    LTbRefinery.Add(new UnitCount());
+                    LTbSensorTower.Add(new UnitCount());
+                    LTbStarport.Add(new UnitCount());
+                    LTbSupply.Add(new UnitCount());
+                    LTbTechlab.Add(new UnitCount());
+                    LTbTurrent.Add(new UnitCount());
 
                     #endregion
 
                     #region Upgrades
 
-                    _lTupBehemothReactor.Add(new UnitCount());
-                    _lTupBlueFlame.Add(new UnitCount());
-                    _lTupCaduceusReactor.Add(new UnitCount());
-                    _lTupCloakingField.Add(new UnitCount());
-                    _lTupCombatShields.Add(new UnitCount());
-                    _lTupConcussiveShells.Add(new UnitCount());
-                    _lTupCorvidReactor.Add(new UnitCount());
-                    _lTupDrillingClaws.Add(new UnitCount());
-                    _lTupDurableMaterials.Add(new UnitCount());
-                    _lTupHighSecAutoTracking.Add(new UnitCount());
-                    _lTupInfantryArmor1.Add(new UnitCount());
-                    _lTupInfantryArmor2.Add(new UnitCount());
-                    _lTupInfantryArmor3.Add(new UnitCount());
-                    _lTupInfantryWeapon1.Add(new UnitCount());
-                    _lTupInfantryWeapon2.Add(new UnitCount());
-                    _lTupInfantryWeapon3.Add(new UnitCount());
-                    _lTupMoebiusReactor.Add(new UnitCount());
-                    _lTupNeosteelFrame.Add(new UnitCount());
-                    _lTupOrbitalCommand.Add(new UnitCount());
-                    _lTupPersonalCloak.Add(new UnitCount());
-                    _lTupPlanetaryFortress.Add(new UnitCount());
-                    _lTupShipWeapon1.Add(new UnitCount());
-                    _lTupShipWeapon2.Add(new UnitCount());
-                    _lTupShipWeapon3.Add(new UnitCount());
-                    _lTupStim.Add(new UnitCount());
-                    _lTupStructureArmor.Add(new UnitCount());
-                    _lTupTransformationServos.Add(new UnitCount());
-                    _lTupVehicleShipPlanting1.Add(new UnitCount());
-                    _lTupVehicleShipPlanting2.Add(new UnitCount());
-                    _lTupVehicleShipPlanting3.Add(new UnitCount());
-                    _lTupVehicleWeapon1.Add(new UnitCount());
-                    _lTupVehicleWeapon2.Add(new UnitCount());
-                    _lTupVehicleWeapon3.Add(new UnitCount());
-                    _lTupWeaponRefit.Add(new UnitCount());
+                    LTupBehemothReactor.Add(new UnitCount());
+                    LTupBlueFlame.Add(new UnitCount());
+                    LTupCaduceusReactor.Add(new UnitCount());
+                    LTupCloakingField.Add(new UnitCount());
+                    LTupCombatShields.Add(new UnitCount());
+                    LTupConcussiveShells.Add(new UnitCount());
+                    LTupCorvidReactor.Add(new UnitCount());
+                    LTupDrillingClaws.Add(new UnitCount());
+                    LTupDurableMaterials.Add(new UnitCount());
+                    LTupHighSecAutoTracking.Add(new UnitCount());
+                    LTupInfantryArmor1.Add(new UnitCount());
+                    LTupInfantryArmor2.Add(new UnitCount());
+                    LTupInfantryArmor3.Add(new UnitCount());
+                    LTupInfantryWeapon1.Add(new UnitCount());
+                    LTupInfantryWeapon2.Add(new UnitCount());
+                    LTupInfantryWeapon3.Add(new UnitCount());
+                    LTupMoebiusReactor.Add(new UnitCount());
+                    LTupNeosteelFrame.Add(new UnitCount());
+                    LTupOrbitalCommand.Add(new UnitCount());
+                    LTupPersonalCloak.Add(new UnitCount());
+                    LTupPlanetaryFortress.Add(new UnitCount());
+                    LTupShipWeapon1.Add(new UnitCount());
+                    LTupShipWeapon2.Add(new UnitCount());
+                    LTupShipWeapon3.Add(new UnitCount());
+                    LTupStim.Add(new UnitCount());
+                    LTupStructureArmor.Add(new UnitCount());
+                    LTupTransformationServos.Add(new UnitCount());
+                    LTupVehicleShipPlanting1.Add(new UnitCount());
+                    LTupVehicleShipPlanting2.Add(new UnitCount());
+                    LTupVehicleShipPlanting3.Add(new UnitCount());
+                    LTupVehicleWeapon1.Add(new UnitCount());
+                    LTupVehicleWeapon2.Add(new UnitCount());
+                    LTupVehicleWeapon3.Add(new UnitCount());
+                    LTupWeaponRefit.Add(new UnitCount());
 
                     #endregion
 
@@ -2375,74 +2375,74 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Units
 
-                    _lPuArchon.Add(new UnitCount());
-                    _lPuCarrier.Add(new UnitCount());
-                    _lPuColossus.Add(new UnitCount());
-                    _lPuDt.Add(new UnitCount());
-                    _lPuHt.Add(new UnitCount());
-                    _lPuImmortal.Add(new UnitCount());
-                    _lPuMothership.Add(new UnitCount());
-                    _lPuMothershipcore.Add(new UnitCount());
-                    _lPuObserver.Add(new UnitCount());
-                    _lPuOracle.Add(new UnitCount());
-                    _lPuPhoenix.Add(new UnitCount());
-                    _lPuProbe.Add(new UnitCount());
-                    _lPuSentry.Add(new UnitCount());
-                    _lPuStalker.Add(new UnitCount());
-                    _lPuTempest.Add(new UnitCount());
-                    _lPuVoidray.Add(new UnitCount());
-                    _lPuWarpprism.Add(new UnitCount());
-                    _lPuZealot.Add(new UnitCount());
-                    _lPuForcefield.Add(new UnitCount());
+                    LPuArchon.Add(new UnitCount());
+                    LPuCarrier.Add(new UnitCount());
+                    LPuColossus.Add(new UnitCount());
+                    LPuDt.Add(new UnitCount());
+                    LPuHt.Add(new UnitCount());
+                    LPuImmortal.Add(new UnitCount());
+                    LPuMothership.Add(new UnitCount());
+                    LPuMothershipcore.Add(new UnitCount());
+                    LPuObserver.Add(new UnitCount());
+                    LPuOracle.Add(new UnitCount());
+                    LPuPhoenix.Add(new UnitCount());
+                    LPuProbe.Add(new UnitCount());
+                    LPuSentry.Add(new UnitCount());
+                    LPuStalker.Add(new UnitCount());
+                    LPuTempest.Add(new UnitCount());
+                    LPuVoidray.Add(new UnitCount());
+                    LPuWarpprism.Add(new UnitCount());
+                    LPuZealot.Add(new UnitCount());
+                    LPuForcefield.Add(new UnitCount());
 
                     #endregion
 
                     #region Buildings
 
-                    _lPbAssimilator.Add(new UnitCount());
-                    _lPbCannon.Add(new UnitCount());
-                    _lPbCybercore.Add(new UnitCount());
-                    _lPbDarkshrine.Add(new UnitCount());
-                    _lPbFleetbeacon.Add(new UnitCount());
-                    _lPbForge.Add(new UnitCount());
-                    _lPbGateway.Add(new UnitCount());
-                    _lPbNexus.Add(new UnitCount());
-                    _lPbPylon.Add(new UnitCount());
-                    _lPbRobotics.Add(new UnitCount());
-                    _lPbRoboticsSupport.Add(new UnitCount());
-                    _lPbStargate.Add(new UnitCount());
-                    _lPbTemplarArchives.Add(new UnitCount());
-                    _lPbTwilight.Add(new UnitCount());
-                    _lPbWarpgate.Add(new UnitCount());
+                    LPbAssimilator.Add(new UnitCount());
+                    LPbCannon.Add(new UnitCount());
+                    LPbCybercore.Add(new UnitCount());
+                    LPbDarkshrine.Add(new UnitCount());
+                    LPbFleetbeacon.Add(new UnitCount());
+                    LPbForge.Add(new UnitCount());
+                    LPbGateway.Add(new UnitCount());
+                    LPbNexus.Add(new UnitCount());
+                    LPbPylon.Add(new UnitCount());
+                    LPbRobotics.Add(new UnitCount());
+                    LPbRoboticsSupport.Add(new UnitCount());
+                    LPbStargate.Add(new UnitCount());
+                    LPbTemplarArchives.Add(new UnitCount());
+                    LPbTwilight.Add(new UnitCount());
+                    LPbWarpgate.Add(new UnitCount());
 
                     #endregion
 
                     #region Upgrades
 
-                    _lPupBlink.Add(new UnitCount());
-                    _lPupCharge.Add(new UnitCount());
-                    _lPupExtendedThermalLance.Add(new UnitCount());
-                    _lPupGraviticBooster.Add(new UnitCount());
-                    _lPupGraviticDrive.Add(new UnitCount());
-                    _lPupGravitonCatapult.Add(new UnitCount());
-                    _lPupGroundArmor1.Add(new UnitCount());
-                    _lPupGroundArmor2.Add(new UnitCount());
-                    _lPupGroundArmor3.Add(new UnitCount());
-                    _lPupGroundWeapon1.Add(new UnitCount());
-                    _lPupGroundWeapon2.Add(new UnitCount());
-                    _lPupGroundWeapon3.Add(new UnitCount());
-                    _lPupShield1.Add(new UnitCount());
-                    _lPupShield2.Add(new UnitCount());
-                    _lPupShield3.Add(new UnitCount());
-                    _lPupStorm.Add(new UnitCount());
-                    _lPupWarpGate.Add(new UnitCount());
-                    _lPupAirArmor1.Add(new UnitCount());
-                    _lPupAirArmor2.Add(new UnitCount());
-                    _lPupAirArmor3.Add(new UnitCount());
-                    _lPupAirWeapon1.Add(new UnitCount());
-                    _lPupAirWeapon2.Add(new UnitCount());
-                    _lPupAirWeapon3.Add(new UnitCount());
-                    _lPupAnionPulseCrystal.Add(new UnitCount());
+                    LPupBlink.Add(new UnitCount());
+                    LPupCharge.Add(new UnitCount());
+                    LPupExtendedThermalLance.Add(new UnitCount());
+                    LPupGraviticBooster.Add(new UnitCount());
+                    LPupGraviticDrive.Add(new UnitCount());
+                    LPupGravitonCatapult.Add(new UnitCount());
+                    LPupGroundArmor1.Add(new UnitCount());
+                    LPupGroundArmor2.Add(new UnitCount());
+                    LPupGroundArmor3.Add(new UnitCount());
+                    LPupGroundWeapon1.Add(new UnitCount());
+                    LPupGroundWeapon2.Add(new UnitCount());
+                    LPupGroundWeapon3.Add(new UnitCount());
+                    LPupShield1.Add(new UnitCount());
+                    LPupShield2.Add(new UnitCount());
+                    LPupShield3.Add(new UnitCount());
+                    LPupStorm.Add(new UnitCount());
+                    LPupWarpGate.Add(new UnitCount());
+                    LPupAirArmor1.Add(new UnitCount());
+                    LPupAirArmor2.Add(new UnitCount());
+                    LPupAirArmor3.Add(new UnitCount());
+                    LPupAirWeapon1.Add(new UnitCount());
+                    LPupAirWeapon2.Add(new UnitCount());
+                    LPupAirWeapon3.Add(new UnitCount());
+                    LPupAnionPulseCrystal.Add(new UnitCount());
 
                     #endregion
 
@@ -2452,89 +2452,89 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                     #region Units
 
-                    _lZuBaneling.Add(new UnitCount());
-                    _lZuBanelingCocoon.Add(new UnitCount());
-                    _lZuBroodlord.Add(new UnitCount());
-                    _lZuBroodlordCocoon.Add(new UnitCount());
-                    _lZuCorruptor.Add(new UnitCount());
-                    _lZuDrone.Add(new UnitCount());
-                    _lZuHydra.Add(new UnitCount());
-                    _lZuInfestor.Add(new UnitCount());
-                    _lZuInfestedTerran.Add(new UnitCount());
-                    _lZuInfestedTerranEgg.Add(new UnitCount());
-                    _lZuLarva.Add(new UnitCount());
-                    _lZuMutalisk.Add(new UnitCount());
-                    _lZuOverlord.Add(new UnitCount());
-                    _lZuOverseer.Add(new UnitCount());
-                    _lZuOverseerCocoon.Add(new UnitCount());
-                    _lZuQueen.Add(new UnitCount());
-                    _lZuRoach.Add(new UnitCount());
-                    _lZuSwarmhost.Add(new UnitCount());
-                    _lZuUltralisk.Add(new UnitCount());
-                    _lZuViper.Add(new UnitCount());
-                    _lZuZergling.Add(new UnitCount());
-                    _lZuLocust.Add(new UnitCount());
-                    _lZuFlyingLocust.Add(new UnitCount());
-                    _lZuChangeling.Add(new UnitCount());
-                    _lZuBroodling.Add(new UnitCount());
+                    LZuBaneling.Add(new UnitCount());
+                    LZuBanelingCocoon.Add(new UnitCount());
+                    LZuBroodlord.Add(new UnitCount());
+                    LZuBroodlordCocoon.Add(new UnitCount());
+                    LZuCorruptor.Add(new UnitCount());
+                    LZuDrone.Add(new UnitCount());
+                    LZuHydra.Add(new UnitCount());
+                    LZuInfestor.Add(new UnitCount());
+                    LZuInfestedTerran.Add(new UnitCount());
+                    LZuInfestedTerranEgg.Add(new UnitCount());
+                    LZuLarva.Add(new UnitCount());
+                    LZuMutalisk.Add(new UnitCount());
+                    LZuOverlord.Add(new UnitCount());
+                    LZuOverseer.Add(new UnitCount());
+                    LZuOverseerCocoon.Add(new UnitCount());
+                    LZuQueen.Add(new UnitCount());
+                    LZuRoach.Add(new UnitCount());
+                    LZuSwarmhost.Add(new UnitCount());
+                    LZuUltralisk.Add(new UnitCount());
+                    LZuViper.Add(new UnitCount());
+                    LZuZergling.Add(new UnitCount());
+                    LZuLocust.Add(new UnitCount());
+                    LZuFlyingLocust.Add(new UnitCount());
+                    LZuChangeling.Add(new UnitCount());
+                    LZuBroodling.Add(new UnitCount());
 
                     #endregion
 
                     #region Buildings
 
-                    _lZbBanelingnest.Add(new UnitCount());
-                    _lZbCreepTumor.Add(new UnitCount());
-                    _lZbEvochamber.Add(new UnitCount());
-                    _lZbExtractor.Add(new UnitCount());
-                    _lZbGreaterspire.Add(new UnitCount());
-                    _lZbHatchery.Add(new UnitCount());
-                    _lZbHive.Add(new UnitCount());
-                    _lZbHydraden.Add(new UnitCount());
-                    _lZbInfestationpit.Add(new UnitCount());
-                    _lZbLair.Add(new UnitCount());
-                    _lZbNydusbegin.Add(new UnitCount());
-                    _lZbNydusend.Add(new UnitCount());
-                    _lZbRoachwarren.Add(new UnitCount());
-                    _lZbSpawningpool.Add(new UnitCount());
-                    _lZbSpine.Add(new UnitCount());
-                    _lZbSpire.Add(new UnitCount());
-                    _lZbSpore.Add(new UnitCount());
-                    _lZbUltracavern.Add(new UnitCount());
+                    LZbBanelingnest.Add(new UnitCount());
+                    LZbCreepTumor.Add(new UnitCount());
+                    LZbEvochamber.Add(new UnitCount());
+                    LZbExtractor.Add(new UnitCount());
+                    LZbGreaterspire.Add(new UnitCount());
+                    LZbHatchery.Add(new UnitCount());
+                    LZbHive.Add(new UnitCount());
+                    LZbHydraden.Add(new UnitCount());
+                    LZbInfestationpit.Add(new UnitCount());
+                    LZbLair.Add(new UnitCount());
+                    LZbNydusbegin.Add(new UnitCount());
+                    LZbNydusend.Add(new UnitCount());
+                    LZbRoachwarren.Add(new UnitCount());
+                    LZbSpawningpool.Add(new UnitCount());
+                    LZbSpine.Add(new UnitCount());
+                    LZbSpire.Add(new UnitCount());
+                    LZbSpore.Add(new UnitCount());
+                    LZbUltracavern.Add(new UnitCount());
 
                     #endregion
 
                     #region Upgrades
 
-                    _lZupAdrenalGlands.Add(new UnitCount());
-                    _lZupAirArmor1.Add(new UnitCount());
-                    _lZupAirArmor2.Add(new UnitCount());
-                    _lZupAirArmor3.Add(new UnitCount());
-                    _lZupAirWeapon1.Add(new UnitCount());
-                    _lZupAirWeapon2.Add(new UnitCount());
-                    _lZupAirWeapon3.Add(new UnitCount());
-                    _lZupBurrow.Add(new UnitCount());
-                    _lZupCentrifugalHooks.Add(new UnitCount());
-                    _lZupChitinousPlating.Add(new UnitCount());
-                    _lZupEnduringLocusts.Add(new UnitCount());
-                    _lZupGlialReconstruction.Add(new UnitCount());
-                    _lZupGroovedSpines.Add(new UnitCount());
-                    _lZupGroundArmor1.Add(new UnitCount());
-                    _lZupGroundArmor2.Add(new UnitCount());
-                    _lZupGroundArmor3.Add(new UnitCount());
-                    _lZupGroundMelee1.Add(new UnitCount());
-                    _lZupGroundMelee2.Add(new UnitCount());
-                    _lZupGroundMelee3.Add(new UnitCount());
-                    _lZupGroundWeapon1.Add(new UnitCount());
-                    _lZupGroundWeapon2.Add(new UnitCount());
-                    _lZupGroundWeapon3.Add(new UnitCount());
-                    _lZupMetabolicBoost.Add(new UnitCount());
-                    _lZupMuscularAugments.Add(new UnitCount());
-                    _lZupNeutralParasite.Add(new UnitCount());
-                    _lZupPathoglenGlands.Add(new UnitCount());
-                    _lZupPneumatizedCarapace.Add(new UnitCount());
-                    _lZupTunnnelingClaws.Add(new UnitCount());
-                    _lZupVentralSacs.Add(new UnitCount());
-                    _lZupFlyingLocust.Add(new UnitCount());
+                    LZupAdrenalGlands.Add(new UnitCount());
+                    LZupAirArmor1.Add(new UnitCount());
+                    LZupAirArmor2.Add(new UnitCount());
+                    LZupAirArmor3.Add(new UnitCount());
+                    LZupAirWeapon1.Add(new UnitCount());
+                    LZupAirWeapon2.Add(new UnitCount());
+                    LZupAirWeapon3.Add(new UnitCount());
+                    LZupBurrow.Add(new UnitCount());
+                    LZupCentrifugalHooks.Add(new UnitCount());
+                    LZupChitinousPlating.Add(new UnitCount());
+                    LZupEnduringLocusts.Add(new UnitCount());
+                    LZupGlialReconstruction.Add(new UnitCount());
+                    LZupGroovedSpines.Add(new UnitCount());
+                    LZupGroundArmor1.Add(new UnitCount());
+                    LZupGroundArmor2.Add(new UnitCount());
+                    LZupGroundArmor3.Add(new UnitCount());
+                    LZupGroundMelee1.Add(new UnitCount());
+                    LZupGroundMelee2.Add(new UnitCount());
+                    LZupGroundMelee3.Add(new UnitCount());
+                    LZupGroundWeapon1.Add(new UnitCount());
+                    LZupGroundWeapon2.Add(new UnitCount());
+                    LZupGroundWeapon3.Add(new UnitCount());
+                    LZupMetabolicBoost.Add(new UnitCount());
+                    LZupMuscularAugments.Add(new UnitCount());
+                    LZupNeutralParasite.Add(new UnitCount());
+                    LZupPathoglenGlands.Add(new UnitCount());
+                    LZupPneumatizedCarapace.Add(new UnitCount());
+                    LZupTunnnelingClaws.Add(new UnitCount());
+                    LZupVentralSacs.Add(new UnitCount());
+                    LZupFlyingLocust.Add(new UnitCount());
 
                     #endregion
 
@@ -2542,7 +2542,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 }
 
                 /* Forcefield.. */
-                _lPuForcefield.Add(new UnitCount());
+                LPuForcefield.Add(new UnitCount());
 
                 #endregion
 
@@ -2562,85 +2562,85 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         #region Units
 
                         if (tmpUnit.Id == UnitId.TuScv)
-                            _lTuScv[tmpUnit.Owner].UnitAmount += 1;
+                            LTuScv[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id == UnitId.TuMule)
                         {
-                            _lTuMule[tmpUnit.Owner].UnitAmount += 1;
-                            _lTuMule[tmpUnit.Owner].Id = UnitId.TuMule;
-                            _lTuMule[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/387328.0f));
+                            LTuMule[tmpUnit.Owner].UnitAmount += 1;
+                            LTuMule[tmpUnit.Owner].Id = UnitId.TuMule;
+                            LTuMule[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/387328.0f));
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuMarine)
-                            _lTuMarine[tmpUnit.Owner].UnitAmount += 1;
+                            LTuMarine[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuMarauder)
-                            _lTuMarauder[tmpUnit.Owner].UnitAmount += 1;
+                            LTuMarauder[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuReaper)
-                            _lTuReaper[tmpUnit.Owner].UnitAmount += 1;
+                            LTuReaper[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id == UnitId.TuGhost)
                         {
-                            _lTuGhost[tmpUnit.Owner].UnitAmount += 1;
-                            _lTuGhost[tmpUnit.Owner].Id = UnitId.TuGhost;
-                            _lTuGhost[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
-                            _lTuGhost[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                            LTuGhost[tmpUnit.Owner].UnitAmount += 1;
+                            LTuGhost[tmpUnit.Owner].Id = UnitId.TuGhost;
+                            LTuGhost[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            LTuGhost[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuWidowMine ||
                                  tmpUnit.Id ==
                                  UnitId.TuWidowMineBurrow)
-                            _lTuWidowMine[tmpUnit.Owner].UnitAmount += 1;
+                            LTuWidowMine[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuSiegetank ||
                                  tmpUnit.Id ==
                                  UnitId.TuSiegetankSieged)
-                            _lTuSiegetank[tmpUnit.Owner].UnitAmount += 1;
+                            LTuSiegetank[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id == UnitId.TuThor)
-                            _lTuThor[tmpUnit.Owner].UnitAmount += 1;
+                            LTuThor[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuHellbat)
-                            _lTuHellbat[tmpUnit.Owner].UnitAmount += 1;
+                            LTuHellbat[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuNuke)
-                            _lTuNuke[tmpUnit.Owner].UnitAmount += 1;
+                            LTuNuke[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuHellion)
-                            _lTuHellion[tmpUnit.Owner].UnitAmount += 1;
+                            LTuHellion[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuBanshee)
-                            _lTuBanshee[tmpUnit.Owner].UnitAmount += 1;
+                            LTuBanshee[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuBattlecruiser)
-                            _lTuBattlecruiser[tmpUnit.Owner].UnitAmount += 1;
+                            LTuBattlecruiser[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuMedivac)
-                            _lTuMedivac[tmpUnit.Owner].UnitAmount += 1;
+                            LTuMedivac[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id == UnitId.TuRaven)
-                            _lTuRaven[tmpUnit.Owner].UnitAmount += 1;
+                            LTuRaven[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id == UnitId.TuPdd)
-                            _lTuPointDefenseDrone[tmpUnit.Owner].UnitAmount += 1;
+                            LTuPointDefenseDrone[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuVikingAir ||
                                  tmpUnit.Id ==
                                  UnitId.TuVikingGround)
-                            _lTuViking[tmpUnit.Owner].UnitAmount += 1;
+                            LTuViking[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -2652,14 +2652,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  UnitId.TbCcGround ||
                                  tmpUnit.Id == UnitId.TbCcAir)
                         {
-                            _lTbCommandCenter[tmpUnit.Owner].UnitAmount += 1;
+                            LTbCommandCenter[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
                                 for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
                                 {
-                                    _lTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                    _lTuScv[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    LTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                    LTuScv[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                 }
                             }
 
@@ -2671,16 +2671,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupUpgradeToOrbital))
                                     {
-                                        _lTbOrbitalCommand[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTbOrbitalCommand[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTbOrbitalCommand[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTbOrbitalCommand[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupUpgradeToPlanetary))
                                     {
-                                        _lTbPlanetaryFortress[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTbPlanetaryFortress[tmpUnit.Owner].ConstructionState.Add(
+                                        LTbPlanetaryFortress[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTbPlanetaryFortress[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -2696,17 +2696,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbOrbitalGround)
                         {
-                            _lTbOrbitalCommand[tmpUnit.Owner].UnitAmount += 1;
-                            _lTbOrbitalCommand[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
-                            _lTbOrbitalCommand[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
-                            _lTbOrbitalCommand[tmpUnit.Owner].Id = UnitId.TbOrbitalGround;
+                            LTbOrbitalCommand[tmpUnit.Owner].UnitAmount += 1;
+                            LTbOrbitalCommand[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            LTbOrbitalCommand[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                            LTbOrbitalCommand[tmpUnit.Owner].Id = UnitId.TbOrbitalGround;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
                                 for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
                                 {
-                                    _lTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                    _lTuScv[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    LTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                    LTuScv[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                 }
                             }
                         }
@@ -2720,7 +2720,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbBarracksGround)
                         {
-                            _lTbBarracks[tmpUnit.Owner].UnitAmount += 1;
+                            LTbBarracks[tmpUnit.Owner].UnitAmount += 1;
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -2731,32 +2731,32 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuMarine))
                                     {
-                                        _lTuMarine[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuMarine[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuMarine[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuMarine[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuMarauder))
                                     {
-                                        _lTuMarauder[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuMarauder[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuMarauder[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuMarauder[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuReaper))
                                     {
-                                        _lTuReaper[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuReaper[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuReaper[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuReaper[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuGhost))
                                     {
-                                        _lTuGhost[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuGhost[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuGhost[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuGhost[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -2768,7 +2768,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbBunker)
-                            _lTbBunker[tmpUnit.Owner].UnitAmount += 1;
+                            LTbBunker[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -2776,7 +2776,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbTurret)
-                            _lTbTurrent[tmpUnit.Owner].UnitAmount += 1;
+                            LTbTurrent[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -2784,7 +2784,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbRefinery)
-                            _lTbRefinery[tmpUnit.Owner].UnitAmount += 1;
+                            LTbRefinery[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -2792,7 +2792,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbSensortower)
-                            _lTbSensorTower[tmpUnit.Owner].UnitAmount += 1;
+                            LTbSensorTower[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -2801,14 +2801,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.TbPlanetary)
                         {
-                            _lTbPlanetaryFortress[tmpUnit.Owner].UnitAmount += 1;
+                            LTbPlanetaryFortress[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
                                 for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
                                 {
-                                    _lTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                    _lTuScv[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    LTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                    LTuScv[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                 }
                             }
                         }
@@ -2819,7 +2819,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id == UnitId.TbEbay)
                         {
-                            _lTbEbay[tmpUnit.Owner].UnitAmount += 1;
+                            LTbEbay[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -2829,56 +2829,56 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupInfantryArmor1))
                                     {
-                                        _lTupInfantryArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupInfantryArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupInfantryArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupInfantryArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupInfantryArmor2))
                                     {
-                                        _lTupInfantryArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupInfantryArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupInfantryArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupInfantryArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupInfantryArmor3))
                                     {
-                                        _lTupInfantryArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupInfantryArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupInfantryArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupInfantryArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupInfantryWeapon1))
                                     {
-                                        _lTupInfantryWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupInfantryWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupInfantryWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupInfantryWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupInfantryWeapon2))
                                     {
-                                        _lTupInfantryWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupInfantryWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupInfantryWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupInfantryWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupInfantryWeapon3))
                                     {
-                                        _lTupInfantryWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupInfantryWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupInfantryWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupInfantryWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupHighSecAutoTracking))
                                     {
-                                        _lTupHighSecAutoTracking[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupHighSecAutoTracking[tmpUnit.Owner].ConstructionState.Add(
+                                        LTupHighSecAutoTracking[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupHighSecAutoTracking[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
 
@@ -2886,16 +2886,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupNeosteelFrame))
                                     {
-                                        _lTupNeosteelFrame[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupNeosteelFrame[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupNeosteelFrame[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupNeosteelFrame[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupStructureArmor))
                                     {
-                                        _lTupStructureArmor[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupStructureArmor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupStructureArmor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupStructureArmor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -2910,7 +2910,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbFactoryGround)
                         {
-                            _lTbFactory[tmpUnit.Owner].UnitAmount += 1;
+                            LTbFactory[tmpUnit.Owner].UnitAmount += 1;
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -2921,40 +2921,40 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuHellion))
                                     {
-                                        _lTuHellion[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuHellion[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuHellion[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuHellion[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuHellbat))
                                     {
-                                        _lTuHellbat[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuHellbat[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuHellbat[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuHellbat[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuWidowMine))
                                     {
-                                        _lTuWidowMine[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuWidowMine[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuWidowMine[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuWidowMine[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuSiegetank))
                                     {
-                                        _lTuSiegetank[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuSiegetank[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuSiegetank[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuSiegetank[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuThor))
                                     {
-                                        _lTuThor[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuThor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuThor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuThor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -2969,7 +2969,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbStarportGround)
                         {
-                            _lTbStarport[tmpUnit.Owner].UnitAmount += 1;
+                            LTbStarport[tmpUnit.Owner].UnitAmount += 1;
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -2980,40 +2980,40 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuVikingAir))
                                     {
-                                        _lTuViking[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuViking[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuViking[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuViking[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuBanshee))
                                     {
-                                        _lTuBanshee[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuBanshee[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuBanshee[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuBanshee[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuMedivac))
                                     {
-                                        _lTuMedivac[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuMedivac[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuMedivac[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuMedivac[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuRaven))
                                     {
-                                        _lTuRaven[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuRaven[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuRaven[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuRaven[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuBattlecruiser))
                                     {
-                                        _lTuBattlecruiser[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuBattlecruiser[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuBattlecruiser[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuBattlecruiser[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -3027,7 +3027,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  UnitId.TbSupplyGround ||
                                  tmpUnit.Id ==
                                  UnitId.TbSupplyHidden)
-                            _lTbSupply[tmpUnit.Owner].UnitAmount += 1;
+                            LTbSupply[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -3036,7 +3036,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.TbGhostacademy)
                         {
-                            _lTbGhostAcademy[tmpUnit.Owner].UnitAmount += 1;
+                            LTbGhostAcademy[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3046,24 +3046,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupPersonalCloak))
                                     {
-                                        _lTupPersonalCloak[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupPersonalCloak[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupPersonalCloak[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupPersonalCloak[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupMoebiusReactor))
                                     {
-                                        _lTupMoebiusReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupMoebiusReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupMoebiusReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupMoebiusReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TuNuke))
                                     {
-                                        _lTuNuke[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTuNuke[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTuNuke[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTuNuke[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -3076,7 +3076,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.TbFusioncore)
                         {
-                            _lTbFusionCore[tmpUnit.Owner].UnitAmount += 1;
+                            LTbFusionCore[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3086,16 +3086,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupWeaponRefit))
                                     {
-                                        _lTupWeaponRefit[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupWeaponRefit[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupWeaponRefit[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupWeaponRefit[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupBehemothReactor))
                                     {
-                                        _lTupBehemothReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupBehemothReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupBehemothReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupBehemothReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -3108,7 +3108,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.TbArmory)
                         {
-                            _lTbArmory[tmpUnit.Owner].UnitAmount += 1;
+                            LTbArmory[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3118,8 +3118,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupVehicleShipPlanting1))
                                     {
-                                        _lTupVehicleShipPlanting1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupVehicleShipPlanting1[tmpUnit.Owner].ConstructionState.Add(
+                                        LTupVehicleShipPlanting1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupVehicleShipPlanting1[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
 
@@ -3127,8 +3127,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupVehicleShipPlanting2))
                                     {
-                                        _lTupVehicleShipPlanting2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupVehicleShipPlanting2[tmpUnit.Owner].ConstructionState.Add(
+                                        LTupVehicleShipPlanting2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupVehicleShipPlanting2[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
 
@@ -3136,8 +3136,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupVehicleShipPlanting3))
                                     {
-                                        _lTupVehicleShipPlanting3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupVehicleShipPlanting3[tmpUnit.Owner].ConstructionState.Add(
+                                        LTupVehicleShipPlanting3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupVehicleShipPlanting3[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
 
@@ -3145,48 +3145,48 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupVehicleWeapon1))
                                     {
-                                        _lTupVehicleWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupVehicleWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupVehicleWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupVehicleWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupVehicleWeapon2))
                                     {
-                                        _lTupVehicleWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupVehicleWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupVehicleWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupVehicleWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupVehicleWeapon3))
                                     {
-                                        _lTupVehicleWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupVehicleWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupVehicleWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupVehicleWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupShipWeapon1))
                                     {
-                                        _lTupShipWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupShipWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupShipWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupShipWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupShipWeapon2))
                                     {
-                                        _lTupShipWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupShipWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupShipWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupShipWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupShipWeapon3))
                                     {
-                                        _lTupShipWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupShipWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupShipWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupShipWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -3198,7 +3198,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbAutoTurret)
-                            _lTbAutoTurret[tmpUnit.Owner].UnitAmount += 1;
+                            LTbAutoTurret[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -3207,7 +3207,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.TbTechlabRax)
                         {
-                            _lTbTechlab[tmpUnit.Owner].UnitAmount += 1;
+                            LTbTechlab[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3217,24 +3217,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupStim))
                                     {
-                                        _lTupStim[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupStim[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupStim[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupStim[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupCombatShields))
                                     {
-                                        _lTupCombatShields[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupCombatShields[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupCombatShields[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupCombatShields[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupConcussiveShells))
                                     {
-                                        _lTupConcussiveShells[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupConcussiveShells[tmpUnit.Owner].ConstructionState.Add(
+                                        LTupConcussiveShells[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupConcussiveShells[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -3248,7 +3248,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.TbTechlabFactory)
                         {
-                            _lTbTechlab[tmpUnit.Owner].UnitAmount += 1;
+                            LTbTechlab[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3258,24 +3258,24 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupBlueFlame))
                                     {
-                                        _lTupBlueFlame[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupBlueFlame[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupBlueFlame[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupBlueFlame[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupDrillingClaws))
                                     {
-                                        _lTupDrillingClaws[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupDrillingClaws[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupDrillingClaws[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupDrillingClaws[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupTransformatorServos))
                                     {
-                                        _lTupTransformationServos[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupTransformationServos[tmpUnit.Owner].ConstructionState.Add(
+                                        LTupTransformationServos[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupTransformationServos[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -3289,7 +3289,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.TbTechlabStarport)
                         {
-                            _lTbTechlab[tmpUnit.Owner].UnitAmount += 1;
+                            LTbTechlab[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3299,32 +3299,32 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupCloakingField))
                                     {
-                                        _lTupCloakingField[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupCloakingField[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupCloakingField[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupCloakingField[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupCorvidReactor))
                                     {
-                                        _lTupCorvidReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupCorvidReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupCorvidReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupCorvidReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupCaduceusReactor))
                                     {
-                                        _lTupCaduceusReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupCaduceusReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LTupCaduceusReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupCaduceusReactor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.TupDurableMeterials))
                                     {
-                                        _lTupDurableMaterials[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lTupDurableMaterials[tmpUnit.Owner].ConstructionState.Add(
+                                        LTupDurableMaterials[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LTupDurableMaterials[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -3343,7 +3343,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  UnitId.TbReactorRax ||
                                  tmpUnit.Id ==
                                  UnitId.TbReactorStarport)
-                            _lTbReactor[tmpUnit.Owner].UnitAmount += 1;
+                            LTbReactor[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -3359,10 +3359,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.PuForceField)
                         {
-                            _lPuForcefield[GInformation.Player.Count].UnitAmount += 1;
-                            _lPuForcefield[GInformation.Player.Count].Id =
+                            LPuForcefield[GInformation.Player.Count].UnitAmount += 1;
+                            LPuForcefield[GInformation.Player.Count].Id =
                                 UnitId.PuForceField;
-                            _lPuForcefield[GInformation.Player.Count].AliveSince.Add(1 -
+                            LPuForcefield[GInformation.Player.Count].AliveSince.Add(1 -
                                                                                      (tmpUnit.AliveSince/
                                                                                       62208.0f));
                         }
@@ -3370,7 +3370,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.PuArchon)
                         {
-                            _lPuArchon[tmpUnit.Owner].UnitAmount += 1;
+                            LPuArchon[tmpUnit.Owner].UnitAmount += 1;
 
                             //Archons take 12 seconds to finish morphing
                             //12 secs = 49152 SC2 ticks (* 4096)
@@ -3378,52 +3378,52 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                             if (tmpUnit.AliveSince < 49152)
                             {
-                                _lPuArchon[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                _lPuArchon[tmpUnit.Owner].ConstructionState.Add((tmpUnit.AliveSince/49152f)*100);
+                                LPuArchon[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                LPuArchon[tmpUnit.Owner].ConstructionState.Add((tmpUnit.AliveSince/49152f)*100);
                             }
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuCarrier)
-                            _lPuCarrier[tmpUnit.Owner].UnitAmount += 1;
+                            LPuCarrier[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuColossus)
-                            _lPuColossus[tmpUnit.Owner].UnitAmount += 1;
+                            LPuColossus[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuDarktemplar)
-                            _lPuDt[tmpUnit.Owner].UnitAmount += 1;
+                            LPuDt[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuHightemplar)
                         {
-                            _lPuHt[tmpUnit.Owner].UnitAmount += 1;
-                            _lPuHt[tmpUnit.Owner].Id = UnitId.PuHightemplar;
-                            _lPuHt[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
-                            _lPuHt[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                            LPuHt[tmpUnit.Owner].UnitAmount += 1;
+                            LPuHt[tmpUnit.Owner].Id = UnitId.PuHightemplar;
+                            LPuHt[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            LPuHt[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuImmortal)
-                            _lPuImmortal[tmpUnit.Owner].UnitAmount += 1;
+                            LPuImmortal[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuMothership)
                         {
-                            _lPuMothership[tmpUnit.Owner].UnitAmount += 1;
-                            _lPuMothership[tmpUnit.Owner].Id = UnitId.PuMothership;
-                            _lPuMothership[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
-                            _lPuMothership[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                            LPuMothership[tmpUnit.Owner].UnitAmount += 1;
+                            LPuMothership[tmpUnit.Owner].Id = UnitId.PuMothership;
+                            LPuMothership[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            LPuMothership[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuMothershipCore)
                         {
-                            _lPuMothershipcore[tmpUnit.Owner].UnitAmount += 1;
-                            _lPuMothershipcore[tmpUnit.Owner].Id = UnitId.PuMothershipCore;
-                            _lPuMothershipcore[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
-                            _lPuMothershipcore[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                            LPuMothershipcore[tmpUnit.Owner].UnitAmount += 1;
+                            LPuMothershipcore[tmpUnit.Owner].Id = UnitId.PuMothershipCore;
+                            LPuMothershipcore[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            LPuMothershipcore[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
 
                             if (tmpUnit.ProdNumberOfQueuedUnits == 0)
                             {
@@ -3433,8 +3433,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupUpgradeToMothership))
                                     {
-                                        _lPuMothership[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuMothership[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuMothership[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuMothership[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -3442,49 +3442,49 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuObserver)
-                            _lPuObserver[tmpUnit.Owner].UnitAmount += 1;
+                            LPuObserver[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuOracle)
-                            _lPuOracle[tmpUnit.Owner].UnitAmount += 1;
+                            LPuOracle[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuPhoenix)
-                            _lPuPhoenix[tmpUnit.Owner].UnitAmount += 1;
+                            LPuPhoenix[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id == UnitId.PuProbe)
-                            _lPuProbe[tmpUnit.Owner].UnitAmount += 1;
+                            LPuProbe[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuSentry)
                         {
-                            _lPuSentry[tmpUnit.Owner].UnitAmount += 1;
-                            _lPuSentry[tmpUnit.Owner].Id = UnitId.PuSentry;
-                            _lPuSentry[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
-                            _lPuSentry[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                            LPuSentry[tmpUnit.Owner].UnitAmount += 1;
+                            LPuSentry[tmpUnit.Owner].Id = UnitId.PuSentry;
+                            LPuSentry[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            LPuSentry[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuStalker)
-                            _lPuStalker[tmpUnit.Owner].UnitAmount += 1;
+                            LPuStalker[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuTempest)
-                            _lPuTempest[tmpUnit.Owner].UnitAmount += 1;
+                            LPuTempest[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuVoidray)
-                            _lPuVoidray[tmpUnit.Owner].UnitAmount += 1;
+                            LPuVoidray[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuWarpprismPhase ||
                                  tmpUnit.Id ==
                                  UnitId.PuWarpprismTransport)
-                            _lPuWarpprism[tmpUnit.Owner].UnitAmount += 1;
+                            LPuWarpprism[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuZealot)
-                            _lPuZealot[tmpUnit.Owner].UnitAmount += 1;
+                            LPuZealot[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -3494,10 +3494,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id == UnitId.PbNexus)
                         {
-                            _lPbNexus[tmpUnit.Owner].UnitAmount += 1;
-                            _lPbNexus[tmpUnit.Owner].Id = tmpUnit.Id;
-                            _lPbNexus[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
-                            _lPbNexus[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                            LPbNexus[tmpUnit.Owner].UnitAmount += 1;
+                            LPbNexus[tmpUnit.Owner].Id = tmpUnit.Id;
+                            LPbNexus[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            LPbNexus[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3507,17 +3507,17 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PuProbe))
                                     {
-                                        _lPuProbe[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuProbe[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuProbe[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuProbe[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuProbe[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuProbe[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuMothershipCore))
                                     {
-                                        _lPuMothershipcore[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuMothershipcore[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuMothershipcore[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuMothershipcore[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuMothershipcore[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuMothershipcore[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
                                 }
                             }
@@ -3528,7 +3528,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Pylon
 
                         else if (tmpUnit.Id == UnitId.PbPylon)
-                            _lPbPylon[tmpUnit.Owner].UnitAmount += 1;
+                            LPbPylon[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -3536,7 +3536,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbAssimilator)
-                            _lPbAssimilator[tmpUnit.Owner].UnitAmount += 1;
+                            LPbAssimilator[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -3544,7 +3544,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbCannon)
-                            _lPbCannon[tmpUnit.Owner].UnitAmount += 1;
+                            LPbCannon[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -3553,7 +3553,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.PbCybercore)
                         {
-                            _lPbCybercore[tmpUnit.Owner].UnitAmount += 1;
+                            LPbCybercore[tmpUnit.Owner].UnitAmount += 1;
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -3564,64 +3564,64 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupAirA1))
                                     {
-                                        _lPupAirArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupAirArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupAirArmor1[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupAirArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupAirArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupAirArmor1[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupAirA2))
                                     {
-                                        _lPupAirArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupAirArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupAirArmor2[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupAirArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupAirArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupAirArmor2[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupAirA3))
                                     {
-                                        _lPupAirArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupAirArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupAirArmor3[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupAirArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupAirArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupAirArmor3[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupAirW1))
                                     {
-                                        _lPupAirWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupAirWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupAirWeapon1[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupAirWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupAirWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupAirWeapon1[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupAirW2))
                                     {
-                                        _lPupAirWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupAirWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupAirWeapon2[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupAirWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupAirWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupAirWeapon2[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupAirW3))
                                     {
-                                        _lPupAirWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupAirWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupAirWeapon3[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupAirWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupAirWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupAirWeapon3[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupWarpGate))
                                     {
-                                        _lPupWarpGate[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupWarpGate[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupWarpGate[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
-                                        _lPupWarpGate[tmpUnit.Owner].Id = UnitId.PupWarpGate;
+                                        LPupWarpGate[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupWarpGate[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupWarpGate[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupWarpGate[tmpUnit.Owner].Id = UnitId.PupWarpGate;
                                     }
                                 }
                             }
@@ -3633,7 +3633,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbDarkshrine)
-                            _lPbDarkshrine[tmpUnit.Owner].UnitAmount += 1;
+                            LPbDarkshrine[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -3642,7 +3642,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.PbFleetbeacon)
                         {
-                            _lPbFleetbeacon[tmpUnit.Owner].UnitAmount += 1;
+                            LPbFleetbeacon[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3652,10 +3652,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupAnionPulseCrystals))
                                     {
-                                        _lPupAnionPulseCrystal[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupAnionPulseCrystal[tmpUnit.Owner].ConstructionState.Add(
+                                        LPupAnionPulseCrystal[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupAnionPulseCrystal[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
-                                        _lPupAnionPulseCrystal[tmpUnit.Owner].SpeedMultiplier.Add(
+                                        LPupAnionPulseCrystal[tmpUnit.Owner].SpeedMultiplier.Add(
                                             tmpUnit.SpeedMultiplier);
                                     }
 
@@ -3663,10 +3663,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupGravitonCatapult))
                                     {
-                                        _lPupGravitonCatapult[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupGravitonCatapult[tmpUnit.Owner].ConstructionState.Add(
+                                        LPupGravitonCatapult[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupGravitonCatapult[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
-                                        _lPupGravitonCatapult[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupGravitonCatapult[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
                                 }
                             }
@@ -3678,7 +3678,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id == UnitId.PbForge)
                         {
-                            _lPbForge[tmpUnit.Owner].UnitAmount += 1;
+                            LPbForge[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3688,81 +3688,81 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupGroundA1))
                                     {
-                                        _lPupGroundArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupGroundArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupGroundArmor1[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupGroundArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupGroundArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupGroundArmor1[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupGroundA2))
                                     {
-                                        _lPupGroundArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupGroundArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupGroundArmor2[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupGroundArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupGroundArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupGroundArmor2[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupGroundA3))
                                     {
-                                        _lPupGroundArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupGroundArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupGroundArmor3[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupGroundArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupGroundArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupGroundArmor3[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupGroundW1))
                                     {
-                                        _lPupGroundWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupGroundWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupGroundWeapon1[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupGroundWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupGroundWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupGroundWeapon1[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupGroundW2))
                                     {
-                                        _lPupGroundWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupGroundWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupGroundWeapon2[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupGroundWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupGroundWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupGroundWeapon2[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupGroundW3))
                                     {
-                                        _lPupGroundWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupGroundWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupGroundWeapon3[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupGroundWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupGroundWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupGroundWeapon3[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupS1))
                                     {
-                                        _lPupShield1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupShield1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupShield1[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupShield1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupShield1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupShield1[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupS2))
                                     {
-                                        _lPupShield2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupShield2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupShield2[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupShield2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupShield2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupShield2[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupS3))
                                     {
-                                        _lPupShield3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupShield3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupShield3[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupShield3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupShield3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupShield3[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
                                 }
                             }
@@ -3775,7 +3775,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.PbGateway)
                         {
-                            _lPbGateway[tmpUnit.Owner].UnitAmount += 1;
+                            LPbGateway[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3785,41 +3785,41 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PuZealot))
                                     {
-                                        _lPuZealot[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuZealot[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuZealot[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuZealot[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuZealot[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuZealot[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuStalker))
                                     {
-                                        _lPuStalker[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuStalker[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuStalker[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuStalker[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuStalker[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuStalker[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuSentry))
                                     {
-                                        _lPuSentry[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuSentry[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuSentry[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuSentry[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuSentry[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuSentry[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuHightemplar))
                                     {
-                                        _lPuHt[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuHt[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuHt[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuHt[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuHt[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuHt[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuDarktemplar))
                                     {
-                                        _lPuDt[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuDt[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuDt[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuDt[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuDt[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuDt[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
                                 }
                             }
@@ -3832,7 +3832,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.PbRoboticsbay)
                         {
-                            _lPbRobotics[tmpUnit.Owner].UnitAmount += 1;
+                            LPbRobotics[tmpUnit.Owner].UnitAmount += 1;
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -3843,33 +3843,33 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PuObserver))
                                     {
-                                        _lPuObserver[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuObserver[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuObserver[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuObserver[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuObserver[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuObserver[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuWarpprismTransport))
                                     {
-                                        _lPuWarpprism[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuWarpprism[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuWarpprism[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuWarpprism[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuWarpprism[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuWarpprism[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuImmortal))
                                     {
-                                        _lPuImmortal[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuImmortal[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuImmortal[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuImmortal[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuImmortal[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuImmortal[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuColossus))
                                     {
-                                        _lPuColossus[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuColossus[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuColossus[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuColossus[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuColossus[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuColossus[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
                                 }
                             }
@@ -3882,7 +3882,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.PbRoboticssupportbay)
                         {
-                            _lPbRoboticsSupport[tmpUnit.Owner].UnitAmount += 1;
+                            LPbRoboticsSupport[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3892,10 +3892,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupExtendedThermalLance))
                                     {
-                                        _lPupExtendedThermalLance[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupExtendedThermalLance[tmpUnit.Owner].ConstructionState.Add(
+                                        LPupExtendedThermalLance[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupExtendedThermalLance[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
-                                        _lPupExtendedThermalLance[tmpUnit.Owner].SpeedMultiplier.Add(
+                                        LPupExtendedThermalLance[tmpUnit.Owner].SpeedMultiplier.Add(
                                             tmpUnit.SpeedMultiplier);
                                     }
 
@@ -3903,18 +3903,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupGraviticBooster))
                                     {
-                                        _lPupGraviticBooster[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupGraviticBooster[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupGraviticBooster[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupGraviticBooster[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupGraviticBooster[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupGraviticBooster[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupGraviticDrive))
                                     {
-                                        _lPupGraviticDrive[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupGraviticDrive[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupGraviticDrive[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupGraviticDrive[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupGraviticDrive[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupGraviticDrive[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
                                 }
                             }
@@ -3927,7 +3927,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.PbStargate)
                         {
-                            _lPbStargate[tmpUnit.Owner].UnitAmount += 1;
+                            LPbStargate[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3937,41 +3937,41 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PuPhoenix))
                                     {
-                                        _lPuPhoenix[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuPhoenix[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuPhoenix[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuPhoenix[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuPhoenix[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuPhoenix[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuOracle))
                                     {
-                                        _lPuOracle[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuOracle[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuOracle[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuOracle[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuOracle[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuOracle[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuVoidray))
                                     {
-                                        _lPuVoidray[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuVoidray[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuVoidray[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuVoidray[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuVoidray[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuVoidray[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuCarrier))
                                     {
-                                        _lPuCarrier[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuCarrier[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuCarrier[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuCarrier[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuCarrier[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuCarrier[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.PuTempest))
                                     {
-                                        _lPuTempest[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPuTempest[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPuTempest[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPuTempest[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPuTempest[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPuTempest[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
                                 }
                             }
@@ -3984,7 +3984,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.PbTemplararchives)
                         {
-                            _lPbTemplarArchives[tmpUnit.Owner].UnitAmount += 1;
+                            LPbTemplarArchives[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -3994,9 +3994,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupStorm))
                                     {
-                                        _lPupStorm[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupStorm[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupStorm[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupStorm[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupStorm[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupStorm[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
                                 }
                             }
@@ -4009,7 +4009,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.PbTwilightcouncil)
                         {
-                            _lPbTwilight[tmpUnit.Owner].UnitAmount += 1;
+                            LPbTwilight[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4019,18 +4019,18 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupBlink))
                                     {
-                                        _lPupBlink[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupBlink[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupBlink[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupBlink[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupBlink[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupBlink[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.PupCharge))
                                     {
-                                        _lPupCharge[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lPupCharge[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
-                                        _lPupCharge[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
+                                        LPupCharge[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LPupCharge[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LPupCharge[tmpUnit.Owner].SpeedMultiplier.Add(tmpUnit.SpeedMultiplier);
                                     }
                                 }
                             }
@@ -4042,7 +4042,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbWarpgate)
-                            _lPbWarpgate[tmpUnit.Owner].UnitAmount += 1;
+                            LPbWarpgate[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -4065,78 +4065,78 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZuDrone))
                                     {
-                                        _lZuDrone[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuDrone[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuDrone[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuDrone[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZuOverlord))
                                     {
-                                        _lZuOverlord[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuOverlord[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuOverlord[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuOverlord[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZuZergling))
                                     {
-                                        _lZuZergling[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuZergling[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuZergling[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuZergling[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZuRoach))
                                     {
-                                        _lZuRoach[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuRoach[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuRoach[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuRoach[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZuHydralisk))
                                     {
-                                        _lZuHydra[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuHydra[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuHydra[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuHydra[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZuMutalisk))
                                     {
-                                        _lZuMutalisk[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuMutalisk[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuMutalisk[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuMutalisk[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZuInfestor))
                                     {
-                                        _lZuInfestor[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuInfestor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuInfestor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuInfestor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZuUltra))
                                     {
-                                        _lZuUltralisk[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuUltralisk[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuUltralisk[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuUltralisk[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZuCorruptor))
                                     {
-                                        _lZuCorruptor[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuCorruptor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuCorruptor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuCorruptor[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZuViper))
                                     {
-                                        _lZuViper[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuViper[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuViper[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuViper[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZuSwarmHost))
                                     {
-                                        _lZuSwarmhost[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuSwarmhost[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuSwarmhost[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuSwarmhost[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4146,39 +4146,39 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  UnitId.ZuBaneling ||
                                  tmpUnit.Id ==
                                  UnitId.ZuBanelingBurrow)
-                            _lZuBaneling[tmpUnit.Owner].UnitAmount += 1;
+                            LZuBaneling[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuLocust)
                         {
-                            _lZuLocust[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuLocust[tmpUnit.Owner].Id = UnitId.ZuLocust;
+                            LZuLocust[tmpUnit.Owner].UnitAmount += 1;
+                            LZuLocust[tmpUnit.Owner].Id = UnitId.ZuLocust;
 
                             if (tmpUnit.AliveSince > 73216f)
-                                _lZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/113920f));
+                                LZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/113920f));
 
                             else
-                                _lZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/73216f));
+                                LZuLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince/73216f));
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuFlyingLocust)
                         {
-                            _lZuFlyingLocust[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuFlyingLocust[tmpUnit.Owner].Id = UnitId.ZuFlyingLocust;
+                            LZuFlyingLocust[tmpUnit.Owner].UnitAmount += 1;
+                            LZuFlyingLocust[tmpUnit.Owner].Id = UnitId.ZuFlyingLocust;
 
                             if (tmpUnit.AliveSince > 73216f)
-                                _lZuFlyingLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 113920f));
+                                LZuFlyingLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 113920f));
 
                             else
-                                _lZuFlyingLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 73216f));
+                                LZuFlyingLocust[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 73216f));
                         }
 
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuBanelingCocoon)
                         {
-                            _lZuBanelingCocoon[tmpUnit.Owner].UnitAmount += 1;
+                            LZuBanelingCocoon[tmpUnit.Owner].UnitAmount += 1;
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -4189,8 +4189,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZuBaneling))
                                     {
-                                        _lZuBaneling[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuBaneling[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuBaneling[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuBaneling[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4198,12 +4198,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuBroodlord)
-                            _lZuBroodlord[tmpUnit.Owner].UnitAmount += 1;
+                            LZuBroodlord[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuBroodlordCocoon)
                         {
-                            _lZuBroodlordCocoon[tmpUnit.Owner].UnitAmount += 1;
+                            LZuBroodlordCocoon[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits == 0)
                             {
@@ -4213,8 +4213,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupUpgradeToBroodlord))
                                     {
-                                        _lZuBroodlord[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuBroodlord[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuBroodlord[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuBroodlord[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4222,28 +4222,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuCorruptor)
-                            _lZuCorruptor[tmpUnit.Owner].UnitAmount += 1;
+                            LZuCorruptor[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuDrone ||
                                  tmpUnit.Id ==
                                  UnitId.ZuDroneBurrow)
-                            _lZuDrone[tmpUnit.Owner].UnitAmount += 1;
+                            LZuDrone[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuHydraBurrow ||
                                  tmpUnit.Id ==
                                  UnitId.ZuHydralisk)
-                            _lZuHydra[tmpUnit.Owner].UnitAmount += 1;
+                            LZuHydra[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuInfestor ||
                                  tmpUnit.Id ==
                                  UnitId.ZuInfestorBurrow)
                         {
-                            _lZuInfestor[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuInfestor[tmpUnit.Owner].Id = UnitId.ZuInfestor;
-                            _lZuInfestor[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
-                            _lZuInfestor[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                            LZuInfestor[tmpUnit.Owner].UnitAmount += 1;
+                            LZuInfestor[tmpUnit.Owner].Id = UnitId.ZuInfestor;
+                            LZuInfestor[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            LZuInfestor[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
@@ -4251,46 +4251,46 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.ZuInfestedTerran2)
                         {
-                            _lZuInfestedTerran[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuInfestedTerran[tmpUnit.Owner].Id = UnitId.ZuInfestedTerran;
-                            _lZuInfestedTerran[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 143360f));
+                            LZuInfestedTerran[tmpUnit.Owner].UnitAmount += 1;
+                            LZuInfestedTerran[tmpUnit.Owner].Id = UnitId.ZuInfestedTerran;
+                            LZuInfestedTerran[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 143360f));
                         }
 
                         else if (tmpUnit.Id == UnitId.ZuInfestedSwarmEgg)
                         {
-                            _lZuInfestedTerranEgg[tmpUnit.Owner].UnitUnderConstruction += 1;
-                            _lZuInfestedTerranEgg[tmpUnit.Owner].Id = UnitId.ZuInfestedSwarmEgg;
-                            _lZuInfestedTerranEgg[tmpUnit.Owner].ConstructionState.Add(tmpUnit.AliveSince/20480f * 100);
+                            LZuInfestedTerranEgg[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuInfestedTerranEgg[tmpUnit.Owner].Id = UnitId.ZuInfestedSwarmEgg;
+                            LZuInfestedTerranEgg[tmpUnit.Owner].ConstructionState.Add(tmpUnit.AliveSince/20480f * 100);
 
                         }
 
                         else if (tmpUnit.Id == UnitId.ZuLarva)
-                            _lZuLarva[tmpUnit.Owner].UnitAmount += 1;
+                            LZuLarva[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuMutalisk)
-                            _lZuMutalisk[tmpUnit.Owner].UnitAmount += 1;
+                            LZuMutalisk[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuOverlord)
-                            _lZuOverlord[tmpUnit.Owner].UnitAmount += 1;
+                            LZuOverlord[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuBroodling)
                         {
-                            _lZuBroodling[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuBroodling[tmpUnit.Owner].Id = UnitId.ZuBroodling;
-                            _lZuBroodling[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 32768f));
+                            LZuBroodling[tmpUnit.Owner].UnitAmount += 1;
+                            LZuBroodling[tmpUnit.Owner].Id = UnitId.ZuBroodling;
+                            LZuBroodling[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 32768f));
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuOverseer)
-                            _lZuOverseer[tmpUnit.Owner].UnitAmount += 1;
+                            LZuOverseer[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuOverseerCocoon)
                         {
-                            _lZuOverseerCocoon[tmpUnit.Owner].UnitAmount += 1;
+                            LZuOverseerCocoon[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits == 0)
                             {
@@ -4300,8 +4300,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupUpgradeToOverseer))
                                     {
-                                        _lZuOverseer[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuOverseer[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuOverseer[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuOverseer[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4311,41 +4311,41 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.ZuQueenBurrow)
                         {
-                            _lZuQueen[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuQueen[tmpUnit.Owner].Id = UnitId.ZuQueen;
-                            _lZuQueen[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
-                            _lZuQueen[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                            LZuQueen[tmpUnit.Owner].UnitAmount += 1;
+                            LZuQueen[tmpUnit.Owner].Id = UnitId.ZuQueen;
+                            LZuQueen[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            LZuQueen[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id == UnitId.ZuRoach ||
                                  tmpUnit.Id ==
                                  UnitId.ZuRoachBurrow)
-                            _lZuRoach[tmpUnit.Owner].UnitAmount += 1;
+                            LZuRoach[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuSwarmHost ||
                                  tmpUnit.Id ==
                                  UnitId.ZuSwarmHostBurrow)
-                            _lZuSwarmhost[tmpUnit.Owner].UnitAmount += 1;
+                            LZuSwarmhost[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuUltra ||
                                  tmpUnit.Id ==
                                  UnitId.ZuUltraBurrow)
-                            _lZuUltralisk[tmpUnit.Owner].UnitAmount += 1;
+                            LZuUltralisk[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuViper)
                         {
-                            _lZuViper[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuViper[tmpUnit.Owner].Id = UnitId.ZuViper;
-                            _lZuViper[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
-                            _lZuViper[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
+                            LZuViper[tmpUnit.Owner].UnitAmount += 1;
+                            LZuViper[tmpUnit.Owner].Id = UnitId.ZuViper;
+                            LZuViper[tmpUnit.Owner].Energy.Add(tmpUnit.Energy);
+                            LZuViper[tmpUnit.Owner].MaximumEnergy.Add(tmpUnit.MaximumEnergy);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuZergling ||
                                  tmpUnit.Id ==
                                  UnitId.ZuZerglingBurrow)
-                            _lZuZergling[tmpUnit.Owner].UnitAmount += 1;
+                            LZuZergling[tmpUnit.Owner].UnitAmount += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuChangeling ||
                                  tmpUnit.Id == UnitId.ZuChangelingMarineShield ||
@@ -4354,9 +4354,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id == UnitId.ZuChangelingZealot ||
                                  tmpUnit.Id == UnitId.ZuChangelingZergling)
                         {
-                            _lZuChangeling[tmpUnit.Owner].UnitAmount += 1;
-                            _lZuChangeling[tmpUnit.Owner].Id = UnitId.ZuChangeling;
-                            _lZuChangeling[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 614400f));
+                            LZuChangeling[tmpUnit.Owner].UnitAmount += 1;
+                            LZuChangeling[tmpUnit.Owner].Id = UnitId.ZuChangeling;
+                            LZuChangeling[tmpUnit.Owner].AliveSince.Add(1 - (tmpUnit.AliveSince / 614400f));
                         }
 
                             #endregion
@@ -4368,7 +4368,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.ZbBanelingNest)
                         {
-                            _lZbBanelingnest[tmpUnit.Owner].UnitAmount += 1;
+                            LZbBanelingnest[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4378,8 +4378,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupCentrifugalHooks))
                                     {
-                                        _lZupCentrifugalHooks[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupCentrifugalHooks[tmpUnit.Owner].ConstructionState.Add(
+                                        LZupCentrifugalHooks[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupCentrifugalHooks[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -4398,7 +4398,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  UnitId.ZbCreepTumorMissle ||
                                  tmpUnit.Id ==
                                  UnitId.ZbCreepTumorBuilding)
-                            _lZbCreepTumor[tmpUnit.Owner].UnitAmount += 1;
+                            LZbCreepTumor[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -4407,7 +4407,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.ZbEvolutionChamber)
                         {
-                            _lZbEvochamber[tmpUnit.Owner].UnitAmount += 1;
+                            LZbEvochamber[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4417,72 +4417,72 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupGroundA1))
                                     {
-                                        _lZupGroundArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGroundArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupGroundArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGroundArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupGroundA2))
                                     {
-                                        _lZupGroundArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGroundArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupGroundArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGroundArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupGroundA3))
                                     {
-                                        _lZupGroundArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGroundArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupGroundArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGroundArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupGroundW1))
                                     {
-                                        _lZupGroundWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGroundWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupGroundWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGroundWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupGroundW2))
                                     {
-                                        _lZupGroundWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGroundWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupGroundWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGroundWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupGroundW3))
                                     {
-                                        _lZupGroundWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGroundWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupGroundWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGroundWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupGroundM1))
                                     {
-                                        _lZupGroundMelee1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGroundMelee1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupGroundMelee1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGroundMelee1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupGroundM2))
                                     {
-                                        _lZupGroundMelee2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGroundMelee2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupGroundMelee2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGroundMelee2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupGroundM3))
                                     {
-                                        _lZupGroundMelee3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGroundMelee3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupGroundMelee3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGroundMelee3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4494,7 +4494,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbExtractor)
-                            _lZbExtractor[tmpUnit.Owner].UnitAmount += 1;
+                            LZbExtractor[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -4503,7 +4503,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.ZbGreaterspire)
                         {
-                            _lZbGreaterspire[tmpUnit.Owner].UnitAmount += 1;
+                            LZbGreaterspire[tmpUnit.Owner].UnitAmount += 1;
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -4514,48 +4514,48 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirA1))
                                     {
-                                        _lZupAirArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirA2))
                                     {
-                                        _lZupAirArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirA3))
                                     {
-                                        _lZupAirArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirW1))
                                     {
-                                        _lZupAirWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirW2))
                                     {
-                                        _lZupAirWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirW3))
                                     {
-                                        _lZupAirWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4568,7 +4568,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.ZbHatchery)
                         {
-                            _lZbHatchery[tmpUnit.Owner].UnitAmount += 1;
+                            LZbHatchery[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4578,29 +4578,29 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZuQueen))
                                     {
-                                        _lZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuQueen[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuQueen[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupVentralSacs))
                                     {
-                                        _lZupVentralSacs[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupVentralSacs[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupVentralSacs[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupVentralSacs[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupBurrow))
                                     {
-                                        _lZupBurrow[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupBurrow[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupBurrow[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupBurrow[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupPneumatizedCarapace))
                                     {
-                                        _lZupPneumatizedCarapace[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupPneumatizedCarapace[tmpUnit.Owner].ConstructionState.Add(
+                                        LZupPneumatizedCarapace[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupPneumatizedCarapace[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -4615,8 +4615,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupUpgradeToLair))
                                     {
-                                        _lZbLair[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZbLair[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZbLair[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZbLair[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4628,7 +4628,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id == UnitId.ZbHive)
                         {
-                            _lZbHive[tmpUnit.Owner].UnitAmount += 1;
+                            LZbHive[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4638,29 +4638,29 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZuQueen))
                                     {
-                                        _lZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuQueen[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuQueen[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupVentralSacs))
                                     {
-                                        _lZupVentralSacs[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupVentralSacs[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupVentralSacs[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupVentralSacs[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupBurrow))
                                     {
-                                        _lZupBurrow[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupBurrow[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupBurrow[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupBurrow[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupPneumatizedCarapace))
                                     {
-                                        _lZupPneumatizedCarapace[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupPneumatizedCarapace[tmpUnit.Owner].ConstructionState.Add(
+                                        LZupPneumatizedCarapace[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupPneumatizedCarapace[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -4674,7 +4674,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.ZbHydraDen)
                         {
-                            _lZbHydraden[tmpUnit.Owner].UnitAmount += 1;
+                            LZbHydraden[tmpUnit.Owner].UnitAmount += 1;
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -4685,15 +4685,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupGroovedSpines))
                                     {
-                                        _lZupGroovedSpines[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGroovedSpines[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupGroovedSpines[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGroovedSpines[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupMuscularAugments))
                                     {
-                                        _lZupMuscularAugments[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupMuscularAugments[tmpUnit.Owner].ConstructionState.Add(
+                                        LZupMuscularAugments[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupMuscularAugments[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -4707,7 +4707,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.ZbInfestationPit)
                         {
-                            _lZbInfestationpit[tmpUnit.Owner].UnitAmount += 1;
+                            LZbInfestationpit[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4717,28 +4717,28 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupNeutralParasite))
                                     {
-                                        _lZupNeutralParasite[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupNeutralParasite[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupNeutralParasite[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupNeutralParasite[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupEnduringLocusts))
                                     {
-                                        _lZupEnduringLocusts[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupEnduringLocusts[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupEnduringLocusts[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupEnduringLocusts[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupPathoglenGlands))
                                     {
-                                        _lZupPathoglenGlands[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupPathoglenGlands[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupPathoglenGlands[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupPathoglenGlands[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(UnitId.ZupFlyingLocust))
                                     {
-                                        _lZupFlyingLocust[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupFlyingLocust[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupFlyingLocust[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupFlyingLocust[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4750,7 +4750,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id == UnitId.ZbLiar)
                         {
-                            _lZbLair[tmpUnit.Owner].UnitAmount += 1;
+                            LZbLair[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4760,29 +4760,29 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZuQueen))
                                     {
-                                        _lZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZuQueen[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZuQueen[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupVentralSacs))
                                     {
-                                        _lZupVentralSacs[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupVentralSacs[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupVentralSacs[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupVentralSacs[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupBurrow))
                                     {
-                                        _lZupBurrow[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupBurrow[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupBurrow[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupBurrow[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupPneumatizedCarapace))
                                     {
-                                        _lZupPneumatizedCarapace[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupPneumatizedCarapace[tmpUnit.Owner].ConstructionState.Add(
+                                        LZupPneumatizedCarapace[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupPneumatizedCarapace[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -4797,8 +4797,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupUpgradeToHive))
                                     {
-                                        _lZbHive[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZbHive[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZbHive[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZbHive[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4810,7 +4810,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbNydusNetwork)
-                            _lZbNydusbegin[tmpUnit.Owner].UnitAmount += 1;
+                            LZbNydusbegin[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -4818,7 +4818,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbNydusWorm)
-                            _lZbNydusend[tmpUnit.Owner].UnitAmount += 1;
+                            LZbNydusend[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -4827,7 +4827,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.ZbRoachWarren)
                         {
-                            _lZbRoachwarren[tmpUnit.Owner].UnitAmount += 1;
+                            LZbRoachwarren[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4837,15 +4837,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupTunnelingClaws))
                                     {
-                                        _lZupTunnnelingClaws[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupTunnnelingClaws[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupTunnnelingClaws[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupTunnnelingClaws[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupGlialReconstruction))
                                     {
-                                        _lZupGlialReconstruction[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupGlialReconstruction[tmpUnit.Owner].ConstructionState.Add(
+                                        LZupGlialReconstruction[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupGlialReconstruction[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -4859,7 +4859,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.ZbSpawningPool)
                         {
-                            _lZbSpawningpool[tmpUnit.Owner].UnitAmount += 1;
+                            LZbSpawningpool[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4869,15 +4869,15 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupMetabolicBoost))
                                     {
-                                        _lZupMetabolicBoost[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupMetabolicBoost[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupMetabolicBoost[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupMetabolicBoost[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (tmpUnit.ProdUnitProductionId[k].Equals(
                                         UnitId.ZupAdrenalGlands))
                                     {
-                                        _lZupAdrenalGlands[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAdrenalGlands[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAdrenalGlands[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAdrenalGlands[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4891,7 +4891,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  UnitId.ZbSpineCrawler ||
                                  tmpUnit.Id ==
                                  UnitId.ZbSpineCrawlerUnrooted)
-                            _lZbSpine[tmpUnit.Owner].UnitAmount += 1;
+                            LZbSpine[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -4899,7 +4899,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id == UnitId.ZbSpire)
                         {
-                            _lZbSpire[tmpUnit.Owner].UnitAmount += 1;
+                            LZbSpire[tmpUnit.Owner].UnitAmount += 1;
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
@@ -4909,48 +4909,48 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirA1))
                                     {
-                                        _lZupAirArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirArmor1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirArmor1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirA2))
                                     {
-                                        _lZupAirArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirArmor2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirArmor2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirA3))
                                     {
-                                        _lZupAirArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirArmor3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirArmor3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirW1))
                                     {
-                                        _lZupAirWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirWeapon1[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirWeapon1[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirW2))
                                     {
-                                        _lZupAirWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirWeapon2[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirWeapon2[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
 
                                     else if (
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupAirW3))
                                     {
-                                        _lZupAirWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupAirWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZupAirWeapon3[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupAirWeapon3[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4964,8 +4964,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupUpgradeToGreaterSpire))
                                     {
-                                        _lZbGreaterspire[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZbGreaterspire[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                        LZbGreaterspire[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZbGreaterspire[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                     }
                                 }
                             }
@@ -4979,7 +4979,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  UnitId.ZbSporeCrawler ||
                                  tmpUnit.Id ==
                                  UnitId.ZbSporeCrawlerUnrooted)
-                            _lZbSpore[tmpUnit.Owner].UnitAmount += 1;
+                            LZbSpore[tmpUnit.Owner].UnitAmount += 1;
 
                             #endregion
 
@@ -4988,7 +4988,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.ZbUltraCavern)
                         {
-                            _lZbUltracavern[tmpUnit.Owner].UnitAmount += 1;
+                            LZbUltracavern[tmpUnit.Owner].UnitAmount += 1;
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
@@ -4999,8 +4999,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         tmpUnit.ProdUnitProductionId[k].Equals(
                                             UnitId.ZupChitinousPlating))
                                     {
-                                        _lZupChitinousPlating[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                        _lZupChitinousPlating[tmpUnit.Owner].ConstructionState.Add(
+                                        LZupChitinousPlating[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                        LZupChitinousPlating[tmpUnit.Owner].ConstructionState.Add(
                                             tmpUnit.ProdProcess[k]);
                                     }
                                 }
@@ -5029,7 +5029,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             UnitId.TbCcGround ||
                             tmpUnit.Id == UnitId.TbCcAir)
                         {
-                            _lTbCommandCenter[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbCommandCenter[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5037,7 +5037,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbCommandCenter[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbCommandCenter[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
@@ -5045,7 +5045,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbOrbitalGround)
                         {
-                            _lTbOrbitalCommand[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbOrbitalCommand[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5053,7 +5053,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbOrbitalCommand[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbOrbitalCommand[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
@@ -5061,7 +5061,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbBarracksGround)
                         {
-                            _lTbBarracks[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbBarracks[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5069,13 +5069,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbBarracks[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbBarracks[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbBunker)
                         {
-                            _lTbBunker[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbBunker[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5083,13 +5083,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbBunker[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbBunker[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbTurret)
                         {
-                            _lTbTurrent[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbTurrent[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5097,13 +5097,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbTurrent[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbTurrent[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbRefinery)
                         {
-                            _lTbRefinery[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbRefinery[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5111,13 +5111,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbRefinery[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbRefinery[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbSensortower)
                         {
-                            _lTbSensorTower[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbSensorTower[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5125,13 +5125,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbSensorTower[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbSensorTower[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbPlanetary)
                         {
-                            _lTbPlanetaryFortress[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbPlanetaryFortress[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5139,22 +5139,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbPlanetaryFortress[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbPlanetaryFortress[tmpUnit.Owner].ConstructionState.Add(tmp);
 
 
                             if (tmpUnit.ProdNumberOfQueuedUnits > 0)
                             {
                                 for (var k = 0; k < tmpUnit.ProdMineralCost.Count; k++)
                                 {
-                                    _lTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
-                                    _lTuScv[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
+                                    LTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
+                                    LTuScv[tmpUnit.Owner].ConstructionState.Add(tmpUnit.ProdProcess[k]);
                                 }
                             }
                         }
 
                         else if (tmpUnit.Id == UnitId.TbEbay)
                         {
-                            _lTbEbay[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbEbay[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5162,7 +5162,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbEbay[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbEbay[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
@@ -5170,7 +5170,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbFactoryGround)
                         {
-                            _lTbFactory[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbFactory[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5178,7 +5178,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbFactory[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbFactory[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
@@ -5186,7 +5186,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbStarportGround)
                         {
-                            _lTbStarport[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbStarport[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5194,7 +5194,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbStarport[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbStarport[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
@@ -5202,7 +5202,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbSupplyHidden)
                         {
-                            _lTbSupply[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbSupply[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5210,13 +5210,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbSupply[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbSupply[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbGhostacademy)
                         {
-                            _lTbGhostAcademy[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbGhostAcademy[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5224,13 +5224,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbGhostAcademy[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbGhostAcademy[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbFusioncore)
                         {
-                            _lTbFusionCore[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbFusionCore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5238,13 +5238,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbFusionCore[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbFusionCore[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.TbArmory)
                         {
-                            _lTbArmory[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbArmory[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5252,7 +5252,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbArmory[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbArmory[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
@@ -5264,7 +5264,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbTechlabStarport)
                         {
-                            _lTbTechlab[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbTechlab[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5272,7 +5272,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbTechlab[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbTechlab[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
@@ -5284,7 +5284,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.TbReactorStarport)
                         {
-                            _lTbReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTbReactor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5292,7 +5292,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lTbReactor[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LTbReactor[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                             #endregion
@@ -5300,69 +5300,69 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             #region Units
 
                         else if (tmpUnit.Id == UnitId.TuScv)
-                            _lTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuScv[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.TuMule)
-                            _lTuMule[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuMule[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuMarine)
-                            _lTuMarine[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuMarine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuMarauder)
-                            _lTuMarauder[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuMarauder[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuReaper)
-                            _lTuReaper[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuReaper[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.TuGhost)
-                            _lTuGhost[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuGhost[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuWidowMine ||
                                  tmpUnit.Id ==
                                  UnitId.TuWidowMineBurrow)
-                            _lTuWidowMine[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuWidowMine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuSiegetank ||
                                  tmpUnit.Id ==
                                  UnitId.TuSiegetankSieged)
-                            _lTuSiegetank[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuSiegetank[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.TuThor)
-                            _lTuThor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuThor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuHellbat)
-                            _lTuHellbat[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuHellbat[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuHellion)
-                            _lTuHellion[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuHellion[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuBanshee)
-                            _lTuBanshee[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuBanshee[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuBattlecruiser)
-                            _lTuBattlecruiser[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuBattlecruiser[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuMedivac)
-                            _lTuMedivac[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuMedivac[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.TuRaven)
-                            _lTuRaven[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuRaven[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.TuVikingAir ||
                                  tmpUnit.Id ==
                                  UnitId.TuVikingGround)
-                            _lTuViking[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LTuViking[tmpUnit.Owner].UnitUnderConstruction += 1;
 
 
 
@@ -5376,7 +5376,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id == UnitId.PbNexus)
                         {
-                            _lPbNexus[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbNexus[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5384,12 +5384,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbNexus[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbNexus[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id == UnitId.PbPylon)
                         {
-                            _lPbPylon[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbPylon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5397,13 +5397,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbPylon[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbPylon[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbAssimilator)
                         {
-                            _lPbAssimilator[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbAssimilator[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5411,13 +5411,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbAssimilator[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbAssimilator[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbCannon)
                         {
-                            _lPbCannon[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbCannon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5425,13 +5425,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbCannon[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbCannon[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbCybercore)
                         {
-                            _lPbCybercore[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbCybercore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5439,13 +5439,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbCybercore[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbCybercore[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbDarkshrine)
                         {
-                            _lPbDarkshrine[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbDarkshrine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5453,13 +5453,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbDarkshrine[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbDarkshrine[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbFleetbeacon)
                         {
-                            _lPbFleetbeacon[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbFleetbeacon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5467,12 +5467,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbFleetbeacon[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbFleetbeacon[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id == UnitId.PbForge)
                         {
-                            _lPbForge[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbForge[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5480,13 +5480,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbForge[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbForge[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbGateway)
                         {
-                            _lPbGateway[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbGateway[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5494,13 +5494,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbGateway[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbGateway[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbRoboticsbay)
                         {
-                            _lPbRobotics[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbRobotics[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5508,13 +5508,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbRobotics[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbRobotics[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbRoboticssupportbay)
                         {
-                            _lPbRoboticsSupport[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbRoboticsSupport[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5522,13 +5522,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbRoboticsSupport[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbRoboticsSupport[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbStargate)
                         {
-                            _lPbStargate[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbStargate[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5536,13 +5536,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbStargate[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbStargate[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbTemplararchives)
                         {
-                            _lPbTemplarArchives[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbTemplarArchives[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5550,13 +5550,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbTemplarArchives[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbTemplarArchives[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbTwilightcouncil)
                         {
-                            _lPbTwilight[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbTwilight[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5564,13 +5564,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbTwilight[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbTwilight[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.PbWarpgate)
                         {
-                            _lPbWarpgate[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPbWarpgate[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5578,7 +5578,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lPbWarpgate[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LPbWarpgate[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                             #endregion
@@ -5591,72 +5591,72 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuCarrier)
-                            _lPuCarrier[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuCarrier[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuColossus)
-                            _lPuColossus[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuColossus[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuDarktemplar)
-                            _lPuDt[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuDt[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuHightemplar)
-                            _lPuHt[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuHt[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuImmortal)
-                            _lPuImmortal[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuImmortal[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuMothership)
-                            _lPuMothership[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuMothership[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuMothershipCore)
-                            _lPuMothershipcore[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuMothershipcore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuObserver)
-                            _lPuObserver[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuObserver[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuOracle)
-                            _lPuOracle[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuOracle[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuPhoenix)
-                            _lPuPhoenix[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuPhoenix[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.PuProbe)
-                            _lPuProbe[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuProbe[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuSentry)
-                            _lPuSentry[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuSentry[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuStalker)
-                            _lPuStalker[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuStalker[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuTempest)
-                            _lPuTempest[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuTempest[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuVoidray)
-                            _lPuVoidray[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuVoidray[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuWarpprismPhase ||
                                  tmpUnit.Id ==
                                  UnitId.PuWarpprismTransport)
-                            _lPuWarpprism[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuWarpprism[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.PuZealot)
-                            _lPuZealot[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LPuZealot[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             #endregion
 
@@ -5669,7 +5669,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         else if (tmpUnit.Id ==
                                  UnitId.ZbBanelingNest)
                         {
-                            _lZbBanelingnest[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbBanelingnest[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5677,7 +5677,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbBanelingnest[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbBanelingnest[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
 
@@ -5690,7 +5690,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.ZbCreepTumorBuilding)
                         {
-                            _lZbCreepTumor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbCreepTumor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5698,13 +5698,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbCreepTumor[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbCreepTumor[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbEvolutionChamber)
                         {
-                            _lZbEvochamber[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbEvochamber[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5712,13 +5712,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbEvochamber[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbEvochamber[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbExtractor)
                         {
-                            _lZbExtractor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbExtractor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5726,13 +5726,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbExtractor[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbExtractor[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbGreaterspire)
                         {
-                            _lZbGreaterspire[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbGreaterspire[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5740,13 +5740,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbGreaterspire[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbGreaterspire[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbHatchery)
                         {
-                            _lZbHatchery[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbHatchery[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5754,12 +5754,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbHatchery[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbHatchery[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id == UnitId.ZbHive)
                         {
-                            _lZbHive[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbHive[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5767,13 +5767,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbHive[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbHive[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbHydraDen)
                         {
-                            _lZbHydraden[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbHydraden[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5781,13 +5781,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbHydraden[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbHydraden[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbInfestationPit)
                         {
-                            _lZbInfestationpit[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbInfestationpit[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5795,12 +5795,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbInfestationpit[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbInfestationpit[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id == UnitId.ZbLiar)
                         {
-                            _lZbLair[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbLair[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5808,13 +5808,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbLair[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbLair[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbNydusNetwork)
                         {
-                            _lZbNydusbegin[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbNydusbegin[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5822,22 +5822,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbNydusbegin[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbNydusbegin[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbNydusWorm)
                         {
-                            _lZbNydusend[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbNydusend[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp = tmpUnit.AliveSince/81920f * 100;
-                            _lZbNydusend[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbNydusend[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbRoachWarren)
                         {
-                            _lZbRoachwarren[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbRoachwarren[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5845,13 +5845,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbRoachwarren[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbRoachwarren[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbSpawningPool)
                         {
-                            _lZbSpawningpool[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbSpawningpool[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5859,7 +5859,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbSpawningpool[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbSpawningpool[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
@@ -5867,7 +5867,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.ZbSpineCrawlerUnrooted)
                         {
-                            _lZbSpine[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbSpine[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5875,12 +5875,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbSpine[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbSpine[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id == UnitId.ZbSpire)
                         {
-                            _lZbSpire[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbSpire[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5888,7 +5888,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbSpire[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbSpire[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
@@ -5896,7 +5896,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  tmpUnit.Id ==
                                  UnitId.ZbSporeCrawlerUnrooted)
                         {
-                            _lZbSpore[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbSpore[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5904,13 +5904,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                         ((tmpUnit.MaximumHealth -
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
-                            _lZbSpore[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbSpore[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZbUltraCavern)
                         {
-                            _lZbUltracavern[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZbUltracavern[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                             var tmp =
                                 (float)
@@ -5919,7 +5919,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                           tmpUnit.DamageTaken)/
                                          (float) tmpUnit.MaximumHealth)*100, 1);
 
-                            _lZbUltracavern[tmpUnit.Owner].ConstructionState.Add(tmp);
+                            LZbUltracavern[tmpUnit.Owner].ConstructionState.Add(tmp);
                         }
 
                             #endregion
@@ -5930,89 +5930,89 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                                  UnitId.ZuBaneling ||
                                  tmpUnit.Id ==
                                  UnitId.ZuBanelingBurrow)
-                            _lZuBaneling[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuBaneling[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuBanelingCocoon)
-                            _lZuBanelingCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuBanelingCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuBroodlord)
-                            _lZuBroodlord[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuBroodlord[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuBroodlordCocoon)
-                            _lZuBroodlordCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuBroodlordCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuCorruptor)
-                            _lZuCorruptor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuCorruptor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuDrone ||
                                  tmpUnit.Id ==
                                  UnitId.ZuDroneBurrow)
-                            _lZuDrone[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuDrone[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuHydraBurrow ||
                                  tmpUnit.Id ==
                                  UnitId.ZuHydralisk)
-                            _lZuHydra[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuHydra[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuInfestor ||
                                  tmpUnit.Id ==
                                  UnitId.ZuInfestorBurrow)
-                            _lZuInfestor[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuInfestor[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuLarva)
-                            _lZuLarva[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuLarva[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuMutalisk)
-                            _lZuMutalisk[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuMutalisk[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuOverlord)
-                            _lZuOverlord[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuOverlord[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuOverseer)
-                            _lZuOverseer[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuOverseer[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuOverseerCocoon)
-                            _lZuOverseerCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuOverseerCocoon[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuQueen ||
                                  tmpUnit.Id ==
                                  UnitId.ZuQueenBurrow)
-                            _lZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuQueen[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuRoach ||
                                  tmpUnit.Id ==
                                  UnitId.ZuRoachBurrow)
-                            _lZuRoach[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuRoach[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuSwarmHost ||
                                  tmpUnit.Id ==
                                  UnitId.ZuSwarmHostBurrow)
-                            _lZuSwarmhost[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuSwarmhost[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuUltra ||
                                  tmpUnit.Id ==
                                  UnitId.ZuUltraBurrow)
-                            _lZuUltralisk[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuUltralisk[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id == UnitId.ZuViper)
-                            _lZuViper[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuViper[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         else if (tmpUnit.Id ==
                                  UnitId.ZuZergling ||
                                  tmpUnit.Id ==
                                  UnitId.ZuZerglingBurrow)
-                            _lZuZergling[tmpUnit.Owner].UnitUnderConstruction += 1;
+                            LZuZergling[tmpUnit.Owner].UnitUnderConstruction += 1;
 
                         #endregion
 
@@ -6026,223 +6026,223 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                 #region Terran
 
-                SortConstructionStates(ref _lTbArmory);
-                SortConstructionStates(ref _lTbAutoTurret);
-                SortConstructionStates(ref _lTbBarracks);
-                SortConstructionStates(ref _lTbBunker);
-                SortConstructionStates(ref _lTbCommandCenter);
-                SortConstructionStates(ref _lTbEbay);
-                SortConstructionStates(ref _lTbFactory);
-                SortConstructionStates(ref _lTbFusionCore);
-                SortConstructionStates(ref _lTbGhostAcademy);
-                SortConstructionStates(ref _lTbOrbitalCommand);
-                SortConstructionStates(ref _lTbPlanetaryFortress);
-                SortConstructionStates(ref _lTbReactor);
-                SortConstructionStates(ref _lTbRefinery);
-                SortConstructionStates(ref _lTbSensorTower);
-                SortConstructionStates(ref _lTbStarport);
-                SortConstructionStates(ref _lTbSupply);
-                SortConstructionStates(ref _lTbTechlab);
-                SortConstructionStates(ref _lTbTurrent);
+                SortConstructionStates(ref LTbArmory);
+                SortConstructionStates(ref LTbAutoTurret);
+                SortConstructionStates(ref LTbBarracks);
+                SortConstructionStates(ref LTbBunker);
+                SortConstructionStates(ref LTbCommandCenter);
+                SortConstructionStates(ref LTbEbay);
+                SortConstructionStates(ref LTbFactory);
+                SortConstructionStates(ref LTbFusionCore);
+                SortConstructionStates(ref LTbGhostAcademy);
+                SortConstructionStates(ref LTbOrbitalCommand);
+                SortConstructionStates(ref LTbPlanetaryFortress);
+                SortConstructionStates(ref LTbReactor);
+                SortConstructionStates(ref LTbRefinery);
+                SortConstructionStates(ref LTbSensorTower);
+                SortConstructionStates(ref LTbStarport);
+                SortConstructionStates(ref LTbSupply);
+                SortConstructionStates(ref LTbTechlab);
+                SortConstructionStates(ref LTbTurrent);
 
-                SortConstructionStates(ref _lTuBanshee);
-                SortConstructionStates(ref _lTuBattlecruiser);
-                SortConstructionStates(ref _lTuGhost);
-                SortConstructionStates(ref _lTuHellbat);
-                SortConstructionStates(ref _lTuHellion);
-                SortConstructionStates(ref _lTuMarauder);
-                SortConstructionStates(ref _lTuMarine);
-                SortConstructionStates(ref _lTuMedivac);
-                SortAliveSinceStates(ref _lTuMule);
-                SortConstructionStates(ref _lTuNuke);
-                SortConstructionStates(ref _lTuPointDefenseDrone);
-                SortConstructionStates(ref _lTuRaven);
-                SortConstructionStates(ref _lTuReaper);
-                SortConstructionStates(ref _lTuScv);
-                SortConstructionStates(ref _lTuSiegetank);
-                SortConstructionStates(ref _lTuThor);
-                SortConstructionStates(ref _lTuViking);
-                SortConstructionStates(ref _lTuWidowMine);
+                SortConstructionStates(ref LTuBanshee);
+                SortConstructionStates(ref LTuBattlecruiser);
+                SortConstructionStates(ref LTuGhost);
+                SortConstructionStates(ref LTuHellbat);
+                SortConstructionStates(ref LTuHellion);
+                SortConstructionStates(ref LTuMarauder);
+                SortConstructionStates(ref LTuMarine);
+                SortConstructionStates(ref LTuMedivac);
+                SortAliveSinceStates(ref LTuMule);
+                SortConstructionStates(ref LTuNuke);
+                SortConstructionStates(ref LTuPointDefenseDrone);
+                SortConstructionStates(ref LTuRaven);
+                SortConstructionStates(ref LTuReaper);
+                SortConstructionStates(ref LTuScv);
+                SortConstructionStates(ref LTuSiegetank);
+                SortConstructionStates(ref LTuThor);
+                SortConstructionStates(ref LTuViking);
+                SortConstructionStates(ref LTuWidowMine);
 
-                SortConstructionStates(ref _lTupBehemothReactor);
-                SortConstructionStates(ref _lTupBlueFlame);
-                SortConstructionStates(ref _lTupCaduceusReactor);
-                SortConstructionStates(ref _lTupCloakingField);
-                SortConstructionStates(ref _lTupCombatShields);
-                SortConstructionStates(ref _lTupConcussiveShells);
-                SortConstructionStates(ref _lTupCorvidReactor);
-                SortConstructionStates(ref _lTupDrillingClaws);
-                SortConstructionStates(ref _lTupDurableMaterials);
-                SortConstructionStates(ref _lTupHighSecAutoTracking);
-                SortConstructionStates(ref _lTupInfantryArmor1);
-                SortConstructionStates(ref _lTupInfantryArmor2);
-                SortConstructionStates(ref _lTupInfantryArmor3);
-                SortConstructionStates(ref _lTupInfantryWeapon1);
-                SortConstructionStates(ref _lTupInfantryWeapon2);
-                SortConstructionStates(ref _lTupInfantryWeapon3);
-                SortConstructionStates(ref _lTupMoebiusReactor);
-                SortConstructionStates(ref _lTupNeosteelFrame);
-                SortConstructionStates(ref _lTupOrbitalCommand);
-                SortConstructionStates(ref _lTupPersonalCloak);
-                SortConstructionStates(ref _lTupPlanetaryFortress);
-                SortConstructionStates(ref _lTupShipWeapon1);
-                SortConstructionStates(ref _lTupShipWeapon2);
-                SortConstructionStates(ref _lTupShipWeapon3);
-                SortConstructionStates(ref _lTupStim);
-                SortConstructionStates(ref _lTupStructureArmor);
-                SortConstructionStates(ref _lTupTransformationServos);
-                SortConstructionStates(ref _lTupVehicleShipPlanting1);
-                SortConstructionStates(ref _lTupVehicleShipPlanting2);
-                SortConstructionStates(ref _lTupVehicleShipPlanting3);
-                SortConstructionStates(ref _lTupVehicleWeapon1);
-                SortConstructionStates(ref _lTupVehicleWeapon2);
-                SortConstructionStates(ref _lTupVehicleWeapon3);
-                SortConstructionStates(ref _lTupWeaponRefit);
+                SortConstructionStates(ref LTupBehemothReactor);
+                SortConstructionStates(ref LTupBlueFlame);
+                SortConstructionStates(ref LTupCaduceusReactor);
+                SortConstructionStates(ref LTupCloakingField);
+                SortConstructionStates(ref LTupCombatShields);
+                SortConstructionStates(ref LTupConcussiveShells);
+                SortConstructionStates(ref LTupCorvidReactor);
+                SortConstructionStates(ref LTupDrillingClaws);
+                SortConstructionStates(ref LTupDurableMaterials);
+                SortConstructionStates(ref LTupHighSecAutoTracking);
+                SortConstructionStates(ref LTupInfantryArmor1);
+                SortConstructionStates(ref LTupInfantryArmor2);
+                SortConstructionStates(ref LTupInfantryArmor3);
+                SortConstructionStates(ref LTupInfantryWeapon1);
+                SortConstructionStates(ref LTupInfantryWeapon2);
+                SortConstructionStates(ref LTupInfantryWeapon3);
+                SortConstructionStates(ref LTupMoebiusReactor);
+                SortConstructionStates(ref LTupNeosteelFrame);
+                SortConstructionStates(ref LTupOrbitalCommand);
+                SortConstructionStates(ref LTupPersonalCloak);
+                SortConstructionStates(ref LTupPlanetaryFortress);
+                SortConstructionStates(ref LTupShipWeapon1);
+                SortConstructionStates(ref LTupShipWeapon2);
+                SortConstructionStates(ref LTupShipWeapon3);
+                SortConstructionStates(ref LTupStim);
+                SortConstructionStates(ref LTupStructureArmor);
+                SortConstructionStates(ref LTupTransformationServos);
+                SortConstructionStates(ref LTupVehicleShipPlanting1);
+                SortConstructionStates(ref LTupVehicleShipPlanting2);
+                SortConstructionStates(ref LTupVehicleShipPlanting3);
+                SortConstructionStates(ref LTupVehicleWeapon1);
+                SortConstructionStates(ref LTupVehicleWeapon2);
+                SortConstructionStates(ref LTupVehicleWeapon3);
+                SortConstructionStates(ref LTupWeaponRefit);
 
                 #endregion
 
                 #region Protoss
 
-                SortConstructionStates(ref _lPbAssimilator);
-                SortConstructionStates(ref _lPbCannon);
-                SortConstructionStates(ref _lPbCybercore);
-                SortConstructionStates(ref _lPbDarkshrine);
-                SortConstructionStates(ref _lPbFleetbeacon);
-                SortConstructionStates(ref _lPbForge);
-                SortConstructionStates(ref _lPbGateway);
-                SortConstructionStates(ref _lPbNexus);
-                SortConstructionStates(ref _lPbPylon);
-                SortConstructionStates(ref _lPbRobotics);
-                SortConstructionStates(ref _lPbRoboticsSupport);
-                SortConstructionStates(ref _lPbStargate);
-                SortConstructionStates(ref _lPbTemplarArchives);
-                SortConstructionStates(ref _lPbTwilight);
-                SortConstructionStates(ref _lPbWarpgate);
+                SortConstructionStates(ref LPbAssimilator);
+                SortConstructionStates(ref LPbCannon);
+                SortConstructionStates(ref LPbCybercore);
+                SortConstructionStates(ref LPbDarkshrine);
+                SortConstructionStates(ref LPbFleetbeacon);
+                SortConstructionStates(ref LPbForge);
+                SortConstructionStates(ref LPbGateway);
+                SortConstructionStates(ref LPbNexus);
+                SortConstructionStates(ref LPbPylon);
+                SortConstructionStates(ref LPbRobotics);
+                SortConstructionStates(ref LPbRoboticsSupport);
+                SortConstructionStates(ref LPbStargate);
+                SortConstructionStates(ref LPbTemplarArchives);
+                SortConstructionStates(ref LPbTwilight);
+                SortConstructionStates(ref LPbWarpgate);
 
-                SortConstructionStates(ref _lPuArchon);
-                SortConstructionStates(ref _lPuCarrier);
-                SortConstructionStates(ref _lPuColossus);
-                SortConstructionStates(ref _lPuDt);
-                SortConstructionStates(ref _lPuHt);
-                SortConstructionStates(ref _lPuImmortal);
-                SortConstructionStates(ref _lPuMothership);
-                SortConstructionStates(ref _lPuMothershipcore);
-                SortConstructionStates(ref _lPuObserver);
-                SortConstructionStates(ref _lPuOracle);
-                SortConstructionStates(ref _lPuPhoenix);
-                SortConstructionStates(ref _lPuProbe);
-                SortConstructionStates(ref _lPuSentry);
-                SortConstructionStates(ref _lPuStalker);
-                SortConstructionStates(ref _lPuTempest);
-                SortConstructionStates(ref _lPuVoidray);
-                SortConstructionStates(ref _lPuWarpprism);
-                SortConstructionStates(ref _lPuZealot);
-                SortAliveSinceStates(ref _lPuForcefield);
+                SortConstructionStates(ref LPuArchon);
+                SortConstructionStates(ref LPuCarrier);
+                SortConstructionStates(ref LPuColossus);
+                SortConstructionStates(ref LPuDt);
+                SortConstructionStates(ref LPuHt);
+                SortConstructionStates(ref LPuImmortal);
+                SortConstructionStates(ref LPuMothership);
+                SortConstructionStates(ref LPuMothershipcore);
+                SortConstructionStates(ref LPuObserver);
+                SortConstructionStates(ref LPuOracle);
+                SortConstructionStates(ref LPuPhoenix);
+                SortConstructionStates(ref LPuProbe);
+                SortConstructionStates(ref LPuSentry);
+                SortConstructionStates(ref LPuStalker);
+                SortConstructionStates(ref LPuTempest);
+                SortConstructionStates(ref LPuVoidray);
+                SortConstructionStates(ref LPuWarpprism);
+                SortConstructionStates(ref LPuZealot);
+                SortAliveSinceStates(ref LPuForcefield);
 
-                SortConstructionStates(ref _lPupAirArmor1);
-                SortConstructionStates(ref _lPupAirArmor2);
-                SortConstructionStates(ref _lPupAirArmor3);
-                SortConstructionStates(ref _lPupAirWeapon1);
-                SortConstructionStates(ref _lPupAirWeapon2);
-                SortConstructionStates(ref _lPupAirWeapon3);
-                SortConstructionStates(ref _lPupAnionPulseCrystal);
-                SortConstructionStates(ref _lPupBlink);
-                SortConstructionStates(ref _lPupCharge);
-                SortConstructionStates(ref _lPupExtendedThermalLance);
-                SortConstructionStates(ref _lPupGraviticBooster);
-                SortConstructionStates(ref _lPupGraviticDrive);
-                SortConstructionStates(ref _lPupGravitonCatapult);
-                SortConstructionStates(ref _lPupGroundArmor1);
-                SortConstructionStates(ref _lPupGroundArmor2);
-                SortConstructionStates(ref _lPupGroundArmor3);
-                SortConstructionStates(ref _lPupGroundWeapon1);
-                SortConstructionStates(ref _lPupGroundWeapon2);
-                SortConstructionStates(ref _lPupGroundWeapon3);
-                SortConstructionStates(ref _lPupShield1);
-                SortConstructionStates(ref _lPupShield2);
-                SortConstructionStates(ref _lPupShield3);
-                SortConstructionStates(ref _lPupStorm);
-                SortConstructionStates(ref _lPupWarpGate);
+                SortConstructionStates(ref LPupAirArmor1);
+                SortConstructionStates(ref LPupAirArmor2);
+                SortConstructionStates(ref LPupAirArmor3);
+                SortConstructionStates(ref LPupAirWeapon1);
+                SortConstructionStates(ref LPupAirWeapon2);
+                SortConstructionStates(ref LPupAirWeapon3);
+                SortConstructionStates(ref LPupAnionPulseCrystal);
+                SortConstructionStates(ref LPupBlink);
+                SortConstructionStates(ref LPupCharge);
+                SortConstructionStates(ref LPupExtendedThermalLance);
+                SortConstructionStates(ref LPupGraviticBooster);
+                SortConstructionStates(ref LPupGraviticDrive);
+                SortConstructionStates(ref LPupGravitonCatapult);
+                SortConstructionStates(ref LPupGroundArmor1);
+                SortConstructionStates(ref LPupGroundArmor2);
+                SortConstructionStates(ref LPupGroundArmor3);
+                SortConstructionStates(ref LPupGroundWeapon1);
+                SortConstructionStates(ref LPupGroundWeapon2);
+                SortConstructionStates(ref LPupGroundWeapon3);
+                SortConstructionStates(ref LPupShield1);
+                SortConstructionStates(ref LPupShield2);
+                SortConstructionStates(ref LPupShield3);
+                SortConstructionStates(ref LPupStorm);
+                SortConstructionStates(ref LPupWarpGate);
 
                 #endregion
 
                 #region Zerg
 
-                SortConstructionStates(ref _lZbBanelingnest);
-                SortConstructionStates(ref _lZbCreepTumor);
-                SortConstructionStates(ref _lZbEvochamber);
-                SortConstructionStates(ref _lZbExtractor);
-                SortConstructionStates(ref _lZbGreaterspire);
-                SortConstructionStates(ref _lZbHatchery);
-                SortConstructionStates(ref _lZbHive);
-                SortConstructionStates(ref _lZbHydraden);
-                SortConstructionStates(ref _lZbInfestationpit);
-                SortConstructionStates(ref _lZbLair);
-                SortConstructionStates(ref _lZbNydusbegin);
-                SortConstructionStates(ref _lZbNydusend);
-                SortConstructionStates(ref _lZbRoachwarren);
-                SortConstructionStates(ref _lZbSpawningpool);
-                SortConstructionStates(ref _lZbSpine);
-                SortConstructionStates(ref _lZbSpire);
-                SortConstructionStates(ref _lZbSpore);
-                SortConstructionStates(ref _lZbUltracavern);
+                SortConstructionStates(ref LZbBanelingnest);
+                SortConstructionStates(ref LZbCreepTumor);
+                SortConstructionStates(ref LZbEvochamber);
+                SortConstructionStates(ref LZbExtractor);
+                SortConstructionStates(ref LZbGreaterspire);
+                SortConstructionStates(ref LZbHatchery);
+                SortConstructionStates(ref LZbHive);
+                SortConstructionStates(ref LZbHydraden);
+                SortConstructionStates(ref LZbInfestationpit);
+                SortConstructionStates(ref LZbLair);
+                SortConstructionStates(ref LZbNydusbegin);
+                SortConstructionStates(ref LZbNydusend);
+                SortConstructionStates(ref LZbRoachwarren);
+                SortConstructionStates(ref LZbSpawningpool);
+                SortConstructionStates(ref LZbSpine);
+                SortConstructionStates(ref LZbSpire);
+                SortConstructionStates(ref LZbSpore);
+                SortConstructionStates(ref LZbUltracavern);
 
-                SortConstructionStates(ref _lZuBaneling);
-                SortConstructionStates(ref _lZuBanelingCocoon);
-                SortConstructionStates(ref _lZuBroodlord);
-                SortConstructionStates(ref _lZuBroodlordCocoon);
-                SortConstructionStates(ref _lZuCorruptor);
-                SortConstructionStates(ref _lZuDrone);
-                SortConstructionStates(ref _lZuHydra);
-                SortConstructionStates(ref _lZuInfestor);
-                SortConstructionStates(ref _lZuInfestedTerranEgg);
-                SortConstructionStates(ref _lZuLarva);
-                SortConstructionStates(ref _lZuMutalisk);
-                SortConstructionStates(ref _lZuOverlord);
-                SortConstructionStates(ref _lZuOverseer);
-                SortConstructionStates(ref _lZuOverseerCocoon);
-                SortConstructionStates(ref _lZuQueen);
-                SortConstructionStates(ref _lZuRoach);
-                SortConstructionStates(ref _lZuSwarmhost);
-                SortConstructionStates(ref _lZuUltralisk);
-                SortConstructionStates(ref _lZuViper);
-                SortConstructionStates(ref _lZuZergling);
-                SortAliveSinceStates(ref _lZuBroodling);
-                SortAliveSinceStates(ref _lZuLocust);
-                SortAliveSinceStates(ref _lZuFlyingLocust);
-                SortAliveSinceStates(ref _lZuChangeling);
-                SortAliveSinceStates(ref _lZuInfestedTerran);
+                SortConstructionStates(ref LZuBaneling);
+                SortConstructionStates(ref LZuBanelingCocoon);
+                SortConstructionStates(ref LZuBroodlord);
+                SortConstructionStates(ref LZuBroodlordCocoon);
+                SortConstructionStates(ref LZuCorruptor);
+                SortConstructionStates(ref LZuDrone);
+                SortConstructionStates(ref LZuHydra);
+                SortConstructionStates(ref LZuInfestor);
+                SortConstructionStates(ref LZuInfestedTerranEgg);
+                SortConstructionStates(ref LZuLarva);
+                SortConstructionStates(ref LZuMutalisk);
+                SortConstructionStates(ref LZuOverlord);
+                SortConstructionStates(ref LZuOverseer);
+                SortConstructionStates(ref LZuOverseerCocoon);
+                SortConstructionStates(ref LZuQueen);
+                SortConstructionStates(ref LZuRoach);
+                SortConstructionStates(ref LZuSwarmhost);
+                SortConstructionStates(ref LZuUltralisk);
+                SortConstructionStates(ref LZuViper);
+                SortConstructionStates(ref LZuZergling);
+                SortAliveSinceStates(ref LZuBroodling);
+                SortAliveSinceStates(ref LZuLocust);
+                SortAliveSinceStates(ref LZuFlyingLocust);
+                SortAliveSinceStates(ref LZuChangeling);
+                SortAliveSinceStates(ref LZuInfestedTerran);
                 
 
-                SortConstructionStates(ref _lZupAdrenalGlands);
-                SortConstructionStates(ref _lZupAirArmor1);
-                SortConstructionStates(ref _lZupAirArmor2);
-                SortConstructionStates(ref _lZupAirArmor3);
-                SortConstructionStates(ref _lZupAirWeapon1);
-                SortConstructionStates(ref _lZupAirWeapon2);
-                SortConstructionStates(ref _lZupAirWeapon3);
-                SortConstructionStates(ref _lZupBurrow);
-                SortConstructionStates(ref _lZupCentrifugalHooks);
-                SortConstructionStates(ref _lZupChitinousPlating);
-                SortConstructionStates(ref _lZupEnduringLocusts);
-                SortConstructionStates(ref _lZupGlialReconstruction);
-                SortConstructionStates(ref _lZupGroovedSpines);
-                SortConstructionStates(ref _lZupGroundArmor1);
-                SortConstructionStates(ref _lZupGroundArmor2);
-                SortConstructionStates(ref _lZupGroundArmor3);
-                SortConstructionStates(ref _lZupGroundMelee1);
-                SortConstructionStates(ref _lZupGroundMelee2);
-                SortConstructionStates(ref _lZupGroundMelee3);
-                SortConstructionStates(ref _lZupGroundWeapon1);
-                SortConstructionStates(ref _lZupGroundWeapon2);
-                SortConstructionStates(ref _lZupGroundWeapon3);
-                SortConstructionStates(ref _lZupMetabolicBoost);
-                SortConstructionStates(ref _lZupMuscularAugments);
-                SortConstructionStates(ref _lZupNeutralParasite);
-                SortConstructionStates(ref _lZupPathoglenGlands);
-                SortConstructionStates(ref _lZupPneumatizedCarapace);
-                SortConstructionStates(ref _lZupTunnnelingClaws);
-                SortConstructionStates(ref _lZupVentralSacs);
+                SortConstructionStates(ref LZupAdrenalGlands);
+                SortConstructionStates(ref LZupAirArmor1);
+                SortConstructionStates(ref LZupAirArmor2);
+                SortConstructionStates(ref LZupAirArmor3);
+                SortConstructionStates(ref LZupAirWeapon1);
+                SortConstructionStates(ref LZupAirWeapon2);
+                SortConstructionStates(ref LZupAirWeapon3);
+                SortConstructionStates(ref LZupBurrow);
+                SortConstructionStates(ref LZupCentrifugalHooks);
+                SortConstructionStates(ref LZupChitinousPlating);
+                SortConstructionStates(ref LZupEnduringLocusts);
+                SortConstructionStates(ref LZupGlialReconstruction);
+                SortConstructionStates(ref LZupGroovedSpines);
+                SortConstructionStates(ref LZupGroundArmor1);
+                SortConstructionStates(ref LZupGroundArmor2);
+                SortConstructionStates(ref LZupGroundArmor3);
+                SortConstructionStates(ref LZupGroundMelee1);
+                SortConstructionStates(ref LZupGroundMelee2);
+                SortConstructionStates(ref LZupGroundMelee3);
+                SortConstructionStates(ref LZupGroundWeapon1);
+                SortConstructionStates(ref LZupGroundWeapon2);
+                SortConstructionStates(ref LZupGroundWeapon3);
+                SortConstructionStates(ref LZupMetabolicBoost);
+                SortConstructionStates(ref LZupMuscularAugments);
+                SortConstructionStates(ref LZupNeutralParasite);
+                SortConstructionStates(ref LZupPathoglenGlands);
+                SortConstructionStates(ref LZupPneumatizedCarapace);
+                SortConstructionStates(ref LZupTunnnelingClaws);
+                SortConstructionStates(ref LZupVentralSacs);
 
                 #endregion
 

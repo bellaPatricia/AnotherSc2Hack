@@ -186,132 +186,132 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (PSettings.PreferenceAll.OverlayProduction.ShowUnits)
                     {
                         /* Terran */
-                        Helper_DrawUnitsProduction(_lTuScv, i, ref iPosX, iPosY, iSize, _imgTuScv, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LTuScv, i, ref iPosX, iPosY, iSize, ImgTuScv, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuMarine, i, ref iPosX, iPosY, iSize, _imgTuMarine, g,
+                        Helper_DrawUnitsProduction(LTuMarine, i, ref iPosX, iPosY, iSize, ImgTuMarine, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuMarauder, i, ref iPosX, iPosY, iSize, _imgTuMarauder, g,
+                        Helper_DrawUnitsProduction(LTuMarauder, i, ref iPosX, iPosY, iSize, ImgTuMarauder, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuReaper, i, ref iPosX, iPosY, iSize, _imgTuReaper, g,
+                        Helper_DrawUnitsProduction(LTuReaper, i, ref iPosX, iPosY, iSize, ImgTuReaper, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuGhost, i, ref iPosX, iPosY, iSize, _imgTuGhost, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LTuGhost, i, ref iPosX, iPosY, iSize, ImgTuGhost, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuMule, i, ref iPosX, iPosY, iSize, _imgTuMule, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LTuMule, i, ref iPosX, iPosY, iSize, ImgTuMule, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuHellion, i, ref iPosX, iPosY, iSize, _imgTuHellion, g,
+                        Helper_DrawUnitsProduction(LTuHellion, i, ref iPosX, iPosY, iSize, ImgTuHellion, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuHellbat, i, ref iPosX, iPosY, iSize, _imgTuHellbat, g,
+                        Helper_DrawUnitsProduction(LTuHellbat, i, ref iPosX, iPosY, iSize, ImgTuHellbat, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuWidowMine, i, ref iPosX, iPosY, iSize, _imgTuWidowMine, g,
+                        Helper_DrawUnitsProduction(LTuWidowMine, i, ref iPosX, iPosY, iSize, ImgTuWidowMine, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuSiegetank, i, ref iPosX, iPosY, iSize, _imgTuSiegetank, g,
+                        Helper_DrawUnitsProduction(LTuSiegetank, i, ref iPosX, iPosY, iSize, ImgTuSiegetank, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuThor, i, ref iPosX, iPosY, iSize, _imgTuThor, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LTuThor, i, ref iPosX, iPosY, iSize, ImgTuThor, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuMedivac, i, ref iPosX, iPosY, iSize, _imgTuMedivac, g,
+                        Helper_DrawUnitsProduction(LTuMedivac, i, ref iPosX, iPosY, iSize, ImgTuMedivac, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuBanshee, i, ref iPosX, iPosY, iSize, _imgTuBanshee, g,
+                        Helper_DrawUnitsProduction(LTuBanshee, i, ref iPosX, iPosY, iSize, ImgTuBanshee, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuViking, i, ref iPosX, iPosY, iSize, _imgTuViking, g,
+                        Helper_DrawUnitsProduction(LTuViking, i, ref iPosX, iPosY, iSize, ImgTuViking, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuRaven, i, ref iPosX, iPosY, iSize, _imgTuRaven, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LTuRaven, i, ref iPosX, iPosY, iSize, ImgTuRaven, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuBattlecruiser, i, ref iPosX, iPosY, iSize, _imgTuBattlecruiser, g,
+                        Helper_DrawUnitsProduction(LTuBattlecruiser, i, ref iPosX, iPosY, iSize, ImgTuBattlecruiser, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTbAutoTurret, i, ref iPosX, iPosY, iSize, _imgTbAutoTurret, g,
+                        Helper_DrawUnitsProduction(LTbAutoTurret, i, ref iPosX, iPosY, iSize, ImgTbAutoTurret, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuPointDefenseDrone, i, ref iPosX, iPosY, iSize,
-                            _imgTuPointDefenseDrone, g, clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTuNuke, i, ref iPosX, iPosY, iSize,
-                            _imgTuNuke, g, clPlayercolor, fStringFont, false);
+                        Helper_DrawUnitsProduction(LTuPointDefenseDrone, i, ref iPosX, iPosY, iSize,
+                            ImgTuPointDefenseDrone, g, clPlayercolor, fStringFont, false);
+                        Helper_DrawUnitsProduction(LTuNuke, i, ref iPosX, iPosY, iSize,
+                            ImgTuNuke, g, clPlayercolor, fStringFont, false);
 
 
                         /* Protoss */
-                        Helper_DrawUnitsProduction(_lPuProbe, i, ref iPosX, iPosY, iSize, _imgPuProbe, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LPuProbe, i, ref iPosX, iPosY, iSize, ImgPuProbe, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuZealot, i, ref iPosX, iPosY, iSize, _imgPuZealot, g,
+                        Helper_DrawUnitsProduction(LPuZealot, i, ref iPosX, iPosY, iSize, ImgPuZealot, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuStalker, i, ref iPosX, iPosY, iSize, _imgPuStalker, g,
+                        Helper_DrawUnitsProduction(LPuStalker, i, ref iPosX, iPosY, iSize, ImgPuStalker, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuSentry, i, ref iPosX, iPosY, iSize, _imgPuSentry, g,
+                        Helper_DrawUnitsProduction(LPuSentry, i, ref iPosX, iPosY, iSize, ImgPuSentry, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuDt, i, ref iPosX, iPosY, iSize, _imgPuDarkTemplar, g,
+                        Helper_DrawUnitsProduction(LPuDt, i, ref iPosX, iPosY, iSize, ImgPuDarkTemplar, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuHt, i, ref iPosX, iPosY, iSize, _imgPuHighTemplar, g,
+                        Helper_DrawUnitsProduction(LPuHt, i, ref iPosX, iPosY, iSize, ImgPuHighTemplar, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuArchon, i, ref iPosX, iPosY, iSize, _imgPuArchon, g,
+                        Helper_DrawUnitsProduction(LPuArchon, i, ref iPosX, iPosY, iSize, ImgPuArchon, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuImmortal, i, ref iPosX, iPosY, iSize, _imgPuImmortal, g,
+                        Helper_DrawUnitsProduction(LPuImmortal, i, ref iPosX, iPosY, iSize, ImgPuImmortal, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuColossus, i, ref iPosX, iPosY, iSize, _imgPuColossus, g,
+                        Helper_DrawUnitsProduction(LPuColossus, i, ref iPosX, iPosY, iSize, ImgPuColossus, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuObserver, i, ref iPosX, iPosY, iSize, _imgPuObserver, g,
+                        Helper_DrawUnitsProduction(LPuObserver, i, ref iPosX, iPosY, iSize, ImgPuObserver, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuWarpprism, i, ref iPosX, iPosY, iSize, _imgPuWapprism, g,
+                        Helper_DrawUnitsProduction(LPuWarpprism, i, ref iPosX, iPosY, iSize, ImgPuWapprism, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuPhoenix, i, ref iPosX, iPosY, iSize, _imgPuPhoenix, g,
+                        Helper_DrawUnitsProduction(LPuPhoenix, i, ref iPosX, iPosY, iSize, ImgPuPhoenix, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuVoidray, i, ref iPosX, iPosY, iSize, _imgPuVoidray, g,
+                        Helper_DrawUnitsProduction(LPuVoidray, i, ref iPosX, iPosY, iSize, ImgPuVoidray, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuOracle, i, ref iPosX, iPosY, iSize, _imgPuOracle, g,
+                        Helper_DrawUnitsProduction(LPuOracle, i, ref iPosX, iPosY, iSize, ImgPuOracle, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuCarrier, i, ref iPosX, iPosY, iSize, _imgPuCarrier, g,
+                        Helper_DrawUnitsProduction(LPuCarrier, i, ref iPosX, iPosY, iSize, ImgPuCarrier, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuTempest, i, ref iPosX, iPosY, iSize, _imgPuTempest, g,
+                        Helper_DrawUnitsProduction(LPuTempest, i, ref iPosX, iPosY, iSize, ImgPuTempest, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuMothershipcore, i, ref iPosX, iPosY, iSize, _imgPuMothershipcore,
+                        Helper_DrawUnitsProduction(LPuMothershipcore, i, ref iPosX, iPosY, iSize, ImgPuMothershipcore,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPuMothership, i, ref iPosX, iPosY, iSize, _imgPuMothership, g,
+                        Helper_DrawUnitsProduction(LPuMothership, i, ref iPosX, iPosY, iSize, ImgPuMothership, g,
                             clPlayercolor, fStringFont, false);
 
                         /* Zerg */
-                        Helper_DrawUnitsProduction(_lZuLarva, i, ref iPosX, iPosY, iSize, _imgZuLarva, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LZuLarva, i, ref iPosX, iPosY, iSize, ImgZuLarva, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuDrone, i, ref iPosX, iPosY, iSize, _imgZuDrone, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LZuDrone, i, ref iPosX, iPosY, iSize, ImgZuDrone, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuOverlord, i, ref iPosX, iPosY, iSize, _imgZuOverlord, g,
+                        Helper_DrawUnitsProduction(LZuOverlord, i, ref iPosX, iPosY, iSize, ImgZuOverlord, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuQueen, i, ref iPosX, iPosY, iSize, _imgZuQueen, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LZuQueen, i, ref iPosX, iPosY, iSize, ImgZuQueen, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuZergling, i, ref iPosX, iPosY, iSize, _imgZuZergling, g,
+                        Helper_DrawUnitsProduction(LZuZergling, i, ref iPosX, iPosY, iSize, ImgZuZergling, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuBaneling, i, ref iPosX, iPosY, iSize, _imgZuBaneling, g,
+                        Helper_DrawUnitsProduction(LZuBaneling, i, ref iPosX, iPosY, iSize, ImgZuBaneling, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuBanelingCocoon, i, ref iPosX, iPosY, iSize, _imgZuBanelingCocoon,
+                        Helper_DrawUnitsProduction(LZuBanelingCocoon, i, ref iPosX, iPosY, iSize, ImgZuBanelingCocoon,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuRoach, i, ref iPosX, iPosY, iSize, _imgZuRoach, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LZuRoach, i, ref iPosX, iPosY, iSize, ImgZuRoach, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuHydra, i, ref iPosX, iPosY, iSize, _imgZuHydra, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LZuHydra, i, ref iPosX, iPosY, iSize, ImgZuHydra, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuMutalisk, i, ref iPosX, iPosY, iSize, _imgZuMutalisk, g,
+                        Helper_DrawUnitsProduction(LZuMutalisk, i, ref iPosX, iPosY, iSize, ImgZuMutalisk, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuInfestor, i, ref iPosX, iPosY, iSize, _imgZuInfestor, g,
+                        Helper_DrawUnitsProduction(LZuInfestor, i, ref iPosX, iPosY, iSize, ImgZuInfestor, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuOverseer, i, ref iPosX, iPosY, iSize, _imgZuOverseer, g,
+                        Helper_DrawUnitsProduction(LZuOverseer, i, ref iPosX, iPosY, iSize, ImgZuOverseer, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuOverseerCocoon, i, ref iPosX, iPosY, iSize, _imgZuOvserseerCocoon,
+                        Helper_DrawUnitsProduction(LZuOverseerCocoon, i, ref iPosX, iPosY, iSize, ImgZuOvserseerCocoon,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuSwarmhost, i, ref iPosX, iPosY, iSize, _imgZuSwarmhost, g,
+                        Helper_DrawUnitsProduction(LZuSwarmhost, i, ref iPosX, iPosY, iSize, ImgZuSwarmhost, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuUltralisk, i, ref iPosX, iPosY, iSize, _imgZuUltra, g,
+                        Helper_DrawUnitsProduction(LZuUltralisk, i, ref iPosX, iPosY, iSize, ImgZuUltra, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuViper, i, ref iPosX, iPosY, iSize, _imgZuViper, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LZuViper, i, ref iPosX, iPosY, iSize, ImgZuViper, g, clPlayercolor,
                             fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuCorruptor, i, ref iPosX, iPosY, iSize, _imgZuCorruptor, g,
+                        Helper_DrawUnitsProduction(LZuCorruptor, i, ref iPosX, iPosY, iSize, ImgZuCorruptor, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuBroodlord, i, ref iPosX, iPosY, iSize, _imgZuBroodlord, g,
+                        Helper_DrawUnitsProduction(LZuBroodlord, i, ref iPosX, iPosY, iSize, ImgZuBroodlord, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuBroodlordCocoon, i, ref iPosX, iPosY, iSize,
-                            _imgZuBroodlordCocoon,
+                        Helper_DrawUnitsProduction(LZuBroodlordCocoon, i, ref iPosX, iPosY, iSize,
+                            ImgZuBroodlordCocoon,
                             g, clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuInfestedTerran, i, ref iPosX, iPosY, iSize,
-                           _imgInfestedTerran,
+                        Helper_DrawUnitsProduction(LZuInfestedTerran, i, ref iPosX, iPosY, iSize,
+                           ImgInfestedTerran,
                            g, clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZuInfestedTerranEgg, i, ref iPosX, iPosY, iSize,
-                           _imgInfestedTerranEgg,
+                        Helper_DrawUnitsProduction(LZuInfestedTerranEgg, i, ref iPosX, iPosY, iSize,
+                           ImgInfestedTerranEgg,
                            g, clPlayercolor, fStringFont, false);
 
                         /* Maximum for the units */
@@ -359,122 +359,122 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (PSettings.PreferenceAll.OverlayProduction.ShowBuildings)
                     {
                         /* Terran */
-                        Helper_DrawUnitsProduction(_lTbCommandCenter, i,
-                            ref iPosX, iPosY, iSize, _imgTbCc, g,
+                        Helper_DrawUnitsProduction(LTbCommandCenter, i,
+                            ref iPosX, iPosY, iSize, ImgTbCc, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbOrbitalCommand, i,
-                            ref iPosX, iPosY, iSize, _imgTbOc, g,
+                        Helper_DrawUnitsProduction(LTbOrbitalCommand, i,
+                            ref iPosX, iPosY, iSize, ImgTbOc, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTbPlanetaryFortress, i,
-                            ref iPosX, iPosY, iSize, _imgTbPf, g,
+                        Helper_DrawUnitsProduction(LTbPlanetaryFortress, i,
+                            ref iPosX, iPosY, iSize, ImgTbPf, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTbSupply, i, ref iPosX, iPosY,
-                            iSize, _imgTbSupply, g, clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbRefinery, i, ref iPosX, iPosY,
-                            iSize, _imgTbRefinery, g,
+                        Helper_DrawUnitsProduction(LTbSupply, i, ref iPosX, iPosY,
+                            iSize, ImgTbSupply, g, clPlayercolor, fStringFont, true);
+                        Helper_DrawUnitsProduction(LTbRefinery, i, ref iPosX, iPosY,
+                            iSize, ImgTbRefinery, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbBunker, i, ref iPosX, iPosY,
-                            iSize, _imgTbBunker, g, clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbTechlab, i, ref iPosX, iPosY,
-                            iSize, _imgTbTechlab, g, clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbReactor, i, ref iPosX, iPosY,
-                            iSize, _imgTbReactor, g, clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbTurrent, i, ref iPosX, iPosY,
-                            iSize, _imgTbTurrent, g, clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbSensorTower, i, ref iPosX,
-                            iPosY, iSize, _imgTbSensorTower, g,
+                        Helper_DrawUnitsProduction(LTbBunker, i, ref iPosX, iPosY,
+                            iSize, ImgTbBunker, g, clPlayercolor, fStringFont, true);
+                        Helper_DrawUnitsProduction(LTbTechlab, i, ref iPosX, iPosY,
+                            iSize, ImgTbTechlab, g, clPlayercolor, fStringFont, true);
+                        Helper_DrawUnitsProduction(LTbReactor, i, ref iPosX, iPosY,
+                            iSize, ImgTbReactor, g, clPlayercolor, fStringFont, true);
+                        Helper_DrawUnitsProduction(LTbTurrent, i, ref iPosX, iPosY,
+                            iSize, ImgTbTurrent, g, clPlayercolor, fStringFont, true);
+                        Helper_DrawUnitsProduction(LTbSensorTower, i, ref iPosX,
+                            iPosY, iSize, ImgTbSensorTower, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbEbay, i, ref iPosX, iPosY, iSize,
-                            _imgTbEbay, g, clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbGhostAcademy, i, ref iPosX,
-                            iPosY, iSize, _imgTbGhostacademy, g,
+                        Helper_DrawUnitsProduction(LTbEbay, i, ref iPosX, iPosY, iSize,
+                            ImgTbEbay, g, clPlayercolor, fStringFont, true);
+                        Helper_DrawUnitsProduction(LTbGhostAcademy, i, ref iPosX,
+                            iPosY, iSize, ImgTbGhostacademy, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbArmory, i, ref iPosX, iPosY,
-                            iSize, _imgTbArmory, g, clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbFusionCore, i, ref iPosX,
-                            iPosY, iSize, _imgTbFusioncore, g,
+                        Helper_DrawUnitsProduction(LTbArmory, i, ref iPosX, iPosY,
+                            iSize, ImgTbArmory, g, clPlayercolor, fStringFont, true);
+                        Helper_DrawUnitsProduction(LTbFusionCore, i, ref iPosX,
+                            iPosY, iSize, ImgTbFusioncore, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbBarracks, i, ref iPosX, iPosY,
-                            iSize, _imgTbBarracks, g,
+                        Helper_DrawUnitsProduction(LTbBarracks, i, ref iPosX, iPosY,
+                            iSize, ImgTbBarracks, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbFactory, i, ref iPosX, iPosY,
-                            iSize, _imgTbFactory, g, clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lTbStarport, i, ref iPosX, iPosY,
-                            iSize, _imgTbStarport, g,
+                        Helper_DrawUnitsProduction(LTbFactory, i, ref iPosX, iPosY,
+                            iSize, ImgTbFactory, g, clPlayercolor, fStringFont, true);
+                        Helper_DrawUnitsProduction(LTbStarport, i, ref iPosX, iPosY,
+                            iSize, ImgTbStarport, g,
                             clPlayercolor, fStringFont, true);
 
 
                         /* Protoss */
-                        Helper_DrawUnitsProduction(_lPbNexus, i, ref iPosX, iPosY, iSize, _imgPbNexus, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LPbNexus, i, ref iPosX, iPosY, iSize, ImgPbNexus, g, clPlayercolor,
                             fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbPylon, i, ref iPosX, iPosY, iSize, _imgPbPylon, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LPbPylon, i, ref iPosX, iPosY, iSize, ImgPbPylon, g, clPlayercolor,
                             fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbAssimilator, i, ref iPosX, iPosY, iSize, _imgPbAssimilator, g,
+                        Helper_DrawUnitsProduction(LPbAssimilator, i, ref iPosX, iPosY, iSize, ImgPbAssimilator, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbCannon, i, ref iPosX, iPosY, iSize, _imgPbCannon, g,
+                        Helper_DrawUnitsProduction(LPbCannon, i, ref iPosX, iPosY, iSize, ImgPbCannon, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbDarkshrine, i, ref iPosX, iPosY, iSize, _imgPbDarkShrine, g,
+                        Helper_DrawUnitsProduction(LPbDarkshrine, i, ref iPosX, iPosY, iSize, ImgPbDarkShrine, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbTemplarArchives, i, ref iPosX, iPosY, iSize,
-                            _imgPbTemplarArchives,
+                        Helper_DrawUnitsProduction(LPbTemplarArchives, i, ref iPosX, iPosY, iSize,
+                            ImgPbTemplarArchives,
                             g, clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbTwilight, i, ref iPosX, iPosY, iSize, _imgPbTwillightCouncil, g,
+                        Helper_DrawUnitsProduction(LPbTwilight, i, ref iPosX, iPosY, iSize, ImgPbTwillightCouncil, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbCybercore, i, ref iPosX, iPosY, iSize, _imgPbCybercore, g,
+                        Helper_DrawUnitsProduction(LPbCybercore, i, ref iPosX, iPosY, iSize, ImgPbCybercore, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbForge, i, ref iPosX, iPosY, iSize, _imgPbForge, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LPbForge, i, ref iPosX, iPosY, iSize, ImgPbForge, g, clPlayercolor,
                             fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbFleetbeacon, i, ref iPosX, iPosY, iSize, _imgPbFleetBeacon, g,
+                        Helper_DrawUnitsProduction(LPbFleetbeacon, i, ref iPosX, iPosY, iSize, ImgPbFleetBeacon, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbRoboticsSupport, i, ref iPosX, iPosY, iSize,
-                            _imgPbRoboticsSupport,
+                        Helper_DrawUnitsProduction(LPbRoboticsSupport, i, ref iPosX, iPosY, iSize,
+                            ImgPbRoboticsSupport,
                             g, clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbGateway, i, ref iPosX, iPosY, iSize, _imgPbGateway, g,
+                        Helper_DrawUnitsProduction(LPbGateway, i, ref iPosX, iPosY, iSize, ImgPbGateway, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbWarpgate, i, ref iPosX, iPosY, iSize, _imgPbWarpgate, g,
+                        Helper_DrawUnitsProduction(LPbWarpgate, i, ref iPosX, iPosY, iSize, ImgPbWarpgate, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbStargate, i, ref iPosX, iPosY, iSize, _imgPbStargate, g,
+                        Helper_DrawUnitsProduction(LPbStargate, i, ref iPosX, iPosY, iSize, ImgPbStargate, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lPbRobotics, i, ref iPosX, iPosY, iSize, _imgPbRobotics, g,
+                        Helper_DrawUnitsProduction(LPbRobotics, i, ref iPosX, iPosY, iSize, ImgPbRobotics, g,
                             clPlayercolor, fStringFont, true);
 
                         /* Zerg */
-                        Helper_DrawUnitsProduction(_lZbCreepTumor, i, ref iPosX, iPosY, iSize, _imgZbCreepTumor, g,
+                        Helper_DrawUnitsProduction(LZbCreepTumor, i, ref iPosX, iPosY, iSize, ImgZbCreepTumor, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbHatchery, i, ref iPosX, iPosY, iSize, _imgZbHatchery, g,
+                        Helper_DrawUnitsProduction(LZbHatchery, i, ref iPosX, iPosY, iSize, ImgZbHatchery, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbLair, i, ref iPosX, iPosY, iSize, _imgZbLair, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LZbLair, i, ref iPosX, iPosY, iSize, ImgZbLair, g, clPlayercolor,
                             fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbHive, i, ref iPosX, iPosY, iSize, _imgZbHive, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LZbHive, i, ref iPosX, iPosY, iSize, ImgZbHive, g, clPlayercolor,
                             fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbSpawningpool, i, ref iPosX, iPosY, iSize, _imgZbSpawningpool, g,
+                        Helper_DrawUnitsProduction(LZbSpawningpool, i, ref iPosX, iPosY, iSize, ImgZbSpawningpool, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbEvochamber, i, ref iPosX, iPosY, iSize, _imgZbEvochamber, g,
+                        Helper_DrawUnitsProduction(LZbEvochamber, i, ref iPosX, iPosY, iSize, ImgZbEvochamber, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbExtractor, i, ref iPosX, iPosY, iSize, _imgZbExtractor, g,
+                        Helper_DrawUnitsProduction(LZbExtractor, i, ref iPosX, iPosY, iSize, ImgZbExtractor, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbSpine, i, ref iPosX, iPosY, iSize, _imgZbSpinecrawler, g,
+                        Helper_DrawUnitsProduction(LZbSpine, i, ref iPosX, iPosY, iSize, ImgZbSpinecrawler, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbSpore, i, ref iPosX, iPosY, iSize, _imgZbSporecrawler, g,
+                        Helper_DrawUnitsProduction(LZbSpore, i, ref iPosX, iPosY, iSize, ImgZbSporecrawler, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbHydraden, i, ref iPosX, iPosY, iSize, _imgZbHydraden, g,
+                        Helper_DrawUnitsProduction(LZbHydraden, i, ref iPosX, iPosY, iSize, ImgZbHydraden, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbRoachwarren, i, ref iPosX, iPosY, iSize, _imgZbRoachwarren, g,
+                        Helper_DrawUnitsProduction(LZbRoachwarren, i, ref iPosX, iPosY, iSize, ImgZbRoachwarren, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbSpire, i, ref iPosX, iPosY, iSize, _imgZbSpire, g, clPlayercolor,
+                        Helper_DrawUnitsProduction(LZbSpire, i, ref iPosX, iPosY, iSize, ImgZbSpire, g, clPlayercolor,
                             fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbGreaterspire, i, ref iPosX, iPosY, iSize, _imgZbGreaterspire, g,
+                        Helper_DrawUnitsProduction(LZbGreaterspire, i, ref iPosX, iPosY, iSize, ImgZbGreaterspire, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbUltracavern, i, ref iPosX, iPosY, iSize, _imgZbUltracavern, g,
+                        Helper_DrawUnitsProduction(LZbUltracavern, i, ref iPosX, iPosY, iSize, ImgZbUltracavern, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbInfestationpit, i, ref iPosX, iPosY, iSize, _imgZbInfestationpit,
+                        Helper_DrawUnitsProduction(LZbInfestationpit, i, ref iPosX, iPosY, iSize, ImgZbInfestationpit,
                             g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbBanelingnest, i, ref iPosX, iPosY, iSize, _imgZbBanelingnest, g,
+                        Helper_DrawUnitsProduction(LZbBanelingnest, i, ref iPosX, iPosY, iSize, ImgZbBanelingnest, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbNydusbegin, i, ref iPosX, iPosY, iSize, _imgZbNydusNetwork, g,
+                        Helper_DrawUnitsProduction(LZbNydusbegin, i, ref iPosX, iPosY, iSize, ImgZbNydusNetwork, g,
                             clPlayercolor, fStringFont, true);
-                        Helper_DrawUnitsProduction(_lZbNydusend, i, ref iPosX, iPosY, iSize, _imgZbNydusWorm, g,
+                        Helper_DrawUnitsProduction(LZbNydusend, i, ref iPosX, iPosY, iSize, ImgZbNydusWorm, g,
                             clPlayercolor, fStringFont, true);
 
                         iWidthBuildings = iPosX;
@@ -522,94 +522,94 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     {
                         #region Terran
 
-                        Helper_DrawUnitsProduction(_lTupStim, i, ref iPosX, iPosY, iSize, _imgTupStim, g,
+                        Helper_DrawUnitsProduction(LTupStim, i, ref iPosX, iPosY, iSize, ImgTupStim, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupCombatShields, i, ref iPosX, iPosY, iSize, _imgTupCombatShields,
+                        Helper_DrawUnitsProduction(LTupCombatShields, i, ref iPosX, iPosY, iSize, ImgTupCombatShields,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupConcussiveShells, i, ref iPosX, iPosY, iSize,
-                            _imgTupConcussiveShells, g,
+                        Helper_DrawUnitsProduction(LTupConcussiveShells, i, ref iPosX, iPosY, iSize,
+                            ImgTupConcussiveShells, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupBlueFlame, i, ref iPosX, iPosY, iSize, _imgTupBlueFlame, g,
+                        Helper_DrawUnitsProduction(LTupBlueFlame, i, ref iPosX, iPosY, iSize, ImgTupBlueFlame, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupDrillingClaws, i, ref iPosX, iPosY, iSize, _imgTupDrillingClaws,
+                        Helper_DrawUnitsProduction(LTupDrillingClaws, i, ref iPosX, iPosY, iSize, ImgTupDrillingClaws,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupTransformationServos, i, ref iPosX, iPosY, iSize,
-                            _imgTupTransformatorServos, g,
+                        Helper_DrawUnitsProduction(LTupTransformationServos, i, ref iPosX, iPosY, iSize,
+                            ImgTupTransformatorServos, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupPersonalCloak, i, ref iPosX, iPosY, iSize, _imgTupPersonalCloak,
+                        Helper_DrawUnitsProduction(LTupPersonalCloak, i, ref iPosX, iPosY, iSize, ImgTupPersonalCloak,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupMoebiusReactor, i, ref iPosX, iPosY, iSize,
-                            _imgTupMoebiusReactor, g,
+                        Helper_DrawUnitsProduction(LTupMoebiusReactor, i, ref iPosX, iPosY, iSize,
+                            ImgTupMoebiusReactor, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupWeaponRefit, i, ref iPosX, iPosY, iSize, _imgTupWeaponRefit, g,
+                        Helper_DrawUnitsProduction(LTupWeaponRefit, i, ref iPosX, iPosY, iSize, ImgTupWeaponRefit, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupBehemothReactor, i, ref iPosX, iPosY, iSize,
-                            _imgTupBehemothReacot, g,
+                        Helper_DrawUnitsProduction(LTupBehemothReactor, i, ref iPosX, iPosY, iSize,
+                            ImgTupBehemothReacot, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupCloakingField, i, ref iPosX, iPosY, iSize, _imgTupCloakingField,
+                        Helper_DrawUnitsProduction(LTupCloakingField, i, ref iPosX, iPosY, iSize, ImgTupCloakingField,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupCorvidReactor, i, ref iPosX, iPosY, iSize, _imgTupCorvidReactor,
+                        Helper_DrawUnitsProduction(LTupCorvidReactor, i, ref iPosX, iPosY, iSize, ImgTupCorvidReactor,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupCaduceusReactor, i, ref iPosX, iPosY, iSize,
-                            _imgTupCaduceusReactor, g,
+                        Helper_DrawUnitsProduction(LTupCaduceusReactor, i, ref iPosX, iPosY, iSize,
+                            ImgTupCaduceusReactor, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupDurableMaterials, i, ref iPosX, iPosY, iSize,
-                            _imgTupDurableMaterials, g,
+                        Helper_DrawUnitsProduction(LTupDurableMaterials, i, ref iPosX, iPosY, iSize,
+                            ImgTupDurableMaterials, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupVehicleShipPlanting1, i, ref iPosX, iPosY, iSize,
-                            _imgTupVehicleShipPlanting1, g,
+                        Helper_DrawUnitsProduction(LTupVehicleShipPlanting1, i, ref iPosX, iPosY, iSize,
+                            ImgTupVehicleShipPlanting1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupVehicleShipPlanting2, i, ref iPosX, iPosY, iSize,
-                            _imgTupVehicleShipPlanting2, g,
+                        Helper_DrawUnitsProduction(LTupVehicleShipPlanting2, i, ref iPosX, iPosY, iSize,
+                            ImgTupVehicleShipPlanting2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupVehicleShipPlanting3, i, ref iPosX, iPosY, iSize,
-                            _imgTupVehicleShipPlanting3, g,
+                        Helper_DrawUnitsProduction(LTupVehicleShipPlanting3, i, ref iPosX, iPosY, iSize,
+                            ImgTupVehicleShipPlanting3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupVehicleWeapon1, i, ref iPosX, iPosY, iSize,
-                            _imgTupVehicleWeapon1, g,
+                        Helper_DrawUnitsProduction(LTupVehicleWeapon1, i, ref iPosX, iPosY, iSize,
+                            ImgTupVehicleWeapon1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupVehicleWeapon2, i, ref iPosX, iPosY, iSize,
-                            _imgTupVehicleWeapon2, g,
+                        Helper_DrawUnitsProduction(LTupVehicleWeapon2, i, ref iPosX, iPosY, iSize,
+                            ImgTupVehicleWeapon2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupVehicleWeapon3, i, ref iPosX, iPosY, iSize,
-                            _imgTupVehicleWeapon3, g,
+                        Helper_DrawUnitsProduction(LTupVehicleWeapon3, i, ref iPosX, iPosY, iSize,
+                            ImgTupVehicleWeapon3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupShipWeapon1, i, ref iPosX, iPosY, iSize, _imgTupShipWeapon1, g,
+                        Helper_DrawUnitsProduction(LTupShipWeapon1, i, ref iPosX, iPosY, iSize, ImgTupShipWeapon1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupShipWeapon2, i, ref iPosX, iPosY, iSize, _imgTupShipWeapon2, g,
+                        Helper_DrawUnitsProduction(LTupShipWeapon2, i, ref iPosX, iPosY, iSize, ImgTupShipWeapon2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupShipWeapon3, i, ref iPosX, iPosY, iSize, _imgTupShipWeapon3, g,
+                        Helper_DrawUnitsProduction(LTupShipWeapon3, i, ref iPosX, iPosY, iSize, ImgTupShipWeapon3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupInfantryArmor1, i, ref iPosX, iPosY, iSize,
-                            _imgTupInfantryArmor1, g,
+                        Helper_DrawUnitsProduction(LTupInfantryArmor1, i, ref iPosX, iPosY, iSize,
+                            ImgTupInfantryArmor1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupInfantryArmor2, i, ref iPosX, iPosY, iSize,
-                            _imgTupInfantryArmor2, g,
+                        Helper_DrawUnitsProduction(LTupInfantryArmor2, i, ref iPosX, iPosY, iSize,
+                            ImgTupInfantryArmor2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupInfantryArmor3, i, ref iPosX, iPosY, iSize,
-                            _imgTupInfantryArmor3, g,
+                        Helper_DrawUnitsProduction(LTupInfantryArmor3, i, ref iPosX, iPosY, iSize,
+                            ImgTupInfantryArmor3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupInfantryWeapon1, i, ref iPosX, iPosY, iSize,
-                            _imgTupInfantryWeapon1, g,
+                        Helper_DrawUnitsProduction(LTupInfantryWeapon1, i, ref iPosX, iPosY, iSize,
+                            ImgTupInfantryWeapon1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupInfantryWeapon2, i, ref iPosX, iPosY, iSize,
-                            _imgTupInfantryWeapon2, g,
+                        Helper_DrawUnitsProduction(LTupInfantryWeapon2, i, ref iPosX, iPosY, iSize,
+                            ImgTupInfantryWeapon2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupInfantryWeapon3, i, ref iPosX, iPosY, iSize,
-                            _imgTupInfantryWeapon3, g,
+                        Helper_DrawUnitsProduction(LTupInfantryWeapon3, i, ref iPosX, iPosY, iSize,
+                            ImgTupInfantryWeapon3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupHighSecAutoTracking, i, ref iPosX, iPosY, iSize,
-                            _imgTupHighSecAutoTracking, g,
+                        Helper_DrawUnitsProduction(LTupHighSecAutoTracking, i, ref iPosX, iPosY, iSize,
+                            ImgTupHighSecAutoTracking, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupStructureArmor, i, ref iPosX, iPosY, iSize,
-                            _imgTupStructureArmor, g,
+                        Helper_DrawUnitsProduction(LTupStructureArmor, i, ref iPosX, iPosY, iSize,
+                            ImgTupStructureArmor, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lTupNeosteelFrame, i, ref iPosX, iPosY, iSize, _imgTupNeosteelFrame,
+                        Helper_DrawUnitsProduction(LTupNeosteelFrame, i, ref iPosX, iPosY, iSize, ImgTupNeosteelFrame,
                             g,
                             clPlayercolor, fStringFont, false);
 
@@ -617,142 +617,142 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
                         #region Protoss
 
-                        Helper_DrawUnitsProduction(_lPupAirArmor1, i, ref iPosX, iPosY, iSize, _imgPupAirArmor1, g,
+                        Helper_DrawUnitsProduction(LPupAirArmor1, i, ref iPosX, iPosY, iSize, ImgPupAirArmor1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupAirArmor2, i, ref iPosX, iPosY, iSize, _imgPupAirArmor2, g,
+                        Helper_DrawUnitsProduction(LPupAirArmor2, i, ref iPosX, iPosY, iSize, ImgPupAirArmor2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupAirArmor3, i, ref iPosX, iPosY, iSize, _imgPupAirArmor3, g,
+                        Helper_DrawUnitsProduction(LPupAirArmor3, i, ref iPosX, iPosY, iSize, ImgPupAirArmor3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupAirWeapon1, i, ref iPosX, iPosY, iSize, _imgPupAirWeapon1, g,
+                        Helper_DrawUnitsProduction(LPupAirWeapon1, i, ref iPosX, iPosY, iSize, ImgPupAirWeapon1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupAirWeapon2, i, ref iPosX, iPosY, iSize, _imgPupAirWeapon2, g,
+                        Helper_DrawUnitsProduction(LPupAirWeapon2, i, ref iPosX, iPosY, iSize, ImgPupAirWeapon2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupAirWeapon3, i, ref iPosX, iPosY, iSize, _imgPupAirWeapon3, g,
+                        Helper_DrawUnitsProduction(LPupAirWeapon3, i, ref iPosX, iPosY, iSize, ImgPupAirWeapon3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupGroundWeapon1, i, ref iPosX, iPosY, iSize, _imgPupGroundWeapon1,
+                        Helper_DrawUnitsProduction(LPupGroundWeapon1, i, ref iPosX, iPosY, iSize, ImgPupGroundWeapon1,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupGroundWeapon2, i, ref iPosX, iPosY, iSize, _imgPupGroundWeapon2,
+                        Helper_DrawUnitsProduction(LPupGroundWeapon2, i, ref iPosX, iPosY, iSize, ImgPupGroundWeapon2,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupGroundWeapon3, i, ref iPosX, iPosY, iSize, _imgPupGroundWeapon3,
+                        Helper_DrawUnitsProduction(LPupGroundWeapon3, i, ref iPosX, iPosY, iSize, ImgPupGroundWeapon3,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupGroundArmor1, i, ref iPosX, iPosY, iSize, _imgPupGroundArmor1, g,
+                        Helper_DrawUnitsProduction(LPupGroundArmor1, i, ref iPosX, iPosY, iSize, ImgPupGroundArmor1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupGroundArmor2, i, ref iPosX, iPosY, iSize, _imgPupGroundArmor2, g,
+                        Helper_DrawUnitsProduction(LPupGroundArmor2, i, ref iPosX, iPosY, iSize, ImgPupGroundArmor2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupGroundArmor3, i, ref iPosX, iPosY, iSize, _imgPupGroundArmor3, g,
+                        Helper_DrawUnitsProduction(LPupGroundArmor3, i, ref iPosX, iPosY, iSize, ImgPupGroundArmor3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupShield1, i, ref iPosX, iPosY, iSize, _imgPupShield1, g,
+                        Helper_DrawUnitsProduction(LPupShield1, i, ref iPosX, iPosY, iSize, ImgPupShield1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupShield2, i, ref iPosX, iPosY, iSize, _imgPupShield2, g,
+                        Helper_DrawUnitsProduction(LPupShield2, i, ref iPosX, iPosY, iSize, ImgPupShield2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupShield3, i, ref iPosX, iPosY, iSize, _imgPupShield3, g,
+                        Helper_DrawUnitsProduction(LPupShield3, i, ref iPosX, iPosY, iSize, ImgPupShield3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupExtendedThermalLance, i, ref iPosX, iPosY, iSize,
-                            _imgPupExtendedThermalLance, g,
+                        Helper_DrawUnitsProduction(LPupExtendedThermalLance, i, ref iPosX, iPosY, iSize,
+                            ImgPupExtendedThermalLance, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupGraviticBooster, i, ref iPosX, iPosY, iSize,
-                            _imgPupGraviticBooster, g,
+                        Helper_DrawUnitsProduction(LPupGraviticBooster, i, ref iPosX, iPosY, iSize,
+                            ImgPupGraviticBooster, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupGraviticDrive, i, ref iPosX, iPosY, iSize, _imgPupGraviticDrive,
+                        Helper_DrawUnitsProduction(LPupGraviticDrive, i, ref iPosX, iPosY, iSize, ImgPupGraviticDrive,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupGravitonCatapult, i, ref iPosX, iPosY, iSize,
-                            _imgPupGravitonCatapult, g,
+                        Helper_DrawUnitsProduction(LPupGravitonCatapult, i, ref iPosX, iPosY, iSize,
+                            ImgPupGravitonCatapult, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupStorm, i, ref iPosX, iPosY, iSize, _imgPupStorm, g,
+                        Helper_DrawUnitsProduction(LPupStorm, i, ref iPosX, iPosY, iSize, ImgPupStorm, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupBlink, i, ref iPosX, iPosY, iSize, _imgPupBlink, g,
+                        Helper_DrawUnitsProduction(LPupBlink, i, ref iPosX, iPosY, iSize, ImgPupBlink, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupCharge, i, ref iPosX, iPosY, iSize, _imgPupCharge, g,
+                        Helper_DrawUnitsProduction(LPupCharge, i, ref iPosX, iPosY, iSize, ImgPupCharge, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupAnionPulseCrystal, i, ref iPosX, iPosY, iSize,
-                            _imgPupAnionPulseCrystals, g,
+                        Helper_DrawUnitsProduction(LPupAnionPulseCrystal, i, ref iPosX, iPosY, iSize,
+                            ImgPupAnionPulseCrystals, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lPupWarpGate, i, ref iPosX, iPosY, iSize, _imgPupWarpGate, g,
+                        Helper_DrawUnitsProduction(LPupWarpGate, i, ref iPosX, iPosY, iSize, ImgPupWarpGate, g,
                             clPlayercolor, fStringFont, false);
 
                         #endregion
 
                         #region Zerg
 
-                        Helper_DrawUnitsProduction(_lZupAdrenalGlands, i, ref iPosX, iPosY, iSize, _imgZupAdrenalGlands,
+                        Helper_DrawUnitsProduction(LZupAdrenalGlands, i, ref iPosX, iPosY, iSize, ImgZupAdrenalGlands,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupAirArmor1, i, ref iPosX, iPosY, iSize, _imgZupAirArmor1, g,
+                        Helper_DrawUnitsProduction(LZupAirArmor1, i, ref iPosX, iPosY, iSize, ImgZupAirArmor1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupAirArmor2, i, ref iPosX, iPosY, iSize, _imgZupAirArmor2, g,
+                        Helper_DrawUnitsProduction(LZupAirArmor2, i, ref iPosX, iPosY, iSize, ImgZupAirArmor2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupAirArmor3, i, ref iPosX, iPosY, iSize, _imgZupAirArmor3, g,
+                        Helper_DrawUnitsProduction(LZupAirArmor3, i, ref iPosX, iPosY, iSize, ImgZupAirArmor3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupAirWeapon1, i, ref iPosX, iPosY, iSize, _imgZupAirWeapon1, g,
+                        Helper_DrawUnitsProduction(LZupAirWeapon1, i, ref iPosX, iPosY, iSize, ImgZupAirWeapon1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupAirWeapon2, i, ref iPosX, iPosY, iSize, _imgZupAirWeapon2, g,
+                        Helper_DrawUnitsProduction(LZupAirWeapon2, i, ref iPosX, iPosY, iSize, ImgZupAirWeapon2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupAirWeapon3, i, ref iPosX, iPosY, iSize, _imgZupAirWeapon3, g,
+                        Helper_DrawUnitsProduction(LZupAirWeapon3, i, ref iPosX, iPosY, iSize, ImgZupAirWeapon3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupBurrow, i, ref iPosX, iPosY, iSize, _imgZupBurrow, g,
+                        Helper_DrawUnitsProduction(LZupBurrow, i, ref iPosX, iPosY, iSize, ImgZupBurrow, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupCentrifugalHooks, i, ref iPosX, iPosY, iSize,
-                            _imgZupCentrifugalHooks, g,
+                        Helper_DrawUnitsProduction(LZupCentrifugalHooks, i, ref iPosX, iPosY, iSize,
+                            ImgZupCentrifugalHooks, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupChitinousPlating, i, ref iPosX, iPosY, iSize,
-                            _imgZupChitinousPlating, g,
+                        Helper_DrawUnitsProduction(LZupChitinousPlating, i, ref iPosX, iPosY, iSize,
+                            ImgZupChitinousPlating, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupEnduringLocusts, i, ref iPosX, iPosY, iSize,
-                            _imgZupEnduringLocusts, g,
+                        Helper_DrawUnitsProduction(LZupEnduringLocusts, i, ref iPosX, iPosY, iSize,
+                            ImgZupEnduringLocusts, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupFlyingLocust, i, ref iPosX, iPosY, iSize,
-                            _imgZupFlyingLocust, g,
+                        Helper_DrawUnitsProduction(LZupFlyingLocust, i, ref iPosX, iPosY, iSize,
+                            ImgZupFlyingLocust, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGlialReconstruction, i, ref iPosX, iPosY, iSize,
-                            _imgZupGlialReconstruction, g,
+                        Helper_DrawUnitsProduction(LZupGlialReconstruction, i, ref iPosX, iPosY, iSize,
+                            ImgZupGlialReconstruction, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGroovedSpines, i, ref iPosX, iPosY, iSize, _imgZupGroovedSpines,
+                        Helper_DrawUnitsProduction(LZupGroovedSpines, i, ref iPosX, iPosY, iSize, ImgZupGroovedSpines,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGroundArmor1, i, ref iPosX, iPosY, iSize, _imgZupGroundArmor1, g,
+                        Helper_DrawUnitsProduction(LZupGroundArmor1, i, ref iPosX, iPosY, iSize, ImgZupGroundArmor1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGroundArmor2, i, ref iPosX, iPosY, iSize, _imgZupGroundArmor2, g,
+                        Helper_DrawUnitsProduction(LZupGroundArmor2, i, ref iPosX, iPosY, iSize, ImgZupGroundArmor2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGroundArmor3, i, ref iPosX, iPosY, iSize, _imgZupGroundArmor3, g,
+                        Helper_DrawUnitsProduction(LZupGroundArmor3, i, ref iPosX, iPosY, iSize, ImgZupGroundArmor3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGroundMelee1, i, ref iPosX, iPosY, iSize, _imgZupGroundMelee1, g,
+                        Helper_DrawUnitsProduction(LZupGroundMelee1, i, ref iPosX, iPosY, iSize, ImgZupGroundMelee1, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGroundMelee2, i, ref iPosX, iPosY, iSize, _imgZupGroundMelee2, g,
+                        Helper_DrawUnitsProduction(LZupGroundMelee2, i, ref iPosX, iPosY, iSize, ImgZupGroundMelee2, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGroundMelee3, i, ref iPosX, iPosY, iSize, _imgZupGroundMelee3, g,
+                        Helper_DrawUnitsProduction(LZupGroundMelee3, i, ref iPosX, iPosY, iSize, ImgZupGroundMelee3, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGroundWeapon1, i, ref iPosX, iPosY, iSize, _imgZupGroundWeapon1,
+                        Helper_DrawUnitsProduction(LZupGroundWeapon1, i, ref iPosX, iPosY, iSize, ImgZupGroundWeapon1,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGroundWeapon2, i, ref iPosX, iPosY, iSize, _imgZupGroundWeapon2,
+                        Helper_DrawUnitsProduction(LZupGroundWeapon2, i, ref iPosX, iPosY, iSize, ImgZupGroundWeapon2,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupGroundWeapon3, i, ref iPosX, iPosY, iSize, _imgZupGroundWeapon3,
+                        Helper_DrawUnitsProduction(LZupGroundWeapon3, i, ref iPosX, iPosY, iSize, ImgZupGroundWeapon3,
                             g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupMetabolicBoost, i, ref iPosX, iPosY, iSize,
-                            _imgZupMetabolicBoost, g,
+                        Helper_DrawUnitsProduction(LZupMetabolicBoost, i, ref iPosX, iPosY, iSize,
+                            ImgZupMetabolicBoost, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupMuscularAugments, i, ref iPosX, iPosY, iSize,
-                            _imgZupMuscularAugments, g,
+                        Helper_DrawUnitsProduction(LZupMuscularAugments, i, ref iPosX, iPosY, iSize,
+                            ImgZupMuscularAugments, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupNeutralParasite, i, ref iPosX, iPosY, iSize,
-                            _imgZupNeutralParasite, g,
+                        Helper_DrawUnitsProduction(LZupNeutralParasite, i, ref iPosX, iPosY, iSize,
+                            ImgZupNeutralParasite, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupPathoglenGlands, i, ref iPosX, iPosY, iSize,
-                            _imgZupPathoglenGlands, g,
+                        Helper_DrawUnitsProduction(LZupPathoglenGlands, i, ref iPosX, iPosY, iSize,
+                            ImgZupPathoglenGlands, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupPneumatizedCarapace, i, ref iPosX, iPosY, iSize,
-                            _imgZupPneumatizedCarapace, g,
+                        Helper_DrawUnitsProduction(LZupPneumatizedCarapace, i, ref iPosX, iPosY, iSize,
+                            ImgZupPneumatizedCarapace, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupTunnnelingClaws, i, ref iPosX, iPosY, iSize,
-                            _imgZupTunnelingClaws, g,
+                        Helper_DrawUnitsProduction(LZupTunnnelingClaws, i, ref iPosX, iPosY, iSize,
+                            ImgZupTunnelingClaws, g,
                             clPlayercolor, fStringFont, false);
-                        Helper_DrawUnitsProduction(_lZupVentralSacs, i, ref iPosX, iPosY, iSize, _imgZupVentrallSacs, g,
+                        Helper_DrawUnitsProduction(LZupVentralSacs, i, ref iPosX, iPosY, iSize, ImgZupVentrallSacs, g,
                             clPlayercolor, fStringFont, false);
 
                         #endregion
@@ -1079,7 +1079,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                         new SolidBrush(Color.FromArgb(100, Color.White)),
                         posX + size - 22,
                         posY + 3, 19, 19, 5);
-                    g.Graphics.DrawImage(_imgSpeedArrow, new Rectangle(posX + size - 20, posY + 5, 15, 15));
+                    g.Graphics.DrawImage(ImgSpeedArrow, new Rectangle(posX + size - 20, posY + 5, 15, 15));
                 }
 
 
