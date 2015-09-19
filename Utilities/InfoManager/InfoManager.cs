@@ -42,7 +42,7 @@ namespace Utilities.InfoManager
             }
             set
             {
-                if ((value & InfoImportance.NotImportant) == InfoImportance.NotImportant)
+                if ((value & InfoImportance.NotImportant) == value)
                 {
                     Interop.AllocConsole();
                 }

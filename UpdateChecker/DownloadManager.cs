@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilities.Events;
+using _ = Utilities.InfoManager.InfoManager;
 
 namespace UpdateChecker
 {
@@ -115,6 +116,16 @@ namespace UpdateChecker
 
         void _wcDownloader_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
+            var client = sender as WebClient;
+
+            if (client == null)
+            {
+                _.Info("Could not parse the webclient", _.InfoImportance.NotImportant);
+                return;
+            }
+
+            _.Info($"Attempt To Download {client.BaseAddress}", _.InfoImportance.Important);
+
             OnDownloadManagerProgressChanged(this,
                 new DownloadManagerProgressChangedEventArgs(_strDownloadedFileName, e.TotalBytesToReceive,
                     e.BytesReceived, e.ProgressPercentage));
@@ -131,6 +142,8 @@ namespace UpdateChecker
 
         private void CheckApplication()
         {
+            _.Info("Checking Application Version", _.InfoImportance.Important);
+
             _onlineApplicationVersioning.Clear();
             _offlineApplicationVersioning.Clear();
             
@@ -142,6 +155,8 @@ namespace UpdateChecker
 
             if (_onlineApplicationVersioning.ApplicationVersion > _offlineApplicationVersioning.ApplicationVersion)
             {
+                _.Info("Update For The Application Available!", _.InfoImportance.VeryImportant);
+
                 OnUpdateAvailable(this,
                     new UpdateArgs(Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.ApplicationUrl),
                         _offlineApplicationVersioning.ApplicationVersion.ToString(),
@@ -150,6 +165,8 @@ namespace UpdateChecker
 
             else
             {
+                _.Info("Update For The Application *NOT* Available!", _.InfoImportance.Important);
+
                 OnNoUpdateAvailable(this,
                     new UpdateArgs(Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.ApplicationUrl),
                         _offlineApplicationVersioning.ApplicationVersion.ToString(),
@@ -159,11 +176,15 @@ namespace UpdateChecker
             if (_onlineApplicationVersioning.DownloadManagerVersion >
                 _offlineApplicationVersioning.DownloadManagerVersion)
             {
+                _.Info("Update For The Download Manager Available!", _.InfoImportance.Important);
+
                 OnDownloadManagerUpdateRequired(this, new EventArgs());
             }
 
             else
             {
+                _.Info("Update For The Download Manager *NOT* Available!", _.InfoImportance.Important);
+
                 OnNoUpdateAvailable(this,
                     new UpdateArgs(Path.GetFileNameWithoutExtension(_offlineApplicationVersioning.DownloadManagerUrl),
                         _offlineApplicationVersioning.DownloadManagerVersion.ToString(),
@@ -175,15 +196,30 @@ namespace UpdateChecker
                 var offlineLibrary = _offlineApplicationVersioning.DynamicLinkLibraries.Find(x => x.DllName == onlineLibrary.DllName);
 
                 if (offlineLibrary == null)
-                    OnUpdateAvailable(this, new UpdateArgs(onlineLibrary.DllName, String.Empty, onlineLibrary.DllVersion));
-                
+                {
+                    _.Info($"Update For {onlineLibrary.DllName} Available!", _.InfoImportance.Important);
+
+                    OnUpdateAvailable(this,
+                        new UpdateArgs(onlineLibrary.DllName, String.Empty, onlineLibrary.DllVersion));
+                }
+
                 else
                 {
                     if (new Version(onlineLibrary.DllVersion) > new Version(offlineLibrary.DllVersion))
-                        OnUpdateAvailable(this, new UpdateArgs(onlineLibrary.DllName, offlineLibrary.DllVersion, onlineLibrary.DllVersion));
-                    
-                    else 
-                        OnNoUpdateAvailable(this, new UpdateArgs(onlineLibrary.DllName, offlineLibrary.DllVersion, onlineLibrary.DllVersion));
+                    {
+                        _.Info($"Update For {onlineLibrary.DllName} Available!", _.InfoImportance.Important);
+
+                        OnUpdateAvailable(this,
+                            new UpdateArgs(onlineLibrary.DllName, offlineLibrary.DllVersion, onlineLibrary.DllVersion));
+                    }
+
+                    else
+                    {
+                        _.Info($"Update For {onlineLibrary.DllName} *NOT* Available!", _.InfoImportance.Important);
+
+                        OnNoUpdateAvailable(this,
+                            new UpdateArgs(onlineLibrary.DllName, offlineLibrary.DllVersion, onlineLibrary.DllVersion));
+                    }
 
                 }
             }
@@ -208,12 +244,20 @@ namespace UpdateChecker
                     continue;
 
                 if (new Version(onlinePlugin.Version) > new Version(offlinePlugin.Version))
+                {
+                    _.Info($"Update For Plugin {onlinePlugin.Name} Available!", _.InfoImportance.Important);
+
                     OnUpdateAvailable(this,
                         new UpdateArgs(onlinePlugin.Name, offlinePlugin.Version, onlinePlugin.Version));
+                }
 
                 else
+                {
+                    _.Info($"Update For Plugin {onlinePlugin.Name} *NOT* Available!", _.InfoImportance.Important);
+
                     OnNoUpdateAvailable(this,
                         new UpdateArgs(onlinePlugin.Name, offlinePlugin.Version, onlinePlugin.Version));
+                }
 
             }
         }
@@ -240,7 +284,7 @@ namespace UpdateChecker
                 _wcDownloader.DownloadFileAsync(new Uri(_onlineApplicationVersioning.ApplicationUrl), _offlineApplicationVersioning.ApplicationUrl);
                 while (_wcDownloader.IsBusy) { Thread.Sleep(30);}
 
-                //Increment download couonter
+                //Increment download counter
                 var webRequest = WebRequest.Create(_onlineApplicationVersioning.ApplicationCounter);
                 webRequest.Proxy = _wcDownloader.Proxy;
                 webRequest.GetResponse();
