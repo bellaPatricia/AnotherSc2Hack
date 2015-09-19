@@ -344,12 +344,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (player.Type != PlayerType.Human &&
                         player.Type != PlayerType.Ai)
                         continue;
-                    /*
+                    
                     if (player == Player.LocalPlayer)
                         continue;
 
                     if (player.Team == Player.LocalPlayer.Team)
-                        continue;*/
+                        continue;
 
                     #endregion
 
