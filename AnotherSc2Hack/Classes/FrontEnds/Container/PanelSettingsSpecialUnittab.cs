@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using AnotherSc2Hack.Properties;
 using Utilities.Events;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
@@ -26,7 +20,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
 
         private void pnlPreview_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(Properties.Resources.tu_raven, 0,0, ntxtSize.Number, ntxtSize.Number);
+            e.Graphics.DrawImage(Resources.tu_raven, 0,0, ntxtSize.Number, ntxtSize.Number);
         }
 
 

@@ -19,10 +19,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
-using Utilities.ExtensionMethods;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using PredefinedTypes;
+using Utilities.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
@@ -39,7 +39,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
 
         #region Getter/Setter
 
-        public Dictionary<UnitId, Color> LUnitFilter { get; private set; }
+        public Dictionary<UnitId, Color> LUnitFilter { get; }
 
         #endregion
 

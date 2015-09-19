@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using Utilities.InfoManager;
 using _ = Utilities.InfoManager.InfoManager;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Preference

@@ -1,4 +1,7 @@
-﻿using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+﻿using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
@@ -7,7 +10,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
         /// <summary> 
         /// Erforderliche Designervariable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary> 
         /// Verwendete Ressourcen bereinigen.
@@ -34,79 +37,79 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             this.lblBasics = new LanguageLabel();
             this.btnSetFont = new LanguageButton();
             this.OpacityControl = new UiOpacityControl();
-            this.pnlLauncher = new AnotherSc2Hack.Classes.FrontEnds.Container.PanelSettingsLauncher();
+            this.pnlLauncher = new PanelSettingsLauncher();
             this.SuspendLayout();
             // 
             // aChBxDrawBackground
             // 
             this.aChBxDrawBackground.Checked = false;
             this.aChBxDrawBackground.Clickable = true;
-            this.aChBxDrawBackground.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxDrawBackground.Cursor = Cursors.Hand;
             this.aChBxDrawBackground.DisplayText = "Draw Background";
-            this.aChBxDrawBackground.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxDrawBackground.Location = new System.Drawing.Point(7, 30);
+            this.aChBxDrawBackground.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxDrawBackground.Location = new Point(7, 30);
             this.aChBxDrawBackground.Name = "aChBxDrawBackground";
-            this.aChBxDrawBackground.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxDrawBackground.Size = new System.Drawing.Size(157, 30);
+            this.aChBxDrawBackground.RightToLeft = RightToLeft.No;
+            this.aChBxDrawBackground.Size = new Size(157, 30);
             this.aChBxDrawBackground.TabIndex = 5;
             this.aChBxDrawBackground.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // lblBasics
             // 
             this.lblBasics.AutoSize = true;
-            this.lblBasics.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBasics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblBasics.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasics.ForeColor = Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.lblBasics.LanguageFile = "";
-            this.lblBasics.Location = new System.Drawing.Point(3, 3);
+            this.lblBasics.Location = new Point(3, 3);
             this.lblBasics.Name = "lblBasics";
-            this.lblBasics.Size = new System.Drawing.Size(52, 20);
+            this.lblBasics.Size = new Size(52, 20);
             this.lblBasics.TabIndex = 14;
             this.lblBasics.Text = "Basics";
             // 
             // btnSetFont
             // 
-            this.btnSetFont.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnSetFont.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnSetFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetFont.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetFont.BackColor = Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnSetFont.FlatAppearance.BorderColor = Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnSetFont.FlatStyle = FlatStyle.Flat;
+            this.btnSetFont.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.btnSetFont.LanguageFile = "";
-            this.btnSetFont.Location = new System.Drawing.Point(7, 63);
+            this.btnSetFont.Location = new Point(7, 63);
             this.btnSetFont.Name = "btnSetFont";
-            this.btnSetFont.Size = new System.Drawing.Size(157, 29);
+            this.btnSetFont.Size = new Size(157, 29);
             this.btnSetFont.TabIndex = 15;
             this.btnSetFont.Text = "Set Font";
             this.btnSetFont.UseVisualStyleBackColor = false;
             // 
             // OpacityControl
             // 
-            this.OpacityControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpacityControl.Location = new System.Drawing.Point(7, 100);
-            this.OpacityControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.OpacityControl.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.OpacityControl.Location = new Point(7, 100);
+            this.OpacityControl.Margin = new Padding(4, 5, 4, 5);
             this.OpacityControl.Name = "OpacityControl";
             this.OpacityControl.Number = 0;
-            this.OpacityControl.Size = new System.Drawing.Size(153, 91);
+            this.OpacityControl.Size = new Size(153, 91);
             this.OpacityControl.TabIndex = 16;
             // 
             // pnlLauncher
             // 
-            this.pnlLauncher.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlLauncher.Location = new System.Drawing.Point(180, 0);
-            this.pnlLauncher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlLauncher.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.pnlLauncher.Location = new Point(180, 0);
+            this.pnlLauncher.Margin = new Padding(4, 5, 4, 5);
             this.pnlLauncher.Name = "pnlLauncher";
-            this.pnlLauncher.Size = new System.Drawing.Size(268, 261);
+            this.pnlLauncher.Size = new Size(268, 261);
             this.pnlLauncher.TabIndex = 17;
             // 
             // PanelOverlayWorker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new SizeF(6F, 13F);
+            this.AutoScaleMode = AutoScaleMode.Font;
             this.Controls.Add(this.pnlLauncher);
             this.Controls.Add(this.OpacityControl);
             this.Controls.Add(this.btnSetFont);
             this.Controls.Add(this.lblBasics);
             this.Controls.Add(this.aChBxDrawBackground);
             this.Name = "PanelOverlayWorker";
-            this.Size = new System.Drawing.Size(451, 262);
+            this.Size = new Size(451, 262);
             this.ResumeLayout(false);
             this.PerformLayout();
 

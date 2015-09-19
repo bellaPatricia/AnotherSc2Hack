@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
@@ -7,7 +8,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -409,27 +410,27 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlFooter;
-        private System.Windows.Forms.Button btnMaphackFilterSaveAndClose;
-        private System.Windows.Forms.Button btnMaphackFilterDiscardAndClose;
+        private Panel pnlFooter;
+        private Button btnMaphackFilterSaveAndClose;
+        private Button btnMaphackFilterDiscardAndClose;
         private AnotherListview lstvMaphackFilterCurrentFilters;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnMaphackFiltersNewRule;
-        private System.Windows.Forms.Label label1;
+        private ColumnHeader columnHeader7;
+        private ColumnHeader columnHeader8;
+        private Label label5;
+        private Button btnMaphackFiltersNewRule;
+        private Label label1;
         private AnotherTextbox txtMaphackFilterRuleName;
         private TextBox txtMaphackFilterAttributes;
-        private System.Windows.Forms.Label label3;
+        private Label label3;
         private ImageCombobox icbMaphackFilterUnits;
-        private System.Windows.Forms.Label label6;
+        private Label label6;
         private ImageCombobox icbMaphackFilterUnitProperties;
-        private System.Windows.Forms.Button btnMaphackFilterLogicalAnd;
-        private System.Windows.Forms.Button btnMaphackFilterLogicalOr;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnMaphackFilterConfirmRule;
-        private System.Windows.Forms.Panel pnlMaphackFilterRuleContainer;
+        private Button btnMaphackFilterLogicalAnd;
+        private Button btnMaphackFilterLogicalOr;
+        private Label label4;
+        private Label label7;
+        private Button btnMaphackFilterConfirmRule;
+        private Panel pnlMaphackFilterRuleContainer;
         private AnotherCheckbox chBxMaphackFilterUseColor;
         private AnotherCheckbox chBxMaphackFilterUseSigns;
         private Button btnMaphackFilterColor;

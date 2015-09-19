@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+using PredefinedTypes;
 using _ = Utilities.InfoManager.InfoManager;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Preference
@@ -84,21 +85,21 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
             PreferenceAll = new PreferenceAll();
 
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PbDarkshrine);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PuDarktemplar);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PuOracle);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PuVoidray);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.PuWarpprismTransport);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.TuBanshee);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.TuReaper);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.TuWidowMine);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.TuMedivac);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZbBanelingNest);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZuBaneling);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZuMutalisk);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZbSpire);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZuInfestor);
-            PreferenceAll.OverlayAlert.UnitIds.Add(PredefinedTypes.UnitId.ZbHive);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.PbDarkshrine);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.PuDarktemplar);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.PuOracle);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.PuVoidray);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.PuWarpprismTransport);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.TuBanshee);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.TuReaper);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.TuWidowMine);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.TuMedivac);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.ZbBanelingNest);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.ZuBaneling);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.ZuMutalisk);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.ZbSpire);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.ZuInfestor);
+            PreferenceAll.OverlayAlert.UnitIds.Add(UnitId.ZbHive);
         }
 
         public bool AskForDonation()

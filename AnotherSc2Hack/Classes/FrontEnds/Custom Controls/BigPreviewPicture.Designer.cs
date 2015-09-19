@@ -1,11 +1,14 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     partial class BigPreviewPicture
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -130,10 +133,10 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pcbBigPicture;
-        private System.Windows.Forms.Button btnPrevious;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Panel pnlBottom;
-        private System.Windows.Forms.Label lblImageposition;
+        private PictureBox pcbBigPicture;
+        private Button btnPrevious;
+        private Button btnNext;
+        private Panel pnlBottom;
+        private Label lblImageposition;
     }
 }

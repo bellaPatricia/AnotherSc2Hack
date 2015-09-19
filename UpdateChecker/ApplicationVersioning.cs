@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Runtime.Remoting.Messaging;
-using System.Web;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Utilities.ExtensionMethods;
@@ -46,7 +44,7 @@ namespace UpdateChecker
         public void ParseOnlineApplicationVersioning(string strApplicationUrl)
         {
             var wc = new WebClient { Proxy = null };
-            var strSource = String.Empty;
+            string strSource;
 
             try
             {
@@ -101,17 +99,8 @@ namespace UpdateChecker
             var strDownloadManagerName = strDownloadManagerNames[strDownloadManagerNames.Length - 1];
             strDownloadManagerName = strDownloadManagerName.DecodeUrlString();
 
-            if (Path.GetFileName(Application.ExecutablePath) != strApplicationName)
-                ApplicationUrl = Path.Combine(Application.StartupPath, strApplicationName);
-            
-            else
-                ApplicationUrl = Application.ExecutablePath;
-
-            if (Path.GetFileName(Application.ExecutablePath) != strDownloadManagerName)
-                DownloadManagerUrl = Path.Combine(Application.StartupPath, strDownloadManagerName);
-
-            else
-                DownloadManagerUrl = Application.ExecutablePath;
+            ApplicationUrl = Path.GetFileName(Application.ExecutablePath) != strApplicationName ? Path.Combine(Application.StartupPath, strApplicationName) : Application.ExecutablePath;
+            DownloadManagerUrl = Path.GetFileName(Application.ExecutablePath) != strDownloadManagerName ? Path.Combine(Application.StartupPath, strDownloadManagerName) : Application.ExecutablePath;
             
 
             if (File.Exists(ApplicationUrl))

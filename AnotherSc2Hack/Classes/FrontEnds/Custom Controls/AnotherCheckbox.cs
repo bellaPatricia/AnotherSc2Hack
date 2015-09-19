@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
+using AnotherSc2Hack.Properties;
 using Utilities.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
@@ -193,7 +194,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
                 e.Graphics.DrawRoundRect(_pInactiveBpxBorder, posX, posY, width, height, 1);
 
             if (Checked)
-                e.Graphics.DrawImage(Properties.Resources.checkmark, posX + ((width - 12) / 2), posY + ((height - 12) / 2), 12, 12);
+                e.Graphics.DrawImage(Resources.checkmark, posX + ((width - 12) / 2), posY + ((height - 12) / 2), 12, 12);
 
             Height = height + 10;
             Width = TextRenderer.MeasureText(DisplayText, Font).Width + 5 + width + 5;

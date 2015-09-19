@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -17,14 +16,15 @@ using AnotherSc2Hack.Classes.DataStructures.Plugin;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 using AnotherSc2Hack.Classes.FrontEnds.Rendering;
+using AnotherSc2Hack.Properties;
 using PluginInterface;
 using PredefinedTypes;
 using UpdateChecker;
 using Utilities.Events;
 using Utilities.Logger;
 using Utilities.VariousClasses.Hashes;
-using _ = Utilities.InfoManager.InfoManager;
 using Timer = System.Windows.Forms.Timer;
+using _ = Utilities.InfoManager.InfoManager;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
@@ -1860,12 +1860,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 
                     var panel = new Panel();
 
-                    panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-                    panel.Location = new System.Drawing.Point(0, 80);
+                    panel.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
+            | AnchorStyles.Left)
+            | AnchorStyles.Right)));
+                    panel.Location = new Point(0, 80);
                     panel.Name = localPlugins.Hash;
-                    panel.Size = new System.Drawing.Size(1029, 450);
+                    panel.Size = new Size(1029, 450);
                     panel.TabIndex = 0;
 
                     pnlMainArea.Controls.Add(panel);
@@ -1883,7 +1883,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     click.BackColor = Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
                     click.DisplayColor = Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
                     click.DisplayText = localPlugins.Plugin.GetPluginEntryName();
-                    click.Font = new Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    click.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                     click.HoverBackgroundColor = Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(105)))), ((int)(((byte)(114)))));
                     click.InactiveBackgroundColor = Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(79)))), ((int)(((byte)(90)))));
                     click.InactiveForegroundColor = Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
@@ -1893,7 +1893,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
                     click.Name = localPlugins.Hash;
                     click.Size = new Size(152, 40);
 
-                    click.Icon = HelpFunctions.ByteArrayToImage(localPlugins.Plugin.GetPluginIcon()) ?? Properties.Resources.icon_default_plugin;
+                    click.Icon = HelpFunctions.ByteArrayToImage(localPlugins.Plugin.GetPluginIcon()) ?? Resources.icon_default_plugin;
 
                     click.TabIndex = 0;
                     click.TextSize = 11F;

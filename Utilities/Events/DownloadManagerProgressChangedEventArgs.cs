@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Utilities.Events
+﻿namespace Utilities.Events
 {
     public delegate void DownloadManagerProgressHandler(object sender, DownloadManagerProgressChangedEventArgs e);
 

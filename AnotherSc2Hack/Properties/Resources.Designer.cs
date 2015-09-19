@@ -8,10 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Globalization;
+using System.Resources;
+using System.Runtime.CompilerServices;
+
 namespace AnotherSc2Hack.Properties {
-    using System;
-    
-    
     /// <summary>
     ///   Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
     /// </summary>
@@ -19,27 +25,27 @@ namespace AnotherSc2Hack.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    [GeneratedCode("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [DebuggerNonUserCode()]
+    [CompilerGenerated()]
     public class Resources {
         
-        private static global::System.Resources.ResourceManager resourceMan;
+        private static ResourceManager resourceMan;
         
-        private static global::System.Globalization.CultureInfo resourceCulture;
+        private static CultureInfo resourceCulture;
         
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
         
         /// <summary>
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        public static ResourceManager ResourceManager {
             get {
-                if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AnotherSc2Hack.Properties.Resources", typeof(Resources).Assembly);
+                if (ReferenceEquals(resourceMan, null)) {
+                    ResourceManager temp = new ResourceManager("AnotherSc2Hack.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -50,8 +56,8 @@ namespace AnotherSc2Hack.Properties {
         ///   Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
         /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        public static CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,4420 +69,4420 @@ namespace AnotherSc2Hack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap checkmark {
+        public static Bitmap checkmark {
             get {
                 object obj = ResourceManager.GetObject("checkmark", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Gas_Protoss {
+        public static Bitmap Gas_Protoss {
             get {
                 object obj = ResourceManager.GetObject("Gas_Protoss", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Gas_Terran {
+        public static Bitmap Gas_Terran {
             get {
                 object obj = ResourceManager.GetObject("Gas_Terran", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Gas_Zerg {
+        public static Bitmap Gas_Zerg {
             get {
                 object obj = ResourceManager.GetObject("Gas_Zerg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_application {
+        public static Bitmap icon_application {
             get {
                 object obj = ResourceManager.GetObject("icon_application", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_automation {
+        public static Bitmap icon_automation {
             get {
                 object obj = ResourceManager.GetObject("icon_automation", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_benchmark {
+        public static Bitmap icon_benchmark {
             get {
                 object obj = ResourceManager.GetObject("icon_benchmark", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Icon_Copy {
+        public static Bitmap Icon_Copy {
             get {
                 object obj = ResourceManager.GetObject("Icon_Copy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_credit {
+        public static Bitmap icon_credit {
             get {
                 object obj = ResourceManager.GetObject("icon_credit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_debug {
+        public static Bitmap icon_debug {
             get {
                 object obj = ResourceManager.GetObject("icon_debug", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_default_plugin {
+        public static Bitmap icon_default_plugin {
             get {
                 object obj = ResourceManager.GetObject("icon_default_plugin", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_helpme {
+        public static Bitmap icon_helpme {
             get {
                 object obj = ResourceManager.GetObject("icon_helpme", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Icon_Kerrigan {
+        public static Bitmap Icon_Kerrigan {
             get {
                 object obj = ResourceManager.GetObject("Icon_Kerrigan", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
         /// </summary>
-        public static System.Drawing.Icon Icon_Kerrigan1 {
+        public static Icon Icon_Kerrigan1 {
             get {
                 object obj = ResourceManager.GetObject("Icon_Kerrigan1", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ((Icon)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_overlays {
+        public static Bitmap icon_overlays {
             get {
                 object obj = ResourceManager.GetObject("icon_overlays", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_plugin {
+        public static Bitmap icon_plugin {
             get {
                 object obj = ResourceManager.GetObject("icon_plugin", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap icon_various {
+        public static Bitmap icon_various {
             get {
                 object obj = ResourceManager.GetObject("icon_various", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Mineral_Protoss {
+        public static Bitmap Mineral_Protoss {
             get {
                 object obj = ResourceManager.GetObject("Mineral_Protoss", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Mineral_Terran {
+        public static Bitmap Mineral_Terran {
             get {
                 object obj = ResourceManager.GetObject("Mineral_Terran", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Mineral_Zerg {
+        public static Bitmap Mineral_Zerg {
             get {
                 object obj = ResourceManager.GetObject("Mineral_Zerg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Mini_Arrow_Speed {
+        public static Bitmap Mini_Arrow_Speed {
             get {
                 object obj = ResourceManager.GetObject("Mini_Arrow_Speed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap obserever_cloaked {
+        public static Bitmap obserever_cloaked {
             get {
                 object obj = ResourceManager.GetObject("obserever_cloaked", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap P_Probe {
+        public static Bitmap P_Probe {
             get {
                 object obj = ResourceManager.GetObject("P_Probe", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_Assimilator {
+        public static Bitmap pb_Assimilator {
             get {
                 object obj = ResourceManager.GetObject("pb_Assimilator", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_Cannon {
+        public static Bitmap pb_Cannon {
             get {
                 object obj = ResourceManager.GetObject("pb_Cannon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_cybercore {
+        public static Bitmap pb_cybercore {
             get {
                 object obj = ResourceManager.GetObject("pb_cybercore", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_DarkShrine {
+        public static Bitmap pb_DarkShrine {
             get {
                 object obj = ResourceManager.GetObject("pb_DarkShrine", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_FleetBeacon {
+        public static Bitmap pb_FleetBeacon {
             get {
                 object obj = ResourceManager.GetObject("pb_FleetBeacon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_forge {
+        public static Bitmap pb_forge {
             get {
                 object obj = ResourceManager.GetObject("pb_forge", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_gateway {
+        public static Bitmap pb_gateway {
             get {
                 object obj = ResourceManager.GetObject("pb_gateway", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_Nexus {
+        public static Bitmap pb_Nexus {
             get {
                 object obj = ResourceManager.GetObject("pb_Nexus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_Pylon {
+        public static Bitmap pb_Pylon {
             get {
                 object obj = ResourceManager.GetObject("pb_Pylon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_robotics {
+        public static Bitmap pb_robotics {
             get {
                 object obj = ResourceManager.GetObject("pb_robotics", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_roboticssupport {
+        public static Bitmap pb_roboticssupport {
             get {
                 object obj = ResourceManager.GetObject("pb_roboticssupport", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_stargate {
+        public static Bitmap pb_stargate {
             get {
                 object obj = ResourceManager.GetObject("pb_stargate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_templararchives {
+        public static Bitmap pb_templararchives {
             get {
                 object obj = ResourceManager.GetObject("pb_templararchives", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_twillightCouncil {
+        public static Bitmap pb_twillightCouncil {
             get {
                 object obj = ResourceManager.GetObject("pb_twillightCouncil", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pb_warpgate {
+        public static Bitmap pb_warpgate {
             get {
                 object obj = ResourceManager.GetObject("pb_warpgate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_Archon {
+        public static Bitmap pu_Archon {
             get {
                 object obj = ResourceManager.GetObject("pu_Archon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_carrier {
+        public static Bitmap pu_carrier {
             get {
                 object obj = ResourceManager.GetObject("pu_carrier", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_Colossus {
+        public static Bitmap pu_Colossus {
             get {
                 object obj = ResourceManager.GetObject("pu_Colossus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_DarkTemplar {
+        public static Bitmap pu_DarkTemplar {
             get {
                 object obj = ResourceManager.GetObject("pu_DarkTemplar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_ht {
+        public static Bitmap pu_ht {
             get {
                 object obj = ResourceManager.GetObject("pu_ht", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_immortal {
+        public static Bitmap pu_immortal {
             get {
                 object obj = ResourceManager.GetObject("pu_immortal", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_interceptor {
+        public static Bitmap pu_interceptor {
             get {
                 object obj = ResourceManager.GetObject("pu_interceptor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_Mothership {
+        public static Bitmap pu_Mothership {
             get {
                 object obj = ResourceManager.GetObject("pu_Mothership", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_mothershipcore {
+        public static Bitmap pu_mothershipcore {
             get {
                 object obj = ResourceManager.GetObject("pu_mothershipcore", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_Observer {
+        public static Bitmap pu_Observer {
             get {
                 object obj = ResourceManager.GetObject("pu_Observer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_oracle {
+        public static Bitmap pu_oracle {
             get {
                 object obj = ResourceManager.GetObject("pu_oracle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_pheonix {
+        public static Bitmap pu_pheonix {
             get {
                 object obj = ResourceManager.GetObject("pu_pheonix", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_probe {
+        public static Bitmap pu_probe {
             get {
                 object obj = ResourceManager.GetObject("pu_probe", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_sentry {
+        public static Bitmap pu_sentry {
             get {
                 object obj = ResourceManager.GetObject("pu_sentry", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_Stalker {
+        public static Bitmap pu_Stalker {
             get {
                 object obj = ResourceManager.GetObject("pu_Stalker", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_tempest {
+        public static Bitmap pu_tempest {
             get {
                 object obj = ResourceManager.GetObject("pu_tempest", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_Voidray {
+        public static Bitmap pu_Voidray {
             get {
                 object obj = ResourceManager.GetObject("pu_Voidray", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_warpprism {
+        public static Bitmap pu_warpprism {
             get {
                 object obj = ResourceManager.GetObject("pu_warpprism", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_warpprism_Warp {
+        public static Bitmap pu_warpprism_Warp {
             get {
                 object obj = ResourceManager.GetObject("pu_warpprism_Warp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pu_Zealot {
+        public static Bitmap pu_Zealot {
             get {
                 object obj = ResourceManager.GetObject("pu_Zealot", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap PuForceField {
+        public static Bitmap PuForceField {
             get {
                 object obj = ResourceManager.GetObject("PuForceField", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_AirA1 {
+        public static Bitmap Pup_AirA1 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirA1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_AirA2 {
+        public static Bitmap Pup_AirA2 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirA2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_AirA3 {
+        public static Bitmap Pup_AirA3 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirA3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_AirW1 {
+        public static Bitmap Pup_AirW1 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirW1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_AirW2 {
+        public static Bitmap Pup_AirW2 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirW2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_AirW3 {
+        public static Bitmap Pup_AirW3 {
             get {
                 object obj = ResourceManager.GetObject("Pup_AirW3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_AnionPulseCrystals {
+        public static Bitmap Pup_AnionPulseCrystals {
             get {
                 object obj = ResourceManager.GetObject("Pup_AnionPulseCrystals", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_Blink {
+        public static Bitmap Pup_Blink {
             get {
                 object obj = ResourceManager.GetObject("Pup_Blink", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_Charge {
+        public static Bitmap Pup_Charge {
             get {
                 object obj = ResourceManager.GetObject("Pup_Charge", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap pup_chrono {
+        public static Bitmap pup_chrono {
             get {
                 object obj = ResourceManager.GetObject("pup_chrono", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_ExtendedThermalLance {
+        public static Bitmap Pup_ExtendedThermalLance {
             get {
                 object obj = ResourceManager.GetObject("Pup_ExtendedThermalLance", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_GraviticBoosters {
+        public static Bitmap Pup_GraviticBoosters {
             get {
                 object obj = ResourceManager.GetObject("Pup_GraviticBoosters", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_GraviticDrive {
+        public static Bitmap Pup_GraviticDrive {
             get {
                 object obj = ResourceManager.GetObject("Pup_GraviticDrive", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_GravitonCatapult {
+        public static Bitmap Pup_GravitonCatapult {
             get {
                 object obj = ResourceManager.GetObject("Pup_GravitonCatapult", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_GroundA1 {
+        public static Bitmap Pup_GroundA1 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundA1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_GroundA2 {
+        public static Bitmap Pup_GroundA2 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundA2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_GroundA3 {
+        public static Bitmap Pup_GroundA3 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundA3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_GroundW1 {
+        public static Bitmap Pup_GroundW1 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundW1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_GroundW2 {
+        public static Bitmap Pup_GroundW2 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundW2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_GroundW3 {
+        public static Bitmap Pup_GroundW3 {
             get {
                 object obj = ResourceManager.GetObject("Pup_GroundW3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_S1 {
+        public static Bitmap Pup_S1 {
             get {
                 object obj = ResourceManager.GetObject("Pup_S1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_S2 {
+        public static Bitmap Pup_S2 {
             get {
                 object obj = ResourceManager.GetObject("Pup_S2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_S3 {
+        public static Bitmap Pup_S3 {
             get {
                 object obj = ResourceManager.GetObject("Pup_S3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_Storm {
+        public static Bitmap Pup_Storm {
             get {
                 object obj = ResourceManager.GetObject("Pup_Storm", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Pup_Warpgate {
+        public static Bitmap Pup_Warpgate {
             get {
                 object obj = ResourceManager.GetObject("Pup_Warpgate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Race_Protoss64 {
+        public static Bitmap Race_Protoss64 {
             get {
                 object obj = ResourceManager.GetObject("Race_Protoss64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Race_Terran64 {
+        public static Bitmap Race_Terran64 {
             get {
                 object obj = ResourceManager.GetObject("Race_Terran64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Race_Zerg64 {
+        public static Bitmap Race_Zerg64 {
             get {
                 object obj = ResourceManager.GetObject("Race_Zerg64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Speed_Arrow {
+        public static Bitmap Speed_Arrow {
             get {
                 object obj = ResourceManager.GetObject("Speed_Arrow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
         /// </summary>
-        public static System.Drawing.Icon StarCraft_Icon {
+        public static Icon StarCraft_Icon {
             get {
                 object obj = ResourceManager.GetObject("StarCraft_Icon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ((Icon)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Supply_Protoss {
+        public static Bitmap Supply_Protoss {
             get {
                 object obj = ResourceManager.GetObject("Supply_Protoss", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Supply_Terran {
+        public static Bitmap Supply_Terran {
             get {
                 object obj = ResourceManager.GetObject("Supply_Terran", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Supply_Zerg {
+        public static Bitmap Supply_Zerg {
             get {
                 object obj = ResourceManager.GetObject("Supply_Zerg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap T_SCV {
+        public static Bitmap T_SCV {
             get {
                 object obj = ResourceManager.GetObject("T_SCV", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_Armory {
+        public static Bitmap tb_Armory {
             get {
                 object obj = ResourceManager.GetObject("tb_Armory", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_autoturret {
+        public static Bitmap tb_autoturret {
             get {
                 object obj = ResourceManager.GetObject("tb_autoturret", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_bunker {
+        public static Bitmap tb_bunker {
             get {
                 object obj = ResourceManager.GetObject("tb_bunker", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_cc {
+        public static Bitmap tb_cc {
             get {
                 object obj = ResourceManager.GetObject("tb_cc", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_ebay {
+        public static Bitmap tb_ebay {
             get {
                 object obj = ResourceManager.GetObject("tb_ebay", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_fax {
+        public static Bitmap tb_fax {
             get {
                 object obj = ResourceManager.GetObject("tb_fax", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_fusioncore {
+        public static Bitmap tb_fusioncore {
             get {
                 object obj = ResourceManager.GetObject("tb_fusioncore", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_ghostacademy {
+        public static Bitmap tb_ghostacademy {
             get {
                 object obj = ResourceManager.GetObject("tb_ghostacademy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_oc {
+        public static Bitmap tb_oc {
             get {
                 object obj = ResourceManager.GetObject("tb_oc", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_pf {
+        public static Bitmap tb_pf {
             get {
                 object obj = ResourceManager.GetObject("tb_pf", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_rax {
+        public static Bitmap tb_rax {
             get {
                 object obj = ResourceManager.GetObject("tb_rax", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_reactor {
+        public static Bitmap tb_reactor {
             get {
                 object obj = ResourceManager.GetObject("tb_reactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_refinery {
+        public static Bitmap tb_refinery {
             get {
                 object obj = ResourceManager.GetObject("tb_refinery", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_sensor {
+        public static Bitmap tb_sensor {
             get {
                 object obj = ResourceManager.GetObject("tb_sensor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_starport {
+        public static Bitmap tb_starport {
             get {
                 object obj = ResourceManager.GetObject("tb_starport", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_supply {
+        public static Bitmap tb_supply {
             get {
                 object obj = ResourceManager.GetObject("tb_supply", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tb_T_Supply {
+        public static Bitmap Tb_T_Supply {
             get {
                 object obj = ResourceManager.GetObject("Tb_T_Supply", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_techlab {
+        public static Bitmap tb_techlab {
             get {
                 object obj = ResourceManager.GetObject("tb_techlab", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tb_turret {
+        public static Bitmap tb_turret {
             get {
                 object obj = ResourceManager.GetObject("tb_turret", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_BehemothReactor {
+        public static Bitmap trans_BehemothReactor {
             get {
                 object obj = ResourceManager.GetObject("trans_BehemothReactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_assimilator {
+        public static Bitmap trans_pb_assimilator {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_assimilator", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_cyberneticscore {
+        public static Bitmap trans_pb_cyberneticscore {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_cyberneticscore", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_darkshrine {
+        public static Bitmap trans_pb_darkshrine {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_darkshrine", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_fleetbeacon {
+        public static Bitmap trans_pb_fleetbeacon {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_fleetbeacon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_forge {
+        public static Bitmap trans_pb_forge {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_forge", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_gateway {
+        public static Bitmap trans_pb_gateway {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_gateway", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_nexus {
+        public static Bitmap trans_pb_nexus {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_nexus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_photoncannon {
+        public static Bitmap trans_pb_photoncannon {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_photoncannon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_pylon {
+        public static Bitmap trans_pb_pylon {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_pylon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_roboticsbay {
+        public static Bitmap trans_pb_roboticsbay {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_roboticsbay", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_roboticsfacility {
+        public static Bitmap trans_pb_roboticsfacility {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_roboticsfacility", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_stargate {
+        public static Bitmap trans_pb_stargate {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_stargate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_templararchive {
+        public static Bitmap trans_pb_templararchive {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_templararchive", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_twilightcouncil {
+        public static Bitmap trans_pb_twilightcouncil {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_twilightcouncil", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pb_warpgate {
+        public static Bitmap trans_pb_warpgate {
             get {
                 object obj = ResourceManager.GetObject("trans_pb_warpgate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_archon {
+        public static Bitmap trans_pu_archon {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_archon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_carrier {
+        public static Bitmap trans_pu_carrier {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_carrier", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_colossus {
+        public static Bitmap trans_pu_colossus {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_colossus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_darktemplar {
+        public static Bitmap trans_pu_darktemplar {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_darktemplar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_hightemplar {
+        public static Bitmap trans_pu_hightemplar {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_hightemplar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_immortal {
+        public static Bitmap trans_pu_immortal {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_immortal", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_interceptor {
+        public static Bitmap trans_pu_interceptor {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_interceptor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_mothership {
+        public static Bitmap trans_pu_mothership {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_mothership", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_mothershipcore {
+        public static Bitmap trans_pu_mothershipcore {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_mothershipcore", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_observer {
+        public static Bitmap trans_pu_observer {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_observer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_oracle {
+        public static Bitmap trans_pu_oracle {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_oracle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_phoenix {
+        public static Bitmap trans_pu_phoenix {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_phoenix", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_probe {
+        public static Bitmap trans_pu_probe {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_probe", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_sentry {
+        public static Bitmap trans_pu_sentry {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_sentry", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_stalker {
+        public static Bitmap trans_pu_stalker {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_stalker", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_tempest {
+        public static Bitmap trans_pu_tempest {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_tempest", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_voidray {
+        public static Bitmap trans_pu_voidray {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_voidray", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_warpprism {
+        public static Bitmap trans_pu_warpprism {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_warpprism", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_warpprismphasing {
+        public static Bitmap trans_pu_warpprismphasing {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_warpprismphasing", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pu_zealot {
+        public static Bitmap trans_pu_zealot {
             get {
                 object obj = ResourceManager.GetObject("trans_pu_zealot", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_AirA1 {
+        public static Bitmap trans_Pup_AirA1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_AirA1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_AirA2 {
+        public static Bitmap trans_Pup_AirA2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_AirA2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_AirA3 {
+        public static Bitmap trans_Pup_AirA3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_AirA3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_AirW1 {
+        public static Bitmap trans_Pup_AirW1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_AirW1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_AirW2 {
+        public static Bitmap trans_Pup_AirW2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_AirW2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_AirW3 {
+        public static Bitmap trans_Pup_AirW3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_AirW3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_AnionPulseCrystals {
+        public static Bitmap trans_Pup_AnionPulseCrystals {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_AnionPulseCrystals", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_Blink {
+        public static Bitmap trans_Pup_Blink {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_Blink", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_Charge {
+        public static Bitmap trans_Pup_Charge {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_Charge", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_ExtendedThermalLance {
+        public static Bitmap trans_Pup_ExtendedThermalLance {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_ExtendedThermalLance", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_pup_forcefield {
+        public static Bitmap trans_pup_forcefield {
             get {
                 object obj = ResourceManager.GetObject("trans_pup_forcefield", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_GraviticBoosters {
+        public static Bitmap trans_Pup_GraviticBoosters {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_GraviticBoosters", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_GraviticDrive {
+        public static Bitmap trans_Pup_GraviticDrive {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_GraviticDrive", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_GravitonCatapult {
+        public static Bitmap trans_Pup_GravitonCatapult {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_GravitonCatapult", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_GroundA1 {
+        public static Bitmap trans_Pup_GroundA1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_GroundA1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_GroundA2 {
+        public static Bitmap trans_Pup_GroundA2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_GroundA2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_GroundA3 {
+        public static Bitmap trans_Pup_GroundA3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_GroundA3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_GroundW1 {
+        public static Bitmap trans_Pup_GroundW1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_GroundW1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_GroundW2 {
+        public static Bitmap trans_Pup_GroundW2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_GroundW2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_GroundW3 {
+        public static Bitmap trans_Pup_GroundW3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_GroundW3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_S1 {
+        public static Bitmap trans_Pup_S1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_S1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_S2 {
+        public static Bitmap trans_Pup_S2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_S2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_S3 {
+        public static Bitmap trans_Pup_S3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_S3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_Storm {
+        public static Bitmap trans_Pup_Storm {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_Storm", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Pup_Warpgate {
+        public static Bitmap trans_Pup_Warpgate {
             get {
                 object obj = ResourceManager.GetObject("trans_Pup_Warpgate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_armory {
+        public static Bitmap trans_tb_armory {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_armory", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_autoturret {
+        public static Bitmap trans_tb_autoturret {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_autoturret", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_barracks {
+        public static Bitmap trans_tb_barracks {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_barracks", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_bunker {
+        public static Bitmap trans_tb_bunker {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_bunker", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_commandcenter {
+        public static Bitmap trans_tb_commandcenter {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_commandcenter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_engineeringbay {
+        public static Bitmap trans_tb_engineeringbay {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_engineeringbay", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_factory {
+        public static Bitmap trans_tb_factory {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_factory", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_fusioncore {
+        public static Bitmap trans_tb_fusioncore {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_fusioncore", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_ghostacademy {
+        public static Bitmap trans_tb_ghostacademy {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_ghostacademy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_missileturret {
+        public static Bitmap trans_tb_missileturret {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_missileturret", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_orbitalcommand {
+        public static Bitmap trans_tb_orbitalcommand {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_orbitalcommand", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_planetaryfortress {
+        public static Bitmap trans_tb_planetaryfortress {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_planetaryfortress", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_reactor {
+        public static Bitmap trans_tb_reactor {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_reactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_refinery {
+        public static Bitmap trans_tb_refinery {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_refinery", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_sensortower {
+        public static Bitmap trans_tb_sensortower {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_sensortower", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_starport {
+        public static Bitmap trans_tb_starport {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_starport", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_supplydepot {
+        public static Bitmap trans_tb_supplydepot {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_supplydepot", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_supplydepotlowered {
+        public static Bitmap trans_tb_supplydepotlowered {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_supplydepotlowered", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tb_techlab {
+        public static Bitmap trans_tb_techlab {
             get {
                 object obj = ResourceManager.GetObject("trans_tb_techlab", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_banshee {
+        public static Bitmap trans_tu_banshee {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_banshee", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_battlecruiser {
+        public static Bitmap trans_tu_battlecruiser {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_battlecruiser", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_ghost {
+        public static Bitmap trans_tu_ghost {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_ghost", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_hellbat {
+        public static Bitmap trans_tu_hellbat {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_hellbat", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_hellion {
+        public static Bitmap trans_tu_hellion {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_hellion", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_marauder {
+        public static Bitmap trans_tu_marauder {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_marauder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_marine {
+        public static Bitmap trans_tu_marine {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_marine", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_medivac {
+        public static Bitmap trans_tu_medivac {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_medivac", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_mule {
+        public static Bitmap trans_tu_mule {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_mule", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_nuke {
+        public static Bitmap trans_tu_nuke {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_nuke", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_pdd {
+        public static Bitmap trans_tu_pdd {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_pdd", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_raven {
+        public static Bitmap trans_tu_raven {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_raven", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_reaper {
+        public static Bitmap trans_tu_reaper {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_reaper", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_scv {
+        public static Bitmap trans_tu_scv {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_scv", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_siegetank {
+        public static Bitmap trans_tu_siegetank {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_siegetank", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_thor {
+        public static Bitmap trans_tu_thor {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_thor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_vikingair {
+        public static Bitmap trans_tu_vikingair {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_vikingair", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tu_widowmine {
+        public static Bitmap trans_tu_widowmine {
             get {
                 object obj = ResourceManager.GetObject("trans_tu_widowmine", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_BlueFlame {
+        public static Bitmap trans_Tup_BlueFlame {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_BlueFlame", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_CaduceusReactor {
+        public static Bitmap trans_Tup_CaduceusReactor {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_CaduceusReactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_CloakingField {
+        public static Bitmap trans_Tup_CloakingField {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_CloakingField", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_CombatShields {
+        public static Bitmap trans_Tup_CombatShields {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_CombatShields", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_ConcussiveShells {
+        public static Bitmap trans_Tup_ConcussiveShells {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_ConcussiveShells", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_CorvidReactor {
+        public static Bitmap trans_Tup_CorvidReactor {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_CorvidReactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_DrillingClaws {
+        public static Bitmap trans_Tup_DrillingClaws {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_DrillingClaws", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_DurableMaterials {
+        public static Bitmap trans_Tup_DurableMaterials {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_DurableMaterials", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_HighSecAutotracking {
+        public static Bitmap trans_Tup_HighSecAutotracking {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_HighSecAutotracking", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_InfantyArmor1 {
+        public static Bitmap trans_Tup_InfantyArmor1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_InfantyArmor1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_InfantyArmor2 {
+        public static Bitmap trans_Tup_InfantyArmor2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_InfantyArmor2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_InfantyArmor3 {
+        public static Bitmap trans_Tup_InfantyArmor3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_InfantyArmor3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_InfantyWeapon1 {
+        public static Bitmap trans_Tup_InfantyWeapon1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_InfantyWeapon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_InfantyWeapon2 {
+        public static Bitmap trans_Tup_InfantyWeapon2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_InfantyWeapon2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_InfantyWeapon3 {
+        public static Bitmap trans_Tup_InfantyWeapon3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_InfantyWeapon3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_MoebiusReactor {
+        public static Bitmap trans_Tup_MoebiusReactor {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_MoebiusReactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_NeosteelFrame {
+        public static Bitmap trans_Tup_NeosteelFrame {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_NeosteelFrame", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_OrbitalCommand {
+        public static Bitmap trans_Tup_OrbitalCommand {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_OrbitalCommand", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_PersonalCloak {
+        public static Bitmap trans_Tup_PersonalCloak {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_PersonalCloak", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_PlanetaryFortress {
+        public static Bitmap trans_Tup_PlanetaryFortress {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_PlanetaryFortress", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_ShipWeapon1 {
+        public static Bitmap trans_Tup_ShipWeapon1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_ShipWeapon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_ShipWeapon2 {
+        public static Bitmap trans_Tup_ShipWeapon2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_ShipWeapon2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_ShipWeapon3 {
+        public static Bitmap trans_Tup_ShipWeapon3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_ShipWeapon3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_Stim {
+        public static Bitmap trans_Tup_Stim {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_Stim", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_StructureArmor {
+        public static Bitmap trans_Tup_StructureArmor {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_StructureArmor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_TransformationServos {
+        public static Bitmap trans_Tup_TransformationServos {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_TransformationServos", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_VehicleShipPlanting1 {
+        public static Bitmap trans_Tup_VehicleShipPlanting1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_VehicleShipPlanting1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_VehicleShipPlanting2 {
+        public static Bitmap trans_Tup_VehicleShipPlanting2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_VehicleShipPlanting2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_VehicleShipPlanting3 {
+        public static Bitmap trans_Tup_VehicleShipPlanting3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_VehicleShipPlanting3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_VehicleWeapon1 {
+        public static Bitmap trans_Tup_VehicleWeapon1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_VehicleWeapon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_VehicleWeapon2 {
+        public static Bitmap trans_Tup_VehicleWeapon2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_VehicleWeapon2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Tup_VehicleWeapon3 {
+        public static Bitmap trans_Tup_VehicleWeapon3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Tup_VehicleWeapon3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_tup_weaponrefit {
+        public static Bitmap trans_tup_weaponrefit {
             get {
                 object obj = ResourceManager.GetObject("trans_tup_weaponrefit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_banelingnest {
+        public static Bitmap trans_zb_banelingnest {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_banelingnest", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_creeptumor {
+        public static Bitmap trans_zb_creeptumor {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_creeptumor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_evolutionchamber {
+        public static Bitmap trans_zb_evolutionchamber {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_evolutionchamber", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_extractor {
+        public static Bitmap trans_zb_extractor {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_extractor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_greaterspire {
+        public static Bitmap trans_zb_greaterspire {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_greaterspire", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_hatchery {
+        public static Bitmap trans_zb_hatchery {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_hatchery", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_hive {
+        public static Bitmap trans_zb_hive {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_hive", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_hydraliskden {
+        public static Bitmap trans_zb_hydraliskden {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_hydraliskden", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_infestationpit {
+        public static Bitmap trans_zb_infestationpit {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_infestationpit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_lair {
+        public static Bitmap trans_zb_lair {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_lair", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_nyduscanal {
+        public static Bitmap trans_zb_nyduscanal {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_nyduscanal", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_nydusnetwork {
+        public static Bitmap trans_zb_nydusnetwork {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_nydusnetwork", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_roachwarren {
+        public static Bitmap trans_zb_roachwarren {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_roachwarren", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_spawningpool {
+        public static Bitmap trans_zb_spawningpool {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_spawningpool", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_spinecrawler {
+        public static Bitmap trans_zb_spinecrawler {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_spinecrawler", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_spire {
+        public static Bitmap trans_zb_spire {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_spire", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_sporecrawler {
+        public static Bitmap trans_zb_sporecrawler {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_sporecrawler", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zb_ultraliskcavern {
+        public static Bitmap trans_zb_ultraliskcavern {
             get {
                 object obj = ResourceManager.GetObject("trans_zb_ultraliskcavern", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_baneling {
+        public static Bitmap trans_zu_baneling {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_baneling", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_banelingcocoon {
+        public static Bitmap trans_zu_banelingcocoon {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_banelingcocoon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_broodling {
+        public static Bitmap trans_zu_broodling {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_broodling", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_broodlord {
+        public static Bitmap trans_zu_broodlord {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_broodlord", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_BroodLordCocoon {
+        public static Bitmap trans_zu_BroodLordCocoon {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_BroodLordCocoon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_changeling {
+        public static Bitmap trans_zu_changeling {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_changeling", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_corruptor {
+        public static Bitmap trans_zu_corruptor {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_corruptor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_drone {
+        public static Bitmap trans_zu_drone {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_drone", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_egg {
+        public static Bitmap trans_zu_egg {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_egg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_hydralisk {
+        public static Bitmap trans_zu_hydralisk {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_hydralisk", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_InfestedTerran {
+        public static Bitmap trans_zu_InfestedTerran {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_InfestedTerran", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_infestor {
+        public static Bitmap trans_zu_infestor {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_infestor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_larva {
+        public static Bitmap trans_zu_larva {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_larva", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_locust {
+        public static Bitmap trans_zu_locust {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_locust", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_mutalisk {
+        public static Bitmap trans_zu_mutalisk {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_mutalisk", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_overlord {
+        public static Bitmap trans_zu_overlord {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_overlord", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_OverlordCocoon {
+        public static Bitmap trans_zu_OverlordCocoon {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_OverlordCocoon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_overseer {
+        public static Bitmap trans_zu_overseer {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_overseer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_queen {
+        public static Bitmap trans_zu_queen {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_queen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_roach {
+        public static Bitmap trans_zu_roach {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_roach", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_swarmhost {
+        public static Bitmap trans_zu_swarmhost {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_swarmhost", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_ultralisk {
+        public static Bitmap trans_zu_ultralisk {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_ultralisk", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_viper {
+        public static Bitmap trans_zu_viper {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_viper", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_zu_zergling {
+        public static Bitmap trans_zu_zergling {
             get {
                 object obj = ResourceManager.GetObject("trans_zu_zergling", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_AdrenalGlands {
+        public static Bitmap trans_Zup_AdrenalGlands {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_AdrenalGlands", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_AirA1 {
+        public static Bitmap trans_Zup_AirA1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_AirA1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_AirA2 {
+        public static Bitmap trans_Zup_AirA2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_AirA2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_AirA3 {
+        public static Bitmap trans_Zup_AirA3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_AirA3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_AirW1 {
+        public static Bitmap trans_Zup_AirW1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_AirW1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_AirW2 {
+        public static Bitmap trans_Zup_AirW2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_AirW2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_AirW3 {
+        public static Bitmap trans_Zup_AirW3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_AirW3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_Burrow {
+        public static Bitmap trans_Zup_Burrow {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_Burrow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_CentrifugalHooks {
+        public static Bitmap trans_Zup_CentrifugalHooks {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_CentrifugalHooks", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_ChitinousPlating {
+        public static Bitmap trans_Zup_ChitinousPlating {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_ChitinousPlating", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_EnduringLocusts {
+        public static Bitmap trans_Zup_EnduringLocusts {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_EnduringLocusts", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_flying_locust {
+        public static Bitmap trans_Zup_flying_locust {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_flying_locust", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GlialReconstruction {
+        public static Bitmap trans_Zup_GlialReconstruction {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GlialReconstruction", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GroovedSpines {
+        public static Bitmap trans_Zup_GroovedSpines {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GroovedSpines", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GroundA1 {
+        public static Bitmap trans_Zup_GroundA1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GroundA1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GroundA2 {
+        public static Bitmap trans_Zup_GroundA2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GroundA2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GroundA3 {
+        public static Bitmap trans_Zup_GroundA3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GroundA3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GroundM1 {
+        public static Bitmap trans_Zup_GroundM1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GroundM1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GroundM2 {
+        public static Bitmap trans_Zup_GroundM2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GroundM2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GroundM3 {
+        public static Bitmap trans_Zup_GroundM3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GroundM3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GroundW1 {
+        public static Bitmap trans_Zup_GroundW1 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GroundW1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GroundW2 {
+        public static Bitmap trans_Zup_GroundW2 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GroundW2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_GroundW3 {
+        public static Bitmap trans_Zup_GroundW3 {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_GroundW3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_MetabolicBoost {
+        public static Bitmap trans_Zup_MetabolicBoost {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_MetabolicBoost", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_MuscularAugments {
+        public static Bitmap trans_Zup_MuscularAugments {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_MuscularAugments", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_NeutralParasite {
+        public static Bitmap trans_Zup_NeutralParasite {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_NeutralParasite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_PathogenGlands {
+        public static Bitmap trans_Zup_PathogenGlands {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_PathogenGlands", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_PneumatizedCarapace {
+        public static Bitmap trans_Zup_PneumatizedCarapace {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_PneumatizedCarapace", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_TunnelingClaws {
+        public static Bitmap trans_Zup_TunnelingClaws {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_TunnelingClaws", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap trans_Zup_VentralSacs {
+        public static Bitmap trans_Zup_VentralSacs {
             get {
                 object obj = ResourceManager.GetObject("trans_Zup_VentralSacs", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_banshee {
+        public static Bitmap tu_banshee {
             get {
                 object obj = ResourceManager.GetObject("tu_banshee", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_battlecruiser {
+        public static Bitmap tu_battlecruiser {
             get {
                 object obj = ResourceManager.GetObject("tu_battlecruiser", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_battlehellion {
+        public static Bitmap tu_battlehellion {
             get {
                 object obj = ResourceManager.GetObject("tu_battlehellion", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_ghost {
+        public static Bitmap tu_ghost {
             get {
                 object obj = ResourceManager.GetObject("tu_ghost", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_hellion {
+        public static Bitmap tu_hellion {
             get {
                 object obj = ResourceManager.GetObject("tu_hellion", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_marauder {
+        public static Bitmap tu_marauder {
             get {
                 object obj = ResourceManager.GetObject("tu_marauder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_marine {
+        public static Bitmap tu_marine {
             get {
                 object obj = ResourceManager.GetObject("tu_marine", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_medivac {
+        public static Bitmap tu_medivac {
             get {
                 object obj = ResourceManager.GetObject("tu_medivac", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_Mule {
+        public static Bitmap tu_Mule {
             get {
                 object obj = ResourceManager.GetObject("tu_Mule", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tu_Nuke {
+        public static Bitmap Tu_Nuke {
             get {
                 object obj = ResourceManager.GetObject("Tu_Nuke", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_pdd {
+        public static Bitmap tu_pdd {
             get {
                 object obj = ResourceManager.GetObject("tu_pdd", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_raven {
+        public static Bitmap tu_raven {
             get {
                 object obj = ResourceManager.GetObject("tu_raven", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_reaper {
+        public static Bitmap tu_reaper {
             get {
                 object obj = ResourceManager.GetObject("tu_reaper", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_scv {
+        public static Bitmap tu_scv {
             get {
                 object obj = ResourceManager.GetObject("tu_scv", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_siegedtank {
+        public static Bitmap tu_siegedtank {
             get {
                 object obj = ResourceManager.GetObject("tu_siegedtank", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_tank {
+        public static Bitmap tu_tank {
             get {
                 object obj = ResourceManager.GetObject("tu_tank", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_thor {
+        public static Bitmap tu_thor {
             get {
                 object obj = ResourceManager.GetObject("tu_thor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_vikingAir {
+        public static Bitmap tu_vikingAir {
             get {
                 object obj = ResourceManager.GetObject("tu_vikingAir", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_vikingGround {
+        public static Bitmap tu_vikingGround {
             get {
                 object obj = ResourceManager.GetObject("tu_vikingGround", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tu_widowmine {
+        public static Bitmap tu_widowmine {
             get {
                 object obj = ResourceManager.GetObject("tu_widowmine", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_BehemothReactor {
+        public static Bitmap Tup_BehemothReactor {
             get {
                 object obj = ResourceManager.GetObject("Tup_BehemothReactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_BlueFlame {
+        public static Bitmap Tup_BlueFlame {
             get {
                 object obj = ResourceManager.GetObject("Tup_BlueFlame", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_CaduceusReactor {
+        public static Bitmap Tup_CaduceusReactor {
             get {
                 object obj = ResourceManager.GetObject("Tup_CaduceusReactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_CloakingField {
+        public static Bitmap Tup_CloakingField {
             get {
                 object obj = ResourceManager.GetObject("Tup_CloakingField", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_CombatShields {
+        public static Bitmap Tup_CombatShields {
             get {
                 object obj = ResourceManager.GetObject("Tup_CombatShields", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_ConcussiveShells {
+        public static Bitmap Tup_ConcussiveShells {
             get {
                 object obj = ResourceManager.GetObject("Tup_ConcussiveShells", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_CorvidReactor {
+        public static Bitmap Tup_CorvidReactor {
             get {
                 object obj = ResourceManager.GetObject("Tup_CorvidReactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_DrillingClaws {
+        public static Bitmap Tup_DrillingClaws {
             get {
                 object obj = ResourceManager.GetObject("Tup_DrillingClaws", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_DurableMaterials {
+        public static Bitmap Tup_DurableMaterials {
             get {
                 object obj = ResourceManager.GetObject("Tup_DurableMaterials", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_HighSecAutotracking {
+        public static Bitmap Tup_HighSecAutotracking {
             get {
                 object obj = ResourceManager.GetObject("Tup_HighSecAutotracking", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_InfantyArmor1 {
+        public static Bitmap Tup_InfantyArmor1 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyArmor1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_InfantyArmor2 {
+        public static Bitmap Tup_InfantyArmor2 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyArmor2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_InfantyArmor3 {
+        public static Bitmap Tup_InfantyArmor3 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyArmor3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_InfantyWeapon1 {
+        public static Bitmap Tup_InfantyWeapon1 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyWeapon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_InfantyWeapon2 {
+        public static Bitmap Tup_InfantyWeapon2 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyWeapon2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_InfantyWeapon3 {
+        public static Bitmap Tup_InfantyWeapon3 {
             get {
                 object obj = ResourceManager.GetObject("Tup_InfantyWeapon3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_MoebiusReactor {
+        public static Bitmap Tup_MoebiusReactor {
             get {
                 object obj = ResourceManager.GetObject("Tup_MoebiusReactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_NeosteelFrame {
+        public static Bitmap Tup_NeosteelFrame {
             get {
                 object obj = ResourceManager.GetObject("Tup_NeosteelFrame", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_OrbitalCommand {
+        public static Bitmap Tup_OrbitalCommand {
             get {
                 object obj = ResourceManager.GetObject("Tup_OrbitalCommand", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_PersonalCloak {
+        public static Bitmap Tup_PersonalCloak {
             get {
                 object obj = ResourceManager.GetObject("Tup_PersonalCloak", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_PlanetaryFortress {
+        public static Bitmap Tup_PlanetaryFortress {
             get {
                 object obj = ResourceManager.GetObject("Tup_PlanetaryFortress", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_ShipWeapon1 {
+        public static Bitmap Tup_ShipWeapon1 {
             get {
                 object obj = ResourceManager.GetObject("Tup_ShipWeapon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_ShipWeapon2 {
+        public static Bitmap Tup_ShipWeapon2 {
             get {
                 object obj = ResourceManager.GetObject("Tup_ShipWeapon2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_ShipWeapon3 {
+        public static Bitmap Tup_ShipWeapon3 {
             get {
                 object obj = ResourceManager.GetObject("Tup_ShipWeapon3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_Stim {
+        public static Bitmap Tup_Stim {
             get {
                 object obj = ResourceManager.GetObject("Tup_Stim", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_StructureArmor {
+        public static Bitmap Tup_StructureArmor {
             get {
                 object obj = ResourceManager.GetObject("Tup_StructureArmor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_TransformationServos {
+        public static Bitmap Tup_TransformationServos {
             get {
                 object obj = ResourceManager.GetObject("Tup_TransformationServos", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_VehicleShipPlanting1 {
+        public static Bitmap Tup_VehicleShipPlanting1 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleShipPlanting1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_VehicleShipPlanting2 {
+        public static Bitmap Tup_VehicleShipPlanting2 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleShipPlanting2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_VehicleShipPlanting3 {
+        public static Bitmap Tup_VehicleShipPlanting3 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleShipPlanting3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_VehicleWeapon1 {
+        public static Bitmap Tup_VehicleWeapon1 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleWeapon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_VehicleWeapon2 {
+        public static Bitmap Tup_VehicleWeapon2 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleWeapon2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_VehicleWeapon3 {
+        public static Bitmap Tup_VehicleWeapon3 {
             get {
                 object obj = ResourceManager.GetObject("Tup_VehicleWeapon3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Tup_WeaponRefit {
+        public static Bitmap Tup_WeaponRefit {
             get {
                 object obj = ResourceManager.GetObject("Tup_WeaponRefit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap WorkerCoach {
+        public static Bitmap WorkerCoach {
             get {
                 object obj = ResourceManager.GetObject("WorkerCoach", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Z_Drone {
+        public static Bitmap Z_Drone {
             get {
                 object obj = ResourceManager.GetObject("Z_Drone", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_banelingnest {
+        public static Bitmap zb_banelingnest {
             get {
                 object obj = ResourceManager.GetObject("zb_banelingnest", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zb_Creep_Tumor {
+        public static Bitmap Zb_Creep_Tumor {
             get {
                 object obj = ResourceManager.GetObject("Zb_Creep_Tumor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_creeptumor {
+        public static Bitmap zb_creeptumor {
             get {
                 object obj = ResourceManager.GetObject("zb_creeptumor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_evochamber {
+        public static Bitmap zb_evochamber {
             get {
                 object obj = ResourceManager.GetObject("zb_evochamber", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_extactor {
+        public static Bitmap zb_extactor {
             get {
                 object obj = ResourceManager.GetObject("zb_extactor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_greaterspire {
+        public static Bitmap zb_greaterspire {
             get {
                 object obj = ResourceManager.GetObject("zb_greaterspire", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_hatchery {
+        public static Bitmap zb_hatchery {
             get {
                 object obj = ResourceManager.GetObject("zb_hatchery", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_hive {
+        public static Bitmap zb_hive {
             get {
                 object obj = ResourceManager.GetObject("zb_hive", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_hydraden {
+        public static Bitmap zb_hydraden {
             get {
                 object obj = ResourceManager.GetObject("zb_hydraden", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_infestationpit {
+        public static Bitmap zb_infestationpit {
             get {
                 object obj = ResourceManager.GetObject("zb_infestationpit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_lair {
+        public static Bitmap zb_lair {
             get {
                 object obj = ResourceManager.GetObject("zb_lair", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_nydusnetwork {
+        public static Bitmap zb_nydusnetwork {
             get {
                 object obj = ResourceManager.GetObject("zb_nydusnetwork", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_nydusworm {
+        public static Bitmap zb_nydusworm {
             get {
                 object obj = ResourceManager.GetObject("zb_nydusworm", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_roachwarren {
+        public static Bitmap zb_roachwarren {
             get {
                 object obj = ResourceManager.GetObject("zb_roachwarren", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_spawningpool {
+        public static Bitmap zb_spawningpool {
             get {
                 object obj = ResourceManager.GetObject("zb_spawningpool", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_spine {
+        public static Bitmap zb_spine {
             get {
                 object obj = ResourceManager.GetObject("zb_spine", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_spire {
+        public static Bitmap zb_spire {
             get {
                 object obj = ResourceManager.GetObject("zb_spire", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_spore {
+        public static Bitmap zb_spore {
             get {
                 object obj = ResourceManager.GetObject("zb_spore", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zb_ultracavery {
+        public static Bitmap zb_ultracavery {
             get {
                 object obj = ResourceManager.GetObject("zb_ultracavery", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_baneling {
+        public static Bitmap zu_baneling {
             get {
                 object obj = ResourceManager.GetObject("zu_baneling", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_banelingcocoon {
+        public static Bitmap zu_banelingcocoon {
             get {
                 object obj = ResourceManager.GetObject("zu_banelingcocoon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_broodlord {
+        public static Bitmap zu_broodlord {
             get {
                 object obj = ResourceManager.GetObject("zu_broodlord", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_broodlordcocoon {
+        public static Bitmap zu_broodlordcocoon {
             get {
                 object obj = ResourceManager.GetObject("zu_broodlordcocoon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_changeling {
+        public static Bitmap zu_changeling {
             get {
                 object obj = ResourceManager.GetObject("zu_changeling", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_corruptor {
+        public static Bitmap zu_corruptor {
             get {
                 object obj = ResourceManager.GetObject("zu_corruptor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_drone {
+        public static Bitmap zu_drone {
             get {
                 object obj = ResourceManager.GetObject("zu_drone", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_hydra {
+        public static Bitmap zu_hydra {
             get {
                 object obj = ResourceManager.GetObject("zu_hydra", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_infestedterran {
+        public static Bitmap zu_infestedterran {
             get {
                 object obj = ResourceManager.GetObject("zu_infestedterran", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_infestor {
+        public static Bitmap zu_infestor {
             get {
                 object obj = ResourceManager.GetObject("zu_infestor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_larva {
+        public static Bitmap zu_larva {
             get {
                 object obj = ResourceManager.GetObject("zu_larva", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_locust {
+        public static Bitmap zu_locust {
             get {
                 object obj = ResourceManager.GetObject("zu_locust", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_mutalisk {
+        public static Bitmap zu_mutalisk {
             get {
                 object obj = ResourceManager.GetObject("zu_mutalisk", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_overlord {
+        public static Bitmap zu_overlord {
             get {
                 object obj = ResourceManager.GetObject("zu_overlord", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_overseer {
+        public static Bitmap zu_overseer {
             get {
                 object obj = ResourceManager.GetObject("zu_overseer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_overseercocoon {
+        public static Bitmap zu_overseercocoon {
             get {
                 object obj = ResourceManager.GetObject("zu_overseercocoon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_queen {
+        public static Bitmap zu_queen {
             get {
                 object obj = ResourceManager.GetObject("zu_queen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_roach {
+        public static Bitmap zu_roach {
             get {
                 object obj = ResourceManager.GetObject("zu_roach", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_swarmhost {
+        public static Bitmap zu_swarmhost {
             get {
                 object obj = ResourceManager.GetObject("zu_swarmhost", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_ultra {
+        public static Bitmap zu_ultra {
             get {
                 object obj = ResourceManager.GetObject("zu_ultra", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_viper {
+        public static Bitmap zu_viper {
             get {
                 object obj = ResourceManager.GetObject("zu_viper", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zu_zergling {
+        public static Bitmap zu_zergling {
             get {
                 object obj = ResourceManager.GetObject("zu_zergling", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_AdrenalGlands {
+        public static Bitmap Zup_AdrenalGlands {
             get {
                 object obj = ResourceManager.GetObject("Zup_AdrenalGlands", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_AirA1 {
+        public static Bitmap Zup_AirA1 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirA1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_AirA2 {
+        public static Bitmap Zup_AirA2 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirA2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_AirA3 {
+        public static Bitmap Zup_AirA3 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirA3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_AirW1 {
+        public static Bitmap Zup_AirW1 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirW1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_AirW2 {
+        public static Bitmap Zup_AirW2 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirW2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_AirW3 {
+        public static Bitmap Zup_AirW3 {
             get {
                 object obj = ResourceManager.GetObject("Zup_AirW3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_Burrow {
+        public static Bitmap Zup_Burrow {
             get {
                 object obj = ResourceManager.GetObject("Zup_Burrow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_CentrifugalHooks {
+        public static Bitmap Zup_CentrifugalHooks {
             get {
                 object obj = ResourceManager.GetObject("Zup_CentrifugalHooks", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_ChitinousPlating {
+        public static Bitmap Zup_ChitinousPlating {
             get {
                 object obj = ResourceManager.GetObject("Zup_ChitinousPlating", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_EnduringLocusts {
+        public static Bitmap Zup_EnduringLocusts {
             get {
                 object obj = ResourceManager.GetObject("Zup_EnduringLocusts", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap zup_flying_locust {
+        public static Bitmap zup_flying_locust {
             get {
                 object obj = ResourceManager.GetObject("zup_flying_locust", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GlialReconstruction {
+        public static Bitmap Zup_GlialReconstruction {
             get {
                 object obj = ResourceManager.GetObject("Zup_GlialReconstruction", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GroovedSpines {
+        public static Bitmap Zup_GroovedSpines {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroovedSpines", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GroundA1 {
+        public static Bitmap Zup_GroundA1 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundA1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GroundA2 {
+        public static Bitmap Zup_GroundA2 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundA2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GroundA3 {
+        public static Bitmap Zup_GroundA3 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundA3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GroundM1 {
+        public static Bitmap Zup_GroundM1 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundM1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GroundM2 {
+        public static Bitmap Zup_GroundM2 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundM2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GroundM3 {
+        public static Bitmap Zup_GroundM3 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundM3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GroundW1 {
+        public static Bitmap Zup_GroundW1 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundW1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GroundW2 {
+        public static Bitmap Zup_GroundW2 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundW2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_GroundW3 {
+        public static Bitmap Zup_GroundW3 {
             get {
                 object obj = ResourceManager.GetObject("Zup_GroundW3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_MetabolicBoost {
+        public static Bitmap Zup_MetabolicBoost {
             get {
                 object obj = ResourceManager.GetObject("Zup_MetabolicBoost", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_MuscularAugments {
+        public static Bitmap Zup_MuscularAugments {
             get {
                 object obj = ResourceManager.GetObject("Zup_MuscularAugments", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_NeutralParasite {
+        public static Bitmap Zup_NeutralParasite {
             get {
                 object obj = ResourceManager.GetObject("Zup_NeutralParasite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_PathogenGlands {
+        public static Bitmap Zup_PathogenGlands {
             get {
                 object obj = ResourceManager.GetObject("Zup_PathogenGlands", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_PneumatizedCarapace {
+        public static Bitmap Zup_PneumatizedCarapace {
             get {
                 object obj = ResourceManager.GetObject("Zup_PneumatizedCarapace", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_TunnelingClaws {
+        public static Bitmap Zup_TunnelingClaws {
             get {
                 object obj = ResourceManager.GetObject("Zup_TunnelingClaws", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Zup_VentralSacs {
+        public static Bitmap Zup_VentralSacs {
             get {
                 object obj = ResourceManager.GetObject("Zup_VentralSacs", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
     }

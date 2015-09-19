@@ -1,11 +1,14 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     partial class AnotherMessageBox
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -212,15 +215,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblMainText;
-        private System.Windows.Forms.Panel pnlBottomContainer;
-        private System.Windows.Forms.Button btnYes;
-        private System.Windows.Forms.Button btnNo;
-        private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.Button btnAbort;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnIgnore;
-        private System.Windows.Forms.Button btnRetry;
+        private Label lblMainText;
+        private Panel pnlBottomContainer;
+        private Button btnYes;
+        private Button btnNo;
+        private Button btnOk;
+        private Button btnAbort;
+        private Button btnCancel;
+        private Button btnIgnore;
+        private Button btnRetry;
 
 
     }

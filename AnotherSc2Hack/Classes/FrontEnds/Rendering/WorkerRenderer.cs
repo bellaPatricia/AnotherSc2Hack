@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
+using AnotherSc2Hack.Properties;
 using PredefinedTypes;
 using Utilities.ExtensionMethods;
 
@@ -106,13 +107,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 var targetPicturePosX = targetTextPosX + calculatedSize.Width + spacerWidth;
                 var targetPicturePosY = (ClientSize.Height - targetPictureWidth) / 2;
 
-                var targetWorkerPicture = Properties.Resources.Icon_Kerrigan;
+                var targetWorkerPicture = Resources.Icon_Kerrigan;
                 if (Player.LocalPlayer.PlayerRace == PlayerRace.Terran)
-                    targetWorkerPicture = Properties.Resources.trans_tu_scv;
+                    targetWorkerPicture = Resources.trans_tu_scv;
                 else if (Player.LocalPlayer.PlayerRace == PlayerRace.Zerg)
-                    targetWorkerPicture = Properties.Resources.trans_zu_drone;
+                    targetWorkerPicture = Resources.trans_zu_drone;
                 else
-                    targetWorkerPicture = Properties.Resources.trans_pu_probe;
+                    targetWorkerPicture = Resources.trans_pu_probe;
 
                 g.Graphics.DrawString(resultString,
                     fInternalFont,

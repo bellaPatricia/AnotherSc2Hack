@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using AnotherSc2Hack.Classes.BackEnds;
 using PluginInterface;
 using Utilities.VariousClasses.Hashes;
 
@@ -17,7 +16,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Plugin
         /// <summary>
         /// The PluginPath (local)
         /// </summary>
-        public string PluginPath { get; private set; }
+        public string PluginPath { get; }
 
         /// <summary>
         /// The Plugin itself

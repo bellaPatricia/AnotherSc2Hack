@@ -1,4 +1,7 @@
-﻿using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
+﻿using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
 {
@@ -7,7 +10,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
         /// <summary> 
         /// Erforderliche Designervariable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary> 
         /// Verwendete Ressourcen bereinigen.
@@ -47,13 +50,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             // 
             this.aChBxRemoveAi.Checked = false;
             this.aChBxRemoveAi.Clickable = true;
-            this.aChBxRemoveAi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxRemoveAi.Cursor = Cursors.Hand;
             this.aChBxRemoveAi.DisplayText = "Remove Ai";
-            this.aChBxRemoveAi.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxRemoveAi.Location = new System.Drawing.Point(7, 30);
+            this.aChBxRemoveAi.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxRemoveAi.Location = new Point(7, 30);
             this.aChBxRemoveAi.Name = "aChBxRemoveAi";
-            this.aChBxRemoveAi.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxRemoveAi.Size = new System.Drawing.Size(111, 30);
+            this.aChBxRemoveAi.RightToLeft = RightToLeft.No;
+            this.aChBxRemoveAi.Size = new Size(111, 30);
             this.aChBxRemoveAi.TabIndex = 0;
             this.aChBxRemoveAi.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
@@ -61,13 +64,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             // 
             this.aChBxRemoveAllie.Checked = false;
             this.aChBxRemoveAllie.Clickable = true;
-            this.aChBxRemoveAllie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxRemoveAllie.Cursor = Cursors.Hand;
             this.aChBxRemoveAllie.DisplayText = "Remove Allie";
-            this.aChBxRemoveAllie.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxRemoveAllie.Location = new System.Drawing.Point(7, 62);
+            this.aChBxRemoveAllie.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxRemoveAllie.Location = new Point(7, 62);
             this.aChBxRemoveAllie.Name = "aChBxRemoveAllie";
-            this.aChBxRemoveAllie.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxRemoveAllie.Size = new System.Drawing.Size(127, 30);
+            this.aChBxRemoveAllie.RightToLeft = RightToLeft.No;
+            this.aChBxRemoveAllie.Size = new Size(127, 30);
             this.aChBxRemoveAllie.TabIndex = 1;
             this.aChBxRemoveAllie.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
@@ -75,13 +78,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             // 
             this.aChBxRemoveNeutral.Checked = false;
             this.aChBxRemoveNeutral.Clickable = true;
-            this.aChBxRemoveNeutral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxRemoveNeutral.Cursor = Cursors.Hand;
             this.aChBxRemoveNeutral.DisplayText = "Remove Neutral";
-            this.aChBxRemoveNeutral.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxRemoveNeutral.Location = new System.Drawing.Point(7, 94);
+            this.aChBxRemoveNeutral.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxRemoveNeutral.Location = new Point(7, 94);
             this.aChBxRemoveNeutral.Name = "aChBxRemoveNeutral";
-            this.aChBxRemoveNeutral.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxRemoveNeutral.Size = new System.Drawing.Size(146, 30);
+            this.aChBxRemoveNeutral.RightToLeft = RightToLeft.No;
+            this.aChBxRemoveNeutral.Size = new Size(146, 30);
             this.aChBxRemoveNeutral.TabIndex = 1;
             this.aChBxRemoveNeutral.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
@@ -89,35 +92,35 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             // 
             this.aChBxRemoveYourself.Checked = false;
             this.aChBxRemoveYourself.Clickable = true;
-            this.aChBxRemoveYourself.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxRemoveYourself.Cursor = Cursors.Hand;
             this.aChBxRemoveYourself.DisplayText = "Remove Yourself";
-            this.aChBxRemoveYourself.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxRemoveYourself.Location = new System.Drawing.Point(7, 126);
+            this.aChBxRemoveYourself.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxRemoveYourself.Location = new Point(7, 126);
             this.aChBxRemoveYourself.Name = "aChBxRemoveYourself";
-            this.aChBxRemoveYourself.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxRemoveYourself.Size = new System.Drawing.Size(150, 30);
+            this.aChBxRemoveYourself.RightToLeft = RightToLeft.No;
+            this.aChBxRemoveYourself.Size = new Size(150, 30);
             this.aChBxRemoveYourself.TabIndex = 2;
             this.aChBxRemoveYourself.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // OpacityControl
             // 
-            this.OpacityControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpacityControl.Location = new System.Drawing.Point(7, 164);
-            this.OpacityControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.OpacityControl.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.OpacityControl.Location = new Point(7, 164);
+            this.OpacityControl.Margin = new Padding(4, 5, 4, 5);
             this.OpacityControl.Name = "OpacityControl";
             this.OpacityControl.Number = 0;
-            this.OpacityControl.Size = new System.Drawing.Size(153, 91);
+            this.OpacityControl.Size = new Size(153, 91);
             this.OpacityControl.TabIndex = 4;
             // 
             // lblBasics
             // 
             this.lblBasics.AutoSize = true;
-            this.lblBasics.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBasics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
+            this.lblBasics.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasics.ForeColor = Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(90)))));
             this.lblBasics.LanguageFile = "";
-            this.lblBasics.Location = new System.Drawing.Point(3, 3);
+            this.lblBasics.Location = new Point(3, 3);
             this.lblBasics.Name = "lblBasics";
-            this.lblBasics.Size = new System.Drawing.Size(52, 20);
+            this.lblBasics.Size = new Size(52, 20);
             this.lblBasics.TabIndex = 13;
             this.lblBasics.Text = "Basics";
             // 
@@ -125,13 +128,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             // 
             this.aChBxRemoveDestinationLine.Checked = false;
             this.aChBxRemoveDestinationLine.Clickable = true;
-            this.aChBxRemoveDestinationLine.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxRemoveDestinationLine.Cursor = Cursors.Hand;
             this.aChBxRemoveDestinationLine.DisplayText = "Remove Destinationline";
-            this.aChBxRemoveDestinationLine.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxRemoveDestinationLine.Location = new System.Drawing.Point(167, 94);
+            this.aChBxRemoveDestinationLine.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxRemoveDestinationLine.Location = new Point(167, 94);
             this.aChBxRemoveDestinationLine.Name = "aChBxRemoveDestinationLine";
-            this.aChBxRemoveDestinationLine.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxRemoveDestinationLine.Size = new System.Drawing.Size(197, 30);
+            this.aChBxRemoveDestinationLine.RightToLeft = RightToLeft.No;
+            this.aChBxRemoveDestinationLine.Size = new Size(197, 30);
             this.aChBxRemoveDestinationLine.TabIndex = 1;
             this.aChBxRemoveDestinationLine.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
@@ -139,26 +142,26 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             // 
             this.aChBxDefensiveStructures.Checked = false;
             this.aChBxDefensiveStructures.Clickable = true;
-            this.aChBxDefensiveStructures.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxDefensiveStructures.Cursor = Cursors.Hand;
             this.aChBxDefensiveStructures.DisplayText = "Color Defensives";
-            this.aChBxDefensiveStructures.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxDefensiveStructures.Location = new System.Drawing.Point(167, 126);
+            this.aChBxDefensiveStructures.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxDefensiveStructures.Location = new Point(167, 126);
             this.aChBxDefensiveStructures.Name = "aChBxDefensiveStructures";
-            this.aChBxDefensiveStructures.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxDefensiveStructures.Size = new System.Drawing.Size(150, 30);
+            this.aChBxDefensiveStructures.RightToLeft = RightToLeft.No;
+            this.aChBxDefensiveStructures.Size = new Size(150, 30);
             this.aChBxDefensiveStructures.TabIndex = 2;
             this.aChBxDefensiveStructures.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // btnColorDestinationline
             // 
-            this.btnColorDestinationline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.btnColorDestinationline.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
-            this.btnColorDestinationline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnColorDestinationline.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnColorDestinationline.BackColor = Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.btnColorDestinationline.FlatAppearance.BorderColor = Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(193)))), ((int)(((byte)(193)))));
+            this.btnColorDestinationline.FlatStyle = FlatStyle.Flat;
+            this.btnColorDestinationline.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.btnColorDestinationline.LanguageFile = "";
-            this.btnColorDestinationline.Location = new System.Drawing.Point(370, 94);
+            this.btnColorDestinationline.Location = new Point(370, 94);
             this.btnColorDestinationline.Name = "btnColorDestinationline";
-            this.btnColorDestinationline.Size = new System.Drawing.Size(29, 30);
+            this.btnColorDestinationline.Size = new Size(29, 30);
             this.btnColorDestinationline.TabIndex = 15;
             this.btnColorDestinationline.Text = "...";
             this.btnColorDestinationline.UseVisualStyleBackColor = false;
@@ -167,13 +170,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             // 
             this.aChBxRemoveCamera.Checked = false;
             this.aChBxRemoveCamera.Clickable = true;
-            this.aChBxRemoveCamera.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxRemoveCamera.Cursor = Cursors.Hand;
             this.aChBxRemoveCamera.DisplayText = "Remove Camera";
-            this.aChBxRemoveCamera.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxRemoveCamera.Location = new System.Drawing.Point(167, 30);
+            this.aChBxRemoveCamera.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxRemoveCamera.Location = new Point(167, 30);
             this.aChBxRemoveCamera.Name = "aChBxRemoveCamera";
-            this.aChBxRemoveCamera.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxRemoveCamera.Size = new System.Drawing.Size(148, 30);
+            this.aChBxRemoveCamera.RightToLeft = RightToLeft.No;
+            this.aChBxRemoveCamera.Size = new Size(148, 30);
             this.aChBxRemoveCamera.TabIndex = 3;
             this.aChBxRemoveCamera.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
@@ -181,20 +184,20 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             // 
             this.aChBxRemoveVisionArea.Checked = false;
             this.aChBxRemoveVisionArea.Clickable = true;
-            this.aChBxRemoveVisionArea.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aChBxRemoveVisionArea.Cursor = Cursors.Hand;
             this.aChBxRemoveVisionArea.DisplayText = "Remove Vision-Area";
-            this.aChBxRemoveVisionArea.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aChBxRemoveVisionArea.Location = new System.Drawing.Point(167, 62);
+            this.aChBxRemoveVisionArea.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.aChBxRemoveVisionArea.Location = new Point(167, 62);
             this.aChBxRemoveVisionArea.Name = "aChBxRemoveVisionArea";
-            this.aChBxRemoveVisionArea.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.aChBxRemoveVisionArea.Size = new System.Drawing.Size(174, 30);
+            this.aChBxRemoveVisionArea.RightToLeft = RightToLeft.No;
+            this.aChBxRemoveVisionArea.Size = new Size(174, 30);
             this.aChBxRemoveVisionArea.TabIndex = 4;
             this.aChBxRemoveVisionArea.TextAlign = AnotherCheckbox.TextAlignment.Right;
             // 
             // PanelSettingsBasicsMaphack
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new SizeF(6F, 13F);
+            this.AutoScaleMode = AutoScaleMode.Font;
             this.Controls.Add(this.aChBxRemoveVisionArea);
             this.Controls.Add(this.aChBxRemoveCamera);
             this.Controls.Add(this.btnColorDestinationline);
@@ -207,7 +210,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             this.Controls.Add(this.aChBxRemoveAllie);
             this.Controls.Add(this.aChBxRemoveAi);
             this.Name = "PanelSettingsBasicsMaphack";
-            this.Size = new System.Drawing.Size(455, 246);
+            this.Size = new Size(455, 246);
             this.ResumeLayout(false);
             this.PerformLayout();
 

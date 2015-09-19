@@ -3,8 +3,9 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Net;
-using System.Security;
 using System.Net.Mail;
+using System.Reflection;
+using System.Security;
 using System.Text;
 using System.Windows.Forms;
 
@@ -65,7 +66,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             
 
             sbMakeString.AppendLine(DateTime.Now.ToString(CultureInfo.InvariantCulture));
-            sbMakeString.AppendLine("Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            sbMakeString.AppendLine("Version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString());
             sbMakeString.AppendLine("##############################");
             sbMakeString.AppendLine("Class: " + className);
             sbMakeString.AppendLine("Method: " + methodName);
@@ -118,7 +119,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             sw.WriteLine();
 
             sw.WriteLine(DateTime.Now.ToString(CultureInfo.InvariantCulture));
-            sw.WriteLine("Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            sw.WriteLine("Version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString());
             sw.WriteLine("##############################");
             sw.WriteLine("Class: " + className);
             sw.WriteLine("Method: " + methodName);

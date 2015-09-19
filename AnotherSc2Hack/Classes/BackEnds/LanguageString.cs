@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 
 namespace AnotherSc2Hack.Classes.BackEnds
@@ -37,7 +36,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         public string Name { get; set; }
-        public string DefaultText { get; private set; }
+        public string DefaultText { get; }
 
         public LanguageString(string name, string defaultText = "")
         {

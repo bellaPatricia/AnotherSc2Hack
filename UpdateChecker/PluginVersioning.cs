@@ -26,7 +26,7 @@ namespace UpdateChecker
         public void ParseOnlinePluginVersioning(string strPluginUrl)
         {
             var wc = new WebClient { Proxy = null };
-            var strSource = String.Empty;
+            string strSource;
 
             try
             {

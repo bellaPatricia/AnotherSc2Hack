@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Utilities.ExtensionMethods;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Text; 
+using Utilities.ExtensionMethods;
 
 namespace Utilities.Logger
 {

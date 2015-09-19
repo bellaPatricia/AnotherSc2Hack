@@ -1,11 +1,14 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {
     partial class BaseRenderer
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -60,6 +63,6 @@
 
         #endregion
 
-        public System.Windows.Forms.Timer tmrRefreshGraphic;
+        public Timer tmrRefreshGraphic;
     }
 }

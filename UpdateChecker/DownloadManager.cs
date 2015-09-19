@@ -74,40 +74,34 @@ namespace UpdateChecker
 
         private void OnDownloadManagerUpdateRequired(object sender, EventArgs e)
         {
-            if (DownloadManagerUpdateRequired != null)
-                DownloadManagerUpdateRequired(sender, e);
+            DownloadManagerUpdateRequired?.Invoke(sender, e);
         }
 
         private void OnDownloadManagerProgressChanged(object sender, DownloadManagerProgressChangedEventArgs e)
         {
-            if (DownloadManagerProgressChanged != null)
-                DownloadManagerProgressChanged(sender, e);
+            DownloadManagerProgressChanged?.Invoke(sender, e);
         }
 
         private void OnUpdateAvailable(object sender, UpdateArgs e)
         {
             BUpdatesAvailable = UpdateState.Available;
 
-            if (UpdateAvailable != null)
-                UpdateAvailable(sender, e);
+            UpdateAvailable?.Invoke(sender, e);
         }
 
         private void OnNoUpdateAvailable(object sender, UpdateArgs e)
         {
-            if (NoUpdateAvailable != null)
-                NoUpdateAvailable(sender, e);
+            NoUpdateAvailable?.Invoke(sender, e);
         }
 
         private void OnApplicationInstallationComplete(object sender, EventArgs e)
         {
-            if (ApplicationInstallationComplete != null)
-                ApplicationInstallationComplete(sender, e);
+            ApplicationInstallationComplete?.Invoke(sender, e);
         }
 
         private void OnCheckComplete(object sender, EventArgs e)
         {
-            if (CheckComplete != null)
-                CheckComplete(sender, e);
+            CheckComplete?.Invoke(sender, e);
         }
 
         #endregion

@@ -1,11 +1,14 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     partial class AlertConfiguration
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -164,13 +167,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlBottomStrip;
+        private Panel pnlBottomStrip;
         private LanguageButton btnOk;
         private LanguageButton btnCancel;
         private ImageCombobox icbAlertConfigurationSelection;
         private AnotherListview lstvAlertConfigurationFilter;
-        private System.Windows.Forms.ColumnHeader chAlertConfigurationFilterUnit;
-        private System.Windows.Forms.ContextMenuStrip cmsListviewContext;
-        private System.Windows.Forms.ToolStripMenuItem tsmRemoveItems;
+        private ColumnHeader chAlertConfigurationFilterUnit;
+        private ContextMenuStrip cmsListviewContext;
+        private ToolStripMenuItem tsmRemoveItems;
     }
 }

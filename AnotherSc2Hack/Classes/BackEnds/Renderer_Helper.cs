@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using PredefinedTypes;
 
-
 namespace AnotherSc2Hack.Classes.BackEnds
 {
     class RendererHelper

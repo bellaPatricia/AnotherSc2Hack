@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnotherSc2Hack.Classes.BackEnds;
 using AnotherSc2Hack.Classes.DataStructures.Preference;
-using AnotherSc2Hack.Classes.FrontEnds.MainHandler;
 using PredefinedTypes;
-using Utilities.ExtensionMethods;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
@@ -29,7 +21,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             InitializeComponent();
         }
 
-        public PreferenceManager PSettings { get; private set; }
+        public PreferenceManager PSettings { get; }
         public AlertConfiguration(PreferenceManager pSettings)
         {
             PSettings = pSettings;

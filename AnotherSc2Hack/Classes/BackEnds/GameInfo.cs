@@ -25,9 +25,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
-using System.Diagnostics;
 using System.Threading;
 using PredefinedTypes;
 using Utilities.Events;

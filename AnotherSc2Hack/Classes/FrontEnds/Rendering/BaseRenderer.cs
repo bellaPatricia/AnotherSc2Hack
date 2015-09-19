@@ -22,8 +22,8 @@ using PredefinedTypes;
 using Utilities.Events;
 using Utilities.ExtensionMethods;
 using _ = Utilities.InfoManager.InfoManager;
-using MouseButtons = System.Windows.Forms.MouseButtons;
 using Interop = Utilities.InteropCalls.InteropCalls;
+using MouseButtons = System.Windows.Forms.MouseButtons;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 {

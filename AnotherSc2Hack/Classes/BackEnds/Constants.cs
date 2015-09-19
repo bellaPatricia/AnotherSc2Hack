@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace AnotherSc2Hack.Classes.BackEnds

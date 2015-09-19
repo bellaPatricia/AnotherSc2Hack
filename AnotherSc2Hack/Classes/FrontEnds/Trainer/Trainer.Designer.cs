@@ -1,11 +1,14 @@
-﻿namespace AnotherSc2Hack.Classes.FrontEnds.Trainer
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace AnotherSc2Hack.Classes.FrontEnds.Trainer
 {
     partial class Trainer
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -137,14 +140,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer tmrMainTick;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView lvPlayerdata;
-        private System.Windows.Forms.ColumnHeader chProperty;
-        private System.Windows.Forms.ColumnHeader chPropertyValue;
-        private System.Windows.Forms.ColumnHeader chPropertyType;
-        private System.Windows.Forms.Label lblPlayername;
-        private System.Windows.Forms.Button btnPrevious;
-        private System.Windows.Forms.Button btnNext;
+        private Timer tmrMainTick;
+        private GroupBox groupBox1;
+        private ListView lvPlayerdata;
+        private ColumnHeader chProperty;
+        private ColumnHeader chPropertyValue;
+        private ColumnHeader chPropertyType;
+        private Label lblPlayername;
+        private Button btnPrevious;
+        private Button btnNext;
     }
 }

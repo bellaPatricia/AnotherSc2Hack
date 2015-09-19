@@ -1,9 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Globalization;
 using System.Windows.Forms;
 using Utilities.Events;
-using System.Drawing;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {

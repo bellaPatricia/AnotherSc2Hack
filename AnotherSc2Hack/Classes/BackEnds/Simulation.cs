@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using PredefinedTypes;
 using Interop = Utilities.InteropCalls.InteropCalls;
+using MouseButtons = PredefinedTypes.MouseButtons;
 
 namespace AnotherSc2Hack.Classes.BackEnds
 {
@@ -151,59 +151,59 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 return (IntPtr)((hiWord << 16) | (loWord & 0xffff));
             }
 
-            public static void Click(IntPtr handle, PredefinedTypes.MouseButtons btn, params Point[] position)
+            public static void Click(IntPtr handle, MouseButtons btn, params Point[] position)
             {
                 foreach (var t in position)
                 {
                     switch (btn)
                     {
-                        case PredefinedTypes.MouseButtons.MouseLeft:
+                        case MouseButtons.MouseLeft:
                             Interop.SendMessage(handle, (uint) Interop.WMessages.Lbuttondown, IntPtr.Zero,
                                 (IntPtr) MakeLParam(t));
                             Interop.SendMessage(handle, (uint)Interop.WMessages.Lbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
-                        case PredefinedTypes.MouseButtons.MouseRight:
+                        case MouseButtons.MouseRight:
                             Interop.SendMessage(handle, (uint) Interop.WMessages.Rbuttondown, IntPtr.Zero,
                                 (IntPtr) MakeLParam(t));
                             Interop.SendMessage(handle, (uint)Interop.WMessages.Rbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
-                        case PredefinedTypes.MouseButtons.MouseMiddle:
+                        case MouseButtons.MouseMiddle:
                             Interop.SendMessage(handle, (uint)Interop.WMessages.Mbuttondown, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             Interop.SendMessage(handle, (uint)Interop.WMessages.Mbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
-                        case PredefinedTypes.MouseButtons.MouseLeftDown:
+                        case MouseButtons.MouseLeftDown:
                             Interop.SendMessage(handle, (uint)Interop.WMessages.Lbuttondown, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
-                        case PredefinedTypes.MouseButtons.MouseLeftUp:
+                        case MouseButtons.MouseLeftUp:
                             Interop.SendMessage(handle, (uint)Interop.WMessages.Lbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
-                        case PredefinedTypes.MouseButtons.MouseRightDown:
+                        case MouseButtons.MouseRightDown:
                             Interop.SendMessage(handle, (uint)Interop.WMessages.Rbuttondown, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
-                        case PredefinedTypes.MouseButtons.MouseRightUp:
+                        case MouseButtons.MouseRightUp:
                             Interop.SendMessage(handle, (uint)Interop.WMessages.Rbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
-                        case PredefinedTypes.MouseButtons.MouseMiddleDown:
+                        case MouseButtons.MouseMiddleDown:
                             Interop.SendMessage(handle, (uint)Interop.WMessages.Mbuttondown, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
 
-                        case PredefinedTypes.MouseButtons.MouseMiddleUp:
+                        case MouseButtons.MouseMiddleUp:
                             Interop.SendMessage(handle, (uint)Interop.WMessages.Mbuttonup, IntPtr.Zero,
                                 (IntPtr)MakeLParam(t));
                             break;
