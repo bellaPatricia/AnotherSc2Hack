@@ -34,13 +34,7 @@ namespace Utilities.Logger
             }
         }
 
-        private static bool _logToFile = true;
-
-        public static bool LogToFile
-        {
-            get { return _logToFile; }
-            set { _logToFile = value; }
-        }
+        public static bool LogToFile { get; set; } = true;
 
         private Logger()
         {
@@ -88,7 +82,7 @@ namespace Utilities.Logger
 
         public static void Emit(Exception error)
         {
-            Emit(new LogMessage(String.Empty, error));
+            Emit(new LogMessage(string.Empty, error));
         }
 
         private static void ToConsoleSimple(LogMessage message)
@@ -110,15 +104,15 @@ namespace Utilities.Logger
             iMaxLength += 2;
 
             //Write Error Title
-            Console.WriteLine(String.Empty.Fill("-", iMaxLength + 2));
-            Console.WriteLine("|{0}|", String.Empty.Fill(" ", iMaxLength));
+            Console.WriteLine(string.Empty.Fill("-", iMaxLength + 2));
+            Console.WriteLine("|{0}|", string.Empty.Fill(" ", iMaxLength));
             Console.WriteLine("|{0}|", strErrorTitle.Center(" ", iMaxLength));
-            Console.WriteLine("|{0}|", String.Empty.Fill(" ", iMaxLength));
-            Console.WriteLine(String.Empty.Fill("-", iMaxLength + 2));
+            Console.WriteLine("|{0}|", string.Empty.Fill(" ", iMaxLength));
+            Console.WriteLine(string.Empty.Fill("-", iMaxLength + 2));
 
             //Clock
             Console.WriteLine("|{0}|", strClock.Center(" ", iMaxLength));
-            Console.WriteLine(String.Empty.Fill("-", iMaxLength + 2));
+            Console.WriteLine(string.Empty.Fill("-", iMaxLength + 2));
 
             var dContent = new Dictionary<string, string>();
 
@@ -150,7 +144,7 @@ namespace Utilities.Logger
 
 
 
-            var strDataChunk = new List<String>();
+            var strDataChunk = new List<string>();
             var strErrorTitle = message.ErrorTitle;
             var strClock = "Time of incident: " + DateTime.Now;
 
@@ -161,15 +155,15 @@ namespace Utilities.Logger
             iMaxLength += 2;
 
             //Write Error Title
-            strDataChunk.Add(String.Format(String.Empty.Fill("-", iMaxLength + 2)));
-            strDataChunk.Add(String.Format("|{0}|", String.Empty.Fill(" ", iMaxLength)));
-            strDataChunk.Add(String.Format("|{0}|", strErrorTitle.Center(" ", iMaxLength)));
-            strDataChunk.Add(String.Format("|{0}|", String.Empty.Fill(" ", iMaxLength)));
-            strDataChunk.Add(String.Format(String.Empty.Fill("-", iMaxLength + 2)));
+            strDataChunk.Add(string.Format(string.Empty.Fill("-", iMaxLength + 2)));
+            strDataChunk.Add(string.Format("|{0}|", string.Empty.Fill(" ", iMaxLength)));
+            strDataChunk.Add(string.Format("|{0}|", strErrorTitle.Center(" ", iMaxLength)));
+            strDataChunk.Add(string.Format("|{0}|", string.Empty.Fill(" ", iMaxLength)));
+            strDataChunk.Add(string.Format(string.Empty.Fill("-", iMaxLength + 2)));
 
             //Clock
-            strDataChunk.Add(String.Format("|{0}|", strClock.Center(" ", iMaxLength)));
-            strDataChunk.Add(String.Format(String.Empty.Fill("-", iMaxLength + 2)));
+            strDataChunk.Add(string.Format("|{0}|", strClock.Center(" ", iMaxLength)));
+            strDataChunk.Add(string.Format(string.Empty.Fill("-", iMaxLength + 2)));
 
             var dContent = new Dictionary<string, string>();
 
@@ -190,7 +184,7 @@ namespace Utilities.Logger
 
             foreach (var item in dContent)
             {
-                strDataChunk.Add(String.Format("{0}: {1}", item.Key, item.Value));
+                strDataChunk.Add($"{item.Key}: {item.Value}");
             }
 
             //Write information to file

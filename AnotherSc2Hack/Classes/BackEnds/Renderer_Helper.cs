@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using PredefinedTypes;
 
@@ -7,7 +6,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 {
     class RendererHelper
     {
-        public static void TeamColor(List<Player> pPlayers, Int32 iIndex, Boolean isTeamcolorEnabled, ref Color clPlayercolor)
+        public static void TeamColor(List<Player> pPlayers, int iIndex, bool isTeamcolorEnabled, ref Color clPlayercolor)
         {
             if (!isTeamcolorEnabled)
                 return;
@@ -35,7 +34,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         }
 
-        public static void TeamColor(List<Player> pPlayers, List<Unit> uUnit , Int32 iIndex, Boolean isTeamcolorEnabled, ref Color clPlayercolor)
+        public static void TeamColor(List<Player> pPlayers, List<Unit> uUnit , int iIndex, bool isTeamcolorEnabled, ref Color clPlayercolor)
         {
             if (!isTeamcolorEnabled)
                 return;

@@ -23,8 +23,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             Text = number.ToString();
         }
 
-        private Int32 _number;
-        public Int32 Number
+        private int _number;
+        public int Number
         {
             get { return _number; }
             set
@@ -51,8 +51,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         public void OnNumberChange(NumberTextBox o, NumberArgs e)
         {
-            if (NumberChanged != null)
-                NumberChanged(o, e);
+            NumberChanged?.Invoke(o, e);
         }
 
         private void NumberTextBox_TextChanged(object sender, EventArgs e)
@@ -63,7 +62,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
                 return;
 
             int iDummy;
-            if (Int32.TryParse(Text, out iDummy))
+            if (int.TryParse(Text, out iDummy))
             {
                 Number = iDummy;
             }

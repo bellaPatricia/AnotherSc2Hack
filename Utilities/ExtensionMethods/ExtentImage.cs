@@ -18,10 +18,9 @@ namespace Utilities.ExtensionMethods
                 {
 
                     //create a color matrix object  
-                    ColorMatrix matrix = new ColorMatrix();
+                    var matrix = new ColorMatrix {Matrix33 = opacity};
 
                     //set the opacity  
-                    matrix.Matrix33 = opacity;
 
                     //create image attributes  
                     ImageAttributes attributes = new ImageAttributes();

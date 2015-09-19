@@ -153,26 +153,22 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
 
         private void OnWorkerProductionIdle(object sender, EventArgs e)
         {
-            if (WorkerProductionIdle != null)
-                WorkerProductionIdle(sender, e);
+            WorkerProductionIdle?.Invoke(sender, e);
         }
 
         private void OnWorkerProductionActive(object sender, EventArgs e)
         {
-            if (WorkerProductionActive != null)
-                WorkerProductionActive(sender, e);
+            WorkerProductionActive?.Invoke(sender, e);
         }
 
         private void OnEnergyIdle(object sender, EventArgs e)
         {
-            if (EnergyIdle != null)
-                EnergyIdle(sender, e);
+            EnergyIdle?.Invoke(sender, e);
         }
 
         private void OnEnergyActive(object sender, EventArgs e)
         {
-            if (EnergyActive != null)
-                EnergyActive(sender, e);
+            EnergyActive?.Invoke(sender, e);
         }
 
         #endregion

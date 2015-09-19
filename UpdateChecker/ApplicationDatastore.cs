@@ -8,12 +8,12 @@ namespace UpdateChecker
     {
         public ApplicationDatastore()
         {
-            ApplicationChangesPath = String.Empty;
-            ApplicationDownloadCounterPath = String.Empty;
-            ApplicationDownloadPath = String.Empty;
-            ApplicationVersion = String.Empty;
-            DownloadManagerDownloadPath = String.Empty;
-            DownloadManagerVersion = String.Empty;
+            ApplicationChangesPath = string.Empty;
+            ApplicationDownloadCounterPath = string.Empty;
+            ApplicationDownloadPath = string.Empty;
+            ApplicationVersion = string.Empty;
+            DownloadManagerDownloadPath = string.Empty;
+            DownloadManagerVersion = string.Empty;
             DynamicLinkLibraries = new List<DynamicLinkLibrary>();
         }
 
@@ -35,9 +35,9 @@ namespace UpdateChecker
 
         public DynamicLinkLibrary()
         {
-            DllName = String.Empty;
-            DllDownloadPath = String.Empty;
-            DllVersion = String.Empty;
+            DllName = string.Empty;
+            DllDownloadPath = string.Empty;
+            DllVersion = string.Empty;
         }
 
         public DynamicLinkLibrary(string dllName, string downloadPath, string version)

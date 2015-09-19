@@ -59,8 +59,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         public void OnKeyValueChange(KeyTextBox o, EventKey e)
         {
-            if (KeyChanged != null)
-                KeyChanged(o, e);
+            KeyChanged?.Invoke(o, e);
         }
 
         /* Make it possible to use TAB */

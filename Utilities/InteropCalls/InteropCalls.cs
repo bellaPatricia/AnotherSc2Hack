@@ -118,7 +118,7 @@ namespace Utilities.InteropCalls
 
         /* GetWindowLong */
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern UInt32 GetWindowLong(IntPtr hWnd, int nIndex);
+        public static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
 
         /* SetWindowLong */
         [DllImport("user32.dll")]
@@ -126,11 +126,11 @@ namespace Utilities.InteropCalls
 
         /* SendMessage */
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, UInt32 msg, IntPtr wParam, IntPtr lParam);
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
         /* SendMessage */
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern IntPtr PostMessage(IntPtr hWnd, UInt32 msg, IntPtr wParam, IntPtr lParam);
+        public static extern IntPtr PostMessage(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
         /* SetActiveWindow */
         [DllImport("user32.dll", SetLastError = true)]
@@ -379,7 +379,7 @@ namespace Utilities.InteropCalls
 
         public static bool WriteProcessMemoryHelper(IntPtr handle, IntPtr baseAddress, byte[] newVal)
         {
-            var bytesWritten = IntPtr.Zero;
+            IntPtr bytesWritten;
 
             return WriteProcessMemory(handle, baseAddress, newVal, newVal.Length, out bytesWritten);
         }
@@ -419,10 +419,10 @@ namespace Utilities.InteropCalls
             public ushort atomWindowType;
             public ushort wCreatorVersion;
 
-            public WINDOWINFO(Boolean? filler)
+            public WINDOWINFO(bool? filler)
                 : this()   // Allows automatic initialization of "cbSize" with "new WINDOWINFO(null/true/false)".
             {
-                cbSize = (UInt32)(Marshal.SizeOf(typeof(WINDOWINFO)));
+                cbSize = (uint)(Marshal.SizeOf(typeof(WINDOWINFO)));
             }
 
         }

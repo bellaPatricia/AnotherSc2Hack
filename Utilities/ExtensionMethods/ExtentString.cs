@@ -5,17 +5,17 @@ namespace Utilities.ExtensionMethods
 {
     public static class ExtentString
     {
-        public static Boolean IsNullOrEmpty(this string text)
+        public static bool IsNullOrEmpty(this string text)
         {
-            return String.IsNullOrEmpty(text);
+            return string.IsNullOrEmpty(text);
         }
 
-        public static Boolean IsNullOrWhitespace(this string text)
+        public static bool IsNullOrWhitespace(this string text)
         {
-            return String.IsNullOrWhiteSpace(text);
+            return string.IsNullOrWhiteSpace(text);
         }
 
-        public static String RemoveAll(this string sourceText, string findText)
+        public static string RemoveAll(this string sourceText, string findText)
         {
             while (sourceText.Contains(findText))
                 sourceText = sourceText.Remove(sourceText.IndexOf(findText, StringComparison.Ordinal), findText.Length);
@@ -23,7 +23,7 @@ namespace Utilities.ExtensionMethods
             return sourceText;
         }
 
-        public static String Fill(this string sourceText, string filler, int maxLength)
+        public static string Fill(this string sourceText, string filler, int maxLength)
         {
             if (sourceText.Length >= maxLength)
                 return sourceText;
@@ -42,7 +42,7 @@ namespace Utilities.ExtensionMethods
             return sb.ToString();
         }
 
-        public static String Center(this string sourceText, string filler, int maxLength)
+        public static string Center(this string sourceText, string filler, int maxLength)
         {
             if (sourceText.Length >= maxLength)
                 return sourceText;
@@ -67,7 +67,7 @@ namespace Utilities.ExtensionMethods
             return sb.ToString();
         }
 
-        public static String DecodeUrlString(this string url)
+        public static string DecodeUrlString(this string url)
         {
             string newUrl;
             while ((newUrl = Uri.UnescapeDataString(url)) != url)

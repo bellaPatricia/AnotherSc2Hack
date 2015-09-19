@@ -7,8 +7,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 {
     class AutomationHelper
     {
-        private readonly IntPtr _myHandle = IntPtr.Zero;
-        private readonly AutomationMethods _myMethod = AutomationMethods.PostMessage;
+        private readonly IntPtr _myHandle;
+        private readonly AutomationMethods _myMethod;
 
         public AutomationHelper(IntPtr handle, AutomationMethods method)
         {

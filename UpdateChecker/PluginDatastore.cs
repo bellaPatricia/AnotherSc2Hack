@@ -19,12 +19,12 @@ namespace UpdateChecker
 
         public PluginDatastore()
         {
-            Name = String.Empty;
-            Description = String.Empty;
-            DownloadPath = String.Empty;
+            Name = string.Empty;
+            Description = string.Empty;
+            DownloadPath = string.Empty;
             ImagePaths = new List<string>();
-            Version = String.Empty;
-            Hash = String.Empty;
+            Version = string.Empty;
+            Hash = string.Empty;
         }
     }
 }

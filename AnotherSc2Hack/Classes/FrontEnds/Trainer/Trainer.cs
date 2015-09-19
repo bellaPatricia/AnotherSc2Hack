@@ -7,7 +7,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Trainer
     public partial class Trainer : Form
     {
         readonly GameInfo _gInformation;
-        private Int32 _iPlayerIndex = 0;
+        private int _iPlayerIndex;
 
         private void Init()
         {
@@ -58,10 +58,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Trainer
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (_gInformation.Player == null)
-                return;
-
-            if (_iPlayerIndex + 1 < _gInformation.Player.Count)
+            if (_iPlayerIndex + 1 < _gInformation.Player?.Count)
                 _iPlayerIndex++;
 
         }

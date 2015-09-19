@@ -85,7 +85,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 #region Worker
 
                 //Apply some cool filter to get the correct buildings
-                var workerBuildings = GInformation.Unit.FindAll((x) =>
+                var workerBuildings = GInformation.Unit.FindAll(x =>
                 (x.Id == UnitId.PbNexus ||
                 x.Id == UnitId.TbCcGround ||
                 x.Id == UnitId.TbOrbitalGround ||
@@ -107,7 +107,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 var targetPicturePosX = targetTextPosX + calculatedSize.Width + spacerWidth;
                 var targetPicturePosY = (ClientSize.Height - targetPictureWidth) / 2;
 
-                var targetWorkerPicture = Resources.Icon_Kerrigan;
+                Bitmap targetWorkerPicture;
                 if (Player.LocalPlayer.PlayerRace == PlayerRace.Terran)
                     targetWorkerPicture = Resources.trans_tu_scv;
                 else if (Player.LocalPlayer.PlayerRace == PlayerRace.Zerg)

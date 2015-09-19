@@ -45,7 +45,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
     public class GameInfo
     {
         private Thread _thrWorker;
-        private Int32 _maxPlayerAmount = 16;
+        private int _maxPlayerAmount = 16;
         private Stopwatch _swmainwatch = new Stopwatch();
         private readonly List<UnitAssigner> _lUnitAssigner = new List<UnitAssigner>();
         private bool _bSkip;
@@ -60,7 +60,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         private int _lTimesRefreshed;
 
-        private int _iterationsPerSecond = 0;
+        private int _iterationsPerSecond;
 
         public int IterationsPerSeconds
         {
@@ -81,14 +81,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         private void OnNumberChanged(object sender, NumberArgs e)
         {
-            if (IterationPerSecondChanged != null)
-                IterationPerSecondChanged(sender, e);
+            IterationPerSecondChanged?.Invoke(sender, e);
         }
 
         private void OnProcessFound(object sender, ProcessFoundArgs e)
         {
-            if (ProcessFound != null)
-                ProcessFound(sender, e);
+            ProcessFound?.Invoke(sender, e);
         }
 
         /* Is able to shut the Worker- thread down */
@@ -98,9 +96,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 CThreadState = true;
 
-                _thrWorker = new Thread(RefreshData);
-                _thrWorker.Priority = ThreadPriority.Highest;
-                _thrWorker.Name = "RefreshData()";
+                _thrWorker = new Thread(RefreshData)
+                {
+                    Priority = ThreadPriority.Highest,
+                    Name = "RefreshData()"
+                };
                 _thrWorker.Start();
 
                 _.Info($"Launched Worker {_thrWorker.Name}", _.InfoImportance.VeryImportant);
@@ -269,7 +269,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             HandleThread(true);
         }
 
-        public GameInfo(Boolean useThreadedGameInfo)
+        public GameInfo(bool useThreadedGameInfo)
         {
             _.Info("Initialize GameInfo", _.InfoImportance.VeryImportant);
 
@@ -433,8 +433,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public void OnNewMatch(object sender, EventArgs e)
         {
-            if (NewMatch != null)
-                NewMatch(sender, e);
+            NewMatch?.Invoke(sender, e);
         }
 
         private DateTime _dtProduction = DateTime.Now;
@@ -536,11 +535,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 Player = lPlayer;
 
                 var iLocalPlayer = GetGPlayerLocalplayer();
-                if (iLocalPlayer < 16)
-                    PredefinedTypes.Player.LocalPlayer = Player[iLocalPlayer];
-
-                else
-                    PredefinedTypes.Player.LocalPlayer = null;
+                PredefinedTypes.Player.LocalPlayer = iLocalPlayer < 16 ? Player[iLocalPlayer] : null;
             }
 
             else
@@ -597,24 +592,24 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     u.BuildingState = BitConverter.ToInt16(unitChunk, MyOffsets.RawUnitBuildingState + (i * MyOffsets.UnitStructSize));
                     u.ModelPointer = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitModel + (i * MyOffsets.UnitStructSize));
                     u.AliveSince = BitConverter.ToInt32(unitChunk, MyOffsets.RawUnitAliveSince + (i * MyOffsets.UnitStructSize));
-                    u.IsAlive = (u.TargetFilter & (UInt64)TargetFilterFlag.Dead) == 0;
+                    u.IsAlive = (u.TargetFilter & (ulong)TargetFilterFlag.Dead) == 0;
                     u.IsUnderConstruction = (u.TargetFilter &
-                                             (UInt64)TargetFilterFlag.UnderConstruction) > 0;
-                    u.IsStructure = (u.TargetFilter & (UInt64)TargetFilterFlag.Structure) > 0;
-                    u.IsCloaked = (u.TargetFilter & (UInt64)TargetFilterFlag.Cloaked) > 0;
-                    u.IsAir = (u.TargetFilter & (UInt64)TargetFilterFlag.Air) > 0;
-                    u.IsArmored = (u.TargetFilter & (UInt64)TargetFilterFlag.Armored) > 0;
-                    u.IsBiological = (u.TargetFilter & (UInt64)TargetFilterFlag.Biological) > 0;
-                    u.IsBurried = (u.TargetFilter & (UInt64)TargetFilterFlag.Buried) > 0;
-                    u.IsDetector = (u.TargetFilter & (UInt64)TargetFilterFlag.Detector) > 0;
-                    u.IsGround = (u.TargetFilter & (UInt64)TargetFilterFlag.Ground) > 0;
-                    u.IsHallucination = (u.TargetFilter & (UInt64)TargetFilterFlag.Hallucination) > 0;
-                    u.IsLight = (u.TargetFilter & (UInt64)TargetFilterFlag.Light) > 0;
-                    u.IsMassive = (u.TargetFilter & (UInt64)TargetFilterFlag.Massive) > 0;
-                    u.IsMechanical = (u.TargetFilter & (UInt64)TargetFilterFlag.Mechanical) > 0;
-                    u.IsPsionic = (u.TargetFilter & (UInt64)TargetFilterFlag.Psionic) > 0;
-                    u.IsRobotic = (u.TargetFilter & (UInt64)TargetFilterFlag.Robotic) > 0;
-                    u.IsVisible = (u.TargetFilter & (UInt64)TargetFilterFlag.Visible) > 0;
+                                             (ulong)TargetFilterFlag.UnderConstruction) > 0;
+                    u.IsStructure = (u.TargetFilter & (ulong)TargetFilterFlag.Structure) > 0;
+                    u.IsCloaked = (u.TargetFilter & (ulong)TargetFilterFlag.Cloaked) > 0;
+                    u.IsAir = (u.TargetFilter & (ulong)TargetFilterFlag.Air) > 0;
+                    u.IsArmored = (u.TargetFilter & (ulong)TargetFilterFlag.Armored) > 0;
+                    u.IsBiological = (u.TargetFilter & (ulong)TargetFilterFlag.Biological) > 0;
+                    u.IsBurried = (u.TargetFilter & (ulong)TargetFilterFlag.Buried) > 0;
+                    u.IsDetector = (u.TargetFilter & (ulong)TargetFilterFlag.Detector) > 0;
+                    u.IsGround = (u.TargetFilter & (ulong)TargetFilterFlag.Ground) > 0;
+                    u.IsHallucination = (u.TargetFilter & (ulong)TargetFilterFlag.Hallucination) > 0;
+                    u.IsLight = (u.TargetFilter & (ulong)TargetFilterFlag.Light) > 0;
+                    u.IsMassive = (u.TargetFilter & (ulong)TargetFilterFlag.Massive) > 0;
+                    u.IsMechanical = (u.TargetFilter & (ulong)TargetFilterFlag.Mechanical) > 0;
+                    u.IsPsionic = (u.TargetFilter & (ulong)TargetFilterFlag.Psionic) > 0;
+                    u.IsRobotic = (u.TargetFilter & (ulong)TargetFilterFlag.Robotic) > 0;
+                    u.IsVisible = (u.TargetFilter & (ulong)TargetFilterFlag.Visible) > 0;
 
                     /* Reset owner */
                     if (Player != null &&
@@ -952,20 +947,20 @@ namespace AnotherSc2Hack.Classes.BackEnds
         #region Functions to get Playerinformation
 
 
-        private PlayerStatus GetGPlayerStatusModified(Byte bValue)
+        private PlayerStatus GetGPlayerStatusModified(byte bValue)
         {
             switch (bValue)
             {
-                case (Int32)PlayerStatus.Lost:
+                case (int)PlayerStatus.Lost:
                     return PlayerStatus.Lost;
 
-                case (Int32)PlayerStatus.Playing:
+                case (int)PlayerStatus.Playing:
                     return PlayerStatus.Playing;
 
-                case (Int32)PlayerStatus.Tied:
+                case (int)PlayerStatus.Tied:
                     return PlayerStatus.Tied;
 
-                case (Int32)PlayerStatus.Won:
+                case (int)PlayerStatus.Won:
                     return PlayerStatus.Won;
 
                 default:
@@ -976,26 +971,26 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
         /* Translates pure data into types */
-        private PlayerType GetGPlayerTypeModified(Byte bValue)
+        private PlayerType GetGPlayerTypeModified(byte bValue)
         {
             switch (bValue)
             {
-                case (Int32)PlayerType.Ai:
+                case (int)PlayerType.Ai:
                     return PlayerType.Ai;
 
-                case (Int32)PlayerType.Hostile:
+                case (int)PlayerType.Hostile:
                     return PlayerType.Hostile;
 
-                case (Int32)PlayerType.Human:
+                case (int)PlayerType.Human:
                     return PlayerType.Human;
 
-                case (Int32)PlayerType.Neutral:
+                case (int)PlayerType.Neutral:
                     return PlayerType.Neutral;
 
-                case (Int32)PlayerType.Observer:
+                case (int)PlayerType.Observer:
                     return PlayerType.Observer;
 
-                case (Int32)PlayerType.Referee:
+                case (int)PlayerType.Referee:
                     return PlayerType.Referee;
 
                 default:
@@ -1004,53 +999,53 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* Translates pure data into types */
-        private Color GetGPlayerColorModified(Int32 iValue)
+        private Color GetGPlayerColorModified(int iValue)
         {
             switch (iValue)
             {
-                case (Int32)PlayerColor.Blue:
+                case (int)PlayerColor.Blue:
                     return Color.FromArgb(255, 0, 66, 255);
 
-                case (Int32)PlayerColor.Brown:
+                case (int)PlayerColor.Brown:
                     return Color.FromArgb(255, 78, 42, 4);
 
-                case (Int32)PlayerColor.DarkGray:
+                case (int)PlayerColor.DarkGray:
                     return Color.FromArgb(255, 35, 35, 35);
 
-                case (Int32)PlayerColor.DarkGreen:
+                case (int)PlayerColor.DarkGreen:
                     return Color.FromArgb(255, 16, 98, 70);
 
-                case (Int32)PlayerColor.Green:
+                case (int)PlayerColor.Green:
                     return Color.FromArgb(255, 22, 128, 0);
 
-                case (Int32)PlayerColor.LightGray:
+                case (int)PlayerColor.LightGray:
                     return Color.FromArgb(255, 82, 84, 148);
 
-                case (Int32)PlayerColor.LightGreen:
+                case (int)PlayerColor.LightGreen:
                     return Color.FromArgb(255, 150, 255, 145);
 
-                case (Int32)PlayerColor.LightPink:
+                case (int)PlayerColor.LightPink:
                     return Color.FromArgb(255, 204, 166, 252);
 
-                case (Int32)PlayerColor.Orange:
+                case (int)PlayerColor.Orange:
                     return Color.FromArgb(255, 254, 138, 14);
 
-                case (Int32)PlayerColor.Pink:
+                case (int)PlayerColor.Pink:
                     return Color.FromArgb(255, 229, 91, 176);
 
-                case (Int32)PlayerColor.Purple:
+                case (int)PlayerColor.Purple:
                     return Color.FromArgb(255, 84, 0, 129);
 
-                case (Int32)PlayerColor.Red:
+                case (int)PlayerColor.Red:
                     return Color.FromArgb(255, 182, 20, 30);
 
-                case (Int32)PlayerColor.Teal:
+                case (int)PlayerColor.Teal:
                     return Color.FromArgb(255, 28, 167, 234);
 
-                case (Int32)PlayerColor.Violet:
+                case (int)PlayerColor.Violet:
                     return Color.FromArgb(255, 31, 1, 201);
 
-                case (Int32)PlayerColor.White:
+                case (int)PlayerColor.White:
                     return Color.White;
 
                 default:
@@ -1061,7 +1056,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
         /* 1 Byte */
-        private Int32 GetGPlayerLocalplayer()
+        private int GetGPlayerLocalplayer()
         {
             var tmp = Memory.ReadMemory(MyOffsets.Localplayer4, 1)[0];// InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.Localplayer4, sizeof (byte))[0];
 
@@ -1076,7 +1071,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
         /* Get the name */
-        private UnitModelStruct GetGUnitStruct(Int32 iUnitNum)
+        private UnitModelStruct GetGUnitStruct(int iUnitNum)
         {
             var iContentofUnitModel = Memory.ReadInt32(MyOffsets.UnitModel + MyOffsets.UnitStructSize * iUnitNum);
             /*BitConverter.ToInt32(
@@ -1163,7 +1158,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* 4 Bytes */
-        private Int32 GetGUnitReadUnitCount()
+        private int GetGUnitReadUnitCount()
         {
             return Memory.ReadInt32(MyOffsets.UnitTotal);
             /*  (BitConverter.ToInt32(
@@ -1171,7 +1166,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                   0));*/
         }
 
-        private List<UnitProduction> GetGUnitNumberOfQueuedUnit(Int32 iUnitNum, UnitId structureId)
+        private List<UnitProduction> GetGUnitNumberOfQueuedUnit(int iUnitNum, UnitId structureId)
         {
             _.Info("Assign Special Attributes Of Units", _.InfoImportance.Important);
 
@@ -1218,7 +1213,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 "Just report this thing!");
             }
 
-            Int32 iIndexToLookAt = -1;
+            int iIndexToLookAt = -1;
             var byteBuffer = Memory.ReadMemory(iUnitAbilitiesPointerResult, iAbilityCount);// InteropCalls.Help_ReadProcessMemory(HStarcraft, iUnitAbilitiesPointerResult, iAbilityCount);
 
             for (var i = 0; i < byteBuffer.Length; i++)
@@ -1362,8 +1357,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
                 var prd2 = new UnitProduction();
                 prd2.ProductionStatus = 100 - (iTimeLeft2 / iTimeMax2) * 100;
-                prd2.Id = HelpFunctions.GetUnitIdFromLogicalId(structureId, iType2, (Int32)iTimeMax2, iMineralCost2, iVespineCost2, iSupplyRaw2 >> 12);
-                prd2.ReactorAttached = bReactorAttached;
+                prd2.Id = HelpFunctions.GetUnitIdFromLogicalId(structureId, iType2, (int)iTimeMax2, iMineralCost2, iVespineCost2, iSupplyRaw2 >> 12);
+                prd2.ReactorAttached = true;
                 prd2.UnitsInProduction = iNumberOfQueuedUnits;
                 prd2.MineralCost = iMineralCost2;
                 prd2.AttachingAddOn = bAddOnAttaching;
@@ -1409,7 +1404,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                         var prd2 = new UnitProduction
                         {
                             Id =
-                                HelpFunctions.GetUnitIdFromLogicalId(structureId, iType2, (Int32)iTimeMax2,
+                                HelpFunctions.GetUnitIdFromLogicalId(structureId, iType2, (int)iTimeMax2,
                                     iMineralCost2, iVespineCost2, 0),
                             MineralCost = iMineralCost2,
                             ProductionStatus = 100 - (iTimeLeft2 / iTimeMax2) * 100,
@@ -1500,7 +1495,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             var prd = new UnitProduction();
             prd.ProductionStatus = 100 - (iTimeLeft / iTimeMax) * 100;
-            prd.Id = HelpFunctions.GetUnitIdFromLogicalId(structureId, iType, (Int32)iTimeMax, iMineralCost, iVespineCost, iSupplyRaw >> 12);
+            prd.Id = HelpFunctions.GetUnitIdFromLogicalId(structureId, iType, (int)iTimeMax, iMineralCost, iVespineCost, iSupplyRaw >> 12);
             prd.ReactorAttached = bReactorAttached;
             prd.UnitsInProduction = iNumberOfQueuedUnits;
             prd.MineralCost = iMineralCost;
@@ -1522,7 +1517,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         #region Functions to get the Selection- stuff
 
-        private Int32 GetGSelectionCount()
+        private int GetGSelectionCount()
         {
             return Memory.ReadInt16(MyOffsets.UiTotalSelectedUnits);
             //(BitConverter.ToInt16(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.UiTotalSelectedUnits, 2), 0));
@@ -1565,7 +1560,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* 4 Bytes */
-        private Int32 GetGTimer()
+        private int GetGTimer()
         {
             var iGameTimeRaw = Memory.ReadInt32(MyOffsets.TimerData);
             var iGameTime = iGameTimeRaw >> 12;
@@ -1577,13 +1572,13 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* Gathered from Timerdata */
-        private Boolean GetGIngame()
+        private bool GetGIngame()
         {
             return (GetGTimer() != 0);
         }
 
         /* 4 Bytes */
-        private Int32 GetGFps()
+        private int GetGFps()
         {
             return Memory.ReadInt32(MyOffsets.FramesPerSecond);
             /*(BitConverter.ToInt32(
@@ -1600,7 +1595,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* 1 Byte */
-        private Boolean GetGTeamcolor()
+        private bool GetGTeamcolor()
         {
             var iBuffer = Memory.ReadByte(MyOffsets.TeamColor1);// InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.TeamColor1, sizeof (Byte))[0];
 
@@ -1613,21 +1608,21 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 4 Bytes - No memory read */
         private WindowStyle GetGWindowStyle()
         {
-            var iBuffer = Interop.GetWindowLongPtr(Memory.Process.MainWindowHandle, (Int32)Interop.Gwl.ExStyle);
+            var iBuffer = Interop.GetWindowLongPtr(Memory.Process.MainWindowHandle, (int)Interop.Gwl.ExStyle);
 
             return (WindowStyle)iBuffer;
         }
 
         /* 4 Bytes */
-        private Boolean GetGPause()
+        private bool GetGPause()
         {
             return Memory.ReadInt32(MyOffsets.PauseEnabled) > 0;// (BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.PauseEnabled, 4), 0) > 0);
         }
 
         #endregion
 
-        public Int32 CSleepTime { get; set; }
-        public Boolean CThreadState { get; set; }
+        public int CSleepTime { get; set; }
+        public bool CThreadState { get; set; }
         public Process CStarcraft2 { get; set; }
         public WindowStyle CWindowStyle { get; set; }
 
@@ -1854,7 +1849,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         #endregion
 
-        public Int32 RandomNumber { get; set; }
+        public int RandomNumber { get; set; }
         public DateTime LastCallTime { get; private set; }
     }
 }

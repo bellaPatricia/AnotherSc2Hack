@@ -43,9 +43,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                 "to have the best experience!", "Windowstyle");
         }
 
-        public static Boolean HotkeysPressed(params Keys[] keys)
+        public static bool HotkeysPressed(params Keys[] keys)
         {
-            Boolean blResult = true;
+            bool blResult = true;
 
             for (var i = 0; i < keys.Length; i++)
             {
@@ -55,7 +55,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return blResult;
         }
 
-        public static Int32 GetValidPlayerCount(List<Player> lPlayer)
+        public static int GetValidPlayerCount(List<Player> lPlayer)
         {
             var iValidSize = 0;
 
@@ -76,22 +76,22 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             if (wndStyle.Equals(CustomWindowStyles.Clickable))
             {
-                var initial = Interop.GetWindowLong(handle, (Int32)Interop.Gwl.ExStyle);
-                Interop.SetWindowLong(handle, (Int32)Interop.Gwl.ExStyle,
-                                            (IntPtr)(initial & ~(Int32)Interop.Ws.ExTransparent));
+                var initial = Interop.GetWindowLong(handle, (int)Interop.Gwl.ExStyle);
+                Interop.SetWindowLong(handle, (int)Interop.Gwl.ExStyle,
+                                            (IntPtr)(initial & ~(int)Interop.Ws.ExTransparent));
             }
 
             else if (wndStyle.Equals(CustomWindowStyles.NotClickable))
             {
-                var initial = Interop.GetWindowLong(handle, (Int32)Interop.Gwl.ExStyle);
-                Interop.SetWindowLong(handle, (Int32)Interop.Gwl.ExStyle,
-                                            (IntPtr)(initial | (Int32)Interop.Ws.ExTransparent));
+                var initial = Interop.GetWindowLong(handle, (int)Interop.Gwl.ExStyle);
+                Interop.SetWindowLong(handle, (int)Interop.Gwl.ExStyle,
+                                            (IntPtr)(initial | (int)Interop.Ws.ExTransparent));
             }
         }
 
         public static string GetParent(Control control)
         {
-            var strName = String.Empty;
+            var strName = string.Empty;
 
             if (control.Parent != null)
                 strName = GetParent(control.Parent) + Constants.ChrLanguageControlSplitSign;
@@ -151,7 +151,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public static void InitResolution(ref PreferenceManager pSettings, string text, string header)
         {
-            Int32 iWidth = Screen.PrimaryScreen.Bounds.Width,
+            int iWidth = Screen.PrimaryScreen.Bounds.Width,
                   iHeidth = Screen.PrimaryScreen.Bounds.Height;
 
             #region 1920x1080
@@ -549,14 +549,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public static Image byteArrayToImage(byte[] byteArrayIn)
         {
-            MemoryStream ms = new MemoryStream(byteArrayIn);
-            Image returnImage = Image.FromStream(ms);
+            var ms = new MemoryStream(byteArrayIn);
+            var returnImage = Image.FromStream(ms);
             return returnImage;
         }
 
-        public static byte[] imageToByteArray(Image imageIn)
+        public static byte[] ImageToByteArray(Image imageIn)
         {
-            MemoryStream ms = new MemoryStream();
+            var ms = new MemoryStream();
             imageIn.Save(ms, ImageFormat.Gif);
             return ms.ToArray();
         }
@@ -581,7 +581,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* As the actual max- health of units is lost, I map them manually.. */
-        public static Int32 GetMaximumHealth(UnitId id)
+        public static int GetMaximumHealth(UnitId id)
         {
             switch (id)
             {
@@ -948,7 +948,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         }
 
-        public static UnitId GetUnitIdFromLogicalId(UnitId structureBuildFrom, Int32 logicalId, Int32 maximumTime, Int32 mineralCost, Int32 vespineCost, int supply)
+        public static UnitId GetUnitIdFromLogicalId(UnitId structureBuildFrom, int logicalId, int maximumTime, int mineralCost, int vespineCost, int supply)
         {
             if (logicalId.Equals(0))
                 return UnitId.NbXelNagaTower;
@@ -1821,7 +1821,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return UnitId.None;
         }
 
-        public static Int32 GetMaximumInteger(params Int32[] valInput)
+        public static int GetMaximumInteger(params int[] valInput)
         {
             var iValue = valInput[0];
 
@@ -1834,7 +1834,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return iValue;
         }
 
-        public static Int32 CountUnitTypePerPlayer(List<Unit> lUnit, UnitId id, Int32 playerNumber)
+        public static int CountUnitTypePerPlayer(List<Unit> lUnit, UnitId id, int playerNumber)
         {
             var iBuildingCount = 0;
             for (var i = 0; i < lUnit.Count; i++)
@@ -1855,7 +1855,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             return returnImage;
         }
 
-        public static Control findParentByName(Control control, string name)
+        public static Control FindParentByName(Control control, string name)
         {
             while (control.Parent.Name != name)
                 control = control.Parent;

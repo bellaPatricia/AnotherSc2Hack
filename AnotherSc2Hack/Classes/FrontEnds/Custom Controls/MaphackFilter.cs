@@ -8,10 +8,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     public partial class MaphackFilter : Form
     {
-        private List<Rule> _lRules = new List<Rule>();
+        private readonly List<Rule> _lRules = new List<Rule>();
         private string[] _sValidStrings;
-        private string _sAnd = "[AND]";
-        private string _sOr = "[OR]";
+        private readonly string _sAnd = "[AND]";
+        private readonly string _sOr = "[OR]";
 
         public MaphackFilter()
         {
@@ -98,10 +98,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         {
             pnlMaphackFilterRuleContainer.Visible = true;
 
-            txtMaphackFilterRuleName.Text = String.Empty;
+            txtMaphackFilterRuleName.Text = string.Empty;
             icbMaphackFilterUnits.SelectedIndex = -1;
             icbMaphackFilterUnitProperties.SelectedIndex = -1;
-            txtMaphackFilterAttributes.Text = String.Empty;
+            txtMaphackFilterAttributes.Text = string.Empty;
 
         }
 
@@ -132,8 +132,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
             #region Reset fields
 
-            txtMaphackFilterRuleName.Text = String.Empty;
-            txtMaphackFilterAttributes.Text = String.Empty;
+            txtMaphackFilterRuleName.Text = string.Empty;
+            txtMaphackFilterAttributes.Text = string.Empty;
             icbMaphackFilterUnits.SelectedIndex = -1;
             icbMaphackFilterUnitProperties.SelectedIndex = -1;
 

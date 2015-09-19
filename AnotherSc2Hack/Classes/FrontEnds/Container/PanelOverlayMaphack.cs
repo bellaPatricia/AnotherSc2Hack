@@ -179,7 +179,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
 
         private void AddUnitToSettings(UnitId unitId, Color clColor)
         {
-            var myParent = (NewMainHandler)this.FindParent(String.Empty, typeof(NewMainHandler));
+            var myParent = (NewMainHandler)this.FindParent(string.Empty, typeof(NewMainHandler));
 
             var index = myParent.PSettings.PreferenceAll.OverlayMaphack.UnitIds.FindIndex(x => x == unitId);
 
@@ -199,7 +199,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
 
         private void RemoveUnitFromSettings(UnitId unitId)
         {
-            var myParent = (NewMainHandler)this.FindParent(String.Empty, typeof(NewMainHandler));
+            var myParent = (NewMainHandler)this.FindParent(string.Empty, typeof(NewMainHandler));
 
             var index = myParent.PSettings.PreferenceAll.OverlayMaphack.UnitIds.FindIndex(x => x == unitId);
 

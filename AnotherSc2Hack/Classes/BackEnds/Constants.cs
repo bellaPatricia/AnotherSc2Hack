@@ -67,7 +67,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public static string StrPreferenceHotkey1 = "Hotkey 1";
         public static string StrPreferenceHotkey2 = "Hotkey 2";
         public static string StrPreferenceHotkey3 = "Hotkey 3";
-        public static String StrPreferenceOnOffText = "On/Off Text";
+        public static string StrPreferenceOnOffText = "On/Off Text";
         public static string StrPreferenceChangePositionText = "Change Position Text";
         public static string StrPreferenceChangeSizeText = "Change Size Text";
         public static string StrPreferenceFontText = "FontName";
@@ -105,7 +105,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                                                 "and will probably result in\n" +
                                                 "a broken application!";
 
-            public static Int32 IremoveTime = 3000;
+            public static int IremoveTime = 3000;
         }
     }
 }

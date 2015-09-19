@@ -94,42 +94,42 @@ namespace PluginInterface
         /// It enables the memory gathering for map-data
         /// </summary>
         /// <returns>True if you need the map-data</returns>
-        Boolean GetRequiresMap();
+        bool GetRequiresMap();
 
         /// <summary>
         /// Returns true if the plugin requires the player-data 
         /// It enables the memory gathering for player-data
         /// </summary>
         /// <returns>True if you need the player-data</returns>
-        Boolean GetRequiresPlayer();
+        bool GetRequiresPlayer();
 
         /// <summary>
         /// Returns true if the plugin requires the unit-data 
         /// It enables the memory gathering for unit-data
         /// </summary>
         /// <returns>True if you need the unit-data</returns>
-        Boolean GetRequiresUnit();
+        bool GetRequiresUnit();
 
         /// <summary>
         /// Returns true if the plugin requires the selection-data 
         /// It enables the memory gathering for selection-data
         /// </summary>
         /// <returns>True if you need the selection-data</returns>
-        Boolean GetRequiresSelection();
+        bool GetRequiresSelection();
 
         /// <summary>
         /// Returns true if the plugin requires the group-data 
         /// It enables the memory gathering for group-data
         /// </summary>
         /// <returns>True if you need the group-data</returns>
-        Boolean GetRequiresGroups();
+        bool GetRequiresGroups();
 
         /// <summary>
         /// Returns true if the plugin requires the game-data 
         /// It enables the memory gathering for game-data
         /// </summary>
         /// <returns>True if you need the game-data</returns>
-        Boolean GetRequiresGameinfo();
+        bool GetRequiresGameinfo();
 
         #endregion  
 

@@ -9,9 +9,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
     public class LanguageString
     {
         private static readonly List<LanguageString> Instances = new List<LanguageString>();
-        private static string _strLastUsedLanguageFile = String.Empty;
+        private static string _strLastUsedLanguageFile = string.Empty;
 
-        private string _text = String.Empty;
+        private string _text = string.Empty;
 
         public event EventHandler TextChanged;
 
@@ -56,8 +56,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public void OnTextChanged(object sender, EventArgs e)
         {
-            if (TextChanged != null)
-                TextChanged(sender, e);
+            TextChanged?.Invoke(sender, e);
         }
 
 

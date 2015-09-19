@@ -65,12 +65,12 @@ namespace AnotherSc2Hack.Classes.DataStructures.Plugin
         {
             ImageLinks = new List<string>();
             Images = new List<Image>();
-            Name = String.Empty;
-            Description = String.Empty;
+            Name = string.Empty;
+            Description = string.Empty;
             Version = new Version(0, 0, 0, 0);
             RequiresUpdate = false;
-            LocalPath = String.Empty;
-            Hash = String.Empty;
+            LocalPath = string.Empty;
+            Hash = string.Empty;
         }
 
 
@@ -102,7 +102,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Plugin
         /// <summary>
         /// Tells you if this update is really needed - unused
         /// </summary>
-        public Boolean RequiresUpdate { get; set; }
+        public bool RequiresUpdate { get; set; }
         /// <summary>
         /// Path to the localplugin (if available) - unused
         /// </summary>

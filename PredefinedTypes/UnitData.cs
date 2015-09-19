@@ -39,7 +39,7 @@ namespace PredefinedTypes
         public int PositionY { get; set; }
         public int DestinationPositionX { get; set; }
         public int DestinationPositionY { get; set; }
-        public UInt64 TargetFilter { get; set; }
+        public ulong TargetFilter { get; set; }
         public int DamageTaken { get; set; }
         public int ShieldDamageTaken { get; set; }
         public int Energy { get; set; }

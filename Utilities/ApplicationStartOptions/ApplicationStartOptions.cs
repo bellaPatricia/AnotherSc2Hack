@@ -18,7 +18,7 @@ namespace Utilities.ApplicationStartOptions
                     var value = s.Substring("logging=".Length);
 
                     bool b;
-                    if (Boolean.TryParse(value, out b))
+                    if (bool.TryParse(value, out b))
                     { }
 
                     Logging = b;

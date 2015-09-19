@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -15,8 +14,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 MaximumSupply = new List<int>();
             }
 
-            public List<Int32> CurrentSupply { get; set; }
-            public List<Int32> MaximumSupply { get; set; } 
+            public List<int> CurrentSupply { get; set; }
+            public List<int> MaximumSupply { get; set; } 
         }
 
         public static AlertsSettings ReadAlertsFromFile()

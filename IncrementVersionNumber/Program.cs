@@ -132,7 +132,7 @@ namespace IncrementVersionNumber
         private int GetDataNumber(string line)
         {
             var data = line.GetFirstItemBetween("[", "]");
-            var iOut = 0;
+            int iOut;
 
             if (int.TryParse(data, out iOut))
             {
@@ -153,8 +153,7 @@ namespace IncrementVersionNumber
         public override string ToString()
         {
             return
-                String.Format(
-                    "MajorSettings: {0}-MinorSettings: {1}-BuildSettings: {2}-RevisionSettings: {3}", MajorSettings, MinorSettings, BuildSettings, RevisionSettings);
+                $"MajorSettings: {MajorSettings}-MinorSettings: {MinorSettings}-BuildSettings: {BuildSettings}-RevisionSettings: {RevisionSettings}";
         }
     }
 
@@ -162,8 +161,8 @@ namespace IncrementVersionNumber
 
     class Program
     {
-        static string assemblyVersion = "[assembly: AssemblyVersion(";
-        static string assemblyFileVersion = "[assembly: AssemblyFileVersion(";
+        static readonly string assemblyVersion = "[assembly: AssemblyVersion(";
+        static readonly string assemblyFileVersion = "[assembly: AssemblyFileVersion(";
         static readonly CustomVersioning CustomVersioning = new CustomVersioning();
 
         /// <summary>
@@ -243,7 +242,7 @@ namespace IncrementVersionNumber
 
 
             var lines = new List<string>();
-            var strNewVersion = String.Empty;
+            var strNewVersion = string.Empty;
 
             using (var sr = new StreamReader(assembly))
             {

@@ -6,7 +6,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     class AnotherTextbox : TextBox
     {
-        private string _watermark = String.Empty;
+        private string _watermark = string.Empty;
 
         public string Watermark
         {
@@ -23,7 +23,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             }
         }
 
-        private Color _clOldForeColor;
+        private readonly Color _clOldForeColor;
 
 
         public AnotherTextbox()
@@ -37,7 +37,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         void AnotherTextbox_TextChanged(object sender, EventArgs e)
         {
-            if (Text.Equals(String.Empty) &&
+            if (Text.Equals(string.Empty) &&
                 !Focused)
                 SetupWatermarkText();
         }
@@ -59,7 +59,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             ForeColor = _clOldForeColor;
 
             if (Text.Equals(Watermark))
-                Text = String.Empty;
+                Text = string.Empty;
         }
 
         private void SetupWatermarkText()

@@ -38,7 +38,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             /// <param name="handle">The target handle</param>
             /// <param name="times">How often you'd like to execute this</param>
             /// <param name="key">The key you wish to use</param>
-            public static void PressKeysOneByOne(IntPtr handle,  Int32 times, params Keys[] key)
+            public static void PressKeysOneByOne(IntPtr handle,  int times, params Keys[] key)
             {
                 for (var j = 0; j < times; j++)
                 {
@@ -106,7 +106,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 }
             }
 
-            public static void Keyboard_SimulateKey(IntPtr handle, Keys key, Int32 times)
+            public static void Keyboard_SimulateKey(IntPtr handle, Keys key, int times)
             {
                 for (var i = 0; i < times; i++)
                 {
@@ -141,7 +141,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public class Mouse
         {
-            public static Int32 MakeLParam(Point ptr)
+            public static int MakeLParam(Point ptr)
             {
                 return ((ptr.Y << 16) | (ptr.X & 0xffff));
             }

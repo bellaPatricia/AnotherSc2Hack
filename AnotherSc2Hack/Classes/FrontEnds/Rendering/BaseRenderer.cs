@@ -59,7 +59,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         private int _iTimesRefreshed; //Dunno.. :D
         private Point _ptMousePosition = new Point(0, 0); //Position for the Moving of the Panel
         private bool _bDraw = true;
-        private const int SizeOfRectangle = 10; //Size for the corner- rectangles (when changing position)
 
         protected Stopwatch SwMainWatch = new Stopwatch(); //Stopwatch for Debugging and speed- tests
         protected DateTime DtBegin = DateTime.Now; //First Datetime to get the Delta between the begin and end [TopMost]
@@ -644,8 +643,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="e">Event Args</param>
         private void OnIsHiddenChanged(object sender, EventArgs e)
         {
-            if (IsHiddenChanged != null)
-                IsHiddenChanged(sender, e);
+            IsHiddenChanged?.Invoke(sender, e);
         }
 
         /// <summary>
@@ -678,8 +676,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         /// <param name="e">The Numberargs with the information about the number we pass by</param>
         private void OnNumberChanged(object sender, NumberArgs e)
         {
-            if (IterationPerSecondChanged != null)
-                IterationPerSecondChanged(sender, e);
+            IterationPerSecondChanged?.Invoke(sender, e);
         }
 
         /// <summary>
@@ -1032,11 +1029,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 {
                     if (PSettings.PreferenceAll.Global.DrawOnlyInForeground && !BSurpressForeground)
                     {
-                        if (PSc2Process == null)
-                            _bDraw = false;
-
-                        else
-                            _bDraw = Interop.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle);
+                        _bDraw = PSc2Process != null && Interop.GetForegroundWindow().Equals(PSc2Process.MainWindowHandle);
                     }
 
                     else

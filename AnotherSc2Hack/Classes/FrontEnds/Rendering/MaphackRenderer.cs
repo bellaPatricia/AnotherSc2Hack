@@ -698,9 +698,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             }
 
                             else
-                                bExpression = tmpUnit.Id == PSettings.PreferenceAll.OverlayMaphack.UnitIds[j]
-                                    ? true
-                                    : false;
+                                bExpression = tmpUnit.Id == PSettings.PreferenceAll.OverlayMaphack.UnitIds[j];
 
                             if (bExpression)
                             {

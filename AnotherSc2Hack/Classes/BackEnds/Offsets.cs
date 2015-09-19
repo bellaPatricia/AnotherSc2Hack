@@ -9,51 +9,51 @@ namespace AnotherSc2Hack.Classes.BackEnds
     {
         #region create variables for Addresses
 
-        public int PlayerStruct = 0;
-        public int PlayerStructSize = 0;
-        public int UnitStruct = 0;
-        public int MapStruct = 0;
+        public int PlayerStruct;
+        public int PlayerStructSize;
+        public int UnitStruct;
+        public int MapStruct;
 
-        public int RawPlayerCameraX = 0;
-        public int RawPlayerCameraY = 0;
-        public int RawPlayerCameraRotation = 0;
-        public int RawPlayerCameraDistance = 0;
-        public int RawPlayerCameraAngle = 0;
-        public int RawPlayerPlayertype = 0;
-        public int RawPlayerStatus = 0;
-        public int RawPlayerDifficulty = 0;
-        public int RawPlayerNamelenght = 0;
-        public int RawPlayerName = 0;
-        public int RawPlayerColor = 0;
-        public int RawPlayerAccountId = 0;
-        public int RawPlayerClanTag = 0;
-        public int RawPlayerClanTagLenght = 0;
-        public int RawPlayerApmCurrent = 0;
-        public int RawPlayerEpmCurrent = 0;
-        public int RawPlayerApmAverage = 0;
-        public int RawPlayerEpmAverage = 0;
-        public int RawPlayerTeam = 0;
-        public int RawPlayerWorkers = 0;
-        public int RawPlayerUnitsInProduction = 0;
-        public int RawPlayerSupplyMin = 0;
-        public int RawPlayerSupplyMax = 0;
-        public int RawPlayerMinerals = 0;
-        public int RawPlayerGas = 0;
-        public int RawPlayerMineralsIncome = 0;
-        public int RawPlayerGasIncome = 0;
-        public int RawPlayerMineralsArmy = 0;
-        public int RawPlayerGasArmy = 0;
+        public int RawPlayerCameraX;
+        public int RawPlayerCameraY;
+        public int RawPlayerCameraRotation;
+        public int RawPlayerCameraDistance;
+        public int RawPlayerCameraAngle;
+        public int RawPlayerPlayertype;
+        public int RawPlayerStatus;
+        public int RawPlayerDifficulty;
+        public int RawPlayerNamelenght;
+        public int RawPlayerName;
+        public int RawPlayerColor;
+        public int RawPlayerAccountId;
+        public int RawPlayerClanTag;
+        public int RawPlayerClanTagLenght;
+        public int RawPlayerApmCurrent;
+        public int RawPlayerEpmCurrent;
+        public int RawPlayerApmAverage;
+        public int RawPlayerEpmAverage;
+        public int RawPlayerTeam;
+        public int RawPlayerWorkers;
+        public int RawPlayerUnitsInProduction;
+        public int RawPlayerSupplyMin;
+        public int RawPlayerSupplyMax;
+        public int RawPlayerMinerals;
+        public int RawPlayerGas;
+        public int RawPlayerMineralsIncome;
+        public int RawPlayerGasIncome;
+        public int RawPlayerMineralsArmy;
+        public int RawPlayerGasArmy;
         public int RawPlayerLocalplayer = 0;
-        public int RawPlayerCurrentBuildings = 0;
+        public int RawPlayerCurrentBuildings;
 
         public int RawGroupBase = 0x31CE258,
                    RawGroupSize = 0x1b60,
-                   RawGroupAmountofUnits = 0x00,
+                   RawGroupAmountofUnits,
                    RawGroupUnitIndex = 0x0A,
                    RawGroupUnitIndexSize = 0x04;
 
-        public int RaceStruct = 0,
-                            RaceSize = 0,
+        public int RaceStruct,
+                            RaceSize,
                             Team = 0,
                             TeamSize = 0;
 
@@ -71,80 +71,79 @@ namespace AnotherSc2Hack.Classes.BackEnds
             ChatOpenOff3 = 0x008,
             ChatOpenOff4 = 0x16C;
 
-        public int Localplayer4 = 0;
+        public int Localplayer4;
 
-        public int RawUnitPosX = 0,
-            RawUnitPosY = 0,
-            RawUnitTargetFilter = 0,
-            RawUnitDestinationX = 0,
-            RawUnitDestinationY = 0,
-            RawUnitEnergy = 0,
-            RawUnitAliveSince = 0,
-            RawUnitDamageTaken = 0,
-            RawUnitSpeedMultiplier = 0,
-            RawUnitBuildingState = 0,
-            RawUnitOwner = 0,
-            RawUnitShieldDamageTaken = 0,
+        public int RawUnitPosX,
+            RawUnitPosY,
+            RawUnitTargetFilter,
+            RawUnitDestinationX,
+            RawUnitDestinationY,
+            RawUnitEnergy,
+            RawUnitAliveSince,
+            RawUnitDamageTaken,
+            RawUnitSpeedMultiplier,
+            RawUnitBuildingState,
+            RawUnitOwner,
+            RawUnitShieldDamageTaken,
             RawUnitLastOrder = 0,
-            RawUnitState = 0,
-            RawUnitModel = 0,
-            RawUnitMovestate = 0,
-            RawUnitRandomFlag = 0;
+            RawUnitState,
+            RawUnitModel,
+            RawUnitMovestate,
+            RawUnitRandomFlag;
 
-        public int UnitTotal = 0,
-                   UnitModel = 0,
-                   UnitStringStruct = 0,
-                   UnitString = 0,
-                   UnitStructSize = 0,
-                   UnitMaxShield = 0,
-                   UnitModelId = 0,
-                   UnitMaxHealth = 0,
-                   UnitMaxEnergy = 0,
-                   UnitModelSize = 0;
+        public int UnitTotal,
+                   UnitModel,
+                   UnitStringStruct,
+                   UnitString,
+                   UnitStructSize,
+                   UnitMaxShield,
+                   UnitModelId,
+                   UnitMaxHealth,
+                   UnitMaxEnergy,
+                   UnitModelSize;
 
         public int MapIngame = 0,
-                   MapFileInfoName = 0;
+                   MapFileInfoName;
 
-        public int RawMapTop = 0,
-                     RawMapBottom = 0,
-                     RawMapRight = 0,
-                     RawMapLeft = 0;
+        public int RawMapTop,
+                     RawMapBottom,
+                     RawMapRight,
+                     RawMapLeft;
 
-        public int UiSelectionStruct = 0,
-                   UiTotalSelectedUnits = 0,
-                   UiTotalSelectedTypes = 0,
-                   UiSelectedType = 0,
-                   UiSelectedIndex = 0,
-                   UiSize = 0;
+        public int UiSelectionStruct,
+                   UiTotalSelectedUnits,
+                   UiTotalSelectedTypes,
+                   UiSelectedType,
+                   UiSelectedIndex,
+                   UiSize;
 
-        public int UiRawSelectionStruct = 0,
-                     UiRawTotalSelectedUnits = 0,
-                     UiRawTotalSelectedTypes = 0,
-                     UiRawSelectedType = 0,
-                     UiRawSelectedIndex = 0;
+        public int UiRawSelectionStruct,
+                     UiRawTotalSelectedUnits,
+                     UiRawTotalSelectedTypes,
+                     UiRawSelectedType,
+                     UiRawSelectedIndex;
 
-        public int TeamColor1 = 0;
+        public int TeamColor1;
 
-        public int TimerData = 0;
+        public int TimerData;
 
-        public int PauseEnabled = 0;
+        public int PauseEnabled;
 
-        public int Gamespeed = 0;
+        public int Gamespeed;
 
-        public int FramesPerSecond = 0;
+        public int FramesPerSecond;
 
-        public int Gametype = 0;
+        public int Gametype;
 
         #endregion
 
         public event EventHandler OffsetsNotProperlySet;
 
-        private Process _starcraft = null;
+        private Process _starcraft;
 
         public void OnOffsetsNotProperlySet(object o, EventArgs e)
         {
-            if (OffsetsNotProperlySet != null)
-                OffsetsNotProperlySet(o, e);
+            OffsetsNotProperlySet?.Invoke(o, e);
         }
 
         public Offsets()

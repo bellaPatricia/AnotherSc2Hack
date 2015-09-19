@@ -703,7 +703,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAi.Length);
 
                         bool bRemoveAi;
-                        Boolean.TryParse(strInnerValue, out bRemoveAi);
+                        bool.TryParse(strInnerValue, out bRemoveAi);
 
                         ResourceRemoveAi = bRemoveAi;
                     }
@@ -716,7 +716,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveLocalplayer.Length);
 
                         bool bRemoveLocalplayer;
-                        Boolean.TryParse(strInnerValue, out bRemoveLocalplayer);
+                        bool.TryParse(strInnerValue, out bRemoveLocalplayer);
 
                         ResourceRemoveLocalplayer = bRemoveLocalplayer;
                     }
@@ -729,7 +729,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveNeutral.Length);
 
                         bool bRemoveNeutral;
-                        Boolean.TryParse(strInnerValue, out bRemoveNeutral);
+                        bool.TryParse(strInnerValue, out bRemoveNeutral);
 
                         ResourceRemoveNeutral = bRemoveNeutral;
                     }
@@ -742,7 +742,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAllie.Length);
 
                         bool bRemoveAllie;
-                        Boolean.TryParse(strInnerValue, out bRemoveAllie);
+                        bool.TryParse(strInnerValue, out bRemoveAllie);
 
                         ResourceRemoveAllie = bRemoveAllie;
                     }
@@ -755,7 +755,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceDisableBackground.Length);
 
                         bool bDisableBackground;
-                        Boolean.TryParse(strInnerValue, out bDisableBackground);
+                        bool.TryParse(strInnerValue, out bDisableBackground);
 
                         ResourceDrawBackground = bDisableBackground;
                     }
@@ -768,7 +768,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveClanTag.Length);
 
                         bool bRemoveClanTag;
-                        Boolean.TryParse(strInnerValue, out bRemoveClanTag);
+                        bool.TryParse(strInnerValue, out bRemoveClanTag);
 
                         ResourceRemoveClanTag = bRemoveClanTag;
 
@@ -788,8 +788,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosX;
-                            Int32.TryParse(strInnerValue, out iPosX);
+                            int iPosX;
+                            int.TryParse(strInnerValue, out iPosX);
 
                             ResourcePositionX = iPosX;
                         }
@@ -807,8 +807,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosY;
-                            Int32.TryParse(strInnerValue, out iPosY);
+                            int iPosY;
+                            int.TryParse(strInnerValue, out iPosY);
 
                             ResourcePositionY = iPosY;
                         }
@@ -825,8 +825,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceWidth.Length);
 
 
-                        Int32 iWidth;
-                        Int32.TryParse(strInnerValue, out iWidth);
+                        int iWidth;
+                        int.TryParse(strInnerValue, out iWidth);
 
                         ResourceWidth = iWidth <= 10 ? 600 : iWidth;
 
@@ -840,8 +840,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceHeight.Length);
 
 
-                        Int32 iHeight;
-                        Int32.TryParse(strInnerValue, out iHeight);
+                        int iHeight;
+                        int.TryParse(strInnerValue, out iHeight);
 
                         ResourceHeight = iHeight <= 10 ? 50 : iHeight;
                     }
@@ -949,8 +949,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceOpacity.Length);
 
-                        Double dOpacity;
-                        Double.TryParse(strInnerValue, out dOpacity);
+                        double dOpacity;
+                        double.TryParse(strInnerValue, out dOpacity);
 
                         ResourceOpacity = dOpacity;
                     }
@@ -974,7 +974,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAi.Length);
 
                         bool bRemoveAi;
-                        Boolean.TryParse(strInnerValue, out bRemoveAi);
+                        bool.TryParse(strInnerValue, out bRemoveAi);
 
                         IncomeRemoveAi = bRemoveAi;
                     }
@@ -987,7 +987,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveLocalplayer.Length);
 
                         bool bRemoveLocalplayer;
-                        Boolean.TryParse(strInnerValue, out bRemoveLocalplayer);
+                        bool.TryParse(strInnerValue, out bRemoveLocalplayer);
 
                         IncomeRemoveLocalplayer = bRemoveLocalplayer;
                     }
@@ -1000,7 +1000,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveNeutral.Length);
 
                         bool bRemoveNeutral;
-                        Boolean.TryParse(strInnerValue, out bRemoveNeutral);
+                        bool.TryParse(strInnerValue, out bRemoveNeutral);
 
                         IncomeRemoveNeutral = bRemoveNeutral;
                     }
@@ -1013,7 +1013,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAllie.Length);
 
                         bool bRemoveAllie;
-                        Boolean.TryParse(strInnerValue, out bRemoveAllie);
+                        bool.TryParse(strInnerValue, out bRemoveAllie);
 
                         IncomeRemoveAllie = bRemoveAllie;
                     }
@@ -1026,7 +1026,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceDisableBackground.Length);
 
                         bool bDisableBackground;
-                        Boolean.TryParse(strInnerValue, out bDisableBackground);
+                        bool.TryParse(strInnerValue, out bDisableBackground);
 
                         IncomeDrawBackground = bDisableBackground;
                     }
@@ -1039,7 +1039,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveClanTag.Length);
 
                         bool bRemoveClanTag;
-                        Boolean.TryParse(strInnerValue, out bRemoveClanTag);
+                        bool.TryParse(strInnerValue, out bRemoveClanTag);
 
                         IncomeRemoveClanTag = bRemoveClanTag;
 
@@ -1058,8 +1058,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferencePosX.Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosX;
-                            Int32.TryParse(strInnerValue, out iPosX);
+                            int iPosX;
+                            int.TryParse(strInnerValue, out iPosX);
 
                             IncomePositionX = iPosX;
                         }
@@ -1076,8 +1076,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferencePosY.Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosY;
-                            Int32.TryParse(strInnerValue, out iPosY);
+                            int iPosY;
+                            int.TryParse(strInnerValue, out iPosY);
 
                             IncomePositionY = iPosY;
                         }
@@ -1093,8 +1093,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceWidth.Length);
 
-                        Int32 iWidth;
-                        Int32.TryParse(strInnerValue, out iWidth);
+                        int iWidth;
+                        int.TryParse(strInnerValue, out iWidth);
 
                         IncomeWidth = iWidth <= 10 ? 600 : iWidth;
                     }
@@ -1106,8 +1106,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceHeight.Length);
 
-                        Int32 iHeight;
-                        Int32.TryParse(strInnerValue, out iHeight);
+                        int iHeight;
+                        int.TryParse(strInnerValue, out iHeight);
 
                         IncomeHeight = iHeight <= 10 ? 50 : iHeight;
                     }
@@ -1215,8 +1215,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceOpacity.Length);
 
-                        Double dOpacity;
-                        Double.TryParse(strInnerValue, out dOpacity);
+                        double dOpacity;
+                        double.TryParse(strInnerValue, out dOpacity);
 
                         IncomeOpacity = dOpacity;
                     }
@@ -1240,7 +1240,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAi.Length);
 
                         bool bRemoveAi;
-                        Boolean.TryParse(strInnerValue, out bRemoveAi);
+                        bool.TryParse(strInnerValue, out bRemoveAi);
 
                         ApmRemoveAi = bRemoveAi;
                     }
@@ -1253,7 +1253,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveLocalplayer.Length);
 
                         bool bRemoveLocalplayer;
-                        Boolean.TryParse(strInnerValue, out bRemoveLocalplayer);
+                        bool.TryParse(strInnerValue, out bRemoveLocalplayer);
 
                         ApmRemoveLocalplayer = bRemoveLocalplayer;
                     }
@@ -1266,7 +1266,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveNeutral.Length);
 
                         bool bRemoveNeutral;
-                        Boolean.TryParse(strInnerValue, out bRemoveNeutral);
+                        bool.TryParse(strInnerValue, out bRemoveNeutral);
 
                         ApmRemoveNeutral = bRemoveNeutral;
                     }
@@ -1279,7 +1279,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAllie.Length);
 
                         bool bRemoveAllie;
-                        Boolean.TryParse(strInnerValue, out bRemoveAllie);
+                        bool.TryParse(strInnerValue, out bRemoveAllie);
 
                         ApmRemoveAllie = bRemoveAllie;
                     }
@@ -1292,7 +1292,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceDisableBackground.Length);
 
                         bool bDisableBackground;
-                        Boolean.TryParse(strInnerValue, out bDisableBackground);
+                        bool.TryParse(strInnerValue, out bDisableBackground);
 
                         ApmDrawBackground = bDisableBackground;
                     }
@@ -1305,7 +1305,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveClanTag.Length);
 
                         bool bRemoveClanTag;
-                        Boolean.TryParse(strInnerValue, out bRemoveClanTag);
+                        bool.TryParse(strInnerValue, out bRemoveClanTag);
 
                         ApmRemoveClanTag = bRemoveClanTag;
 
@@ -1324,8 +1324,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferencePosX.Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosX;
-                            Int32.TryParse(strInnerValue, out iPosX);
+                            int iPosX;
+                            int.TryParse(strInnerValue, out iPosX);
 
                             ApmPositionX = iPosX;
                         }
@@ -1343,8 +1343,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosY;
-                            Int32.TryParse(strInnerValue, out iPosY);
+                            int iPosY;
+                            int.TryParse(strInnerValue, out iPosY);
 
                             ApmPositionY = iPosY;
                         }
@@ -1360,8 +1360,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceWidth.Length);
 
-                        Int32 iWidth;
-                        Int32.TryParse(strInnerValue, out iWidth);
+                        int iWidth;
+                        int.TryParse(strInnerValue, out iWidth);
 
                         ApmWidth = iWidth <= 10 ? 600 : iWidth;
                     }
@@ -1373,8 +1373,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceHeight.Length);
 
-                        Int32 iHeight;
-                        Int32.TryParse(strInnerValue, out iHeight);
+                        int iHeight;
+                        int.TryParse(strInnerValue, out iHeight);
 
                         ApmHeight = iHeight <= 10 ? 50 : iHeight;
                     }
@@ -1482,8 +1482,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceOpacity.Length);
 
-                        Double dOpacity;
-                        Double.TryParse(strInnerValue, out dOpacity);
+                        double dOpacity;
+                        double.TryParse(strInnerValue, out dOpacity);
 
                         ApmOpacity = dOpacity;
                     }
@@ -1507,7 +1507,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAi.Length);
 
                         bool bRemoveAi;
-                        Boolean.TryParse(strInnerValue, out bRemoveAi);
+                        bool.TryParse(strInnerValue, out bRemoveAi);
 
                         ArmyRemoveAi = bRemoveAi;
                     }
@@ -1520,7 +1520,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveLocalplayer.Length);
 
                         bool bRemoveLocalplayer;
-                        Boolean.TryParse(strInnerValue, out bRemoveLocalplayer);
+                        bool.TryParse(strInnerValue, out bRemoveLocalplayer);
 
                         ArmyRemoveLocalplayer = bRemoveLocalplayer;
                     }
@@ -1533,7 +1533,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveNeutral.Length);
 
                         bool bRemoveNeutral;
-                        Boolean.TryParse(strInnerValue, out bRemoveNeutral);
+                        bool.TryParse(strInnerValue, out bRemoveNeutral);
 
                         ArmyRemoveNeutral = bRemoveNeutral;
                     }
@@ -1546,7 +1546,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAllie.Length);
 
                         bool bRemoveAllie;
-                        Boolean.TryParse(strInnerValue, out bRemoveAllie);
+                        bool.TryParse(strInnerValue, out bRemoveAllie);
 
                         ArmyRemoveAllie = bRemoveAllie;
                     }
@@ -1559,7 +1559,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceDisableBackground.Length);
 
                         bool bDisableBackground;
-                        Boolean.TryParse(strInnerValue, out bDisableBackground);
+                        bool.TryParse(strInnerValue, out bDisableBackground);
 
                         ArmyDrawBackground = bDisableBackground;
                     }
@@ -1572,7 +1572,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveClanTag.Length);
 
                         bool bRemoveClanTag;
-                        Boolean.TryParse(strInnerValue, out bRemoveClanTag);
+                        bool.TryParse(strInnerValue, out bRemoveClanTag);
 
                         ArmyRemoveClanTag = bRemoveClanTag;
 
@@ -1591,8 +1591,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferencePosX.Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosX;
-                            Int32.TryParse(strInnerValue, out iPosX);
+                            int iPosX;
+                            int.TryParse(strInnerValue, out iPosX);
 
                             ArmyPositionX = iPosX;
                         }
@@ -1611,8 +1611,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosY;
-                            Int32.TryParse(strInnerValue, out iPosY);
+                            int iPosY;
+                            int.TryParse(strInnerValue, out iPosY);
 
                             ArmyPositionY = iPosY;
                         }
@@ -1628,8 +1628,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceWidth.Length);
 
-                        Int32 iWidth;
-                        Int32.TryParse(strInnerValue, out iWidth);
+                        int iWidth;
+                        int.TryParse(strInnerValue, out iWidth);
 
                         ArmyWidth = iWidth <= 10 ? 600 : iWidth;
                     }
@@ -1641,8 +1641,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceHeight.Length);
 
-                        Int32 iHeight;
-                        Int32.TryParse(strInnerValue, out iHeight);
+                        int iHeight;
+                        int.TryParse(strInnerValue, out iHeight);
 
                         ArmyHeight = iHeight <= 10 ? 50 : iHeight;
                     }
@@ -1750,8 +1750,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceOpacity.Length);
 
-                        Double dOpacity;
-                        Double.TryParse(strInnerValue, out dOpacity);
+                        double dOpacity;
+                        double.TryParse(strInnerValue, out dOpacity);
 
                         ArmyOpacity = dOpacity;
                     }
@@ -1775,7 +1775,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceDisableBackground.Length);
 
                         bool bDisableBackground;
-                        Boolean.TryParse(strInnerValue, out bDisableBackground);
+                        bool.TryParse(strInnerValue, out bDisableBackground);
 
                         WorkerDrawBackground = bDisableBackground;
                     }
@@ -1792,8 +1792,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferencePosX.Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosX;
-                            Int32.TryParse(strInnerValue, out iPosX);
+                            int iPosX;
+                            int.TryParse(strInnerValue, out iPosX);
 
                             WorkerPositionX = iPosX;
                         }
@@ -1810,8 +1810,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferencePosY.Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosY;
-                            Int32.TryParse(strInnerValue, out iPosY);
+                            int iPosY;
+                            int.TryParse(strInnerValue, out iPosY);
 
                             WorkerPositionY = iPosY;
                         }
@@ -1827,8 +1827,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceWidth.Length);
 
-                        Int32 iWidth;
-                        Int32.TryParse(strInnerValue, out iWidth);
+                        int iWidth;
+                        int.TryParse(strInnerValue, out iWidth);
 
                         WorkerWidth = iWidth <= 10 ? 200 : iWidth;
                     }
@@ -1840,8 +1840,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceHeight.Length);
 
-                        Int32 iHeight;
-                        Int32.TryParse(strInnerValue, out iHeight);
+                        int iHeight;
+                        int.TryParse(strInnerValue, out iHeight);
 
                         WorkerHeight = iHeight <= 10 ? 50 : iHeight;
                     }
@@ -1949,8 +1949,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceOpacity.Length);
 
-                        Double dOpacity;
-                        Double.TryParse(strInnerValue, out dOpacity);
+                        double dOpacity;
+                        double.TryParse(strInnerValue, out dOpacity);
 
                         WorkerOpacity = dOpacity;
                     }
@@ -1974,7 +1974,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAi.Length);
 
                         bool bRemoveAi;
-                        Boolean.TryParse(strInnerValue, out bRemoveAi);
+                        bool.TryParse(strInnerValue, out bRemoveAi);
 
                         UnitTabRemoveAi = bRemoveAi;
                     }
@@ -1987,7 +1987,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveLocalplayer.Length);
 
                         bool bRemoveLocalplayer;
-                        Boolean.TryParse(strInnerValue, out bRemoveLocalplayer);
+                        bool.TryParse(strInnerValue, out bRemoveLocalplayer);
 
                         UnitTabRemoveLocalplayer = bRemoveLocalplayer;
                     }
@@ -2000,7 +2000,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveNeutral.Length);
 
                         bool bRemoveNeutral;
-                        Boolean.TryParse(strInnerValue, out bRemoveNeutral);
+                        bool.TryParse(strInnerValue, out bRemoveNeutral);
 
                         UnitTabRemoveNeutral = bRemoveNeutral;
                     }
@@ -2013,7 +2013,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAllie.Length);
 
                         bool bRemoveAllie;
-                        Boolean.TryParse(strInnerValue, out bRemoveAllie);
+                        bool.TryParse(strInnerValue, out bRemoveAllie);
 
                         UnitTabRemoveAllie = bRemoveAllie;
                     }
@@ -2026,7 +2026,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Remove Prod. Line".Length);
 
                         bool bRemProdLine;
-                        Boolean.TryParse(strInnerValue, out bRemProdLine);
+                        bool.TryParse(strInnerValue, out bRemProdLine);
 
                         UnitTabRemoveProdLine = bRemProdLine;
                         bUnitTabRemoveProdLineSet = true;
@@ -2040,7 +2040,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length - strSplitBuildings.Length);
 
                         bool bSplitBuildings;
-                        Boolean.TryParse(strInnerValue, out bSplitBuildings);
+                        bool.TryParse(strInnerValue, out bSplitBuildings);
 
                         UnitTabSplitUnitsAndBuildings = bSplitBuildings;
                     }
@@ -2053,7 +2053,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveClanTag.Length);
 
                         bool bRemoveClanTag;
-                        Boolean.TryParse(strInnerValue, out bRemoveClanTag);
+                        bool.TryParse(strInnerValue, out bRemoveClanTag);
 
                         UnitTabRemoveClanTag = bRemoveClanTag;
 
@@ -2068,7 +2068,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Show Units".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         UnitTabShowUnits = bDummy;
                         bUnitTabShowUnits = true;
@@ -2082,7 +2082,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Show Buildings".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         UnitTabShowBuildings = bDummy;
                         bUnitTabShowBuildings = true;
@@ -2096,7 +2096,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Remove Chronoboost".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         UnitTabRemoveChronoboost = bDummy;
                         bUnitTabChronoboost = true;
@@ -2110,7 +2110,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Remove Spellcounter".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         UnitTabRemoveSpellCounter = bDummy;
                         bUnitTabSpellCounter = true;
@@ -2124,7 +2124,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Use Transparent Images".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         UnitTabUseTransparentImages = bDummy;
                     }
@@ -2140,8 +2140,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferencePosX.Length);
 
-                        Int32 iPosX;
-                        Int32.TryParse(strInnerValue, out iPosX);
+                        int iPosX;
+                        int.TryParse(strInnerValue, out iPosX);
 
                         UnitTabPositionX = iPosX;
                     }
@@ -2153,8 +2153,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferencePosY.Length);
 
-                        Int32 iPosY;
-                        Int32.TryParse(strInnerValue, out iPosY);
+                        int iPosY;
+                        int.TryParse(strInnerValue, out iPosY);
 
                         UnitTabPositionY = iPosY;
                     }
@@ -2166,8 +2166,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceWidth.Length);
 
-                        Int32 iWidth;
-                        Int32.TryParse(strInnerValue, out iWidth);
+                        int iWidth;
+                        int.TryParse(strInnerValue, out iWidth);
 
                         UnitTabWidth = iWidth;
                     }
@@ -2179,8 +2179,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceHeight.Length);
 
-                        Int32 iHeight;
-                        Int32.TryParse(strInnerValue, out iHeight);
+                        int iHeight;
+                        int.TryParse(strInnerValue, out iHeight);
 
                         UnitTabHeight = iHeight;
                     }
@@ -2192,8 +2192,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             "Picture Size".Length);
 
-                        Int32 iPictureSize;
-                        Int32.TryParse(strInnerValue, out iPictureSize);
+                        int iPictureSize;
+                        int.TryParse(strInnerValue, out iPictureSize);
 
                         UnitPictureSize = iPictureSize;
 
@@ -2305,8 +2305,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceOpacity.Length);
 
-                        Double dOpacity;
-                        Double.TryParse(strInnerValue, out dOpacity);
+                        double dOpacity;
+                        double.TryParse(strInnerValue, out dOpacity);
 
                         UnitTabOpacity = dOpacity;
                     }
@@ -2330,7 +2330,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAi.Length);
 
                         bool bRemoveAi;
-                        Boolean.TryParse(strInnerValue, out bRemoveAi);
+                        bool.TryParse(strInnerValue, out bRemoveAi);
 
                         ProdTabRemoveAi = bRemoveAi;
                         bProdTabRemAiSet = true;
@@ -2344,7 +2344,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveLocalplayer.Length);
 
                         bool bRemoveLocalplayer;
-                        Boolean.TryParse(strInnerValue, out bRemoveLocalplayer);
+                        bool.TryParse(strInnerValue, out bRemoveLocalplayer);
 
                         ProdTabRemoveLocalplayer = bRemoveLocalplayer;
                         bProdTabRemLocalplayerSet = true;
@@ -2358,7 +2358,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveNeutral.Length);
 
                         bool bRemoveNeutral;
-                        Boolean.TryParse(strInnerValue, out bRemoveNeutral);
+                        bool.TryParse(strInnerValue, out bRemoveNeutral);
 
                         ProdTabRemoveNeutral = bRemoveNeutral;
                         bProdTabRemNeutralSet = true;
@@ -2372,7 +2372,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAllie.Length);
 
                         bool bRemoveAllie;
-                        Boolean.TryParse(strInnerValue, out bRemoveAllie);
+                        bool.TryParse(strInnerValue, out bRemoveAllie);
 
                         ProdTabRemoveAllie = bRemoveAllie;
                         bProdTabRemAllieSet = true;
@@ -2387,7 +2387,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length - strSplitBuildings.Length);
 
                         bool bSplitBuildings;
-                        Boolean.TryParse(strInnerValue, out bSplitBuildings);
+                        bool.TryParse(strInnerValue, out bSplitBuildings);
 
                         ProdTabSplitUnitsAndBuildings = bSplitBuildings;
                         bProdTabSplitBuilldingsSet = true;
@@ -2401,7 +2401,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveClanTag.Length);
 
                         bool bRemoveClanTag;
-                        Boolean.TryParse(strInnerValue, out bRemoveClanTag);
+                        bool.TryParse(strInnerValue, out bRemoveClanTag);
 
                         ProdTabRemoveClanTag = bRemoveClanTag;
                         bProdTabRemoveClanTagSet = true;
@@ -2415,7 +2415,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Show Units".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         ProdTabShowUnits = bDummy;
                         bProdTabShowUnits = true;
@@ -2429,7 +2429,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Show Buildings".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         ProdTabShowBuildings = bDummy;
                         bProdTabShowBuildings = true;
@@ -2443,7 +2443,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Show Upgrades".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         ProdTabShowUpgrades = bDummy;
                         bProdTabShowUpgrades = true;
@@ -2457,7 +2457,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Remove Chronoboost".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         ProdTabRemoveChronoboost = bDummy;
                         bProdChronoboost = true;
@@ -2471,7 +2471,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Use Transparent Images".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         ProdTabUseTransparentImages = bDummy;
                     }
@@ -2487,8 +2487,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferencePosX.Length);
 
-                        Int32 iPosX;
-                        Int32.TryParse(strInnerValue, out iPosX);
+                        int iPosX;
+                        int.TryParse(strInnerValue, out iPosX);
 
                         ProdTabPositionX = iPosX;
                         bProdTabPositionXSet = true;
@@ -2501,8 +2501,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferencePosY.Length);
 
-                        Int32 iPosY;
-                        Int32.TryParse(strInnerValue, out iPosY);
+                        int iPosY;
+                        int.TryParse(strInnerValue, out iPosY);
 
                         ProdTabPositionY = iPosY;
                         bProdTabPositionYSet = true;
@@ -2515,8 +2515,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceWidth.Length);
 
-                        Int32 iWidth;
-                        Int32.TryParse(strInnerValue, out iWidth);
+                        int iWidth;
+                        int.TryParse(strInnerValue, out iWidth);
 
                         ProdTabWidth = iWidth;
                         bProdTabWidthSet = true;
@@ -2529,8 +2529,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceHeight.Length);
 
-                        Int32 iHeight;
-                        Int32.TryParse(strInnerValue, out iHeight);
+                        int iHeight;
+                        int.TryParse(strInnerValue, out iHeight);
 
                         ProdTabHeight = iHeight;
                         bProdTabHeightSet = true;
@@ -2543,8 +2543,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             "Picture Size".Length);
 
-                        Int32 iPictureSize;
-                        Int32.TryParse(strInnerValue, out iPictureSize);
+                        int iPictureSize;
+                        int.TryParse(strInnerValue, out iPictureSize);
 
                         ProdPictureSize = iPictureSize;
 
@@ -2661,8 +2661,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceOpacity.Length);
 
-                        Double dOpacity;
-                        Double.TryParse(strInnerValue, out dOpacity);
+                        double dOpacity;
+                        double.TryParse(strInnerValue, out dOpacity);
 
                         ProdTabOpacity = dOpacity;
                         bProdTabOpacitySet = true;
@@ -2688,7 +2688,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Apm Enable".Length);
 
                         bool bShowApm;
-                        Boolean.TryParse(strInnerValue, out bShowApm);
+                        bool.TryParse(strInnerValue, out bShowApm);
 
                         PersonalApm = bShowApm;
                         bPersonalApm = true;
@@ -2702,7 +2702,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "ApmAlert Enable".Length);
 
                         bool bShowApmAlert;
-                        Boolean.TryParse(strInnerValue, out bShowApmAlert);
+                        bool.TryParse(strInnerValue, out bShowApmAlert);
 
                         PersonalApmAlert = bShowApmAlert;
                         bPersonalApmAlert = true;
@@ -2716,7 +2716,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Clock Enable".Length);
 
                         bool bShowClock;
-                        Boolean.TryParse(strInnerValue, out bShowClock);
+                        bool.TryParse(strInnerValue, out bShowClock);
 
                         PersonalClock = bShowClock;
                         bPersonalClock = true;
@@ -2735,8 +2735,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosX;
-                            Int32.TryParse(strInnerValue, out iPosX);
+                            int iPosX;
+                            int.TryParse(strInnerValue, out iPosX);
 
                             PersonalApmPositionX = iPosX;
                         }
@@ -2756,8 +2756,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosY;
-                            Int32.TryParse(strInnerValue, out iPosY);
+                            int iPosY;
+                            int.TryParse(strInnerValue, out iPosY);
 
                             PersonalApmPositionY = iPosY;
                         }
@@ -2777,8 +2777,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iWidth;
-                            Int32.TryParse(strInnerValue, out iWidth);
+                            int iWidth;
+                            int.TryParse(strInnerValue, out iWidth);
 
                             PersonalApmWidth = iWidth;
                         }
@@ -2798,8 +2798,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iHeight;
-                            Int32.TryParse(strInnerValue, out iHeight);
+                            int iHeight;
+                            int.TryParse(strInnerValue, out iHeight);
 
                             PersonalApmHeight = iHeight;
                         }
@@ -2819,8 +2819,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iAlertLimit;
-                            Int32.TryParse(strInnerValue, out iAlertLimit);
+                            int iAlertLimit;
+                            int.TryParse(strInnerValue, out iAlertLimit);
 
                             PersonalApmAlertLimit = iAlertLimit;
                         }
@@ -2840,8 +2840,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosX;
-                            Int32.TryParse(strInnerValue, out iPosX);
+                            int iPosX;
+                            int.TryParse(strInnerValue, out iPosX);
 
                             PersonalClockPositionX = iPosX;
                         }
@@ -2861,8 +2861,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosY;
-                            Int32.TryParse(strInnerValue, out iPosY);
+                            int iPosY;
+                            int.TryParse(strInnerValue, out iPosY);
 
                             PersonalClockPositionY = iPosY;
                         }
@@ -2882,8 +2882,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iWidth;
-                            Int32.TryParse(strInnerValue, out iWidth);
+                            int iWidth;
+                            int.TryParse(strInnerValue, out iWidth);
 
                             PersonalClockWidth = iWidth;
                         }
@@ -2903,8 +2903,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iHeight;
-                            Int32.TryParse(strInnerValue, out iHeight);
+                            int iHeight;
+                            int.TryParse(strInnerValue, out iHeight);
 
                             PersonalClockHeight = iHeight;
                         }
@@ -2937,7 +2937,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAi.Length);
 
                         bool bRemoveAi;
-                        Boolean.TryParse(strInnerValue, out bRemoveAi);
+                        bool.TryParse(strInnerValue, out bRemoveAi);
 
                         MaphackRemoveAi = bRemoveAi;
                     }
@@ -2950,7 +2950,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveLocalplayer.Length);
 
                         bool bRemoveLocalplayer;
-                        Boolean.TryParse(strInnerValue, out bRemoveLocalplayer);
+                        bool.TryParse(strInnerValue, out bRemoveLocalplayer);
 
                         MaphackRemoveLocalplayer = bRemoveLocalplayer;
                     }
@@ -2963,7 +2963,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveNeutral.Length);
 
                         bool bRemoveNeutral;
-                        Boolean.TryParse(strInnerValue, out bRemoveNeutral);
+                        bool.TryParse(strInnerValue, out bRemoveNeutral);
 
                         MaphackRemoveNeutral = bRemoveNeutral;
                     }
@@ -2976,7 +2976,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferenceRemoveAllie.Length);
 
                         bool bRemoveAllie;
-                        Boolean.TryParse(strInnerValue, out bRemoveAllie);
+                        bool.TryParse(strInnerValue, out bRemoveAllie);
 
                         MaphackRemoveAllie = bRemoveAllie;
                     }
@@ -2988,7 +2988,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length - "Disable Destination Line".Length);
 
                         bool bDisableDestinationLine;
-                        Boolean.TryParse(strInnerValue, out bDisableDestinationLine);
+                        bool.TryParse(strInnerValue, out bDisableDestinationLine);
 
                         MaphackDisableDestinationLine = bDisableDestinationLine;
                     }
@@ -3000,7 +3000,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length - "Color Def Structures".Length);
 
                         bool bColorDefensiveStructures;
-                        Boolean.TryParse(strInnerValue, out bColorDefensiveStructures);
+                        bool.TryParse(strInnerValue, out bColorDefensiveStructures);
 
                         MaphackColorDefensivestructuresYellow = bColorDefensiveStructures;
                     }
@@ -3012,7 +3012,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length - "Remove Vision Area".Length);
 
                         bool bRemoveVisionArea;
-                        Boolean.TryParse(strInnerValue, out bRemoveVisionArea);
+                        bool.TryParse(strInnerValue, out bRemoveVisionArea);
 
                         MaphackRemoveVisionArea = bRemoveVisionArea;
                     }
@@ -3024,7 +3024,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length - "Remove Camera".Length);
 
                         bool bRemoveCamera;
-                        Boolean.TryParse(strInnerValue, out bRemoveCamera);
+                        bool.TryParse(strInnerValue, out bRemoveCamera);
 
                         MaphackRemoveCamera = bRemoveCamera;
                     }
@@ -3041,8 +3041,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferencePosX.Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosX;
-                            Int32.TryParse(strInnerValue, out iPosX);
+                            int iPosX;
+                            int.TryParse(strInnerValue, out iPosX);
 
                             MaphackPositionX = iPosX;
                         }
@@ -3059,8 +3059,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             Constants.StrPreferencePosY.Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iPosY;
-                            Int32.TryParse(strInnerValue, out iPosY);
+                            int iPosY;
+                            int.TryParse(strInnerValue, out iPosY);
 
                             MaphackPositionY = iPosY;
                         }
@@ -3076,8 +3076,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceWidth.Length);
 
-                        Int32 iWidth;
-                        Int32.TryParse(strInnerValue, out iWidth);
+                        int iWidth;
+                        int.TryParse(strInnerValue, out iWidth);
 
                         if (iWidth <= 10)
                             WorkerWidth = 300;
@@ -3093,8 +3093,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceHeight.Length);
 
-                        Int32 iHeight;
-                        Int32.TryParse(strInnerValue, out iHeight);
+                        int iHeight;
+                        int.TryParse(strInnerValue, out iHeight);
 
                         MaphackHeight = iHeight <= 10 ? 300 : iHeight;
                     }
@@ -3191,8 +3191,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             strInnerValue.Length -
                             Constants.StrPreferenceOpacity.Length);
 
-                        Double dOpacity;
-                        Double.TryParse(strInnerValue, out dOpacity);
+                        double dOpacity;
+                        double.TryParse(strInnerValue, out dOpacity);
 
                         MaphackOpacity = dOpacity;
                     }
@@ -3229,7 +3229,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Worker Automation".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         WorkerAutomation = bDummy;
                         bWorkerAutomation = true;
@@ -3243,7 +3243,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Direct Mode".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         WorkerAutomationModeDirect = bDummy;
                         bWorkerAutomationModeDirect = true;
@@ -3257,7 +3257,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Round Mode".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         WorkerAutomationModeRound = bDummy;
                         bWorkerAutomationModeRound = true;
@@ -3271,7 +3271,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Selecting".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         WorkerAutomationDisableWhenSelecting = bDummy;
                         bWorkerAutomationDisableWhenSelecting = true;
@@ -3285,7 +3285,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Worker Selected".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         WorkerAutomationDisableWhenWorkerIsSelected = bDummy;
                         bWorkerAutomationDisableWhenWorkerIsSelected = true;
@@ -3299,7 +3299,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Autoupgrade To Oc".Length);
 
                         bool bDummy;
-                        Boolean.TryParse(strInnerValue, out bDummy);
+                        bool.TryParse(strInnerValue, out bDummy);
 
                         WorkerAutomationAutoupgradeToOc = bDummy;
                         bWorkerAutomationAutoupgradeToOc = true;
@@ -3317,8 +3317,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Maximum Workers in game".Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iDummy;
-                            Int32.TryParse(strInnerValue, out iDummy);
+                            int iDummy;
+                            int.TryParse(strInnerValue, out iDummy);
 
                             WorkerAutomationMaximumWorkers = iDummy;
                         }
@@ -3337,8 +3337,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Maximum Workers per Base".Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iDummy;
-                            Int32.TryParse(strInnerValue, out iDummy);
+                            int iDummy;
+                            int.TryParse(strInnerValue, out iDummy);
 
                             WorkerAutomationMaximumWorkersPerBase = iDummy;
                         }
@@ -3358,8 +3358,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
 
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iDummy;
-                            Int32.TryParse(strInnerValue, out iDummy);
+                            int iDummy;
+                            int.TryParse(strInnerValue, out iDummy);
 
                             WorkerAutomationPufferWorker = iDummy;
                         }
@@ -3378,8 +3378,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Apm Protection".Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iDummy;
-                            Int32.TryParse(strInnerValue, out iDummy);
+                            int iDummy;
+                            int.TryParse(strInnerValue, out iDummy);
 
                             WorkerAutomationApmProtection = iDummy;
                         }
@@ -3401,8 +3401,8 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                             "Start Next Worker At".Length);
                         if (strInnerValue.Length > 0)
                         {
-                            Int32 iDummy;
-                            Int32.TryParse(strInnerValue, out iDummy);
+                            int iDummy;
+                            int.TryParse(strInnerValue, out iDummy);
 
                             WorkerAutomationStartNextWorkerAt = iDummy;
                         }
@@ -4072,7 +4072,7 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
                 }
             }
 
-            else if (variable is Int32)
+            else if (variable is int)
             {
                 if (Convert.ToInt32(variable) != 0)
                     return variable;
@@ -4133,68 +4133,68 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
             UnitTabUseTransparentImages = true;
         }
 
-        public Byte PreferencesSet { get; set; }
+        public byte PreferencesSet { get; set; }
         public IsDeveloper GlobalIsDeveloper { get; set; }
-        public Boolean ProdTabRemoveAi { get; set; }
-        public Boolean ProdTabRemoveAllie { get; set; }
-        public Boolean ProdTabRemoveReferee { get; set; }
-        public Boolean ProdTabRemoveObserver { get; set; }
-        public Boolean ProdTabRemoveNeutral { get; set; }
-        public Boolean ProdTabRemoveLocalplayer { get; set; }
-        public Boolean ProdTabSplitUnitsAndBuildings { get; set; }
-        public Boolean ProdTabUseTransparentImages { get; set; }
-        public Boolean ProdTabRemoveClanTag { get; set; }
-        public Boolean ProdTabRemoveChronoboost { get; set; }
-        public Int32 ProdTabPositionX { get; set; }
-        public Int32 ProdTabPositionY { get; set; }
-        public Int32 ProdTabWidth { get; set; }
-        public Int32 ProdTabHeight { get; set; }
-        public Double ProdTabOpacity { get; set; }
-        public Int32 ProdPictureSize { get; set; }
+        public bool ProdTabRemoveAi { get; set; }
+        public bool ProdTabRemoveAllie { get; set; }
+        public bool ProdTabRemoveReferee { get; set; }
+        public bool ProdTabRemoveObserver { get; set; }
+        public bool ProdTabRemoveNeutral { get; set; }
+        public bool ProdTabRemoveLocalplayer { get; set; }
+        public bool ProdTabSplitUnitsAndBuildings { get; set; }
+        public bool ProdTabUseTransparentImages { get; set; }
+        public bool ProdTabRemoveClanTag { get; set; }
+        public bool ProdTabRemoveChronoboost { get; set; }
+        public int ProdTabPositionX { get; set; }
+        public int ProdTabPositionY { get; set; }
+        public int ProdTabWidth { get; set; }
+        public int ProdTabHeight { get; set; }
+        public double ProdTabOpacity { get; set; }
+        public int ProdPictureSize { get; set; }
         public string ProdTabFontName { get; set; }
         public string ProdTogglePanel { get; set; }
         public string ProdChangePositionPanel { get; set; }
         public string ProdChangeSizePanel { get; set; }
-        public Boolean ProdTabShowUnits { get; set; }
-        public Boolean ProdTabShowBuildings { get; set; }
-        public Boolean ProdTabShowUpgrades { get; set; }
+        public bool ProdTabShowUnits { get; set; }
+        public bool ProdTabShowBuildings { get; set; }
+        public bool ProdTabShowUpgrades { get; set; }
         public Keys ProdHotkey1 { get; set; }
         public Keys ProdHotkey2 { get; set; }
         public Keys ProdHotkey3 { get; set; }
-        public Boolean UnitTabRemoveAi { get; set; }
-        public Boolean UnitTabRemoveAllie { get; set; }
-        public Boolean UnitTabRemoveReferee { get; set; }
-        public Boolean UnitTabRemoveObserver { get; set; }
-        public Boolean UnitTabRemoveNeutral { get; set; }
-        public Boolean UnitTabRemoveLocalplayer { get; set; }
-        public Boolean UnitTabSplitUnitsAndBuildings { get; set; }
-        public Boolean UnitTabRemoveClanTag { get; set; }
-        public Boolean UnitTabRemoveProdLine { get; set; }
-        public Boolean UnitTabRemoveChronoboost { get; set; }
-        public Boolean UnitTabRemoveSpellCounter { get; set; }
-        public Boolean UnitTabUseTransparentImages { get; set; }
-        public Int32 UnitTabPositionX { get; set; }
-        public Int32 UnitTabPositionY { get; set; }
-        public Int32 UnitTabWidth { get; set; }
-        public Int32 UnitTabHeight { get; set; }
-        public Double UnitTabOpacity { get; set; }
-        public Int32 UnitPictureSize { get; set; }
-        public Boolean UnitTabShowUnits { get; set; }
-        public Boolean UnitTabShowBuildings { get; set; }
+        public bool UnitTabRemoveAi { get; set; }
+        public bool UnitTabRemoveAllie { get; set; }
+        public bool UnitTabRemoveReferee { get; set; }
+        public bool UnitTabRemoveObserver { get; set; }
+        public bool UnitTabRemoveNeutral { get; set; }
+        public bool UnitTabRemoveLocalplayer { get; set; }
+        public bool UnitTabSplitUnitsAndBuildings { get; set; }
+        public bool UnitTabRemoveClanTag { get; set; }
+        public bool UnitTabRemoveProdLine { get; set; }
+        public bool UnitTabRemoveChronoboost { get; set; }
+        public bool UnitTabRemoveSpellCounter { get; set; }
+        public bool UnitTabUseTransparentImages { get; set; }
+        public int UnitTabPositionX { get; set; }
+        public int UnitTabPositionY { get; set; }
+        public int UnitTabWidth { get; set; }
+        public int UnitTabHeight { get; set; }
+        public double UnitTabOpacity { get; set; }
+        public int UnitPictureSize { get; set; }
+        public bool UnitTabShowUnits { get; set; }
+        public bool UnitTabShowBuildings { get; set; }
         public string UnitTabFontName { get; set; }
-        public Boolean MaphackRemoveAi { get; set; }
-        public Boolean MaphackRemoveAllie { get; set; }
-        public Boolean MaphackRemoveReferee { get; set; }
-        public Boolean MaphackRemoveObserver { get; set; }
-        public Boolean MaphackRemoveNeutral { get; set; }
-        public Boolean MaphackRemoveLocalplayer { get; set; }
-        public Boolean MaphackRemoveVisionArea { get; set; }
-        public Boolean MaphackRemoveCamera { get; set; }
+        public bool MaphackRemoveAi { get; set; }
+        public bool MaphackRemoveAllie { get; set; }
+        public bool MaphackRemoveReferee { get; set; }
+        public bool MaphackRemoveObserver { get; set; }
+        public bool MaphackRemoveNeutral { get; set; }
+        public bool MaphackRemoveLocalplayer { get; set; }
+        public bool MaphackRemoveVisionArea { get; set; }
+        public bool MaphackRemoveCamera { get; set; }
         public Color MaphackDestinationColor { get; set; }
-        public Int32 MaphackPositionX { get; set; }
-        public Int32 MaphackPositionY { get; set; }
-        public Int32 MaphackWidth { get; set; }
-        public Int32 MaphackHeight { get; set; }
+        public int MaphackPositionX { get; set; }
+        public int MaphackPositionY { get; set; }
+        public int MaphackWidth { get; set; }
+        public int MaphackHeight { get; set; }
         public Color MaphackColorUnit1 { get; set; }
         public Color MaphackColorUnit2 { get; set; }
         public Color MaphackColorUnit3 { get; set; }
@@ -4205,60 +4205,60 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public UnitId MaphackUnitId3 { get; set; }
         public UnitId MaphackUnitId4 { get; set; }
         public UnitId MaphackUnitId5 { get; set; }
-        public Double MaphackOpacity { get; set; }
-        public Int32 ResourcePositionX { get; set; }
-        public Int32 ResourcePositionY { get; set; }
-        public Int32 ResourceWidth { get; set; }
-        public Int32 ResourceHeight { get; set; }
-        public Boolean ResourceRemoveAi { get; set; }
-        public Boolean ResourceRemoveNeutral { get; set; }
-        public Boolean ResourceRemoveAllie { get; set; }
-        public Boolean ResourceRemoveLocalplayer { get; set; }
-        public Boolean ResourceRemoveClanTag { get; set; }
+        public double MaphackOpacity { get; set; }
+        public int ResourcePositionX { get; set; }
+        public int ResourcePositionY { get; set; }
+        public int ResourceWidth { get; set; }
+        public int ResourceHeight { get; set; }
+        public bool ResourceRemoveAi { get; set; }
+        public bool ResourceRemoveNeutral { get; set; }
+        public bool ResourceRemoveAllie { get; set; }
+        public bool ResourceRemoveLocalplayer { get; set; }
+        public bool ResourceRemoveClanTag { get; set; }
         public string ResourceFontName { get; set; }
-        public Double ResourceOpacity { get; set; }
-        public Int32 IncomePositionX { get; set; }
-        public Int32 IncomePositionY { get; set; }
-        public Int32 IncomeWidth { get; set; }
-        public Int32 IncomeHeight { get; set; }
-        public Boolean IncomeRemoveAi { get; set; }
-        public Boolean IncomeRemoveNeutral { get; set; }
-        public Boolean IncomeRemoveAllie { get; set; }
-        public Boolean IncomeRemoveLocalplayer { get; set; }
-        public Boolean IncomeRemoveClanTag { get; set; }
+        public double ResourceOpacity { get; set; }
+        public int IncomePositionX { get; set; }
+        public int IncomePositionY { get; set; }
+        public int IncomeWidth { get; set; }
+        public int IncomeHeight { get; set; }
+        public bool IncomeRemoveAi { get; set; }
+        public bool IncomeRemoveNeutral { get; set; }
+        public bool IncomeRemoveAllie { get; set; }
+        public bool IncomeRemoveLocalplayer { get; set; }
+        public bool IncomeRemoveClanTag { get; set; }
         public string IncomeFontName { get; set; }
-        public Double IncomeOpacity { get; set; }
-        public Int32 ArmyPositionX { get; set; }
-        public Int32 ArmyPositionY { get; set; }
-        public Int32 ArmyWidth { get; set; }
-        public Int32 ArmyHeight { get; set; }
-        public Boolean ArmyRemoveAi { get; set; }
-        public Boolean ArmyRemoveNeutral { get; set; }
-        public Boolean ArmyRemoveAllie { get; set; }
-        public Boolean ArmyRemoveLocalplayer { get; set; }
-        public Boolean ArmyRemoveClanTag { get; set; }
+        public double IncomeOpacity { get; set; }
+        public int ArmyPositionX { get; set; }
+        public int ArmyPositionY { get; set; }
+        public int ArmyWidth { get; set; }
+        public int ArmyHeight { get; set; }
+        public bool ArmyRemoveAi { get; set; }
+        public bool ArmyRemoveNeutral { get; set; }
+        public bool ArmyRemoveAllie { get; set; }
+        public bool ArmyRemoveLocalplayer { get; set; }
+        public bool ArmyRemoveClanTag { get; set; }
         public string ArmyFontName { get; set; }
-        public Double ArmyOpacity { get; set; }
-        public Int32 ApmPositionX { get; set; }
-        public Int32 ApmPositionY { get; set; }
-        public Int32 ApmWidth { get; set; }
-        public Int32 ApmHeight { get; set; }
-        public Boolean ApmRemoveAi { get; set; }
-        public Boolean ApmRemoveNeutral { get; set; }
-        public Boolean ApmRemoveAllie { get; set; }
-        public Boolean ApmRemoveLocalplayer { get; set; }
-        public Boolean ApmRemoveClanTag { get; set; }
+        public double ArmyOpacity { get; set; }
+        public int ApmPositionX { get; set; }
+        public int ApmPositionY { get; set; }
+        public int ApmWidth { get; set; }
+        public int ApmHeight { get; set; }
+        public bool ApmRemoveAi { get; set; }
+        public bool ApmRemoveNeutral { get; set; }
+        public bool ApmRemoveAllie { get; set; }
+        public bool ApmRemoveLocalplayer { get; set; }
+        public bool ApmRemoveClanTag { get; set; }
         public string ApmFontName { get; set; }
-        public Double ApmOpacity { get; set; }
-        public Int32 WorkerPositionX { get; set; }
-        public Int32 WorkerPositionY { get; set; }
-        public Int32 WorkerWidth { get; set; }
-        public Int32 WorkerHeight { get; set; }
+        public double ApmOpacity { get; set; }
+        public int WorkerPositionX { get; set; }
+        public int WorkerPositionY { get; set; }
+        public int WorkerWidth { get; set; }
+        public int WorkerHeight { get; set; }
         public string WorkerFontName { get; set; }
-        public Double WorkerOpacity { get; set; }
-        public Int32 GlobalDataRefresh { get; set; }
-        public Int32 GlobalDrawingRefresh { get; set; }
-        public Boolean GlobalDrawOnlyInForeground { get; set; }
+        public double WorkerOpacity { get; set; }
+        public int GlobalDataRefresh { get; set; }
+        public int GlobalDrawingRefresh { get; set; }
+        public bool GlobalDrawOnlyInForeground { get; set; }
         public string ResourceTogglePanel { get; set; }
         public string ResourceChangePositionPanel { get; set; }
         public string ResourceChangeSizePanel { get; set; }
@@ -4302,45 +4302,45 @@ namespace AnotherSc2Hack.Classes.DataStructures.Preference
         public Keys UnitHotkey2 { get; set; }
         public Keys UnitHotkey3 { get; set; }
         public Keys GlobalChangeSizeAndPosition { get; set; }
-        public Boolean MaphackDisableDestinationLine { get; set; }
-        public Boolean GlobalOnlyDrawWhenUnpaused { get; set; }
-        public Boolean ResourceDrawBackground { get; set; }
-        public Boolean IncomeDrawBackground { get; set; }
-        public Boolean WorkerDrawBackground { get; set; }
-        public Boolean ApmDrawBackground { get; set; }
-        public Boolean ArmyDrawBackground { get; set; }
-        public Boolean MaphackColorDefensivestructuresYellow { get; set; }
-        public Boolean StealUnits { get; set; }
-        public Boolean StealUnitsInstant { get; set; }
-        public Boolean StealUnitsHotkey { get; set; }
+        public bool MaphackDisableDestinationLine { get; set; }
+        public bool GlobalOnlyDrawWhenUnpaused { get; set; }
+        public bool ResourceDrawBackground { get; set; }
+        public bool IncomeDrawBackground { get; set; }
+        public bool WorkerDrawBackground { get; set; }
+        public bool ApmDrawBackground { get; set; }
+        public bool ArmyDrawBackground { get; set; }
+        public bool MaphackColorDefensivestructuresYellow { get; set; }
+        public bool StealUnits { get; set; }
+        public bool StealUnitsInstant { get; set; }
+        public bool StealUnitsHotkey { get; set; }
         public Keys StealUnitsHotkey1 { get; set; }
         public Keys StealUnitsHotkey2 { get; set; }
         public Keys StealUnitsHotkey3 { get; set; }
         public List<UnitId> MaphackUnitIds { get; set; }
         public List<Color> MaphackUnitColors { get; set; }
-        public Boolean PersonalApm { get; set; }
-        public Int32 PersonalApmPositionX { get; set; }
-        public Int32 PersonalApmPositionY { get; set; }
-        public Int32 PersonalApmWidth { get; set; }
-        public Int32 PersonalApmHeight { get; set; }
-        public Boolean PersonalClock { get; set; }
-        public Int32 PersonalClockPositionX { get; set; }
-        public Int32 PersonalClockPositionY { get; set; }
-        public Int32 PersonalClockWidth { get; set; }
-        public Int32 PersonalClockHeight { get; set; }
-        public Boolean PersonalApmAlert { get; set; }
-        public Int32 PersonalApmAlertLimit { get; set; }
-        public Boolean WorkerAutomation { get; set; }
-        public Int32 WorkerAutomationMaximumWorkers { get; set; }
-        public Int32 WorkerAutomationMaximumWorkersPerBase { get; set; }
-        public Int32 WorkerAutomationPufferWorker { get; set; }
-        public Int32 WorkerAutomationApmProtection { get; set; }
-        public Int32 WorkerAutomationStartNextWorkerAt { get; set; }
-        public Boolean WorkerAutomationModeDirect { get; set; }
-        public Boolean WorkerAutomationModeRound { get; set; }
-        public Boolean WorkerAutomationDisableWhenSelecting { get; set; }
-        public Boolean WorkerAutomationDisableWhenWorkerIsSelected { get; set; }
-        public Boolean WorkerAutomationAutoupgradeToOc { get; set; }
+        public bool PersonalApm { get; set; }
+        public int PersonalApmPositionX { get; set; }
+        public int PersonalApmPositionY { get; set; }
+        public int PersonalApmWidth { get; set; }
+        public int PersonalApmHeight { get; set; }
+        public bool PersonalClock { get; set; }
+        public int PersonalClockPositionX { get; set; }
+        public int PersonalClockPositionY { get; set; }
+        public int PersonalClockWidth { get; set; }
+        public int PersonalClockHeight { get; set; }
+        public bool PersonalApmAlert { get; set; }
+        public int PersonalApmAlertLimit { get; set; }
+        public bool WorkerAutomation { get; set; }
+        public int WorkerAutomationMaximumWorkers { get; set; }
+        public int WorkerAutomationMaximumWorkersPerBase { get; set; }
+        public int WorkerAutomationPufferWorker { get; set; }
+        public int WorkerAutomationApmProtection { get; set; }
+        public int WorkerAutomationStartNextWorkerAt { get; set; }
+        public bool WorkerAutomationModeDirect { get; set; }
+        public bool WorkerAutomationModeRound { get; set; }
+        public bool WorkerAutomationDisableWhenSelecting { get; set; }
+        public bool WorkerAutomationDisableWhenWorkerIsSelected { get; set; }
+        public bool WorkerAutomationAutoupgradeToOc { get; set; }
         public Keys WorkerAutomationScvKey { get; set; }
         public Keys WorkerAutomationProbeKey { get; set; }
         public Keys WorkerAutomationOrbitalKey { get; set; }

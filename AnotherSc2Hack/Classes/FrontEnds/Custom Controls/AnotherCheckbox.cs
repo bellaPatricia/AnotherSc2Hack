@@ -16,9 +16,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
     public class EventChecked : EventArgs
     {
-        public Boolean Value;
+        public bool Value;
 
-        public EventChecked(Boolean value)
+        public EventChecked(bool value)
         {
             Value = value;
         }
@@ -50,7 +50,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             Right
         };
 
-        private string _displayText = String.Empty;
+        private string _displayText = string.Empty;
 
         private readonly Pen _pInactiveBpxBorder = new Pen(new SolidBrush(Color.FromArgb(193, 193, 193)));
         private readonly Pen _pActiveBpxBorder = new Pen(new SolidBrush(Color.FromArgb(0, 149, 221)));
@@ -59,8 +59,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         public void OnCheckedChanged(AnotherCheckbox o, EventChecked e)
         {
-            if (CheckedChanged != null)
-                CheckedChanged(o, e);
+            CheckedChanged?.Invoke(o, e);
         }
 
         public string DisplayText
@@ -83,16 +82,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             }
         }
 
-        private TextAlignment _textAlign = TextAlignment.Left;
-        public TextAlignment TextAlign
-        {
-            get { return _textAlign; }
-            set { _textAlign = value; }
-        }
+        public TextAlignment TextAlign { get; set; } = TextAlignment.Left;
 
-        private Boolean _checked = false;
+        private bool _checked;
 
-        public Boolean Checked
+        public bool Checked
         {
             get { return _checked; }
             set
@@ -106,15 +100,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             }
         }
 
-        private Boolean _clickable = true;
-        public Boolean Clickable
-        {
-            get { return _clickable; }
-            set { _clickable = value; }
-        }
+        public bool Clickable { get; set; } = true;
 
-        private Boolean _bMouseOver = false;
-        private Label _lMainText = new Label();
+        private bool _bMouseOver;
+        private readonly Label _lMainText = new Label();
 
         private void Init()
         {

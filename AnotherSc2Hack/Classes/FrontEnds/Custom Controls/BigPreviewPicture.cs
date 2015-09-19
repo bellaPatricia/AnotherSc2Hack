@@ -22,8 +22,8 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
     {
         #region Getter / Setter
 
-        private Int32 _iPluginsImageIndex;
-        private Int32 IPluginsImageIndex
+        private int _iPluginsImageIndex;
+        private int IPluginsImageIndex
         {
             get { return _iPluginsImageIndex; }
             set
@@ -47,7 +47,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         #region Variables
 
-        private List<Image> _images;
+        private readonly List<Image> _images;
         private bool _bMove;
         private Point _ptOrigin;
         private const int UnmaximizeDifference = 50;
@@ -58,8 +58,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         public BigPreviewPicture(Image preview)
         {
-            _images = new List<Image>(1);
-            _images.Add(preview);
+            _images = new List<Image>(1) {preview};
 
             InitializeComponent();
 

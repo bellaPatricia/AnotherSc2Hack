@@ -22,10 +22,10 @@ namespace UpdateChecker
         public ApplicationVersioning()
         {
             ApplicationVersion = new Version(0, 0, 0, 0);
-            ApplicationChanges = String.Empty;
-            ApplicationCounter = String.Empty;
-            ApplicationUrl = String.Empty;
-            DownloadManagerUrl = String.Empty;
+            ApplicationChanges = string.Empty;
+            ApplicationCounter = string.Empty;
+            ApplicationUrl = string.Empty;
+            DownloadManagerUrl = string.Empty;
             DownloadManagerVersion = new Version(0,0,0,0);
             DynamicLinkLibraries = new List<DynamicLinkLibrary>();
         }
@@ -33,10 +33,10 @@ namespace UpdateChecker
         public void Clear()
         {
             ApplicationVersion = new Version(0, 0, 0, 0);
-            ApplicationChanges = String.Empty;
-            ApplicationCounter = String.Empty;
-            ApplicationUrl = String.Empty;
-            DownloadManagerUrl = String.Empty;
+            ApplicationChanges = string.Empty;
+            ApplicationCounter = string.Empty;
+            ApplicationUrl = string.Empty;
+            DownloadManagerUrl = string.Empty;
             DownloadManagerVersion = new Version(0, 0, 0, 0);
             DynamicLinkLibraries.Clear();
         }

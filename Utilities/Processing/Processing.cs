@@ -11,7 +11,7 @@ namespace Utilities.Processing
         /// </summary>
         /// <param name="processName">The actual processname</param>
         /// <returns>True/ False if it's available or not</returns>
-        public static Boolean GetProcess(string processName)
+        public static bool GetProcess(string processName)
         {
             var bResult = false;
 
@@ -29,7 +29,7 @@ namespace Utilities.Processing
         /// <param name="processName">The actual processname</param>
         /// <param name="proc">The first found process will be assigned</param>
         /// <returns>True/ False if it's available or not</returns>
-        public static Boolean GetProcess(string processName, out Process proc)
+        public static bool GetProcess(string processName, out Process proc)
         {
             var bResult = false;
             proc = null;
@@ -52,7 +52,7 @@ namespace Utilities.Processing
         /// <param name="index">Assigns the x process to proc</param>
         /// <param name="proc">The X process will be assigned</param>
         /// <returns>True/ False if it's available or not</returns>
-        public static Boolean GetProcess(String processName, int index, out Process proc)
+        public static bool GetProcess(string processName, int index, out Process proc)
         {
             var bResult = false;
             proc = null;
@@ -77,7 +77,7 @@ namespace Utilities.Processing
         /// <param name="processName">The actual processname</param>
         /// <param name="processes">The list of processes found</param>
         /// <returns>True/ False if it's available or not</returns>
-        public static Boolean GetProcess(String processName, out List<Process> processes)
+        public static bool GetProcess(string processName, out List<Process> processes)
         {
             var bResult = false;
             processes = null;

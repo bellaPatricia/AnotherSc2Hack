@@ -14,10 +14,10 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
     {
         public event ValueChangeHandler ValueChanged;
 
-        private Int32 _number;
+        private int _number;
         private readonly LanguageString _lstrOpacity = new LanguageString("lstrOpacity", "Opacity:");
 
-        public Int32 Number
+        public int Number
         {
             get { return _number; }
             set
@@ -38,8 +38,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         public void OnValueChange(UiOpacityControl o, NumberArgs e)
         {
-            if (ValueChanged != null)
-                ValueChanged(o, e);
+            ValueChanged?.Invoke(o, e);
         }
 
         public UiOpacityControl()

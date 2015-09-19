@@ -1,10 +1,10 @@
-﻿/// I know this is nasty code and looks utterly ugly
-/// But for now, it's good enough.
-/// I might reqrite this in the future as any kind of improvement or bugfixing will be a gigantic
-/// "fuck you" for the dude that is supposed to change it.
-/// I am sorry
-/// 
-/// bellaPatricia, November 2014
+﻿// I know this is nasty code and looks utterly ugly
+// But for now, it's good enough.
+// I might reqrite this in the future as any kind of improvement or bugfixing will be a gigantic
+// "fuck you" for the dude that is supposed to change it.
+// I am sorry
+// 
+// bellaPatricia, November 2014
 
 
 using System;
@@ -66,9 +66,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
 
 
-        private Boolean _isClicked = false;
+        private bool _isClicked;
 
-        public Boolean IsClicked
+        public bool IsClicked
         {
             get { return _isClicked; }
             set
@@ -98,9 +98,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
             }
         }
 
-        private String _displayText = String.Empty;
+        private string _displayText = string.Empty;
 
-        public String DisplayText
+        public string DisplayText
         {
             get { return _displayText; }
             set
@@ -188,9 +188,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
                     _pcbImage.Image = _imgIcon;
             }
         }
-        private Boolean _isHovering = false;
+        private bool _isHovering;
 
-        public Boolean IsHovering
+        public bool IsHovering
         {
             get { return _isHovering; }
             set
@@ -206,13 +206,13 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
         private Color _inactiveForegroundColor = Color.FromArgb(255, 193, 193, 193);
         private Color _activeForegroundColor = Color.FromArgb(255, 242, 242, 242);
         private Color _newBackgroundColor = Color.Wheat;
-        private Label _lMainText = new Label();     //This is only used as placeholder as directly drawing the text on the control is far more efficient (considering the events)
-        private Int32 _iTextPosX = 45;
+        private readonly Label _lMainText = new Label();     //This is only used as placeholder as directly drawing the text on the control is far more efficient (considering the events)
+        private int _iTextPosX = 45;
         
-        private PictureBox _pcbImage = new PictureBox();
+        private readonly PictureBox _pcbImage = new PictureBox();
 
-        private Brush _selectionColor = Brushes.Orange;
-        private Boolean _bInitCalled = false;
+        private readonly Brush _selectionColor = Brushes.Orange;
+        private bool _bInitCalled;
 
         public static readonly List<ClickablePanel> Instances = new List<ClickablePanel>();
 

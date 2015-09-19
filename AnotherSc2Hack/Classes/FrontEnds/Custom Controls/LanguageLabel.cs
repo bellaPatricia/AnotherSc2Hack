@@ -9,7 +9,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 {
     public class LanguageLabel : Label
     {
-        public String LanguageFile { get; set; }
+        public string LanguageFile { get; set; }
 
         private static readonly List<LanguageLabel> Instances = new List<LanguageLabel>();
 

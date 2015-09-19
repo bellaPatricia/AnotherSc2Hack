@@ -54,7 +54,7 @@ namespace UpdateChecker
         private readonly PluginVersioning _offlinePluginVersioning = new PluginVersioning();
         private readonly PluginVersioning _onlinePluginVersioning = new PluginVersioning();
         private readonly WebClient _wcDownloader = new WebClient {Proxy = null};
-        private string _strDownloadedFileName = String.Empty;
+        private string _strDownloadedFileName = string.Empty;
 
         #endregion
 
@@ -194,7 +194,7 @@ namespace UpdateChecker
                     _.Info($"Update For {onlineLibrary.DllName} Available!", _.InfoImportance.Important);
 
                     OnUpdateAvailable(this,
-                        new UpdateArgs(onlineLibrary.DllName, String.Empty, onlineLibrary.DllVersion));
+                        new UpdateArgs(onlineLibrary.DllName, string.Empty, onlineLibrary.DllVersion));
                 }
 
                 else

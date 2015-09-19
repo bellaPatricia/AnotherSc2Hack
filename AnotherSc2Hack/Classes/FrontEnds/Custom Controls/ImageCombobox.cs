@@ -10,15 +10,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
     {
         private ImageList _imgs = new ImageList();
 
-        private Size _imageSize = new Size(30,30);
+        public Size ImageSize { get; set; } = new Size(30,30);
 
-        public Size ImageSize
-        {
-            get { return _imageSize; }
-            set { _imageSize = value; }
-        }
-
-        private bool _initializeUnits = false;
+        private bool _initializeUnits;
 
         public bool InitializeUnits
         {
@@ -360,21 +354,9 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         #region Properties
 
-        private Color _foreColor = Color.FromKnownColor(KnownColor.Transparent);
+        public Color ForeColor { get; set; } = Color.FromKnownColor(KnownColor.Transparent);
 
-        public Color ForeColor
-        {
-            get {return _foreColor;}
-            set { _foreColor = value; }
-        }
-
-        private int _imageIndex = -1;
-
-        public int ImageIndex
-        {
-            get { return _imageIndex; }
-            set { _imageIndex = value; }
-        }
+        public int ImageIndex { get; set; } = -1;
 
         public bool Mark { get; set; }
 
@@ -382,23 +364,11 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
         public string Text { get; set; }
 
-        private Image _image = null;
-
-        public Image Image
-        {
-            get { return _image; }
-            set { _image = value; }
-        }
+        public Image Image { get; set; }
 
         public Image BackgroundImage { get; set; }
 
-        private UnitId _unitId = UnitId.NbXelNagaTower;
-
-        public UnitId UnitId
-        {
-            get { return _unitId; }
-            set { _unitId = value; }
-        }
+        public UnitId UnitId { get; set; } = UnitId.NbXelNagaTower;
 
         #endregion
 

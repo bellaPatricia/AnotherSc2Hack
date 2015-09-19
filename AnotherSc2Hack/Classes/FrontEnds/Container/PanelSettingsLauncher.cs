@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using AnotherSc2Hack.Classes.FrontEnds.Custom_Controls;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.Container
@@ -11,7 +10,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Container
             InitializeComponent();
         }
 
-        public void ChangeLanguage(String languageFile)
+        public void ChangeLanguage(string languageFile)
         {
             foreach (var control in Controls)
             {

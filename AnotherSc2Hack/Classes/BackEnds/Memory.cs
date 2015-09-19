@@ -18,105 +18,105 @@ namespace AnotherSc2Hack.Classes.BackEnds
     {
         #region Constants for the ProcessAccess
 
-        // <summary>
+        /// <summary>
         /// Required to create a thread.
         /// </summary>
-        public static Int32 CreateThread = 0x0002,
+        public static int CreateThread = 0x0002;
 
-            /// <summary>
-            ///
-            /// </summary>
-            SetSessionId = 0x0004,
+        /// <summary>
+        ///
+        /// </summary>
+        public static int SetSessionId = 0x0004;
 
-            /// <summary>
-            /// Required to perform an operation on the address space of a process
-            /// </summary>
-            VmOperation = 0x0008,
+        /// <summary>
+        /// Required to perform an operation on the address space of a process
+        /// </summary>
+        public static int VmOperation = 0x0008;
 
-            /// <summary>
-            /// Required to read memory in a process using ReadProcessMemory.
-            /// </summary>
-            VmRead = 0x0010,
+        /// <summary>
+        /// Required to read memory in a process using ReadProcessMemory.
+        /// </summary>
+        public static int VmRead = 0x0010;
 
-            /// <summary>
-            /// Required to write to memory in a process using WriteProcessMemory.
-            /// </summary>
-            VmWrite = 0x0020,
+        /// <summary>
+        /// Required to write to memory in a process using WriteProcessMemory.
+        /// </summary>
+        public static int VmWrite = 0x0020;
 
-            /// <summary>
-            /// Required to duplicate a handle using DuplicateHandle.
-            /// </summary>
-            DupHandle = 0x0040,
+        /// <summary>
+        /// Required to duplicate a handle using DuplicateHandle.
+        /// </summary>
+        public static int DupHandle = 0x0040;
 
-            /// <summary>
-            /// Required to create a process.
-            /// </summary>
-            CreateProcess = 0x0080,
+        /// <summary>
+        /// Required to create a process.
+        /// </summary>
+        public static int CreateProcess = 0x0080;
 
-            /// <summary>
-            /// Required to set memory limits using SetProcessWorkingSetSize.
-            /// </summary>
-            SetQuota = 0x0100,
+        /// <summary>
+        /// Required to set memory limits using SetProcessWorkingSetSize.
+        /// </summary>
+        public static int SetQuota = 0x0100;
 
-            /// <summary>
-            /// Required to set certain information about a process, such as its priority class (see SetPriorityClass).
-            /// </summary>
-            SetInformation = 0x0200,
+        /// <summary>
+        /// Required to set certain information about a process, such as its priority class (see SetPriorityClass).
+        /// </summary>
+        public static int SetInformation = 0x0200;
 
-            /// <summary>
-            /// Required to retrieve certain information about a process, such as its token, exit code, and priority class (see OpenProcessToken).
-            /// </summary>
-            QueryInformation = 0x0400,
+        /// <summary>
+        /// Required to retrieve certain information about a process, such as its token, exit code, and priority class (see OpenProcessToken).
+        /// </summary>
+        public static int QueryInformation = 0x0400;
 
-            /// <summary>
-            /// Required to suspend or resume a process.
-            /// </summary>
-            SuspendResume = 0x0800,
+        /// <summary>
+        /// Required to suspend or resume a process.
+        /// </summary>
+        public static int SuspendResume = 0x0800;
 
-            /// <summary>
-            /// Required to retrieve certain information about a process (see GetExitCodeProcess, GetPriorityClass, IsProcessInJob, QueryFullProcessImageName).
-            /// A handle that has the PROCESS_QUERY_INFORMATION access right is automatically granted PROCESS_QUERY_LIMITED_INFORMATION.
-            /// </summary>
-            QueryLimitedInformation = 0x1000,
+        /// <summary>
+        /// Required to retrieve certain information about a process (see GetExitCodeProcess, GetPriorityClass, IsProcessInJob, QueryFullProcessImageName).
+        /// A handle that has the PROCESS_QUERY_INFORMATION access right is automatically granted PROCESS_QUERY_LIMITED_INFORMATION.
+        /// </summary>
+        public static int QueryLimitedInformation = 0x1000;
 
-            /// <summary>
-            /// Required to wait for the process to terminate using the wait functions.
-            /// </summary>
-            Synchronize = 0x100000,
+        /// <summary>
+        /// Required to wait for the process to terminate using the wait functions.
+        /// </summary>
+        public static int Synchronize = 0x100000;
 
-            /// <summary>
-            /// Required to delete the object.
-            /// </summary>
-            Delete = 0x00010000,
+        /// <summary>
+        /// Required to delete the object.
+        /// </summary>
+        public static int Delete = 0x00010000;
 
-            /// <summary>
-            /// Required to read information in the security descriptor for the object, not including the information in the SACL.
-            /// To read or write the SACL, you must request the ACCESS_SYSTEM_SECURITY access right. For more information, see SACL Access Right.
-            /// </summary>
-            ReadControl = 0x00020000,
+        /// <summary>
+        /// Required to read information in the security descriptor for the object, not including the information in the SACL.
+        /// To read or write the SACL, you must request the ACCESS_SYSTEM_SECURITY access right. For more information, see SACL Access Right.
+        /// </summary>
+        public static int ReadControl = 0x00020000;
 
-            /// <summary>
-            /// Required to modify the DACL in the security descriptor for the object.
-            /// </summary>
-            WriteDac = 0x00040000,
+        /// <summary>
+        /// Required to modify the DACL in the security descriptor for the object.
+        /// </summary>
+        public static int WriteDac = 0x00040000;
 
-            /// <summary>
-            /// Required to change the owner in the security descriptor for the object.
-            /// </summary>
-            WriteOwner = 0x00080000,
+        /// <summary>
+        /// Required to change the owner in the security descriptor for the object.
+        /// </summary>
+        public static int WriteOwner = 0x00080000;
 
-            StandardRightsRequired = 0x000F0000,
+        public static int StandardRightsRequired = 0x000F0000;
 
             /// <summary>
             /// All possible access rights for a process object.
             /// </summary>
-            AllAccess = StandardRightsRequired | Synchronize | 0xFFFF;
+        public static int AllAccess = StandardRightsRequired | Synchronize | 0xFFFF;
 
         #endregion
 
         #region Private Variables
 
-        private byte[] regionBuffer;
+        private byte[] _regionBuffer;
 
         #endregion
 
@@ -163,11 +163,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         /// <param name="address">The target address</param>
         /// <returns>The data you want (1 byte)</returns>
-        public SByte ReadSByte<T>(T address)
+        public sbyte ReadSByte<T>(T address)
         {
             var adr = CastToIntPtr(address);
 
-            var data = (SByte)Interop.ReadProcessMemoryHelper(Handle, adr, 1)[0];
+            var data = (sbyte)Interop.ReadProcessMemoryHelper(Handle, adr, 1)[0];
 
             return data;
         }
@@ -177,7 +177,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         /// <param name="address">The target address</param>
         /// <returns>The data you want (1 byte)</returns>
-        public Byte ReadByte<T>(T address)
+        public byte ReadByte<T>(T address)
         {
             var adr = CastToIntPtr(address);
 
@@ -191,7 +191,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         /// <param name="address">The target address</param>
         /// <returns>The data you want (2 bytes)</returns>
-        public Int16 ReadInt16<T>(T address)
+        public short ReadInt16<T>(T address)
         {
             var adr = CastToIntPtr(address);
 
@@ -205,7 +205,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         /// <param name="address">The target address</param>
         /// <returns>The data you want (2 bytes)</returns>
-        public UInt16 ReadUInt16<T>(T address)
+        public ushort ReadUInt16<T>(T address)
         {
             var adr = CastToIntPtr(address);
 
@@ -219,7 +219,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         /// <param name="address">The target address</param>
         /// <returns>The data you want (4 bytes)</returns>
-        public Int32 ReadInt32<T>(T address)
+        public int ReadInt32<T>(T address)
         {
             var adr = CastToIntPtr(address);
 
@@ -233,7 +233,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         /// <param name="address">The target address</param>
         /// <returns>The data you want (4 bytes)</returns>
-        public UInt32 ReadUInt32<T>(T address)
+        public uint ReadUInt32<T>(T address)
         {
             var adr = CastToIntPtr(address);
 
@@ -247,7 +247,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         /// <param name="address">The target address</param>
         /// <returns>The data you want (8 bytes)</returns>
-        public Int64 ReadInt64<T>(T address)
+        public long ReadInt64<T>(T address)
         {
             var adr = CastToIntPtr(address);
 
@@ -261,7 +261,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         /// <param name="address">The target address</param>
         /// <returns>The data you want (8 bytes)</returns>
-        public UInt64 ReadUInt64<T>(T address)
+        public ulong ReadUInt64<T>(T address)
         {
             var adr = CastToIntPtr(address);
 
@@ -276,13 +276,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="address">The target address</param>
         /// <param name="size">The size (length) of data you want to read</param>
         /// <returns>The chunk you want out of memory</returns>
-        public Byte[] ReadMemory<T>(T address, int size)
+        public byte[] ReadMemory<T>(T address, int size)
         {
             var adr = CastToIntPtr(address);
 
-            var data = new byte[size];
-
-            data = Interop.ReadProcessMemoryHelper(Handle, adr, size);
+            var data = Interop.ReadProcessMemoryHelper(Handle, adr, size);
 
             return data;
         }
@@ -297,9 +295,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <returns>Your wanted String</returns>
         public string ReadString<T>(T address, int length, Encoding enc)
         {
-            var result = String.Empty;
-
-            result = enc.GetString(ReadMemory(address, length));
+            var result = enc.GetString(ReadMemory(address, length));
 
             return result;
         }
@@ -315,7 +311,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="address">The actual address to write at</param>
         /// <param name="input">The data you want to put into memory</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteSByte<T>(T address, SByte input)
+        public bool WriteSByte<T>(T address, sbyte input)
         {
             var adr = CastToIntPtr(address);
 
@@ -331,7 +327,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="address">The actual address to write at</param>
         /// <param name="input">The data you want to put into memory</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteByte<T>(T address, Byte input)
+        public bool WriteByte<T>(T address, byte input)
         {
             var adr = CastToIntPtr(address);
 
@@ -347,7 +343,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="address">The actual address to write at</param>
         /// <param name="input">The data you want to put into memory</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteInt16<T>(T address, Int16 input)
+        public bool WriteInt16<T>(T address, short input)
         {
             var adr = CastToIntPtr(address);
 
@@ -363,7 +359,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="address">The actual address to write at</param>
         /// <param name="input">The data you want to put into memory</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteUInt16<T>(T address, UInt16 input)
+        public bool WriteUInt16<T>(T address, ushort input)
         {
             var adr = CastToIntPtr(address);
 
@@ -379,7 +375,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="address">The actual address to write at</param>
         /// <param name="input">The data you want to put into memory</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteInt32<T>(T address, Int32 input)
+        public bool WriteInt32<T>(T address, int input)
         {
             var adr = CastToIntPtr(address);
 
@@ -395,7 +391,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="address">The actual address to write at</param>
         /// <param name="input">The data you want to put into memory</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteUInt32<T>(T address, UInt32 input)
+        public bool WriteUInt32<T>(T address, uint input)
         {
             var adr = CastToIntPtr(address);
 
@@ -411,7 +407,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="address">The actual address to write at</param>
         /// <param name="input">The data you want to put into memory</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteInt64<T>(T address, Int64 input)
+        public bool WriteInt64<T>(T address, long input)
         {
             var adr = CastToIntPtr(address);
 
@@ -427,7 +423,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="address">The actual address to write at</param>
         /// <param name="input">The data you want to put into memory</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteUInt64<T>(T address, UInt64 input)
+        public bool WriteUInt64<T>(T address, ulong input)
         {
             var adr = CastToIntPtr(address);
 
@@ -444,7 +440,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="input">The data you want to put into memory</param>
         /// <param name="enc">The kind of encoding used to convert the string into a bytebuffer</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteString<T>(T address, string input, Encoding enc)
+        public bool WriteString<T>(T address, string input, Encoding enc)
         {
             var adr = CastToIntPtr(address);
 
@@ -460,7 +456,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <param name="address">The actual address to write at</param>
         /// <param name="input">The data you want to put into memory</param>
         /// <returns>True/ False if the writing was successful or not</returns>
-        public Boolean WriteMemory<T>(T address, Byte[] input)
+        public bool WriteMemory<T>(T address, byte[] input)
         {
             var adr = CastToIntPtr(address);
 
@@ -478,16 +474,16 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <returns>The converted data of type IntPtr</returns>
         public static IntPtr CastToIntPtr<T>(T number)
         {
-            if (number is Int32)
+            if (number is int)
                 return (IntPtr)Convert.ToInt32(number);
 
-            if (number is UInt32)
+            if (number is uint)
                 return (IntPtr)Convert.ToUInt32(number);
 
-            if (number is Int64)
+            if (number is long)
                 return (IntPtr)Convert.ToInt64(number);
 
-            if (number is UInt64)
+            if (number is ulong)
                 return (IntPtr) Convert.ToUInt64(number);
 
             throw new Exception("Hilarious fuck in Memory.cs - \"CastToPtr\"");
@@ -502,12 +498,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         public IntPtr Handle { get; set; }
 
-        private Int32 _desiredAccess = 0;
+        private int _desiredAccess;
 
         /// <summary>
         /// The privilege- level you want to give (aka. open the Handle with)
         /// </summary>
-        public Int32 DesiredAccess
+        public int DesiredAccess
         {
             get { return _desiredAccess; }
 
@@ -567,8 +563,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <returns>Boolean depending on if the pattern was found.</returns>
         private bool MaskCheck(int nOffset, byte[] btPattern, string strMask)
         {
-            if (regionBuffer == null ||
-                regionBuffer.Length <= 0)
+            if (_regionBuffer == null ||
+                _regionBuffer.Length <= 0)
                 return false;
 
             // Loop the pattern and compare to the mask and dump.
@@ -579,7 +575,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     continue;
 
                 // If the mask char is not a wildcard, ensure a match is made in the pattern.
-                if ((strMask[x] == 'x') && (btPattern[x] != regionBuffer[nOffset + x]))
+                if ((strMask[x] == 'x') && (btPattern[x] != _regionBuffer[nOffset + x]))
                     return false;
             }
 
@@ -600,7 +596,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// <returns>IntPtr - zero if not found, address if found.</returns> 
         public uint FindPattern(byte[] btPattern, string strMask, int nOffset, int baseAddress, int size)
         {
-            regionBuffer = ReadMemory(baseAddress, size);
+            _regionBuffer = ReadMemory(baseAddress, size);
 
             try
             {
@@ -610,7 +606,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     return 0;
 
                 // Loop the region and look for the pattern.
-                for (int x = 0; x < regionBuffer.Length; x++)
+                for (int x = 0; x < _regionBuffer.Length; x++)
                 {
                     if (MaskCheck(x, btPattern, strMask))
                     {

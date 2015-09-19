@@ -1,18 +1,18 @@
-﻿/// This file will be an executable which manages
-/// basic application updating.
-/// 
-/// NOTE: If you want to compile and use this executable,
-/// make sure you merge the libraries 'UpdateChecker.dll' and
-/// 'Utilities.dll' with it! 
-/// 
-/// Tools like ILMerge will help you with this.
-/// 
-/// 
-/// If you don't do this, you'll never be able to update the UpdateChecker.dll
-/// and Utilities.dll!
-/// 
-/// Written by bellaPatricia 
-/// 2015-June-05
+﻿ //This file will be an executable which manages
+ //basic application updating.
+ 
+ //NOTE: If you want to compile and use this executable,
+ //make sure you merge the libraries 'UpdateChecker.dll' and
+ //'Utilities.dll' with it! 
+ 
+ //Tools like ILMerge will help you with this.
+ 
+ 
+ //If you don't do this, you'll never be able to update the UpdateChecker.dll
+ //and Utilities.dll!
+ 
+ //Written by bellaPatricia
+ //2015-June-05
 
 
 using System;
@@ -42,16 +42,16 @@ namespace AnotherSc2Hack_DownloadManager
         }
 
         private static int _iConsoleCursorTop = 0;
-        private static readonly Dictionary<String, int> _dFilenames = new Dictionary<string, int>(); 
+        private static readonly Dictionary<string, int> DFilenames = new Dictionary<string, int>(); 
 
         static void dm_DownloadManagerProgressChanged(object sender, DownloadManagerProgressChangedEventArgs e)
         {
-            if (!_dFilenames.ContainsKey(e.FileName))
+            if (!DFilenames.ContainsKey(e.FileName))
                 //The directory doesn't seem to be threadsafe.
                 //So we'll just put it into the try-catch and ignore the exception
                 try
                 {
-                    _dFilenames.Add(e.FileName, e.PercentageCompleted);
+                    DFilenames.Add(e.FileName, e.PercentageCompleted);
                 }
                 catch (ArgumentException)
                 {
@@ -59,7 +59,7 @@ namespace AnotherSc2Hack_DownloadManager
                 }
 
             else
-                _dFilenames[e.FileName] = e.PercentageCompleted;
+                DFilenames[e.FileName] = e.PercentageCompleted;
 
             DrawConsoleOutput();   
         }
@@ -71,7 +71,7 @@ namespace AnotherSc2Hack_DownloadManager
             Dictionary<string, int> localDict = null;
             try
             {
-                localDict = new Dictionary<string, int>(_dFilenames);
+                localDict = new Dictionary<string, int>(DFilenames);
             }
 
             catch (ArgumentException)
@@ -118,7 +118,7 @@ namespace AnotherSc2Hack_DownloadManager
             if (dm == null)
                 return;
 
-            if (e.OldVersion == String.Empty || e.OldVersion == "0.0.0.0")
+            if (e.OldVersion == string.Empty || e.OldVersion == "0.0.0.0")
                 Console.WriteLine("[{0}] !New! -> {1}", e.UpdateName, e.NewVersion);
 
             else

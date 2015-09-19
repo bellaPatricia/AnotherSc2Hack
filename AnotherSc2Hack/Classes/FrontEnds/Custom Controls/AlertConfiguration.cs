@@ -102,7 +102,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Custom_Controls
 
                 if (!PSettings.PreferenceAll.OverlayAlert.UnitIds.Contains(id))
                 {
-                    var iOldIndex = lstvAlertConfigurationFilter.SelectedIndices[0];
                     lstvAlertConfigurationFilter.Items.Remove(item);
 
                 }
