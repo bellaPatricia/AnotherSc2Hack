@@ -30,8 +30,6 @@ namespace AnotherSc2Hack.Classes.DataStructures.Game
             while (_bMindActive)
             {
                 Thread.Sleep(_sleepTime);
-
-
             }
         }
     }
