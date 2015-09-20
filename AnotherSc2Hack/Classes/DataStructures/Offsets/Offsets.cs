@@ -15,8 +15,10 @@ namespace AnotherSc2Hack.Classes.DataStructures.Offsets
 
         public static void MapOffsets(Process starcraft = null)
         {
-            if (Starcraft != null)
+            if (starcraft != null)
                 Starcraft = starcraft;
+
+            _.Info("Mapping offsets NOW", _.InfoImportance.VeryImportant);
 
             FillDictionary();
             MapSpecificOffsets();
@@ -33,8 +35,9 @@ namespace AnotherSc2Hack.Classes.DataStructures.Offsets
         {
             try
             {
-                var mappingMethod = VersionMappings[Starcraft.MainModule.FileVersionInfo.FileVersion];
+                var mappingMethod = VersionMappings[Starcraft.MainModule.FileVersionInfo.FileVersion.ToString()];
                 mappingMethod(Starcraft);
+                _.Info("Mapping worked like a charm!", _.InfoImportance.VeryImportant);
             }
 
             catch (KeyNotFoundException)

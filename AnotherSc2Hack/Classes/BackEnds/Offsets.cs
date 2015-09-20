@@ -149,7 +149,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         public Offsets()
         {
             Process proc;
-            if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+            if (Processing.CheckProcess(Constants.StrStarcraft2ProcessName, out proc))
                 _starcraft = proc;
         }
 

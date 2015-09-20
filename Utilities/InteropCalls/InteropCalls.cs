@@ -387,7 +387,7 @@ namespace Utilities.InteropCalls
         public static IntPtr Help_OpenProcess(int dwDesiredAccess, bool bInheritHandle, string strProcessName)
         {
             Process proc;
-            if (Proc.GetProcess(strProcessName, out proc))
+            if (Proc.CheckProcess(strProcessName, out proc))
                 return OpenProcess(dwDesiredAccess, bInheritHandle, proc.Id);
 
             return IntPtr.Zero;

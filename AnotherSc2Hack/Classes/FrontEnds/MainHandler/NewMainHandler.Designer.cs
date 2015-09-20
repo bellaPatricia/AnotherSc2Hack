@@ -208,6 +208,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.btnLaunchArmy = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
             this.btnLaunchMaphack = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
             this.btnLaunchApm = new AnotherSc2Hack.Classes.FrontEnds.Custom_Controls.LanguageButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlLeftSelection.SuspendLayout();
             this.pnlVarious.SuspendLayout();
             this.tlpVariousContainer.SuspendLayout();
@@ -1738,6 +1739,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlApplication.Controls.Add(this.button1);
             this.pnlApplication.Controls.Add(this.panel1);
             this.pnlApplication.Controls.Add(this.btnRestoreSettings);
             this.pnlApplication.Location = new System.Drawing.Point(0, 80);
@@ -2704,6 +2706,16 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             this.btnLaunchApm.UseVisualStyleBackColor = false;
             this.btnLaunchApm.Click += new System.EventHandler(this.InputManager);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(572, 292);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // NewMainHandler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2938,5 +2950,6 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
         private NumberTextBox ntxtVariousAlertShowDuration;
         private AnotherCheckbox aChBxVariousAlertSoundNotification;
         private LanguageButton btnVariousOpenAlerts;
+        private Button button1;
     }
 }

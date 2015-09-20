@@ -145,7 +145,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             if (Memory.Process == null)
             {
                 Process proc;
-                if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                if (Processing.CheckProcess(Constants.StrStarcraft2ProcessName, out proc))
                 {
                     Memory.Process = proc;
                     Memory.DesiredAccess = Memory.VmRead;
@@ -290,7 +290,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 if (Memory.Handle == IntPtr.Zero)
                 {
                     Process proc;
-                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                    if (Processing.CheckProcess(Constants.StrStarcraft2ProcessName, out proc))
                     {
                         Memory.Process = proc;
                         Memory.DesiredAccess = Memory.VmRead;
@@ -312,7 +312,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 Player = new List<Player>();
                 Selection = new List<Selection>();
                 Group = new List<Groups>();
-                /*if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out Memory.Process)) 
+                /*if (Processing.CheckProcess(Constants.StrStarcraft2ProcessName, out Memory.Process)) 
                 {}*/
 
                 Memory.DesiredAccess = Memory.VmRead;
@@ -347,7 +347,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     _.Info("Stacraft Not Found, Slow Mode", _.InfoImportance.NotImportant);
 
                     Process proc;
-                    if (Processing.GetProcess(Constants.StrStarcraft2ProcessName, out proc))
+                    if (Processing.CheckProcess(Constants.StrStarcraft2ProcessName, out proc))
                     {
                         
 
@@ -374,7 +374,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 {
                     _.Info("Currently Not In A Game", _.InfoImportance.NotImportant);
 
-                    /* if (!Processing.GetProcess(Constants.StrStarcraft2ProcessName))
+                    /* if (!Processing.CheckProcess(Constants.StrStarcraft2ProcessName))
                      {
                          _memory.Process = null;
                          _memory.Handle = IntPtr.Zero;

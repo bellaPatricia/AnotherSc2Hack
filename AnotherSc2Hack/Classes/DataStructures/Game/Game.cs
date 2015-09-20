@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using PredefinedTypes;
+using Utilities.Processing;
+using _ = Utilities.InfoManager.InfoManager;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Game
 {
@@ -84,9 +87,18 @@ namespace AnotherSc2Hack.Classes.DataStructures.Game
             if (_bInitialized)
                 return;
 
+            _.Info("Within the Initializing of the Game", _.InfoImportance.VeryImportant);
+
             //Initialize with class
-            Mind.Initialize();
+
+            Process proc;
+            var processFound = Processing.CheckProcess("SC2", out proc);
+            if (processFound)
+                new Mind(proc);
+
             _bInitialized = true;
         }
+
+        
     }
 }

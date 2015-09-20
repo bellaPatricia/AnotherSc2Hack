@@ -114,6 +114,12 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         #endregion
 
+        #region Events
+
+        public event EventHandler UnlockedProcess;
+
+        #endregion
+
         #region Private Variables
 
         private byte[] _regionBuffer;
@@ -526,6 +532,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 process = Process;
 
             Handle = Interop.OpenProcess(desiredAccess, true, process.Id);
+            OnUnlockedProcess();
         }
 
         /// <summary>
@@ -548,6 +555,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 Interop.CloseHandle(Handle);
 
             Handle = Interop.OpenProcess(desiredAccess, true, process.Id);
+            OnUnlockedProcess();
         }
 
         /// <summary>
@@ -622,6 +630,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
             {
                 return 0;
             }
-        } 
+        }
+
+        private void OnUnlockedProcess()
+        {
+            UnlockedProcess?.Invoke(this, new EventArgs());
+        }
     }
 }
