@@ -60,9 +60,20 @@
     <Compile Include="InteropCalls\InteropCalls.cs" />
     <Compile Include="Processing\Processing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInterface\AnotherProgressbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserInterface\AnotherProgressbar.Designer.cs">
+      <DependentUpon>AnotherProgressbar.cs</DependentUpon>
+    </Compile>
     <Compile Include="VariousClasses\Hashes\Hashes.cs" />
     <Compile Include="Logger\Logger.cs" />
     <Compile Include="Logger\LogMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserInterface\AnotherProgressbar.resx">
+      <DependentUpon>AnotherProgressbar.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

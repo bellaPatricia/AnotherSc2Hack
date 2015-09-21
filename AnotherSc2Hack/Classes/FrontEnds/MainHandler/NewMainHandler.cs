@@ -26,6 +26,7 @@ using Utilities.VariousClasses.Hashes;
 using _ = Utilities.InfoManager.InfoManager;
 using Utilities.ArgumentManager;
 using Timer = System.Windows.Forms.Timer;
+using Utilities.UserInterface;
 
 namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
 {
@@ -3506,6 +3507,14 @@ namespace AnotherSc2Hack.Classes.FrontEnds.MainHandler
             }
         }
 
-        
+        private void AnotherProgressTest_FuckYou(object sender, EventArgs e)
+        {
+            var senda = sender as AnotherProgressbar;
+
+            if (senda == null)
+                return;
+
+            senda.CurrentStep += 5;
+        }
     } 
 }

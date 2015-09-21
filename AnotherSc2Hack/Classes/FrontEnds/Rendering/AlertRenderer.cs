@@ -562,7 +562,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                 }
             }
 
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
                 //Swallow this
             }
