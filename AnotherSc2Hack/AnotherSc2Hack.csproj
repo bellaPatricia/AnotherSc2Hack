@@ -88,6 +88,7 @@
     <Compile Include="Classes\DataStructures\Game\Game.cs" />
     <Compile Include="Classes\DataStructures\Game\Mind.cs" />
     <Compile Include="Classes\DataStructures\Offsets\Offsets.cs" />
+    <Compile Include="Classes\DataStructures\Offsets\OffsetStructure.cs" />
     <Compile Include="Classes\DataStructures\Offsets\Player.cs" />
     <Compile Include="Classes\DataStructures\Offsets\Version_2_1_12_36657.cs" />
     <Compile Include="Classes\DataStructures\Preference\PreferenceOverlayPersonalApm.cs" />

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using AnotherSc2Hack.Classes.BackEnds;
+using PredefinedTypes;
 using _ = Utilities.InfoManager.InfoManager;
 
 namespace AnotherSc2Hack.Classes.DataStructures.Game
@@ -55,13 +58,25 @@ namespace AnotherSc2Hack.Classes.DataStructures.Game
             if (currentWorker == null)
                 return;
 
+            var lPlayers = new List<Player>();
+
             while (_bMindActive)
             {
                 Thread.Sleep(_sleepTime);
 
                 var playerChunk = ReadPlayerChunk();
 
-                
+                for (var i = 0; i < MaximumPlayerCount; i++)
+                {
+                    var player = new Player()
+                    {
+                        CameraPositionX = BitConverter.ToInt32(playerChunk, Offsets.Player.CameraX + (i * Offsets.Player.Size)),
+                        CameraPositionY = BitConverter.ToInt32(playerChunk, Offsets.Player.CameraY + (i * Offsets.Player.Size)),
+                        
+                    };
+
+
+                }
             }
         }
 

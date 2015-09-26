@@ -2,40 +2,40 @@
 {
     public static class Player
     {
-        public static int Struct { get; set; }
-        public static int Size { get; set; }
-        public static int CameraX { get; set; }
-        public static int CameraY { get; set; }
-        public static int CameraZ { get; set; }
-        public static int CameraRotation { get; set; }
-        public static int CameraDistance { get; set; }
-        public static int CameraAngle { get; set; }
-        public static int Type { get; set; }
-        public static int Status { get; set; }
-        public static int Difficulty { get; set; }
-        public static int NameLength { get; set; }
-        public static int Name { get; set; }
-        public static int ColorIndex { get; set; }
-        public static int AccountId { get; set; }
-        public static int ClantagLength { get; set; }
-        public static int Clantag{ get; set; }
-        public static int ApmCurrent { get; set; }
-        public static int ApmAverage { get; set; }
-        public static int EpmCurrent { get; set; }
-        public static int EpmAverage { get; set; }
-        public static int Team { get; set; }
-        public static int WorkerCount { get; set; }
-        public static int UnitsInProduction { get; set; }
-        public static int SupplyCurrent { get; set; }
-        public static int SupplyLimit { get; set; }
-        public static int SupplyCap { get; set; }
-        public static int MineralsCurrent { get; set; }
-        public static int VespeneCurrent { get; set; }
-        public static int MineralsIncome { get; set; }
-        public static int VespeneIncome { get; set; }
-        public static int MineralsArmyValue { get; set; }
-        public static int VespeneArmyValue { get; set; }
-        public static int Localplayer { get; set; }
-        public static int BuildingsCurrent { get; set; }
+        public static OffsetStructure Struct { get; set; }
+        public static OffsetStructure Size { get; set; }
+        public static OffsetStructure CameraX { get; set; }
+        public static OffsetStructure CameraY { get; set; }
+        public static OffsetStructure CameraZ { get; set; }
+        public static OffsetStructure CameraRotation { get; set; }
+        public static OffsetStructure CameraDistance { get; set; }
+        public static OffsetStructure CameraAngle { get; set; }
+        public static OffsetStructure Type { get; set; }
+        public static OffsetStructure Status { get; set; }
+        public static OffsetStructure Difficulty { get; set; }
+        public static OffsetStructure NameLength { get; set; }
+        public static OffsetStructure Name { get; set; }
+        public static OffsetStructure ColorIndex { get; set; }
+        public static OffsetStructure AccountId { get; set; }
+        public static OffsetStructure ClantagLength { get; set; }
+        public static OffsetStructure Clantag { get; set; }
+        public static OffsetStructure ApmCurrent { get; set; }
+        public static OffsetStructure ApmAverage { get; set; }
+        public static OffsetStructure EpmCurrent { get; set; }
+        public static OffsetStructure EpmAverage { get; set; }
+        public static OffsetStructure Team { get; set; }
+        public static OffsetStructure WorkerCount { get; set; }
+        public static OffsetStructure UnitsInProduction { get; set; }
+        public static OffsetStructure SupplyCurrent { get; set; }
+        public static OffsetStructure SupplyLimit { get; set; }
+        public static OffsetStructure SupplyCap { get; set; }
+        public static OffsetStructure MineralsCurrent { get; set; }
+        public static OffsetStructure VespeneCurrent { get; set; }
+        public static OffsetStructure MineralsIncome { get; set; }
+        public static OffsetStructure VespeneIncome { get; set; }
+        public static OffsetStructure MineralsArmyValue { get; set; }
+        public static OffsetStructure VespeneArmyValue { get; set; }
+        public static OffsetStructure Localplayer { get; set; }
+        public static OffsetStructure BuildingsCurrent { get; set; }
     }
 }
