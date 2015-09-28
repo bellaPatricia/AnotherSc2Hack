@@ -68,12 +68,20 @@ namespace AnotherSc2Hack.Classes.DataStructures.Game
 
                 for (var i = 0; i < MaximumPlayerCount; i++)
                 {
-                    var player = new Player()
-                    {
-                        CameraPositionX = BitConverter.ToInt32(playerChunk, Offsets.Player.CameraX + (i * Offsets.Player.Size)),
-                        CameraPositionY = BitConverter.ToInt32(playerChunk, Offsets.Player.CameraY + (i * Offsets.Player.Size)),
-                        
-                    };
+                    var player = new Player();
+
+                    player.CameraPositionX = BitConverter.ToInt32(playerChunk, Offsets.Player.CameraX + (i*Offsets.Player.Size));
+                    player.CameraPositionY = BitConverter.ToInt32(playerChunk, Offsets.Player.CameraY + (i*Offsets.Player.Size));
+                    player.CameraAngle = BitConverter.ToInt32(playerChunk, Offsets.Player.CameraAngle + (i*Offsets.Player.Size));
+                    player.CameraDistance = BitConverter.ToInt32(playerChunk,
+                        Offsets.Player.CameraDistance + (i*Offsets.Player.Size));
+                    player.CameraRotation = BitConverter.ToInt32(playerChunk,
+                        Offsets.Player.CameraRotation + (i*Offsets.Player.Size));
+                    player.Color = playerChunk[Offsets.Player.ColorIndex + (i*Offsets.Player.Size)];
+                    player.ClanTagLength = BitConverter.ToInt32(playerChunk,
+                        Offsets.Player.ClantagLength + (i*Offsets.Player.Size));
+                    player.ClanTag = Encoding.UTF8.GetString(playerChunk, Offsets.Player.Clantag + (i*Offsets.Player.Size), player.ClanTagLength);
+                    //ToDo: Add current buildings
 
 
                 }
