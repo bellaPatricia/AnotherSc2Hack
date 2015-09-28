@@ -334,7 +334,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                     if (index >= players.Count)
                     {
                         players.Add(new PlayerStore(player.Name));
-                        players[index].Color = player.Color;
+                        players[index].PColor = player.Color;
                     }
 
                     #endregion
@@ -475,7 +475,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             continue;
 
                         //var targetBrush = new SolidBrush(Color.FromArgb(255, playerStore.Color));
-                        var targetBrush = new HatchBrush(HatchStyle.ForwardDiagonal, playerStore.Color, Color.WhiteSmoke);
+                        var targetBrush = new HatchBrush(HatchStyle.ForwardDiagonal, playerStore.PColor, Color.WhiteSmoke);
                         var targetRectangle = new Rectangle(iPosX,
                             iPosY,
                             PSettings.PreferenceAll.OverlayAlert.IconWidth,
@@ -505,7 +505,7 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
                             var currentAngle = 360 * percentageComplete;
                             var negatedAngle = 360 - currentAngle;
 
-                            var outline = new Pen(playerStore.Color, 4);
+                            var outline = new Pen(playerStore.PColor, 4);
 
                             try
                             {
@@ -634,12 +634,12 @@ namespace AnotherSc2Hack.Classes.FrontEnds.Rendering
         {
             Units = new Dictionary<UnitId, UnitListData>();
             PlayerName = playerName;
-            Color = Color.Red;
+            PColor = Color.Red;
         }
 
         public Dictionary<UnitId, UnitListData> Units { get; set; }
         public string PlayerName { get; set; }
-        public Color Color { get; set; }
+        public PlayerColor PColor { get; set; }
     }
 
     internal struct UnitListData

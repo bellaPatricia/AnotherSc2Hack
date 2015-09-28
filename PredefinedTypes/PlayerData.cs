@@ -22,7 +22,8 @@ namespace PredefinedTypes
         public PlayerDifficulty Difficulty { get; set; }
         public int NameLength { get; set; }
         public string Name { get; set; }
-        public Color Color { get; set; }
+        public PlayerColor Color { get; set; }
+        public int ClanTagLength { get; set; }
         public string ClanTag { get; set; }
         public int Apm { get; set; }
         public int Epm { get; set; }
@@ -60,6 +61,105 @@ namespace PredefinedTypes
         }
     };
 
+    public struct PlayerColor
+    {
+        public Color PColor { get; set; }
+
+        public PlayerColor(Color playerPColor)
+        {
+            PColor = playerPColor;
+        }
+
+        public static implicit operator PlayerColor(byte colorIndex)
+        {
+            return new PlayerColor(ColorindexToColor(colorIndex));
+        }
+
+        public static implicit operator PlayerColor(Color baseColor)
+        {
+            return new PlayerColor(baseColor);
+        }
+
+        public static implicit operator Color(PlayerColor pColor)
+        {
+            return pColor.PColor;
+        }
+
+        private static Color ColorindexToColor(int value)
+        {
+            switch ((ColorIndex)value)
+            {
+                case ColorIndex.Blue:
+                    return Color.FromArgb(255, 0, 66, 255);
+
+                case ColorIndex.Brown:
+                    return Color.FromArgb(255, 78, 42, 4);
+
+                case ColorIndex.DarkGray:
+                    return Color.FromArgb(255, 35, 35, 35);
+
+                case ColorIndex.DarkGreen:
+                    return Color.FromArgb(255, 16, 98, 70);
+
+                case ColorIndex.Green:
+                    return Color.FromArgb(255, 22, 128, 0);
+
+                case ColorIndex.LightGray:
+                    return Color.FromArgb(255, 82, 84, 148);
+
+                case ColorIndex.LightGreen:
+                    return Color.FromArgb(255, 150, 255, 145);
+
+                case ColorIndex.LightPink:
+                    return Color.FromArgb(255, 204, 166, 252);
+
+                case ColorIndex.Orange:
+                    return Color.FromArgb(255, 254, 138, 14);
+
+                case ColorIndex.Pink:
+                    return Color.FromArgb(255, 229, 91, 176);
+
+                case ColorIndex.Purple:
+                    return Color.FromArgb(255, 84, 0, 129);
+
+                case ColorIndex.Red:
+                    return Color.FromArgb(255, 182, 20, 30);
+
+                case ColorIndex.Teal:
+                    return Color.FromArgb(255, 28, 167, 234);
+
+                case ColorIndex.Violet:
+                    return Color.FromArgb(255, 31, 1, 201);
+
+                case ColorIndex.White:
+                    return Color.White;
+
+                default:
+                    return Color.Yellow;
+            }
+        }
+
+        private enum ColorIndex
+        {
+            White = 0,
+            Red = 1,
+            Blue = 2,
+            Teal = 3,
+            Purple = 4,
+            Yellow = 5,
+            Orange = 6,
+            Green = 7,
+            LightPink = 8,
+            Violet = 9,
+            LightGray = 10,
+            DarkGreen = 11,
+            Brown = 12,
+            LightGreen = 13,
+            DarkGray = 14,
+            Pink = 15
+        };
+    }
+
     public enum PlayerStatus
     {
         Playing = 0,
@@ -69,25 +169,8 @@ namespace PredefinedTypes
         NotDefined = 42,
     };
 
-    public enum PlayerColor
-    {
-        White = 0,
-        Red = 1,
-        Blue = 2,
-        Teal = 3,
-        Purple = 4,
-        Yellow = 5,
-        Orange = 6,
-        Green = 7,
-        LightPink = 8,
-        Violet = 9,
-        LightGray = 10,
-        DarkGreen = 11,
-        Brown = 12,
-        LightGreen = 13,
-        DarkGray = 14,
-        Pink = 15,
-    };
+    /*
+    */
 
     public enum PlayerType
     {

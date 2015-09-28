@@ -486,7 +486,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
                     p.NameLength = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerNamelenght + (i * MyOffsets.PlayerStructSize)) >> 2;
                     p.Name = Encoding.UTF8.GetString(playerChunk, MyOffsets.RawPlayerName + (i * MyOffsets.PlayerStructSize), p.NameLength);
                     p.ClanTag = Encoding.UTF8.GetString(playerChunk, MyOffsets.RawPlayerClanTag + (i * MyOffsets.PlayerStructSize), 6);
-                    p.Color = GetGPlayerColorModified(BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerColor + (i * MyOffsets.PlayerStructSize)));
+                    //p.Color = GetGPlayerColorModified(BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerColor + (i * MyOffsets.PlayerStructSize)));
                     p.Apm = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerApmCurrent + (i * MyOffsets.PlayerStructSize));
                     p.Epm = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerEpmCurrent + (i * MyOffsets.PlayerStructSize));
                     p.ApmAverage = BitConverter.ToInt32(playerChunk, MyOffsets.RawPlayerApmAverage + (i * MyOffsets.PlayerStructSize));
@@ -999,60 +999,60 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* Translates pure data into types */
-        private Color GetGPlayerColorModified(int iValue)
+        /*private Color GetGPlayerColorModified(int iValue)
         {
-            switch (iValue)
+            switch ((PlayerColor)iValue)
             {
-                case (int)PlayerColor.Blue:
+                case PlayerColor.Blue:
                     return Color.FromArgb(255, 0, 66, 255);
 
-                case (int)PlayerColor.Brown:
+                case PlayerColor.Brown:
                     return Color.FromArgb(255, 78, 42, 4);
 
-                case (int)PlayerColor.DarkGray:
+                case PlayerColor.DarkGray:
                     return Color.FromArgb(255, 35, 35, 35);
 
-                case (int)PlayerColor.DarkGreen:
+                case PlayerColor.DarkGreen:
                     return Color.FromArgb(255, 16, 98, 70);
 
-                case (int)PlayerColor.Green:
+                case PlayerColor.Green:
                     return Color.FromArgb(255, 22, 128, 0);
 
-                case (int)PlayerColor.LightGray:
+                case PlayerColor.LightGray:
                     return Color.FromArgb(255, 82, 84, 148);
 
-                case (int)PlayerColor.LightGreen:
+                case PlayerColor.LightGreen:
                     return Color.FromArgb(255, 150, 255, 145);
 
-                case (int)PlayerColor.LightPink:
+                case PlayerColor.LightPink:
                     return Color.FromArgb(255, 204, 166, 252);
 
-                case (int)PlayerColor.Orange:
+                case PlayerColor.Orange:
                     return Color.FromArgb(255, 254, 138, 14);
 
-                case (int)PlayerColor.Pink:
+                case PlayerColor.Pink:
                     return Color.FromArgb(255, 229, 91, 176);
 
-                case (int)PlayerColor.Purple:
+                case PlayerColor.Purple:
                     return Color.FromArgb(255, 84, 0, 129);
 
-                case (int)PlayerColor.Red:
+                case PlayerColor.Red:
                     return Color.FromArgb(255, 182, 20, 30);
 
-                case (int)PlayerColor.Teal:
+                case PlayerColor.Teal:
                     return Color.FromArgb(255, 28, 167, 234);
 
-                case (int)PlayerColor.Violet:
+                case PlayerColor.Violet:
                     return Color.FromArgb(255, 31, 1, 201);
 
-                case (int)PlayerColor.White:
+                case PlayerColor.White:
                     return Color.White;
 
                 default:
                     return Color.Yellow;
             }
         }
-
+        */
 
 
         /* 1 Byte */

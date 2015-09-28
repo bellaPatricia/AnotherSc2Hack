@@ -6,7 +6,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 {
     class RendererHelper
     {
-        public static void TeamColor(List<Player> pPlayers, int iIndex, bool isTeamcolorEnabled, ref Color clPlayercolor)
+        public static void TeamColor(List<Player> pPlayers, int iIndex, bool isTeamcolorEnabled, ref PlayerColor clPlayercolor)
         {
             if (!isTeamcolorEnabled)
                 return;
@@ -34,7 +34,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         }
 
-        public static void TeamColor(List<Player> pPlayers, List<Unit> uUnit , int iIndex, bool isTeamcolorEnabled, ref Color clPlayercolor)
+        public static void TeamColor(List<Player> pPlayers, List<Unit> uUnit , int iIndex, bool isTeamcolorEnabled, ref PlayerColor clPlayercolor)
         {
             if (!isTeamcolorEnabled)
                 return;
