@@ -70,9 +70,12 @@ namespace AnotherSc2Hack.Classes.DataStructures.Game
                 {
                     var player = new Player();
 
-                    player.CameraPositionX = BitConverter.ToInt32(playerChunk, Offsets.Player.CameraX + (i*Offsets.Player.Size));
-                    player.CameraPositionY = BitConverter.ToInt32(playerChunk, Offsets.Player.CameraY + (i*Offsets.Player.Size));
-                    player.CameraAngle = BitConverter.ToInt32(playerChunk, Offsets.Player.CameraAngle + (i*Offsets.Player.Size));
+                    player.CameraPositionX = BitConverter.ToInt32(playerChunk,
+                        Offsets.Player.CameraX + (i*Offsets.Player.Size));
+                    player.CameraPositionY = BitConverter.ToInt32(playerChunk,
+                        Offsets.Player.CameraY + (i*Offsets.Player.Size));
+                    player.CameraAngle = BitConverter.ToInt32(playerChunk,
+                        Offsets.Player.CameraAngle + (i*Offsets.Player.Size));
                     player.CameraDistance = BitConverter.ToInt32(playerChunk,
                         Offsets.Player.CameraDistance + (i*Offsets.Player.Size));
                     player.CameraRotation = BitConverter.ToInt32(playerChunk,
@@ -80,10 +83,19 @@ namespace AnotherSc2Hack.Classes.DataStructures.Game
                     player.Color = playerChunk[Offsets.Player.ColorIndex + (i*Offsets.Player.Size)];
                     player.ClanTagLength = BitConverter.ToInt32(playerChunk,
                         Offsets.Player.ClantagLength + (i*Offsets.Player.Size));
-                    player.ClanTag = Encoding.UTF8.GetString(playerChunk, Offsets.Player.Clantag + (i*Offsets.Player.Size), player.ClanTagLength);
+                    player.ClanTag = Encoding.UTF8.GetString(playerChunk,
+                        Offsets.Player.Clantag + (i*Offsets.Player.Size), player.ClanTagLength);
                     //ToDo: Add current buildings
-
-
+                    player.AccountId = Encoding.UTF8.GetString(playerChunk,
+                        Offsets.Player.AccountId + (i*Offsets.Player.Size), Offsets.Player.AccountId.ByteLength);
+                    player.Apm = BitConverter.ToInt32(playerChunk, Offsets.Player.ApmCurrent + (i*Offsets.Player.Size));
+                    player.ApmAverage = BitConverter.ToInt32(playerChunk,
+                        Offsets.Player.ApmAverage + (i*Offsets.Player.Size));
+                    player.Epm = BitConverter.ToInt32(playerChunk, Offsets.Player.EpmCurrent + (i*Offsets.Player.Size));
+                    player.EpmAverage = BitConverter.ToInt32(playerChunk,
+                        Offsets.Player.EpmAverage + (i*Offsets.Player.Size));
+                    player.Worker = BitConverter.ToInt32(playerChunk,
+                        Offsets.Player.WorkerCount + (i*Offsets.Player.Size));
                 }
             }
         }
