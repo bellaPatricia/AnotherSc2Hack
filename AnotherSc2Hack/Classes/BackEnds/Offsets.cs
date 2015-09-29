@@ -200,6 +200,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
             else if (starcraftVersion.Equals("2.1.12.36657"))
                 Version__2_1_12_36657(_starcraft);
 
+            else if(starcraftVersion == "2.5.5.37164")
+                Version__2_5_5_37164(_starcraft);
+
             else
             {
                 MessageBox.Show("This tool is outdated.\n" +
@@ -2624,10 +2627,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
             /* 4 Bytes */
             UnitTotal = (int)starcraft.MainModule.BaseAddress + 0x036AA800;
 
-             /* 4 Bytes
-              *
-              * Is a pointer */
-             UnitStringStruct = 0x7DC; //?
+            /* 4 Bytes
+             *
+             * Is a pointer */
+            UnitStringStruct = 0x7DC; //?
 
             /* 4 Bytes
              *
@@ -2809,6 +2812,322 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             //1 Byte
             PauseEnabled = (int)starcraft.MainModule.BaseAddress + 0x0357A018;
+
+            #endregion
+        }
+
+        private void Version__2_5_5_37164(Process starcraft)
+        {
+            #region PlayerInformation
+
+            //Playerinfo
+            PlayerStruct = (int)starcraft.MainModule.BaseAddress + 0x0362BF90;
+
+            PlayerStructSize = 0x0E18;
+
+            /* 4 Bytes */   
+            RawPlayerCameraX = 0x008;   //1A2A3B0
+
+            /* 4 Bytes */
+            RawPlayerCameraY = 0x00C;   //1A2A3B4
+
+            /* 4 Bytes */
+            RawPlayerCameraDistance = 0x010;
+
+            /* 4 Bytes */
+            RawPlayerCameraAngle = 0x014;
+
+            /* 4 Bytes */
+            RawPlayerCameraRotation = 0x018;
+
+            /* 1 Byte */
+            RawPlayerTeam = 0x01C;
+
+            /* 1 Byte */
+            RawPlayerPlayertype = 0x01D;
+
+            /* 1 Byte */
+            RawPlayerStatus = 0x01E;
+
+            /* 1 Byte */
+            RawPlayerDifficulty = 0x020;
+
+            /* Unknown */
+            RawPlayerName = 0x064;
+
+            /* 4 Byte */
+            RawPlayerClanTagLenght = 0x108;
+
+            /* Max 6 signs */
+            RawPlayerClanTag = 0x114;
+
+            /* 1 Byte 
+             * ####################
+             * 0 - White
+             * 1 - red
+             * 2 - Blue
+             * 3 - Teal
+             * 4 - Purple
+             * 5 - Yellow
+             * 6 - Orange
+             * 7 - Green
+             * 8 - Light Pink
+             * 9 - Violet
+             * 10 - Light Gray
+             * 11 - Dark Green
+             * 12 - Brown
+             * 13 - Light Green
+             * 14 - Dark Gray
+             * 15 - Pink 
+             * #################### */
+            RawPlayerColor = 0x01B8;
+
+            /* 4 Bytes 
+             *
+             * Devide by 4 to get actual value */
+            RawPlayerNamelenght = 0x0B4;
+
+            /* Unknown */
+            RawPlayerAccountId = 0x210;         //ok
+
+            /* 4 Bytes 
+             * 
+             * Is a bit different when the time ticked a few mins.. */
+            RawPlayerApmCurrent = 0x5F0;        //ok
+
+            /* 4 Bytes */
+            RawPlayerApmAverage = 0x5F8;        //ok
+
+            /* 4 Bytes */
+            RawPlayerEpmAverage = 0x638;        //ok
+
+            // 4 Bytes
+            RawPlayerUnitsInProduction = 0x06A0;
+
+            /* 4 Bytes 
+             * 
+             * Is a bit different when the time ticked a few mins.. */
+            RawPlayerEpmCurrent = 0x630;        //ok
+
+            /* 4 Bytes */
+            RawPlayerWorkers = 0x7E0;
+
+            /* 4 Bytes
+             *
+             * Devide by 4096 to get actual count */
+            RawPlayerSupplyMin = 0x8B8;
+
+            /* 4 Bytes
+             *
+             * Devide by 4096 to get actual count */
+            RawPlayerSupplyMax = 0x8A0;
+
+            /* 4 Bytes */
+            RawPlayerMinerals = 0x8F8;
+
+            /* 4 Bytes */
+            RawPlayerGas = 0x900;
+
+            /* 4 Bytes */
+            RawPlayerMineralsIncome = 0x978;
+
+            /* 4 Bytes */
+            RawPlayerGasIncome = 0x980;
+
+            /* 4 Bytes */
+            RawPlayerMineralsArmy = 0xC60;
+
+            /* 4 Bytes */
+            RawPlayerGasArmy = 0xC88;
+
+
+            #endregion
+
+            #region UnitInformation
+
+            //Unitinfo
+            UnitStruct = (int)starcraft.MainModule.BaseAddress + 0x036AA840;
+
+            /* 4 Bytes */
+            UnitTotal = (int)starcraft.MainModule.BaseAddress + 0x036AA800;
+
+            /* 4 Bytes
+             *
+             * Is a pointer */
+            UnitStringStruct = 0x7DC; //?
+
+            /* 4 Bytes
+             *
+             * Is a Pointer */
+            UnitString = 0x020; //?
+
+            /* 4 Bytes
+             *
+             * Is a pointer */
+            UnitModel = UnitStruct + 8; //? 
+
+            /* 2 Bytes */
+            UnitModelId = 0x06; //
+
+            /* 4 Bytes (float)
+             *
+             * devide by 4096 */
+            UnitModelSize = 0x3AC; //?
+
+            /* 4 Bytes  */
+            UnitMaxHealth = 0x818;
+
+            /* 4 Bytes */
+            UnitMaxEnergy = 0x860;
+
+            /* 4 Bytes  */
+            UnitMaxShield = 0x88C;
+
+            UnitStructSize = 0x1C0;
+
+            //Raw Unitdata
+
+            /* 4 Bytes */
+            RawUnitPosX = 0x4C;
+
+            /* 4 Bytes */
+            RawUnitPosY = 0x50;
+
+            /* 4 Bytes */
+            RawUnitDestinationX = 0x80;
+
+            /* 4 Bytes */
+            RawUnitDestinationY = 0x84;
+
+            /* 8 Bytes */
+            RawUnitTargetFilter = 0x14;
+
+            /* 1 Byte */
+            RawUnitRandomFlag = 0x20;
+
+            /* 4 Bytes */
+            /* Till Mule dies: 387328 */
+            RawUnitAliveSince = 0x16C;
+
+            /* 4 Bytes 
+             *
+             * Devide by 4096 to get actual value */
+            RawUnitDamageTaken = 0x114;
+
+            /* 4 Bytes 
+             *
+             * Devide by 4096 to get actual value */
+            RawUnitShieldDamageTaken = 0x118;
+
+            /* 4 Bytes 
+             *
+             * Devide by 4096 to get actual value */
+            RawUnitEnergy = 0x11C;
+
+            /* 1 Byte */
+            RawUnitOwner = 0x27;
+
+            /* 4 Byte */
+            RawUnitSpeedMultiplier = 0x0168;
+
+            /* 4 Bytes */
+            RawUnitState = 0x2B;
+
+            /* 4 Bytes */
+            RawUnitMovestate = 0x60;
+
+            /* 2 Bytes */
+            RawUnitBuildingState = 0x34; //?
+
+            /* 4 Bytes */
+            RawUnitModel = 0x008; //
+
+            #endregion
+
+            #region MapInformation ??
+
+            //Mapinfo 
+            MapStruct = (int)starcraft.MainModule.BaseAddress + 0x0357A130;
+            MapFileInfoName = 0x2A0; /* DISAPPEARED :( */
+
+            //Raw Mapadata
+            RawMapLeft = 0x18;
+            RawMapBottom = 0x1C;
+            RawMapRight = 0x20;
+            RawMapTop = 0x24;
+
+            #endregion
+
+            #region Selection - Unused & outdated
+
+            //Selected stuff
+            UiSelectionStruct = (int)starcraft.MainModule.BaseAddress + 0x01A2C050;
+            UiTotalSelectedUnits = UiSelectionStruct + 0x0; //
+            UiTotalSelectedTypes = UiSelectionStruct + 0x2; //
+            UiSelectedType = UiSelectionStruct + 0x4; //
+            UiSelectedIndex = UiSelectionStruct + 0xA; //
+            UiSize = 4; //147
+
+            UiRawSelectionStruct = (int)starcraft.MainModule.BaseAddress + 0x01A2C050;
+            UiRawTotalSelectedUnits = 0x0;
+            UiRawTotalSelectedTypes = 0x2;
+            UiRawSelectedType = 0x4;
+
+            /* Is in a loop, has to be like this */
+            UiRawSelectedIndex = 0xA;
+
+            #endregion
+
+            #region Groups - unused & outdated
+
+            /* 4 Bytes */
+            RawGroupBase = (int)starcraft.MainModule.BaseAddress + 0x01A408D0;
+
+            /* 4 Bytes */
+            RawGroupSize = 0x1b60;
+
+            /* 2 Bytes */
+            RawGroupAmountofUnits = 0x00;
+
+            /* 2 Bytes */
+            RawGroupUnitIndex = 0x0A;
+
+            /* 1 Byte? No result! */
+            RawGroupUnitIndexSize = 0x04;
+
+            #endregion
+
+            #region Various
+
+            //Race
+            RaceStruct = (int)starcraft.MainModule.BaseAddress + 0x0516C1D0;
+            RaceSize = 0x10;
+
+            //UiChatInput
+            ChatBase = (int)starcraft.MainModule.BaseAddress + 0x00343F5BC;
+            ChatOff0 = 0x2B8;
+            ChatOff1 = 0x05C;
+            ChatOff2 = 0x098;
+            ChatOff3 = 0x13C;
+            ChatOff4 = 0x014;
+
+            /* 1 Byte */
+            Localplayer4 = (int)starcraft.MainModule.BaseAddress + 0x01164ED8;  //ToDo
+
+            /* 1 Byte 
+             *
+             * 0 - Teamcolor Off
+             * 2 - Teamcolor On*/
+            TeamColor1 = (int)starcraft.MainModule.BaseAddress + 0x018954B8; //Or: 0x1A29C50
+
+            /* 4 Bytes 
+             *
+             * Devide by 4090 to get actual value 
+             * Is 0 when not Ingame */
+            TimerData = (int)starcraft.MainModule.BaseAddress + 0x01A1D670; //Or: 0x1DB7A20
+
+            // 4 Bytes
+            Gamespeed = (int)starcraft.MainModule.BaseAddress + 0x03257204;
 
             #endregion
         }
