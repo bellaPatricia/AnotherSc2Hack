@@ -3044,10 +3044,10 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #endregion
 
-            #region MapInformation ??
+            #region MapInformation 
 
             //Mapinfo 
-            MapStruct = (int)starcraft.MainModule.BaseAddress + 0x0357A130;
+            MapStruct = (int)starcraft.MainModule.BaseAddress + 0x01DB7AA4;
             MapFileInfoName = 0x2A0; /* DISAPPEARED :( */
 
             //Raw Mapadata
