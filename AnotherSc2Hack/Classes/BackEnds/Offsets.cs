@@ -2821,9 +2821,9 @@ namespace AnotherSc2Hack.Classes.BackEnds
             #region PlayerInformation
 
             //Playerinfo
-            PlayerStruct = (int)starcraft.MainModule.BaseAddress + 0x0362BF90;
+            PlayerStruct = (int)starcraft.MainModule.BaseAddress + 0x0201CE80;
 
-            PlayerStructSize = 0x0E18;
+            PlayerStructSize = 0x878;
 
             /* 4 Bytes */   
             RawPlayerCameraX = 0x008;   //1A2A3B0
