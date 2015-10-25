@@ -61,6 +61,18 @@ namespace PredefinedTypes
         {
             ClassObjectCount -= 1;
         }
+
+        public override string ToString()
+        {
+            string strResult = $"Name: {Name} #{Team} - {Minerals} Minerals";
+
+            return strResult;
+        }
+
+        public byte[] GetBytes()
+        {
+            
+        }
     };
 
     public enum PlayerStatus
