@@ -31,6 +31,7 @@ using System.Diagnostics;
 using System.Threading;
 using PredefinedTypes;
 using Utilities.Events;
+using Utilities.Logger;
 using Utilities.Processing;
 using _ = Utilities.InfoManager.InfoManager;
 using Interop = Utilities.InteropCalls.InteropCalls;
@@ -1840,5 +1841,36 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
         public Int32 RandomNumber { get; set; }
         public DateTime LastCallTime { get; private set; }
+
+
+
+        private void SetPlayerBaseOffset(Memory memory, int playerindex)
+        {
+            var sc2 = (uint)memory.Process.MainModule.BaseAddress;
+
+            var edx = memory.ReadUInt32(sc2 + 0x1889130);
+            _.Info($"edx >> {edx.ToString("X2")}", _.InfoImportance.NotImportant);
+
+            edx = edx ^ memory.ReadUInt32(sc2 + 0x1F17828);
+            _.Info($"edx >> {edx.ToString("X2")}", _.InfoImportance.NotImportant);
+
+            edx = edx ^ 0x0246D359;
+            _.Info($"edx >> {edx.ToString("X2")}", _.InfoImportance.NotImportant);
+
+            var ecx = memory.ReadUInt32(edx);
+            _.Info($"ecx >> {ecx.ToString("X2")}", _.InfoImportance.NotImportant);
+
+            var eax = ecx + playerindex * 4;
+            _.Info($"eax >> {eax.ToString("X2")}", _.InfoImportance.NotImportant);
+
+            eax = memory.ReadUInt32(eax);
+            _.Info($"eax >> {eax.ToString("X2")}", _.InfoImportance.NotImportant);
+
+            eax = eax ^ memory.ReadUInt32(sc2 + 0x188c68c);
+            _.Info($"eax >> {eax.ToString("X2")}", _.InfoImportance.NotImportant);
+
+            eax = eax ^ 0x772BBADC;
+            _.Info($"eax >> {eax.ToString("X2")}", _.InfoImportance.NotImportant);
+        }
     }
 }
