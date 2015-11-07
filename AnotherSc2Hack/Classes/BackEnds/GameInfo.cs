@@ -864,13 +864,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
                 ChatInput = GetGChatInput(),
                 Timer = GetGTimer(),
                 IsIngame = GetGIngame(),
-                Fps = GetGFps(),
                 Speed = GetGGamespeed(),
                 IsTeamcolor = GetGTeamcolor(),
                 ChatIsOpen = GetGChatIsOpen(),
                 //Style = GetGWindowStyle(),
-                ValidPlayerCount = HelpFunctions.GetValidPlayerCount(Player),
-                Pause = GetGPause()
+                ValidPlayerCount = HelpFunctions.GetValidPlayerCount(Player)
             };
 
             Gameinfo = gInfo;
@@ -1583,14 +1581,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
         }
 
         /* 4 Bytes */
-        private Int32 GetGFps()
-        {
-            return Memory.ReadInt32(MyOffsets.FramesPerSecond);
-            /*(BitConverter.ToInt32(
-                InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.FramesPerSecond, sizeof (Int32)), 0));*/
-        }
-
-        /* 4 Bytes */
         private Gamespeed GetGGamespeed()
         {
             var iBuffer = Memory.ReadInt32(MyOffsets.Gamespeed);
@@ -1602,7 +1592,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /* 1 Byte */
         private Boolean GetGTeamcolor()
         {
-            var iBuffer = Memory.ReadByte(MyOffsets.TeamColor1);// InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.TeamColor1, sizeof (Byte))[0];
+            var iBuffer = Memory.ReadByte(MyOffsets.TeamColor);// InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.TeamColor, sizeof (Byte))[0];
 
             if (iBuffer == 0)
                 return false;
@@ -1616,12 +1606,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
             var iBuffer = Interop.GetWindowLongPtr(Memory.Process.MainWindowHandle, (Int32)Interop.Gwl.ExStyle);
 
             return (WindowStyle)iBuffer;
-        }
-
-        /* 4 Bytes */
-        private Boolean GetGPause()
-        {
-            return Memory.ReadInt32(MyOffsets.PauseEnabled) > 0;// (BitConverter.ToInt32(InteropCalls.Help_ReadProcessMemory(HStarcraft, MyOffsets.PauseEnabled, 4), 0) > 0);
         }
 
         #endregion
