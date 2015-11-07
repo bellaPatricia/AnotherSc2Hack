@@ -1,0 +1,76 @@
+32Bit
+
+Playerstruct
+============
+Minerals (P1):
+sc2.exe + 0181C2A0 -> 
+	X + 0 -> 
+	Y + 800
+	
+Minerals (P2):
+sc2.exe + 0181C2A0 -> 
+	X + 4 -> 
+	Y + 800
+	
+	
+unitpos raw (wisp)
+===========	
+
+    int __stdcall GsNativeImpl_UnitGetPosition(unsigned int a1)
+    {
+      int v1; // eax@4
+      signed int v2; // edi@4
+      int result; // eax@5
+      int v4; // eax@6
+      int v5; // edx@6
+      int v6; // esi@6
+      int v7; // ecx@6
+      int v8; // eax@6
+      char v9; // [sp+8h] [bp-114h]@5
+      int v10; // [sp+110h] [bp-Ch]@5
+      char *v11; // [sp+114h] [bp-8h]@5
+      char v12; // [sp+118h] [bp-4h]@5
+      char v13; // [sp+119h] [bp-3h]@5
+     
+      if ( a1
+        && a1 != -1
+        && a1 >> 18 < g_UnitArrayCount
+        && (v1 = 488 * ((a1 >> 18) & 0xF) + (g_UnitArrayDecrypt ^ g_UnitArray[a1 >> 22] ^ 0x46E134B8),
+            (v2 = a1 != *(_DWORD *)v1 ? 0 : v1) != 0) )
+      {
+        v4 = GsPointCreate();
+        v5 = *(_DWORD *)(v2 + 80);
+        v6 = v4;
+        v7 = ~(*(_DWORD *)(v2 + 84)
+             - dword_1C886E8[((unsigned __int16)v5 ^ (unsigned __int16)(*(_DWORD *)(v2 + 80) >> 12)) & 0xFFF]);
+        v8 = v5 ^ dword_1C886E8[((unsigned __int16)v7 ^ (unsigned __int16)((unsigned int)v7 >> 12)) & 0xFFF];
+        v10 = v8 ^ (v7 ^ v5 ^ dword_1C886E8[((unsigned __int16)v7 ^ (unsigned __int16)((unsigned int)v7 >> 12)) & 0xFFF]) & 0x55555555;
+        v11 = (char *)(v7 ^ (v7 ^ v8) & 0x55555555);
+        GsPointSetPoint(v6 + 12, &v10, 8);
+        result = *(_DWORD *)(v6 + 4);
+        *(_DWORD *)(v6 + 20) = *(_DWORD *)(v2 + 108);
+      }
+      else
+      {
+        CString::ctor(80, 1);
+        CString::ctor(80, 1);
+        CString::ctor(80, 1);
+        v12 = 35;
+        CString::appendUI32(a1 >> 18);
+        v10 = (int)&v12;
+        v11 = &v13;
+        CString::append(&v10);
+        CString::appendUI32(a1 & 0x3FFFF);
+        v10 = (int)"UnitGetPosition";
+        v11 = "";
+        CString::assign(&v10);
+        v10 = (int)"unit";
+        v11 = "";
+        CString::assign(&v10);
+        ErrorGet::ctor_(&v9);
+        sub_93FEF0(&v9);
+        result = 0;
+      }
+      return result;
+    }
+
