@@ -13,6 +13,31 @@ sc2.exe + 0181C2A0 ->
 	Y + 800
 	
 	
+	
+	
+minerals:
+0xB126048 - 0x800
+0xB125848 := eax
+
+xor eax, 0x772BBADC
+xor eax,[sc2.exe+188c68c]
+
+
+
+
+====================
+eax := player index
+edx := [sc2.exe+1889130]
+edx := edx xor [sc2.exe+1F17828]
+edx := edx xor sc2.allowcachingsupported+a53119 (1 Byte)
+ecx := [edx]
+eax := ecx + eax * 4
+eax := [eax]
+eax := eax xor [sc2.exe+188c68c]
+eax := eax xor 0x772BBADC
+
+
+	
 unitpos raw (wisp)
 ===========	
 
@@ -74,3 +99,95 @@ unitpos raw (wisp)
       return result;
     }
 
+
+	
+	FROM RHCP
+	############
+	
+	
+/*
+; Backtracked what wrote to mins to find this function
+; EAX = player number
+SC2.AssertAndCrash+375D1D - 75 12                 - jne SC2.AssertAndCrash+375D31 
+SC2.AssertAndCrash+375D1F - 8B 15 3091B502        - mov edx,[SC2.exe+1889130]
+SC2.AssertAndCrash+375D25 - 33 15 28781E03        - xor edx,[SC2.exe+1F17828]
+
+SC2.AssertAndCrash+375D2B - 81 F2 59D34602        - xor edx,SC2.AllowCachingSupported+AB3119
+; *** the above line changed to the below line on reload
+; Its really just xoring a value, but CE fills in the address that coincidentally matches it
+; 0x0246D359
+SC2.AssertAndCrash+375D2B - 81 F2 59D34602        - xor edx,SC2.exe+227D359
+SC2.AssertAndCrash+375D31 - 8B 0A                 - mov ecx,[edx]
+SC2.AssertAndCrash+375D33 - 8D 04 81              - lea eax,[ecx+eax*4]
+SC2.AssertAndCrash+375D36 - 8B 00                 - mov eax,[eax]
+SC2.AssertAndCrash+375D38 - 33 05 8CC6B502        - xor eax,[SC2.exe+188C68C]
+SC2.AssertAndCrash+375D3E - 35 DCBA2B77           - xor eax,ntdll.dll+15BADC
+; The xor operand just happens to match that dll address!  Really just 0x772BBADC
+; returns address (EAX)
+SC2.AssertAndCrash+375D43 - C3                    - ret 
+*/
+
+getunitAddress(unitIndex)
+{
+	if aSCOffsets["unitAddress"].HasKey(unitIndex)
+		return aSCOffsets["unitAddress", unitIndex]	
+	eax := unitIndex
+	edx := eax 
+	eax &= 0xF 
+	eax *= Offsets_Unit_StructSize
+	edx >>= 0x4 
+	esi := ReadMemory(edx*4+OffsetsSC2Base+0x1F24848, GameIdentifier)
+	esi ^= ReadMemory(OffsetsSC2Base+0x188BFEC, GameIdentifier)
+	esi ^= 0x46E134B8
+	return aSCOffsets["unitAddress", unitIndex]	:= esi += eax
+}
+
+
+
+; Backtracked what wrote to unitAddres+0x0 to find this
+; I seem to have lost the ASM code.
+playerAddress(player := 1)
+{
+	; I cache the address I dont think the addresses change during a match once they have been allocated
+	if aSCOffsets["playerAddress"].HasKey(player) ; need to check has, key as this func is called internally when it doesnt --> loop
+		return aSCOffsets["playerAddress", player]
+	eax := player
+	edx := ReadMemory(OffsetsSC2Base+0x1889130, GameIdentifier)
+	edx ^= ReadMemory(OffsetsSC2Base+0x1F17828, GameIdentifier)
+	edx ^=  0x0246D359 ;   xor edx,SC2.AllowCachingSupported+AB3119 ** ; Just a value not really an address
+	ecx := ReadMemory(edx, GameIdentifier)
+	eax := ecx + eax * 4 
+	eax := ReadMemory(EAX, GameIdentifier)
+	eax ^= ReadMemory(OffsetsSC2Base+0x188C68C, GameIdentifier)
+	return aSCOffsets["playerAddress", player] := eax ^= 0x772BBADC 
+}
+
+; Local player number is a single byte, the next byte is somehow related (ins sc 2.xxx) this was the replay byte
+
+; Patch 3.3 bytes changed. 
+; In game first byte = player number, second byte = player number - 1.
+; in replay when viewing 'everyone' perspective, both are 10h
+; when viewing an ai, 1st byte = player number,  2nd byte = 10h
+; when viewing a player, 1st byte = player number, 2nd byte = player number -1
+
+
+/* Patch 3.3
+SC2.AssertAndCrash+164683 - A1 0CC16702           - mov eax,[SC2.exe+188C10C]
+SC2.AssertAndCrash+164688 - 33 05 F0A99602        - xor eax,[SC2.exe+1B7A9F0]
+SC2.AssertAndCrash+16468E - 35 1BF35324           - xor eax,2453F31B : [6FF78088]
+SC2.AssertAndCrash+164693 - 88 48 0D              - mov [eax+0D],cl
+*/
+; 
+getLocalPlayerNumber(byref replayByte := "") ;starts @ 1 (because the first player in the player structure is always player 0 = neutral)
+{	
+	static address
+	if !address  ; not sure if safe. Havent testesed what happens when regions change - can u even do that now?
+	{
+		eax := readMemory(OffsetsSC2Base + 0x188C10C, GameIdentifier)
+		eax ^= readMemory(OffsetsSC2Base + 0x1B7A9F0, GameIdentifier)
+		eax ^= 0x2453F31B
+		address := eax += 0x0D 
+	}
+	word := ReadMemory(address, GameIdentifier, 2) ;Local player slot is 1 Byte and 1 byte for replay)
+	Return word & 0xFF, replayByte := word >> 8 
+}
