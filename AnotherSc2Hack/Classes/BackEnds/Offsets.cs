@@ -201,8 +201,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
             else if (starcraftVersion.Equals("2.1.12.36657"))
                 Version__2_1_12_36657(_starcraft);
 
-            else if (starcraftVersion.Equals("3.0.1.38535"))
-                Version__3_0_1_38535(_starcraft);
+            else if (starcraftVersion.Equals("3.0.3.38749"))
+                Version__3_0_3_38749(_starcraft);
 
             else
             {
@@ -2817,7 +2817,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             #endregion
         }
 
-        private void Version__3_0_1_38535(Process starcraft)
+        private void Version__3_0_3_38749(Process starcraft)
         {
             #region PlayerInformation
 
@@ -3062,14 +3062,14 @@ namespace AnotherSc2Hack.Classes.BackEnds
             #region Selection - Unused & outdated
 
             //Selected stuff
-            UiSelectionStruct = (int)starcraft.MainModule.BaseAddress + 0x01E68918;
+            UiSelectionStruct = (int)starcraft.MainModule.BaseAddress + 0x01EE9BB8;
             UiTotalSelectedUnits = UiSelectionStruct + 0x0; //
             UiTotalSelectedTypes = UiSelectionStruct + 0x2; //
             UiSelectedType = UiSelectionStruct + 0x4; //
             UiSelectedIndex = UiSelectionStruct + 0xA; //
             UiSize = 4; //147
 
-            UiRawSelectionStruct = (int)starcraft.MainModule.BaseAddress + 0x01E68918;
+            UiRawSelectionStruct = (int)starcraft.MainModule.BaseAddress + 0x01EE9BB8;
             UiRawTotalSelectedUnits = 0x0;
             UiRawTotalSelectedTypes = 0x2;
             UiRawSelectedType = 0x4;
@@ -3082,7 +3082,7 @@ namespace AnotherSc2Hack.Classes.BackEnds
             #region Groups - unused & outdated
 
             /* 4 Bytes */
-            RawGroupBase = (int)starcraft.MainModule.BaseAddress + 0x01E6DB38;
+            RawGroupBase = (int)starcraft.MainModule.BaseAddress + 0x01EEEDD8;
 
             /* 4 Bytes */
             RawGroupSize = 0x1b60;
@@ -3100,35 +3100,35 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
             #region Various
 
-            //Race
-            RaceStruct = (int)starcraft.MainModule.BaseAddress + 0x04A95DD0;
+            //Race Player 1+2
+            RaceStruct = (int)starcraft.MainModule.BaseAddress + 0x4B043280;
             RaceSize = 0x30;
 
-            //UiChatInput
-            ChatBase = (int)starcraft.MainModule.BaseAddress + 0x00246C0BC;
+            //UiChatInput /k
+            ChatBase = (int)starcraft.MainModule.BaseAddress + 0x024DEBCC;
             ChatOff0 = 0x1DC;
-            ChatOff1 = 0x0DC;
-            ChatOff2 = 0x070;
-            ChatOff3 = 0x114;
+            ChatOff1 = 0x070;
+            ChatOff2 = 0x114;
+            ChatOff3 = 0x0;
             ChatOff4 = 0x020;
 
             /* 1 Byte */
-            Localplayer4 = (int)starcraft.MainModule.BaseAddress + 0;
+            Localplayer4 = (int)starcraft.MainModule.BaseAddress + 0x1B7A9E0;
 
-            /* 1 Byte 
+            /* 1 Byte k
              *
              * 0 - Teamcolor Off
              * 2 - Teamcolor On*/
-            TeamColor1 = (int)starcraft.MainModule.BaseAddress + 0x01AF8D2C; //or 240C4FC
+            TeamColor1 = (int)starcraft.MainModule.BaseAddress + 0x1B7A174; //or 247EE24
 
             /* 4 Bytes 
              *
              * Devide by 4090 to get actual value 
              * Is 0 when not Ingame */
-            TimerData = (int)starcraft.MainModule.BaseAddress + 0;
+            TimerData = (int)starcraft.MainModule.BaseAddress + 0x1A71DC4; //1B7963C or 1BA7428
 
-            //4 byte
-            Gamespeed = (int)starcraft.MainModule.BaseAddress + 0x05572B7C;
+            //4 byte k
+            Gamespeed = (int)starcraft.MainModule.BaseAddress + 0x055E133C;
 
             //1 Byte
             PauseEnabled = (int)starcraft.MainModule.BaseAddress + 0;
