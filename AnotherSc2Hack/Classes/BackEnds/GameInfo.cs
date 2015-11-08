@@ -446,12 +446,74 @@ namespace AnotherSc2Hack.Classes.BackEnds
         /// </summary>
         public void DoMassiveScan()
         {      
-            GatherAndMapPlayerData();
+            //GatherAndMapPlayerData();
+            Playerdata();
+
             GatherAndMapUnitData();
             GatherAndMapMapData();
             GatherAndMapSelectionData();
             GatherAndMapGroupData();
             GatherAndMapGameData();
+        }
+
+        private void Playerdata()
+        {
+            _.Info("Fetching Player Data", _.InfoImportance.NotImportant);
+
+            var lPlayers = new List<Player>();
+
+            for (var i = 0; i < _maxPlayerAmount; i++)
+            {
+                var currentPlayerBuffer = Memory.ReadMemory(GetPlayerBaseOffset(i), MyOffsets.PlayerStructSize);
+
+                var p = new Player();
+
+                p.CameraPositionX = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerCameraX);
+                p.CameraPositionY = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerCameraY);
+                p.CameraDistance = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerCameraDistance);
+                p.CameraAngle = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerCameraAngle);
+                p.CameraRotation = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerCameraRotation);
+                p.Difficulty = (PlayerDifficulty)currentPlayerBuffer[MyOffsets.RawPlayerDifficulty];
+                p.Status = GetGPlayerStatusModified(currentPlayerBuffer[MyOffsets.RawPlayerStatus]);
+                p.Type = GetGPlayerTypeModified(currentPlayerBuffer[MyOffsets.RawPlayerPlayertype]);
+                p.NameLength = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerNamelenght) >> 2;
+                p.Name = Encoding.UTF8.GetString(currentPlayerBuffer, MyOffsets.RawPlayerName, 16);
+                p.ClanTag = Encoding.UTF8.GetString(currentPlayerBuffer, MyOffsets.RawPlayerClanTag, 6);
+                p.Color = GetGPlayerColorModified(BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerColor));
+                p.Apm = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerApmCurrent);
+                p.Epm = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerEpmCurrent);
+                p.ApmAverage = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerApmAverage);
+                p.EpmAverage = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerEpmAverage);
+                p.Worker = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerWorkers);
+                p.UnitsInProduction = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerUnitsInProduction);
+                p.AccountId = Encoding.UTF8.GetString(currentPlayerBuffer, MyOffsets.RawPlayerAccountId, 16);
+                p.SupplyMaxRaw = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerSupplyMax);
+                p.SupplyMinRaw = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerSupplyMin);
+                p.SupplyMax = p.SupplyMaxRaw >> 12;
+                p.SupplyMin = p.SupplyMinRaw >> 12;
+                p.ArmySupply = p.SupplyMin - p.Worker;
+                p.CurrentBuildings = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerCurrentBuildings);
+                p.Minerals = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerMinerals);
+                p.Gas = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerGas);
+                p.MineralsIncome = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerMineralsIncome);
+                p.GasIncome = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerGasIncome);
+                p.MineralsArmy = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerMineralsArmy);
+                p.GasArmy = BitConverter.ToInt32(currentPlayerBuffer, MyOffsets.RawPlayerGasArmy);
+                p.Team = currentPlayerBuffer[MyOffsets.RawPlayerTeam];
+                p.Index = i;
+
+                lPlayers.Add(p);
+            }
+
+            Player = lPlayers;
+
+            /*
+            var iLocalPlayer = GetGPlayerLocalplayer();
+            if (iLocalPlayer < 16)
+                PredefinedTypes.Player.LocalPlayer = Player[iLocalPlayer];
+
+            else
+                PredefinedTypes.Player.LocalPlayer = null;*/
         }
 
         private void GatherAndMapPlayerData()
@@ -1844,33 +1906,36 @@ namespace AnotherSc2Hack.Classes.BackEnds
 
 
 
-        private void SetPlayerBaseOffset(Memory memory, int playerindex)
+        private long GetPlayerBaseOffset(int playerindex)
         {
-            var sc2 = (uint)memory.Process.MainModule.BaseAddress;
+            Console.WriteLine($"Playerindex: {playerindex}");
+            var sc2 = (uint)Memory.Process.MainModule.BaseAddress;
 
-            var edx = memory.ReadUInt32(sc2 + 0x1889130);
+            var edx = Memory.ReadUInt32(sc2 + 0x1889130);
             _.Info($"edx >> {edx.ToString("X2")}", _.InfoImportance.NotImportant);
 
-            edx = edx ^ memory.ReadUInt32(sc2 + 0x1F17828);
+            edx = edx ^ Memory.ReadUInt32(sc2 + 0x1F17828);
             _.Info($"edx >> {edx.ToString("X2")}", _.InfoImportance.NotImportant);
 
             edx = edx ^ 0x0246D359;
             _.Info($"edx >> {edx.ToString("X2")}", _.InfoImportance.NotImportant);
 
-            var ecx = memory.ReadUInt32(edx);
+            var ecx = Memory.ReadUInt32(edx);
             _.Info($"ecx >> {ecx.ToString("X2")}", _.InfoImportance.NotImportant);
 
             var eax = ecx + playerindex * 4;
             _.Info($"eax >> {eax.ToString("X2")}", _.InfoImportance.NotImportant);
 
-            eax = memory.ReadUInt32(eax);
+            eax = Memory.ReadUInt32(eax);
             _.Info($"eax >> {eax.ToString("X2")}", _.InfoImportance.NotImportant);
 
-            eax = eax ^ memory.ReadUInt32(sc2 + 0x188c68c);
+            eax = eax ^ Memory.ReadUInt32(sc2 + 0x188c68c);
             _.Info($"eax >> {eax.ToString("X2")}", _.InfoImportance.NotImportant);
 
             eax = eax ^ 0x772BBADC;
             _.Info($"eax >> {eax.ToString("X2")}", _.InfoImportance.NotImportant);
+
+            return eax;
         }
     }
 }

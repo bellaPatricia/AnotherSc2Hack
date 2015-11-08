@@ -224,9 +224,6 @@ namespace AnotherSc2Hack.Classes.BackEnds
         {
             #region PlayerInformation
 
-            //Playerinfo
-            PlayerStruct = (int)starcraft.MainModule.BaseAddress + 0x0362BF90;
-
             PlayerStructSize = 0x0E18;
 
             /* 4 Bytes */
@@ -283,8 +280,8 @@ namespace AnotherSc2Hack.Classes.BackEnds
              * 13 - Light Green
              * 14 - Dark Gray
              * 15 - Pink 
-             * #################### */
-            RawPlayerColor = 0x01B8;
+             * #################### - 3.0.3 */
+            RawPlayerColor = 0xD8;
 
             /* 4 Bytes 
              *
@@ -313,24 +310,24 @@ namespace AnotherSc2Hack.Classes.BackEnds
              * Is a bit different when the time ticked a few mins.. */
             RawPlayerEpmCurrent = 0x630;        //ok
 
-            /* 4 Bytes */
-            RawPlayerWorkers = 0x7E0;
+            // 4 Bytes - 3.0.3
+            RawPlayerWorkers = 0x6E8;
 
             /* 4 Bytes
              *
-             * Devide by 4096 to get actual count */
-            RawPlayerSupplyMin = 0x8B8;
+             * Devide by 4096 to get actual count - 3.0.3 */
+            RawPlayerSupplyMin = 0x7C0;
 
             /* 4 Bytes
              *
-             * Devide by 4096 to get actual count */
-            RawPlayerSupplyMax = 0x8A0;
+             * Devide by 4096 to get actual count - 3.0.3 */
+            RawPlayerSupplyMax = 0x7A8;
 
-            /* 4 Bytes */
-            RawPlayerMinerals = 0x8F8;
+            //4 bytes - 3.0.3
+            RawPlayerMinerals = 0x800;
 
-            /* 4 Bytes */
-            RawPlayerGas = 0x900;
+            // 4 Bytes - 3.0.3
+            RawPlayerGas = 0x808;
 
             /* 4 Bytes */
             RawPlayerMineralsIncome = 0x978;
@@ -338,11 +335,11 @@ namespace AnotherSc2Hack.Classes.BackEnds
             /* 4 Bytes */
             RawPlayerGasIncome = 0x980;
 
-            /* 4 Bytes */
-            RawPlayerMineralsArmy = 0xC60;
+            // 4 Bytes - 3.0.3
+            RawPlayerMineralsArmy = 0xB68;
 
-            /* 4 Bytes */
-            RawPlayerGasArmy = 0xC88;
+            // 4 Bytes - 3.0.3 
+            RawPlayerGasArmy = 0xB90;
 
 
             #endregion
