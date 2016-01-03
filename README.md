@@ -1,4 +1,4 @@
-# AnotherSc2Hack #
+# AnotherSc2Hack (CEASED) #
 Hacking Blizzard Entertainment's Game "StarCraft II" with external methods<br>
 
 
